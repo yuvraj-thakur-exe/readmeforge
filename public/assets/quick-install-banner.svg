@@ -61,10 +61,6 @@
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-5px); }
     }
-    @keyframes shimmerBar {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(200%); }
-    }
 
     .border-runner {
       stroke: url(#qCyan);
@@ -72,9 +68,6 @@
       fill: none;
       stroke-dasharray: 180 360;
       animation: borderRun 10s linear infinite;
-    }
-    .cursor-blink {
-      animation: promptBlink 1s infinite;
     }
     .card-hover-1 {
       animation: floatCard 4s ease-in-out infinite;
@@ -99,7 +92,7 @@
   <!-- Header Section -->
   <g transform="translate(50, 45)">
     <!-- Pill -->
-    <rect width="180" height="24" rx="12" fill="rgba(99, 102, 241, 0.2)" stroke="rgba(99, 102, 241, 0.5)" stroke-width="1" />
+    <rect width="190" height="24" rx="12" fill="rgba(99, 102, 241, 0.2)" stroke="rgba(99, 102, 241, 0.5)" stroke-width="1" />
     <circle cx="12" cy="12" r="4" fill="#34d399" />
     <text x="24" y="16" font-family="'Fira Code', monospace" font-size="11" font-weight="700" fill="#a5b4fc">
       1-LINE ZERO CONFIG
@@ -107,7 +100,7 @@
 
     <!-- Main Title -->
     <text x="0" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="28" fill="#ffffff">
-      Instant Install &amp; AI Agent Commands
+      Instant Install &amp; AI Agent Toolchain
     </text>
     <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" fill="#94a3b8">
       Launch directly in browser, mount as an MCP tool in Claude Code, or run within Google Antigravity IDE.
@@ -119,9 +112,9 @@
   <!-- Card 1: NPX Instant Launch -->
   <g transform="translate(50, 145)" class="card-hover-1">
     <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.5" />
-    <!-- Header -->
+    <!-- Header with Lightning Bolt SVG -->
     <circle cx="28" cy="30" r="12" fill="rgba(56, 189, 248, 0.2)" />
-    <text x="22" y="35" font-size="14">⚡</text>
+    <path d="M30 22 L24 29 L28 29 L26 37 L33 28 L29 28 Z" fill="#38bdf8" />
     <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">NPX Instant Studio</text>
     <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">Zero-install local browser</text>
 
@@ -139,9 +132,12 @@
   <!-- Card 2: Claude Code Agent -->
   <g transform="translate(395, 145)" class="card-hover-2">
     <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1.5" />
-    <!-- Header -->
+    <!-- Header with Bot Chip SVG -->
     <circle cx="28" cy="30" r="12" fill="rgba(192, 132, 252, 0.2)" />
-    <text x="22" y="35" font-size="14">🤖</text>
+    <rect x="22" y="25" width="12" height="10" rx="2" fill="none" stroke="#c084fc" stroke-width="1.8" />
+    <circle cx="25" cy="29" r="1.2" fill="#c084fc" />
+    <circle cx="31" cy="29" r="1.2" fill="#c084fc" />
+    <path d="M28 22 L28 25 M20 30 L22 30 M34 30 L36 30" stroke="#c084fc" stroke-width="1.5" />
     <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">Claude Code CLI</text>
     <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">Anthropic agent integration</text>
 
@@ -158,9 +154,9 @@
   <!-- Card 3: Google Antigravity IDE -->
   <g transform="translate(740, 145)" class="card-hover-3">
     <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(52, 211, 153, 0.35)" stroke-width="1.5" />
-    <!-- Header -->
+    <!-- Header with Rocket SVG -->
     <circle cx="28" cy="30" r="12" fill="rgba(52, 211, 153, 0.2)" />
-    <text x="22" y="35" font-size="14">🚀</text>
+    <path d="M31 22 C34 24 35 27 35 30 L33 32 L30 29 L29 34 L26 31 L23 33 L24 31 C22 28 24 24 28 22 Z" fill="#34d399" />
     <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">Google Antigravity IDE</text>
     <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">DeepMind agent plugin</text>
 

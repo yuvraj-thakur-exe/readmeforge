@@ -13,6 +13,11 @@ import {
   Check,
   Download,
   Sparkle,
+  Zap,
+  Bot,
+  Rocket,
+  Package,
+  Terminal as TerminalIcon,
 } from 'lucide-react';
 import { ResumeUpload } from '#/components/enrichment/ResumeUpload';
 import { importReadmeFromMarkdown } from '#/lib/parser/import-readme';
@@ -21,49 +26,49 @@ import { useReadmeStore } from '#/store/useReadmeStore';
 interface InstallOption {
   id: string;
   label: string;
-  icon: string;
   command: string;
   description: string;
   badge: string;
+  icon: React.ReactNode;
 }
 
 const INSTALL_OPTIONS: InstallOption[] = [
   {
     id: 'npx',
-    label: '⚡ NPX Instant',
-    icon: '⚡',
+    label: 'NPX Instant',
+    icon: <Zap className="w-3.5 h-3.5 text-cyan-400" />,
     command: 'npx readmeforge@latest',
     description: 'Instant zero-install execution in your local browser',
     badge: 'Fastest',
   },
   {
     id: 'claude',
-    label: '🤖 Claude Code',
-    icon: '🤖',
+    label: 'Claude Code',
+    icon: <Bot className="w-3.5 h-3.5 text-purple-400" />,
     command: 'claude mcp add readmeforge -- npx -y readmeforge',
     description: 'Mount as native Model Context Protocol (MCP) tool in Anthropic Claude Code',
     badge: 'AI Agent',
   },
   {
     id: 'antigravity',
-    label: '🚀 Antigravity IDE',
-    icon: '🚀',
+    label: 'Antigravity IDE',
+    icon: <Rocket className="w-3.5 h-3.5 text-emerald-400" />,
     command: 'agy add plugin readmeforge',
     description: 'Native agent integration for Google DeepMind Antigravity studio',
     badge: 'DeepMind',
   },
   {
     id: 'pnpm',
-    label: '📦 PNPM / Git',
-    icon: '📦',
+    label: 'PNPM / CLI',
+    icon: <Package className="w-3.5 h-3.5 text-amber-400" />,
     command: 'pnpm dlx readmeforge',
     description: 'High-performance standalone package runner',
     badge: 'Lightweight',
   },
   {
     id: 'curl',
-    label: '🐧 Curl (Linux/Mac)',
-    icon: '🐧',
+    label: 'Bash / Curl',
+    icon: <TerminalIcon className="w-3.5 h-3.5 text-blue-400" />,
     command: 'curl -fsSL https://git.new/readmeforge | bash',
     description: 'Automated 1-line shell installer with auto-dependency check',
     badge: 'Unix',
@@ -141,7 +146,7 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* ⚡ High-Tech 1-Line Install Command Console */}
+      {/* High-Tech 1-Line Install Command Console */}
       <div className="max-w-3xl mx-auto">
         <div className="rounded-2xl bg-neutral-950/90 border border-cyan-500/30 p-4 sm:p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl relative overflow-hidden transition-all hover:border-cyan-500/50">
           {/* Subtle Ambient Laser Glow */}
@@ -167,6 +172,7 @@ export const HeroSection: React.FC = () => {
                         : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 border border-transparent'
                     } active:scale-95`}
                   >
+                    <span className="shrink-0">{opt.icon}</span>
                     <span>{opt.label}</span>
                     {isActive && (
                       <span className="hidden sm:inline-block px-1.5 py-0.2 rounded text-[9px] bg-cyan-950 border border-cyan-700/60 text-cyan-300 font-mono">
@@ -287,11 +293,18 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Verified Ecosystem Badges Showcase */}
-      <div className="pt-2 max-w-4xl mx-auto">
+      <div className="pt-2 max-w-4xl mx-auto space-y-3">
         <div className="p-1 rounded-xl bg-neutral-950/60 border border-neutral-800/80 shadow-inner">
           <img
             src="/assets/agent-suite.svg"
             alt="Supported Platforms: Claude Code, Google Antigravity, Turbopack, and Zero Telemetry"
+            className="w-full h-auto rounded-lg"
+          />
+        </div>
+        <div className="p-1 rounded-xl bg-neutral-950/60 border border-neutral-800/80 shadow-inner">
+          <img
+            src="/assets/developer-fun-badges.svg"
+            alt="Developer Community Badges: Works on My Machine, Coffee to Code Engine, Friday Deployer"
             className="w-full h-auto rounded-lg"
           />
         </div>
@@ -315,7 +328,7 @@ export const HeroSection: React.FC = () => {
               rows={8}
               value={importText}
               onChange={e => setImportText(e.target.value)}
-              placeholder="# Hi there 👋&#10;&#10;- 🔭 I'm currently working on..."
+              placeholder="# Developer Profile&#10;&#10;- Working on: Distributed systems..."
               className="w-full p-3.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs font-mono text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-violet-500 leading-relaxed"
             />
             <div className="flex items-center justify-end gap-2.5">
