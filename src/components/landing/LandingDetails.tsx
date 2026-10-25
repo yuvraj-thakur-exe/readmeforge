@@ -18,7 +18,6 @@ import {
   Sparkles,
   ChevronDown,
   Eye,
-  Flame,
   Code2,
 } from 'lucide-react';
 import { FadeIn } from '#/components/motion/FadeIn';
@@ -186,8 +185,14 @@ export const LandingDetails: React.FC = () => {
             {/* Profile Mockup Content Area */}
             {previewTab === 'preview' ? (
               <div className="p-6 md:p-8 space-y-6 bg-gradient-to-b from-neutral-950 via-neutral-900/50 to-neutral-950">
-                {/* Simulated Header Banner */}
-                <div className="relative rounded-xl overflow-hidden h-36 sm:h-44 bg-gradient-to-r from-violet-900/40 via-purple-950/60 to-cyan-950/40 border border-violet-500/20 flex items-center justify-between px-6">
+                {/* Simulated Header Banner with Animated Cyber-Grid Overlay */}
+                <div className="relative rounded-xl overflow-hidden h-36 sm:h-44 border border-violet-500/30 flex items-center justify-between px-6 bg-neutral-950">
+                  <img
+                    src="/assets/banner-animated.svg"
+                    alt="ReadmeForge Animated Banner"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/95 via-neutral-950/75 to-transparent pointer-events-none" />
                   <div className="space-y-1.5 z-10">
                     <span className="text-[11px] font-mono text-cyan-400 tracking-wider uppercase font-semibold">
                       Full-Stack &bull; AI Agent Architect
@@ -199,8 +204,8 @@ export const LandingDetails: React.FC = () => {
                       Building next-generation intelligent developer tools and distributed web platforms.
                     </p>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2">
-                    <span className="p-2 rounded-lg bg-neutral-950/70 border border-neutral-800 text-cyan-400 font-mono text-xs">
+                  <div className="hidden sm:flex items-center gap-2 z-10">
+                    <span className="p-2 rounded-lg bg-neutral-950/80 border border-neutral-800 text-cyan-400 font-mono text-xs backdrop-blur-sm">
                       ⚡ Open to Collaboration
                     </span>
                   </div>
