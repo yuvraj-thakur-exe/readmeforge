@@ -11,7 +11,7 @@
       <img src="https://img.shields.io/badge/License-MIT-violet?style=flat-square" alt="License: MIT" />
     </a>
     <a href="https://nextjs.org">
-      <img src="https://img.shields.io/badge/Next.js-15%20(App%20Router)-black?style=flat-square&logo=next.js" alt="Next.js 15" />
+      <img src="https://img.shields.io/badge/Next.js-16%20(App%20Router)-black?style=flat-square&logo=next.js" alt="Next.js 16" />
     </a>
     <a href="https://www.typescriptlang.org">
       <img src="https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript" alt="TypeScript" />
@@ -29,6 +29,7 @@
     <a href="#rocket-quickstart">Quickstart</a> &bull;
     <a href="#puzzle-piece-plugin-ecosystem">Plugins</a> &bull;
     <a href="#desktop_computer-developer-mode">/developer Mode</a> &bull;
+    <a href="#compass-directory-map">Architecture</a> &bull;
     <a href="#handshake-contributing">Contributing</a> &bull;
     <a href="#page_facing_up-license">License</a>
   </p>
@@ -49,17 +50,21 @@
   - 🏷️ `markdown-badges` — categorized shields.io badges with official tech brand logos
   - 👁️ `visitor-counter` — minimal privacy-respecting profile hit counter
   - 💼 `portfolio-contributions` — featured open-source repositories and highlighted PRs
+- 🎨 **Template Gallery & Starter Archetypes**: Choose from 10+ starter templates (Minimalist, Cyberpunk, Full-Stack Architect, Data Scientist, OSS Maintainer, and more) to jumpstart your profile.
 - 🛡️ **Confirmation-Gated Resume & Web Enrichment**: Upload a PDF or DOCX resume, or fetch your public GitHub profile. **Zero silent store modifications** — every single field passes through `ConfirmGate.tsx` with diff review before writing to your config.
 - 🚀 **Direct GitHub OAuth Sync**: Auto-detect your `<username>/<username>` profile repository and commit directly via Octokit with a side-by-side diff preview (`DiffPreview.tsx`).
-- 🎨 **State-of-the-Art Aesthetics**: Violet-to-cyan gradient design tokens, dark/light/system theme toggling via `next-themes`, and celebration confetti via `canvas-confetti`.
-- 📦 **Multi-Format Export**: One-click copy, `.md` download, PNG snapshot via `html-to-image`, or shareable URL with compressed base64 state.
+- 🖼️ **Profile Image Optimizer**: Crop, compress, and optimize avatar photos directly in-browser via `react-easy-crop` and `browser-image-compression`.
+- 📥 **AST-Based README Importer**: Paste an existing GitHub profile README and let the unified AST parser reverse-map it into interactive visual sections.
+- ⌨️ **Command Palette (`Ctrl/Cmd + K`)**: Instantly search templates, jump between wizard and `/developer` mode, toggle themes, or export configurations.
+- 🌐 **Full Internationalization (i18n)**: Out-of-the-box support for English (`en`) and Portuguese (`pt-BR`).
+- 📦 **Multi-Format Export Suite**: One-click copy, `.md` download, PNG snapshot via `html-to-image`, or shareable URL with compressed base64 state.
 
 ---
 
 ## :rocket: Quickstart
 
 ### Prerequisites
-- Node.js 20.x or 22.x
+- Node.js 20.x, 22.x, or 24.x
 - `pnpm` (Corepack recommended)
 
 ### Local Development
@@ -81,24 +86,60 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ### Verification & Testing
 
 ```bash
-# Run unit tests (Zustand store, pure buildMarkdown, plugin registry)
-corepack pnpm test
+# Run unit tests (Vitest: store, pure buildMarkdown, plugin registry, AST parser)
+corepack pnpm test run
 
-# Run code style and linter
-corepack pnpm lint
-
-# Production build
+# Run production build (Next.js 16 Turbopack)
 corepack pnpm build
 
 # Run end-to-end browser tests
 corepack pnpm test:e2e
 ```
 
+### Docker Deployment
+
+A production-ready, multi-stage standalone `Dockerfile` is included:
+
+```bash
+# Build the Docker image
+docker build -t readmeforge:latest .
+
+# Run container on port 3000
+docker run -p 3000:3000 readmeforge:latest
+```
+
+---
+
+## :compass: Directory Map
+
+```text
+src/
+├── app/                  # Next.js App Router (wizard, /[locale]/developer, api/og, sitemap)
+├── components/
+│   ├── developer/        # Monaco editor, plugin drawer, live preview, export bar
+│   ├── enrichment/       # Resume upload, GitHub profile fetch, ConfirmGate
+│   ├── motion/           # Reusable animations (FadeIn, Stagger)
+│   ├── navigation/       # TopNav, CommandPalette, footer
+│   ├── sync/             # GitHub OAuth, DiffPreview, push modal
+│   └── wizard/           # 6-step interactive visual wizard & LivePreviewPane
+├── lib/
+│   ├── buildMarkdown.ts  # Pure markdown generation engine (unit-tested)
+│   ├── export/           # Export utils (PNG snapshot, share URL compression)
+│   ├── parser/           # AST-based reverse README importer
+│   └── plugins/          # Plugin registry, Zod types, and 8 wrapped OSS plugins
+├── locales/              # i18n dictionaries (en.json, pt-BR.json)
+└── store/
+    └── useReadmeStore.ts # Single source of truth Zustand store
+docs/
+├── PLUGIN_GUIDE.md       # Plugin authoring and integration guide
+└── config-schema.md      # Declarative JSON configuration schema specification
+```
+
 ---
 
 ## :puzzle_piece: Plugin Ecosystem
 
-ReadmeForge is built on an extensible plugin engine (`src/lib/plugins/`). Every widget implements the typed `Plugin` Zod schema:
+ReadmeForge is built on an extensible, typed plugin engine (`src/lib/plugins/`). Every widget implements the typed `Plugin` Zod schema:
 
 ```typescript
 import { z } from 'zod';
@@ -128,10 +169,10 @@ To add your own plugin, consult the [Plugin Authoring Guide](docs/PLUGIN_GUIDE.m
 ## :desktop_computer: Developer Mode
 
 Need raw control? Jump straight to `/developer` for:
-- Monaco JSON code editor with autocompletion and diagnostic validation
+- Monaco JSON code editor with autocompletion and diagnostic schema validation
 - Real-time two-way synchronization with the visual wizard state
-- Plugin insertion panel: search, configure, and insert plugins with 1 click
-- Export bar: copy raw markdown, download `.md`, or generate a shareable URL
+- Plugin insertion drawer: search, configure, and insert plugins with 1 click
+- Export bar: copy raw markdown, download `.md`, or generate a shareable compressed URL
 
 ---
 
@@ -139,8 +180,8 @@ Need raw control? Jump straight to `/developer` for:
 
 - **Single Store Truth**: `src/store/useReadmeStore.ts` holds all configuration state. No divergent or duplicate UI state.
 - **Pure Markdown Generator**: `buildMarkdown(config)` in `src/lib/buildMarkdown.ts` is 100% deterministic and free of React/DOM dependencies.
-- **Explicit Confirmation Gates**: No third-party data from resume parsing or API enrichment touches your profile without explicit approval.
-- **Diff Preview Before Push**: Writes to GitHub repositories require visual confirmation on a side-by-side diff.
+- **Explicit Confirmation Gates**: No third-party data from resume parsing or API enrichment touches your profile without explicit approval (`ConfirmGate.tsx`).
+- **Diff Preview Before Push**: Writes to GitHub repositories require visual confirmation on a side-by-side diff (`DiffPreview.tsx`).
 
 ---
 
@@ -158,4 +199,4 @@ Contributions are welcome! Please read our [Contributing Guidelines](.github/CON
 
 ## :page_facing_up: License
 
-Distributed under the MIT License. See [LICENSE.md](LICENSE.md) for details. Third-party notices are documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+Distributed under the MIT License. See [LICENSE.md](LICENSE.md) for details. Third-party notices and upstream attributions are documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).

@@ -28,6 +28,7 @@ export function TopNav() {
         </Link>
 
         {/* Center / Action Navigation */}
+        <div className="flex items-center gap-3">
           <CommandPalette />
 
           <Link

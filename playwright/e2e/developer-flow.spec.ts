@@ -5,7 +5,7 @@ test.describe('ReadmeForge /developer Route Flow', () => {
     await page.goto('/developer');
 
     // Verify developer page loaded with header
-    await expect(page.getByText('ReadmeForge')).toBeVisible();
+    await expect(page.locator('header').getByText('ReadmeForge')).toBeVisible();
     await expect(page.getByText('/developer')).toBeVisible();
 
     // Verify action buttons

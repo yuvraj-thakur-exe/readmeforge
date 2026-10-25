@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
 import { useReadmeStore } from '#/store/useReadmeStore';
-import { Editor } from '#/components/developer/Editor';
 import { LivePreview } from '#/components/developer/LivePreview';
 import { PluginPanel } from '#/components/developer/PluginPanel';
 import { ExportBar } from '#/components/developer/ExportBar';
@@ -17,7 +17,19 @@ import {
   Flame,
 } from 'lucide-react';
 
-export default function DeveloperPage() {
+const Editor = dynamic(
+  () => import('#/components/developer/Editor').then(mod => mod.Editor),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex items-center justify-center h-full bg-[#1e1e1e] text-neutral-500 text-xs font-mono">
+        Loading Editor...
+      </div>
+    ),
+  }
+);
+
+function DeveloperContent() {
   const searchParams = useSearchParams();
   const setEntireConfig = useReadmeStore(state => state.setEntireConfig);
   const [showPluginPanel, setShowPluginPanel] = useState<boolean>(true);
@@ -110,5 +122,19 @@ export default function DeveloperPage() {
         <ExportBar />
       </footer>
     </div>
+  );
+}
+
+export default function DeveloperPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex items-center justify-center h-screen bg-neutral-950 text-neutral-400 text-sm font-mono">
+          Loading Developer Mode...
+        </div>
+      }
+    >
+      <DeveloperContent />
+    </Suspense>
   );
 }

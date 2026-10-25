@@ -1,11 +1,15 @@
 'use client';
 
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import autoAnimate from '@formkit/auto-animate';
-import ReactMarkdown from 'react-markdown';
+import parse from 'html-react-parser';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
 import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { buildMarkdown } from '#/lib/buildMarkdown';
 import { Copy, Check, Eye, Download, Sparkles } from 'lucide-react';
@@ -42,6 +46,26 @@ export function LivePreviewPane() {
   const [copied, setCopied] = useState(false);
 
   const markdown = buildMarkdown(config);
+
+  const renderedContent = useMemo(() => {
+    try {
+      const file = unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeRaw)
+        .use(rehypeSanitize, sanitizeSchema)
+        .use(rehypeStringify)
+        .processSync(markdown);
+      return parse(String(file));
+    } catch {
+      return (
+        <pre className="font-mono text-xs text-palette-contrast/80 whitespace-pre-wrap">
+          {markdown}
+        </pre>
+      );
+    }
+  }, [markdown]);
 
   useEffect(() => {
     if (containerRef.current) {
@@ -125,12 +149,7 @@ export function LivePreviewPane() {
         ref={containerRef}
         className="flex-1 p-6 overflow-y-auto scrollbar bg-palette-base text-palette-contrast prose prose-invert max-w-none prose-img:inline-block prose-a:text-cyan-400"
       >
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
-        >
-          {markdown}
-        </ReactMarkdown>
+        {renderedContent}
       </div>
     </div>
   );

@@ -27,7 +27,7 @@ export const PluginPanel: React.FC<PluginPanelProps> = ({
       const matchesSearch =
         plugin.name.toLowerCase().includes(search.toLowerCase()) ||
         plugin.description.toLowerCase().includes(search.toLowerCase()) ||
-        plugin.tags.some(t => t.toLowerCase().includes(search.toLowerCase()));
+        Boolean(plugin.tags?.some(t => t.toLowerCase().includes(search.toLowerCase())));
 
       const matchesCategory =
         selectedCategory === 'all' || plugin.category === selectedCategory;
@@ -131,16 +131,18 @@ export const PluginPanel: React.FC<PluginPanelProps> = ({
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1 mt-2">
-                    {plugin.tags.slice(0, 3).map(tag => (
-                      <span
-                        key={tag}
-                        className="text-[10px] px-1.5 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
+                  {plugin.tags && plugin.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {plugin.tags.slice(0, 3).map(tag => (
+                        <span
+                          key={tag}
+                          className="text-[10px] px-1.5 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-neutral-800/60">
