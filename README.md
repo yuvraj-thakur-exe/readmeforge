@@ -56,12 +56,8 @@
 
 ---
 
-## Multi-Language Playground &amp; Roaming Characters
-
-Bring dynamic life, personality, and motion to your GitHub profile. ReadmeForge features pure vector SVG characters that roam freely across multi-language code environments—interacting with live code, slicing bugs, waving at interfaces, and compiling pipelines in real time:
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Multi-Language Playground with Free-Roaming Characters" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(56,189,248,0.25);" />
+<div align="center" id="animated-characters">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Multi-Language Playground with Dynamic Character Kinematics" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(56,189,248,0.25);" />
 </div>
 
 <br />

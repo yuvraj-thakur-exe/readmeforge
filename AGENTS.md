@@ -51,6 +51,7 @@ pnpm format      # biome format
 - Components: PascalCase, one per file, colocated `*.test.tsx` where logic warrants it.
 - Styling: Tailwind utility classes + `tailwind-variants` for variants; no plain CSS files except globals.
 - Animation: reuse `<FadeIn>` / `<Stagger>` wrappers (`src/components/motion/`) instead of inlining Framer Motion variants in every component.
+- SVG Character Kinematics: All animated vector characters must use `transform-box: fill-box;` on animated elements to prevent transform runaway, preserve aspect-ratio scaling (`preserveAspectRatio="xMidYMid meet"`), and be stationed logically with purposeful movement (walking, fighting, dancing, text interaction) near relevant code divs with corner-to-corner balance.
 - Commit messages: Conventional Commits (`feat:`, `fix:`, `chore:`, etc.).
 - i18n strings go in `src/translations/<locale>.json` — never hardcode user-facing text in components.
 

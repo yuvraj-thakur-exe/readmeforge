@@ -19,19 +19,19 @@
 
     <!-- Spotlights -->
     <radialGradient id="spotDP" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35" />
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.32" />
       <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="spotWyvern" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35" />
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.32" />
       <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="spotInsect" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35" />
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.32" />
       <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
     </radialGradient>
     <radialGradient id="spotPaladin" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35" />
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.32" />
       <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
     </radialGradient>
 
@@ -40,38 +40,42 @@
       <feGaussianBlur stdDeviation="3" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
-    <filter id="bladeSlashGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
+    <filter id="bladeSlashGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="eyeRedBloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
   <style>
-    /* 60fps GPU-accelerated Keyframe Choreography */
+    /* 60fps GPU-accelerated Keyframe Choreography with strictly localized transform-box */
 
     /* 1. Deadpool Animations */
     @keyframes dpMotion {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      25%      { transform: translateY(-8px) rotate(-3deg); }
+      25%      { transform: translateY(-7px) rotate(-2deg); }
       50%      { transform: translateY(0px) rotate(0deg); }
-      75%      { transform: translateY(-8px) rotate(3deg); }
+      75%      { transform: translateY(-7px) rotate(2deg); }
     }
     @keyframes dpSlashL {
-      0%, 100% { transform: rotate(-25deg); }
-      40%      { transform: rotate(15deg) translateY(4px); }
-      50%      { transform: rotate(-55deg) translateY(-8px); }
-      65%      { transform: rotate(-20deg); }
+      0%, 100% { transform: rotate(-20deg); }
+      40%      { transform: rotate(15deg) translateY(3px); }
+      50%      { transform: rotate(-50deg) translateY(-6px); }
+      65%      { transform: rotate(-15deg); }
     }
     @keyframes dpSlashR {
-      0%, 100% { transform: rotate(25deg); }
-      45%      { transform: rotate(-20deg) translateY(4px); }
-      55%      { transform: rotate(55deg) translateY(-8px); }
-      70%      { transform: rotate(20deg); }
+      0%, 100% { transform: rotate(20deg); }
+      45%      { transform: rotate(-15deg) translateY(3px); }
+      55%      { transform: rotate(50deg) translateY(-6px); }
+      70%      { transform: rotate(15deg); }
     }
     @keyframes dpArcFX {
-      0%, 45%  { opacity: 0; stroke-dashoffset: 90; }
+      0%, 45%  { opacity: 0; stroke-dashoffset: 80; }
       52%      { opacity: 1; stroke-dashoffset: 0; }
-      62%, 100%{ opacity: 0; stroke-dashoffset: -90; }
+      62%, 100%{ opacity: 0; stroke-dashoffset: -80; }
     }
     @keyframes dpEyeBlink {
       0%, 88%, 100% { transform: scaleY(1); }
@@ -82,25 +86,25 @@
     /* 2. Pink Wyvern Animations */
     @keyframes wyvernHoverLoop {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50%      { transform: translateY(-14px) rotate(2deg); }
+      50%      { transform: translateY(-12px) rotate(2deg); }
     }
     @keyframes wyvernWingLoopL {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(-34deg); }
+      0%, 100% { transform: rotate(0deg) scale(1, 1); }
+      50%      { transform: rotate(-28deg) scale(0.92, 1.12); }
     }
     @keyframes wyvernWingLoopR {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(30deg); }
+      0%, 100% { transform: rotate(0deg) scale(1, 1); }
+      50%      { transform: rotate(24deg) scale(0.92, 1.12); }
     }
     @keyframes wyvernTailLoop {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(15deg); }
+      50%      { transform: rotate(14deg); }
     }
     @keyframes wyvernBreathPuff {
-      0%, 40%  { opacity: 0; transform: translate(0, 0) scale(0.2); }
-      55%      { opacity: 1; transform: translate(14px, -8px) scale(1.1); }
-      75%      { opacity: 0.8; transform: translate(28px, -16px) scale(1.3); }
-      90%, 100%{ opacity: 0; transform: translate(36px, -22px) scale(0.4); }
+      0%, 40%  { opacity: 0; transform: translate(0, 0) scale(0.3); }
+      55%      { opacity: 1; transform: translate(12px, -6px) scale(1.1); }
+      75%      { opacity: 0.8; transform: translate(24px, -12px) scale(1.25); }
+      90%, 100%{ opacity: 0; transform: translate(32px, -18px) scale(0.3); }
     }
 
     /* 3. Insectoid Warrior Animations */
@@ -110,82 +114,77 @@
     }
     @keyframes antennaWiggleL {
       0%, 100% { transform: rotate(0deg); }
-      20%      { transform: rotate(-9deg); }
-      40%      { transform: rotate(4deg); }
-      70%      { transform: rotate(-10deg); }
+      20%      { transform: rotate(-8deg); }
+      40%      { transform: rotate(3deg); }
+      70%      { transform: rotate(-9deg); }
     }
     @keyframes antennaWiggleR {
       0%, 100% { transform: rotate(0deg); }
-      25%      { transform: rotate(9deg); }
-      45%      { transform: rotate(-4deg); }
-      75%      { transform: rotate(10deg); }
+      25%      { transform: rotate(8deg); }
+      45%      { transform: rotate(-3deg); }
+      75%      { transform: rotate(9deg); }
     }
     @keyframes laserEyeLoop {
-      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #ef4444); }
-      50%      { transform: scale(1.25); filter: drop-shadow(0 0 10px #ff2a6d); }
-    }
-    @keyframes laserSweepScan {
-      0%, 100% { opacity: 0.2; transform: rotate(-10deg); }
-      50%      { opacity: 0.85; transform: rotate(14deg); }
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 2px #ef4444); }
+      50%      { opacity: 1; filter: drop-shadow(0 0 8px #ff2a6d); }
     }
 
     /* 4. Dragonborn Paladin Animations */
     @keyframes paladinStanceLoop {
       0%, 100% { transform: translateY(0px); }
-      50%      { transform: translateY(-6px); }
+      50%      { transform: translateY(-5px); }
     }
     @keyframes paladinThrust {
       0%, 100% { transform: translateY(0px); }
-      30%      { transform: translateY(5px); }
-      45%      { transform: translateY(-16px); }
+      30%      { transform: translateY(4px); }
+      45%      { transform: translateY(-12px); }
       60%      { transform: translateY(-2px); }
     }
     @keyframes paladinRibbon {
       0%, 100% { transform: rotate(0deg); }
-      35%      { transform: rotate(-18deg); }
-      70%      { transform: rotate(14deg); }
+      35%      { transform: rotate(-15deg); }
+      70%      { transform: rotate(12deg); }
     }
     @keyframes paladinTailLoop {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(14deg); }
+      50%      { transform: rotate(12deg); }
     }
     @keyframes holyGleamSpark {
       0%, 40%, 100% { opacity: 0; transform: scale(0.2); }
-      48%           { opacity: 1; transform: scale(1.3) rotate(90deg); }
+      48%           { opacity: 1; transform: scale(1.2) rotate(90deg); }
       58%           { opacity: 0; transform: scale(0.2) rotate(180deg); }
     }
 
     /* Common Particle Dust */
     @keyframes particleDust {
       0%   { transform: translateY(0) scale(0.8); opacity: 0.2; }
-      50%  { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
-      100% { transform: translateY(-40px) scale(0.8); opacity: 0; }
+      50%  { transform: translateY(-18px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(-36px) scale(0.8); opacity: 0; }
     }
 
-    /* Classes */
-    .anim-dp { animation: dpMotion 3.2s ease-in-out infinite; transform-origin: 120px 220px; }
-    .anim-dp-l { animation: dpSlashL 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 95px 165px; }
-    .anim-dp-r { animation: dpSlashR 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 145px 165px; }
-    .anim-dp-arc { animation: dpArcFX 3.2s ease-out infinite; stroke-dasharray: 90; }
-    .anim-dp-eye { animation: dpEyeBlink 4s ease-in-out infinite; transform-origin: 105px 125px; }
+    /* Element Class Bindings with fill-box Transform Isolation */
+    .anim-dp { transform-box: fill-box; transform-origin: center bottom; animation: dpMotion 3.2s ease-in-out infinite; }
+    .anim-dp-l { transform-box: fill-box; transform-origin: top right; animation: dpSlashL 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .anim-dp-r { transform-box: fill-box; transform-origin: top left; animation: dpSlashR 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .anim-dp-arc { animation: dpArcFX 3.2s ease-out infinite; stroke-dasharray: 80; }
+    .anim-dp-eye { transform-box: fill-box; transform-origin: center; animation: dpEyeBlink 4s ease-in-out infinite; }
 
-    .anim-wyvern { animation: wyvernHoverLoop 3.5s ease-in-out infinite; transform-origin: 360px 170px; }
-    .anim-wyvern-wl { animation: wyvernWingLoopL 1.2s ease-in-out infinite; transform-origin: 345px 135px; }
-    .anim-wyvern-wr { animation: wyvernWingLoopR 1.2s ease-in-out infinite 0.1s; transform-origin: 375px 130px; }
-    .anim-wyvern-tail { animation: wyvernTailLoop 2.4s ease-in-out infinite; transform-origin: 310px 165px; }
-    .anim-wyvern-breath { animation: wyvernBreathPuff 3.5s ease-out infinite; }
+    .anim-wyvern { transform-box: fill-box; transform-origin: center bottom; animation: wyvernHoverLoop 3.5s ease-in-out infinite; }
+    .anim-wyvern-wl { transform-box: fill-box; transform-origin: bottom right; animation: wyvernWingLoopL 1.2s ease-in-out infinite; }
+    .anim-wyvern-wr { transform-box: fill-box; transform-origin: bottom left; animation: wyvernWingLoopR 1.2s ease-in-out infinite 0.1s; }
+    .anim-wyvern-tail { transform-box: fill-box; transform-origin: right center; animation: wyvernTailLoop 2.4s ease-in-out infinite; }
+    .anim-wyvern-breath { transform-box: fill-box; transform-origin: left center; animation: wyvernBreathPuff 3.5s ease-out infinite; }
 
-    .anim-insect { animation: insectBreathing 2.8s ease-in-out infinite; transform-origin: 600px 160px; }
-    .anim-ant-l { animation: antennaWiggleL 3.6s ease-in-out infinite; transform-origin: 575px 95px; }
-    .anim-ant-r { animation: antennaWiggleR 3.6s ease-in-out infinite; transform-origin: 625px 95px; }
-    .anim-laser-eye { animation: laserEyeLoop 2s ease-in-out infinite; transform-origin: center; }
-    .anim-laser-sweep { animation: laserSweepScan 2.5s ease-in-out infinite; transform-origin: 600px 120px; }
+    .anim-insect { transform-box: fill-box; transform-origin: center bottom; animation: insectBreathing 2.8s ease-in-out infinite; }
+    .anim-ant-l { transform-box: fill-box; transform-origin: bottom right; animation: antennaWiggleL 3.6s ease-in-out infinite; }
+    .anim-ant-r { transform-box: fill-box; transform-origin: bottom left; animation: antennaWiggleR 3.6s ease-in-out infinite; }
+    .anim-laser-eye { animation: laserEyeLoop 2s ease-in-out infinite; }
 
-    .anim-paladin { animation: paladinStanceLoop 3.8s ease-in-out infinite; transform-origin: 840px 170px; }
-    .anim-paladin-spear { animation: paladinThrust 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 790px 160px; }
-    .anim-paladin-ribbon { animation: paladinRibbon 2.2s ease-in-out infinite; transform-origin: 785px 115px; }
-    .anim-paladin-tail { animation: paladinTailLoop 3.2s ease-in-out infinite; transform-origin: 865px 170px; }
-    .anim-paladin-gleam { animation: holyGleamSpark 3.8s ease-out infinite; transform-origin: 785px 75px; }
+    .anim-paladin { transform-box: fill-box; transform-origin: center bottom; animation: paladinStanceLoop 3.8s ease-in-out infinite; }
+    .anim-paladin-spear { transform-box: fill-box; transform-origin: center bottom; animation: paladinThrust 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .anim-paladin-ribbon { transform-box: fill-box; transform-origin: top left; animation: paladinRibbon 2.2s ease-in-out infinite; }
+    .anim-paladin-tail { transform-box: fill-box; transform-origin: left bottom; animation: paladinTailLoop 3.2s ease-in-out infinite; }
+    .anim-paladin-gleam { transform-box: fill-box; transform-origin: center; animation: holyGleamSpark 3.8s ease-out infinite; }
 
     .spark-dust-1 { animation: particleDust 2.5s ease-out infinite; }
     .spark-dust-2 { animation: particleDust 3.2s ease-out infinite 0.8s; }
@@ -199,8 +198,8 @@
   <!-- Stage Background Card -->
   <rect width="960" height="300" rx="16" fill="url(#heroStageBg)" stroke="#1e293b" stroke-width="1.5" />
 
-  <!-- Cyber Grid Lines -->
-  <g stroke="#334155" stroke-opacity="0.18" stroke-width="1">
+  <!-- Cyber Grid Runway & Perspective Floor -->
+  <g stroke="#334155" stroke-opacity="0.2" stroke-width="1">
     <line x1="0" y1="230" x2="960" y2="230" />
     <line x1="0" y1="260" x2="960" y2="260" />
     <line x1="0" y1="285" x2="960" y2="285" />
@@ -213,14 +212,10 @@
   </g>
 
   <!-- Hero Spotlights Behind Each Champion -->
-  <!-- 1. Deadpool Spot (X=120) -->
-  <ellipse cx="120" cy="180" rx="90" ry="70" fill="url(#spotDP)" />
-  <!-- 2. Pink Wyvern Spot (X=360) -->
-  <ellipse cx="360" cy="180" rx="95" ry="70" fill="url(#spotWyvern)" />
-  <!-- 3. Insectoid Spot (X=600) -->
-  <ellipse cx="600" cy="180" rx="95" ry="70" fill="url(#spotInsect)" />
-  <!-- 4. Paladin Spot (X=840) -->
-  <ellipse cx="840" cy="180" rx="95" ry="70" fill="url(#spotPaladin)" />
+  <ellipse cx="120" cy="180" rx="85" ry="65" fill="url(#spotDP)" />
+  <ellipse cx="360" cy="180" rx="90" ry="65" fill="url(#spotWyvern)" />
+  <ellipse cx="600" cy="180" rx="90" ry="65" fill="url(#spotInsect)" />
+  <ellipse cx="840" cy="180" rx="90" ry="65" fill="url(#spotPaladin)" />
 
   <!-- Stage Illuminated Platform Floor -->
   <path d="M 40 230 L 920 230 L 960 270 L 0 270 Z" fill="url(#heroStageFloor)" opacity="0.3" />
@@ -262,7 +257,6 @@
 
       <!-- Torso -->
       <path d="M 54 142 C 52 165 60 182 80 182 C 100 182 108 165 106 142 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.5" />
-      <!-- Black Side Panels -->
       <path d="M 54 142 C 52 160 58 176 66 180 L 63 142 Z" fill="#212121" />
       <path d="M 106 142 C 108 160 102 176 94 180 L 97 142 Z" fill="#212121" />
 
@@ -300,7 +294,6 @@
       <!-- Chibi Head -->
       <g>
         <circle cx="80" cy="112" r="35" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.8" />
-        <!-- Mask Seam -->
         <path d="M 78 77 Q 80 72 82 77 Z" fill="#b71c1c" />
 
         <!-- Black Eye Patches -->
@@ -337,12 +330,12 @@
 
       <!-- Curled Dragon Tail -->
       <g class="anim-wyvern-tail">
-        <path d="M 60 162 C 36 174 16 158 18 128 C 20 104 42 106 45 125 C 47 139 32 145 26 137" 
+        <path d="M 58 162 C 34 174 14 156 16 126 C 18 102 40 104 43 123 C 45 137 30 143 24 135" 
               fill="none" stroke="#ff6584" stroke-width="12" stroke-linecap="round" />
-        <path d="M 60 162 C 36 174 16 158 18 128 C 20 104 42 106 45 125 C 47 139 32 145 26 137" 
+        <path d="M 58 162 C 34 174 14 156 16 126 C 18 102 40 104 43 123 C 45 137 30 143 24 135" 
               fill="none" stroke="#102a45" stroke-width="2.5" stroke-linecap="round" />
         <!-- Spade -->
-        <polygon points="21,129 13,116 27,119" fill="#818cf8" stroke="#102a45" stroke-width="2" />
+        <polygon points="19,127 11,114 25,117" fill="#818cf8" stroke="#102a45" stroke-width="2" />
       </g>
 
       <!-- Back Wing -->
@@ -395,13 +388,7 @@
     <!-- Floor Shadow -->
     <ellipse cx="80" cy="216" rx="44" ry="7" fill="#050811" opacity="0.5" />
 
-    <!-- Scanning Laser Beams -->
-    <g class="anim-laser-sweep" opacity="0.45">
-      <polygon points="61,112 10,165 40,190" fill="#ef4444" opacity="0.4" />
-      <polygon points="99,112 150,165 120,190" fill="#ef4444" opacity="0.4" />
-    </g>
-
-    <!-- Animated Insectoid Root -->
+    <!-- Animated Insectoid Root (Zero weird stray polygons!) -->
     <g class="anim-insect">
 
       <!-- Shoulders & Biceps -->
@@ -425,14 +412,14 @@
       <!-- Serrated Beard Jaw -->
       <path d="M 57 126 L 64 136 L 69 129 L 75 138 L 80 130 L 85 138 L 91 129 L 96 136 L 103 126 L 95 143 L 80 151 L 65 143 Z" fill="#2563eb" stroke="#0f172a" stroke-width="2.2" />
 
-      <!-- Glowing Laser Eyes -->
-      <g transform="translate(61, 112)">
-        <ellipse cx="0" cy="0" rx="9" ry="8" fill="#ef4444" stroke="#0f172a" stroke-width="2" class="anim-laser-eye" />
-        <ellipse cx="-1.5" cy="-1.5" rx="3" ry="2.2" fill="#ffffff" opacity="0.8" />
+      <!-- Piercing Glowing Crimson Compound Eyes (Contained inside sockets!) -->
+      <g>
+        <ellipse cx="66" cy="114" rx="9" ry="8.5" fill="#ef4444" stroke="#0f172a" stroke-width="2" class="anim-laser-eye" filter="url(#eyeRedBloom)" />
+        <ellipse cx="64.5" cy="112.5" rx="3" ry="2.2" fill="#ffffff" opacity="0.8" />
       </g>
-      <g transform="translate(99, 112)">
-        <ellipse cx="0" cy="0" rx="9" ry="8" fill="#ef4444" stroke="#0f172a" stroke-width="2" class="anim-laser-eye" />
-        <ellipse cx="-1.5" cy="-1.5" rx="3" ry="2.2" fill="#ffffff" opacity="0.8" />
+      <g>
+        <ellipse cx="94" cy="114" rx="9" ry="8.5" fill="#ef4444" stroke="#0f172a" stroke-width="2" class="anim-laser-eye" filter="url(#eyeRedBloom)" />
+        <ellipse cx="92.5" cy="112.5" rx="3" ry="2.2" fill="#ffffff" opacity="0.8" />
       </g>
 
       <!-- Antennae -->

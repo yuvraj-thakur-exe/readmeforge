@@ -1,232 +1,330 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="100%" height="320" fill="none">
   <defs>
-    <!-- Background Gradients -->
+    <!-- Background Gradient -->
     <linearGradient id="roamStageBg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#070a14" />
       <stop offset="50%" stop-color="#0f172a" />
       <stop offset="100%" stop-color="#050811" />
     </linearGradient>
 
+    <!-- Cyber Floor Gradient -->
     <linearGradient id="cyberFloorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
-      <stop offset="20%" stop-color="#06b6d4" stop-opacity="0.9" />
-      <stop offset="45%" stop-color="#3b82f6" stop-opacity="1" />
-      <stop offset="70%" stop-color="#a855f7" stop-opacity="1" />
+      <stop offset="15%" stop-color="#06b6d4" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#3b82f6" stop-opacity="1" />
+      <stop offset="65%" stop-color="#a855f7" stop-opacity="1" />
       <stop offset="90%" stop-color="#ec4899" stop-opacity="0.9" />
       <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
     </linearGradient>
 
+    <!-- Terminal Background Gradient -->
     <linearGradient id="terminalBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85" />
-      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.88" />
+      <stop offset="100%" stop-color="#0b1120" stop-opacity="0.96" />
     </linearGradient>
 
-    <!-- Filters -->
+    <!-- Neon Glow Filters -->
     <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
     <filter id="bladeSlashGlow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="eyeRedBloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
   <style>
     /* =========================================================
-       60FPS GPU ACCELERATED ROAMING & KINEMATICS
+       60FPS GPU-ACCELERATED LOGICAL MOVEMENT & KINEMATICS
+       All transforms isolated with transform-box: fill-box
        ========================================================= */
 
-    /* ---------- 1. RED DRAGON (Sky Soarer) ---------- */
-    @keyframes dragonRoamSky {
-      0%   { transform: translate(960px, 20px) scaleX(-1); }
-      25%  { transform: translate(650px, 50px) scaleX(-1); }
-      48%  { transform: translate(120px, 25px) scaleX(-1); }
-      50%  { transform: translate(120px, 25px) scaleX(1); }
-      75%  { transform: translate(520px, 45px) scaleX(1); }
-      98%  { transform: translate(960px, 20px) scaleX(1); }
-      100% { transform: translate(960px, 20px) scaleX(-1); }
+    /* ---------------- SECTION 1 (LEFT: TS): CHARACTERS ---------------- */
+
+    /* Blue Bot: Hovering near code text, scanning & pointing */
+    @keyframes botHoverLoop {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-7px) rotate(2deg); }
     }
-    @keyframes dragonWingFlapCycle {
+    @keyframes botArmWave {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-40deg); }
+    }
+    @keyframes botArmPointScan {
+      0%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(38deg) translateY(-5px); }
+    }
+    @keyframes botVisorBlinkLoop {
+      0%, 90%, 100% { transform: scaleY(1); }
+      95%           { transform: scaleY(0.12); }
+    }
+    @keyframes botCorePulseLoop {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #48cfad); }
+      50%      { transform: scale(1.3); filter: drop-shadow(0 0 6px #48cfad); }
+    }
+    @keyframes botScanBeam {
+      0%, 20%, 80%, 100% { opacity: 0; transform: scaleX(0.2); }
+      35%, 65%           { opacity: 0.85; transform: scaleX(1); }
+    }
+    @keyframes bubbleBotPop {
+      0%, 30%, 100% { opacity: 0; transform: scale(0.2) translateY(8px); }
+      35%, 85%      { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Chibi Deadpool: Walking, dancing & sword flourishing along TS floor */
+    @keyframes dpWalkPatrol {
+      0%   { transform: translate(50px, 246px) scaleX(1); }
+      40%  { transform: translate(110px, 246px) scaleX(1); }
+      45%  { transform: translate(110px, 246px) scaleX(-1); }
+      85%  { transform: translate(50px, 246px) scaleX(-1); }
+      90%  { transform: translate(50px, 246px) scaleX(1); }
+      100% { transform: translate(50px, 246px) scaleX(1); }
+    }
+    @keyframes dpDanceBounce {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25%      { transform: translateY(-7px) rotate(-3deg); }
+      50%      { transform: translateY(0px) rotate(0deg); }
+      75%      { transform: translateY(-7px) rotate(3deg); }
+    }
+    @keyframes dpSwordFlourishL {
+      0%, 100% { transform: rotate(-20deg); }
+      35%, 45% { transform: rotate(-60deg) translateY(-5px); }
+      55%      { transform: rotate(10deg); }
+    }
+    @keyframes dpSwordFlourishR {
+      0%, 100% { transform: rotate(20deg); }
+      38%, 48% { transform: rotate(60deg) translateY(-5px); }
+      58%      { transform: rotate(-10deg); }
+    }
+    @keyframes dpArcTrail {
+      0%, 32%, 52%, 100% { opacity: 0; stroke-dashoffset: 70; }
+      38%, 46%           { opacity: 1; stroke-dashoffset: 0; }
+    }
+
+
+    /* ---------------- SECTION 2 (CENTER: RUST/GO): CHARACTERS ---------------- */
+
+    /* Ninja Turtle: Tactical fight patrol, double-slash combos on floor */
+    @keyframes ninjaFightPatrol {
+      0%   { transform: translate(340px, 246px) scaleX(1); }
+      35%  { transform: translate(410px, 246px) scaleX(1); }
+      45%  { transform: translate(410px, 246px) scaleX(-1); }
+      80%  { transform: translate(340px, 246px) scaleX(-1); }
+      90%  { transform: translate(340px, 246px) scaleX(1); }
+      100% { transform: translate(340px, 246px) scaleX(1); }
+    }
+    @keyframes ninjaLegSprintL {
+      0%, 100% { transform: rotate(-26deg); }
+      50%      { transform: rotate(26deg); }
+    }
+    @keyframes ninjaLegSprintR {
+      0%, 100% { transform: rotate(26deg); }
+      50%      { transform: rotate(-26deg); }
+    }
+    @keyframes ninjaSlashL {
+      0%, 100% { transform: rotate(-15deg); }
+      20%, 32% { transform: rotate(-75deg) translateY(-8px); }
+      40%      { transform: rotate(20deg); }
+    }
+    @keyframes ninjaSlashR {
+      0%, 100% { transform: rotate(15deg); }
+      24%, 36% { transform: rotate(75deg) translateY(-8px); }
+      44%      { transform: rotate(-20deg); }
+    }
+    @keyframes ninjaBladeArc {
+      0%, 18%, 38%, 100% { opacity: 0; stroke-dashoffset: 70; }
+      22%, 34%           { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @keyframes ninjaBandanaFlutter {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-18deg) skewX(-12deg); }
+    }
+    @keyframes bubbleNinjaPop {
+      0%, 18%, 45%, 100% { opacity: 0; transform: scale(0.2); }
+      22%, 40%           { opacity: 1; transform: scale(1); }
+    }
+
+    /* Blue Bean: Joyful waddle dance & cheer hops on platform */
+    @keyframes beanCheerDance {
+      0%, 100% { transform: translateY(0) rotate(-6deg) scale(1.05, 0.95); }
+      25%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.12); }
+      50%      { transform: translateY(0) rotate(6deg) scale(1.05, 0.95); }
+      75%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.12); }
+    }
+    @keyframes beanArmCheerL {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(45deg) translateY(-6px); }
+    }
+    @keyframes beanArmCheerR {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-45deg) translateY(-6px); }
+    }
+
+    /* Insectoid Warrior: Power sentry stance, flexing & laser scanning */
+    @keyframes insectChestFlex {
+      0%, 100% { transform: scale(1, 1); }
+      50%      { transform: scale(1.04, 1.03); }
+    }
+    @keyframes antWiggleL {
+      0%, 100% { transform: rotate(0deg); }
+      30%      { transform: rotate(-10deg); }
+      70%      { transform: rotate(5deg); }
+    }
+    @keyframes antWiggleR {
+      0%, 100% { transform: rotate(0deg); }
+      30%      { transform: rotate(10deg); }
+      70%      { transform: rotate(-5deg); }
+    }
+    @keyframes insectEyePulse {
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 2px #ef4444); }
+      50%      { opacity: 1; filter: drop-shadow(0 0 7px #ff2a6d); }
+    }
+
+
+    /* ---------------- SECTION 3 (RIGHT: PYTHON/AI): CHARACTERS ---------------- */
+
+    /* Pink Wyvern: Graceful aerial hover & stardust flutter dance */
+    @keyframes wyvernSkyFlutter {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-10px) rotate(3deg); }
+    }
+    @keyframes wyvernWingL {
+      0%, 100% { transform: rotate(0deg) scale(1, 1); }
+      50%      { transform: rotate(-26deg) scale(0.92, 1.12); }
+    }
+    @keyframes wyvernWingR {
+      0%, 100% { transform: rotate(0deg) scale(1, 1); }
+      50%      { transform: rotate(24deg) scale(0.92, 1.12); }
+    }
+    @keyframes wyvernTailSway {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(15deg); }
+    }
+    @keyframes wyvernStarDust {
+      0%, 35%, 100% { opacity: 0; transform: translate(0, 0) scale(0.3); }
+      45%, 85%      { opacity: 1; transform: translate(14px, 8px) scale(1.2); }
+    }
+
+    /* Red Dragon: Sky soaring & focused fire burst on AI pipeline */
+    @keyframes redDragonSkySoar {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-8px) rotate(-2deg); }
+    }
+    @keyframes redDragonWing {
       0%, 100% { transform: rotate(0deg) scaleY(1); }
       50%      { transform: rotate(-28deg) scaleY(1.2); }
     }
-    @keyframes dragonFireBurstRoam {
-      0%, 20%, 65%, 100% { opacity: 0; transform: scale(0.2); }
-      24%, 30%           { opacity: 1; transform: scale(1.3) translate(15px, 8px); }
-      70%, 76%           { opacity: 1; transform: scale(1.3) translate(15px, 8px); }
+    @keyframes redDragonFlame {
+      0%, 40%, 100% { opacity: 0; transform: scale(0.2); }
+      50%, 75%      { opacity: 1; transform: scale(1.3) translate(-8px, 12px); }
     }
 
-    /* ---------- 2. BLUE ASSISTANT BOT (Airspace Roamer & Text Pointer) ---------- */
-    @keyframes botRoamAir {
-      0%   { transform: translate(140px, 95px) scaleX(1); }
-      20%  { transform: translate(320px, 75px) scaleX(1); }
-      48%  { transform: translate(510px, 88px) scaleX(1); }
-      50%  { transform: translate(510px, 88px) scaleX(-1); }
-      72%  { transform: translate(340px, 80px) scaleX(-1); }
-      98%  { transform: translate(140px, 95px) scaleX(-1); }
-      100% { transform: translate(140px, 95px) scaleX(1); }
+    /* Dragonborn Paladin: Holy spear fighting stance, defensive thrust & banner */
+    @keyframes paladinGuardStance {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-5px); }
     }
-    @keyframes botHoverBob {
+    @keyframes paladinSpearStrike {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50%      { transform: translateY(-8px) rotate(2deg); }
+      35%      { transform: translateY(4px) rotate(-3deg); }
+      48%      { transform: translateY(-14px) rotate(2deg); }
+      65%      { transform: translateY(-2px); }
     }
-    @keyframes botArmWaveAction {
+    @keyframes paladinRibbonWave {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(-45deg); }
+      50%      { transform: rotate(-18deg); }
     }
-    @keyframes botArmPointAction {
+    @keyframes paladinTailMotion {
       0%, 100% { transform: rotate(0deg); }
-      30%, 70% { transform: rotate(40deg) translateY(-6px); }
+      50%      { transform: rotate(14deg); }
     }
-    @keyframes botVisorBlink {
-      0%, 92%, 100% { transform: scaleY(1); }
-      96%           { transform: scaleY(0.15); }
-    }
-    @keyframes botCorePulse {
-      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #48cfad); }
-      50%      { transform: scale(1.35); filter: drop-shadow(0 0 8px #48cfad); }
+    @keyframes paladinGleamFlare {
+      0%, 42%, 100% { opacity: 0; transform: scale(0.2); }
+      48%, 60%      { opacity: 1; transform: scale(1.2) rotate(90deg); }
     }
 
-    /* ---------- 3. NINJA TURTLE (Ground Patroller & Code Slasher) ---------- */
-    @keyframes ninjaRoamFloor {
-      0%   { transform: translate(90px, 200px) scaleX(1); }
-      12%  { transform: translate(90px, 200px) scaleX(1); } /* Stop & slash code */
-      35%  { transform: translate(360px, 200px) scaleX(1); }
-      48%  { transform: translate(580px, 200px) scaleX(1); }
-      50%  { transform: translate(580px, 200px) scaleX(-1); }
-      72%  { transform: translate(320px, 200px) scaleX(-1); }
-      98%  { transform: translate(90px, 200px) scaleX(-1); }
-      100% { transform: translate(90px, 200px) scaleX(1); }
-    }
-    @keyframes ninjaLegRunL {
-      0%, 100% { transform: rotate(-24deg); }
-      50%      { transform: rotate(24deg); }
-    }
-    @keyframes ninjaLegRunR {
-      0%, 100% { transform: rotate(24deg); }
-      50%      { transform: rotate(-24deg); }
-    }
-    @keyframes ninjaKatanaSlashL {
-      0%, 100% { transform: rotate(-20deg); }
-      10%, 16% { transform: rotate(-65deg) translateY(-8px); }
-      20%      { transform: rotate(15deg); }
-    }
-    @keyframes ninjaKatanaSlashR {
-      0%, 100% { transform: rotate(20deg); }
-      12%, 18% { transform: rotate(65deg) translateY(-8px); }
-      22%      { transform: rotate(-15deg); }
-    }
-    @keyframes ninjaSlashWaveTrail {
-      0%, 9%, 22%, 100% { opacity: 0; stroke-dashoffset: 70; }
-      12%, 16%          { opacity: 1; stroke-dashoffset: 0; }
-    }
-    @keyframes bandanaWave {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(-15deg) skewX(-10deg); }
-    }
-
-    /* ---------- 4. BLUE BEAN CAPSULE (Playful Waddler & High-Fiver) ---------- */
-    @keyframes beanRoamFloor {
-      0%   { transform: translate(380px, 205px) scaleX(1); }
-      22%  { transform: translate(520px, 205px) scaleX(1); }
-      48%  { transform: translate(720px, 205px) scaleX(1); }
-      50%  { transform: translate(720px, 205px) scaleX(-1); }
-      75%  { transform: translate(540px, 205px) scaleX(-1); }
-      98%  { transform: translate(380px, 205px) scaleX(-1); }
-      100% { transform: translate(380px, 205px) scaleX(1); }
-    }
-    @keyframes beanWaddleHop {
-      0%, 100% { transform: translateY(0) rotate(-6deg) scale(1, 1); }
-      25%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.1); }
-      50%      { transform: translateY(0) rotate(6deg) scale(1.08, 0.92); }
-      75%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.1); }
-    }
-    @keyframes beanArmFlapMotion {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(35deg) translateY(-4px); }
-    }
-
-    /* ---------- 5. PURPLE MONSTER (Heavy Stomper & Bug Chomper) ---------- */
-    @keyframes monsterRoamFloor {
-      0%   { transform: translate(870px, 195px) scaleX(-1); }
-      24%  { transform: translate(740px, 195px) scaleX(-1); }
-      48%  { transform: translate(620px, 195px) scaleX(-1); }
-      50%  { transform: translate(620px, 195px) scaleX(1); }
-      74%  { transform: translate(760px, 195px) scaleX(1); }
-      98%  { transform: translate(870px, 195px) scaleX(1); }
-      100% { transform: translate(870px, 195px) scaleX(-1); }
-    }
-    @keyframes monsterStompCycle {
+    /* Purple Monster: Heavy floor stomp dance & token chomping */
+    @keyframes monsterHeavyStomp {
       0%, 100% { transform: translateY(0) rotate(0deg); }
-      25%      { transform: translateY(-10px) rotate(-4deg); }
+      25%      { transform: translateY(-8px) rotate(-4deg); }
       50%      { transform: translateY(0) rotate(0deg); }
-      75%      { transform: translateY(-10px) rotate(4deg); }
+      75%      { transform: translateY(-8px) rotate(4deg); }
     }
-    @keyframes monsterChompMotion {
+    @keyframes monsterJawChomp {
       0%, 100% { transform: scaleY(1); }
-      50%      { transform: scaleY(1.3) translateY(2px); }
+      50%      { transform: scaleY(1.35) translateY(2px); }
     }
-    @keyframes monsterEyeWanderMotion {
+    @keyframes monsterPupilWander {
       0%, 100% { transform: translate(0, 0); }
       30%      { transform: translate(-3px, 1px); }
       70%      { transform: translate(3px, -1px); }
     }
 
-    /* ---------- SPEECH BUBBLES POPPING ---------- */
-    @keyframes bubblePopBot {
-      0%, 25%, 100% { opacity: 0; transform: scale(0.2) translateY(10px); }
-      5%, 20%       { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    @keyframes bubblePopNinja {
-      0%, 8%, 24%, 100% { opacity: 0; transform: scale(0.2); }
-      10%, 18%          { opacity: 1; transform: scale(1); }
-    }
-    @keyframes bubblePopBean {
-      0%, 40%, 65%, 100% { opacity: 0; transform: scale(0.2); }
-      45%, 60%           { opacity: 1; transform: scale(1); }
+    /* Terminal Glow Pulse */
+    @keyframes termBorderGlow {
+      0%, 100% { stroke-opacity: 0.45; }
+      50%      { stroke-opacity: 0.95; }
     }
 
-    /* ---------- TEXT TERMINAL GLOWS ---------- */
-    @keyframes terminalBorderPulse {
-      0%, 100% { stroke-opacity: 0.4; }
-      50%      { stroke-opacity: 0.9; }
-    }
+    /* Class Hooks with fill-box Transform Isolation */
+    .term-box-glow { animation: termBorderGlow 3.5s ease-in-out infinite; }
 
-    /* Class bindings */
-    .roam-dragon { animation: dragonRoamSky 14s ease-in-out infinite; }
-    .anim-dragon-wing { animation: dragonWingFlapCycle 0.9s ease-in-out infinite; transform-origin: 30px 30px; }
-    .anim-dragon-fire { animation: dragonFireBurstRoam 14s ease-out infinite; }
+    .anim-bot-float { transform-box: fill-box; transform-origin: center; animation: botHoverLoop 3s ease-in-out infinite; }
+    .anim-bot-waving { transform-box: fill-box; transform-origin: top right; animation: botArmWave 2s ease-in-out infinite; }
+    .anim-bot-pointing { transform-box: fill-box; transform-origin: top left; animation: botArmPointScan 3s ease-in-out infinite; }
+    .anim-bot-eyes { transform-box: fill-box; transform-origin: center; animation: botVisorBlinkLoop 4s ease-in-out infinite; }
+    .anim-bot-heart { transform-box: fill-box; transform-origin: center; animation: botCorePulseLoop 2s ease-in-out infinite; }
+    .anim-bot-beam { transform-box: fill-box; transform-origin: left center; animation: botScanBeam 3s ease-in-out infinite; }
+    .anim-bot-bubble { transform-box: fill-box; transform-origin: bottom center; animation: bubbleBotPop 3s ease-out infinite; }
 
-    .roam-bot { animation: botRoamAir 12s ease-in-out infinite; }
-    .anim-bot-bob { animation: botHoverBob 2.8s ease-in-out infinite; }
-    .anim-bot-arm-l { animation: botArmWaveAction 2s ease-in-out infinite; transform-origin: -18px -4px; }
-    .anim-bot-arm-r { animation: botArmPointAction 3s ease-in-out infinite; transform-origin: 18px -4px; }
-    .anim-bot-visor { animation: botVisorBlink 4s ease-in-out infinite; transform-origin: center; }
-    .anim-bot-core { animation: botCorePulse 2s ease-in-out infinite; transform-origin: 0px 14px; }
-    .anim-bubble-bot { animation: bubblePopBot 12s ease-out infinite; transform-origin: 20px -30px; }
+    .roam-dp-patrol { animation: dpWalkPatrol 9s ease-in-out infinite; }
+    .anim-dp-dance { transform-box: fill-box; transform-origin: center bottom; animation: dpDanceBounce 3s ease-in-out infinite; }
+    .anim-dp-sword-l { transform-box: fill-box; transform-origin: top right; animation: dpSwordFlourishL 3s ease-in-out infinite; }
+    .anim-dp-sword-r { transform-box: fill-box; transform-origin: top left; animation: dpSwordFlourishR 3s ease-in-out infinite; }
+    .anim-dp-trail { animation: dpArcTrail 3s ease-out infinite; stroke-dasharray: 70; }
 
-    .roam-ninja { animation: ninjaRoamFloor 10s ease-in-out infinite; }
-    .anim-ninja-leg-l { animation: ninjaLegRunL 0.6s ease-in-out infinite; transform-origin: -6px 20px; }
-    .anim-ninja-leg-r { animation: ninjaLegRunR 0.6s ease-in-out infinite; transform-origin: 6px 20px; }
-    .anim-ninja-sword-l { animation: ninjaKatanaSlashL 10s ease-in-out infinite; transform-origin: -12px 6px; }
-    .anim-ninja-sword-r { animation: ninjaKatanaSlashR 10s ease-in-out infinite; transform-origin: 12px 6px; }
-    .anim-ninja-arc { animation: ninjaSlashWaveTrail 10s ease-out infinite; stroke-dasharray: 70; }
-    .anim-ninja-bandana { animation: bandanaWave 1.6s ease-in-out infinite; transform-origin: -14px -14px; }
-    .anim-bubble-ninja { animation: bubblePopNinja 10s ease-out infinite; transform-origin: 0px -40px; }
+    .roam-ninja-patrol { animation: ninjaFightPatrol 8.5s ease-in-out infinite; }
+    .anim-ninja-step-l { transform-box: fill-box; transform-origin: top center; animation: ninjaLegSprintL 0.6s ease-in-out infinite; }
+    .anim-ninja-step-r { transform-box: fill-box; transform-origin: top center; animation: ninjaLegSprintR 0.6s ease-in-out infinite; }
+    .anim-ninja-blade-l { transform-box: fill-box; transform-origin: top right; animation: ninjaSlashL 8.5s ease-in-out infinite; }
+    .anim-ninja-blade-r { transform-box: fill-box; transform-origin: top left; animation: ninjaSlashR 8.5s ease-in-out infinite; }
+    .anim-ninja-trail { animation: ninjaBladeArc 8.5s ease-out infinite; stroke-dasharray: 70; }
+    .anim-ninja-scarf { transform-box: fill-box; transform-origin: top right; animation: ninjaBandanaFlutter 1.8s ease-in-out infinite; }
+    .anim-ninja-bubble { transform-box: fill-box; transform-origin: bottom center; animation: bubbleNinjaPop 8.5s ease-out infinite; }
 
-    .roam-bean { animation: beanRoamFloor 9s ease-in-out infinite; }
-    .anim-bean-hop { animation: beanWaddleHop 1.2s ease-in-out infinite; }
-    .anim-bean-arm-l { animation: beanArmFlapMotion 1.2s ease-in-out infinite; transform-origin: -16px 2px; }
-    .anim-bean-arm-r { animation: beanArmFlapMotion 1.2s ease-in-out infinite 0.2s; transform-origin: 16px 2px; }
-    .anim-bubble-bean { animation: bubblePopBean 9s ease-out infinite; transform-origin: 0px -35px; }
+    .anim-bean-dance { transform-box: fill-box; transform-origin: center bottom; animation: beanCheerDance 1.3s ease-in-out infinite; }
+    .anim-bean-arm-l { transform-box: fill-box; transform-origin: top right; animation: beanArmCheerL 1.3s ease-in-out infinite; }
+    .anim-bean-arm-r { transform-box: fill-box; transform-origin: top left; animation: beanArmCheerR 1.3s ease-in-out infinite; }
 
-    .roam-monster { animation: monsterRoamFloor 11s ease-in-out infinite; }
-    .anim-monster-stomp { animation: monsterStompCycle 1.4s ease-in-out infinite; }
-    .anim-monster-jaw { animation: monsterChompMotion 1.4s ease-in-out infinite; transform-origin: 0px 10px; }
-    .anim-monster-eyes { animation: monsterEyeWanderMotion 3s ease-in-out infinite; }
+    .anim-insect-flex { transform-box: fill-box; transform-origin: center bottom; animation: insectChestFlex 2.6s ease-in-out infinite; }
+    .anim-insect-ant-l { transform-box: fill-box; transform-origin: bottom right; animation: antWiggleL 3.2s ease-in-out infinite; }
+    .anim-insect-ant-r { transform-box: fill-box; transform-origin: bottom left; animation: antWiggleR 3.2s ease-in-out infinite; }
+    .anim-insect-eye { animation: insectEyePulse 2s ease-in-out infinite; }
 
-    .term-pulse { animation: terminalBorderPulse 3s ease-in-out infinite; }
+    .anim-wyvern-fly { transform-box: fill-box; transform-origin: center; animation: wyvernSkyFlutter 3.4s ease-in-out infinite; }
+    .anim-wyvern-wl { transform-box: fill-box; transform-origin: bottom right; animation: wyvernWingL 1.2s ease-in-out infinite; }
+    .anim-wyvern-wr { transform-box: fill-box; transform-origin: bottom left; animation: wyvernWingR 1.2s ease-in-out infinite 0.1s; }
+    .anim-wyvern-tail { transform-box: fill-box; transform-origin: right center; animation: wyvernTailSway 2.4s ease-in-out infinite; }
+    .anim-wyvern-dust { transform-box: fill-box; transform-origin: left center; animation: wyvernStarDust 3.4s ease-out infinite; }
+
+    .anim-red-dragon-soar { transform-box: fill-box; transform-origin: center; animation: redDragonSkySoar 3.6s ease-in-out infinite; }
+    .anim-red-dragon-wing { transform-box: fill-box; transform-origin: center bottom; animation: redDragonWing 0.9s ease-in-out infinite; }
+    .anim-red-dragon-fire { transform-box: fill-box; transform-origin: top right; animation: redDragonFlame 3.6s ease-out infinite; }
+
+    .anim-paladin-guard { transform-box: fill-box; transform-origin: center bottom; animation: paladinGuardStance 3.5s ease-in-out infinite; }
+    .anim-paladin-spear { transform-box: fill-box; transform-origin: bottom center; animation: paladinSpearStrike 3.5s ease-in-out infinite; }
+    .anim-paladin-ribbon { transform-box: fill-box; transform-origin: top left; animation: paladinRibbonWave 2s ease-in-out infinite; }
+    .anim-paladin-tail { transform-box: fill-box; transform-origin: left bottom; animation: paladinTailMotion 3s ease-in-out infinite; }
+    .anim-paladin-gleam { transform-box: fill-box; transform-origin: center; animation: paladinGleamFlare 3.5s ease-out infinite; }
+
+    .anim-monster-dance { transform-box: fill-box; transform-origin: center bottom; animation: monsterHeavyStomp 1.4s ease-in-out infinite; }
+    .anim-monster-jaw { transform-box: fill-box; transform-origin: top center; animation: monsterJawChomp 1.4s ease-in-out infinite; }
+    .anim-monster-eyes { transform-box: fill-box; transform-origin: center; animation: monsterPupilWander 3s ease-in-out infinite; }
 
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; }
@@ -236,17 +334,18 @@
   <!-- Background Stage Frame -->
   <rect width="960" height="320" rx="16" fill="url(#roamStageBg)" stroke="#1e293b" stroke-width="1.5" />
 
-  <!-- Cyber Grid Runway & Perspective Floor -->
+  <!-- Cyber Grid Runway Floor -->
   <g stroke="#334155" stroke-opacity="0.22" stroke-width="1">
     <line x1="0" y1="250" x2="960" y2="250" />
     <line x1="0" y1="280" x2="960" y2="280" />
     <line x1="0" y1="305" x2="960" y2="305" />
-    <line x1="60" y1="250" x2="20" y2="320" />
-    <line x1="200" y1="250" x2="170" y2="320" />
-    <line x1="360" y1="250" x2="340" y2="320" />
-    <line x1="520" y1="250" x2="520" y2="320" />
-    <line x1="680" y1="250" x2="700" y2="320" />
-    <line x1="840" y1="250" x2="870" y2="320" />
+    <line x1="50" y1="250" x2="10" y2="320" />
+    <line x1="180" y1="250" x2="150" y2="320" />
+    <line x1="330" y1="250" x2="310" y2="320" />
+    <line x1="480" y1="250" x2="480" y2="320" />
+    <line x1="630" y1="250" x2="650" y2="320" />
+    <line x1="780" y1="250" x2="810" y2="320" />
+    <line x1="910" y1="250" x2="950" y2="320" />
   </g>
 
   <!-- Cyber Floor Energy Line -->
@@ -254,22 +353,23 @@
 
   <!-- Top Navigation Wordmark -->
   <g>
-    <rect x="24" y="16" width="380" height="28" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <rect x="24" y="16" width="410" height="28" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
     <circle cx="38" cy="30" r="5" fill="#38bdf8" />
     <circle cx="52" cy="30" r="5" fill="#22c55e" />
     <circle cx="66" cy="30" r="5" fill="#ef4444" />
     <circle cx="80" cy="30" r="5" fill="#a855f7" />
-    <text x="96" y="34" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="11" letter-spacing="1.2">ROAMING SQUAD • INTERACTIVE SECTIONS</text>
+    <text x="96" y="34" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="11" letter-spacing="1.2">DYNAMIC SQUAD • LOGICAL KINEMATICS</text>
   </g>
 
+
   <!-- =========================================================
-       INTERACTIVE SECTION 1 (LEFT): TYPESCRIPT & WEB RUNTIME
+       SECTION 1 (LEFT): TYPESCRIPT & WEB RUNTIME
        ========================================================= -->
-  <g transform="translate(30, 75)">
+  <g transform="translate(30, 70)">
     <!-- Terminal Box -->
-    <rect width="240" height="150" rx="10" fill="url(#terminalBgGrad)" stroke="#38bdf8" stroke-width="1.5" class="term-pulse" />
+    <rect width="245" height="152" rx="10" fill="url(#terminalBgGrad)" stroke="#38bdf8" stroke-width="1.5" class="term-box-glow" />
     <!-- Titlebar -->
-    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 230 0 C 235.5 0 240 4.5 240 10 L 240 24 L 0 24 Z" fill="#0b1120" />
+    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 235 0 C 240.5 0 245 4.5 245 10 L 245 24 L 0 24 Z" fill="#0b1120" />
     <circle cx="14" cy="12" r="3.5" fill="#ef4444" />
     <circle cx="26" cy="12" r="3.5" fill="#eab308" />
     <circle cx="38" cy="12" r="3.5" fill="#22c55e" />
@@ -277,7 +377,7 @@
     <text x="54" y="15" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">TS</text>
     <text x="76" y="16" fill="#94a3b8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">profile.types.ts</text>
 
-    <!-- Code Text Lines (Blue Bot points to this!) -->
+    <!-- Code Text Lines -->
     <text x="14" y="44" fill="#38bdf8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="600">interface <tspan fill="#4ade80">ProfileForge</tspan> {</text>
     <text x="24" y="62" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">  languages: <tspan fill="#f59e0b">'TS' | 'Rust' | 'Py'</tspan>;</text>
     <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">  runtime: <tspan fill="#38bdf8">'60fps-vector'</tspan>;</text>
@@ -285,43 +385,273 @@
     <text x="14" y="116" fill="#38bdf8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="600">}</text>
     <text x="14" y="134" fill="#c084fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">export const <tspan fill="#f8fafc">squad</tspan> = new Squad();</text>
 
-    <!-- Corner Neon Decals -->
+    <!-- Neon Decal Corner Accents -->
     <path d="M 0 35 L 0 24 L 12 24" stroke="#00f5d4" stroke-width="2" fill="none" />
-    <path d="M 240 135 L 240 150 L 225 150" stroke="#00f5d4" stroke-width="2" fill="none" />
+    <path d="M 245 137 L 245 152 L 230 152" stroke="#00f5d4" stroke-width="2" fill="none" />
+
+    <!-- Scanning beam projected from Bot toward the code -->
+    <line x1="200" y1="95" x2="80" y2="95" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 2" class="anim-bot-beam" filter="url(#neonGlow)" />
   </g>
 
+  <!-- CHAR 1: BLUE ASSISTANT BOT (Hovering at Upper Right Corner of TS Div, pointing at text) -->
+  <g transform="translate(235, 120)">
+    <g class="anim-bot-float">
+      <!-- Shadow Under Bot -->
+      <ellipse cx="0" cy="36" rx="16" ry="3.5" fill="#000000" opacity="0.4" />
+
+      <!-- Left Arm (Waving) -->
+      <g class="anim-bot-waving">
+        <path d="M -16 6 L -26 14 C -30 16 -28 22 -22 20 L -14 12 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+        <circle cx="-26" cy="18" r="3.5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
+      </g>
+
+      <!-- Right Arm (Pointing directly at code text!) -->
+      <g class="anim-bot-pointing">
+        <path d="M 16 6 L 28 -6 C 32 -8 36 -4 32 2 L 18 12 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+        <circle cx="30" cy="-4" r="3.5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
+      </g>
+
+      <!-- Bot Ears -->
+      <circle cx="-24" cy="-14" r="5.5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+      <circle cx="24" cy="-14" r="5.5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+
+      <!-- Bot Head Capsule -->
+      <rect x="-22" y="-30" width="44" height="34" rx="17" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
+      <rect x="-16" y="-24" width="32" height="22" rx="11" fill="#eef2f7" />
+      <rect x="-13" y="-21" width="26" height="16" rx="8" fill="#48cfad" />
+
+      <!-- Smiling Eyes (Winking) -->
+      <g class="anim-bot-eyes">
+        <path d="M -9 -13 C -9 -17 -5 -17 -5 -13 M 5 -13 C 5 -17 9 -17 9 -13" stroke="#37474f" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Torso & Core -->
+      <rect x="-16" y="6" width="32" height="22" rx="11" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
+      <polygon points="0,10 5,15 0,20 -5,15" fill="#48cfad" class="anim-bot-heart" />
+
+      <!-- Thruster Wheel -->
+      <path d="M -6 26 L 6 26 L 4 33 L -4 33 Z" fill="#37474f" />
+      <circle cx="0" cy="33" r="2.8" fill="#38bdf8" filter="url(#neonGlow)" />
+
+      <!-- Speech Bubble -->
+      <g class="anim-bot-bubble" transform="translate(15, -42)">
+        <rect x="0" y="-18" width="98" height="20" rx="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2" />
+        <polygon points="10,2 14,8 18,2" fill="#0f172a" />
+        <text x="8" y="-4" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">Type-Safe ✦</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CHAR 2: CHIBI DEADPOOL (Walking, dancing & patrolling along TS floor) -->
+  <g class="roam-dp-patrol">
+    <!-- Floor Shadow -->
+    <ellipse cx="0" cy="4" rx="26" ry="5" fill="#050811" opacity="0.5" />
+
+    <!-- Root Animated Dance -->
+    <g class="anim-dp-dance" transform="translate(0, -32)">
+      <!-- Scabbards on Back -->
+      <rect x="-18" y="-12" width="4" height="42" rx="1.5" transform="rotate(-38 -18 -12)" fill="#37474f" stroke="#263238" stroke-width="1" />
+      <rect x="18" y="-12" width="4" height="42" rx="1.5" transform="rotate(38 18 -12)" fill="#37474f" stroke="#263238" stroke-width="1" />
+
+      <!-- Boots / Legs -->
+      <rect x="-12" y="14" width="9" height="18" rx="4" fill="#c62828" stroke="#1a202c" stroke-width="1.5" />
+      <rect x="3" y="14" width="9" height="18" rx="4" fill="#c62828" stroke="#1a202c" stroke-width="1.5" />
+      <rect x="-13" y="27" width="10" height="6" rx="2" fill="#212121" />
+      <rect x="3" y="27" width="10" height="6" rx="2" fill="#212121" />
+
+      <!-- Torso -->
+      <ellipse cx="0" cy="2" rx="16" ry="15" fill="#d32f2f" stroke="#1a202c" stroke-width="2" />
+      <path d="M -16 2 Q -8 14 0 16 Q 8 14 16 2 Q 8 -10 0 -12 Q -8 -10 -16 2 Z" fill="#212121" opacity="0.3" />
+
+      <!-- Utility Belt -->
+      <rect x="-14" y="10" width="28" height="5" rx="2" fill="#3e2723" stroke="#1a202c" stroke-width="1" />
+      <circle cx="0" cy="12.5" r="3" fill="#d32f2f" stroke="#1a202c" stroke-width="1" />
+
+      <!-- Left Katana Arm -->
+      <g class="anim-dp-sword-l">
+        <line x1="-10" y1="-2" x2="-20" y2="-12" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" />
+        <line x1="-20" y1="-12" x2="-36" y2="-32" stroke="#eceff1" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="-20" y1="-12" x2="-36" y2="-32" stroke="#ffffff" stroke-width="1.2" />
+      </g>
+
+      <!-- Right Katana Arm -->
+      <g class="anim-dp-sword-r">
+        <line x1="10" y1="-2" x2="20" y2="-12" stroke="#c62828" stroke-width="4.5" stroke-linecap="round" />
+        <line x1="20" y1="-12" x2="36" y2="-32" stroke="#eceff1" stroke-width="2.5" stroke-linecap="round" />
+        <line x1="20" y1="-12" x2="36" y2="-32" stroke="#ffffff" stroke-width="1.2" />
+      </g>
+
+      <!-- Head -->
+      <ellipse cx="0" cy="-20" rx="16" ry="17" fill="#d32f2f" stroke="#1a202c" stroke-width="2" />
+      <!-- Black Eye Patches -->
+      <path d="M -5 -22 C -13 -22 -16 -16 -15 -10 C -14 -4 -7 -4 -3 -6 C -1 -8 -1 -13 -3 -18 Z" fill="#212121" />
+      <path d="M 5 -22 C 13 -22 16 -16 15 -10 C 14 -4 7 -4 3 -6 C 1 -8 1 -13 3 -18 Z" fill="#212121" />
+      <!-- Eyes -->
+      <ellipse cx="-8" cy="-12" rx="3.5" ry="2.2" fill="#ffffff" />
+      <ellipse cx="8" cy="-12" rx="3.5" ry="2.2" fill="#ffffff" />
+
+      <!-- Sword Slash Trail -->
+      <path d="M -40 -35 Q 0 -55 40 -35" fill="none" stroke="#f87171" stroke-width="2.8" stroke-linecap="round" class="anim-dp-trail" filter="url(#bladeSlashGlow)" />
+    </g>
+  </g>
+
+
   <!-- =========================================================
-       INTERACTIVE SECTION 2 (CENTER): RUST & GO CONCURRENCY HUB
+       SECTION 2 (CENTER): RUST & GO CONCURRENCY HUB
        ========================================================= -->
-  <g transform="translate(330, 65)">
+  <g transform="translate(315, 65)">
     <!-- Console Box -->
-    <rect width="300" height="110" rx="10" fill="url(#terminalBgGrad)" stroke="#818cf8" stroke-width="1.5" class="term-pulse" />
-    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 290 0 C 295.5 0 300 4.5 300 10 L 300 24 L 0 24 Z" fill="#0b1120" />
+    <rect width="320" height="115" rx="10" fill="url(#terminalBgGrad)" stroke="#818cf8" stroke-width="1.5" class="term-box-glow" />
+    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 310 0 C 315.5 0 320 4.5 320 10 L 320 24 L 0 24 Z" fill="#0b1120" />
     <rect x="14" y="5" width="20" height="14" rx="2" fill="#dea584" />
     <text x="17" y="15" fill="#1e293b" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">RS</text>
     <rect x="38" y="5" width="20" height="14" rx="2" fill="#00add8" />
     <text x="41" y="15" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">GO</text>
     <text x="64" y="16" fill="#a5b4fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10" font-weight="700">main.rs &bull; goroutines</text>
 
-    <!-- Rust & Go Code Lines (Ninja Turtle slashes bugs & Bean hops!) -->
+    <!-- Rust & Go Code Lines -->
     <text x="14" y="44" fill="#f43f5e" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600">fn <tspan fill="#38bdf8">deploy_squad</tspan>() -&gt; Result&lt;(), ZeroBug&gt; {</text>
     <text x="24" y="62" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  let <tspan fill="#f59e0b">opt</tspan> = Concurrency::spawn_goroutine();</text>
     <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  opt.slash_memory_latency(<tspan fill="#4ade80">0.001ms</tspan>);</text>
     <text x="14" y="98" fill="#f43f5e" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600">}</text>
   </g>
 
+  <!-- CHAR 3: NINJA TURTLE (Tactical fight patrol & slicing bugs in front of Rust) -->
+  <g class="roam-ninja-patrol">
+    <!-- Ground Shadow -->
+    <ellipse cx="0" cy="4" rx="24" ry="5" fill="#000000" opacity="0.45" />
+
+    <g transform="translate(0, -32)">
+      <!-- Turtle Shell Back -->
+      <ellipse cx="0" cy="10" rx="19" ry="16" fill="#8d6e63" stroke="#1a202c" stroke-width="2" />
+      <rect x="-13" y="2" width="26" height="21" rx="6" fill="#ffe0b2" stroke="#1a202c" stroke-width="1.5" />
+
+      <!-- Head -->
+      <ellipse cx="0" cy="-14" rx="17" ry="14" fill="#7cb342" stroke="#1a202c" stroke-width="2" />
+      <!-- Blue Mask -->
+      <path d="M -17 -18 C -9 -15 9 -15 17 -18 C 18 -13 17 -8 17 -10 C 9 -11 -9 -11 -17 -10 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" />
+      <circle cx="-7" cy="-14" r="3" fill="#1a202c" />
+      <circle cx="-7.5" cy="-15" r="1" fill="#fff" />
+      <circle cx="7" cy="-14" r="3" fill="#1a202c" />
+      <circle cx="6.5" cy="-15" r="1" fill="#fff" />
+      <path d="M -10 -5 Q 0 1 10 -5" stroke="#1a202c" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+      <!-- Bandana Tails -->
+      <g class="anim-ninja-scarf">
+        <path d="M -15 -16 Q -26 -20 -36 -12" fill="none" stroke="#1e88e5" stroke-width="3" stroke-linecap="round" />
+      </g>
+
+      <!-- Running Legs -->
+      <g class="anim-ninja-step-l">
+        <rect x="-9" y="22" width="8" height="11" rx="4" fill="#7cb342" stroke="#1a202c" stroke-width="1.5" />
+      </g>
+      <g class="anim-ninja-step-r">
+        <rect x="1" y="22" width="8" height="11" rx="4" fill="#7cb342" stroke="#1a202c" stroke-width="1.5" />
+      </g>
+
+      <!-- Dual Katana Arms (Slashing action) -->
+      <g class="anim-ninja-blade-l">
+        <line x1="-10" y1="6" x2="-20" y2="-4" stroke="#7cb342" stroke-width="4.5" stroke-linecap="round" />
+        <line x1="-20" y1="-4" x2="-40" y2="-26" stroke="#eceff1" stroke-width="2.8" stroke-linecap="round" />
+        <line x1="-20" y1="-4" x2="-40" y2="-26" stroke="#ffffff" stroke-width="1.2" />
+      </g>
+      <g class="anim-ninja-blade-r">
+        <line x1="10" y1="6" x2="20" y2="-4" stroke="#7cb342" stroke-width="4.5" stroke-linecap="round" />
+        <line x1="20" y1="-4" x2="40" y2="-26" stroke="#eceff1" stroke-width="2.8" stroke-linecap="round" />
+        <line x1="20" y1="-4" x2="40" y2="-26" stroke="#ffffff" stroke-width="1.2" />
+      </g>
+
+      <!-- Speed Slash Arc -->
+      <path d="M -48 -32 Q -18 -55 18 -18" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" class="anim-ninja-trail" filter="url(#bladeSlashGlow)" />
+
+      <!-- Speech Bubble -->
+      <g class="anim-ninja-bubble" transform="translate(0, -40)">
+        <rect x="-42" y="-18" width="84" height="20" rx="5" fill="#0f172a" stroke="#22c55e" stroke-width="1.2" />
+        <text x="0" y="-4" fill="#4ade80" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">Bug Slashed! ✦</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CHAR 4: BLUE BEAN CAPSULE (Dancing & hopping on platform near Goroutines) -->
+  <g transform="translate(500, 245)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="4" rx="16" ry="4" fill="#000000" opacity="0.4" />
+
+    <g class="anim-bean-dance" transform="translate(0, -32)">
+      <!-- Left Arm (Cheering) -->
+      <g class="anim-bean-arm-l">
+        <path d="M -15 6 C -22 6 -26 14 -20 22 C -16 18 -15 12 -13 8 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+      </g>
+      <!-- Right Arm (Cheering) -->
+      <g class="anim-bean-arm-r">
+        <path d="M 15 6 C 22 6 26 14 20 22 C 16 18 15 12 13 8 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+      </g>
+
+      <!-- Bean Capsule Body -->
+      <path d="M -20 0 C -20 -28 20 -28 20 0 C 20 23 11 32 0 32 C -11 32 -20 23 -20 0 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.8" />
+      <!-- Face Visor -->
+      <ellipse cx="0" cy="-8" rx="15" ry="14" fill="#eef2f7" />
+      <ellipse cx="0" cy="-8" rx="13" ry="12" fill="#48cfad" />
+      <!-- Pill Eyes -->
+      <rect x="-6" y="-14" width="4.5" height="10" rx="2.2" fill="#37474f" />
+      <rect x="2" y="-14" width="4.5" height="10" rx="2.2" fill="#37474f" />
+    </g>
+  </g>
+
+  <!-- CHAR 5: INSECTOID WARRIOR (Power sentry stance, flexing & laser scanning) -->
+  <g transform="translate(605, 245)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="4" rx="30" ry="6" fill="#050811" opacity="0.5" />
+
+    <g class="anim-insect-flex" transform="translate(0, -42)">
+      <!-- Shoulders & Biceps -->
+      <path d="M -24 -2 C -40 0 -50 10 -49 24 C -48 38 -39 52 -30 55 L -22 55 C -29 42 -29 27 -20 20 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.2" />
+      <path d="M 24 -2 C 40 0 50 10 49 24 C 48 38 39 52 30 55 L 22 55 C 29 42 29 27 20 20 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.2" />
+
+      <!-- Torso Carapace -->
+      <path d="M -26 2 C -28 26 -23 55 0 55 C 23 55 28 26 26 2 Z" fill="#2563eb" stroke="#0f172a" stroke-width="2.4" />
+      <!-- Pectorals -->
+      <path d="M -22 6 C -22 22 -2 25 0 16 C 0 6 -8 2 -22 6 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="1.8" />
+      <path d="M 22 6 C 22 22 2 25 0 16 C 0 6 8 2 22 6 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="1.8" />
+      <!-- Abs line -->
+      <line x1="0" y1="6" x2="0" y2="50" stroke="#0f172a" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Head & Mandibles -->
+      <path d="M -24 -30 C -24 -52 24 -52 24 -30 C 24 -16 17 -4 0 -4 C -17 -4 -24 -16 -24 -30 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.4" />
+      <!-- Mandible Teeth -->
+      <path d="M -18 -14 L -12 -6 L -8 -12 L -3 -5 L 0 -11 L 3 -5 L 8 -12 L 12 -6 L 18 -14 L 12 1 L 0 7 L -12 1 Z" fill="#2563eb" stroke="#0f172a" stroke-width="1.8" />
+
+      <!-- Crimson Compound Eyes -->
+      <ellipse cx="-11" cy="-24" rx="7" ry="6.5" fill="#ef4444" stroke="#0f172a" stroke-width="1.5" class="anim-insect-eye" filter="url(#eyeRedBloom)" />
+      <ellipse cx="-12" cy="-25" rx="2.5" ry="1.8" fill="#ffffff" opacity="0.85" />
+      <ellipse cx="11" cy="-24" rx="7" ry="6.5" fill="#ef4444" stroke="#0f172a" stroke-width="1.5" class="anim-insect-eye" filter="url(#eyeRedBloom)" />
+      <ellipse cx="10" cy="-25" rx="2.5" ry="1.8" fill="#ffffff" opacity="0.85" />
+
+      <!-- Antennae -->
+      <g class="anim-insect-ant-l">
+        <path d="M -18 -44 C -32 -58 -52 -55 -60 -64" fill="none" stroke="#0f172a" stroke-width="2.4" stroke-linecap="round" />
+        <circle cx="-60" cy="-64" r="2" fill="#ef4444" />
+      </g>
+      <g class="anim-insect-ant-r">
+        <path d="M 18 -44 C 32 -58 52 -55 60 -64" fill="none" stroke="#0f172a" stroke-width="2.4" stroke-linecap="round" />
+        <circle cx="60" cy="-64" r="2" fill="#ef4444" />
+      </g>
+    </g>
+  </g>
+
+
   <!-- =========================================================
-       INTERACTIVE SECTION 3 (RIGHT): PYTHON & AI AGENT PIPELINE
+       SECTION 3 (RIGHT): PYTHON & AI AGENT PIPELINE
        ========================================================= -->
-  <g transform="translate(685, 75)">
+  <g transform="translate(685, 70)">
     <!-- Stats / Python Box -->
-    <rect width="245" height="150" rx="10" fill="url(#terminalBgGrad)" stroke="#ec4899" stroke-width="1.5" class="term-pulse" />
-    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 235 0 C 240.5 0 245 4.5 245 10 L 245 24 L 0 24 Z" fill="#0b1120" />
+    <rect width="250" height="152" rx="10" fill="url(#terminalBgGrad)" stroke="#ec4899" stroke-width="1.5" class="term-box-glow" />
+    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 240 0 C 245.5 0 250 4.5 250 10 L 250 24 L 0 24 Z" fill="#0b1120" />
     <rect x="14" y="5" width="20" height="14" rx="2" fill="#3776ab" />
     <text x="18" y="15" fill="#fcd34d" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">PY</text>
     <text x="40" y="16" fill="#f472b6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">agent_pipeline.py</text>
 
-    <!-- Python Code & Stats (Dragon breathes flames, Monster stomps!) -->
+    <!-- Python Code & Stats -->
     <text x="14" y="44" fill="#fb7185" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600">@dataclass</text>
     <text x="14" y="62" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10.5">class <tspan fill="#f8fafc">AICharacterAgent</tspan>:</text>
     <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  model = <tspan fill="#4ade80">"gemini-omni-flash"</tspan></text>
@@ -330,230 +660,144 @@
     <text x="34" y="134" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10.5">    return <tspan fill="#4ade80">"VECTOR_MAGIC"</tspan></text>
   </g>
 
+  <!-- CHAR 6: PINK WYVERN (Airborne hover & starry stardust flutter dance) -->
+  <g transform="translate(735, 45)">
+    <g class="anim-wyvern-fly">
+      <!-- Wyvern Tail -->
+      <g class="anim-wyvern-tail">
+        <path d="M -18 10 C -34 18 -48 6 -46 -14 C -45 -30 -30 -29 -28 -16 C -26 -6 -36 -2 -40 -7" fill="none" stroke="#ff6584" stroke-width="8" stroke-linecap="round" />
+        <polygon points="-44,-12 -52,-20 -40,-19" fill="#818cf8" stroke="#102a45" stroke-width="1.5" />
+      </g>
 
-  <!-- =========================================================
-       ROAMING CHARACTER 1: RED FLYING DRAGON (SKY SOARER)
-       ========================================================= -->
-  <g class="roam-dragon">
-    <g transform="translate(0, 0)">
-      <!-- Dragon Body -->
-      <g>
-        <!-- Tail -->
-        <path d="M 12 12 Q 32 20 28 35" fill="none" stroke="#e53935" stroke-width="6" stroke-linecap="round" />
-        <!-- Body -->
-        <ellipse cx="0" cy="10" rx="14" ry="18" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
-        <!-- Yellow Belly -->
-        <path d="M -8 8 Q -6 22 0 25 Q -10 21 -8 8 Z" fill="#fdd835" stroke="#1a202c" stroke-width="1" />
-        <!-- Head & Horns -->
-        <path d="M -6 6 Q -14 -4 -14 -14 Q -20 -15 -25 -11 Q -24 -19 -14 -20 Q -10 -22 -7 -17 Q -3 -12 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
-        <polygon points="-14,-20 -19,-28 -12,-22" fill="#e53935" stroke="#1a202c" stroke-width="1" />
-        <circle cx="-17" cy="-17" r="1.8" fill="#1a202c" />
+      <!-- Wings -->
+      <g class="anim-wyvern-wr">
+        <path d="M 0 -18 Q 8 -42 24 -39 Q 17 -28 20 -18 Z" fill="#ff8da1" stroke="#102a45" stroke-width="2" />
+      </g>
+      <g class="anim-wyvern-wl">
+        <path d="M -10 -12 Q -20 -44 2 -48 Q 4 -34 12 -25 Q 0 -18 -10 -12 Z" fill="#ff8da1" stroke="#102a45" stroke-width="2.2" />
+      </g>
 
-        <!-- Flapping Bat Wings -->
-        <g class="anim-dragon-wing">
-          <path d="M -2 0 Q -18 -28 -34 -36 Q -8 -30 16 -24 Q 8 -12 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
-          <polygon points="-34,-36 -28,-30 -22,-33" fill="#b71c1c" />
+      <!-- Body & Neck -->
+      <ellipse cx="-3" cy="4" rx="14" ry="12" fill="#ff6584" stroke="#102a45" stroke-width="2" />
+      <path d="M 5 0 C 9 -10 15 -16 21 -20 C 25 -23 28 -22 29 -16 C 24 -10 18 0 11 7 Z" fill="#ff6584" stroke="#102a45" stroke-width="2" />
+      <circle cx="23" cy="-18" r="1.8" fill="#102a45" />
+
+      <!-- Star Dust Sparkle Trail -->
+      <g class="anim-wyvern-dust">
+        <circle cx="34" cy="-14" r="3.5" fill="#ec4899" opacity="0.8" />
+        <circle cx="42" cy="-10" r="4" fill="#f472b6" opacity="0.9" />
+        <polygon points="42,-18 43,-15 46,-14 43,-13 42,-10 41,-13 38,-14 41,-15" fill="#ffffff" />
+      </g>
+    </g>
+  </g>
+
+  <!-- CHAR 7: RED FLYING DRAGON (Sky Soarer & Focused Fire Breath on AI Pipeline) -->
+  <g transform="translate(865, 42)">
+    <g class="anim-red-dragon-soar">
+      <!-- Tail -->
+      <path d="M 12 12 Q 28 18 24 30" fill="none" stroke="#e53935" stroke-width="5" stroke-linecap="round" />
+      <!-- Body -->
+      <ellipse cx="0" cy="8" rx="12" ry="15" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
+      <path d="M -6 6 Q -5 18 0 21 Q -8 18 -6 6 Z" fill="#fdd835" stroke="#1a202c" stroke-width="1" />
+      <!-- Head & Horns -->
+      <path d="M -5 5 Q -12 -3 -12 -12 Q -17 -13 -21 -10 Q -20 -16 -12 -17 Q -8 -19 -6 -15 Q -2 -10 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
+      <circle cx="-14" cy="-14" r="1.5" fill="#1a202c" />
+
+      <!-- Flapping Bat Wings -->
+      <g class="anim-red-dragon-wing">
+        <path d="M -2 0 Q -15 -24 -28 -30 Q -6 -25 14 -20 Q 7 -10 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
+      </g>
+
+      <!-- Fire Breath Burst Directed Toward AI Pipeline -->
+      <g class="anim-red-dragon-fire" filter="url(#neonGlow)">
+        <polygon points="-24,-10 -42,-4 -30,0" fill="#ef4444" />
+        <polygon points="-28,-8 -54,-3 -36,-1" fill="#f59e0b" />
+        <circle cx="-46" cy="-4" r="3.5" fill="#ffffff" />
+      </g>
+    </g>
+  </g>
+
+  <!-- CHAR 8: DRAGONBORN PALADIN (Floor sentry & holy spear fighting stance) -->
+  <g transform="translate(735, 246)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="4" rx="26" ry="5" fill="#050811" opacity="0.5" />
+
+    <g class="anim-paladin-guard" transform="translate(0, -42)">
+      <!-- Dragonborn Tail -->
+      <g class="anim-paladin-tail">
+        <path d="M -16 35 C -30 38 -45 28 -42 12 C -40 2 -26 4 -16 12" fill="none" stroke="#d97706" stroke-width="7" stroke-linecap="round" />
+      </g>
+
+      <!-- Greaves & Skirt -->
+      <rect x="-12" y="32" width="10" height="20" rx="3" fill="#475569" stroke="#1e293b" stroke-width="1.5" />
+      <rect x="2" y="32" width="10" height="20" rx="3" fill="#475569" stroke="#1e293b" stroke-width="1.5" />
+      <path d="M -14 26 L 14 26 L 10 40 L -10 40 Z" fill="#be123c" stroke="#1e293b" stroke-width="1.5" />
+
+      <!-- Chest Armor Plate -->
+      <path d="M -16 6 L 16 6 L 12 28 L -12 28 Z" fill="#cbd5e1" stroke="#334155" stroke-width="2" />
+      <line x1="0" y1="6" x2="0" y2="28" stroke="#94a3b8" stroke-width="1.5" />
+
+      <!-- Pauldrons -->
+      <ellipse cx="-18" cy="8" rx="7" ry="5" fill="#94a3b8" stroke="#334155" stroke-width="1.5" />
+      <ellipse cx="18" cy="8" rx="7" ry="5" fill="#94a3b8" stroke="#334155" stroke-width="1.5" />
+
+      <!-- Dragon Head -->
+      <path d="M -6 -16 C -6 -26 12 -28 18 -22 C 24 -16 20 -4 10 -4 C -2 -4 -6 -10 -6 -16 Z" fill="#d97706" stroke="#78350f" stroke-width="2" />
+      <circle cx="12" cy="-18" r="2.2" fill="#1e293b" />
+      <circle cx="13" cy="-19" r="0.8" fill="#ffffff" />
+
+      <!-- Red Spear with Fluttering Ribbon -->
+      <g class="anim-paladin-spear">
+        <line x1="-22" y1="-30" x2="-22" y2="52" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round" />
+        <polygon points="-22,-48 -28,-30 -16,-30" fill="#f1f5f9" stroke="#475569" stroke-width="1.8" />
+        <rect x="-25" y="-30" width="6" height="4" rx="1" fill="#eab308" />
+
+        <!-- Fluttering Spear Banner Ribbon -->
+        <g class="anim-paladin-ribbon">
+          <path d="M -22 -26 C -34 -24 -40 -18 -36 -12 C -32 -6 -36 0 -44 -4" fill="none" stroke="#ec4899" stroke-width="2.5" stroke-linecap="round" />
+        </g>
+
+        <!-- Holy Gleam Spark -->
+        <g class="anim-paladin-gleam" transform="translate(-22, -48)">
+          <polygon points="0,-10 3,-3 10,0 3,3 0,10 -3,3 -10,0 -3,-3" fill="#38bdf8" filter="url(#neonGlow)" />
         </g>
       </g>
-
-      <!-- Fire Breath Burst (Soaring across Sky) -->
-      <g class="anim-dragon-fire" filter="url(#neonGlow)">
-        <polygon points="-28,-14 -50,-8 -36,-2" fill="#ef4444" />
-        <polygon points="-34,-12 -65,-7 -44,-3" fill="#f59e0b" />
-        <circle cx="-55" cy="-8" r="4" fill="#ffffff" />
-      </g>
     </g>
   </g>
 
+  <!-- CHAR 9: PURPLE MONSTER (Heavy stomper & chomper in far right corner) -->
+  <g transform="translate(875, 246)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="4" rx="22" ry="5" fill="#000000" opacity="0.45" />
 
-  <!-- =========================================================
-       ROAMING CHARACTER 2: BLUE ASSISTANT BOT (AIR ROAMER & TEXT POINTER)
-       ========================================================= -->
-  <g class="roam-bot">
-    <g class="anim-bot-bob">
-      <!-- Shadow Under Bot -->
-      <ellipse cx="0" cy="38" rx="18" ry="4" fill="#000000" opacity="0.4" />
-
-      <!-- Left Arm (Waving) -->
-      <g class="anim-bot-arm-l">
-        <path d="M -16 6 L -28 14 C -32 16 -30 22 -24 20 L -14 12 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
-        <circle cx="-28" cy="18" r="4" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
-      </g>
-
-      <!-- Right Arm (Pointing directly to text!) -->
-      <g class="anim-bot-arm-r">
-        <path d="M 16 6 L 30 -6 C 34 -8 38 -4 34 2 L 18 12 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
-        <circle cx="32" cy="-4" r="4" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
-      </g>
-
-      <!-- Bot Head Ears -->
-      <circle cx="-26" cy="-14" r="6" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
-      <circle cx="26" cy="-14" r="6" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
-
-      <!-- Bot Head Capsule -->
-      <rect x="-24" y="-32" width="48" height="36" rx="18" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
-      <rect x="-18" y="-26" width="36" height="24" rx="12" fill="#eef2f7" />
-      <rect x="-15" y="-23" width="30" height="18" rx="9" fill="#48cfad" />
-
-      <!-- Smiling Eyes (Winking Animation) -->
-      <g class="anim-bot-visor">
-        <path d="M -10 -13 C -10 -18 -5 -18 -5 -13 M 5 -13 C 5 -18 10 -18 10 -13" stroke="#37474f" stroke-width="2.5" stroke-linecap="round" fill="none" />
-      </g>
-
-      <!-- Chassis Torso -->
-      <rect x="-18" y="6" width="36" height="24" rx="12" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
-      <!-- Glowing Diamond Heart -->
-      <polygon points="0,10 6,16 0,22 -6,16" fill="#48cfad" class="anim-bot-core" />
-
-      <!-- Bottom Thruster Wheel -->
-      <path d="M -7 28 L 7 28 L 5 35 L -5 35 Z" fill="#37474f" />
-      <circle cx="0" cy="35" r="3" fill="#38bdf8" filter="url(#neonGlow)" />
-
-      <!-- Fun Speech/Thought Bubble Popping Above Bot -->
-      <g class="anim-bubble-bot" transform="translate(15, -45)">
-        <rect x="0" y="-18" width="105" height="22" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" />
-        <polygon points="10,4 16,10 18,4" fill="#1e293b" />
-        <text x="8" y="-4" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">Pointing at code! ✦</text>
-      </g>
-    </g>
-  </g>
-
-
-  <!-- =========================================================
-       ROAMING CHARACTER 3: NINJA TURTLE (GROUND PATROLLER & CODE SLASHER)
-       ========================================================= -->
-  <g class="roam-ninja">
-    <!-- Ground Shadow -->
-    <ellipse cx="0" cy="34" rx="24" ry="5" fill="#000000" opacity="0.45" />
-
-    <!-- Turtle Shell Back -->
-    <ellipse cx="0" cy="10" rx="20" ry="17" fill="#8d6e63" stroke="#1a202c" stroke-width="2" />
-    <rect x="-14" y="2" width="28" height="23" rx="7" fill="#ffe0b2" stroke="#1a202c" stroke-width="1.5" />
-
-    <!-- Head -->
-    <ellipse cx="0" cy="-14" rx="18" ry="15" fill="#7cb342" stroke="#1a202c" stroke-width="2" />
-    <!-- Blue Mask -->
-    <path d="M -18 -18 C -10 -15 10 -15 18 -18 C 19 -13 18 -8 18 -10 C 10 -11 -10 -11 -18 -10 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" />
-    <!-- Eyes -->
-    <circle cx="-7.5" cy="-14" r="3.2" fill="#1a202c" />
-    <circle cx="-8" cy="-15" r="1.1" fill="#fff" />
-    <circle cx="7.5" cy="-14" r="3.2" fill="#1a202c" />
-    <circle cx="7" cy="-15" r="1.1" fill="#fff" />
-    <!-- Grin -->
-    <path d="M -11 -5 Q 0 1 11 -5" stroke="#1a202c" stroke-width="1.8" stroke-linecap="round" fill="none" />
-
-    <!-- Bandana Tails Fluttering -->
-    <g class="anim-ninja-bandana">
-      <path d="M -16 -16 Q -28 -20 -38 -12" fill="none" stroke="#1e88e5" stroke-width="3" stroke-linecap="round" />
-    </g>
-
-    <!-- Running Legs -->
-    <g class="anim-ninja-leg-l">
-      <rect x="-10" y="22" width="9" height="12" rx="4.5" fill="#7cb342" stroke="#1a202c" stroke-width="1.5" />
-      <line x1="-10" y1="28" x2="-1" y2="28" stroke="#1e88e5" stroke-width="2" />
-    </g>
-    <g class="anim-ninja-leg-r">
-      <rect x="1" y="22" width="9" height="12" rx="4.5" fill="#7cb342" stroke="#1a202c" stroke-width="1.5" />
-      <line x1="1" y1="28" x2="10" y2="28" stroke="#1e88e5" stroke-width="2" />
-    </g>
-
-    <!-- Dual Katana Arms (Slashing Action when near Code Terminal!) -->
-    <!-- Left Katana -->
-    <g class="anim-ninja-sword-l">
-      <line x1="-10" y1="6" x2="-22" y2="-4" stroke="#7cb342" stroke-width="4.5" stroke-linecap="round" />
-      <!-- Blade L -->
-      <line x1="-22" y1="-4" x2="-44" y2="-28" stroke="#eceff1" stroke-width="2.8" stroke-linecap="round" />
-      <line x1="-22" y1="-4" x2="-44" y2="-28" stroke="#ffffff" stroke-width="1.2" />
-    </g>
-    <!-- Right Katana -->
-    <g class="anim-ninja-sword-r">
-      <line x1="10" y1="6" x2="22" y2="-4" stroke="#7cb342" stroke-width="4.5" stroke-linecap="round" />
-      <!-- Blade R -->
-      <line x1="22" y1="-4" x2="44" y2="-28" stroke="#eceff1" stroke-width="2.8" stroke-linecap="round" />
-      <line x1="22" y1="-4" x2="44" y2="-28" stroke="#ffffff" stroke-width="1.2" />
-    </g>
-
-    <!-- Speed Slash Arcs -->
-    <path d="M -50 -35 Q -20 -60 20 -20" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" class="anim-ninja-arc" filter="url(#bladeSlashGlow)" />
-
-    <!-- Fun Bubble Above Ninja Turtle -->
-    <g class="anim-bubble-ninja" transform="translate(0, -42)">
-      <rect x="-45" y="-18" width="90" height="20" rx="5" fill="#1e293b" stroke="#22c55e" stroke-width="1.2" />
-      <text x="0" y="-4" fill="#4ade80" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">⚔️ Bug Slashed!</text>
-    </g>
-  </g>
-
-
-  <!-- =========================================================
-       ROAMING CHARACTER 4: BLUE BEAN CAPSULE (PLAYFUL WADDLER)
-       ========================================================= -->
-  <g class="roam-bean">
-    <g class="anim-bean-hop">
-      <!-- Ground Shadow -->
-      <ellipse cx="0" cy="30" rx="18" ry="4" fill="#000000" opacity="0.4" />
-
-      <!-- Left Flapping Arm -->
-      <g class="anim-bean-arm-l">
-        <path d="M -16 6 C -24 6 -28 14 -22 22 C -18 18 -16 12 -14 8 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
-      </g>
-      <!-- Right Flapping Arm -->
-      <g class="anim-bean-arm-r">
-        <path d="M 16 6 C 24 6 28 14 22 22 C 18 18 16 12 14 8 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
-      </g>
-
-      <!-- Bean Capsule Body -->
-      <path d="M -22 0 C -22 -30 22 -30 22 0 C 22 25 12 34 0 34 C -12 34 -22 25 -22 0 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.8" />
-      <!-- Face Visor -->
-      <ellipse cx="0" cy="-9" rx="17" ry="16" fill="#eef2f7" />
-      <ellipse cx="0" cy="-9" rx="15" ry="14" fill="#48cfad" />
-      <!-- Pill Eyes -->
-      <rect x="-7" y="-15" width="5" height="11" rx="2.5" fill="#37474f" />
-      <rect x="2" y="-15" width="5" height="11" rx="2.5" fill="#37474f" />
-
-      <!-- Fun Speech Bubble Above Blue Bean -->
-      <g class="anim-bubble-bean" transform="translate(0, -42)">
-        <rect x="-45" y="-18" width="90" height="20" rx="5" fill="#1e293b" stroke="#ec4899" stroke-width="1.2" />
-        <text x="0" y="-4" fill="#f472b6" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">✨ Waddle Waddle!</text>
-      </g>
-    </g>
-  </g>
-
-
-  <!-- =========================================================
-       ROAMING CHARACTER 5: PURPLE MONSTER (HEAVY STOMPER & CHOMPER)
-       ========================================================= -->
-  <g class="roam-monster">
-    <g class="anim-monster-stomp">
-      <!-- Ground Shadow -->
-      <ellipse cx="0" cy="30" rx="22" ry="5" fill="#000000" opacity="0.45" />
-
+    <g class="anim-monster-dance" transform="translate(0, -32)">
       <!-- Horns -->
-      <path d="M -15 -25 C -23 -36 -32 -29 -28 -20 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.6" />
-      <path d="M 15 -25 C 23 -36 32 -29 28 -20 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.6" />
+      <path d="M -13 -22 C -20 -32 -28 -25 -24 -17 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.5" />
+      <path d="M 13 -22 C 20 -32 28 -25 24 -17 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.5" />
 
-      <!-- Blocky Body -->
-      <rect x="-20" y="-25" width="40" height="48" rx="10" fill="#7986cb" stroke="#1a202c" stroke-width="2" />
+      <!-- Body -->
+      <rect x="-18" y="-22" width="36" height="42" rx="9" fill="#7986cb" stroke="#1a202c" stroke-width="2" />
 
       <!-- Big Eyes with Wandering Pupils -->
-      <circle cx="-8" cy="-9" r="8" fill="#fff" stroke="#1a202c" stroke-width="1.5" />
-      <circle cx="8" cy="-9" r="8" fill="#fff" stroke="#1a202c" stroke-width="1.5" />
+      <circle cx="-7" cy="-8" r="7" fill="#fff" stroke="#1a202c" stroke-width="1.5" />
+      <circle cx="7" cy="-8" r="7" fill="#fff" stroke="#1a202c" stroke-width="1.5" />
       <g class="anim-monster-eyes">
-        <circle cx="-7.5" cy="-8.5" r="3.5" fill="#2196f3" />
-        <circle cx="-8.5" cy="-9.5" r="1.2" fill="#ffffff" />
-        <circle cx="8.5" cy="-8.5" r="3.5" fill="#2196f3" />
-        <circle cx="7.5" cy="-9.5" r="1.2" fill="#ffffff" />
+        <circle cx="-6.5" cy="-7.5" r="3" fill="#2196f3" />
+        <circle cx="-7.5" cy="-8.5" r="1" fill="#ffffff" />
+        <circle cx="7.5" cy="-7.5" r="3" fill="#2196f3" />
+        <circle cx="6.5" cy="-8.5" r="1" fill="#ffffff" />
       </g>
 
       <!-- Chomping Mouth with Fangs -->
       <g class="anim-monster-jaw">
-        <rect x="-14" y="7" width="28" height="11" rx="5.5" fill="#1a202c" />
-        <polygon points="-10,17 -8,3 -5,17" fill="#fff" stroke="#1a202c" stroke-width="1" />
-        <polygon points="5,17 8,3 10,17" fill="#fff" stroke="#1a202c" stroke-width="1" />
+        <rect x="-12" y="6" width="24" height="10" rx="5" fill="#1a202c" />
+        <polygon points="-8,15 -6,3 -4,15" fill="#fff" stroke="#1a202c" stroke-width="1" />
+        <polygon points="4,15 6,3 8,15" fill="#fff" stroke="#1a202c" stroke-width="1" />
       </g>
 
-      <!-- Stubby Stomping Legs -->
-      <rect x="-14" y="21" width="10" height="11" rx="4" fill="#7986cb" stroke="#1a202c" stroke-width="1.5" />
-      <rect x="4" y="21" width="10" height="11" rx="4" fill="#7986cb" stroke="#1a202c" stroke-width="1.5" />
+      <!-- Stomping Feet -->
+      <rect x="-12" y="19" width="9" height="10" rx="3.5" fill="#7986cb" stroke="#1a202c" stroke-width="1.5" />
+      <rect x="3" y="19" width="9" height="10" rx="3.5" fill="#7986cb" stroke="#1a202c" stroke-width="1.5" />
     </g>
   </g>
 

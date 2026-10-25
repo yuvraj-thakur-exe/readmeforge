@@ -1,58 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="200" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" fill="none">
   <style>
     @keyframes beanWaddle {
-      0%, 100% { transform: translateY(0) rotate(-7deg) scale(1, 1); }
-      25%      { transform: translateY(-18px) rotate(0deg) scale(0.92, 1.08); }
-      50%      { transform: translateY(0) rotate(7deg) scale(1.08, 0.92); }
-      75%      { transform: translateY(-18px) rotate(0deg) scale(0.92, 1.08); }
+      0%, 100% { transform: translateY(0) rotate(-6deg) scale(1, 1); }
+      25%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.08); }
+      50%      { transform: translateY(0) rotate(6deg) scale(1.08, 0.92); }
+      75%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.08); }
     }
     @keyframes armFlapL {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(-35deg) translateY(-4px); }
+      50%      { transform: rotate(-30deg) translateY(-4px); }
     }
     @keyframes armFlapR {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(35deg) translateY(-4px); }
+      50%      { transform: rotate(30deg) translateY(-4px); }
     }
     @keyframes eyeBlink {
       0%, 92%, 100% { transform: scaleY(1); }
       95%           { transform: scaleY(0.1); }
     }
-    .bean { animation: beanWaddle 1.8s ease-in-out infinite; transform-origin: center bottom; }
-    .arm-l { transform-origin: -28px -12px; animation: armFlapL 1.2s ease-in-out infinite; }
-    .arm-r { transform-origin: 28px -12px; animation: armFlapR 1.2s ease-in-out infinite; }
-    .eyes { transform-origin: 0px -22px; animation: eyeBlink 3.6s infinite; }
+    .bean { transform-box: fill-box; transform-origin: center bottom; animation: beanWaddle 1.8s ease-in-out infinite; }
+    .arm-l { transform-box: fill-box; transform-origin: top right; animation: armFlapL 1.2s ease-in-out infinite; }
+    .arm-r { transform-box: fill-box; transform-origin: top left; animation: armFlapR 1.2s ease-in-out infinite; }
+    .eyes { transform-box: fill-box; transform-origin: center; animation: eyeBlink 3.6s infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bean, .arm-l, .arm-r, .eyes { animation: none !important; }
+    }
   </style>
 
-  <g transform="translate(100, 105)" class="bean">
+  <g transform="translate(100, 100)" class="bean">
     <!-- Main Pill Capsule Body -->
-    <path d="M -40 0 C -40 -54 40 -54 40 0 C 40 46 22 62 0 62 C -22 62 -40 46 -40 0 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="2.5" />
+    <path d="M -36 0 C -36 -48 36 -48 36 0 C 36 42 20 56 0 56 C -20 56 -36 42 -36 0 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="2.5" />
     <!-- Lower Darker Shading -->
-    <path d="M -38 24 C -24 58 24 58 38 24 C 40 42 22 60 0 60 C -22 60 -40 42 -38 24 Z" fill="#1d5785" />
+    <path d="M -34 22 C -22 52 22 52 34 22 C 36 38 20 54 0 54 C -20 54 -36 38 -34 22 Z" fill="#1d5785" />
 
     <!-- Center Belly Arc -->
-    <path d="M -19 60 C -19 34 19 34 19 60 Z" fill="#236da8" />
+    <path d="M -17 54 C -17 30 17 30 17 54 Z" fill="#236da8" />
 
     <!-- Face Visor Bezel & Mint Visor -->
-    <ellipse cx="0" cy="-16" rx="31" ry="29" fill="#eef2f7" />
-    <ellipse cx="0" cy="-16" rx="27.5" ry="25.5" fill="#48cfad" />
+    <ellipse cx="0" cy="-14" rx="28" ry="26" fill="#eef2f7" />
+    <ellipse cx="0" cy="-14" rx="25" ry="23" fill="#48cfad" />
 
     <!-- Pill Eyes -->
     <g class="eyes">
-      <rect x="-13" y="-26" width="9" height="20" rx="4.5" fill="#37474f" />
-      <rect x="4" y="-26" width="9" height="20" rx="4.5" fill="#37474f" />
+      <rect x="-11" y="-23" width="8" height="18" rx="4" fill="#37474f" />
+      <rect x="3" y="-23" width="8" height="18" rx="4" fill="#37474f" />
     </g>
 
     <!-- Left Arm -->
     <g class="arm-l">
-      <ellipse cx="-40" cy="14" rx="16" ry="26" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
-      <path d="M -54 22 C -40 38 -26 34 -26 22 C -26 40 -54 40 -54 22 Z" fill="#1d5785" />
+      <ellipse cx="-36" cy="12" rx="14" ry="24" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
+      <path d="M -48 20 C -36 34 -24 30 -24 20 C -24 36 -48 36 -48 20 Z" fill="#1d5785" />
     </g>
 
     <!-- Right Arm -->
     <g class="arm-r">
-      <ellipse cx="40" cy="14" rx="16" ry="26" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
-      <path d="M 26 22 C 26 34 40 38 54 22 C 54 40 26 40 26 22 Z" fill="#1d5785" />
+      <ellipse cx="36" cy="12" rx="14" ry="24" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
+      <path d="M 24 20 C 24 30 36 34 48 20 C 48 36 24 36 24 20 Z" fill="#1d5785" />
     </g>
   </g>
 </svg>
