@@ -54,10 +54,13 @@ export const readmeTypingSvgPlugin: Plugin = {
     pause: 1000,
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const rawLines = (props.lines as string) || 'Hi there! 👋';
-    const lines = rawLines
-      .split(';')
-      .map(line => encodeURIComponent(line.trim()))
+    const linesArr = Array.isArray(props.lines)
+      ? props.lines
+      : typeof props.lines === 'string'
+      ? props.lines.split(';')
+      : ['Hi there! 👋'];
+    const lines = linesArr
+      .map(line => encodeURIComponent(String(line).trim()))
       .join(';');
 
     const color = ((props.color as string) || '#36BCF7').replace('#', '');

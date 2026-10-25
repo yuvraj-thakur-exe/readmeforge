@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { pluginRegistry } from '#/lib/plugins/registry';
+import { generatePersonalizedProfile, DeveloperPersonaRole } from '#/lib/personalization/profile-generator';
 import { LivePreviewPane } from './LivePreviewPane';
 import { FadeIn } from '#/components/motion/FadeIn';
 import {
@@ -15,6 +16,7 @@ import {
   ChevronRight,
   ChevronLeft,
   CheckCircle2,
+  Sparkles,
 } from 'lucide-react';
 
 const STEPS = [
@@ -28,7 +30,7 @@ const STEPS = [
 
 export function WizardContainer() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const { config, setGithub, updateSettings, addSection, removeSection, updateSection } = useReadmeStore();
+  const { config, setGithub, updateSettings, addSection, removeSection, updateSection, setEntireConfig } = useReadmeStore();
 
   const user = config.settings.user;
   const currentStep = STEPS[currentStepIndex];
@@ -85,11 +87,54 @@ export function WizardContainer() {
             {/* Step 1: Identity */}
             {currentStep.id === 'identity' && (
               <div className="space-y-4">
-                <div>
-                  <h3 className="text-base font-semibold text-palette-contrast">Developer Identity</h3>
-                  <p className="text-xs text-palette-contrast/60">
-                    Set up your GitHub handle, professional title, and primary tagline.
-                  </p>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h3 className="text-base font-semibold text-palette-contrast">Developer Identity</h3>
+                    <p className="text-xs text-palette-contrast/60">
+                      Set up your GitHub handle, professional title, and primary tagline.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Quick Domain Personalization Presets */}
+                <div className="p-3.5 rounded-xl border border-violet-500/30 bg-violet-500/5 space-y-2.5">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-4 h-4 text-violet-400 shrink-0" />
+                    <div>
+                      <h4 className="text-xs font-semibold text-violet-300">Generate Personalized Profile</h4>
+                      <p className="text-[11px] text-palette-contrast/60">
+                        Select your engineering domain to auto-tailor headlines, typing lines, charts, and tech badges:
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {[
+                      { id: 'fullstack' as DeveloperPersonaRole, label: 'Full-Stack Polyglot' },
+                      { id: 'ai-ml' as DeveloperPersonaRole, label: 'AI & Machine Learning' },
+                      { id: 'cloud-devops' as DeveloperPersonaRole, label: 'Cloud & DevOps SRE' },
+                      { id: 'frontend-creative' as DeveloperPersonaRole, label: 'Creative & Motion' },
+                      { id: 'systems-embedded' as DeveloperPersonaRole, label: 'Systems & Embedded' },
+                    ].map(persona => (
+                      <button
+                        key={persona.id}
+                        type="button"
+                        onClick={() => {
+                          const personalized = generatePersonalizedProfile({
+                            github: user.github || 'developer',
+                            name: user.name || user.github || 'Developer',
+                            role: persona.id,
+                            includeCharts: true,
+                            includeTrophies: true,
+                            includeSnake: true,
+                          });
+                          setEntireConfig(personalized);
+                        }}
+                        className="px-2.5 py-1 text-xs rounded-lg border border-violet-500/40 bg-palette-base/80 hover:bg-violet-500/15 hover:border-violet-400 text-palette-contrast transition-all"
+                      >
+                        {persona.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -328,7 +373,10 @@ export function WizardContainer() {
                   {[
                     { id: 'readme-typing-svg', title: 'Typing SVG Hero', desc: 'Animated typewriter header with customizable text.' },
                     { id: 'github-readme-stats', title: 'GitHub Readme Stats', desc: 'Real-time commits, stars, PRs, and top languages.' },
+                    { id: 'pie-chart', title: 'Skills & Languages Pie Chart', desc: 'Dynamic Donut and Pie charts for skills and language breakdowns.' },
+                    { id: 'activity-graph', title: 'Contribution Activity Graph', desc: 'Full-width annual commit velocity line and heatmap chart.' },
                     { id: 'github-profile-trophy', title: 'GitHub Trophies', desc: 'Showcase achievements and ranking trophies.' },
+                    { id: 'github-achievements', title: 'GitHub Achievements', desc: 'Display unlocked official GitHub profile achievement badges.' },
                     { id: 'snk', title: 'Contribution Snake (snk)', desc: 'Generates animated snake eating your contribution graph.' },
                     { id: 'waka-readme-stats', title: 'WakaTime Stats', desc: 'Coding hours and weekly breakdown.' },
                     { id: 'visitor-counter', title: 'Visitor Counter', desc: 'Live profile view counter badge.' },
@@ -351,6 +399,79 @@ export function WizardContainer() {
                           </div>
                           <p className="text-xs text-palette-contrast/60 mt-1">{plugin.desc}</p>
                         </div>
+
+                        {active && plugin.id === 'pie-chart' && (() => {
+                          const section = config.sections.find(s => s.type === 'pie-chart');
+                          const currentMode = (section?.props.content.chartMode as string) || 'top-langs-donut';
+                          return (
+                            <div className="pt-2 border-t border-palette-line/60 space-y-1.5">
+                              <span className="text-[11px] font-medium text-palette-contrast/70">Chart Style:</span>
+                              <div className="grid grid-cols-2 gap-1.5">
+                                {[
+                                  { id: 'top-langs-donut', label: 'Donut Chart' },
+                                  { id: 'top-langs-pie', label: 'Pie Chart' },
+                                  { id: 'mermaid', label: 'Mermaid Native' },
+                                  { id: 'custom-donut', label: 'Skill Ring' },
+                                ].map(opt => (
+                                  <button
+                                    key={opt.id}
+                                    type="button"
+                                    onClick={() => {
+                                      if (!section) return;
+                                      updateSection(section.id, {
+                                        content: { ...section.props.content, chartMode: opt.id },
+                                      });
+                                    }}
+                                    className={`px-2 py-1 text-[11px] rounded border text-center transition-all ${
+                                      currentMode === opt.id
+                                        ? 'border-violet-500 bg-violet-500/20 text-violet-300 font-semibold'
+                                        : 'border-palette-line bg-palette-soft text-palette-contrast/70 hover:bg-palette-soft/80'
+                                    }`}
+                                  >
+                                    {opt.label}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })()}
+
+                        {active && plugin.id === 'activity-graph' && (() => {
+                          const section = config.sections.find(s => s.type === 'activity-graph');
+                          const currentColor = (section?.props.content.color as string) || '6366F1';
+                          return (
+                            <div className="pt-2 border-t border-palette-line/60 space-y-1.5">
+                              <span className="text-[11px] font-medium text-palette-contrast/70">Graph Color:</span>
+                              <div className="flex flex-wrap gap-1.5">
+                                {[
+                                  { hex: '6366F1', label: 'Violet' },
+                                  { hex: '22D3EE', label: 'Cyan' },
+                                  { hex: '10B981', label: 'Emerald' },
+                                  { hex: 'F59E0B', label: 'Amber' },
+                                  { hex: 'EC4899', label: 'Rose' },
+                                ].map(c => (
+                                  <button
+                                    key={c.hex}
+                                    type="button"
+                                    onClick={() => {
+                                      if (!section) return;
+                                      updateSection(section.id, {
+                                        content: { ...section.props.content, color: c.hex },
+                                      });
+                                    }}
+                                    className={`px-2 py-0.5 text-[10px] rounded border transition-all ${
+                                      currentColor.toUpperCase() === c.hex.toUpperCase()
+                                        ? 'border-cyan-400 bg-cyan-500/20 text-cyan-300 font-bold'
+                                        : 'border-palette-line bg-palette-soft text-palette-contrast/70'
+                                    }`}
+                                  >
+                                    {c.label}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })()}
 
                         <button
                           type="button"

@@ -3,7 +3,7 @@ import { Plugin, UserSettings } from '../types';
 export const githubReadmeStatsPlugin: Plugin = {
   id: 'github-readme-stats',
   name: 'GitHub Readme Stats',
-  description: 'Dynamically generated GitHub stats and streak cards for your profile README.',
+  description: 'Dynamically generated GitHub stats, streak cards, and language pie/donut charts for your profile README.',
   author: 'anuraghazra',
   repository: 'https://github.com/anuraghazra/github-readme-stats',
   category: 'stats',
@@ -30,7 +30,28 @@ export const githubReadmeStatsPlugin: Plugin = {
       label: 'Show Most Used Languages',
       type: 'boolean',
       defaultValue: true,
-      description: 'Top programming languages card',
+      description: 'Top programming languages card or pie/donut chart',
+      required: false,
+    },
+    {
+      name: 'languagesLayout',
+      label: 'Languages Chart Style',
+      type: 'select',
+      defaultValue: 'donut',
+      description: 'Select between Donut / Pie chart, Compact list, or standard layout',
+      options: [
+        { label: 'Donut Chart (Pie Style)', value: 'donut' },
+        { label: 'Pie Chart', value: 'pie' },
+        { label: 'Compact List', value: 'compact' },
+        { label: 'Normal Bars', value: 'normal' },
+      ],
+      required: false,
+    },
+    {
+      name: 'langsCount',
+      label: 'Number of Languages to Show',
+      type: 'number',
+      defaultValue: 8,
       required: false,
     },
     {
@@ -61,6 +82,8 @@ export const githubReadmeStatsPlugin: Plugin = {
     showStats: true,
     showStreak: true,
     showLanguages: true,
+    languagesLayout: 'donut',
+    langsCount: 8,
     theme: 'radical',
     hideBorder: false,
   },
@@ -69,6 +92,8 @@ export const githubReadmeStatsPlugin: Plugin = {
     const theme = (props.theme as string) || 'radical';
     const hideBorder = props.hideBorder ? '&hide_border=true' : '';
     const align = settings.align || 'left';
+    const layout = (props.languagesLayout as string) || 'donut';
+    const count = props.langsCount || 8;
 
     const cards: string[] = [];
 
@@ -86,7 +111,7 @@ export const githubReadmeStatsPlugin: Plugin = {
 
     if (props.showLanguages) {
       cards.push(
-        `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=compact&theme=${theme}${hideBorder}" alt="Top Languages" />`
+        `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=${layout}&langs_count=${count}&theme=${theme}${hideBorder}" alt="${user}'s Top Languages (${layout})" />`
       );
     }
 

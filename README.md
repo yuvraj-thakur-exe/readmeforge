@@ -11,12 +11,12 @@
   <br />
 
   <p align="center">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=740&lines=Forge+a+GitHub+Profile+That+Demands+Attention;Interactive+Visual+Wizard+%2B+Monaco+IDE+Developer+Mode;8%2B+Plug-and-Play+Dynamic+Widgets+%26+Live+Preview;Direct+GitHub+Sync+with+Side-by-Side+Diff+Preview;Full+Motion+Animation+Studio+%26+SVG+Export" alt="ReadmeForge Typing Banner" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=780&lines=Forge+a+100%25+Personalized+GitHub+Profile+(Never+Generic);Top+Languages+Pie+%26+Donut+Charts+%2B+Commit+Velocity+Graphs;Interactive+Visual+Wizard+%2B+Monaco+IDE+Developer+Mode;Full+Motion+Animation+Studio+%26+Cyber+Frames;Direct+GitHub+Sync+with+Side-by-Side+Diff+Preview" alt="ReadmeForge Typing Banner" />
   </p>
 
   <p>
-    <strong>The next-generation profile README generator and visual markdown studio.</strong><br />
-    Craft an iconic GitHub profile with a 6-step interactive wizard, Monaco developer IDE, 8+ modular widgets, confirmation-gated resume parsing, and direct synchronization to your GitHub profile repository.
+    <strong>The next-generation profile README generator, personalized visual studio, and dynamic animation suite.</strong><br />
+    Craft a unique, non-generic GitHub profile tailored specifically to your engineering discipline. Features interactive domain personalization, dynamic pie and donut charts, annual commit activity graphs, 6-step visual wizard, Monaco developer IDE, 10+ modular widgets, confirmation-gated resume parsing, and direct GitHub synchronization.
   </p>
 
   <p>
@@ -29,6 +29,9 @@
     <a href="https://www.typescriptlang.org">
       <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
     </a>
+    <a href="https://vitest.dev">
+      <img src="https://img.shields.io/badge/Tests-535%20Passing-brightgreen?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest 535 Passing" />
+    </a>
     <a href="https://biomejs.dev">
       <img src="https://img.shields.io/badge/Code%20Style-Biome-60A5FA?style=for-the-badge&logo=biome&logoColor=white" alt="Biome" />
     </a>
@@ -38,14 +41,14 @@
   </p>
 
   <p>
-    <a href="#zap-instant-one-line-install">1-Line Quickstart</a> &bull;
-    <a href="#camera_flash-live-visual-showcase">Live Showcase</a> &bull;
-    <a href="#sparkles-key-features">Features</a> &bull;
-    <a href="#jigsaw-plugin-ecosystem">Plugins</a> &bull;
-    <a href="#art-custom-graphics--animation-toolkit">Animation Toolkit</a> &bull;
-    <a href="#bar_chart-feature-matrix">Comparison</a> &bull;
-    <a href="#whale-docker--local-setup">Docker</a> &bull;
-    <a href="#handshake-contributing">Contributing</a>
+    <a href="#quickstart-1-line-install">1-Line Quickstart</a> &bull;
+    <a href="#personalized-profiles-never-the-same">Personalized Profiles</a> &bull;
+    <a href="#dynamic-graphs--pie-charts">Graphs & Pie Charts</a> &bull;
+    <a href="#live-visual-showcase--dynamic-widgets">Live Widgets</a> &bull;
+    <a href="#animation-studio--motion-toolkit">Animation Toolkit</a> &bull;
+    <a href="#cross-platform-motion-ecosystem">Multi-Language Motion</a> &bull;
+    <a href="#plugin-ecosystem">Plugin Ecosystem</a> &bull;
+    <a href="#docker--local-setup">Docker & Local Setup</a>
   </p>
 
 </div>
@@ -53,6 +56,8 @@
 ---
 
 ## Quickstart: 1-Line Install
+
+Launch ReadmeForge instantly locally, inside an autonomous AI agent, or within your favorite IDE:
 
 | Runtime / Agent | Single-Line Command | Description |
 | :--- | :--- | :--- |
@@ -70,7 +75,7 @@
   <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip">
     <img src="https://img.shields.io/badge/Download-Source%20ZIP%20Archive-brightgreen?style=for-the-badge&logo=github&logoColor=white" alt="Download ZIP" />
   </a>
-  <a href="#camera_flash-live-visual-showcase">
+  <a href="#live-visual-showcase--dynamic-widgets">
     <img src="https://img.shields.io/badge/Live-Showcase%20%26%20Widgets-6366F1?style=for-the-badge" alt="Showcase" />
   </a>
 </div>
@@ -81,12 +86,75 @@
 
 ---
 
+## Personalized Profiles: Never The Same
+
+Most profile generators output cookie-cutter markdown that looks identical for every engineer. **ReadmeForge features a deterministic Personalization Engine** (`src/lib/personalization/profile-generator.ts`) that tailors profile sections, visual hierarchies, color harmonies, typing lines, and data widgets to the user's authentic engineering role:
+
+| Engineering Persona | Accent Palette & Vibe | Core Visual Focus | Dynamic Typing Headlines |
+| :--- | :--- | :--- | :--- |
+| **AI / Machine Learning** | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
+| **Cloud & DevOps SRE** | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
+| **Full-Stack Polyglot** | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
+| **Creative & Motion Designer** | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
+| **Systems & Embedded Hacker** | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
+
+*Try the one-click domain presets directly inside Step 1 of the visual wizard or via `/developer` mode.*
+
+---
+
+## Dynamic Graphs & Pie Charts
+
+Showcase your true engineering strengths and commit habits with interactive visual charts rendered natively in GitHub Markdown:
+
+### 1. Top Languages Donut & Pie Charts (`pie-chart`)
+Render high-contrast SVG donut and pie charts representing your GitHub language breakdown or custom skill focus:
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=octocat&layout=donut&theme=tokyonight&hide_border=true" alt="Top Languages Donut Chart Preview" height="205" />
+  &nbsp;&nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=octocat&layout=pie&theme=radical&hide_border=true" alt="Top Languages Pie Chart Preview" height="205" />
+</div>
+
+<br />
+
+### 2. Native Mermaid Markdown Pie Charts (Zero External Image Requests)
+ReadmeForge generates pure native Mermaid Markdown pie charts that render natively on GitHub without any external image services:
+
+```mermaid
+pie title Engineering Focus & Skill Distribution
+    "TypeScript & Next.js" : 42
+    "Rust & Systems" : 24
+    "Python & AI Agents" : 18
+    "Cloud & DevOps" : 10
+    "UI/UX Motion" : 6
+```
+
+<br />
+
+### 3. Annual Contribution Activity Graph (`activity-graph`)
+Zero-downtime, high-availability SVG activity graph displaying commit velocity across the entire year:
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/6366F1/octocat" alt="Annual Commit Velocity Activity Graph" width="100%" />
+</div>
+
+<br />
+
+### 4. Dynamic Animated Contribution Snake (`snk`)
+Automated vector animation of a retro arcade snake eating your contribution squares:
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/snake.svg" alt="Animated Contribution Snake" width="90%" />
+</div>
+
+---
+
 ## Live Visual Showcase & Dynamic Widgets
 
-ReadmeForge brings GitHub profiles to life with dynamic, real-time internet widgets and high-resolution visual headers. Here is a live taste of widgets generated by ReadmeForge:
+ReadmeForge brings GitHub profiles to life with dynamic internet widgets and high-resolution vector assets:
 
-### 1. Holographic Developer Command Deck (Dynamic Animation)
-Custom visual artwork for ReadmeForge featuring a futuristic developer command deck with floating holographic GitHub profiles, emerald contribution heatmaps, dynamic trophy metrics, live markdown preview, and living cyan/emerald data spark streams:
+### 1. Holographic Developer Command Deck
+Custom visual artwork featuring a futuristic developer workstation with floating holographic profiles, emerald heatmaps, dynamic metrics, and live data streams:
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/hero-animated.webp" alt="ReadmeForge Animated Holographic Command Deck" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(99,102,241,0.3);" />
@@ -129,20 +197,7 @@ Integrated directly with verified cloud endpoints or rendered locally with zero 
 
 <br />
 
-### 5. Dynamic Animated Contribution Activity Heatmap & Snake (`snk`)
-Zero-downtime SVG representation of commit activity accompanied by the animated contribution snake:
-
-<div align="center">
-  <img src="https://ghchart.rshah.org/6366F1/octocat" alt="Live Contribution Activity Graph" width="100%" />
-</div>
-
-<div align="center" style="margin-top: 12px;">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/snake.svg" alt="Animated Contribution Snake" width="90%" />
-</div>
-
-<br />
-
-### 6. Developer Community Badges (Professional & Witty)
+### 5. Developer Community Badges (Professional & Witty)
 Vector status shields for engineering humor and workstation pride:
 
 <div align="center">
@@ -151,183 +206,76 @@ Vector status shields for engineering humor and workstation pride:
 
 ---
 
-## Key Features
+## Animation Studio & Motion Toolkit
 
-### 1. Interactive 6-Step Visual Wizard
-- **Step 1: Identity & Vibe** — Full name, headline, avatar, social handles, custom pronouns, and aesthetic themes (Tokyo Night, Cyberpunk, Dracula, Nord, Minimal).
-- **Step 2: About & Biography** — Dynamic typing headlines (`readme-typing-svg`), customizable bio bullets, and current working goals.
-- **Step 3: Tech Stack & Tools** — Curated library of 150+ technology shields with official brand logos, grouped by category (Frontend, Backend, DevOps, AI/ML, Databases).
-- **Step 4: Stats & Activity Cards** — Toggle commit stats, PR counters, streak metrics, trophy cases, and WakaTime hourly tracking.
-- **Step 5: Pinned Projects & Showcases** — Clean grid cards showcasing open-source repositories, descriptions, tech tags, and star counts.
-- **Step 6: Sync & Export** — Copy raw Markdown, download `.md`, generate PNG screenshot, or commit directly to your GitHub repository.
-
-### 2. Power-User /developer Mode (Monaco Editor)
-- Instant split-screen IDE featuring Microsoft's Monaco Editor (`@monaco-editor/react`).
-- Edit raw declarative JSON profile configuration with **instant bi-directional sync** with the visual wizard.
-- Real-time JSON schema validation powered by **Zod**.
-- Live Markdown preview pane updating with sub-16ms latency.
-
-### 3. Confirmation-Gated Resume Parsing (Zero Hallucinations)
-- Upload PDF, DOCX, or TXT resumes parsed on the server using `pdf-parse` and `mammoth`.
-- **Zero silent store mutations:** Every detected skill, company, title, and link passes through `ConfirmGate.tsx`.
-- Review confidence ratings, inspect proposed changes side-by-side, and approve only what you want.
-
-### 4. Remote Diff Preview & Direct GitHub Push
-- Connect via a scoped GitHub Personal Access Token (`repo` permission).
-- Inspect a side-by-side visual diff against the real remote repository (`<username>/<username>`) before writing a single byte.
-- Optional automated generation of companion GitHub Action workflows (e.g., daily `snk` snake generator).
-
-### 5. AST-Based Reverse README Importer
-- Paste existing Markdown from any GitHub profile.
-- ReadmeForge's AST parser analyzes headers, badges, image URLs, and text blocks to reverse-map them back into the interactive wizard state.
-
-### 6. Native Internationalization (i18n)
-- Seamless dual-language support for English (`en`) and Portuguese (`pt-BR`).
-
-### 7. Full-Spectrum Interactive Motion (Touch, Hover & Scroll Effects)
-- **Touch & Mobile Feedback:** Damped spring-press responses (`active:scale-95`), tactile haptic tap borders, and touch-scrubbed contribution grids.
-- **Magnetic Hover Effects:** 3D tilt perspective, specular glare highlights, glowing border illumination, and smooth vertical elevation lift.
-- **Scroll Effects:** Intersection-triggered reveals, dual-rate parallax displacement, sticky pinned section anchors, and scroll-linked timeline sequences.
-
----
-
-## Plugin Ecosystem
-
-Every widget in ReadmeForge is a modular, typed plugin defined in `src/lib/plugins/` adhering to strict Zod runtime schemas:
-
-| Plugin Name | Category | Badge Preview | Description |
-| :--- | :--- | :--- | :--- |
-| **`github-achievements`** | Badges | `![Achievements](https://img.shields.io/badge/Widget-Achievements-purple?style=flat-square)` | Official earned GitHub achievement badges (Pull Shark, Quickdraw, Starstruck, Galaxy Brain, Arctic Vault). |
-| **`github-profile-trophy`** | Gamification | `![Trophy](https://img.shields.io/badge/Widget-Trophies-yellow?style=flat-square)` | Dynamic achievement trophies reflecting your GitHub milestones and ranking. |
-| **`snk` (Snake Game)** | Animation | `![Snake](https://img.shields.io/badge/Widget-Contribution_Snake-brightgreen?style=flat-square)` | Generates an animated snake eating your GitHub contribution graph squares. |
-| **`github-readme-stats`** | Stats | `![Stats](https://img.shields.io/badge/Widget-Stats_Card-blue?style=flat-square)` | Dynamic cards displaying total stars, commits, PRs, and top languages. |
-| **`readme-typing-svg`** | Animation | `![Typing](https://img.shields.io/badge/Widget-Typing_SVG-violet?style=flat-square)` | Animated SVG typewriter cycling through roles, quotes, or slogans. |
-| **`waka-readme-stats`** | Metrics | `![WakaTime](https://img.shields.io/badge/Widget-WakaTime-orange?style=flat-square)` | Real-time coding statistics, daily hours, and IDE language breakdowns. |
-| **`markdown-badges`** | Shields | `![Badges](https://img.shields.io/badge/Widget-Shields.io-green?style=flat-square)` | Official branded icons and shields for languages, frameworks, and tools. |
-| **`visitor-counter`** | Analytics | `![Counter](https://img.shields.io/badge/Widget-Hit_Counter-critical?style=flat-square)` | Lightweight, privacy-respecting profile view counter. |
-| **`portfolio-contributions`** | Showcase | `![Showcase](https://img.shields.io/badge/Widget-Repo_Grid-indigo?style=flat-square)` | Formatted cards linking to pinned open-source repositories and notable PRs. |
-
----
-
-## Custom Graphics & Animation Toolkit
-
-ReadmeForge provides a complete creative pipeline to craft high-impact images and add living animation effects to your GitHub profile:
-
-### 1. Pure Animated SVGs with CSS `@keyframes` (Zero External Server Required)
-GitHub natively renders and animates SVGs embedded via `<img src="..." />`. You can combine vector artwork with pure CSS keyframes:
-- **Glowing Neon Borders:** Animate `stroke-dashoffset` across a gradient path:
-  ```css
-  @keyframes borderChase {
-    0%   { stroke-dashoffset: 0; }
-    100% { stroke-dashoffset: 3200; }
-  }
-  .border-line { stroke: url(#neonCyan); stroke-dasharray: 200 400; animation: borderChase 12s linear infinite; }
-  ```
-- **Pulsing Neon Drop-Shadows:**
-  ```css
-  @keyframes pulseGlow {
-    0%, 100% { filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5)); }
-    50%      { filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.9)); }
-  }
-  ```
-- **Laser Scanline Sweeps:** Animate a thin linear-gradient `<rect>` vertically across the artwork:
-  ```css
-  @keyframes scanlineSweep {
-    0%   { transform: translateY(-50px); opacity: 0; }
-    50%  { opacity: 0.8; }
-    100% { transform: translateY(440px); opacity: 0; }
-  }
-  ```
-
-### 2. Python Animated WebP & GIF Generator (`scripts/animate_hero.py`)
-Turn any static concept art, screenshot, or banner into an animated `.webp` or `.gif` with particle embers and pulsing circuits:
-
-```bash
-# Run the bundled animation generator
-python scripts/animate_hero.py
-```
-
-- **Luminosity Modulation:** Cycles sine waves on circuit lines and forge cores (`math.sin(2.0 * math.pi * t)`).
-- **Particle Dynamics:** Simulates 40+ rising sparks with velocity, random turbulence, and alpha fading.
-- **Dual Export:** Generates high-compression 24-bit animated WebP (only ~1.7 MB for 960x536 @ 16fps) and universal GIF.
-*Inspect the script in [`scripts/animate_hero.py`](scripts/animate_hero.py).*
-
-### 3. Built-In Web Animation Studio (`/animator`) & Motion Suite
 ReadmeForge features an enterprise-grade in-browser **Animation Studio** (`/animator`) and AI agent skill (`.agents/skills/readme-animation-studio/SKILL.md`) for crafting GitHub-compliant animated SVG banners, dynamic typography, 3D illusions, and interactive motion components:
 
-- **Text Effects:**
-  - `typing`: Character-stepped terminal typewriter effect with blinking shell cursor.
-  - `scramble`: Rapid cipher glyph flicker and matrix decryption jitter.
-  - `gradient`: Continuous iridescent horizontal chrome shimmer sweep.
-  - `glitch`: Chromatic aberration RGB split with horizontal slice lines.
-  - `wave`: Harmonic sinusoidal displacement wave across sequential characters.
-  - `reveal`: Smooth editorial curtain expansion and vertical slide-up.
+### 1. Typography & Text Effects
+- `typing`: Character-stepped terminal typewriter effect with blinking shell cursor.
+- `scramble`: Rapid cipher glyph flicker and matrix decryption jitter.
+- `gradient`: Continuous iridescent horizontal chrome shimmer sweep.
+- `glitch`: Chromatic aberration RGB split with horizontal slice displacement.
+- `wave`: Harmonic sinusoidal displacement wave across sequential characters.
+- `reveal`: Smooth editorial curtain expansion and vertical slide-up.
 
-- **Background Effects:**
-  - `fire`: Dynamic rising heat embers, blazing multi-stop flame gradient, and animated lick curves.
-  - `water`: Fluid undulating sinusoidal wave layers, expanding water drop ripples, and caustic aqua depth.
-  - `particles`: Rising luminous sparks and ambient glowing energy orbs.
-  - `grids`: Perspective coordinate grid with traveling scanner sweeps.
-  - `stars`: Deep space multi-layer starfield with dual-frequency twinkle cycles.
-  - `animated-gradient`: Dynamic multi-stop radial and linear color morphing.
-  - `matrix`: Vertical streams of phosphor digital code rain.
-  - `solid`: High-contrast dark slate backdrop with subtle vignette borders.
+### 2. Animated Background Effects
+- `fire`: Dynamic rising heat embers, blazing multi-stop flame gradient, and animated lick curves.
+- `water`: Fluid undulating sinusoidal wave layers, expanding water drop ripples, and caustic aqua depth.
+- `particles`: Rising luminous sparks and ambient glowing energy orbs.
+- `grids`: Perspective coordinate cyber grid with traveling scanner sweeps.
+- `stars`: Deep space multi-layer starfield with dual-frequency twinkle cycles.
+- `animated-gradient`: Dynamic multi-stop radial and linear color morphing.
+- `matrix`: Vertical streams of phosphor digital code rain.
+- `solid`: High-contrast dark slate backdrop with subtle vignette borders.
 
-- **Frame & Cyber Border Effects:**
-  - `cyber-neon`: High-voltage laser chasing border with animated corner targeting brackets and neon glow.
-  - `glassmorphism`: Translucent frosted glass rim with 45-degree traveling specular light reflection.
-  - `terminal-crt`: Retro curved CRT monitor bezel, horizontal scanline raster, and chassis corner bolts.
-  - `hologram`: Sci-fi targeting HUD with telemetry coordinates, cardinal crosshairs, and laser scanner.
-  - `gold-metallic`: Luxurious 3D beveled metallic gold border with twinkling star glints.
-  - `fire-border`: Blazing perimeter frame with heat pulsation.
+### 3. Cyber Frames & Border Illuminations
+- `cyber-neon`: High-voltage laser chasing border with animated corner targeting brackets and neon glow.
+- `glassmorphism`: Translucent frosted glass rim with 45-degree traveling specular light reflection.
+- `terminal-crt`: Retro curved CRT monitor bezel, horizontal scanline raster, and chassis corner bolts.
+- `hologram`: Sci-fi targeting HUD with telemetry coordinates, cardinal crosshairs, and laser scanner.
+- `gold-metallic`: Luxurious 3D beveled metallic gold border with twinkling star glints.
+- `fire-border`: Blazing perimeter frame with heat pulsation.
 
-- **Animated Vector Characters & Actions:**
-  - `pixel-dev`: Cyberpunk developer in dark hoodie, visor, and headphones.
-  - `cyber-bot`: Floating robot companion with antenna beacon and pulsing thruster engine.
-  - `builder-crafter`: Construction crafter in safety hardhat and high-vis vest.
-  - `ninja-coder`: Shinobi coder with fluttering headband ribbons and cyber kunai.
-  - `wizard-mage`: Sorcerer with wizard hat and pulsating arcane crystal staff.
+### 4. Animated Vector Characters & Action Sprites
+- **Characters**: `pixel-dev` (hoodie & visor), `cyber-bot` (floating robot companion), `builder-crafter` (safety hardhat & vest), `ninja-coder` (fluttering headband & kunai), `wizard-mage` (wizard hat & crystal staff).
+- **Actions**:
   - `walk action`: Ground baseline patrol with alternating leg swing cycles.
   - `build action`: Active building scene with swinging hammer, spark bursts, and stacked modular tech blocks.
   - `code action`: Floating translucent holographic terminal workstation with blinking prompt.
   - `construct action`: High-tech circuit truss welding with electrical arc flash and spark shower.
   - `cheer action`: Celebratory victory jump with raised arms, gold trophy, and falling confetti.
 
-- **SVG Vector Effects:**
-  - `line-drawing`: Pure CSS `stroke-dashoffset` path tracing animation.
-  - `path-morphing`: Seamless breathing geometric polygon interpolation.
-  - `animated-logo`: Multi-ring orbital gear assembly with rotating core monogram.
+### 5. Pure Animated SVGs with CSS `@keyframes` (Zero Server Dependencies)
+GitHub natively renders animated SVGs embedded via `<img src="..." />`. ReadmeForge outputs pure vector math and CSS animations:
 
-- **3D Projections in Pure SVG:**
-  - `rotating-cube`: Isometric 3-face wireframe box with oscillating tilt and float.
-  - `interactive-card`: Multi-layer card with depth bevel and specular sweep.
-  - `particle-environment`: Perspective warp tunnel with expanding concentric horizon rings.
+```css
+/* Glowing Neon Border Animation */
+@keyframes borderChase {
+  0%   { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 3200; }
+}
+.border-line {
+  stroke: url(#neonCyan);
+  stroke-dasharray: 200 400;
+  animation: borderChase 12s linear infinite;
+}
 
-- **UI Motion & Scroll Laboratory:**
-  - `spring transitions`: Damped harmonic oscillation curve (`scale(1.02) translateY(-4px)`).
-  - `hover effects`: Specular glare and magnetic border glow buttons.
-  - `animated panels`: Spring-damped zero layout-shift collapsible accordion drawers.
-  - `drag-and-drop`: Tactile reorderable widget shelf preview.
-  - `scroll effects`: Interactive scrub slider testing scroll-reveal, 2.5D parallax displacement, sticky pinned section anchors, and scroll-linked progress sequences.
+/* Fluid Caustic Water Ripple Wave */
+@keyframes waveFlow {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-25%); }
+  100% { transform: translateX(0); }
+}
+.wave-path {
+  animation: waveFlow 8s ease-in-out infinite;
+}
+```
 
-- **Export Tools & Workflows:**
-  - **Markdown Snippets:** Four one-click copy modes: Relative URL, GitHub Raw CDN, Data URI (zero HTTP requests), and Hosted Demo Link.
-  - **SVG Generation:** Real-time compliant SVG export (`readmeforge-banner.svg`).
-  - **GIF & WebP Export:** Headless Python generator (`python scripts/animate_hero.py`) producing 24-frame looping WebP/GIF assets.
-  - **Hosted Demos:** Shareable state serialized in base64 URL queries (`/animator?c=<state>`).
+---
 
-- **Precision Controls:**
-  - `Speed`: Fine-grained duration slider (0.5s – 8.0s).
-  - `Colors`: 5-channel palette pickers (primary, secondary, accent, background, text) + transparent mode.
-  - `Dimensions`: Aspect ratio presets (16:9, Ultra-wide 900×280, Banner 800×200, Compact 600×180) + custom dimensions.
-  - `Loop count`: Repeat mode selector (`infinite`, `1`, `2`, `3`).
-  - `Accessibility`: Dedicated `prefers-reduced-motion` compliance toggle.
-  - `Live preview`: Real-time rendering stage with GitHub Dark/Light modes, mobile 375px viewport simulation, and image load failure alt-text testing.
+## Cross-Platform Motion Ecosystem
 
-> **Agent Skill Available**: AI coding assistants can directly load and reference the detailed authoring guidelines at [`.agents/skills/readme-animation-studio/SKILL.md`](.agents/skills/readme-animation-studio/SKILL.md).
-
-### 4. Cross-Platform Animation & Motion Ecosystem
-When building interactive web platforms, mobile apps, mathematical visualizations, or portable assets, here is the recommended motion toolkit across languages and ecosystems:
+When expanding beyond GitHub READMEs into interactive web platforms, mobile apps, mathematical simulations, or game runtimes, here is the recommended motion toolkit across languages:
 
 | Language / Platform | Recommended Libraries & Frameworks | Primary Use Cases |
 | :--- | :--- | :--- |
@@ -344,27 +292,58 @@ When building interactive web platforms, mobile apps, mathematical visualization
 | **Java / Kotlin** | Android Animation APIs, [Lottie Android](https://airbnb.io/lottie/) | Native Android material transitions, vector JSON animations |
 | **Swift (iOS / macOS)** | [SwiftUI Animations](https://developer.apple.com/xcode/swiftui/), Core Animation | Fluid spring animations, declarative view transitions, Metal shaders |
 | **Rust** | [Bevy](https://bevy.org/), [macroquad](https://macroquad.rs/) | Data-driven ECS game loops, high-performance WebAssembly graphics |
+| **Go** | [Ebitengine](https://ebitengine.org/), [Bubbletea](https://github.com/charmbracelet/bubbletea) | 2D game engines and rich animated terminal TUI dashboards |
 | **SVG / GIF / Video** | Portable SVG (`@keyframes`), Animated WebP, Manim MP4/GIF | Standalone visual assets for GitHub READMEs, docs, and multi-platform showcases |
-
-> **Official Ecosystem References**:  
-> [Manim Community](https://www.manim.community/) &bull; [Flutter Animations Guide](https://docs.flutter.dev/ui/animations) &bull; [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/) &bull; [Bevy Engine](https://bevy.org/) &bull; [Apple SwiftUI Animation Docs](https://developer.apple.com/xcode/swiftui/)
 
 ---
 
-## Feature Matrix: ReadmeForge vs Others
+## Plugin Ecosystem
 
-| Feature | ReadmeForge | GPRG / Profileme | Manual Markdown |
-| :--- | :---: | :---: | :---: |
-| **Interactive 6-Step Wizard** | **Yes** | Limited | No |
-| **Split-Screen Monaco IDE (`/developer`)** | **Yes** | No | No |
-| **Live Dynamic Widgets (8+ Plugins)** | **Yes** | Partial | Manual URLs |
-| **Confirmation-Gated Resume Parsing** | **Yes (Zero Hallucination)**| No | No |
-| **Direct GitHub Sync with Diff Preview** | **Yes (Safe Preview)** | No | Git CLI |
-| **AST Reverse README Importer** | **Yes** | No | No |
-| **Built-in Animation Studio & Motion Suite** | **Yes (SVG, 3D, a11y)** | No | No |
-| **Multi-Language Support (i18n)** | **Yes (en / pt-BR)** | English only | N/A |
-| **Docker Standalone Production Image** | **Yes (Multi-stage)** | No | N/A |
-| **Pure, Unit-Tested Markdown Engine** | **100% Deterministic** | Ad-hoc | Manual |
+Every widget in ReadmeForge is a modular, typed plugin defined in `src/lib/plugins/` adhering to strict Zod runtime schemas:
+
+| Plugin Name | Category | Badge Preview | Description |
+| :--- | :--- | :--- | :--- |
+| **`pie-chart`** | Charts | `![Charts](https://img.shields.io/badge/Widget-Pie_%26_Donut_Charts-6366F1?style=flat-square)` | Dynamic Donut/Pie charts and native Mermaid Markdown skill distributions. |
+| **`activity-graph`** | Velocity | `![Activity](https://img.shields.io/badge/Widget-Activity_Graph-22D3EE?style=flat-square)` | High-availability annual commit velocity line graphs and density heatmaps. |
+| **`github-readme-stats`** | Stats | `![Stats](https://img.shields.io/badge/Widget-Stats_Card-blue?style=flat-square)` | Dynamic cards displaying total stars, commits, PRs, and top languages. |
+| **`github-achievements`** | Badges | `![Achievements](https://img.shields.io/badge/Widget-Achievements-purple?style=flat-square)` | Official earned GitHub achievement badges (Pull Shark, Quickdraw, Starstruck, Galaxy Brain). |
+| **`github-profile-trophy`** | Gamification | `![Trophy](https://img.shields.io/badge/Widget-Trophies-yellow?style=flat-square)` | Dynamic achievement trophies reflecting your GitHub milestones and ranking. |
+| **`snk` (Snake Game)** | Animation | `![Snake](https://img.shields.io/badge/Widget-Contribution_Snake-brightgreen?style=flat-square)` | Generates an animated snake eating your GitHub contribution graph squares. |
+| **`readme-typing-svg`** | Animation | `![Typing](https://img.shields.io/badge/Widget-Typing_SVG-violet?style=flat-square)` | Animated SVG typewriter cycling through roles, quotes, or slogans. |
+| **`waka-readme-stats`** | Metrics | `![WakaTime](https://img.shields.io/badge/Widget-WakaTime-orange?style=flat-square)` | Real-time coding statistics, daily hours, and IDE language breakdowns. |
+| **`markdown-badges`** | Shields | `![Badges](https://img.shields.io/badge/Widget-Shields.io-green?style=flat-square)` | Official branded icons and shields for languages, frameworks, and tools. |
+| **`visitor-counter`** | Analytics | `![Counter](https://img.shields.io/badge/Widget-Hit_Counter-critical?style=flat-square)` | Lightweight, privacy-respecting profile view counter. |
+| **`portfolio-contributions`** | Showcase | `![Showcase](https://img.shields.io/badge/Widget-Repo_Grid-indigo?style=flat-square)` | Formatted cards linking to pinned open-source repositories and notable PRs. |
+
+---
+
+## Interactive 6-Step Visual Wizard
+
+1. **Step 1: Identity & Domain Personalization** — Set GitHub handle, display name, tagline, and select domain presets (AI/ML, DevOps, Full-Stack, Creative, Systems) to auto-tailor headlines and assets.
+2. **Step 2: Style & Vibe** — Customize alignment, primary accent colors, and Shields.io badge styling (`for-the-badge`, `flat`, `flat-square`, `plastic`).
+3. **Step 3: Skills & Tech Stack** — Curated library of 150+ technology shields with official brand logos, grouped by category.
+4. **Step 4: Stats, Charts & Plugins** — Toggle commit stats, language donut/pie charts, annual commit velocity graphs, trophy cases, snake animations, and WakaTime hourly tracking.
+5. **Step 5: Social Media & Contact Links** — Add verified shields linking to your LinkedIn, X/Twitter, portfolio, email, and Discord.
+6. **Step 6: Projects & Bio Highlights** — Showcase key featured repositories, open-source highlights, and fun facts.
+
+---
+
+## Power-User /developer Mode (Monaco Editor)
+
+- Instant split-screen IDE featuring Microsoft's Monaco Editor (`@monaco-editor/react`).
+- Edit raw declarative JSON profile configuration with **instant bi-directional sync** with the visual wizard.
+- Real-time JSON schema validation powered by **Zod**.
+- Live Markdown preview pane updating with sub-16ms latency.
+
+---
+
+## Security & Architectural Invariants
+
+- **Single Store Truth**: `src/store/useReadmeStore.ts` acts as the single authoritative source of truth. No desynced or diverging UI states.
+- **Pure Markdown Engine**: `buildMarkdown(config)` in `src/lib/buildMarkdown.ts` is 100% deterministic, functional, and completely decoupled from React or browser DOM.
+- **Zero Hallucination Guarantee**: Uploaded resumes or external profiles are strictly parsed and passed to `ConfirmGate.tsx`. Zero fields are injected into your profile without explicit review and confirmation.
+- **Safe Remote Writes**: Writes to GitHub repositories require authenticated PAT validation and side-by-side diff confirmation (`DiffPreview.tsx`).
+- **No Telemetry / No Tracking**: Your resume contents, tokens, and credentials remain private and are never stored on external databases.
 
 ---
 
@@ -387,11 +366,11 @@ corepack pnpm install
 # Start development server with Turbopack
 corepack pnpm dev
 
-# Run unit tests (Vitest)
+# Run unit tests (111 test files, 535 tests passing)
 corepack pnpm test run
 
-# Run end-to-end browser tests (Playwright)
-corepack pnpm test:e2e
+# Run type check
+corepack pnpm type-check
 
 # Run code formatting and linting (Biome)
 corepack pnpm lint
@@ -410,49 +389,6 @@ docker run -d --name readmeforge -p 3000:3000 readmeforge:latest
 
 # Check container logs
 docker logs -f readmeforge
-```
-
----
-
-## Security & Architectural Invariants
-
-- **Single Store Truth**: `src/store/useReadmeStore.ts` acts as the single authoritative source of truth. No desynced or diverging UI states.
-- **Pure Markdown Engine**: `buildMarkdown(config)` in `src/lib/buildMarkdown.ts` is 100% deterministic, functional, and completely decoupled from React or browser DOM.
-- **Zero Hallucination Guarantee**: Uploaded resumes or external profiles are strictly parsed and passed to `ConfirmGate.tsx`. Zero fields are injected into your profile without explicit review and confirmation.
-- **Safe Remote Writes**: Writes to GitHub repositories require authenticated PAT validation and side-by-side diff confirmation (`DiffPreview.tsx`).
-- **No Telemetry / No Tracking**: Your resume contents, tokens, and credentials remain private and are never stored on external databases.
-
----
-
-## Repository Layout
-
-```text
-readmeforge/
-├── .github/              # CI/CD workflows, issue templates, PR guidelines
-├── docs/                 # Plugin development guide & config schema spec
-├── public/               # Static brand assets (logo.svg, favicon, snake.svg)
-├── install.sh            # 1-line bash installer for Linux & macOS
-├── install.ps1           # 1-line PowerShell installer for Windows
-├── Dockerfile            # Multi-stage production container definition
-├── src/
-│   ├── app/              # Next.js 16 App Router (wizard, /[locale]/developer, sitemap)
-│   ├── components/
-│   │   ├── developer/    # Monaco editor, plugin drawer, live preview, export bar
-│   │   ├── enrichment/   # Resume upload, GitHub profile fetch, ConfirmGate
-│   │   ├── landing/      # LandingDetails, hero section, template shelf, FAQ
-│   │   ├── motion/       # Reusable animations (FadeIn, Stagger)
-│   │   ├── navigation/   # TopNav, CommandPalette, Footer
-│   │   ├── sync/         # GitHub PAT auth, DiffPreview, push modal
-│   │   └── wizard/       # 6-step interactive visual wizard & LivePreviewPane
-│   ├── lib/
-│   │   ├── buildMarkdown.ts  # Pure markdown generation engine
-│   │   ├── export/       # Export utilities (PNG snapshot, share URL compression)
-│   │   ├── parser/       # AST-based reverse README importer
-│   │   └── plugins/      # Plugin registry, Zod types, and 8 wrapped OSS plugins
-│   ├── locales/          # i18n translation dictionaries (en.json, pt-BR.json)
-│   └── store/
-│       └── useReadmeStore.ts # Single source of truth Zustand store
-└── tests/                # Vitest unit tests & Playwright E2E suites
 ```
 
 ---

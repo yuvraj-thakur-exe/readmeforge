@@ -74,6 +74,16 @@ export const TEMPLATES: TemplateItem[] = [
           props: { content: { username: 'octocat', theme: 'dark' }, styles: {}, state: 'default' },
         },
         {
+          id: 'pie-cyber',
+          type: 'pie-chart',
+          props: { content: { chartMode: 'top-langs-donut', theme: 'radical', title: 'Top Languages Breakdown' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'activity-cyber',
+          type: 'activity-graph',
+          props: { content: { color: 'EC4899', title: 'Annual Contribution Activity' }, styles: {}, state: 'default' },
+        },
+        {
           id: 'trophy-1',
           type: 'github-profile-trophy',
           props: { content: { username: 'octocat', theme: 'radical' }, styles: {}, state: 'default' },
@@ -124,6 +134,16 @@ export const TEMPLATES: TemplateItem[] = [
           },
         },
         {
+          id: 'pie-fullstack',
+          type: 'pie-chart',
+          props: { content: { chartMode: 'top-langs-donut', theme: 'tokyonight', title: 'Top Languages Breakdown' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'activity-fullstack',
+          type: 'activity-graph',
+          props: { content: { color: '6366F1', title: 'Commit Velocity & Contribution Graph' }, styles: {}, state: 'default' },
+        },
+        {
           id: 'stats-1',
           type: 'github-readme-stats',
           props: { content: { username: 'octocat', theme: 'tokyonight', showIcons: true }, styles: {}, state: 'default' },
@@ -157,6 +177,11 @@ export const TEMPLATES: TemplateItem[] = [
       },
       sections: [
         {
+          id: 'activity-cloud',
+          type: 'activity-graph',
+          props: { content: { color: '06B6D4', title: 'Platform Deployment & Commit Velocity' }, styles: {}, state: 'default' },
+        },
+        {
           id: 'stats-cloud',
           type: 'github-readme-stats',
           props: { content: { username: 'octocat', theme: 'nord', showIcons: true }, styles: {}, state: 'default' },
@@ -188,7 +213,18 @@ export const TEMPLATES: TemplateItem[] = [
         badgeStyle: 'flat',
         align: 'left',
       },
-      sections: [],
+      sections: [
+        {
+          id: 'pie-aiml',
+          type: 'pie-chart',
+          props: { content: { chartMode: 'top-langs-pie', theme: 'tokyonight', title: 'Languages & Research Distribution' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'activity-aiml',
+          type: 'activity-graph',
+          props: { content: { color: '10B981', title: 'Model Training & Commit Velocity' }, styles: {}, state: 'default' },
+        },
+      ],
     },
   },
   {

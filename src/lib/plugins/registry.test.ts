@@ -13,6 +13,8 @@ describe('Plugin Registry', () => {
     expect(ids).toContain('markdown-badges');
     expect(ids).toContain('visitor-counter');
     expect(ids).toContain('portfolio-contributions');
+    expect(ids).toContain('activity-graph');
+    expect(ids).toContain('pie-chart');
   });
 
   it('validates that every plugin has valid fields and renderMarkdown output', () => {

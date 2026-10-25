@@ -8,10 +8,14 @@ import { markdownBadgesPlugin } from './wrappers/markdown-badges';
 import { visitorCounterPlugin } from './wrappers/visitor-counter';
 import { portfolioContributionsPlugin } from './wrappers/portfolio-contributions';
 import { githubAchievementsPlugin } from './wrappers/github-achievements';
+import { activityGraphPlugin } from './wrappers/activity-graph';
+import { pieChartPlugin } from './wrappers/pie-chart';
 
 export const pluginRegistry: Plugin[] = [
   readmeTypingSvgPlugin,
   githubReadmeStatsPlugin,
+  pieChartPlugin,
+  activityGraphPlugin,
   githubProfileTrophyPlugin,
   githubAchievementsPlugin,
   snkPlugin,
