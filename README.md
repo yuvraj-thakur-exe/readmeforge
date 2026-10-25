@@ -280,6 +280,35 @@ python scripts/animate_hero.py
 - **Dual Export:** Generates high-compression 24-bit animated WebP (only ~1.7 MB for 960x536 @ 16fps) and universal GIF.
 👉 *Inspect the script in [`scripts/animate_hero.py`](scripts/animate_hero.py).*
 
+### 3. ✨ Built-In Web Animation Studio (`/animator`)
+ReadmeForge now features a dedicated in-browser **Animation Studio** (`/animator`) with 9 presets, precise typographic & dynamic controls, dark/light theme testing, and GitHub sanitizer validation:
+- **9 Presets:** `glitch`, `typing`, `wave`, `matrix`, `neon`, `particle`, `terminal`, `3d-banner`, and `minimal`.
+- **Live Compatibility Testing:** Simulate GitHub dark/light mode, mobile 375px viewport, and alt-text error handling.
+- **Direct Exports:** Standalone `.svg` download, raw SVG copy, Markdown snippets, and `.json` configuration backup.
+
+### 4. 🌐 Cross-Platform Animation & Motion Ecosystem
+When building interactive web platforms, mobile apps, mathematical visualizations, or portable assets, here is the recommended motion toolkit across languages and ecosystems:
+
+| Language / Platform | Recommended Libraries & Frameworks | Primary Use Cases |
+| :--- | :--- | :--- |
+| **JavaScript / TypeScript** | [Motion](https://motion.dev/), [GSAP](https://gsap.com/), [Anime.js](https://animejs.com/), [Three.js](https://threejs.org/), [PixiJS](https://pixijs.com/) | Web micro-interactions, 3D WebGL scenes, interactive canvas graphics |
+| **HTML / CSS** | CSS `@keyframes`, Web Animations API (WAAPI), [Animate.css](https://animate.style/) | Lightweight zero-dependency transitions, portable SVG animations |
+| **React / Next.js** | Motion (Framer Motion), GSAP, [shadcn/ui](https://ui.shadcn.com/), [Aceternity UI](https://ui.aceternity.com/), [Magic UI](https://magicui.design/) | Production UI components, glowing borders, smooth layout animations |
+| **Vue** | Motion, GSAP, Anime.js | Reactive component transitions and dynamic route motion |
+| **Svelte** | Svelte Motion, GSAP, Built-in Svelte Transitions | Fast reactive micro-interactions, spring & tween stores |
+| **Python** | [Manim](https://www.manim.community/) (3Blue1Brown), [Pygame](https://www.pygame.org/), Pillow | Programmatic mathematical animations, 2D game loops, particle renderers |
+| **Flutter / Dart** | [Flutter Animation APIs](https://docs.flutter.dev/ui/animations), [Rive Runtime](https://rive.app/) | Cross-platform mobile motion, interactive vector state machines |
+| **React Native** | [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/), Gesture Handler, Rive | 60+ FPS native thread mobile UI gestures and physics-driven springs |
+| **C# / Unity** | Unity Animator, [DOTween](http://dotween.demigiant.com/) | 3D game character kinematics, procedural UI tweening |
+| **C++** | [SFML](https://www.sfml-dev.org/), [SDL](https://www.libsdl.org/), Qt Animation Framework | Native desktop interfaces, high-performance game rendering loops |
+| **Java / Kotlin** | Android Animation APIs, [Lottie Android](https://airbnb.io/lottie/) | Native Android material transitions, vector JSON animations |
+| **Swift (iOS / macOS)** | [SwiftUI Animations](https://developer.apple.com/xcode/swiftui/), Core Animation | Fluid spring animations, declarative view transitions, Metal shaders |
+| **Rust** | [Bevy](https://bevy.org/), [macroquad](https://macroquad.rs/) | Data-driven ECS game loops, high-performance WebAssembly graphics |
+| **SVG / GIF / Video** | Portable SVG (`@keyframes`), Animated WebP, Manim MP4/GIF | Standalone visual assets for GitHub READMEs, docs, and multi-platform showcases |
+
+> 📚 **Official Ecosystem References**:  
+> [Manim Community](https://www.manim.community/) &bull; [Flutter Animations Guide](https://docs.flutter.dev/ui/animations) &bull; [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/) &bull; [Bevy Engine](https://bevy.org/) &bull; [Apple SwiftUI Animation Docs](https://developer.apple.com/xcode/swiftui/)
+
 ---
 
 ## :classical_building: Architecture & Data Flow

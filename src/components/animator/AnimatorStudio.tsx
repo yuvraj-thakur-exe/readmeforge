@@ -19,6 +19,9 @@ import {
   Eye,
   ArrowLeft,
   Upload,
+  Layers,
+  ChevronDown,
+  ExternalLink,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import {
@@ -46,6 +49,7 @@ export function AnimatorStudio() {
   const [isMobileView, setIsMobileView] = useState(false);
   const [simulateError, setSimulateError] = useState(false);
   const [markdownTab, setMarkdownTab] = useState<'relative' | 'githubRaw' | 'dataUri'>('relative');
+  const [showEcosystem, setShowEcosystem] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Real-time generated SVG
@@ -751,6 +755,146 @@ export function AnimatorStudio() {
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* 3. Cross-Platform Animation & Motion Ecosystem Reference */}
+      <div className="max-w-[1600px] mx-auto px-4 mt-8">
+        <div className="rounded-xl border border-palette-line bg-palette-soft/30 overflow-hidden">
+          <button
+            type="button"
+            onClick={() => setShowEcosystem(prev => !prev)}
+            className="w-full flex items-center justify-between p-4 bg-palette-soft/60 hover:bg-palette-soft transition-colors text-left"
+          >
+            <div className="flex items-center gap-2.5">
+              <Layers className="w-4 h-4 text-cyan-400" />
+              <div>
+                <span className="font-bold text-xs uppercase tracking-wider text-white">
+                  🌐 Cross-Platform Animation &amp; Motion Ecosystem Reference
+                </span>
+                <span className="text-[11px] text-neutral-400 block sm:inline sm:ml-2">
+                  (Libraries &amp; Frameworks for Web, Mobile, Games, Math &amp; Portable Assets)
+                </span>
+              </div>
+            </div>
+            <ChevronDown
+              className={`w-4 h-4 text-neutral-400 transition-transform ${
+                showEcosystem ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+
+          {showEcosystem && (
+            <div className="p-4 sm:p-6 space-y-4 border-t border-palette-line text-xs">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                {[
+                  {
+                    lang: 'JavaScript / TypeScript',
+                    libs: 'Motion, GSAP, Anime.js, Three.js, PixiJS',
+                    desc: 'Micro-interactions, 3D WebGL scenes, 2D canvas particle graphics.',
+                  },
+                  {
+                    lang: 'HTML / CSS',
+                    libs: 'CSS Keyframes, Web Animations API, Animate.css',
+                    desc: 'Lightweight zero-dependency transitions, portable SVG animations.',
+                  },
+                  {
+                    lang: 'React / Next.js',
+                    libs: 'Motion (Framer), GSAP, shadcn/ui, Aceternity UI, Magic UI',
+                    desc: 'Production UI components, glowing borders, smooth layout springs.',
+                  },
+                  {
+                    lang: 'Vue & Svelte',
+                    libs: 'Motion, GSAP, Anime.js, Built-in Svelte Transitions',
+                    desc: 'Reactive component transitions, route animations, tween stores.',
+                  },
+                  {
+                    lang: 'Python',
+                    libs: 'Manim (3Blue1Brown), Pygame, Pillow',
+                    desc: 'Programmatic mathematical video animations, 2D game loops, particle renderers.',
+                    link: 'https://www.manim.community/',
+                  },
+                  {
+                    lang: 'Flutter / Dart',
+                    libs: 'Flutter Animation APIs, Rive Runtime',
+                    desc: 'Cross-platform mobile motion, interactive vector state machines.',
+                    link: 'https://docs.flutter.dev/ui/animations',
+                  },
+                  {
+                    lang: 'React Native',
+                    libs: 'React Native Reanimated, Gesture Handler, Rive',
+                    desc: '60+ FPS native thread mobile UI gestures and physics-driven springs.',
+                    link: 'https://docs.swmansion.com/react-native-reanimated/',
+                  },
+                  {
+                    lang: 'C# / Unity',
+                    libs: 'Unity Animator, DOTween',
+                    desc: '3D game character kinematics, procedural UI tweening.',
+                  },
+                  {
+                    lang: 'C++',
+                    libs: 'SFML, SDL, Qt Animation Framework',
+                    desc: 'Native desktop interfaces, high-performance game rendering loops.',
+                  },
+                  {
+                    lang: 'Java / Kotlin',
+                    libs: 'Android Animation APIs, Lottie Runtimes',
+                    desc: 'Native Android material transitions, vector JSON animations.',
+                  },
+                  {
+                    lang: 'Swift (iOS / macOS)',
+                    libs: 'SwiftUI Animations, Core Animation',
+                    desc: 'Fluid spring animations, declarative view transitions, Metal shaders.',
+                    link: 'https://developer.apple.com/xcode/swiftui/',
+                  },
+                  {
+                    lang: 'Rust',
+                    libs: 'Bevy, macroquad',
+                    desc: 'Data-driven ECS game loops, high-performance WebAssembly graphics.',
+                    link: 'https://bevy.org/',
+                  },
+                  {
+                    lang: 'SVG / GIF / Video',
+                    libs: 'Portable SVG (@keyframes), Animated WebP, Manim MP4/GIF',
+                    desc: 'Portable visual outputs for GitHub READMEs, docs, and multi-platform showcases.',
+                  },
+                ].map(item => (
+                  <div
+                    key={item.lang}
+                    className="p-3 rounded-lg border border-palette-line/60 bg-palette-base/60 space-y-1.5"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-bold text-neutral-200 text-xs">{item.lang}</span>
+                      {item.link && (
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-cyan-400 hover:text-cyan-300 flex items-center gap-0.5 text-[10px]"
+                        >
+                          <span>Docs</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      )}
+                    </div>
+                    <div className="font-mono text-[11px] text-cyan-300/90">{item.libs}</div>
+                    <div className="text-[10px] text-neutral-400">{item.desc}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="pt-2 border-t border-palette-line/40 flex flex-wrap items-center justify-between gap-2 text-[11px] text-neutral-400">
+                <span>
+                  📚 <b>Official References:</b>{' '}
+                  <a href="https://www.manim.community/" target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">Manim</a> &bull;{' '}
+                  <a href="https://docs.flutter.dev/ui/animations" target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">Flutter animations</a> &bull;{' '}
+                  <a href="https://docs.swmansion.com/react-native-reanimated/" target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">React Native Reanimated</a> &bull;{' '}
+                  <a href="https://bevy.org/" target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">Bevy</a> &bull;{' '}
+                  <a href="https://developer.apple.com/xcode/swiftui/" target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">SwiftUI</a>
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
