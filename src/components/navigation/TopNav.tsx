@@ -31,6 +31,17 @@ export function TopNav() {
           <CommandPalette />
 
           <Link
+            href="/animator"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-palette-line bg-palette-soft/60 hover:border-cyan-500/50 text-palette-contrast transition-all shadow-sm"
+          >
+            <span className="text-cyan-400">✨</span>
+            <span>Animator</span>
+            <span className="px-1.5 py-0.2 rounded text-[9px] bg-cyan-500/15 text-cyan-300 font-mono">
+              NEW
+            </span>
+          </Link>
+
+          <Link
             href="/developer"
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-palette-line bg-palette-soft/60 hover:border-violet-500/50 text-palette-contrast transition-all shadow-sm"
           >

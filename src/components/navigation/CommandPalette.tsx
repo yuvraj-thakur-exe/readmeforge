@@ -122,6 +122,16 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                 <Terminal className="w-4 h-4 text-cyan-400" />
                 <span>Go to /developer Raw Mode</span>
               </Command.Item>
+              <Command.Item
+                onSelect={() => {
+                  router.push('/animator');
+                  setOpen(false);
+                }}
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-cyan-600/30 hover:text-cyan-200 cursor-pointer transition-colors"
+              >
+                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <span>Go to Animation Studio (SVG &amp; Presets)</span>
+              </Command.Item>
             </Command.Group>
 
             <Command.Group heading="Export Actions" className="text-neutral-500 font-semibold px-2 py-1 uppercase text-[10px]">
