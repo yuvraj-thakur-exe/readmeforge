@@ -15,7 +15,7 @@ export function SocialsEditPanel() {
 
   return (
     <>
-      <Tabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} />
+      <Tabs tabs={tabs} currentTab={currentTab} setCurrentTab={tab => setCurrentTab(tab as Views)} />
 
       <View />
     </>

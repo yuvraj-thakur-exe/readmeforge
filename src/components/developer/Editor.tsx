@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import MonacoEditor, { OnChange, OnMount } from '@monaco-editor/react';
+import MonacoEditor, { OnChange } from '@monaco-editor/react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { ReadmeConfigSchema } from '#/lib/plugins/types';
 import { CheckCircle2, AlertTriangle, RefreshCw } from 'lucide-react';

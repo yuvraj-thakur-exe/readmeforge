@@ -73,7 +73,7 @@ describe('FEATURE - text parser', () => {
   it('does not mutate the input arguments', () => {
     const args = {
       content: { text: '  Hello\nWorld  ', as: 'h2' },
-      styles: { align: 'right' },
+      styles: { align: 'right' as const },
     };
 
     const argsCopy = structuredClone(args);

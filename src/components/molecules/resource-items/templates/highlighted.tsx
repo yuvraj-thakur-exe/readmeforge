@@ -26,16 +26,18 @@ export function HighlightedResourceItem(props: ResourceItemProps) {
 
       <Tile.Content className="flex flex-col items-center justify-center">
         <Tile.Label>{translate(title)}</Tile.Label>
-        <Text.Paragraph>{translate(subtitle)}</Text.Paragraph>
+        {subtitle && <Text.Paragraph>{translate(subtitle)}</Text.Paragraph>}
       </Tile.Content>
 
       <Text.Paragraph className="text-center">
         {translate(description)}
       </Text.Paragraph>
 
-      <Text.Link href={link} target={linkTarget} className="self-center">
-        {translate(linkLabel)}
-      </Text.Link>
+      {linkLabel && (
+        <Text.Link href={link} target={linkTarget} className="self-center">
+          {translate(linkLabel)}
+        </Text.Link>
+      )}
     </Tile.Container>
   );
 }

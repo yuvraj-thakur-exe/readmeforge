@@ -1,11 +1,8 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-
 import { Text } from '#/components/atoms/text';
 
 export function FooterOwner() {
-  const t = useTranslations('ui');
 
   return (
     <div className="hidden h-full shrink-0 gap-sm desktop:flex">

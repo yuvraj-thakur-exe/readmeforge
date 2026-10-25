@@ -13,6 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './playwright/e2e',
+  testMatch: ['**/*-flow.spec.ts'],
   /* Run tests sequentially to avoid shared localStorage flakiness */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */

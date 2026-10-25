@@ -50,7 +50,7 @@ describe('FEATURE - text importer', () => {
 
     const result = textImporter(element as any);
 
-    expect(result?.props.styles.align).toBe('center');
+    expect(result?.props.styles?.align).toBe('center');
   });
 
   it('returns a CanvasSection with type Sections.TEXT and a string id', () => {

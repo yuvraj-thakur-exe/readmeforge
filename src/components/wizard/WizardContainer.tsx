@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { pluginRegistry } from '#/lib/plugins/registry';
 import { LivePreviewPane } from './LivePreviewPane';
@@ -14,10 +14,7 @@ import {
   FolderGit2,
   ChevronRight,
   ChevronLeft,
-  Sparkles,
   CheckCircle2,
-  Plus,
-  Trash2,
 } from 'lucide-react';
 
 const STEPS = [

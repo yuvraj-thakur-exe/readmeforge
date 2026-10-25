@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { TypeAnimation } from 'react-type-animation';
-import { Wand2, Terminal, FileUp, Sparkles, Flame, Github } from 'lucide-react';
+import { Wand2, Terminal, FileUp, Sparkles, Flame } from 'lucide-react';
 import { ResumeUpload } from '#/components/enrichment/ResumeUpload';
 import { importReadmeFromMarkdown } from '#/lib/parser/import-readme';
 import { useReadmeStore } from '#/store/useReadmeStore';

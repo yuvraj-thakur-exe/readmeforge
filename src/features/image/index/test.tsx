@@ -42,7 +42,7 @@ describe('FEATURE - image index (registration)', () => {
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.IMAGE];
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.IMAGE] as any);
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('image');
@@ -59,7 +59,7 @@ describe('FEATURE - image index (registration)', () => {
 
   it('onClick dispatches canvas.section.add with Sections.IMAGE', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.IMAGE];
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.IMAGE] as any);
 
     newSection.onClick();
 

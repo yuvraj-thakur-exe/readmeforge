@@ -65,7 +65,8 @@ export function importReadmeFromMarkdown(markdown: string): ImportResult {
 
   // 4. Parse AST with unified and remark
   try {
-    const tree = unified().use(remarkParse).use(remarkGfm).parse(markdown);
+    // Validate markdown parsing
+    unified().use(remarkParse).use(remarkGfm).parse(markdown);
 
     // Scan for stats widget
     if (/github-readme-stats/i.test(markdown)) {

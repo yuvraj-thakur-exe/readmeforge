@@ -44,7 +44,7 @@ describe('FEATURE - socials index (registration)', () => {
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.SOCIALS];
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.SOCIALS] as any);
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('message-square');
@@ -61,7 +61,7 @@ describe('FEATURE - socials index (registration)', () => {
 
   it('onClick dispatches canvas.section.add with Sections.SOCIALS', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.SOCIALS];
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.SOCIALS] as any);
 
     newSection.onClick();
 

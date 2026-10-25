@@ -32,7 +32,7 @@ export function StatsEditPanel() {
 
   return (
     <>
-      <Tabs tabs={tabs} setCurrentTab={setCurrentTab} currentTab={currentTab} />
+      <Tabs tabs={tabs} setCurrentTab={tab => setCurrentTab(tab as Views)} currentTab={currentTab} />
 
       <Panel.Scrollable>
         <View />

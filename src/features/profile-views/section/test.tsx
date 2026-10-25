@@ -104,7 +104,7 @@ describe('FEATURE - ProfileViewsSection', () => {
       />
     );
 
-    const div = container.querySelector('[data-testid="guard-section"] div');
+    const div = container.querySelector<HTMLElement>('[data-testid="guard-section"] div');
 
     expect(div?.style.justifyContent).toBe('right');
   });

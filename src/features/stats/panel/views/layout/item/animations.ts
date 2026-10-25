@@ -18,7 +18,7 @@ const variants = framer.createVariants({
       pointerEvents: 'none',
 
       transition: {
-        duration: false,
+        duration: 0,
       },
     },
   },

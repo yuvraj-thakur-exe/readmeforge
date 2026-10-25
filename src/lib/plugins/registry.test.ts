@@ -68,4 +68,70 @@ describe('Plugin Registry', () => {
     expect(statsPlugins.length).toBeGreaterThan(0);
     expect(statsPlugins.some(p => p.id === 'github-readme-stats')).toBe(true);
   });
+
+  it('validates that the documentation example from PLUGIN_GUIDE.md conforms to Plugin contract', () => {
+    const docExamplePlugin: import('./types').Plugin = {
+      id: 'your-new-plugin',
+      name: 'Your Widget Name',
+      version: '1.0.0',
+      description: 'Displays awesome developer stats and achievements on GitHub profiles.',
+      author: 'Your Name or GitHub Handle',
+      category: 'stats',
+      icon: 'award',
+      tags: ['github', 'stats', 'achievements'],
+      defaultConfig: {
+        username: '',
+        theme: 'dark',
+        showRank: true,
+      },
+      fields: [
+        {
+          id: 'username',
+          name: 'username',
+          label: 'GitHub Username',
+          type: 'text',
+          placeholder: 'octocat',
+          description: 'Your public GitHub username',
+        },
+        {
+          id: 'theme',
+          name: 'theme',
+          label: 'Theme',
+          type: 'select',
+          defaultValue: 'dark',
+          options: [
+            { label: 'Dark Mode', value: 'dark' },
+            { label: 'Light Mode', value: 'light' },
+          ],
+        },
+        {
+          id: 'showRank',
+          name: 'showRank',
+          label: 'Display Global Rank',
+          type: 'boolean',
+          defaultValue: true,
+        },
+      ],
+      renderMarkdown: (config, userSettings) => {
+        const user = config.username || userSettings.user.github || 'octocat';
+        const theme = config.theme || userSettings.theme || 'dark';
+        return `[![Your Widget](https://your-service.com/api?user=${user}&theme=${theme})](https://github.com/${user})`;
+      },
+    };
+
+    expect(docExamplePlugin.id).toBe('your-new-plugin');
+    expect(docExamplePlugin.version).toBe('1.0.0');
+    expect(docExamplePlugin.tags).toHaveLength(3);
+
+    const result = docExamplePlugin.renderMarkdown(docExamplePlugin.defaultConfig, {
+      user: { github: 'octocat' },
+      theme: 'dark',
+      accentColor: '#8b5cf6',
+      badgeStyle: 'for-the-badge',
+      align: 'left',
+    });
+
+    expect(typeof result).toBe('string');
+    expect(result).toContain('https://your-service.com/api?user=octocat&theme=dark');
+  });
 });

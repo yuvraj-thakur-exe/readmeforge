@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useReadmeStore } from '#/store/useReadmeStore';
-import { ShieldCheck, Check, X, AlertCircle, Sparkles } from 'lucide-react';
+import { ShieldCheck, Check, X, Sparkles } from 'lucide-react';
 
 export interface ProposedEnrichmentItem {
   id: string;

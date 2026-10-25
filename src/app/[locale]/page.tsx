@@ -1,12 +1,11 @@
 'use client';
 
-import React from 'react';
 import { TopNav } from '#/components/navigation/TopNav';
 import { HeroSection } from '#/components/landing/HeroSection';
 import { ParticleBackground } from '#/components/landing/ParticleBackground';
 import { TemplateGallery } from '#/components/landing/TemplateGallery';
 import { WizardContainer } from '#/components/wizard/WizardContainer';
-import { Flame, Heart, Github } from 'lucide-react';
+import { Flame, Github } from 'lucide-react';
 
 export default function HomePage() {
   return (

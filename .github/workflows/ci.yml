@@ -1,52 +1,59 @@
 name: ci
-on: [pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 20.x
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v4
         with:
           version: 10.12.4
-          cache: true
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Type-check
+        run: pnpm type-check
+
       - name: Linting
         run: pnpm lint
 
-      - name: Test
-        run: pnpm test --coverage=false
+      - name: Unit Tests
+        run: pnpm test
 
-      - name: Build
+      - name: Production Build
         run: pnpm build
 
   e2e:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 20.x
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v6
+        uses: pnpm/action-setup@v4
         with:
           version: 10.12.4
-          cache: true
+          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -56,3 +63,4 @@ jobs:
 
       - name: Run E2E tests
         run: pnpm test:e2e
+

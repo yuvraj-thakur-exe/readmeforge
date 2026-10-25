@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useReadmeStore } from '#/store/useReadmeStore';
-import { buildMarkdown } from '#/lib/buildMarkdown';
+import { buildMarkdownWithWorkflows } from '#/lib/buildMarkdown';
 import { DiffPreview } from './DiffPreview';
 import { Github, CheckCircle2, AlertCircle, X, ExternalLink } from 'lucide-react';
 
@@ -15,13 +15,12 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
   const config = useReadmeStore(state => state.config);
   const githubUser = config.settings.user.github;
 
-  const [token, setToken] = useState<string>('');
   const [successUrl, setSuccessUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
-  const newContent = buildMarkdown(config);
+  const { markdown: newContent, workflows } = buildMarkdownWithWorkflows(config);
   const currentContent = '<!-- Initial profile README placeholder -->\n# Hi there 👋\n';
   const targetRepo = githubUser ? `${githubUser}/${githubUser}` : 'octocat/octocat';
 
@@ -101,6 +100,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
               <DiffPreview
                 currentContent={currentContent}
                 newContent={newContent}
+                workflows={workflows}
                 repoName={targetRepo}
                 onConfirmPush={handleConfirmPush}
                 onCancel={onClose}

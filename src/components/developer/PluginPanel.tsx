@@ -2,9 +2,9 @@
 
 import React, { useState, useMemo } from 'react';
 import { pluginRegistry, getAllCategories } from '#/lib/plugins/registry';
-import { Plugin, PluginCategory } from '#/lib/plugins/types';
+import { Plugin } from '#/lib/plugins/types';
 import { useReadmeStore } from '#/store/useReadmeStore';
-import { Search, Plus, Sparkles, Check, ExternalLink } from 'lucide-react';
+import { Search, Plus, Sparkles, Check } from 'lucide-react';
 
 interface PluginPanelProps {
   className?: string;

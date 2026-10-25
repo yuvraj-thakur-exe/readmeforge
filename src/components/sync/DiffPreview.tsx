@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from 'react';
 import * as diff from 'diff';
-import { GitCommit, Check, X, ShieldAlert, ArrowRight, Loader2 } from 'lucide-react';
+import { GitCommit, X, ShieldAlert, Loader2, FileCode, AlertTriangle } from 'lucide-react';
 
 interface DiffPreviewProps {
   currentContent: string;
@@ -11,6 +11,7 @@ interface DiffPreviewProps {
   onConfirmPush: () => Promise<void> | void;
   onCancel: () => void;
   className?: string;
+  workflows?: Record<string, string>;
 }
 
 export const DiffPreview: React.FC<DiffPreviewProps> = ({
@@ -20,15 +21,23 @@ export const DiffPreview: React.FC<DiffPreviewProps> = ({
   onConfirmPush,
   onCancel,
   className = '',
+  workflows = {},
 }) => {
   const [isPushing, setIsPushing] = useState<boolean>(false);
+  const [selectedFile, setSelectedFile] = useState<string>('README.md');
   const [commitMessage, setCommitMessage] = useState<string>(
     'docs: update profile README via ReadmeForge'
   );
 
+  const workflowEntries = useMemo(() => Object.entries(workflows || {}), [workflows]);
+  const fileList = useMemo(() => ['README.md', ...workflowEntries.map(([f]) => f)], [workflowEntries]);
+
+  const activeCurrentContent = selectedFile === 'README.md' ? currentContent : '';
+  const activeNewContent = selectedFile === 'README.md' ? newContent : (workflows[selectedFile] || '');
+
   const changes = useMemo(() => {
-    return diff.diffLines(currentContent || '', newContent || '');
-  }, [currentContent, newContent]);
+    return diff.diffLines(activeCurrentContent || '', activeNewContent || '');
+  }, [activeCurrentContent, activeNewContent]);
 
   const stats = useMemo(() => {
     let additions = 0;
@@ -52,6 +61,9 @@ export const DiffPreview: React.FC<DiffPreviewProps> = ({
     }
   };
 
+  const isWorkflow = selectedFile.startsWith('.github/workflows');
+  const workflowHasWritePermission = isWorkflow && (activeNewContent.includes('contents: write') || activeNewContent.includes('permissions: write-all'));
+
   return (
     <div className={`flex flex-col bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl ${className}`}>
       {/* Safety Gate Alert */}
@@ -69,9 +81,42 @@ export const DiffPreview: React.FC<DiffPreviewProps> = ({
         </div>
       </div>
 
+      {/* Companion File Tabs */}
+      {fileList.length > 1 && (
+        <div className="flex items-center gap-2 px-5 py-2 bg-neutral-950/70 border-b border-neutral-800 overflow-x-auto text-xs">
+          <span className="text-neutral-500 font-medium mr-1">Files to push ({fileList.length}):</span>
+          {fileList.map(filePath => (
+            <button
+              key={filePath}
+              type="button"
+              onClick={() => setSelectedFile(filePath)}
+              className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors ${
+                selectedFile === filePath
+                  ? 'bg-violet-600/30 text-violet-200 border border-violet-500/40 font-semibold'
+                  : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
+              }`}
+            >
+              <FileCode className="w-3.5 h-3.5 text-neutral-400" />
+              <span>{filePath}</span>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* Workflow Permission Warning */}
+      {workflowHasWritePermission && (
+        <div className="px-5 py-2.5 bg-amber-950/40 border-b border-amber-800/60 flex items-start gap-2.5 text-xs text-amber-300">
+          <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+          <div>
+            <span className="font-semibold">Workflow Security Notice: </span>
+            This workflow requests <code className="px-1 py-0.5 bg-amber-900/50 rounded font-mono text-[11px] text-amber-200">contents: write</code> permissions to commit generated assets back to your repository. Verify actions and schedules before approving.
+          </div>
+        </div>
+      )}
+
       {/* Target Repo Info */}
       <div className="px-5 py-2.5 bg-neutral-900 border-b border-neutral-800 flex items-center justify-between text-xs text-neutral-400">
-        <span>Target: <strong>{repoName}/README.md</strong></span>
+        <span>Target: <strong>{repoName}/{selectedFile}</strong></span>
         <div className="flex items-center gap-2">
           <span className="text-neutral-500">Commit message:</span>
           <input
@@ -143,3 +188,4 @@ export const DiffPreview: React.FC<DiffPreviewProps> = ({
 };
 
 export default DiffPreview;
+

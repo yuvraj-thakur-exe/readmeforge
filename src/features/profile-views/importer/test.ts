@@ -72,7 +72,7 @@ describe('FEATURE - profile-views importer', () => {
       makeImgElement('https://api.getloli.com/@:test?', 'left') as any
     );
 
-    expect(result?.props.styles.float).toBe('left');
+    expect(result?.props.styles?.float).toBe('left');
   });
 
   it('defaults styles.float to none when align is not provided', () => {
@@ -80,7 +80,7 @@ describe('FEATURE - profile-views importer', () => {
       makeImgElement('https://api.getloli.com/@:test?') as any
     );
 
-    expect(result?.props.styles.float).toBe('none');
+    expect(result?.props.styles?.float).toBe('none');
   });
 
   it('returns a CanvasSection with type Sections.PROFILE_VIEWS and a string id', () => {

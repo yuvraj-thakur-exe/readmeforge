@@ -1,8 +1,7 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
-import { Sparkles, Terminal, Github } from 'lucide-react';
+import { Terminal, Github } from 'lucide-react';
 import { ThemeToggle } from '#/components/theme/ThemeToggle';
 import { CommandPalette } from './CommandPalette';
 

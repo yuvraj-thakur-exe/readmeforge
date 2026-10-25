@@ -8,7 +8,6 @@ import { PanelsEnum, Sections } from '#/types';
 
 import { ExtensionsHandle } from '#/components/handles/extensions';
 
-import { borderSectionParser } from '../parser';
 import { defaultImageSectionConfig } from '../default-config';
 
 function resetExtensionsStore() {
@@ -43,7 +42,7 @@ describe('FEATURE - border index (registration)', () => {
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.BORDER];
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.BORDER] as any);
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('square-dashed-top-solid');
@@ -60,7 +59,7 @@ describe('FEATURE - border index (registration)', () => {
 
   it('onClick dispatches canvas.section.add with Sections.BORDER', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.BORDER];
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[Sections.BORDER] as any);
 
     newSection.onClick();
 

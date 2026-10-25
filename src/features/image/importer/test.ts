@@ -18,9 +18,9 @@ describe('FEATURE - image importer', () => {
 
     const result = imageImporter(element as any);
 
-    expect(result?.props.styles.align).toBe('left');
-    expect(result?.props.styles.float).toBe('left');
-    expect(result?.props.styles.height).toBe(300);
+    expect(result?.props.styles?.align).toBe('left');
+    expect(result?.props.styles?.float).toBe('left');
+    expect(result?.props.styles?.height).toBe(300);
     expect(result?.props.content.url).toBe('https://example.com/img.gif');
   });
 
@@ -33,8 +33,8 @@ describe('FEATURE - image importer', () => {
 
     const result = imageImporter(element as any);
 
-    expect(result?.props.styles.float).toBe('none');
-    expect(result?.props.styles.height).toBe(200);
+    expect(result?.props.styles?.float).toBe('none');
+    expect(result?.props.styles?.height).toBe(200);
   });
 
   it('defaults align to center when not provided', () => {
@@ -46,7 +46,7 @@ describe('FEATURE - image importer', () => {
 
     const result = imageImporter(element as any);
 
-    expect(result?.props.styles.align).toBe('center');
+    expect(result?.props.styles?.align).toBe('center');
   });
 
   it('reads height and src from the inner img when tagName is div', () => {
@@ -65,8 +65,8 @@ describe('FEATURE - image importer', () => {
 
     const result = imageImporter(element as any);
 
-    expect(result?.props.styles.align).toBe('right');
-    expect(result?.props.styles.height).toBe(250);
+    expect(result?.props.styles?.align).toBe('right');
+    expect(result?.props.styles?.height).toBe(250);
     expect(result?.props.content.url).toBe('https://example.com/inner.gif');
   });
 

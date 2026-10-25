@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { ReadmeConfig } from '#/lib/plugins/types';
 import confetti from 'canvas-confetti';
-import { Sparkles, Check, ArrowRight, LayoutTemplate } from 'lucide-react';
+import { Check, ArrowRight, LayoutTemplate } from 'lucide-react';
 
 interface TemplateItem {
   id: string;

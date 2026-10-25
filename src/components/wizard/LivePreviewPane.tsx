@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState, useMemo } from 'react';
+import { useRef, useEffect, useState, useMemo } from 'react';
 import autoAnimate from '@formkit/auto-animate';
 import parse from 'html-react-parser';
 import { unified } from 'unified';
@@ -12,7 +12,7 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { buildMarkdown } from '#/lib/buildMarkdown';
-import { Copy, Check, Eye, Download, Sparkles } from 'lucide-react';
+import { Copy, Check, Eye, Download } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const sanitizeSchema = {

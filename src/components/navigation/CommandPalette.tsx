@@ -13,8 +13,6 @@ import {
   Laptop,
   Copy,
   Download,
-  Share2,
-  PlusCircle,
   FileUp,
   Sparkles,
 } from 'lucide-react';
@@ -30,7 +28,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
   const router = useRouter();
   const { setTheme } = useTheme();
   const config = useReadmeStore(state => state.config);
-  const addSection = useReadmeStore(state => state.addSection);
 
   // Toggle Cmd+K / Ctrl+K
   useEffect(() => {
@@ -135,6 +132,18 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                 <Copy className="w-4 h-4 text-emerald-400" />
                 <span>Copy README Markdown</span>
               </Command.Item>
+              {onOpenImport && (
+                <Command.Item
+                  onSelect={() => {
+                    onOpenImport();
+                    setOpen(false);
+                  }}
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                >
+                  <FileUp className="w-4 h-4 text-emerald-400" />
+                  <span>Import Existing README</span>
+                </Command.Item>
+              )}
               <Command.Item
                 onSelect={handleDownloadMarkdown}
                 className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"

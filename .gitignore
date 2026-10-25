@@ -43,3 +43,6 @@ node_modules/
 
 # git worktrees
 .worktrees/
+
+# TypeScript cache
+*.tsbuildinfo

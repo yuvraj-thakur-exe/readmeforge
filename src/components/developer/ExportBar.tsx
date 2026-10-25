@@ -5,7 +5,6 @@ import { useReadmeStore } from '#/store/useReadmeStore';
 import { buildMarkdown } from '#/lib/buildMarkdown';
 import confetti from 'canvas-confetti';
 import {
-  Copy,
   Check,
   Download,
   Share2,
@@ -13,6 +12,7 @@ import {
   Redo2,
   RotateCcw,
   Sparkles,
+  Github,
 } from 'lucide-react';
 
 interface ExportBarProps {
@@ -161,6 +161,18 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           <Download className="w-3.5 h-3.5" />
           <span className="hidden md:inline">JSON</span>
         </button>
+
+        {onOpenSync && (
+          <button
+            type="button"
+            onClick={onOpenSync}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors"
+            title="Push directly to GitHub repository"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">Sync</span>
+          </button>
+        )}
 
         <button
           type="button"

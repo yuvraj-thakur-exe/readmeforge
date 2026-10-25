@@ -20,14 +20,15 @@ export const PluginFieldOptionSchema = z.object({
 export type PluginFieldOption = z.infer<typeof PluginFieldOptionSchema>;
 
 export const PluginFieldSchema = z.object({
-  name: z.string(),
+  id: z.string().optional(),
+  name: z.string().optional(),
   label: z.string(),
   type: PluginFieldTypeSchema,
   defaultValue: z.unknown().optional(),
   options: z.array(PluginFieldOptionSchema).optional(),
   placeholder: z.string().optional(),
   description: z.string().optional(),
-  required: z.boolean().default(false),
+  required: z.boolean().optional(),
 });
 
 export type PluginField = z.infer<typeof PluginFieldSchema>;
@@ -105,6 +106,8 @@ export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
 export interface Plugin {
   id: string;
   name: string;
+  version?: string;
+  tags?: string[];
   description: string;
   author: string;
   repository?: string;

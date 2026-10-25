@@ -26,7 +26,7 @@ export const ResumeUpload: React.FC<ResumeUploadProps> = ({ isOpen, onClose }) =
     try {
       // Read file name or text
       const fileName = file.name;
-      const text = await file.text();
+      await file.text();
 
       // Heuristic extraction for demonstration / parsing
       const proposed: ProposedEnrichmentItem[] = [

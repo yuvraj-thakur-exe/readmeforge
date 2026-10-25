@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useSearchParams } from 'next/navigation';
@@ -10,7 +10,6 @@ import { PluginPanel } from '#/components/developer/PluginPanel';
 import { ExportBar } from '#/components/developer/ExportBar';
 import {
   Wand2,
-  Code2,
   Layers,
   ChevronLeft,
   ChevronRight,

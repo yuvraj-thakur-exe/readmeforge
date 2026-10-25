@@ -82,7 +82,7 @@ describe('FEATURE - techs importer', () => {
     );
 
     expect(result?.props.content.icons).toHaveProperty('javascript');
-    expect(result?.props.content.icons.javascript.currentProvider).toBe(
+    expect((result?.props.content.icons as any)?.javascript?.currentProvider).toBe(
       'simple_icons'
     );
   });
@@ -98,7 +98,7 @@ describe('FEATURE - techs importer', () => {
       ]) as any
     );
 
-    expect(Object.keys(result?.props.content.icons)).toEqual(['javascript']);
+    expect(Object.keys(result?.props.content.icons || {})).toEqual(['javascript']);
   });
 
   it('extracts height from the first image', () => {

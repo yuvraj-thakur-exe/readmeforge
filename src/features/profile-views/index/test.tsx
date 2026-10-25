@@ -44,9 +44,9 @@ describe('FEATURE - profile-views index (registration)', () => {
 
   it('registers the NEW_SECTION presentation with icon and name', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
         Sections.PROFILE_VIEWS
-      ];
+      ] as any);
 
     expect(newSection).toBeDefined();
     expect(newSection.icon).toBe('telescope');
@@ -63,9 +63,9 @@ describe('FEATURE - profile-views index (registration)', () => {
 
   it('onClick dispatches canvas.section.add with Sections.PROFILE_VIEWS', () => {
     const newSection =
-      extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
+      (extensionsStore.extensions[PanelsEnum.NEW_SECTION]?.[
         Sections.PROFILE_VIEWS
-      ];
+      ] as any);
 
     newSection.onClick();
 
