@@ -1,6 +1,8 @@
 const general = {
+  name: 'ReadmeForge',
+  tagline: 'Forge a GitHub profile that gets noticed.',
   urls: {
-    app: 'https://profile-readme-generator.com',
+    app: 'https://readmeforge.dev',
     sections: {
       music: {
         spotify: {
