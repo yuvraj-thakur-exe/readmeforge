@@ -19,6 +19,7 @@ import { Handles } from '#/components/handles';
 import { Modal } from '#/components/molecules/modal';
 import { Features } from '#/features';
 import { routing } from '#/i18n/routing';
+import { ThemeProvider } from '#/components/theme/ThemeProvider';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -114,16 +115,18 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html data-theme="dark" lang={locale}>
-      <body className="palette-surface">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Handles />
+    <html lang={locale} suppressHydrationWarning>
+      <body className="palette-surface min-h-screen">
+        <ThemeProvider>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Handles />
 
-          {children}
+            {children}
 
-          <Modal />
-          <Features />
-        </NextIntlClientProvider>
+            <Modal />
+            <Features />
+          </NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
