@@ -43,8 +43,8 @@ test('stats guard disappears after setting the github username', async ({
 
   await page.getByTestId('canvas-action-open-settings').click();
   await expect(page.getByTestId('user.github')).toBeVisible();
-  await page.getByTestId('user.github').fill('maurodesouza');
+  await page.getByTestId('user.github').fill('octocat');
 
   await expect(page.getByTestId('guard-form')).not.toBeVisible();
-  await expect(page.locator('img[src*="maurodesouza"]').first()).toBeVisible();
+  await expect(page.locator('img[src*="octocat"]').first()).toBeVisible();
 });

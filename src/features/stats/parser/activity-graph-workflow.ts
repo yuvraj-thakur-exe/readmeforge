@@ -59,7 +59,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Generate activity graph
-        uses: maurodesouza/github-readme-activity-graph-action@v1
+        uses: ashutosh00710/github-readme-activity-graph@master
         with:
           username: ${'${{ github.repository_owner }}'}
           options: ${options}

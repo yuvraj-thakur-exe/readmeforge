@@ -17,13 +17,11 @@ const general = {
       },
 
       stats: {
-        imageBaseUrl:
-          'https://github-readme-stats.profile-readme-generator.com/api',
+        imageBaseUrl: 'https://github-readme-stats.vercel.app/api',
         streakBaseUrl: 'https://streak-stats.demolab.com',
-        trophyBaseUrl:
-          'https://github-profile-trophy.profile-readme-generator.com',
+        trophyBaseUrl: 'https://github-profile-trophy.vercel.app',
         activityGraphBaseUrl:
-          'https://github-readme-activity-graph.profile-readme-generator.com/graph',
+          'https://github-readme-activity-graph.vercel.app/graph',
       },
 
       borders: {
@@ -32,7 +30,7 @@ const general = {
 
       socials: {
         iconBaseUrl:
-          'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social',
+          'https://raw.githubusercontent.com/readmeforge/readmeforge/main/public/assets/icons/social',
         badgeBaseUrl: 'https://img.shields.io/static/v1',
       },
 

@@ -1,13 +1,13 @@
 {
-  "name": "Profile Readme Generator",
-  "short_name": "Profile Readme Generator",
-  "description": "Beautify your github profile with this amazing tool, creating the readme your way in a simple and fast way! The best profile readme generator you will find!",
+  "name": "ReadmeForge",
+  "short_name": "ReadmeForge",
+  "description": "Forge a GitHub profile that gets noticed. Beautiful README builder with live preview, plugin ecosystem, and one-click GitHub sync.",
 
   "start_url": "/",
   "display": "fullscreen",
 
   "background_color": "#0d1117",
-  "theme_color": "#58a6ff",
+  "theme_color": "#8b5cf6",
 
   "icons": [
     {

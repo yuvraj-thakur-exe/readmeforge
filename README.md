@@ -1,170 +1,162 @@
 <div align="center" id="top">
-  <img src="https://profile-readme-generator.com/assets/app.png" width="900" alt="Profile Readme Generator" />
+  <img src="public/logo.svg" width="120" height="120" alt="ReadmeForge Logo" />
+  <h1>ReadmeForge</h1>
+  <p><strong>Forge a GitHub profile that gets noticed.</strong></p>
+  <p>Product-grade GitHub profile README builder featuring an interactive visual wizard, Monaco developer IDE, 8+ modular open-source plugins, confirmation-gated resume import, and direct GitHub sync.</p>
 
-  <a href="https://profile-readme-generator.com">Demo</a>
+  <p>
+    <a href="https://github.com/readmeforge/readmeforge/actions/workflows/ci.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/readmeforge/readmeforge/ci.yml?branch=main&label=CI&style=flat-square" alt="CI Status" />
+    </a>
+    <a href="https://github.com/readmeforge/readmeforge/blob/main/LICENSE.md">
+      <img src="https://img.shields.io/badge/License-MIT-violet?style=flat-square" alt="License: MIT" />
+    </a>
+    <a href="https://nextjs.org">
+      <img src="https://img.shields.io/badge/Next.js-15%20(App%20Router)-black?style=flat-square&logo=next.js" alt="Next.js 15" />
+    </a>
+    <a href="https://www.typescriptlang.org">
+      <img src="https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript" alt="TypeScript" />
+    </a>
+    <a href="https://github.com/readmeforge/readmeforge/stargazers">
+      <img src="https://img.shields.io/github/stars/readmeforge/readmeforge?style=flat-square&color=cyan" alt="GitHub Stars" />
+    </a>
+    <a href="https://github.com/readmeforge/readmeforge/pulls">
+      <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" />
+    </a>
+  </p>
+
+  <p>
+    <a href="#sparkles-features">Features</a> &bull;
+    <a href="#rocket-quickstart">Quickstart</a> &bull;
+    <a href="#puzzle-piece-plugin-ecosystem">Plugins</a> &bull;
+    <a href="#desktop_computer-developer-mode">/developer Mode</a> &bull;
+    <a href="#handshake-contributing">Contributing</a> &bull;
+    <a href="#page_facing_up-license">License</a>
+  </p>
 </div>
 
-<div align="center">
-  <h1>Profile Readme Generator</h1>
-  <h3>The best profile readme generator you will find!</h3>
-</div>
+---
 
-<p align="center">
-  <a href="https://github.com/maurodesouza/profile-readme-generator/fork" target="_blank">
-    <img src="https://img.shields.io/github/forks/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project forks"/>
-  </a>
+## :sparkles: Features
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/stargazers" target="_blank">
-    <img src="https://img.shields.io/github/stars/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project stars"/>
-  </a>
+- 🧙 **Interactive 6-Step Visual Wizard**: Effortlessly customize identity, visual vibe, tech stacks, stats, social links, and pinned projects with an animated live preview pane powered by `@formkit/auto-animate`.
+- 💻 **Power-User `/developer` IDE Mode**: Split-screen raw JSON configuration editor backed by `@monaco-editor/react`, real-time schema validation via Zod, and instant side-by-side markdown rendering.
+- 🧩 **Curated Plugin Architecture**: Zero-friction integration with the best GitHub profile widgets:
+  - 📊 `github-readme-stats` — dynamic commit, PR, and repo stats cards
+  - 🐍 `snk` — animated GitHub contribution graph snake eating your commit blocks
+  - ⌨️ `readme-typing-svg` — dynamic typewriter headlines & role transitions
+  - ⏱️ `waka-readme-stats` — real-time coding time metrics from WakaTime
+  - 🏆 `github-profile-trophy` — achievements and ranks rendered in trophy layout
+  - 🏷️ `markdown-badges` — categorized shields.io badges with official tech brand logos
+  - 👁️ `visitor-counter` — minimal privacy-respecting profile hit counter
+  - 💼 `portfolio-contributions` — featured open-source repositories and highlighted PRs
+- 🛡️ **Confirmation-Gated Resume & Web Enrichment**: Upload a PDF or DOCX resume, or fetch your public GitHub profile. **Zero silent store modifications** — every single field passes through `ConfirmGate.tsx` with diff review before writing to your config.
+- 🚀 **Direct GitHub OAuth Sync**: Auto-detect your `<username>/<username>` profile repository and commit directly via Octokit with a side-by-side diff preview (`DiffPreview.tsx`).
+- 🎨 **State-of-the-Art Aesthetics**: Violet-to-cyan gradient design tokens, dark/light/system theme toggling via `next-themes`, and celebration confetti via `canvas-confetti`.
+- 📦 **Multi-Format Export**: One-click copy, `.md` download, PNG snapshot via `html-to-image`, or shareable URL with compressed base64 state.
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/commits/main" target="_blank">
-    <img src="https://img.shields.io/github/commit-activity/m/maurodesouza/profile-readme-generator?" alt="Badge showing average commit frequency per month"/>
-  </a>
+---
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/commits/main" target="_blank">
-    <img src="https://img.shields.io/github/last-commit/maurodesouza/profile-readme-generator?" alt="Badge showing when the last commit was made"/>
-  </a>
+## :rocket: Quickstart
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/issues" target="_blank">
-    <img src="https://img.shields.io/github/issues/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project issues"/>
-  </a>
+### Prerequisites
+- Node.js 20.x or 22.x
+- `pnpm` (Corepack recommended)
 
-  <a href="https://github.com/maurodesouza/profile-readme-generator/pulls" target="_blank">
-    <img src="https://img.shields.io/github/issues-pr/maurodesouza/profile-readme-generator?" alt="Badge showing the total of project pull-requests"/>
-  </a>
-
-  <a href="https://github.com/maurodesouza/profile-readme-generator/blob/master/LICENSE.md" target="_blank">
-    <img alt="Badge showing project license type" src="https://img.shields.io/github/license/maurodesouza/profile-readme-generator?color=f85149">
-  </a>
-
-
-</p>
-
-
-<p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0;
-  <a href="#rocket-main-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="https://github.com/maurodesouza/profile-readme-generator/blob/main/.github/CONTRIBUTING.md">Contributing</a>
-</p>
-
-## :dart: About ##
-
-Are you tired of manually editing your GitHub profile or missing out on the amazing features you can add to it? 😩 Configuring GitHub actions can also be a hassle, right? Say no more! 💪
-
-**Introducing a tool that lets you beautify your GitHub profile with a customized README, easily and in no time!** ✨ You can include whatever content you want, wherever you want it (*within the limitations of markdown, of course*). 📝
-
-**With this amazing tool, creating your own README has never been so simple and fast.** ⚡ You can save time and focus on what really matters - showcasing your skills and projects. 🚀
-
-**Don't miss out on the opportunity to enhance your GitHub profile.** Give it a try and see for yourself how easy and convenient it is! 😉
-
-<p align="center">
-<i>Loved the tool? Please consider <a href="https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS">donating 💸</a> to support its continuous<br/> improvement and development!</i>
-</p>
-
-<div align="center">
-  <i>
-  <a href="https://trendshift.io/repositories/11023?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-11023" target="_blank" rel="noopener noreferrer">       <img src="https://trendshift.io/api/badge/repositories/11023" alt="maurodesouza%2Fprofile-readme-generator | Trendshift" width="250" height="55"/>
-  </a>
-  </i>
-<i>
-  <a href="https://trendshift.io/repositories/11023?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-11023" target="_blank" rel="noopener noreferrer">      <img src="https://trendshift.io/api/badge/trendshift/repositories/11023/daily?language=TypeScript" alt="maurodesouza%2Fprofile-readme-generator | Trendshift" width="250" height="55"/>
-  </a>
-</i>
-  <a href="https://trendshift.io/repositories/11023?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-11023" target="_blank" rel="noopener noreferrer">       <img src="https://trendshift.io/api/badge/trendshift/repositories/11023/daily" alt="maurodesouza%2Fprofile-readme-generator | Trendshift" width="250" height="55"/>
-  </a>
-</div>
-
-&#xa0;
-
-https://user-images.githubusercontent.com/54520907/173442002-dafc63ea-321f-4ce2-b349-be490b3a00ff.mp4
-
-## :rocket: Main Technologies ##
-
-<a href="https://nextjs.org">
-  <img width="50" title="NextJs" alt="Next Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/next-logo.svg">
-</a> &#xa0; &#xa0;
-
-<a href="https://www.typescriptlang.org">
-  <img width="50" title="Typescript" alt="Typescript Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/typescript-logo.svg">
-</a> &#xa0; &#xa0;
-
-<a href="https://tailwindcss.com">
-  <img width="50" title="Styled Components" alt="Styled Components Logo" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/tailwind/tailwind.png">
-</a> &#xa0; &#xa0;
-
-<a href="https://jestjs.io">
-  <img width="50" title="Jest" alt="Jest Logo" src="https://raw.githubusercontent.com/maurodesouza/maurodesouza/master/assets/jest-logo.svg">
-</a> &#xa0; &#xa0;
-
-<a href="https://biomejs.dev">
-  <img width="50" title="Biome" alt="Biome Logo" src="https://biomejs.dev/img/favicon.svg">
-</a>
-
-###
-
-<details>
-  <summary>See more</summary>
-
-  ###
-
-  * [Shadcn](https://ui.shadcn.com)
-  * [Radix](https://www.radix-ui.com)
-  * [Lucid Icons](https://lucide.dev)
-  * [clsx](https://github.com/lukeed/clsx#readme)
-  * [Tailwind Merge](https://github.com/dcastil/tailwind-merge#readme)
-  * [Tailwind Variants](https://www.tailwind-variants.org)
-  * [Framer Motion](https://framer.com/motion/)
-  * [Prismjs](https://prismjs.com)
-  * [HTML Prettify](https://github.com/Dmc0125/html-prettify#readme)
-  * [React Share](https://github.com/nygardk/react-share)
-  * [React Markdown](https://github.com/remarkjs/react-markdown#readme)
-  * [UUID](https://github.com/uuidjs/uuid#readme)
-
-</details>
-
-## :white_check_mark: Requirements ##
-
-Before starting :checkered_flag:, make sure you have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed on your system. ([nvm](https://github.com/nvm-sh/nvm#node-version-manager---) recommended).
-
-## :checkered_flag: Starting ##
+### Local Development
 
 ```bash
-# Clone this project
-$ git clone https://github.com/maurodesouza/profile-readme-generator
-
-# Access
-$ cd profile-readme-generator
+# Clone the repository
+git clone https://github.com/readmeforge/readmeforge.git
+cd readmeforge
 
 # Install dependencies
-$ yarn
+corepack pnpm install
 
-# Run the project
-$ yarn dev
-
-# The server will initialize in the <http://localhost:3000>
+# Start local development server
+corepack pnpm dev
 ```
 
-## :video_game: Scripts
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- `dev`: starts the application at `localhost:3000`;
-- `build`: creates an optimized production build of the application;
-- `start`: starts the application in production mode at localhost:3000 (make sure to run the build first);
-- `test`: runs the tests;
-- `lint`: runs biome check in the /src directory;
-- `format`: runs biome format in the /src directory.
+### Verification & Testing
 
-## :memo: License ##
+```bash
+# Run unit tests (Zustand store, pure buildMarkdown, plugin registry)
+corepack pnpm test
 
-This project is licensed under the MIT License. For more details, please refer to the [LICENSE](LICENSE.md) file.
+# Run code style and linter
+corepack pnpm lint
 
+# Production build
+corepack pnpm build
 
-Made with :heart: by <a href="https://github.com/maurodesouza" target="_blank">Mauro de Souza</a>
+# Run end-to-end browser tests
+corepack pnpm test:e2e
+```
 
-&#xa0;
+---
 
-<a href="#top">Back to top</a>
+## :puzzle_piece: Plugin Ecosystem
 
-*Readme created with [Simple Readme](https://marketplace.visualstudio.com/items?itemName=maurodesouza.vscode-simple-readme)*
+ReadmeForge is built on an extensible plugin engine (`src/lib/plugins/`). Every widget implements the typed `Plugin` Zod schema:
+
+```typescript
+import { z } from 'zod';
+import { Plugin } from '@/lib/plugins/types';
+
+export const myPlugin: Plugin = {
+  id: 'my-custom-plugin',
+  name: 'Custom Plugin',
+  version: '1.0.0',
+  description: 'Embeds custom stats cards into profile READMEs',
+  author: 'Community Contributor',
+  category: 'stats',
+  schema: z.object({
+    username: z.string().min(1),
+    theme: z.string().default('dark'),
+  }),
+  render: (config, theme) => {
+    return `<img src="https://my-service.com/api?user=${config.username}&theme=${theme}" alt="Stats" />`;
+  },
+};
+```
+
+To add your own plugin, consult the [Plugin Authoring Guide](docs/PLUGIN_GUIDE.md).
+
+---
+
+## :desktop_computer: Developer Mode
+
+Need raw control? Jump straight to `/developer` for:
+- Monaco JSON code editor with autocompletion and diagnostic validation
+- Real-time two-way synchronization with the visual wizard state
+- Plugin insertion panel: search, configure, and insert plugins with 1 click
+- Export bar: copy raw markdown, download `.md`, or generate a shareable URL
+
+---
+
+## :shield: Security & Architecture Invariants
+
+- **Single Store Truth**: `src/store/useReadmeStore.ts` holds all configuration state. No divergent or duplicate UI state.
+- **Pure Markdown Generator**: `buildMarkdown(config)` in `src/lib/buildMarkdown.ts` is 100% deterministic and free of React/DOM dependencies.
+- **Explicit Confirmation Gates**: No third-party data from resume parsing or API enrichment touches your profile without explicit approval.
+- **Diff Preview Before Push**: Writes to GitHub repositories require visual confirmation on a side-by-side diff.
+
+---
+
+## :handshake: Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](.github/CONTRIBUTING.md) and [Code of Conduct](.github/CODE_OF_CONDUCT.md) before submitting pull requests.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feat/amazing-feature`)
+3. Commit your Changes (`git commit -m 'feat: add some amazing feature'`)
+4. Push to the Branch (`git push origin feat/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## :page_facing_up: License
+
+Distributed under the MIT License. See [LICENSE.md](LICENSE.md) for details. Third-party notices are documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).

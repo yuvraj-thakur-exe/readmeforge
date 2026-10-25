@@ -6,16 +6,11 @@ import { observer } from 'mobx-react-lite';
 import { GuardSection } from '#/components/organisms/sections/guard';
 
 const GAME_IMAGES: Record<string, string> = {
-  pacman:
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/pacman.svg',
-  breakout:
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/breakout.svg',
-  galaga:
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/galaga.svg',
-  'puzzle-bobble':
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/puzzle-bobble.svg',
-  bomberman:
-    'https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/refs/heads/main/public/assets/bomberman.svg',
+  pacman: '/assets/pacman.svg',
+  breakout: '/assets/breakout.svg',
+  galaga: '/assets/galaga.svg',
+  'puzzle-bobble': '/assets/puzzle-bobble.svg',
+  bomberman: '/assets/bomberman.svg',
 };
 
 type PacmanSectionProps = {

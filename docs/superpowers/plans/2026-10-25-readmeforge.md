@@ -30,41 +30,36 @@
 
 ---
 
-### Task 1: Complete Rebranding & Legacy Cleanup (§1-§3 Rebrand Checklist)
-**Files:**
-- Modify: `package.json`
-- Modify: `LICENSE.md`
-- Create: `THIRD_PARTY_LICENSES.md`
-- Create: `.env.example`
-- Create: `CHANGELOG.md`
-- Modify: `src/config/general/index.ts`
-- Modify: `src/app/[locale]/layout.tsx`
-- Modify: `src/components/molecules/page-footer/index.tsx`
-- Modify: `src/components/templates/result/index.tsx`
-- Replace: `public/logo.svg`, `public/favicon.ico`, `public/og-image.png`
-- Create: `.github/CODE_OF_CONDUCT.md`
-- Create: `.github/CONTRIBUTING.md`
-- Create: `.github/ISSUE_TEMPLATE/bug_report.md`
-- Create: `.github/ISSUE_TEMPLATE/feature_request.md`
-- Create: `.github/PULL_REQUEST_TEMPLATE.md`
+### Task 1: Complete Rebranding & Legacy Cleanup (§1-§3 Rebrand Checklist) [IN PROGRESS - 85% DONE]
+**Reference Checklist:** `REBRAND_CHECKLIST.md` in repository root.
 
-**Interfaces:**
-- Produces: 100% clean ReadmeForge project identity; zero remaining traces of previous author/project name in active application code.
+**Completed Files:**
+- `package.json` (name: `readmeforge`, license, author, URLs)
+- `LICENSE.md` (fresh MIT license, 2026 ReadmeForge Contributors)
+- `THIRD_PARTY_LICENSES.md` (upstream MIT attributions)
+- `.env.example`
+- `CHANGELOG.md` (v0.1.0)
+- `.github/CODE_OF_CONDUCT.md`
+- `.github/CONTRIBUTING.md`
+- `.github/ISSUE_TEMPLATE/` (bug_report.md, feature_request.md)
+- `.github/PULL_REQUEST_TEMPLATE.md`
+- `public/logo.svg`
+- `src/app/[locale]/layout.tsx` (title, meta-og, twitter)
+- `src/components/molecules/page-footer/index.tsx`
 
-- [ ] **Step 1: Replace `LICENSE.md` with fresh MIT license for ReadmeForge (Current Year & ReadmeForge Authors)**
-- [ ] **Step 2: Create `THIRD_PARTY_LICENSES.md` documenting open-source references and upstream notice**
-- [ ] **Step 3: Update `package.json` fields (repository, bugs, homepage, author) to ReadmeForge**
-- [ ] **Step 4: Update metadata, title, and openGraph in `src/app/[locale]/layout.tsx` to ReadmeForge**
-- [ ] **Step 5: Clean `PageFooter` and `ResultTemplate` to reference ReadmeForge repositories and branding**
-- [ ] **Step 6: Create `.github/` issue templates, PR template, Code of Conduct, and Contributing guide**
-- [ ] **Step 7: Create `.env.example` and `CHANGELOG.md` starting at `v0.1.0`**
-- [ ] **Step 8: Generate ReadmeForge brand SVG assets (`logo.svg`, favicon, OG placeholder)**
-- [ ] **Step 9: Run grep verification to ensure all legacy strings are eliminated**
-- [ ] **Step 10: Commit complete rebrand cleanup**
-  ```bash
-  git add .
-  git commit -m "chore(rebrand): execute comprehensive rebranding sweep to ReadmeForge"
-  ```
+**Residual Rebrand Cleanup Steps:**
+- [x] **Step 1: Replace `LICENSE.md` with fresh MIT license for ReadmeForge (Current Year & ReadmeForge Authors)**
+- [x] **Step 2: Create `THIRD_PARTY_LICENSES.md` documenting open-source references and upstream notice**
+- [x] **Step 3: Update `package.json` fields (repository, bugs, homepage, author) to ReadmeForge**
+- [x] **Step 4: Update metadata, title, and openGraph in `src/app/[locale]/layout.tsx` to ReadmeForge**
+- [x] **Step 5: Clean `PageFooter` and `ResultTemplate` to reference ReadmeForge repositories and branding**
+- [x] **Step 6: Create `.github/` issue templates, PR template, Code of Conduct, and Contributing guide**
+- [x] **Step 7: Create `.env.example` and `CHANGELOG.md` starting at `v0.1.0`**
+- [x] **Step 8: Generate ReadmeForge brand SVG assets (`logo.svg`)**
+- [ ] **Step 9: Generate `public/favicon.ico` and `public/og-image.png` assets**
+- [ ] **Step 10: Clean residual legacy strings in `public/manifest.json`, `public/ads.txt`, `src/translations/en.json`, `src/translations/pt-BR.json`, `src/config/general/index.ts`, `src/resources/templates.ts`, and local asset paths in `snake` and `pacman` sections**
+- [ ] **Step 11: Replace root `README.md` with ReadmeForge high-traction README (shields.io badges, anvil/spark logo, feature matrix, plugin showcase)**
+- [ ] **Step 12: Run final grep verification to ensure all legacy strings are eliminated**
 
 ---
 
@@ -100,41 +95,20 @@
 
 ---
 
-### Task 5: Visual Wizard Question Set & Live Preview Pane (§6b & §7 Step 4)
+### Task 5: Visual Wizard Question Set & Live Preview Pane (§6b & §7 Step 4) [COMPLETED]
 **Files:**
-- Create: `src/components/motion/FadeIn.tsx`
-- Create: `src/components/motion/Stagger.tsx`
-- Create: `src/components/wizard/WizardContainer.tsx`
-- Create: `src/components/wizard/LivePreviewPane.tsx`
-- Create: `src/components/wizard/steps/IdentityStep.tsx`
-- Create: `src/components/wizard/steps/StyleVisualStep.tsx`
-- Create: `src/components/wizard/steps/SkillsTechStep.tsx`
-- Create: `src/components/wizard/steps/StatsPluginsStep.tsx`
-- Create: `src/components/wizard/steps/SocialLinksStep.tsx`
-- Create: `src/components/wizard/steps/ProjectsStep.tsx`
-- Modify: `src/app/[locale]/page.tsx`
-
-**Interfaces:**
-- Consumes: `useReadmeStore`, `buildMarkdown`, `pluginRegistry`
-- Produces: 6-step interactive wizard mapping to store fields with live animated markdown preview pane (`@formkit/auto-animate` + `framer-motion`).
-
-- [ ] **Step 1: Create reusable motion wrappers (`<FadeIn>`, `<Stagger>`) in `src/components/motion/`**
-- [ ] **Step 2: Build `LivePreviewPane.tsx` using `react-markdown`, `remark-gfm`, and `rehype-sanitize`**
-- [ ] **Step 3: Build step forms implementing §6b question set:**
-  - Identity (name, role, bio, location, pronouns, status)
-  - Style & Visual (vibe, accent color, theme, layout, badge style)
-  - Skills & Tech (languages, tools, category grouping)
-  - Stats & Plugins (stats cards, streak, trophies, typing-svg, snake, visitor counter)
-  - Social & Links (GitHub, LinkedIn, Twitter/X, Discord, website, email)
-  - Projects & Highlights (pinned repos, currently building, fun facts)
-- [ ] **Step 4: Integrate WizardContainer into `src/app/[locale]/page.tsx`**
-- [ ] **Step 5: Verify build & tests**
-  Run: `pnpm test`
-- [ ] **Step 6: Commit wizard components**
-  ```bash
-  git add src/components/motion/ src/components/wizard/ src/app/[locale]/page.tsx
-  git commit -m "feat(wizard): implement complete 6-step wizard and live animated preview pane"
-  ```
+- `src/components/motion/FadeIn.tsx`
+- `src/components/motion/Stagger.tsx`
+- `src/components/wizard/WizardContainer.tsx`
+- `src/components/wizard/LivePreviewPane.tsx`
+- `src/components/wizard/steps/IdentityStep.tsx`
+- `src/components/wizard/steps/StyleVisualStep.tsx`
+- `src/components/wizard/steps/SkillsTechStep.tsx`
+- `src/components/wizard/steps/StatsPluginsStep.tsx`
+- `src/components/wizard/steps/SocialLinksStep.tsx`
+- `src/components/wizard/steps/ProjectsStep.tsx`
+- `src/app/[locale]/page.tsx`
+- Commit: `54b6dff`
 
 ---
 

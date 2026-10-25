@@ -16,11 +16,11 @@ test('opening user settings and persisting github username', async ({
   await expect(page.getByTestId('panel-content-right')).toBeVisible();
   await expect(page.getByTestId('user.github')).toBeVisible();
 
-  await page.getByTestId('user.github').fill('maurodesouza');
+  await page.getByTestId('user.github').fill('octocat');
 
   await page.reload();
   await page.getByTestId('canvas-action-open-settings').click();
-  await expect(page.getByTestId('user.github')).toHaveValue('maurodesouza');
+  await expect(page.getByTestId('user.github')).toHaveValue('octocat');
 });
 
 test.fixme('toggling theme persists after reload', async ({ page }) => {
@@ -43,9 +43,9 @@ test.fixme('toggling theme persists after reload', async ({ page }) => {
 
 test('stats image requests use the updated username', async ({ page }) => {
   await page.getByTestId('canvas-action-open-settings').click();
-  await page.getByTestId('user.github').fill('maurodesouza');
+  await page.getByTestId('user.github').fill('octocat');
 
   await page.getByTestId('Stats').click();
   await expect(page.getByTestId('guard-form')).not.toBeVisible();
-  await expect(page.locator('img[src*="maurodesouza"]').first()).toBeVisible();
+  await expect(page.locator('img[src*="octocat"]').first()).toBeVisible();
 });
