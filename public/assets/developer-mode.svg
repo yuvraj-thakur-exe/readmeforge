@@ -1,0 +1,311 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" width="100%" height="380" fill="none">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="ideBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#080c14" />
+    </linearGradient>
+
+    <!-- Pane Gradient -->
+    <linearGradient id="paneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141c2e" />
+      <stop offset="100%" stop-color="#0d1322" />
+    </linearGradient>
+
+    <!-- Sync Beam Gradient -->
+    <linearGradient id="syncBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2" />
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="1" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Accent Highlights -->
+    <linearGradient id="cyanViolet" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="beamGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* Blinking Caret & Typing Animation */
+    @keyframes blinkCursor {
+      0%, 100% { opacity: 1; }
+      50%      { opacity: 0; }
+    }
+
+    /* Bi-directional Pulse */
+    @keyframes syncPulse {
+      0%   { transform: translateY(-40px); opacity: 0; }
+      50%  { opacity: 1; }
+      100% { transform: translateY(240px); opacity: 0; }
+    }
+
+    @keyframes syncDataLeftToRight {
+      0%   { transform: translateX(0); opacity: 0.3; }
+      50%  { opacity: 1; filter: drop-shadow(0 0 6px #22d3ee); }
+      100% { transform: translateX(36px); opacity: 0.3; }
+    }
+
+    @keyframes radarScan {
+      0%   { transform: translateY(-10px); opacity: 0; }
+      50%  { opacity: 0.4; }
+      100% { transform: translateY(260px); opacity: 0; }
+    }
+
+    .cursor {
+      animation: blinkCursor 0.85s infinite;
+    }
+
+    .sync-node-down {
+      animation: syncPulse 2.8s infinite ease-in-out;
+    }
+
+    .sync-arrow {
+      animation: syncDataLeftToRight 1.5s infinite ease-in-out;
+    }
+
+    .preview-scan {
+      animation: radarScan 4s infinite linear;
+    }
+  </style>
+
+  <!-- Container Window Frame -->
+  <rect width="920" height="380" rx="14" fill="url(#ideBg)" stroke="#334155" stroke-width="1.4" />
+
+  <!-- Window Header Bar -->
+  <rect width="920" height="40" rx="14" fill="#0f172a" />
+  <rect y="26" width="920" height="14" fill="#0f172a" />
+  <line x1="0" y1="40" x2="920" y2="40" stroke="#1e293b" stroke-width="1.2" />
+
+  <!-- Mac / Window Dots -->
+  <circle cx="24" cy="20" r="5.5" fill="#ef4444" />
+  <circle cx="42" cy="20" r="5.5" fill="#eab308" />
+  <circle cx="60" cy="20" r="5.5" fill="#22c55e" />
+
+  <!-- Window Title / Mode Indicator -->
+  <g transform="translate(460, 24)">
+    <rect x="-190" y="-12" width="380" height="24" rx="12" fill="#1e293b" stroke="#334155" stroke-width="0.8" />
+    <circle cx="-170" cy="0" r="3.5" fill="#38bdf8" />
+    <text x="-156" y="4" font-family="'Fira Code', monospace, sans-serif" font-size="11" font-weight="600" fill="#f8fafc">
+      ReadmeForge Studio • /developer Mode (Monaco Split IDE)
+    </text>
+  </g>
+
+  <!-- Keyboard Shortcut Pill in Header -->
+  <g transform="translate(840, 20)">
+    <rect x="-70" y="-8" width="65" height="17" rx="4" fill="#334155" />
+    <text x="-37.5" y="4.5" font-family="system-ui, sans-serif" font-size="9" font-weight="700" fill="#cbd5e1" text-anchor="middle">
+      CMD + K
+    </text>
+  </g>
+
+  <!-- ================= LEFT PANE: MONACO JSON EDITOR ================= -->
+  <g transform="translate(18, 52)">
+    <!-- Pane Box -->
+    <rect width="420" height="286" rx="8" fill="url(#paneGrad)" stroke="#1e293b" stroke-width="1" />
+    <!-- Sub-header -->
+    <rect width="420" height="28" rx="8" fill="#162033" />
+    <rect y="20" width="420" height="8" fill="#162033" />
+    <line x1="0" y1="28" x2="420" y2="28" stroke="#1e293b" stroke-width="1" />
+
+    <text x="14" y="18" font-family="'Fira Code', monospace" font-size="11" font-weight="600" fill="#38bdf8">
+      📄 profile-config.json
+    </text>
+    <rect x="330" y="6" width="76" height="16" rx="4" fill="#064e3b" />
+    <text x="368" y="17.5" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#34d399" text-anchor="middle">
+      VALIDATED
+    </text>
+
+    <!-- Line Numbers Column -->
+    <g font-family="'Fira Code', monospace" font-size="11" fill="#475569" text-anchor="end">
+      <text x="30" y="52">1</text>
+      <text x="30" y="70">2</text>
+      <text x="30" y="88">3</text>
+      <text x="30" y="106">4</text>
+      <text x="30" y="124">5</text>
+      <text x="30" y="142">6</text>
+      <text x="30" y="160">7</text>
+      <text x="30" y="178">8</text>
+      <text x="30" y="196">9</text>
+      <text x="30" y="214">10</text>
+      <text x="30" y="232">11</text>
+      <text x="30" y="250">12</text>
+      <text x="30" y="268">13</text>
+    </g>
+    <line x1="38" y1="28" x2="38" y2="286" stroke="#1e293b" stroke-width="1" />
+
+    <!-- Code Syntax Content -->
+    <g font-family="'Fira Code', monospace" font-size="11" xml:space="preserve">
+      <!-- Line 1 -->
+      <text x="48" y="52"><tspan fill="#e2e8f0">{</tspan></text>
+      <!-- Line 2 -->
+      <text x="60" y="70"><tspan fill="#7dd3fc">"version"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"1.0.0"</tspan><tspan fill="#94a3b8">,</tspan></text>
+      <!-- Line 3 -->
+      <text x="60" y="88"><tspan fill="#7dd3fc">"role"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#86efac">"ai-ml"</tspan><tspan fill="#94a3b8">,</tspan></text>
+      <!-- Line 4 -->
+      <text x="60" y="106"><tspan fill="#7dd3fc">"vibe"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"tokyonight"</tspan><tspan fill="#94a3b8">,</tspan></text>
+      <!-- Line 5 -->
+      <text x="60" y="124"><tspan fill="#7dd3fc">"accentColor"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"#10B981"</tspan><tspan fill="#94a3b8">,</tspan></text>
+      <!-- Line 6 -->
+      <text x="60" y="142"><tspan fill="#7dd3fc">"sections"</tspan><tspan fill="#94a3b8">: [</tspan></text>
+      <!-- Line 7 -->
+      <text x="74" y="160"><tspan fill="#94a3b8">{ </tspan><tspan fill="#7dd3fc">"type"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"readme-typing-svg"</tspan><tspan fill="#94a3b8"> },</tspan></text>
+      <!-- Line 8 -->
+      <text x="74" y="178"><tspan fill="#94a3b8">{ </tspan><tspan fill="#7dd3fc">"type"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"pie-chart"</tspan><tspan fill="#94a3b8">, </tspan><tspan fill="#7dd3fc">"mode"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"top-langs-donut"</tspan><tspan fill="#94a3b8"> },</tspan></text>
+      <!-- Line 9 -->
+      <text x="74" y="196"><tspan fill="#94a3b8">{ </tspan><tspan fill="#7dd3fc">"type"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"activity-graph"</tspan><tspan fill="#94a3b8">, </tspan><tspan fill="#7dd3fc">"color"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"10B981"</tspan><tspan fill="#94a3b8"> },</tspan></text>
+      <!-- Line 10 -->
+      <text x="74" y="214"><tspan fill="#94a3b8">{ </tspan><tspan fill="#7dd3fc">"type"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"github-profile-trophy"</tspan><tspan fill="#94a3b8"> },</tspan></text>
+      <!-- Line 11 -->
+      <text x="74" y="232"><tspan fill="#94a3b8">{ </tspan><tspan fill="#7dd3fc">"type"</tspan><tspan fill="#94a3b8">: </tspan><tspan fill="#fca5a5">"snk"</tspan><tspan fill="#94a3b8"> }</tspan></text>
+      <!-- Line 12 -->
+      <text x="60" y="250"><tspan fill="#94a3b8">]</tspan></text>
+      <!-- Line 13 with blinking cursor -->
+      <text x="48" y="268"><tspan fill="#e2e8f0">}</tspan><tspan class="cursor" fill="#38bdf8">|</tspan></text>
+    </g>
+  </g>
+
+  <!-- ================= CENTER: BI-DIRECTIONAL SYNC BEAM ================= -->
+  <g transform="translate(444, 52)">
+    <!-- Vertical Glow Beam -->
+    <rect x="13" y="10" width="6" height="266" fill="url(#syncBeam)" />
+    <!-- Traveling Data Pulse -->
+    <circle cx="16" cy="0" r="4.5" fill="#38bdf8" filter="url(#beamGlow)" class="sync-node-down" />
+
+    <!-- Lightning / Synced Icon Badge -->
+    <g transform="translate(16, 140)">
+      <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5" filter="url(#beamGlow)" />
+      <!-- Lightning SVG -->
+      <path d="M 0 -7 L -4 1 L 0 1 L -1 7 L 4 -1 L 0 -1 Z" fill="#22d3ee" />
+    </g>
+  </g>
+
+  <!-- ================= RIGHT PANE: LIVE MARKDOWN RENDER STAGE ================= -->
+  <g transform="translate(482, 52)">
+    <!-- Pane Box -->
+    <rect width="420" height="286" rx="8" fill="url(#paneGrad)" stroke="#1e293b" stroke-width="1" />
+    <!-- Sub-header -->
+    <rect width="420" height="28" rx="8" fill="#162033" />
+    <rect y="20" width="420" height="8" fill="#162033" />
+    <line x1="0" y1="28" x2="420" y2="28" stroke="#1e293b" stroke-width="1" />
+
+    <text x="14" y="18" font-family="'Fira Code', monospace" font-size="11" font-weight="600" fill="#a855f7">
+      👁️ Live Preview (Sub-16ms Reactivity)
+    </text>
+    <rect x="330" y="6" width="76" height="16" rx="4" fill="#1e1b4b" stroke="#818cf8" stroke-width="0.8" />
+    <text x="368" y="17.5" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700" fill="#c7d2fe" text-anchor="middle">
+      REAL-TIME
+    </text>
+
+    <!-- Scanning Radar Line on Preview -->
+    <line x1="0" y1="0" x2="420" y2="0" stroke="#38bdf8" stroke-opacity="0.3" stroke-width="1.5" class="preview-scan" />
+
+    <!-- Preview Rendered Elements -->
+    <g transform="translate(20, 42)">
+      <!-- Typing Header Mockup -->
+      <rect x="30" y="0" width="320" height="18" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+      <text x="190" y="12.5" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" fill="#10b981" text-anchor="middle">
+        AI Researcher &amp; Machine Learning Engineer
+      </text>
+
+      <!-- Badge Strip -->
+      <g transform="translate(18, 26)">
+        <rect x="0" y="0" width="56" height="14" rx="3" fill="#3b82f6" />
+        <text x="28" y="10" font-family="system-ui" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">PYTHON</text>
+
+        <rect x="62" y="0" width="56" height="14" rx="3" fill="#ee4c2c" />
+        <text x="90" y="10" font-family="system-ui" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">PYTORCH</text>
+
+        <rect x="124" y="0" width="56" height="14" rx="3" fill="#10b981" />
+        <text x="152" y="10" font-family="system-ui" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">CUDA</text>
+
+        <rect x="186" y="0" width="68" height="14" rx="3" fill="#eab308" />
+        <text x="220" y="10" font-family="system-ui" font-size="7" font-weight="700" fill="#000" text-anchor="middle">HUGGINGFACE</text>
+
+        <rect x="260" y="0" width="56" height="14" rx="3" fill="#0ea5e9" />
+        <text x="288" y="10" font-family="system-ui" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">DOCKER</text>
+      </g>
+
+      <!-- Language Donut Chart Card & Activity Graph Card Mockup -->
+      <g transform="translate(0, 48)">
+        <!-- Donut Chart Miniature -->
+        <rect x="12" y="0" width="168" height="92" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8" />
+        <text x="96" y="14" font-family="system-ui" font-size="7.5" font-weight="700" fill="#94a3b8" text-anchor="middle">TOP LANGUAGES DONUT</text>
+        <!-- Mini Donut SVG -->
+        <circle cx="56" cy="52" r="26" fill="none" stroke="#1e293b" stroke-width="9" />
+        <circle cx="56" cy="52" r="26" fill="none" stroke="#10b981" stroke-width="9" stroke-dasharray="82 100" stroke-dashoffset="0" />
+        <circle cx="56" cy="52" r="26" fill="none" stroke="#38bdf8" stroke-width="9" stroke-dasharray="38 100" stroke-dashoffset="-82" />
+        <circle cx="56" cy="52" r="26" fill="none" stroke="#f43f5e" stroke-width="9" stroke-dasharray="24 100" stroke-dashoffset="-120" />
+        <!-- Donut Legend -->
+        <g transform="translate(100, 36)" font-family="system-ui" font-size="7" fill="#cbd5e1">
+          <circle cx="0" cy="0" r="2.5" fill="#10b981" />
+          <text x="6" y="2.5">Python 52%</text>
+          <circle cx="0" cy="14" r="2.5" fill="#38bdf8" />
+          <text x="6" y="16.5">C++ 28%</text>
+          <circle cx="0" cy="28" r="2.5" fill="#f43f5e" />
+          <text x="6" y="30.5">Rust 20%</text>
+        </g>
+
+        <!-- Commit Velocity Activity Graph Miniature -->
+        <rect x="190" y="0" width="180" height="92" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8" />
+        <text x="280" y="14" font-family="system-ui" font-size="7.5" font-weight="700" fill="#94a3b8" text-anchor="middle">ANNUAL COMMIT VELOCITY</text>
+        <!-- Mini Commit Heatmap Cells -->
+        <g transform="translate(202, 26)">
+          <path d="M 0 45 Q 35 15, 75 30 T 155 10" fill="none" stroke="#10b981" stroke-width="2" filter="url(#beamGlow)" />
+          <path d="M 0 45 Q 35 15, 75 30 T 155 10 L 155 54 L 0 54 Z" fill="url(#syncBeam)" opacity="0.25" />
+          <line x1="0" y1="54" x2="155" y2="54" stroke="#334155" stroke-width="0.8" />
+        </g>
+      </g>
+
+      <!-- Trophy Case Row Mockup -->
+      <g transform="translate(12, 148)">
+        <rect x="0" y="0" width="358" height="38" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8" />
+        <g transform="translate(24, 19)">
+          <circle cx="0" cy="0" r="11" fill="#eab308" opacity="0.2" />
+          <text x="0" y="3" font-size="10" text-anchor="middle">🏆</text>
+          <text x="0" y="14" font-family="system-ui" font-size="5" font-weight="700" fill="#eab308" text-anchor="middle">SSS RANK</text>
+        </g>
+        <g transform="translate(90, 19)">
+          <circle cx="0" cy="0" r="11" fill="#38bdf8" opacity="0.2" />
+          <text x="0" y="3" font-size="10" text-anchor="middle">⭐</text>
+          <text x="0" y="14" font-family="system-ui" font-size="5" font-weight="700" fill="#38bdf8" text-anchor="middle">COMMITS</text>
+        </g>
+        <g transform="translate(156, 19)">
+          <circle cx="0" cy="0" r="11" fill="#ec4899" opacity="0.2" />
+          <text x="0" y="3" font-size="10" text-anchor="middle">⚡</text>
+          <text x="0" y="14" font-family="system-ui" font-size="5" font-weight="700" fill="#ec4899" text-anchor="middle">PULL SHARK</text>
+        </g>
+        <g transform="translate(222, 19)">
+          <circle cx="0" cy="0" r="11" fill="#10b981" opacity="0.2" />
+          <text x="0" y="3" font-size="10" text-anchor="middle">🧠</text>
+          <text x="0" y="14" font-family="system-ui" font-size="5" font-weight="700" fill="#10b981" text-anchor="middle">GALAXY BRAIN</text>
+        </g>
+        <g transform="translate(288, 19)">
+          <circle cx="0" cy="0" r="11" fill="#a855f7" opacity="0.2" />
+          <text x="0" y="3" font-size="10" text-anchor="middle">🐍</text>
+          <text x="0" y="14" font-family="system-ui" font-size="5" font-weight="700" fill="#a855f7" text-anchor="middle">SNK READY</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom IDE Status Bar -->
+  <g transform="translate(0, 350)">
+    <rect width="920" height="30" rx="0" fill="#090d16" />
+    <line x1="0" y1="0" x2="920" y2="0" stroke="#1e293b" stroke-width="1" />
+    <text x="24" y="19" font-family="'Fira Code', monospace" font-size="9.5" fill="#64748b">
+      <tspan fill="#38bdf8">MAIN</tspan> • <tspan fill="#94a3b8">UTF-8</tspan> • <tspan fill="#94a3b8">JSON</tspan> • <tspan fill="#22c55e">● SYNCHRONIZED</tspan>
+    </text>
+    <text x="896" y="19" font-family="'Fira Code', monospace" font-size="9.5" fill="#64748b" text-anchor="end">
+      LATENCY: <tspan fill="#34d399">11.4ms</tspan> | MEMORY: <tspan fill="#a5b4fc">38MB</tspan>
+    </text>
+  </g>
+</svg>

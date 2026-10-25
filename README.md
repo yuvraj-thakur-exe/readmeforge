@@ -11,12 +11,12 @@
   <br />
 
   <p align="center">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=780&lines=Forge+a+100%25+Personalized+GitHub+Profile+(Never+Generic);Top+Languages+Pie+%26+Donut+Charts+%2B+Commit+Velocity+Graphs;Interactive+Visual+Wizard+%2B+Monaco+IDE+Developer+Mode;Full+Motion+Animation+Studio+%26+Cyber+Frames;Direct+GitHub+Sync+with+Side-by-Side+Diff+Preview" alt="ReadmeForge Typing Banner" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=800&lines=Forge+a+100%25+Personalized+GitHub+Profile+(Never+Generic);Animated+AI+Chatbot+%26+Roaming+Characters;Top+Languages+Pie+%26+Donut+Charts+%2B+Commit+Velocity+Graphs;Monaco+IDE+/developer+Mode+with+Sub-16ms+Live+Sync;Touch+Motion+Physics+%26+Pure+CSS+Keyframe+Animations" alt="ReadmeForge Typing Banner" />
   </p>
 
   <p>
     <strong>The next-generation profile README generator, personalized visual studio, and dynamic animation suite.</strong><br />
-    Craft a unique, non-generic GitHub profile tailored specifically to your engineering discipline. Features interactive domain personalization, dynamic pie and donut charts, annual commit activity graphs, 6-step visual wizard, Monaco developer IDE, 10+ modular widgets, confirmation-gated resume parsing, and direct GitHub synchronization.
+    Craft a unique, non-generic GitHub profile tailored specifically to your engineering discipline. Features animated roaming characters, interactive domain personalization, dynamic pie/donut charts, annual commit activity graphs, 6-step visual wizard, Monaco <code>/developer</code> IDE, 10+ modular widgets, confirmation-gated resume parsing, and direct GitHub synchronization.
   </p>
 
   <p>
@@ -41,17 +41,30 @@
   </p>
 
   <p>
-    <a href="#quickstart-1-line-install">1-Line Quickstart</a> &bull;
-    <a href="#personalized-profiles-never-the-same">Personalized Profiles</a> &bull;
-    <a href="#dynamic-graphs--pie-charts">Graphs & Pie Charts</a> &bull;
+    <a href="#quickstart-1-line-install">Quickstart</a> &bull;
+    <a href="#roaming-ai-chatbot--animated-characters">Roaming Characters</a> &bull;
+    <a href="#developer-mode-monaco-ide--live-sync">/developer Mode</a> &bull;
+    <a href="#personalized-profiles-never-the-same">Personalization</a> &bull;
+    <a href="#dynamic-graphs--pie-charts">Charts & Graphs</a> &bull;
+    <a href="#touch-motion--haptic-effects">Touch & Motion</a> &bull;
     <a href="#live-visual-showcase--dynamic-widgets">Live Widgets</a> &bull;
-    <a href="#animation-studio--motion-toolkit">Animation Toolkit</a> &bull;
-    <a href="#cross-platform-motion-ecosystem">Multi-Language Motion</a> &bull;
-    <a href="#plugin-ecosystem">Plugin Ecosystem</a> &bull;
-    <a href="#docker--local-setup">Docker & Local Setup</a>
+    <a href="#animation-studio--motion-toolkit">Animation Studio</a> &bull;
+    <a href="#docker--local-setup">Docker & Setup</a>
   </p>
 
 </div>
+
+---
+
+## Roaming AI Chatbot & Animated Characters
+
+Watch the ReadmeForge animated assistant in action! Features a floating AI chatbot roaming back and forth with hovering thrusters and cycling status thoughts, paired with a walking pixel developer coding on a cyber tablet:
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/roaming-bot.svg" alt="ReadmeForge Roaming AI Chatbot and Animated Characters" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(99,102,241,0.25);" />
+</div>
+
+<br />
 
 ---
 
@@ -75,14 +88,33 @@ Launch ReadmeForge instantly locally, inside an autonomous AI agent, or within y
   <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip">
     <img src="https://img.shields.io/badge/Download-Source%20ZIP%20Archive-brightgreen?style=for-the-badge&logo=github&logoColor=white" alt="Download ZIP" />
   </a>
-  <a href="#live-visual-showcase--dynamic-widgets">
-    <img src="https://img.shields.io/badge/Live-Showcase%20%26%20Widgets-6366F1?style=for-the-badge" alt="Showcase" />
+  <a href="#developer-mode-monaco-ide--live-sync">
+    <img src="https://img.shields.io/badge/Explore-/developer%20Mode-6366F1?style=for-the-badge" alt="Developer Mode" />
   </a>
 </div>
 
 <div align="center" style="margin-top: 12px;">
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/agent-suite.svg" alt="Verified Compatibility Suite" width="90%" />
 </div>
+
+---
+
+## `/developer` Mode: Monaco IDE & Live Sync
+
+For power users who prefer code over clicking, ReadmeForge features a dedicated **`/developer` mode** powered by Microsoft's Monaco Editor (`@monaco-editor/react`):
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/developer-mode.svg" alt="ReadmeForge Monaco IDE Developer Mode Preview" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(56,189,248,0.25);" />
+</div>
+
+<br />
+
+### Key `/developer` Capabilities
+- **Split-Screen Studio**: Left pane renders the full Monaco JSON editor with syntax coloring, bracket matching, and auto-completion.
+- **Sub-16ms Live Sync**: Any keystroke in the Monaco editor instantly re-renders the live Markdown preview with zero perceptible delay.
+- **Bi-Directional State Binding**: Switch seamlessly between the visual wizard and `/developer` mode without losing a single attribute.
+- **Strict Zod Schema Validation**: Real-time validation guarantees your configuration never generates corrupted Markdown.
+- **Command Palette (`Cmd+K` / `Ctrl+K`)**: Rapidly insert plugins, format JSON, or toggle dark/light preview themes.
 
 ---
 
@@ -98,7 +130,7 @@ Most profile generators output cookie-cutter markdown that looks identical for e
 | **Creative & Motion Designer** | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
 | **Systems & Embedded Hacker** | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
 
-*Try the one-click domain presets directly inside Step 1 of the visual wizard or via `/developer` mode.*
+*Select domain presets directly inside Step 1 of the visual wizard or via `/developer` mode.*
 
 ---
 
@@ -146,6 +178,17 @@ Automated vector animation of a retro arcade snake eating your contribution squa
 <div align="center">
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/snake.svg" alt="Animated Contribution Snake" width="90%" />
 </div>
+
+---
+
+## Touch, Motion & Haptic Effects
+
+ReadmeForge is engineered from the ground up for tactile, physics-based responsiveness across touchscreens, trackpads, and mice:
+
+- **Touch & Mobile Feedback**: Damped spring-press responses (`active:scale-95`), tactile border glows, and touch-scrubbed contribution grids.
+- **Magnetic 3D Hover**: Specular glare highlights, dynamic elevation lift (`translateY(-4px)`), and radial cursor spotlights.
+- **Scroll Dynamics**: Sticky pinned preview panel, intersection-triggered reveals, and scroll-linked timeline sequences.
+- **Vestibular Accessibility**: Strict adherence to `prefers-reduced-motion`—instantly disabling disorienting parallax while preserving subtle opacity transitions.
 
 ---
 
@@ -210,90 +253,62 @@ Vector status shields for engineering humor and workstation pride:
 
 ReadmeForge features an enterprise-grade in-browser **Animation Studio** (`/animator`) and AI agent skill (`.agents/skills/readme-animation-studio/SKILL.md`) for crafting GitHub-compliant animated SVG banners, dynamic typography, 3D illusions, and interactive motion components:
 
-### 1. Typography & Text Effects
-- `typing`: Character-stepped terminal typewriter effect with blinking shell cursor.
-- `scramble`: Rapid cipher glyph flicker and matrix decryption jitter.
-- `gradient`: Continuous iridescent horizontal chrome shimmer sweep.
-- `glitch`: Chromatic aberration RGB split with horizontal slice displacement.
-- `wave`: Harmonic sinusoidal displacement wave across sequential characters.
-- `reveal`: Smooth editorial curtain expansion and vertical slide-up.
+<details open>
+<summary><strong>✨ Typography, Frames & Character Effects Suite (Click to expand / collapse)</strong></summary>
 
-### 2. Animated Background Effects
-- `fire`: Dynamic rising heat embers, blazing multi-stop flame gradient, and animated lick curves.
-- `water`: Fluid undulating sinusoidal wave layers, expanding water drop ripples, and caustic aqua depth.
-- `particles`: Rising luminous sparks and ambient glowing energy orbs.
-- `grids`: Perspective coordinate cyber grid with traveling scanner sweeps.
-- `stars`: Deep space multi-layer starfield with dual-frequency twinkle cycles.
-- `animated-gradient`: Dynamic multi-stop radial and linear color morphing.
-- `matrix`: Vertical streams of phosphor digital code rain.
-- `solid`: High-contrast dark slate backdrop with subtle vignette borders.
+<br />
 
-### 3. Cyber Frames & Border Illuminations
-- `cyber-neon`: High-voltage laser chasing border with animated corner targeting brackets and neon glow.
-- `glassmorphism`: Translucent frosted glass rim with 45-degree traveling specular light reflection.
-- `terminal-crt`: Retro curved CRT monitor bezel, horizontal scanline raster, and chassis corner bolts.
-- `hologram`: Sci-fi targeting HUD with telemetry coordinates, cardinal crosshairs, and laser scanner.
-- `gold-metallic`: Luxurious 3D beveled metallic gold border with twinkling star glints.
-- `fire-border`: Blazing perimeter frame with heat pulsation.
+- **Typography & Text Effects**:
+  - `typing`: Terminal typewriter with blinking cursor.
+  - `scramble`: Rapid cipher glyph flicker and matrix decryption jitter.
+  - `gradient`: Continuous iridescent horizontal chrome shimmer sweep.
+  - `glitch`: Chromatic aberration RGB split with horizontal slice displacement.
+  - `wave`: Harmonic sinusoidal displacement wave across sequential characters.
+  - `reveal`: Smooth editorial curtain expansion and vertical slide-up.
 
-### 4. Animated Vector Characters & Action Sprites
-- **Characters**: `pixel-dev` (hoodie & visor), `cyber-bot` (floating robot companion), `builder-crafter` (safety hardhat & vest), `ninja-coder` (fluttering headband & kunai), `wizard-mage` (wizard hat & crystal staff).
-- **Actions**:
-  - `walk action`: Ground baseline patrol with alternating leg swing cycles.
-  - `build action`: Active building scene with swinging hammer, spark bursts, and stacked modular tech blocks.
-  - `code action`: Floating translucent holographic terminal workstation with blinking prompt.
-  - `construct action`: High-tech circuit truss welding with electrical arc flash and spark shower.
-  - `cheer action`: Celebratory victory jump with raised arms, gold trophy, and falling confetti.
+- **Animated Background Effects**:
+  - `fire`: Rising heat embers and multi-stop flame curves.
+  - `water`: Fluid undulating sinusoidal waves and caustic ripples.
+  - `particles`: Rising luminous sparks and ambient glowing energy orbs.
+  - `grids`: Perspective coordinate cyber grid with traveling scanner sweeps.
+  - `stars`: Deep space multi-layer starfield with dual-frequency twinkle cycles.
+  - `matrix`: Vertical streams of phosphor digital code rain.
 
-### 5. Pure Animated SVGs with CSS `@keyframes` (Zero Server Dependencies)
-GitHub natively renders animated SVGs embedded via `<img src="..." />`. ReadmeForge outputs pure vector math and CSS animations:
+- **Cyber Frames & Border Illuminations**:
+  - `cyber-neon`: High-voltage laser chasing border with animated corner brackets.
+  - `glassmorphism`: Translucent frosted glass rim with 45-degree specular reflection.
+  - `terminal-crt`: Retro curved CRT monitor bezel with horizontal scanlines.
+  - `hologram`: Sci-fi targeting HUD with telemetry coordinates and crosshairs.
+  - `gold-metallic`: Luxurious 3D beveled metallic gold border with twinkling glints.
+  - `fire-border`: Blazing perimeter frame with heat pulsation.
 
-```css
-/* Glowing Neon Border Animation */
-@keyframes borderChase {
-  0%   { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: 3200; }
-}
-.border-line {
-  stroke: url(#neonCyan);
-  stroke-dasharray: 200 400;
-  animation: borderChase 12s linear infinite;
-}
+- **Animated Vector Characters & Actions**:
+  - Characters: `pixel-dev` (hoodie & visor), `cyber-bot` (floating robot), `builder-crafter` (hardhat & vest), `ninja-coder` (headband & kunai), `wizard-mage` (wizard hat & crystal staff).
+  - Actions: `walk` (patrol baseline), `build` (hammering blocks), `code` (holographic terminal), `construct` (circuit welding), `cheer` (victory jump with gold trophy).
 
-/* Fluid Caustic Water Ripple Wave */
-@keyframes waveFlow {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(-25%); }
-  100% { transform: translateX(0); }
-}
-.wave-path {
-  animation: waveFlow 8s ease-in-out infinite;
-}
-```
+</details>
 
----
+<br />
 
-## Cross-Platform Motion Ecosystem
+<details>
+<summary><strong>🌐 Cross-Platform Multi-Language Motion Reference Matrix (Click to expand)</strong></summary>
 
-When expanding beyond GitHub READMEs into interactive web platforms, mobile apps, mathematical simulations, or game runtimes, here is the recommended motion toolkit across languages:
+<br />
 
 | Language / Platform | Recommended Libraries & Frameworks | Primary Use Cases |
 | :--- | :--- | :--- |
-| **JavaScript / TypeScript** | [Motion](https://motion.dev/), [GSAP](https://gsap.com/), [Anime.js](https://animejs.com/), [Three.js](https://threejs.org/), [PixiJS](https://pixijs.com/) | Web micro-interactions, 3D WebGL scenes, interactive canvas graphics |
+| **JavaScript / TypeScript** | [Motion](https://motion.dev/), [GSAP](https://gsap.com/), [Anime.js](https://animejs.com/), [Three.js](https://threejs.org/) | Web micro-interactions, 3D WebGL scenes, interactive canvas |
 | **HTML / CSS** | CSS `@keyframes`, Web Animations API (WAAPI), [Animate.css](https://animate.style/) | Lightweight zero-dependency transitions, portable SVG animations |
-| **React / Next.js** | Motion (Framer Motion), GSAP, [shadcn/ui](https://ui.shadcn.com/), [Aceternity UI](https://ui.aceternity.com/), [Magic UI](https://magicui.design/) | Production UI components, glowing borders, smooth layout animations |
-| **Vue** | Motion, GSAP, Anime.js | Reactive component transitions and dynamic route motion |
-| **Svelte** | Svelte Motion, GSAP, Built-in Svelte Transitions | Fast reactive micro-interactions, spring & tween stores |
+| **React / Next.js** | Motion (Framer Motion), GSAP, [shadcn/ui](https://ui.shadcn.com/), [Aceternity UI](https://ui.aceternity.com/) | Production UI components, glowing borders, smooth layout animations |
+| **Vue / Svelte** | Motion, GSAP, Svelte Transitions | Reactive component transitions, spring & tween stores |
 | **Python** | [Manim](https://www.manim.community/) (3Blue1Brown), [Pygame](https://www.pygame.org/), Pillow | Programmatic mathematical animations, 2D game loops, particle renderers |
 | **Flutter / Dart** | [Flutter Animation APIs](https://docs.flutter.dev/ui/animations), [Rive Runtime](https://rive.app/) | Cross-platform mobile motion, interactive vector state machines |
-| **React Native** | [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/), Gesture Handler, Rive | 60+ FPS native thread mobile UI gestures and physics-driven springs |
+| **React Native** | [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/), Gesture Handler | 60+ FPS native thread mobile UI gestures and physics-driven springs |
 | **C# / Unity** | Unity Animator, [DOTween](http://dotween.demigiant.com/) | 3D game character kinematics, procedural UI tweening |
-| **C++** | [SFML](https://www.sfml-dev.org/), [SDL](https://www.libsdl.org/), Qt Animation Framework | Native desktop interfaces, high-performance game rendering loops |
-| **Java / Kotlin** | Android Animation APIs, [Lottie Android](https://airbnb.io/lottie/) | Native Android material transitions, vector JSON animations |
-| **Swift (iOS / macOS)** | [SwiftUI Animations](https://developer.apple.com/xcode/swiftui/), Core Animation | Fluid spring animations, declarative view transitions, Metal shaders |
-| **Rust** | [Bevy](https://bevy.org/), [macroquad](https://macroquad.rs/) | Data-driven ECS game loops, high-performance WebAssembly graphics |
-| **Go** | [Ebitengine](https://ebitengine.org/), [Bubbletea](https://github.com/charmbracelet/bubbletea) | 2D game engines and rich animated terminal TUI dashboards |
-| **SVG / GIF / Video** | Portable SVG (`@keyframes`), Animated WebP, Manim MP4/GIF | Standalone visual assets for GitHub READMEs, docs, and multi-platform showcases |
+| **C++ / Rust** | [SFML](https://www.sfml-dev.org/), [Bevy](https://bevy.org/), [macroquad](https://macroquad.rs/) | Native desktop interfaces, high-performance game rendering loops |
+| **Swift / Kotlin** | [SwiftUI Animations](https://developer.apple.com/xcode/swiftui/), Android Animation APIs | Fluid spring animations, declarative view transitions, Metal shaders |
+
+</details>
 
 ---
 
@@ -328,15 +343,6 @@ Every widget in ReadmeForge is a modular, typed plugin defined in `src/lib/plugi
 
 ---
 
-## Power-User /developer Mode (Monaco Editor)
-
-- Instant split-screen IDE featuring Microsoft's Monaco Editor (`@monaco-editor/react`).
-- Edit raw declarative JSON profile configuration with **instant bi-directional sync** with the visual wizard.
-- Real-time JSON schema validation powered by **Zod**.
-- Live Markdown preview pane updating with sub-16ms latency.
-
----
-
 ## Security & Architectural Invariants
 
 - **Single Store Truth**: `src/store/useReadmeStore.ts` acts as the single authoritative source of truth. No desynced or diverging UI states.
@@ -349,39 +355,26 @@ Every widget in ReadmeForge is a modular, typed plugin defined in `src/lib/plugi
 
 ## Docker & Local Setup
 
-### System Requirements
-- Node.js 20.x, 22.x, or 24.x
-- `pnpm` (via Corepack recommended)
-- Docker 24+ (optional, for containerized deployment)
-
-### Development Commands
+### Quick Commands
 ```bash
-# Clone and enter directory
-git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git
-cd readmeforge
-
-# Install dependencies
+# Clone & install dependencies
+git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge
 corepack pnpm install
 
 # Start development server with Turbopack
 corepack pnpm dev
 
-# Run unit tests (111 test files, 535 tests passing)
-corepack pnpm test run
-
-# Run type check
-corepack pnpm type-check
-
-# Run code formatting and linting (Biome)
-corepack pnpm lint
-
-# Production build
-corepack pnpm build
+# Run verification suite (111 test files, 535 tests passing)
+corepack pnpm test run && corepack pnpm type-check
 ```
 
-### Docker Container Deployment
+<details>
+<summary><strong>🐳 Docker Container Deployment Instructions (Click to expand)</strong></summary>
+
+<br />
+
 ```bash
-# Build standalone Docker image
+# Build standalone multi-stage Docker image
 docker build -t readmeforge:latest .
 
 # Run container on port 3000
@@ -390,6 +383,8 @@ docker run -d --name readmeforge -p 3000:3000 readmeforge:latest
 # Check container logs
 docker logs -f readmeforge
 ```
+
+</details>
 
 ---
 
@@ -405,7 +400,7 @@ Contributions make the open-source community thrive! Follow these steps to contr
    ```
 4. **Run Verification Suite**:
    ```bash
-   corepack pnpm test run && corepack pnpm lint
+   corepack pnpm test run && corepack pnpm type-check
    ```
 5. **Push to the Branch** (`git push origin feat/epic-new-widget`)
 6. **Open a Pull Request** with a detailed summary.
