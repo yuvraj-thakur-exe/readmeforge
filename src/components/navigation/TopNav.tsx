@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Sparkles, Terminal, Github } from 'lucide-react';
 import { ThemeToggle } from '#/components/theme/ThemeToggle';
+import { CommandPalette } from './CommandPalette';
 
 export function TopNav() {
   return (
@@ -27,7 +28,8 @@ export function TopNav() {
         </Link>
 
         {/* Center / Action Navigation */}
-        <div className="flex items-center gap-3">
+          <CommandPalette />
+
           <Link
             href="/developer"
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border border-palette-line bg-palette-soft/60 hover:border-violet-500/50 text-palette-contrast transition-all shadow-sm"
