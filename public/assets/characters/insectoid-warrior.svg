@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" fill="none">
   <defs>
     <!-- Radial Glows -->
     <radialGradient id="insectGlow" cx="50%" cy="50%" r="50%">
@@ -58,12 +58,12 @@
       95%           { transform: translateY(0); }
     }
 
-    .insect-root { animation: muscleFlexPec 2.8s ease-in-out infinite; transform-origin: 100px 140px; }
-    .antenna-l { animation: antennaeTwitchL 3.6s ease-in-out infinite; transform-origin: 65px 45px; }
-    .antenna-r { animation: antennaeTwitchR 3.6s ease-in-out infinite; transform-origin: 135px 45px; }
-    .eye-pulse { animation: laserEyePulse 2s ease-in-out infinite; transform-origin: center; }
-    .beam-sweep { animation: laserBeamSweep 2.5s ease-in-out infinite; transform-origin: 100px 65px; }
-    .mandibles { animation: mandibleTwitch 4s ease-in-out infinite; transform-origin: 100px 90px; }
+    .insect-root { transform-box: fill-box; animation: muscleFlexPec 2.8s ease-in-out infinite; transform-origin: 100px 140px; }
+    .antenna-l { transform-box: fill-box; animation: antennaeTwitchL 3.6s ease-in-out infinite; transform-origin: 65px 45px; }
+    .antenna-r { transform-box: fill-box; animation: antennaeTwitchR 3.6s ease-in-out infinite; transform-origin: 135px 45px; }
+    .eye-pulse { transform-box: fill-box; animation: laserEyePulse 2s ease-in-out infinite; transform-origin: center; }
+    .beam-sweep { transform-box: fill-box; animation: laserBeamSweep 2.5s ease-in-out infinite; transform-origin: 100px 65px; }
+    .mandibles { transform-box: fill-box; animation: mandibleTwitch 4s ease-in-out infinite; transform-origin: 100px 90px; }
 
     @media (prefers-reduced-motion: reduce) {
       .insect-root, .antenna-l, .antenna-r, .eye-pulse, .beam-sweep, .mandibles {
