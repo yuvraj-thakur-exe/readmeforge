@@ -1,8 +1,7 @@
 <div align="center" id="top">
   <img src="public/logo.svg" width="460" alt="ReadmeForge Logo" />
   <h1>ReadmeForge</h1>
-  <p><strong>Forge a GitHub profile that gets noticed.</strong></p>
-  <p>Product-grade GitHub profile README builder featuring an interactive visual wizard, Monaco developer IDE, 8+ modular open-source plugins, confirmation-gated resume import, and direct GitHub sync.</p>
+  <p>The next-generation <strong>profile-readme-generator</strong> and visual <strong>github-readme-generator</strong> studio — forge an iconic <strong>profile-readme</strong> with an interactive 6-step wizard, Monaco developer IDE, 8+ modular plugins, confirmation-gated resume import, and direct GitHub sync.</p>
 
   <p>
     <a href="https://github.com/readmeforge/readmeforge/actions/workflows/ci.yml">
