@@ -77,3 +77,32 @@ copies or substantial portions of the Software.
 - **Repository:** https://github.com/istarkov/github-stats
 - **Author:** Ivan Starkov
 - **License:** MIT License
+
+---
+
+### 10. simple-icons
+- **Repository:** https://github.com/simple-icons/simple-icons
+- **Author:** Simple Icons Contributors
+- **License:** CC0 1.0 Universal / MIT License
+
+---
+
+### 11. thesvg
+- **Repository:** https://github.com/glincker/thesvg
+- **Author:** Glincker
+- **License:** MIT License
+
+---
+
+### 12. awesome-web-animation
+- **Repository:** https://github.com/sergey-pimenov/awesome-web-animation
+- **Author:** Sergey Pimenov
+- **License:** CC0 1.0 Universal
+
+---
+
+### 13. effect
+- **Repository:** https://github.com/Effect-TS/effect
+- **Author:** Effect-TS Contributors
+- **License:** MIT License
+
