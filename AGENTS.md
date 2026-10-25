@@ -1,9 +1,58 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# AGENTS.md — ReadmeForge
 
-# This is NOT the Next.js you know
+Instructions for any AI coding agent (Claude Code, Cursor, Devin, Copilot Workspace, etc.) working in this repo.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+## What this is
+ReadmeForge — GitHub profile README generator. Visual wizard + `/developer` raw-mode editor, plugin-based stats/badges, resume import + web enrichment (confirmation-gated), direct GitHub push/sync.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+## Stack
+Next.js 15 (App Router) · TypeScript · Tailwind · Shadcn/ui · Radix · zustand · zod · react-hook-form · Biome (lint/format) · Vitest (unit) · Playwright (e2e)
 
-<!-- END:nextjs-agent-rules -->
+## Source of truth / architecture — do not violate
+- **One zustand store** (`src/store/useReadmeStore.ts`) holds all profile config. The wizard UI and `/developer` editor both read/write it. Never create parallel/duplicate state.
+- **`buildMarkdown(config) → string`** (`src/lib/buildMarkdown.ts`) is a pure function — no React, no side effects, fully unit-tested. Any change to output format goes through this function.
+- **Plugins** live in `src/lib/plugins/registry.ts`, each a plain object validated by the `Plugin` zod schema in `src/lib/plugins/types.ts`. To add a plugin: add one file, register it — never touch core wizard/editor logic.
+- **Nothing from resume parsing or web enrichment writes to the store without explicit per-item user confirmation.** This is a hard rule, not a UX suggestion — see `src/components/enrichment/ConfirmGate.tsx`.
+- **GitHub push/sync is never silent.** Any write to the user's GitHub repo goes through a diff preview + explicit "Confirm & push" step (`src/components/sync/DiffPreview.tsx`).
+
+## Directory map
+```
+src/app/                 routes (wizard, /developer, api/*)
+src/components/wizard/   step-by-step form UI
+src/components/developer/ Monaco editor, plugin panel, export bar
+src/components/enrichment/ resume upload, web-search suggestions, confirm gate
+src/components/sync/     GitHub OAuth, diff preview, push
+src/lib/plugins/         registry.ts, types.ts, one file per plugin
+src/lib/buildMarkdown.ts pure markdown generator — unit test any change here
+src/store/               zustand store
+docs/config-schema.md    JSON schema shared by wizard + /developer — keep in sync with zod types
+```
+
+## Commands
+```bash
+pnpm install
+pnpm dev        # localhost:3000
+pnpm build
+pnpm test       # vitest
+pnpm test:e2e   # playwright
+pnpm lint        # biome check
+pnpm format      # biome format
+```
+
+## Before opening a PR / finishing a task
+1. `pnpm lint && pnpm test` must pass.
+2. If you touched `buildMarkdown.ts` or any plugin: add/update its Vitest test.
+3. If you touched the config shape: update `docs/config-schema.md` and the zod schema together — they must never drift.
+4. If you added a plugin: it must validate against the `Plugin` zod schema and appear in the `/developer` plugin panel automatically (registry-driven, no manual wiring).
+5. Don't add a new state management layer, new CSS framework, or new markdown renderer — stay inside the stack above unless explicitly asked.
+6. Don't make resume/web-enrichment data or GitHub pushes silent/automatic — confirmation gates are mandatory, not optional polish.
+
+## Conventions
+- Components: PascalCase, one per file, colocated `*.test.tsx` where logic warrants it.
+- Styling: Tailwind utility classes + `tailwind-variants` for variants; no plain CSS files except globals.
+- Animation: reuse `<FadeIn>` / `<Stagger>` wrappers (`src/components/motion/`) instead of inlining Framer Motion variants in every component.
+- Commit messages: Conventional Commits (`feat:`, `fix:`, `chore:`, etc.).
+- i18n strings go in `src/locales/<lang>.json` — never hardcode user-facing text in components.
+
+## Full feature/build spec
+See `AGENT_PROMPT_FULL.md` in repo root for the complete build plan (branding, libraries, plugin list, wizard question set, resume/enrichment spec, GitHub sync spec, execution order). AGENTS.md is the standing reference for ongoing work; AGENT_PROMPT_FULL.md was the original build brief.
