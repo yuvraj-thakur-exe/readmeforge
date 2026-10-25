@@ -19,6 +19,7 @@ import {
   ChevronDown,
   Eye,
   Code2,
+  Award,
 } from 'lucide-react';
 import { FadeIn } from '#/components/motion/FadeIn';
 import { Stagger, StaggerItem } from '#/components/motion/Stagger';
@@ -341,29 +342,114 @@ export const LandingDetails: React.FC = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/* GitHub Profile Trophies Shelf with 3D Tilt Hover & Touch Feedback */}
+                    <div className="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800/80 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-semibold text-neutral-200 flex items-center gap-1.5">
+                          <Award className="w-3.5 h-3.5 text-amber-400" />
+                          <span>GitHub Profile Trophies (Rank Tier System)</span>
+                        </span>
+                        <span className="text-[10px] text-amber-400 font-mono font-bold">SSS &bull; S &bull; A+ Tier</span>
+                      </div>
+                      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        {[
+                          { title: 'Commits', rank: 'SSS', icon: '🏆', color: 'from-amber-500/20 to-yellow-600/10 border-amber-500/40 text-amber-300' },
+                          { title: 'Stars', rank: 'S', icon: '⭐', color: 'from-cyan-500/20 to-blue-600/10 border-cyan-500/40 text-cyan-300' },
+                          { title: 'Repos', rank: 'A+', icon: '📦', color: 'from-violet-500/20 to-purple-600/10 border-violet-500/40 text-violet-300' },
+                          { title: 'Followers', rank: 'S', icon: '👥', color: 'from-emerald-500/20 to-teal-600/10 border-emerald-500/40 text-emerald-300' },
+                          { title: 'PRs', rank: 'SSS', icon: '🔀', color: 'from-fuchsia-500/20 to-pink-600/10 border-fuchsia-500/40 text-fuchsia-300' },
+                          { title: 'Issues', rank: 'A', icon: '🎯', color: 'from-rose-500/20 to-red-600/10 border-rose-500/40 text-rose-300' },
+                        ].map(t => (
+                          <div
+                            key={t.title}
+                            className={`p-2 rounded-lg bg-gradient-to-b ${t.color} border text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-amber-500/15 active:scale-95 cursor-pointer select-none`}
+                          >
+                            <div className="text-base mb-0.5">{t.icon}</div>
+                            <div className="font-extrabold text-[11px] tracking-tight">{t.rank}</div>
+                            <div className="text-[9px] text-neutral-400 truncate">{t.title}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Earned GitHub Achievements Shelf with Touch & Hover Effects */}
+                    <div className="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800/80 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-semibold text-neutral-200 flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                          <span>Earned GitHub Achievement Badges</span>
+                        </span>
+                        <span className="text-[10px] text-cyan-400 font-mono">6 Unlocked</span>
+                      </div>
+                      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        {[
+                          { name: 'Pull Shark', level: 'x2', icon: '🦈', desc: 'Merged 16+ PRs', badge: 'bg-cyan-950/40 border-cyan-500/40 text-cyan-300' },
+                          { name: 'Quickdraw', level: '⚡', icon: '🎯', desc: 'Closed in <5m', badge: 'bg-amber-950/40 border-amber-500/40 text-amber-300' },
+                          { name: 'Starstruck', level: 'x3', icon: '🌟', desc: '150+ Stars Repo', badge: 'bg-yellow-950/40 border-yellow-500/40 text-yellow-300' },
+                          { name: 'Galaxy Brain', level: '🧠', icon: '✨', desc: '8 Discussion Solves', badge: 'bg-purple-950/40 border-purple-500/40 text-purple-300' },
+                          { name: 'Pair Extra', level: '👥', icon: '🤝', desc: 'Co-authored Commits', badge: 'bg-emerald-950/40 border-emerald-500/40 text-emerald-300' },
+                          { name: 'Arctic Vault', level: '❄️', icon: '🧊', desc: '2020 Vault Code', badge: 'bg-blue-950/40 border-blue-500/40 text-blue-300' },
+                        ].map(b => (
+                          <div
+                            key={b.name}
+                            className={`p-2 rounded-lg border ${b.badge} text-center transition-all duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-md hover:shadow-cyan-500/20 active:scale-95 cursor-pointer select-none group relative`}
+                            title={`${b.name} (${b.level}): ${b.desc}`}
+                          >
+                            <div className="text-xl mb-0.5 group-hover:scale-110 transition-transform">{b.icon}</div>
+                            <div className="font-bold text-[10px] truncate">{b.name}</div>
+                            <div className="text-[8px] text-neutral-400 font-mono">{b.level}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Animated Contribution Snake Shelf */}
+                    <div className="p-3 rounded-lg bg-neutral-950 border border-neutral-800/80 flex items-center justify-between text-[11px] text-neutral-300 hover:border-emerald-500/40 transition-colors">
+                      <div className="flex items-center gap-2">
+                        <span className="text-base animate-bounce">🐍</span>
+                        <div>
+                          <span className="font-bold text-emerald-400">Animated Contribution Grid Snake (Platane/snk)</span>
+                          <span className="text-[10px] text-neutral-500 block">Eats and visualizes GitHub commits in real-time</span>
+                        </div>
+                      </div>
+                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-800 text-emerald-300 font-mono text-[10px]">
+                        Active Loop
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
             ) : (
               <div className="p-6 bg-neutral-950 font-mono text-xs text-neutral-300 overflow-x-auto leading-relaxed">
                 <pre>{`# ⚔️ Alex Mercer (@octocat)
-### Software Architect • Full-Stack Developer • AI Agent Builder
+### Software Architect • Full-Stack Developer • Open-Source Creator
 
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=octocat&theme=tokyonight)](https://github.com/octocat)
 [![Streak Stats](https://streak-stats.demolab.com/?user=octocat&theme=tokyonight)](https://github.com/octocat)
 
-### 🟩 Contribution Activity
-[![Contribution Chart](https://ghchart.rshah.org/22d3ee/octocat)](https://github.com/octocat)
+### 🏆 GitHub Profile Trophies
+[![Trophies](https://github-profile-trophy.vercel.app/?username=octocat&theme=flat&row=1&column=6&no-bg=true)](https://github.com/octocat)
+
+### 🎖️ Earned GitHub Achievements
+<div align="left">
+  <a href="https://github.com/octocat?tab=achievements"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/pull-shark-default.png" width="60" height="60" alt="Pull Shark" /></a>
+  <a href="https://github.com/octocat?tab=achievements"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/quickdraw-default.png" width="60" height="60" alt="Quickdraw" /></a>
+  <a href="https://github.com/octocat?tab=achievements"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/starstruck-default.png" width="60" height="60" alt="Starstruck" /></a>
+  <a href="https://github.com/octocat?tab=achievements"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/galaxy-brain-default.png" width="60" height="60" alt="Galaxy Brain" /></a>
+  <a href="https://github.com/octocat?tab=achievements"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/pair-extraordinaire-default.png" width="60" height="60" alt="Pair Extraordinaire" /></a>
+  <a href="https://github.com/octocat?tab=achievements"><img src="https://raw.githubusercontent.com/Schweinepriester/github-profile-achievements/main/images/arctic-code-vault-contributor-default.png" width="60" height="60" alt="Arctic Code Vault" /></a>
+</div>
+
+### 🟩 Contribution Activity & Snake
+![Contribution Chart](https://ghchart.rshah.org/22d3ee/octocat)
+![Contribution Snake](https://raw.githubusercontent.com/octocat/octocat/output/github-contribution-grid-snake-dark.svg)
 
 ### 🛠️ Tech Stack
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-
-- 🔭 Working on: Autonomous dev agent loops
-- 🌱 Currently mastering: Distributed WebAssembly architectures
-- 💬 Ask me about: Full-Stack React, Python, Cloud Systems`}</pre>
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)`}</pre>
               </div>
             )}
           </div>
