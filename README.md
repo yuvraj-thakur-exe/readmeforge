@@ -11,12 +11,12 @@
   </a>
 
   <p align="center">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=740&lines=Forge+a+GitHub+Profile+That+Demands+Attention;Interactive+Visual+Wizard+%2B+Monaco+IDE+Developer+Mode;8%2B+Plug-and-Play+Dynamic+Widgets+%26+Live+Preview;Autonomous+Profile+Sync+Powered+by+ARIA+AI+Dev+Agent" alt="ReadmeForge Typing Banner" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=740&lines=Forge+a+GitHub+Profile+That+Demands+Attention;Interactive+Visual+Wizard+%2B+Monaco+IDE+Developer+Mode;8%2B+Plug-and-Play+Dynamic+Widgets+%26+Live+Preview;Direct+GitHub+Sync+with+Side-by-Side+Diff+Preview;Full+Motion+Animation+Studio+%26+SVG+Export" alt="ReadmeForge Typing Banner" />
   </p>
 
   <p>
     <strong>The next-generation profile README generator and visual markdown studio.</strong><br />
-    Craft an iconic GitHub profile with a 6-step interactive wizard, Monaco developer IDE, 8+ modular widgets, confirmation-gated resume parsing, and autonomous synchronization via the ARIA AI Dev Agent.
+    Craft an iconic GitHub profile with a 6-step interactive wizard, Monaco developer IDE, 8+ modular widgets, confirmation-gated resume parsing, and direct synchronization to your GitHub profile repository.
   </p>
 
   <p>
@@ -29,9 +29,6 @@
     <a href="https://www.typescriptlang.org">
       <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
     </a>
-    <a href="https://github.com/yuvrajlaptop2008-byte/ai-dev-agent">
-      <img src="https://img.shields.io/badge/AI%20Agent-ARIA%20Powered-FF5722?style=for-the-badge&logo=openai&logoColor=white" alt="ARIA AI Agent" />
-    </a>
     <a href="https://biomejs.dev">
       <img src="https://img.shields.io/badge/Code%20Style-Biome-60A5FA?style=for-the-badge&logo=biome&logoColor=white" alt="Biome" />
     </a>
@@ -42,12 +39,10 @@
 
   <p>
     <a href="#zap-instant-one-line-install">1-Line Quickstart</a> &bull;
-    <a href="#robot-autonomous-ai-dev-agent-aria">ARIA AI Agent</a> &bull;
     <a href="#camera_flash-live-visual-showcase">Live Showcase</a> &bull;
     <a href="#sparkles-key-features">Features</a> &bull;
     <a href="#jigsaw-plugin-ecosystem">Plugins</a> &bull;
     <a href="#art-custom-graphics--animation-toolkit">Animation Toolkit</a> &bull;
-    <a href="#classical_building-architecture">Architecture</a> &bull;
     <a href="#bar_chart-feature-matrix">Comparison</a> &bull;
     <a href="#whale-docker--local-setup">Docker</a> &bull;
     <a href="#handshake-contributing">Contributing</a>
@@ -86,58 +81,15 @@ docker build -t readmeforge:latest . && docker run -d -p 3000:3000 --name readme
 
 ---
 
-## :robot: Autonomous AI Dev Agent: ARIA Integration
-
-ReadmeForge is designed to seamlessly pair with **[ARIA (ai-dev-agent)](https://github.com/yuvrajlaptop2008-byte/ai-dev-agent)** — an autonomous AI software engineer built by [@yuvrajlaptop2008-byte](https://github.com/yuvrajlaptop2008-byte).
-
-<div align="center">
-
-```
-  ┌───────────────────────────────┐                 ┌───────────────────────────────┐
-  │       🤖 ARIA AI Agent        │                 │        ⚡ ReadmeForge         │
-  │   (github/ai-dev-agent)       │                 │   (github/readmeforge)        │
-  ├───────────────────────────────┤                 ├───────────────────────────────┤
-  │ • Watches repos & issues      │ ── Activity ──> │ • Aggregates dynamic stats    │
-  │ • Solves GitHub issues        │                 │ • Renders live streak counters│
-  │ • Ships production code       │ <── Profile ─── │ • Formats typed markdown      │
-  │ • Keeps green heatmap alive   │     Assets      │ • Pushes verified profile sync│
-  └───────────────────────────────┘                 └───────────────────────────────┘
-```
-
-</div>
-
-### 🚀 One-Line Install for ARIA AI Dev Agent
-Launch ARIA alongside ReadmeForge to continuously maintain your repositories and power your live profile stats:
-
-```bash
-# Linux / macOS
-git clone https://github.com/yuvrajlaptop2008-byte/ai-dev-agent.git && cd ai-dev-agent && cp .env.example .env && bash run.sh
-```
-
-```powershell
-# Windows PowerShell
-git clone https://github.com/yuvrajlaptop2008-byte/ai-dev-agent.git; cd ai-dev-agent; Copy-Item .env.example .env; npm install; npm start
-```
-
-### 💡 Why Combine ARIA + ReadmeForge?
-| Capability | ARIA (`ai-dev-agent`) | ReadmeForge (`readmeforge`) |
-| :--- | :--- | :--- |
-| **Code & Issues** | Solves GitHub issues labelled `ai-fix`, commits bug fixes, writes tests | Summarizes featured PRs, contributions & project showcases |
-| **Commit Activity** | Generates authentic contribution velocity across your OSS projects | Renders real-time contribution charts (`ghchart`) & streak metrics |
-| **Profile Sync** | Can trigger headless automated runs to refresh profile metadata | Visual 6-step wizard, Monaco IDE `/developer`, side-by-side DiffPreview |
-| **Zero Cost** | Free OpenRouter & Gemini key rotation with zero iteration limits | 100% Client-side pure markdown generation with MIT license |
-
----
-
 ## :camera_flash: Live Visual Showcase & Internet Widget Previews
 
 ReadmeForge brings GitHub profiles to life with dynamic, real-time internet widgets and high-resolution visual headers. Here is a live taste of widgets generated by ReadmeForge:
 
-### 1. Cybernetic AI Forge Studio (Dynamic Animation)
-Custom artwork created for ReadmeForge featuring an AI cyber-smith forging GitHub trophies, metrics, and holographic code with living particle embers and glowing anvil circuits:
+### 1. Holographic Developer Command Deck (Dynamic Animation)
+Custom visual artwork for ReadmeForge featuring a futuristic developer command deck with floating holographic GitHub profiles, emerald contribution heatmaps, dynamic trophy metrics, live markdown preview, and living cyan/emerald data spark streams:
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/hero-animated.webp" alt="ReadmeForge Animated Cyber Forge Studio" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(99,102,241,0.3);" />
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/hero-animated.webp" alt="ReadmeForge Animated Holographic Command Deck" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(99,102,241,0.3);" />
 </div>
 
 <br />
@@ -357,55 +309,6 @@ When building interactive web platforms, mobile apps, mathematical visualization
 
 ---
 
-## :classical_building: Architecture & Data Flow
-
-```mermaid
-flowchart TD
-    subgraph Inputs["1. Input Channels"]
-        WIZ["🧙 6-Step Visual Wizard"]
-        DEV["💻 Monaco JSON IDE (/developer)"]
-        RES["📄 Resume Parser (PDF/DOCX/TXT)"]
-        AST["📥 AST Reverse Markdown Importer"]
-    end
-
-    subgraph CoreStore["2. Single Source of Truth"]
-        GATE{"🛡️ ConfirmGate (User Approval)"}
-        STORE[("📦 Zustand useReadmeStore")]
-        ZOD["✅ Zod Schema Validation"]
-    end
-
-    subgraph Generators["3. Deterministic Pipeline"]
-        MDGEN["⚙️ Pure buildMarkdown() Engine"]
-        PLUGINS["🧩 Plugin Registry (8+ Widgets)"]
-    end
-
-    subgraph OutputSync["4. Verification & Output"]
-        PREV["👁️ Live Preview Pane"]
-        DIFF["🔍 DiffPreview (Side-by-Side vs Remote)"]
-        GH["🚀 GitHub REST API (PAT Sync)"]
-        EXP["📦 Multi-Export (MD, PNG, URL)"]
-    end
-
-    subgraph AICompanion["5. Autonomous Layer"]
-        ARIA["🤖 ARIA AI Dev Agent (ai-dev-agent)"]
-    end
-
-    WIZ --> STORE
-    DEV <--> STORE
-    RES --> GATE --> STORE
-    AST --> STORE
-    STORE --> ZOD
-    STORE --> MDGEN
-    PLUGINS --> MDGEN
-    MDGEN --> PREV
-    MDGEN --> DIFF
-    DIFF --> GH
-    MDGEN --> EXP
-    ARIA -.->|Watches & Updates| GH
-```
-
----
-
 ## :bar_chart: Feature Matrix: ReadmeForge vs Others
 
 | Feature | ReadmeForge | GPRG / Profileme | Manual Markdown |
@@ -416,7 +319,7 @@ flowchart TD
 | **Confirmation-Gated Resume Parsing** | **Yes (Zero Hallucination)**| No | No |
 | **Direct GitHub Sync with Diff Preview** | **Yes (Safe Preview)** | No | Git CLI |
 | **AST Reverse README Importer** | **Yes** | No | No |
-| **Autonomous AI Agent Synergy (ARIA)** | **Yes** | No | No |
+| **Built-in Animation Studio & Motion Suite** | **Yes (SVG, 3D, a11y)** | No | No |
 | **Multi-Language Support (i18n)** | **Yes (en / pt-BR)** | English only | N/A |
 | **Docker Standalone Production Image** | **Yes (Multi-stage)** | No | N/A |
 | **Pure, Unit-Tested Markdown Engine** | **100% Deterministic** | Ad-hoc | Manual |

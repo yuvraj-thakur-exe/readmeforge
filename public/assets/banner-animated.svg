@@ -168,13 +168,13 @@
     <text x="65" y="52" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">Raw JSON + Zod Schema</text>
   </g>
 
-  <!-- Right Bottom Badge: ARIA AI Dev Agent -->
+  <!-- Right Bottom Badge: Animation Studio & Motion Engine -->
   <g transform="translate(860, 235)" class="badge-card">
-    <rect width="220" height="70" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255, 87, 34, 0.4)" stroke-width="1.5" />
-    <circle cx="35" cy="35" r="18" fill="rgba(255, 87, 34, 0.2)" />
-    <text x="27" y="42" font-size="20">🤖</text>
-    <text x="65" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" fill="#ffffff">ARIA AI Agent</text>
-    <text x="65" y="52" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">Autonomous Profile Sync</text>
+    <rect width="220" height="70" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" />
+    <circle cx="35" cy="35" r="18" fill="rgba(56, 189, 248, 0.2)" />
+    <text x="27" y="42" font-size="20">✨</text>
+    <text x="65" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" fill="#ffffff">Animation Studio</text>
+    <text x="65" y="52" font-family="-apple-system, sans-serif" font-size="12" fill="#94a3b8">SVG &amp; 3D Motion Suite</text>
   </g>
 
   <!-- Center Content: Branding & Headlines -->

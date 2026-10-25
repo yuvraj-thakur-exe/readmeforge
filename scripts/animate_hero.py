@@ -30,24 +30,29 @@ def create_animation():
     fps = 16
     frame_duration_ms = int(1000 / fps)
 
-    # Coordinates relative to 960x536
-    # Anvil spark center is roughly around x=520, y=380 in 960x536
-    anvil_x = int(target_w * 0.54)
-    anvil_y = int(target_h * 0.70)
+    # Coordinates relative to 960x540
+    # Holographic emitter is at x=0.51, y=0.76 (console ring)
+    emitter_x = int(target_w * 0.51)
+    emitter_y = int(target_h * 0.76)
 
-    # Pre-generate 35 ember particle paths
+    # Pre-generate 45 holographic data spark paths
     np.random.seed(42)
     particles = []
-    num_particles = 40
+    num_particles = 45
     for i in range(num_particles):
-        spawn_x = anvil_x + np.random.uniform(-90, 70)
-        spawn_y = anvil_y + np.random.uniform(-30, 20)
-        vx = np.random.uniform(-1.2, 1.8)
-        vy = np.random.uniform(-3.5, -7.0)
-        size = np.random.uniform(2.0, 5.0)
-        # Random hue: golden orange or electric cyan
-        is_cyan = np.random.rand() > 0.65
-        color = (80, 240, 255) if is_cyan else (255, 190, 60)
+        spawn_x = emitter_x + np.random.uniform(-110, 110)
+        spawn_y = emitter_y + np.random.uniform(-25, 20)
+        vx = np.random.uniform(-1.5, 1.5)
+        vy = np.random.uniform(-4.0, -8.5)
+        size = np.random.uniform(2.0, 4.5)
+        # Holographic palette: electric cyan (50%), emerald green (30%), neon violet (20%)
+        rand_val = np.random.rand()
+        if rand_val < 0.50:
+            color = (56, 189, 248)  # electric cyan
+        elif rand_val < 0.80:
+            color = (34, 197, 94)   # emerald green
+        else:
+            color = (192, 132, 252) # neon violet
         phase = np.random.uniform(0.0, 1.0)
         particles.append({
             'x': spawn_x, 'y': spawn_y, 'vx': vx, 'vy': vy,
@@ -59,12 +64,12 @@ def create_animation():
     # Grid for coordinate-based effects
     Y, X = np.ogrid[:target_h, :target_w]
 
-    # Pre-compute distance from anvil center for pulsing glow
-    dist_from_anvil = np.sqrt((X - anvil_x)**2 + (Y - anvil_y)**2)
-    anvil_glow_mask = np.clip(1.0 - (dist_from_anvil / 220.0), 0.0, 1.0) ** 2
+    # Pre-compute distance from holographic emitter for pulsing projector beam
+    dist_from_emitter = np.sqrt((X - emitter_x)**2 + (Y - emitter_y)**2)
+    emitter_glow_mask = np.clip(1.0 - (dist_from_emitter / 240.0), 0.0, 1.0) ** 2
 
-    # High-intensity circuit glow filter
-    cyan_circuit_mask = (base_arr[:, :, 2] > 180) & (base_arr[:, :, 0] < 120)
+    # High-intensity emerald & cyan holographic mask
+    hologram_mask = ((base_arr[:, :, 1] > 140) & (base_arr[:, :, 2] > 140)) | (base_arr[:, :, 1] > 180)
 
     print(f"Generating {total_frames} animated frames...")
 
@@ -78,20 +83,20 @@ def create_animation():
         # 2. Base frame with luminous energy surge
         frame_arr = base_arr.copy()
         
-        # Boost anvil glow (golden/orange/cyan sparks)
-        glow_add = anvil_glow_mask[:, :, None] * np.array([50, 40, 15, 0]) * pulse
+        # Boost holographic emitter glow (cyan/emerald projector aura)
+        glow_add = emitter_glow_mask[:, :, None] * np.array([20, 60, 50, 0]) * pulse
         frame_arr[:, :, :3] += glow_add[:, :, :3]
 
-        # Subtle neon armor line pulsation
-        frame_arr[cyan_circuit_mask, 0] += 20 * pulse_secondary
-        frame_arr[cyan_circuit_mask, 1] += 35 * pulse_secondary
-        frame_arr[cyan_circuit_mask, 2] += 45 * pulse_secondary
+        # Subtle holographic UI text & heatmap cell luminescence
+        frame_arr[hologram_mask, 0] += 15 * pulse_secondary
+        frame_arr[hologram_mask, 1] += 30 * pulse_secondary
+        frame_arr[hologram_mask, 2] += 35 * pulse_secondary
 
-        # 3. Holographic laser scanline sweep (sweeps vertically across image)
+        # 3. Holographic laser scanline sweep (sweeps vertically across holographic displays)
         scan_y = (t * target_h * 1.2) % (target_h * 1.2) - (target_h * 0.1)
         scan_dist = np.abs(Y - scan_y)
-        scan_intensity = np.clip(1.0 - (scan_dist / 35.0), 0.0, 1.0) ** 3
-        scan_glow = scan_intensity[:, :, None] * np.array([25, 60, 90, 0])
+        scan_intensity = np.clip(1.0 - (scan_dist / 30.0), 0.0, 1.0) ** 3
+        scan_glow = scan_intensity[:, :, None] * np.array([20, 50, 80, 0])
         frame_arr[:, :, :3] += scan_glow[:, :, :3]
 
         # Clip values to 0..255
