@@ -61,7 +61,8 @@ export const githubProfileTrophyPlugin: Plugin = {
     noFrame: false,
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const user = settings.user.github || 'username';
+    const rawUser = (settings.user.github || 'username').trim();
+    const user = encodeURIComponent(rawUser);
     const theme = (props.theme as string) || 'flat';
     const row = props.row || 1;
     const column = props.column || 6;
