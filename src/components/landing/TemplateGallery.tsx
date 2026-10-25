@@ -296,32 +296,32 @@ export const TemplateGallery: React.FC = () => {
   };
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto space-y-6">
-      <div className="text-center space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-950/60 border border-violet-800/80 text-violet-300 text-xs font-semibold">
-          <LayoutTemplate className="w-3.5 h-3.5" />
+    <section className="py-14 px-4 max-w-7xl mx-auto space-y-8">
+      <div className="text-center space-y-2.5">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-violet-300 text-xs font-semibold backdrop-blur-md shadow-sm">
+          <LayoutTemplate className="w-3.5 h-3.5 text-violet-400" />
           <span>Curated Starters</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-100">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-100 tracking-tight">
           Curated Starter Archetypes
         </h2>
-        <p className="text-sm text-neutral-400 max-w-xl mx-auto">
-          One-click apply clean, structured templates designed to make your developer profile stand out.
+        <p className="text-sm text-neutral-400 max-w-xl mx-auto leading-relaxed">
+          One-click apply clean, structured templates designed to make your developer profile stand out from day one.
         </p>
       </div>
 
       {/* Category Filter Pills */}
-      <div className="flex items-center justify-center gap-1.5 flex-wrap">
+      <div className="flex items-center justify-center gap-2 flex-wrap">
         {categories.map(cat => (
           <button
             key={cat}
             type="button"
             onClick={() => setActiveCategory(cat)}
-            className={`px-3 py-1 rounded-full text-xs transition-colors ${
+            className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
               activeCategory === cat
-                ? 'bg-violet-600 text-white font-semibold shadow-sm'
-                : 'bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-neutral-200'
-            }`}
+                ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-900/30 scale-100'
+                : 'bg-neutral-900/80 border border-neutral-800 text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800'
+            } active:scale-95`}
           >
             {cat}
           </button>
@@ -329,54 +329,65 @@ export const TemplateGallery: React.FC = () => {
       </div>
 
       {/* Grid of Templates */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
         {filtered.map(tmpl => {
           const isApplied = appliedId === tmpl.id;
 
           return (
             <div
               key={tmpl.id}
-              className="p-5 rounded-xl bg-neutral-900/80 hover:bg-neutral-900 border border-neutral-800 hover:border-violet-500/50 transition-all flex flex-col justify-between group shadow-sm hover:shadow-lg"
+              className="relative p-6 rounded-2xl bg-neutral-900/70 hover:bg-neutral-900/95 border border-white/[0.08] hover:border-violet-500/50 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-[0_12px_40px_rgba(139,92,246,0.18)] hover:-translate-y-1 overflow-hidden"
             >
+              {/* Dynamic Accent Top Line */}
+              <div
+                className="absolute top-0 left-0 right-0 h-1 transition-opacity duration-300 opacity-60 group-hover:opacity-100"
+                style={{
+                  background: `linear-gradient(90deg, transparent, ${tmpl.accent}, transparent)`,
+                }}
+              />
+
               <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-neutral-800 text-neutral-400">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-800/90 text-neutral-300 border border-neutral-700/60 font-semibold">
                     {tmpl.category}
                   </span>
-                  <div
-                    className="w-3 h-3 rounded-full"
-                    style={{ backgroundColor: tmpl.accent }}
-                  />
+                  <div className="flex items-center gap-1.5">
+                    <span
+                      className="w-2.5 h-2.5 rounded-full shadow-sm animate-pulse"
+                      style={{ backgroundColor: tmpl.accent }}
+                    />
+                    <span className="text-[10px] font-mono text-neutral-500 uppercase">{tmpl.accent}</span>
+                  </div>
                 </div>
-                <h3 className="text-base font-bold text-neutral-100 group-hover:text-violet-300 transition-colors">
+                <h3 className="text-lg font-bold text-neutral-100 group-hover:text-violet-300 transition-colors">
                   {tmpl.name}
                 </h3>
-                <p className="text-xs text-neutral-400 mt-1.5 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
                   {tmpl.description}
                 </p>
               </div>
 
-              <div className="pt-4 mt-4 border-t border-neutral-800/80 flex items-center justify-between">
-                <span className="text-xs text-neutral-500 font-mono">
-                  {tmpl.config.sections.length} plugins included
+              <div className="pt-4 mt-5 border-t border-neutral-800/80 flex items-center justify-between">
+                <span className="text-xs text-neutral-500 font-mono font-medium">
+                  {tmpl.config.sections.length} plugins configured
                 </span>
                 <button
                   type="button"
                   onClick={() => handleApply(tmpl)}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 duration-200 ${
                     isApplied
-                      ? 'bg-emerald-600 text-white'
-                      : 'bg-neutral-800 hover:bg-violet-600 text-neutral-200 hover:text-white'
+                      ? 'bg-emerald-600 text-white shadow-emerald-900/40'
+                      : 'bg-neutral-800 hover:bg-gradient-to-r hover:from-violet-600 hover:to-indigo-600 text-neutral-200 hover:text-white'
                   }`}
                 >
                   {isApplied ? (
                     <>
-                      <Check className="w-3.5 h-3.5" /> Applied!
+                      <Check className="w-3.5 h-3.5 text-white" /> Applied!
                     </>
                   ) : (
                     <>
-                      <span>Apply</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      <span>Apply Template</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </>
                   )}
                 </button>

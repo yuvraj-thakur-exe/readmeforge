@@ -22,6 +22,8 @@ import {
   Bot,
   Hammer,
   Footprints,
+  Swords,
+  Type,
 } from 'lucide-react';
 import { ResumeUpload } from '#/components/enrichment/ResumeUpload';
 import { importReadmeFromMarkdown } from '#/lib/parser/import-readme';
@@ -117,6 +119,7 @@ export const HeroSection: React.FC = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [isImportOpen, setIsImportOpen] = useState(false);
   const [importText, setImportText] = useState('');
+  const [showcaseTab, setShowcaseTab] = useState<'characters' | 'heroes' | 'typography' | 'customizer'>('characters');
   const setEntireConfig = useReadmeStore(state => state.setEntireConfig);
 
   // Playground state for real-time visitor experimentation
@@ -391,309 +394,427 @@ export const HeroSection: React.FC = () => {
         </button>
       </div>
 
-      {/* LIVE INTERACTIVE EFFECTS & FRAME PLAYGROUND (Maximizes User Engagement) */}
-      <div className="max-w-4xl mx-auto text-left pt-4">
-        <div className="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 shadow-2xl backdrop-blur-md space-y-4">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-800 pb-3">
-            <div className="flex items-center gap-2">
-              <Sliders className="w-4 h-4 text-cyan-400 animate-spin-slow" />
-              <span className="text-xs font-extrabold uppercase tracking-wider text-neutral-200">
-                Live Interactive Effects &amp; Frame Forge
-              </span>
-              <span className="px-2 py-0.5 rounded text-[10px] bg-cyan-950 text-cyan-300 font-mono border border-cyan-800/50">
-                60 FPS Vector
-              </span>
-            </div>
+      {/* DYNAMIC ANIMATED SHOWCASE & INTERACTIVE FRAME STUDIO */}
+      <div className="max-w-5xl mx-auto text-left pt-4">
+        <div className="rounded-3xl border border-white/[0.1] bg-neutral-950/85 p-5 sm:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-2xl space-y-4 relative overflow-hidden transition-all hover:border-white/[0.15]">
+          <div className="absolute -top-32 -right-32 w-72 h-72 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-32 -left-32 w-72 h-72 bg-cyan-600/15 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Quick Presets Bar */}
-            <div className="flex flex-wrap items-center gap-1.5 text-xs">
+          {/* Top Showcase Navigation Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] pb-3">
+            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
               <button
                 type="button"
-                onClick={() =>
-                  applyPlaygroundPreset(
-                    'fire',
-                    'fire-border',
-                    'INFERNO CLOUD ARCHITECT',
-                    '#ff2a2a',
-                    '#ff9900',
-                    '#ffee55',
-                    '#0c0404',
-                    'builder-crafter',
-                    'build'
-                  )
-                }
-                className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
-                  playgroundConfig.backgroundEffect === 'fire'
-                    ? 'border-orange-500 bg-orange-950/50 text-orange-300 shadow-sm'
-                    : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
-                }`}
+                onClick={() => setShowcaseTab('characters')}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 duration-200 select-none ${
+                  showcaseTab === 'characters'
+                    ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50 shadow-md shadow-cyan-950/50 scale-100'
+                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 border border-transparent'
+                } active:scale-95`}
               >
-                <Flame className="w-3 h-3 text-orange-400" />
-                <span>Fire Embers</span>
+                <Bot className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Roaming Characters</span>
+                <span className="px-1.5 py-0.2 rounded text-[9px] bg-cyan-500/20 text-cyan-300 font-mono font-bold">
+                  60fps
+                </span>
               </button>
 
               <button
                 type="button"
-                onClick={() =>
-                  applyPlaygroundPreset(
-                    'water',
-                    'glassmorphism',
-                    'OCEANIC DATA ENGINEER',
-                    '#00b4d8',
-                    '#48cae4',
-                    '#90e0ef',
-                    '#02121e',
-                    'wizard-mage',
-                    'walk'
-                  )
-                }
-                className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
-                  playgroundConfig.backgroundEffect === 'water'
-                    ? 'border-cyan-500 bg-cyan-950/50 text-cyan-300 shadow-sm'
-                    : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
-                }`}
+                onClick={() => setShowcaseTab('heroes')}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 duration-200 select-none ${
+                  showcaseTab === 'heroes'
+                    ? 'bg-red-500/20 text-red-300 border border-red-500/50 shadow-md shadow-red-950/50 scale-100'
+                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 border border-transparent'
+                } active:scale-95`}
               >
-                <Droplets className="w-3 h-3 text-cyan-400" />
-                <span>Water Ripples</span>
+                <Swords className="w-3.5 h-3.5 text-red-400" />
+                <span>Action Heroes</span>
+                <span className="px-1.5 py-0.2 rounded text-[9px] bg-red-500/20 text-red-300 font-mono font-bold">
+                  Live
+                </span>
               </button>
 
               <button
                 type="button"
-                onClick={() =>
-                  applyPlaygroundPreset(
-                    'grids',
-                    'cyber-neon',
-                    'CYBERPUNK DEV ENGINE',
-                    '#6366f1',
-                    '#38bdf8',
-                    '#c084fc',
-                    '#0a0d17',
-                    'pixel-dev',
-                    'walk'
-                  )
-                }
-                className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
-                  playgroundConfig.backgroundEffect === 'grids'
-                    ? 'border-violet-500 bg-violet-950/50 text-violet-300 shadow-sm'
-                    : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
-                }`}
+                onClick={() => setShowcaseTab('typography')}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 duration-200 select-none ${
+                  showcaseTab === 'typography'
+                    ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50 shadow-md shadow-indigo-950/50 scale-100'
+                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 border border-transparent'
+                } active:scale-95`}
               >
-                <Zap className="w-3 h-3 text-cyan-400" />
-                <span>Cyber Neon</span>
+                <Type className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Kinetic Typography</span>
+                <span className="px-1.5 py-0.2 rounded text-[9px] bg-indigo-500/20 text-indigo-300 font-mono font-bold">
+                  6 Effects
+                </span>
               </button>
 
               <button
                 type="button"
-                onClick={() =>
-                  applyPlaygroundPreset(
-                    'matrix',
-                    'hologram',
-                    'HACKER KERNEL CORE',
-                    '#22c55e',
-                    '#86efac',
-                    '#4ade80',
-                    '#051309',
-                    'cyber-bot',
-                    'code'
-                  )
-                }
-                className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
-                  playgroundConfig.backgroundEffect === 'matrix'
-                    ? 'border-emerald-500 bg-emerald-950/50 text-emerald-300 shadow-sm'
-                    : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
-                }`}
+                onClick={() => setShowcaseTab('customizer')}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 duration-200 select-none ${
+                  showcaseTab === 'customizer'
+                    ? 'bg-violet-500/20 text-violet-300 border border-violet-500/50 shadow-md shadow-violet-950/50 scale-100'
+                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 border border-transparent'
+                } active:scale-95`}
               >
-                <Square className="w-3 h-3 text-emerald-400" />
-                <span>Holo Matrix</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() =>
-                  applyPlaygroundPreset(
-                    'stars',
-                    'gold-metallic',
-                    'DISTINGUISHED FELLOW',
-                    '#bf953f',
-                    '#fcf6ba',
-                    '#b38728',
-                    '#09090b',
-                    'ninja-coder',
-                    'cheer'
-                  )
-                }
-                className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
-                  playgroundConfig.frameEffect === 'gold-metallic'
-                    ? 'border-amber-500 bg-amber-950/50 text-amber-300 shadow-sm'
-                    : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
-                }`}
-              >
-                <Sparkle className="w-3 h-3 text-amber-400" />
-                <span>Gold Bevel</span>
+                <Sliders className="w-3.5 h-3.5 text-violet-400" />
+                <span>Interactive Customizer</span>
               </button>
             </div>
-          </div>
 
-          {/* Interactive Controls Bar */}
-          <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 text-xs">
-            <div className="sm:col-span-6">
-              <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
-                Customize Title Text
-              </label>
-              <input
-                type="text"
-                value={playgroundConfig.headline}
-                onChange={e =>
-                  setPlaygroundConfig(prev => ({ ...prev, headline: e.target.value }))
-                }
-                className="w-full px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none"
-              />
-            </div>
-
-            <div className="sm:col-span-3">
-              <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
-                Background FX
-              </label>
-              <select
-                value={playgroundConfig.backgroundEffect}
-                onChange={e =>
-                  setPlaygroundConfig(prev => ({
-                    ...prev,
-                    backgroundEffect: e.target.value as BackgroundEffect,
-                  }))
-                }
-                className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
-              >
-                <option value="fire">Fire Embers</option>
-                <option value="water">Water Ripples</option>
-                <option value="grids">Cyber Grid</option>
-                <option value="matrix">Matrix Stream</option>
-                <option value="particles">Particles</option>
-                <option value="stars">Starry Night</option>
-                <option value="animated-gradient">Fluid Gradient</option>
-                <option value="solid">Dark Solid</option>
-              </select>
-            </div>
-
-            <div className="sm:col-span-3">
-              <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
-                Frame &amp; Border
-              </label>
-              <select
-                value={playgroundConfig.frameEffect || 'cyber-neon'}
-                onChange={e =>
-                  setPlaygroundConfig(prev => ({
-                    ...prev,
-                    frameEffect: e.target.value as FrameEffect,
-                  }))
-                }
-                className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
-              >
-                <option value="cyber-neon">Cyber Neon</option>
-                <option value="fire-border">Fire Rim</option>
-                <option value="glassmorphism">Glass Sheen</option>
-                <option value="terminal-crt">Terminal CRT</option>
-                <option value="hologram">Hologram HUD</option>
-                <option value="gold-metallic">Metallic Gold</option>
-                <option value="none">No Frame</option>
-              </select>
-            </div>
-
-            {/* Character & Action Controls */}
-            <div className="sm:col-span-6">
-              <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1 flex items-center gap-1">
-                <Bot className="w-3 h-3 text-emerald-400" />
-                <span>Vector Character</span>
-              </label>
-              <select
-                value={playgroundConfig.characterType || 'builder-crafter'}
-                onChange={e =>
-                  setPlaygroundConfig(prev => ({
-                    ...prev,
-                    characterType: e.target.value as CharacterType,
-                  }))
-                }
-                className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
-              >
-                <option value="builder-crafter">Builder Crafter (Hardhat &amp; Vest)</option>
-                <option value="pixel-dev">Pixel Dev (Hoodie &amp; Visor)</option>
-                <option value="cyber-bot">Cyber Bot (Thruster &amp; Antenna)</option>
-                <option value="ninja-coder">Ninja Coder (Mask &amp; Ribbon)</option>
-                <option value="wizard-mage">Wizard Mage (Hat &amp; Magic Staff)</option>
-                <option value="none">No Character</option>
-              </select>
-            </div>
-
-            <div className="sm:col-span-6">
-              <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1 flex items-center gap-1">
-                {playgroundConfig.characterAction === 'build' ? (
-                  <Hammer className="w-3 h-3 text-amber-400" />
-                ) : (
-                  <Footprints className="w-3 h-3 text-cyan-400" />
-                )}
-                <span>Character Action</span>
-              </label>
-              <select
-                value={playgroundConfig.characterAction || 'build'}
-                onChange={e =>
-                  setPlaygroundConfig(prev => ({
-                    ...prev,
-                    characterAction: e.target.value as CharacterAction,
-                  }))
-                }
-                className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
-              >
-                <option value="build">Build (Stack Tech Blocks &amp; Sparks)</option>
-                <option value="walk">Walk (Patrol Ground Baseline)</option>
-                <option value="code">Code (Floating Terminal HUD)</option>
-                <option value="construct">Construct (Weld Circuit Truss)</option>
-                <option value="cheer">Cheer (Victory Jump &amp; Confetti)</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Real-Time SVG Render Output */}
-          <div className="p-2 rounded-xl bg-neutral-950 border border-neutral-800 shadow-inner overflow-hidden">
-            <div
-              className="w-full h-auto flex items-center justify-center"
-              dangerouslySetInnerHTML={{ __html: liveSvgMarkup }}
-            />
-          </div>
-
-          {/* Playground Bottom Action Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs">
-            <span className="text-[11px] text-neutral-400 font-mono">
-              Pure Vector SVG &bull; GitHub Camo Sanitizer Compliant &bull; No JS Required
+            <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] text-neutral-400 font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Pure Vector GPU Composited
             </span>
-
-            <div className="flex items-center gap-2">
-              <Link
-                href="/animator"
-                className="px-3 py-1.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-200 font-medium text-xs transition-colors flex items-center gap-1.5"
-              >
-                <Sliders className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Open Full Studio</span>
-              </Link>
-
-              <button
-                type="button"
-                onClick={handleCopyMarkdown}
-                className="px-4 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition-all shadow-md flex items-center gap-1.5"
-              >
-                {copiedSnippet ? (
-                  <>
-                    <Check className="w-3.5 h-3.5 text-emerald-300" />
-                    <span>Copied Markdown!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3.5 h-3.5" />
-                    <span>Copy Snippet</span>
-                  </>
-                )}
-              </button>
-            </div>
           </div>
+
+          {/* Tab 1: Roaming Characters */}
+          {showcaseTab === 'characters' && (
+            <div className="space-y-3">
+              <div className="relative group rounded-2xl overflow-hidden border border-cyan-500/30 bg-neutral-950 p-2 shadow-2xl transition-all">
+                <img
+                  src="/assets/animated-characters.svg"
+                  alt="Multi-Language Playground with Dynamic Character Kinematics"
+                  className="w-full h-auto rounded-xl shadow-sm"
+                />
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-2 px-1 text-[11px] text-neutral-400 font-mono">
+                <span>Multi-language code environment with free-roaming characters &bull; Zero JS required</span>
+                <span className="text-cyan-400 font-semibold">Sub-16ms AST Verification</span>
+              </div>
+            </div>
+          )}
+
+          {/* Tab 2: Action Heroes Squad */}
+          {showcaseTab === 'heroes' && (
+            <div className="space-y-3">
+              <div className="relative group rounded-2xl overflow-hidden border border-red-500/30 bg-neutral-950 p-2 shadow-2xl transition-all">
+                <img
+                  src="/assets/animated-heroes-squad.svg"
+                  alt="Legendary Heroes Squad with Active Actions"
+                  className="w-full h-auto rounded-xl shadow-sm"
+                />
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-2 px-1 text-[11px] text-neutral-400 font-mono">
+                <span>Action-packed vector heroes &bull; Dual katana speed trails &bull; Squash &amp; stretch hopping</span>
+                <span className="text-red-400 font-semibold">Hardware-Accelerated Kinematics</span>
+              </div>
+            </div>
+          )}
+
+          {/* Tab 3: Kinetic Typography */}
+          {showcaseTab === 'typography' && (
+            <div className="space-y-3">
+              <div className="relative group rounded-2xl overflow-hidden border border-indigo-500/30 bg-neutral-950 p-2 shadow-2xl transition-all">
+                <img
+                  src="/assets/text-effects.svg"
+                  alt="Kinetic Typography and Dynamic Text Effects Engine"
+                  className="w-full h-auto rounded-xl shadow-sm"
+                />
+              </div>
+              <div className="flex flex-wrap items-center justify-between gap-2 px-1 text-[11px] text-neutral-400 font-mono">
+                <span>Cyber neon &bull; Holographic shimmer &bull; Chromatic glitch &bull; Matrix phosphor code rain</span>
+                <span className="text-indigo-400 font-semibold">GitHub Camo Compliant</span>
+              </div>
+            </div>
+          )}
+
+          {/* Tab 4: Interactive Customizer */}
+          {showcaseTab === 'customizer' && (
+            <div className="space-y-4">
+              {/* Presets and Controls */}
+              <div className="flex flex-wrap items-center gap-1.5 text-xs pb-1 border-b border-neutral-800/80">
+                <button
+                  type="button"
+                  onClick={() =>
+                    applyPlaygroundPreset(
+                      'fire',
+                      'fire-border',
+                      'INFERNO CLOUD ARCHITECT',
+                      '#ff2a2a',
+                      '#ff9900',
+                      '#ffee55',
+                      '#0c0404',
+                      'builder-crafter',
+                      'build'
+                    )
+                  }
+                  className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
+                    playgroundConfig.backgroundEffect === 'fire'
+                      ? 'border-orange-500 bg-orange-950/50 text-orange-300 shadow-sm'
+                      : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
+                  }`}
+                >
+                  <Flame className="w-3 h-3 text-orange-400" />
+                  <span>Fire Embers</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    applyPlaygroundPreset(
+                      'water',
+                      'glassmorphism',
+                      'OCEANIC DATA ENGINEER',
+                      '#00b4d8',
+                      '#48cae4',
+                      '#90e0ef',
+                      '#02121e',
+                      'wizard-mage',
+                      'walk'
+                    )
+                  }
+                  className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
+                    playgroundConfig.backgroundEffect === 'water'
+                      ? 'border-cyan-500 bg-cyan-950/50 text-cyan-300 shadow-sm'
+                      : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
+                  }`}
+                >
+                  <Droplets className="w-3 h-3 text-cyan-400" />
+                  <span>Water Ripples</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    applyPlaygroundPreset(
+                      'grids',
+                      'cyber-neon',
+                      'CYBERPUNK DEV ENGINE',
+                      '#6366f1',
+                      '#38bdf8',
+                      '#c084fc',
+                      '#0a0d17',
+                      'pixel-dev',
+                      'walk'
+                    )
+                  }
+                  className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
+                    playgroundConfig.backgroundEffect === 'grids'
+                      ? 'border-violet-500 bg-violet-950/50 text-violet-300 shadow-sm'
+                      : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
+                  }`}
+                >
+                  <Zap className="w-3 h-3 text-cyan-400" />
+                  <span>Cyber Neon</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    applyPlaygroundPreset(
+                      'matrix',
+                      'hologram',
+                      'HACKER KERNEL CORE',
+                      '#22c55e',
+                      '#86efac',
+                      '#4ade80',
+                      '#051309',
+                      'cyber-bot',
+                      'code'
+                    )
+                  }
+                  className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
+                    playgroundConfig.backgroundEffect === 'matrix'
+                      ? 'border-emerald-500 bg-emerald-950/50 text-emerald-300 shadow-sm'
+                      : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
+                  }`}
+                >
+                  <Square className="w-3 h-3 text-emerald-400" />
+                  <span>Holo Matrix</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    applyPlaygroundPreset(
+                      'stars',
+                      'gold-metallic',
+                      'DISTINGUISHED FELLOW',
+                      '#bf953f',
+                      '#fcf6ba',
+                      '#b38728',
+                      '#09090b',
+                      'ninja-coder',
+                      'cheer'
+                    )
+                  }
+                  className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
+                    playgroundConfig.frameEffect === 'gold-metallic'
+                      ? 'border-amber-500 bg-amber-950/50 text-amber-300 shadow-sm'
+                      : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
+                  }`}
+                >
+                  <Sparkle className="w-3 h-3 text-amber-400" />
+                  <span>Gold Bevel</span>
+                </button>
+              </div>
+
+              {/* Interactive Controls Bar */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 text-xs">
+                <div className="sm:col-span-6">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
+                    Customize Title Text
+                  </label>
+                  <input
+                    type="text"
+                    value={playgroundConfig.headline}
+                    onChange={e =>
+                      setPlaygroundConfig(prev => ({ ...prev, headline: e.target.value }))
+                    }
+                    className="w-full px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none"
+                  />
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
+                    Background FX
+                  </label>
+                  <select
+                    value={playgroundConfig.backgroundEffect}
+                    onChange={e =>
+                      setPlaygroundConfig(prev => ({
+                        ...prev,
+                        backgroundEffect: e.target.value as BackgroundEffect,
+                      }))
+                    }
+                    className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
+                  >
+                    <option value="fire">Fire Embers</option>
+                    <option value="water">Water Ripples</option>
+                    <option value="grids">Cyber Grid</option>
+                    <option value="matrix">Matrix Stream</option>
+                    <option value="particles">Particles</option>
+                    <option value="stars">Starry Night</option>
+                    <option value="animated-gradient">Fluid Gradient</option>
+                    <option value="solid">Dark Solid</option>
+                  </select>
+                </div>
+
+                <div className="sm:col-span-3">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
+                    Frame &amp; Border
+                  </label>
+                  <select
+                    value={playgroundConfig.frameEffect || 'cyber-neon'}
+                    onChange={e =>
+                      setPlaygroundConfig(prev => ({
+                        ...prev,
+                        frameEffect: e.target.value as FrameEffect,
+                      }))
+                    }
+                    className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
+                  >
+                    <option value="cyber-neon">Cyber Neon</option>
+                    <option value="fire-border">Fire Rim</option>
+                    <option value="glassmorphism">Glass Sheen</option>
+                    <option value="terminal-crt">Terminal CRT</option>
+                    <option value="hologram">Hologram HUD</option>
+                    <option value="gold-metallic">Metallic Gold</option>
+                    <option value="none">No Frame</option>
+                  </select>
+                </div>
+
+                {/* Character & Action Controls */}
+                <div className="sm:col-span-6">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1 flex items-center gap-1">
+                    <Bot className="w-3 h-3 text-emerald-400" />
+                    <span>Vector Character</span>
+                  </label>
+                  <select
+                    value={playgroundConfig.characterType || 'builder-crafter'}
+                    onChange={e =>
+                      setPlaygroundConfig(prev => ({
+                        ...prev,
+                        characterType: e.target.value as CharacterType,
+                      }))
+                    }
+                    className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
+                  >
+                    <option value="builder-crafter">Builder Crafter (Hardhat &amp; Vest)</option>
+                    <option value="pixel-dev">Pixel Dev (Hoodie &amp; Visor)</option>
+                    <option value="cyber-bot">Cyber Bot (Thruster &amp; Antenna)</option>
+                    <option value="ninja-coder">Ninja Coder (Mask &amp; Ribbon)</option>
+                    <option value="wizard-mage">Wizard Mage (Hat &amp; Magic Staff)</option>
+                    <option value="none">No Character</option>
+                  </select>
+                </div>
+
+                <div className="sm:col-span-6">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1 flex items-center gap-1">
+                    {playgroundConfig.characterAction === 'build' ? (
+                      <Hammer className="w-3 h-3 text-amber-400" />
+                    ) : (
+                      <Footprints className="w-3 h-3 text-cyan-400" />
+                    )}
+                    <span>Character Action</span>
+                  </label>
+                  <select
+                    value={playgroundConfig.characterAction || 'build'}
+                    onChange={e =>
+                      setPlaygroundConfig(prev => ({
+                        ...prev,
+                        characterAction: e.target.value as CharacterAction,
+                      }))
+                    }
+                    className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
+                  >
+                    <option value="build">Build (Stack Tech Blocks &amp; Sparks)</option>
+                    <option value="walk">Walk (Patrol Ground Baseline)</option>
+                    <option value="code">Code (Floating Terminal HUD)</option>
+                    <option value="construct">Construct (Weld Circuit Truss)</option>
+                    <option value="cheer">Cheer (Victory Jump &amp; Confetti)</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Real-Time SVG Render Output */}
+              <div className="p-2 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-inner overflow-hidden">
+                <div
+                  className="w-full h-auto flex items-center justify-center"
+                  dangerouslySetInnerHTML={{ __html: liveSvgMarkup }}
+                />
+              </div>
+
+              {/* Playground Bottom Action Bar */}
+              <div className="flex flex-wrap items-center justify-between gap-2 pt-1 text-xs">
+                <span className="text-[11px] text-neutral-400 font-mono">
+                  Pure Vector SVG &bull; GitHub Camo Sanitizer Compliant &bull; No JS Required
+                </span>
+
+                <div className="flex items-center gap-2">
+                  <Link
+                    href="/animator"
+                    className="px-3.5 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-200 font-medium text-xs transition-colors flex items-center gap-1.5"
+                  >
+                    <Sliders className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Open Full Studio</span>
+                  </Link>
+
+                  <button
+                    type="button"
+                    onClick={handleCopyMarkdown}
+                    className="px-4 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition-all shadow-md flex items-center gap-1.5"
+                  >
+                    {copiedSnippet ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-300" />
+                        <span>Copied Markdown!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copy Snippet</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
