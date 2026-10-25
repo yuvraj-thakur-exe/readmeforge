@@ -1,559 +1,569 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="300" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" width="100%" height="320" fill="none">
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="stageBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0e1a" />
+    <!-- Background Gradients -->
+    <linearGradient id="roamStageBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a14" />
       <stop offset="50%" stop-color="#0f172a" />
-      <stop offset="100%" stop-color="#070a12" />
+      <stop offset="100%" stop-color="#050811" />
     </linearGradient>
 
-    <!-- Stage Platform Floor Gradient -->
-    <linearGradient id="stageFloor" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
-      <stop offset="20%" stop-color="#38bdf8" stop-opacity="0.9" />
-      <stop offset="40%" stop-color="#818cf8" stop-opacity="1" />
-      <stop offset="60%" stop-color="#4ade80" stop-opacity="1" />
-      <stop offset="80%" stop-color="#f43f5e" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    <linearGradient id="cyberFloorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
+      <stop offset="20%" stop-color="#06b6d4" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#3b82f6" stop-opacity="1" />
+      <stop offset="70%" stop-color="#a855f7" stop-opacity="1" />
+      <stop offset="90%" stop-color="#ec4899" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
     </linearGradient>
 
-    <!-- Spotlight Radials -->
-    <radialGradient id="spotlight1" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="spotlight2" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#0284c7" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="spotlight3" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#22c55e" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="spotlight4" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
-    </radialGradient>
-    <radialGradient id="spotlight5" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.35" />
-      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
-    </radialGradient>
+    <linearGradient id="terminalBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95" />
+    </linearGradient>
 
-    <!-- Glow Filters -->
-    <filter id="glowFilter" x="-30%" y="-30%" width="160%" height="160%">
+    <!-- Filters -->
+    <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="3" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
-
-    <filter id="slashGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="bladeSlashGlow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="4" result="blur" />
       <feComposite in="SourceGraphic" in2="blur" operator="over" />
     </filter>
   </defs>
 
   <style>
-    /* ================= 1. BLUE BOT ANIMATIONS ================= */
-    @keyframes botHoverMotion {
+    /* =========================================================
+       60FPS GPU ACCELERATED ROAMING & KINEMATICS
+       ========================================================= */
+
+    /* ---------- 1. RED DRAGON (Sky Soarer) ---------- */
+    @keyframes dragonRoamSky {
+      0%   { transform: translate(960px, 20px) scaleX(-1); }
+      25%  { transform: translate(650px, 50px) scaleX(-1); }
+      48%  { transform: translate(120px, 25px) scaleX(-1); }
+      50%  { transform: translate(120px, 25px) scaleX(1); }
+      75%  { transform: translate(520px, 45px) scaleX(1); }
+      98%  { transform: translate(960px, 20px) scaleX(1); }
+      100% { transform: translate(960px, 20px) scaleX(-1); }
+    }
+    @keyframes dragonWingFlapCycle {
+      0%, 100% { transform: rotate(0deg) scaleY(1); }
+      50%      { transform: rotate(-28deg) scaleY(1.2); }
+    }
+    @keyframes dragonFireBurstRoam {
+      0%, 20%, 65%, 100% { opacity: 0; transform: scale(0.2); }
+      24%, 30%           { opacity: 1; transform: scale(1.3) translate(15px, 8px); }
+      70%, 76%           { opacity: 1; transform: scale(1.3) translate(15px, 8px); }
+    }
+
+    /* ---------- 2. BLUE ASSISTANT BOT (Airspace Roamer & Text Pointer) ---------- */
+    @keyframes botRoamAir {
+      0%   { transform: translate(140px, 95px) scaleX(1); }
+      20%  { transform: translate(320px, 75px) scaleX(1); }
+      48%  { transform: translate(510px, 88px) scaleX(1); }
+      50%  { transform: translate(510px, 88px) scaleX(-1); }
+      72%  { transform: translate(340px, 80px) scaleX(-1); }
+      98%  { transform: translate(140px, 95px) scaleX(-1); }
+      100% { transform: translate(140px, 95px) scaleX(1); }
+    }
+    @keyframes botHoverBob {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50%      { transform: translateY(-14px) rotate(2deg); }
+      50%      { transform: translateY(-8px) rotate(2deg); }
     }
-    @keyframes botArmWaveL {
+    @keyframes botArmWaveAction {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(-35deg); }
+      50%      { transform: rotate(-45deg); }
     }
-    @keyframes botArmWaveR {
+    @keyframes botArmPointAction {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(45deg); }
+      30%, 70% { transform: rotate(40deg) translateY(-6px); }
     }
-    @keyframes botPulseCore {
+    @keyframes botVisorBlink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      96%           { transform: scaleY(0.15); }
+    }
+    @keyframes botCorePulse {
       0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #48cfad); }
-      50%      { transform: scale(1.3); filter: drop-shadow(0 0 8px #48cfad); }
-    }
-    @keyframes botEyeBlink {
-      0%, 94%, 100% { transform: scaleY(1); }
-      96%           { transform: scaleY(0.1); }
+      50%      { transform: scale(1.35); filter: drop-shadow(0 0 8px #48cfad); }
     }
 
-    /* ================= 2. BLUE BEAN ANIMATIONS ================= */
-    @keyframes beanWaddleMotion {
+    /* ---------- 3. NINJA TURTLE (Ground Patroller & Code Slasher) ---------- */
+    @keyframes ninjaRoamFloor {
+      0%   { transform: translate(90px, 200px) scaleX(1); }
+      12%  { transform: translate(90px, 200px) scaleX(1); } /* Stop & slash code */
+      35%  { transform: translate(360px, 200px) scaleX(1); }
+      48%  { transform: translate(580px, 200px) scaleX(1); }
+      50%  { transform: translate(580px, 200px) scaleX(-1); }
+      72%  { transform: translate(320px, 200px) scaleX(-1); }
+      98%  { transform: translate(90px, 200px) scaleX(-1); }
+      100% { transform: translate(90px, 200px) scaleX(1); }
+    }
+    @keyframes ninjaLegRunL {
+      0%, 100% { transform: rotate(-24deg); }
+      50%      { transform: rotate(24deg); }
+    }
+    @keyframes ninjaLegRunR {
+      0%, 100% { transform: rotate(24deg); }
+      50%      { transform: rotate(-24deg); }
+    }
+    @keyframes ninjaKatanaSlashL {
+      0%, 100% { transform: rotate(-20deg); }
+      10%, 16% { transform: rotate(-65deg) translateY(-8px); }
+      20%      { transform: rotate(15deg); }
+    }
+    @keyframes ninjaKatanaSlashR {
+      0%, 100% { transform: rotate(20deg); }
+      12%, 18% { transform: rotate(65deg) translateY(-8px); }
+      22%      { transform: rotate(-15deg); }
+    }
+    @keyframes ninjaSlashWaveTrail {
+      0%, 9%, 22%, 100% { opacity: 0; stroke-dashoffset: 70; }
+      12%, 16%          { opacity: 1; stroke-dashoffset: 0; }
+    }
+    @keyframes bandanaWave {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-15deg) skewX(-10deg); }
+    }
+
+    /* ---------- 4. BLUE BEAN CAPSULE (Playful Waddler & High-Fiver) ---------- */
+    @keyframes beanRoamFloor {
+      0%   { transform: translate(380px, 205px) scaleX(1); }
+      22%  { transform: translate(520px, 205px) scaleX(1); }
+      48%  { transform: translate(720px, 205px) scaleX(1); }
+      50%  { transform: translate(720px, 205px) scaleX(-1); }
+      75%  { transform: translate(540px, 205px) scaleX(-1); }
+      98%  { transform: translate(380px, 205px) scaleX(-1); }
+      100% { transform: translate(380px, 205px) scaleX(1); }
+    }
+    @keyframes beanWaddleHop {
       0%, 100% { transform: translateY(0) rotate(-6deg) scale(1, 1); }
-      25%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.08); }
+      25%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.1); }
       50%      { transform: translateY(0) rotate(6deg) scale(1.08, 0.92); }
-      75%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.08); }
+      75%      { transform: translateY(-16px) rotate(0deg) scale(0.92, 1.1); }
     }
-    @keyframes beanArmFlapL {
+    @keyframes beanArmFlapMotion {
       0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(-30deg) translateY(-4px); }
-    }
-    @keyframes beanArmFlapR {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(30deg) translateY(-4px); }
-    }
-    @keyframes beanEyesBlink {
-      0%, 90%, 100% { transform: scaleY(1); }
-      94%           { transform: scaleY(0.1); }
+      50%      { transform: rotate(35deg) translateY(-4px); }
     }
 
-    /* ================= 3. NINJA TURTLE ANIMATIONS ================= */
-    @keyframes ninjaBounce {
-      0%, 100% { transform: translateY(0px); }
-      50%      { transform: translateY(-8px); }
+    /* ---------- 5. PURPLE MONSTER (Heavy Stomper & Bug Chomper) ---------- */
+    @keyframes monsterRoamFloor {
+      0%   { transform: translate(870px, 195px) scaleX(-1); }
+      24%  { transform: translate(740px, 195px) scaleX(-1); }
+      48%  { transform: translate(620px, 195px) scaleX(-1); }
+      50%  { transform: translate(620px, 195px) scaleX(1); }
+      74%  { transform: translate(760px, 195px) scaleX(1); }
+      98%  { transform: translate(870px, 195px) scaleX(1); }
+      100% { transform: translate(870px, 195px) scaleX(-1); }
     }
-    @keyframes katanaSlashL {
-      0%, 100% { transform: rotate(0deg); }
-      30%      { transform: rotate(-55deg) translate(-8px, -4px); }
-      40%      { transform: rotate(25deg) translate(6px, 4px); }
-      60%      { transform: rotate(0deg); }
+    @keyframes monsterStompCycle {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25%      { transform: translateY(-10px) rotate(-4deg); }
+      50%      { transform: translateY(0) rotate(0deg); }
+      75%      { transform: translateY(-10px) rotate(4deg); }
     }
-    @keyframes katanaSlashR {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(55deg) translate(8px, -4px); }
-      60%      { transform: rotate(-25deg) translate(-6px, 4px); }
-      80%      { transform: rotate(0deg); }
+    @keyframes monsterChompMotion {
+      0%, 100% { transform: scaleY(1); }
+      50%      { transform: scaleY(1.3) translateY(2px); }
     }
-    @keyframes swordSlashArcL {
-      0%, 25%   { opacity: 0; stroke-dashoffset: 120; }
-      35%       { opacity: 1; stroke-dashoffset: 0; }
-      45%, 100% { opacity: 0; stroke-dashoffset: -120; }
-    }
-    @keyframes swordSlashArcR {
-      0%, 45%   { opacity: 0; stroke-dashoffset: 120; }
-      55%       { opacity: 1; stroke-dashoffset: 0; }
-      65%, 100% { opacity: 0; stroke-dashoffset: -120; }
-    }
-    @keyframes bandanaFlutter {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(16deg) skewX(8deg); }
-    }
-
-    /* ================= 4. RED DRAGON ANIMATIONS ================= */
-    @keyframes dragonSoarFly {
-      0%, 100% { transform: translateY(0px) rotate(-3deg); }
-      50%      { transform: translateY(-22px) rotate(4deg); }
-    }
-    @keyframes dragonWingFlapTop {
-      0%, 100% { transform: rotate(0deg) scaleY(1); }
-      50%      { transform: rotate(-38deg) scaleY(0.75); }
-    }
-    @keyframes dragonWingFlapBottom {
-      0%, 100% { transform: rotate(0deg) scaleY(1); }
-      50%      { transform: rotate(28deg) scaleY(0.7); }
-    }
-    @keyframes dragonFireBurst {
-      0%, 100% { transform: scale(0.2) translate(0, 0); opacity: 0; }
-      45%      { opacity: 0; }
-      60%      { transform: scale(1.1) translate(-14px, -6px); opacity: 1; filter: drop-shadow(0 0 10px #f59e0b); }
-      80%      { transform: scale(1.5) translate(-28px, -12px); opacity: 0; }
-    }
-
-    /* ================= 5. PURPLE MONSTER ANIMATIONS ================= */
-    @keyframes monsterStompMotion {
-      0%, 100% { transform: translateY(0) rotate(-4deg); }
-      25%      { transform: translateY(-12px) rotate(0deg); }
-      50%      { transform: translateY(0) rotate(4deg); }
-      75%      { transform: translateY(-12px) rotate(0deg); }
-    }
-    @keyframes monsterChompJaw {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(5px); }
-    }
-    @keyframes monsterEyeWander {
+    @keyframes monsterEyeWanderMotion {
       0%, 100% { transform: translate(0, 0); }
-      25%      { transform: translate(-3px, 1px); }
-      75%      { transform: translate(3px, -1px); }
-    }
-    @keyframes monsterHornWiggle {
-      0%, 100% { transform: rotate(0deg); }
-      50%      { transform: rotate(8deg); }
+      30%      { transform: translate(-3px, 1px); }
+      70%      { transform: translate(3px, -1px); }
     }
 
-    /* Applying classes */
-    .bot-anim { animation: botHoverMotion 3s ease-in-out infinite; }
-    .bot-arm-l { transform-origin: -18px 0px; animation: botArmWaveL 2s ease-in-out infinite; }
-    .bot-arm-r { transform-origin: 18px 0px; animation: botArmWaveR 2s ease-in-out infinite; }
-    .bot-core-pulse { transform-origin: 0px 8px; animation: botPulseCore 1.5s ease-in-out infinite; }
-    .bot-eyes { transform-origin: 0px -14px; animation: botEyeBlink 4s infinite; }
+    /* ---------- SPEECH BUBBLES POPPING ---------- */
+    @keyframes bubblePopBot {
+      0%, 25%, 100% { opacity: 0; transform: scale(0.2) translateY(10px); }
+      5%, 20%       { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes bubblePopNinja {
+      0%, 8%, 24%, 100% { opacity: 0; transform: scale(0.2); }
+      10%, 18%          { opacity: 1; transform: scale(1); }
+    }
+    @keyframes bubblePopBean {
+      0%, 40%, 65%, 100% { opacity: 0; transform: scale(0.2); }
+      45%, 60%           { opacity: 1; transform: scale(1); }
+    }
 
-    .bean-anim { animation: beanWaddleMotion 1.8s ease-in-out infinite; transform-origin: center bottom; }
-    .bean-arm-l { transform-origin: -24px -10px; animation: beanArmFlapL 1.2s ease-in-out infinite; }
-    .bean-arm-r { transform-origin: 24px -10px; animation: beanArmFlapR 1.2s ease-in-out infinite; }
-    .bean-eyes { transform-origin: 0px -20px; animation: beanEyesBlink 3.6s infinite; }
+    /* ---------- TEXT TERMINAL GLOWS ---------- */
+    @keyframes terminalBorderPulse {
+      0%, 100% { stroke-opacity: 0.4; }
+      50%      { stroke-opacity: 0.9; }
+    }
 
-    .ninja-anim { animation: ninjaBounce 1.6s ease-in-out infinite; transform-origin: center bottom; }
-    .ninja-katana-l { transform-origin: -26px 14px; animation: katanaSlashL 2.4s infinite ease-in-out; }
-    .ninja-katana-r { transform-origin: 26px 14px; animation: katanaSlashR 2.4s infinite ease-in-out; }
-    .slash-arc-l { stroke-dasharray: 120; animation: swordSlashArcL 2.4s infinite linear; }
-    .slash-arc-r { stroke-dasharray: 120; animation: swordSlashArcR 2.4s infinite linear; }
-    .bandana-tail { transform-origin: 20px -28px; animation: bandanaFlutter 1.5s infinite ease-in-out; }
+    /* Class bindings */
+    .roam-dragon { animation: dragonRoamSky 14s ease-in-out infinite; }
+    .anim-dragon-wing { animation: dragonWingFlapCycle 0.9s ease-in-out infinite; transform-origin: 30px 30px; }
+    .anim-dragon-fire { animation: dragonFireBurstRoam 14s ease-out infinite; }
 
-    .dragon-anim { animation: dragonSoarFly 3.4s ease-in-out infinite; transform-origin: center center; }
-    .dragon-wing-top { transform-origin: 0px -10px; animation: dragonWingFlapTop 0.85s ease-in-out infinite alternate; }
-    .dragon-wing-bottom { transform-origin: 10px 10px; animation: dragonWingFlapBottom 0.85s ease-in-out infinite alternate; }
-    .dragon-fire { animation: dragonFireBurst 2.2s infinite ease-out; }
+    .roam-bot { animation: botRoamAir 12s ease-in-out infinite; }
+    .anim-bot-bob { animation: botHoverBob 2.8s ease-in-out infinite; }
+    .anim-bot-arm-l { animation: botArmWaveAction 2s ease-in-out infinite; transform-origin: -18px -4px; }
+    .anim-bot-arm-r { animation: botArmPointAction 3s ease-in-out infinite; transform-origin: 18px -4px; }
+    .anim-bot-visor { animation: botVisorBlink 4s ease-in-out infinite; transform-origin: center; }
+    .anim-bot-core { animation: botCorePulse 2s ease-in-out infinite; transform-origin: 0px 14px; }
+    .anim-bubble-bot { animation: bubblePopBot 12s ease-out infinite; transform-origin: 20px -30px; }
 
-    .monster-anim { animation: monsterStompMotion 1.8s ease-in-out infinite; transform-origin: center bottom; }
-    .monster-jaw { animation: monsterChompJaw 1s ease-in-out infinite; }
-    .monster-pupil { animation: monsterEyeWander 2.6s ease-in-out infinite; }
-    .monster-horn-l { transform-origin: -26px -36px; animation: monsterHornWiggle 1.4s ease-in-out infinite alternate; }
-    .monster-horn-r { transform-origin: 26px -36px; animation: monsterHornWiggle 1.4s ease-in-out infinite alternate-reverse; }
+    .roam-ninja { animation: ninjaRoamFloor 10s ease-in-out infinite; }
+    .anim-ninja-leg-l { animation: ninjaLegRunL 0.6s ease-in-out infinite; transform-origin: -6px 20px; }
+    .anim-ninja-leg-r { animation: ninjaLegRunR 0.6s ease-in-out infinite; transform-origin: 6px 20px; }
+    .anim-ninja-sword-l { animation: ninjaKatanaSlashL 10s ease-in-out infinite; transform-origin: -12px 6px; }
+    .anim-ninja-sword-r { animation: ninjaKatanaSlashR 10s ease-in-out infinite; transform-origin: 12px 6px; }
+    .anim-ninja-arc { animation: ninjaSlashWaveTrail 10s ease-out infinite; stroke-dasharray: 70; }
+    .anim-ninja-bandana { animation: bandanaWave 1.6s ease-in-out infinite; transform-origin: -14px -14px; }
+    .anim-bubble-ninja { animation: bubblePopNinja 10s ease-out infinite; transform-origin: 0px -40px; }
+
+    .roam-bean { animation: beanRoamFloor 9s ease-in-out infinite; }
+    .anim-bean-hop { animation: beanWaddleHop 1.2s ease-in-out infinite; }
+    .anim-bean-arm-l { animation: beanArmFlapMotion 1.2s ease-in-out infinite; transform-origin: -16px 2px; }
+    .anim-bean-arm-r { animation: beanArmFlapMotion 1.2s ease-in-out infinite 0.2s; transform-origin: 16px 2px; }
+    .anim-bubble-bean { animation: bubblePopBean 9s ease-out infinite; transform-origin: 0px -35px; }
+
+    .roam-monster { animation: monsterRoamFloor 11s ease-in-out infinite; }
+    .anim-monster-stomp { animation: monsterStompCycle 1.4s ease-in-out infinite; }
+    .anim-monster-jaw { animation: monsterChompMotion 1.4s ease-in-out infinite; transform-origin: 0px 10px; }
+    .anim-monster-eyes { animation: monsterEyeWanderMotion 3s ease-in-out infinite; }
+
+    .term-pulse { animation: terminalBorderPulse 3s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
   </style>
 
-  <!-- Stage Backdrop Frame -->
-  <rect width="960" height="300" rx="16" fill="url(#stageBg)" stroke="#334155" stroke-width="1.5" />
+  <!-- Background Stage Frame -->
+  <rect width="960" height="320" rx="16" fill="url(#roamStageBg)" stroke="#1e293b" stroke-width="1.5" />
 
-  <!-- Ambient Perspective Stage Lines -->
-  <g opacity="0.12">
-    <line x1="0" y1="210" x2="960" y2="210" stroke="#38bdf8" stroke-width="1" />
-    <line x1="0" y1="250" x2="960" y2="250" stroke="#818cf8" stroke-width="1" />
-    <line x1="120" y1="0" x2="90" y2="300" stroke="#38bdf8" stroke-width="0.8" />
-    <line x1="310" y1="0" x2="290" y2="300" stroke="#818cf8" stroke-width="0.8" />
-    <line x1="500" y1="0" x2="490" y2="300" stroke="#4ade80" stroke-width="0.8" />
-    <line x1="690" y1="0" x2="690" y2="300" stroke="#f43f5e" stroke-width="0.8" />
-    <line x1="870" y1="0" x2="880" y2="300" stroke="#a855f7" stroke-width="0.8" />
+  <!-- Cyber Grid Runway & Perspective Floor -->
+  <g stroke="#334155" stroke-opacity="0.22" stroke-width="1">
+    <line x1="0" y1="250" x2="960" y2="250" />
+    <line x1="0" y1="280" x2="960" y2="280" />
+    <line x1="0" y1="305" x2="960" y2="305" />
+    <line x1="60" y1="250" x2="20" y2="320" />
+    <line x1="200" y1="250" x2="170" y2="320" />
+    <line x1="360" y1="250" x2="340" y2="320" />
+    <line x1="520" y1="250" x2="520" y2="320" />
+    <line x1="680" y1="250" x2="700" y2="320" />
+    <line x1="840" y1="250" x2="870" y2="320" />
   </g>
 
-  <!-- Stage Glow Runner Baseline -->
-  <line x1="30" y1="236" x2="930" y2="236" stroke="url(#stageFloor)" stroke-width="3.5" filter="url(#glowFilter)" />
-  <line x1="80" y1="238" x2="880" y2="238" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" />
+  <!-- Cyber Floor Energy Line -->
+  <line x1="20" y1="250" x2="940" y2="250" stroke="url(#cyberFloorGrad)" stroke-width="3" stroke-linecap="round" />
 
-  <!-- Top Title Banner -->
-  <g transform="translate(480, 26)">
-    <rect x="-210" y="-12" width="420" height="26" rx="13" fill="#1e293b" stroke="#475569" stroke-width="0.9" opacity="0.9" />
-    <text x="0" y="5" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#f8fafc" text-anchor="middle" letter-spacing="1">
-      ⚡ READMFORGE ANIMATED SQUAD • ACTIVE VECTOR ACTIONS ⚡
-    </text>
+  <!-- Top Navigation Wordmark -->
+  <g>
+    <rect x="24" y="16" width="380" height="28" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <circle cx="38" cy="30" r="5" fill="#38bdf8" />
+    <circle cx="52" cy="30" r="5" fill="#22c55e" />
+    <circle cx="66" cy="30" r="5" fill="#ef4444" />
+    <circle cx="80" cy="30" r="5" fill="#a855f7" />
+    <text x="96" y="34" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="11" letter-spacing="1.2">ROAMING SQUAD • INTERACTIVE SECTIONS</text>
   </g>
 
-  <!-- ============================================================== -->
-  <!-- 1. BLUE ASSISTANT BOT (Hover & Wave Action)                    -->
-  <!-- ============================================================== -->
-  <g transform="translate(105, 175)">
-    <!-- Spotlight Floor -->
-    <ellipse cx="0" cy="62" rx="42" ry="12" fill="url(#spotlight1)" />
+  <!-- =========================================================
+       INTERACTIVE SECTION 1 (LEFT): HOLOGRAPHIC CODE TERMINAL
+       ========================================================= -->
+  <g transform="translate(30, 75)">
+    <!-- Terminal Box -->
+    <rect width="240" height="150" rx="10" fill="url(#terminalBgGrad)" stroke="#38bdf8" stroke-width="1.5" class="term-pulse" />
+    <!-- Titlebar -->
+    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 230 0 C 235.5 0 240 4.5 240 10 L 240 24 L 0 24 Z" fill="#0b1120" />
+    <circle cx="14" cy="12" r="3.5" fill="#ef4444" />
+    <circle cx="26" cy="12" r="3.5" fill="#eab308" />
+    <circle cx="38" cy="12" r="3.5" fill="#22c55e" />
+    <text x="50" y="16" fill="#94a3b8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">profile.config.ts</text>
 
-    <!-- Bot Entity -->
-    <g class="bot-anim">
-      <!-- Side Ear Pods -->
-      <circle cx="-38" cy="-22" r="10" fill="#2b82c9" stroke="#1d5785" stroke-width="1.8" />
-      <circle cx="38" cy="-22" r="10" fill="#2b82c9" stroke="#1d5785" stroke-width="1.8" />
+    <!-- Code Text Lines (Characters walk up to this!) -->
+    <text x="14" y="44" fill="#38bdf8" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="600">import { Character } from 'forge';</text>
+    <text x="14" y="62" fill="#c084fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">const squad = new Squad({</text>
+    <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">  mode: <tspan fill="#4ade80">'roaming-free'</tspan>,</text>
+    <text x="24" y="98" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">  kinematics: <tspan fill="#f59e0b">'60fps'</tspan>,</text>
+    <text x="24" y="116" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">  interactive: <tspan fill="#38bdf8">true</tspan></text>
+    <text x="14" y="134" fill="#c084fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">});</text>
 
-      <!-- Head Dome -->
-      <rect x="-34" y="-48" width="68" height="52" rx="26" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
-      <!-- Face Visor Border -->
-      <rect x="-26" y="-40" width="52" height="36" rx="18" fill="#eef2f7" />
-      <!-- Screen Display -->
-      <rect x="-22" y="-36" width="44" height="28" rx="14" fill="#48cfad" />
+    <!-- Corner Neon Decals -->
+    <path d="M 0 35 L 0 24 L 12 24" stroke="#00f5d4" stroke-width="2" fill="none" />
+    <path d="M 240 135 L 240 150 L 225 150" stroke="#00f5d4" stroke-width="2" fill="none" />
+  </g>
 
-      <!-- Curved Smiling Eyes ^ ^ -->
-      <g class="bot-eyes" stroke="#37474f" stroke-width="3.2" stroke-linecap="round" fill="none">
-        <path d="M -15 -21 C -15 -27 -7 -27 -7 -21" />
-        <path d="M 7 -21 C 7 -27 15 -27 15 -21" />
-      </g>
+  <!-- =========================================================
+       INTERACTIVE SECTION 2 (CENTER): LIVE ACTION STAGE CONSOLE
+       ========================================================= -->
+  <g transform="translate(330, 65)">
+    <!-- Console Box -->
+    <rect width="300" height="110" rx="10" fill="url(#terminalBgGrad)" stroke="#818cf8" stroke-width="1.5" class="term-pulse" />
+    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 290 0 C 295.5 0 300 4.5 300 10 L 300 24 L 0 24 Z" fill="#0b1120" />
+    <text x="14" y="16" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" font-weight="700">✦ LIVE MOTION PLAYGROUND ✦</text>
 
-      <!-- Torso Body -->
-      <rect x="-26" y="8" width="52" height="34" rx="17" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
-      <path d="M -24 30 Q 0 44 24 30 Z" fill="#1d5785" />
-
-      <!-- Chest Emblem (Cyan Diamond) -->
-      <polygon points="0,17 9,25 0,33 -9,25" fill="#48cfad" class="bot-core-pulse" />
-
-      <!-- Shoulders & Joints -->
-      <rect x="-42" y="14" width="18" height="10" rx="4" fill="#1d5785" />
-      <rect x="24" y="14" width="18" height="10" rx="4" fill="#1d5785" />
-
-      <!-- Left Arm (Waving) -->
-      <g class="bot-arm-l">
-        <rect x="-38" y="24" width="7" height="24" rx="3.5" fill="#9e9e9e" stroke="#37474f" stroke-width="1" />
-        <circle cx="-34.5" cy="52" r="7.5" fill="#1d5785" stroke="#37474f" stroke-width="1.2" />
-      </g>
-
-      <!-- Right Arm (Waving) -->
-      <g class="bot-arm-r">
-        <rect x="31" y="24" width="7" height="24" rx="3.5" fill="#9e9e9e" stroke="#37474f" stroke-width="1" />
-        <circle cx="34.5" cy="52" r="7.5" fill="#1d5785" stroke="#37474f" stroke-width="1.2" />
-      </g>
-
-      <!-- Bottom Hover Caster Wheel / Thruster -->
-      <path d="M -10 40 L 10 40 L 7 50 L -7 50 Z" fill="#37474f" />
-      <ellipse cx="0" cy="52" rx="6" ry="3" fill="#22d3ee" filter="url(#glowFilter)" />
+    <!-- Interactive Status Displays -->
+    <g transform="translate(14, 38)">
+      <rect width="130" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
+      <circle cx="12" cy="13" r="3.5" fill="#22c55e" />
+      <text x="22" y="17" fill="#e0e7ff" font-family="'JetBrains Mono', monospace" font-size="10">STATUS: ROAMING</text>
     </g>
 
-    <!-- Name Label -->
-    <rect x="-44" y="66" width="88" height="18" rx="9" fill="#1e293b" stroke="#38bdf8" stroke-width="1" />
-    <text x="0" y="79" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" fill="#38bdf8" text-anchor="middle">
-      BLUE BOT
-    </text>
-  </g>
-
-  <!-- ============================================================== -->
-  <!-- 2. BLUE BEAN CAPSULE (Waddle & Jump Action)                    -->
-  <!-- ============================================================== -->
-  <g transform="translate(295, 175)">
-    <!-- Spotlight Floor -->
-    <ellipse cx="0" cy="62" rx="44" ry="12" fill="url(#spotlight2)" />
-
-    <!-- Bean Entity -->
-    <g class="bean-anim">
-      <!-- Main Capsule Pill Body -->
-      <path d="M -34 0 C -34 -45 34 -45 34 0 C 34 38 18 52 0 52 C -18 52 -34 38 -34 0 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
-      <!-- Lower Darker Blue Shading -->
-      <path d="M -32 20 C -20 48 20 48 32 20 C 34 35 18 50 0 50 C -18 50 -34 35 -32 20 Z" fill="#1d5785" />
-
-      <!-- Center Belly Arc -->
-      <path d="M -16 50 C -16 28 16 28 16 50 Z" fill="#236da8" />
-
-      <!-- Face Visor Border -->
-      <ellipse cx="0" cy="-14" rx="26" ry="24" fill="#eef2f7" />
-      <!-- Mint Visor Screen -->
-      <ellipse cx="0" cy="-14" rx="23" ry="21" fill="#48cfad" />
-
-      <!-- Two Vertical Pill Eyes (Blinking) -->
-      <g class="bean-eyes">
-        <rect x="-11" y="-22" width="7.5" height="17" rx="3.75" fill="#37474f" />
-        <rect x="3.5" y="-22" width="7.5" height="17" rx="3.75" fill="#37474f" />
-      </g>
-
-      <!-- Left Teardrop Arm (Flapping) -->
-      <g class="bean-arm-l">
-        <ellipse cx="-33" cy="12" rx="14" ry="22" fill="#2b82c9" stroke="#1d5785" stroke-width="1.8" />
-        <path d="M -45 18 C -33 32 -22 28 -22 18 C -22 34 -45 34 -45 18 Z" fill="#1d5785" />
-      </g>
-
-      <!-- Right Teardrop Arm (Flapping) -->
-      <g class="bean-arm-r">
-        <ellipse cx="33" cy="12" rx="14" ry="22" fill="#2b82c9" stroke="#1d5785" stroke-width="1.8" />
-        <path d="M 22 18 C 22 28 33 32 45 18 C 45 34 22 34 22 18 Z" fill="#1d5785" />
-      </g>
+    <g transform="translate(154, 38)">
+      <rect width="132" height="26" rx="5" fill="#2e1065" stroke="#a855f7" stroke-width="1" />
+      <text x="10" y="17" fill="#f3e8ff" font-family="'JetBrains Mono', monospace" font-size="10">FPS: 60 (GPU)</text>
     </g>
 
-    <!-- Name Label -->
-    <rect x="-44" y="66" width="88" height="18" rx="9" fill="#1e293b" stroke="#0284c7" stroke-width="1" />
-    <text x="0" y="79" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" fill="#38bdf8" text-anchor="middle">
-      BLUE BEAN
+    <text x="14" y="90" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="12" font-weight="600">
+      Walking, Hopping &amp; Flying across Divs!
+    </text>
+    <text x="14" y="104" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10">
+      Zero Clumping &bull; Free Path Kinematics
     </text>
   </g>
 
-  <!-- ============================================================== -->
-  <!-- 3. NINJA TURTLE LEONARDO (Dual Katana Slashing Action)         -->
-  <!-- ============================================================== -->
-  <g transform="translate(485, 175)">
-    <!-- Spotlight Floor -->
-    <ellipse cx="0" cy="62" rx="46" ry="12" fill="url(#spotlight3)" />
+  <!-- =========================================================
+       INTERACTIVE SECTION 3 (RIGHT): GAMER / DEV STATS CARD
+       ========================================================= -->
+  <g transform="translate(685, 75)">
+    <!-- Stats Box -->
+    <rect width="245" height="150" rx="10" fill="url(#terminalBgGrad)" stroke="#ec4899" stroke-width="1.5" class="term-pulse" />
+    <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 235 0 C 240.5 0 245 4.5 245 10 L 245 24 L 0 24 Z" fill="#0b1120" />
+    <circle cx="14" cy="12" r="3.5" fill="#ec4899" />
+    <text x="26" y="16" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" font-weight="700">CHAMPION STATS &bull; LVL 99</text>
 
-    <!-- Luminous Sword Slash Speed Arc Left -->
-    <path d="M -60 -40 A 55 55 0 0 1 10 20" fill="none" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" filter="url(#slashGlow)" class="slash-arc-l" />
-    <!-- Luminous Sword Slash Speed Arc Right -->
-    <path d="M 60 -40 A 55 55 0 0 0 -10 20" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" filter="url(#slashGlow)" class="slash-arc-r" />
+    <!-- Stats Lines -->
+    <text x="14" y="46" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="11" font-weight="600">XP Progress: 98.4%</text>
+    <!-- XP Bar -->
+    <rect x="14" y="54" width="217" height="8" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <rect x="14" y="54" width="202" height="8" rx="4" fill="url(#cyberFloorGrad)" />
 
-    <!-- Turtle Entity -->
-    <g class="ninja-anim">
-      <!-- Back Carapace Shell -->
-      <ellipse cx="0" cy="16" rx="28" ry="25" fill="#8d6e63" stroke="#1a202c" stroke-width="2.5" />
+    <text x="14" y="80" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Bugs Slashed: <tspan fill="#38bdf8" font-weight="700">1,337</tspan></text>
+    <text x="14" y="98" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Flames Cast: <tspan fill="#f43f5e" font-weight="700">8,420</tspan></text>
+    <text x="14" y="116" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Waddles Made: <tspan fill="#4ade80" font-weight="700">&infin;</tspan></text>
+    <text x="14" y="134" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Stomps Done: <tspan fill="#a855f7" font-weight="700">9,999</tspan></text>
+  </g>
 
-      <!-- Legs & Knee Wraps -->
+
+  <!-- =========================================================
+       ROAMING CHARACTER 1: RED FLYING DRAGON (SKY SOARER)
+       ========================================================= -->
+  <g class="roam-dragon">
+    <g transform="translate(0, 0)">
+      <!-- Dragon Body -->
       <g>
-        <!-- Left Leg -->
-        <rect x="-24" y="28" width="16" height="26" rx="6" fill="#7cb342" stroke="#1a202c" stroke-width="2" />
-        <rect x="-24" y="40" width="16" height="5" fill="#1e88e5" stroke="#1a202c" stroke-width="1.2" />
-        <rect x="-24" y="46" width="16" height="5" fill="#1e88e5" stroke="#1a202c" stroke-width="1.2" />
-        <!-- Right Leg -->
-        <rect x="8" y="28" width="16" height="26" rx="6" fill="#7cb342" stroke="#1a202c" stroke-width="2" />
-        <rect x="8" y="40" width="16" height="5" fill="#1e88e5" stroke="#1a202c" stroke-width="1.2" />
-        <rect x="8" y="46" width="16" height="5" fill="#1e88e5" stroke="#1a202c" stroke-width="1.2" />
-      </g>
+        <!-- Tail -->
+        <path d="M 12 12 Q 32 20 28 35" fill="none" stroke="#e53935" stroke-width="6" stroke-linecap="round" />
+        <!-- Body -->
+        <ellipse cx="0" cy="10" rx="14" ry="18" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
+        <!-- Yellow Belly -->
+        <path d="M -8 8 Q -6 22 0 25 Q -10 21 -8 8 Z" fill="#fdd835" stroke="#1a202c" stroke-width="1" />
+        <!-- Head & Horns -->
+        <path d="M -6 6 Q -14 -4 -14 -14 Q -20 -15 -25 -11 Q -24 -19 -14 -20 Q -10 -22 -7 -17 Q -3 -12 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
+        <polygon points="-14,-20 -19,-28 -12,-22" fill="#e53935" stroke="#1a202c" stroke-width="1" />
+        <circle cx="-17" cy="-17" r="1.8" fill="#1a202c" />
 
-      <!-- Torso with Tan Plastron -->
-      <rect x="-20" y="2" width="40" height="34" rx="10" fill="#ffe0b2" stroke="#1a202c" stroke-width="2.2" />
-      <!-- Plastron Division Lines -->
-      <line x1="0" y1="2" x2="0" y2="36" stroke="#1a202c" stroke-width="2" />
-      <line x1="-20" y1="14" x2="20" y2="14" stroke="#1a202c" stroke-width="2" />
-      <line x1="-20" y1="25" x2="20" y2="25" stroke="#1a202c" stroke-width="2" />
-
-      <!-- Head Dome -->
-      <ellipse cx="0" cy="-22" rx="27" ry="22" fill="#7cb342" stroke="#1a202c" stroke-width="2.5" />
-
-      <!-- Blue Mask Bandana Across Eyes -->
-      <path d="M -26 -28 C -15 -23 15 -23 26 -28 C 27 -20 25 -14 26 -16 C 15 -18 -15 -18 -26 -16 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="2" />
-      <!-- Fluttering Bandana Ribbons -->
-      <path d="M 26 -22 Q 36 -28 42 -20 Q 34 -15 26 -18 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" class="bandana-tail" />
-
-      <!-- Eyes (Pupils with Highlights) -->
-      <circle cx="-11" cy="-22" r="4.5" fill="#1a202c" />
-      <circle cx="-12" cy="-23" r="1.5" fill="#ffffff" />
-      <circle cx="11" cy="-22" r="4.5" fill="#1a202c" />
-      <circle cx="10" cy="-23" r="1.5" fill="#ffffff" />
-
-      <!-- Wide Smirking Mouth -->
-      <path d="M -16 -8 Q 0 0 16 -8" stroke="#1a202c" stroke-width="2.5" stroke-linecap="round" fill="none" />
-
-      <!-- Left Hand with Steel Katana (Slashing) -->
-      <g class="ninja-katana-l">
-        <!-- Arm & Blue Band -->
-        <path d="M -16 6 L -26 14" stroke="#7cb342" stroke-width="8" stroke-linecap="round" />
-        <rect x="-24" y="6" width="6" height="8" rx="2" fill="#1e88e5" />
-        <!-- Hand / Fist -->
-        <circle cx="-27" cy="14" r="5" fill="#7cb342" stroke="#1a202c" stroke-width="1.8" />
-        <!-- Tsuba / Guard -->
-        <rect x="-35" y="11" width="16" height="4" rx="1.5" fill="#37474f" stroke="#1a202c" stroke-width="1" />
-        <!-- Hilt Handle -->
-        <rect x="-29" y="15" width="4" height="15" rx="1" fill="#78909c" stroke="#1a202c" stroke-width="1" />
-        <!-- Steel Blade -->
-        <polygon points="-29,11 -25,11 -25,-42 -29,-45" fill="#eceff1" stroke="#1a202c" stroke-width="1.5" />
-        <polygon points="-25,11 -24,11 -24,-40 -25,-42" fill="#cfd8dc" />
-      </g>
-
-      <!-- Right Hand with Steel Katana (Slashing) -->
-      <g class="ninja-katana-r">
-        <!-- Arm & Blue Band -->
-        <path d="M 16 6 L 26 14" stroke="#7cb342" stroke-width="8" stroke-linecap="round" />
-        <rect x="18" y="6" width="6" height="8" rx="2" fill="#1e88e5" />
-        <!-- Hand / Fist -->
-        <circle cx="27" cy="14" r="5" fill="#7cb342" stroke="#1a202c" stroke-width="1.8" />
-        <!-- Tsuba / Guard -->
-        <rect x="19" y="11" width="16" height="4" rx="1.5" fill="#37474f" stroke="#1a202c" stroke-width="1" />
-        <!-- Hilt Handle -->
-        <rect x="25" y="15" width="4" height="15" rx="1" fill="#78909c" stroke="#1a202c" stroke-width="1" />
-        <!-- Steel Blade -->
-        <polygon points="25,11 29,11 29,-45 25,-42" fill="#eceff1" stroke="#1a202c" stroke-width="1.5" />
-        <polygon points="24,11 25,11 25,-42 24,-40" fill="#cfd8dc" />
-      </g>
-    </g>
-
-    <!-- Name Label -->
-    <rect x="-48" y="66" width="96" height="18" rx="9" fill="#1e293b" stroke="#22c55e" stroke-width="1" />
-    <text x="0" y="79" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" fill="#4ade80" text-anchor="middle">
-      NINJA TURTLE
-    </text>
-  </g>
-
-  <!-- ============================================================== -->
-  <!-- 4. RED FLYING DRAGON (Wing Flapping & Fire Breathing)          -->
-  <!-- ============================================================== -->
-  <g transform="translate(675, 175)">
-    <!-- Spotlight Floor -->
-    <ellipse cx="0" cy="62" rx="46" ry="12" fill="url(#spotlight4)" />
-
-    <!-- Dragon Entity -->
-    <g class="dragon-anim">
-      <!-- Animated Fire Breath Puff From Mouth -->
-      <g transform="translate(-32, -18)" class="dragon-fire">
-        <path d="M 0 0 Q -15 -10 -22 -2 Q -30 -18 -8 -20 Z" fill="#f59e0b" filter="url(#glowFilter)" />
-        <path d="M -4 -2 Q -12 -8 -16 -3 Q -20 -12 -8 -13 Z" fill="#ef4444" />
-        <circle cx="-18" cy="-5" r="2.5" fill="#fef08a" />
-      </g>
-
-      <!-- Rear Tail with Gold Fin -->
-      <path d="M 12 18 Q 36 28 32 44 Q 28 54 18 52" fill="none" stroke="#e53935" stroke-width="8" stroke-linecap="round" />
-      <path d="M 18 48 Q 28 56 36 50 Q 28 44 22 46 Z" fill="#fdd835" stroke="#1a202c" stroke-width="1.4" />
-
-      <!-- Dragon Body Torso -->
-      <ellipse cx="2" cy="12" rx="18" ry="24" fill="#e53935" stroke="#1a202c" stroke-width="2.2" />
-      <!-- Yellow Underbelly -->
-      <path d="M -12 6 Q -8 28 0 32 Q -14 26 -12 6 Z" fill="#fdd835" stroke="#1a202c" stroke-width="1.2" />
-
-      <!-- Rear Claws / Feet -->
-      <path d="M -4 28 L -10 38 L -6 40 L -4 38 L -1 40 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
-      <path d="M 6 26 L 2 36 L 5 38 L 7 36 L 10 38 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
-
-      <!-- Curving Neck & Head -->
-      <path d="M -6 6 Q -16 -6 -16 -18 Q -24 -20 -30 -16 Q -28 -24 -16 -26 Q -12 -28 -8 -22 Q -4 -16 2 -2 Z" fill="#e53935" stroke="#1a202c" stroke-width="2.2" />
-      <!-- Dragon Horns on Head -->
-      <polygon points="-16,-26 -22,-36 -14,-28" fill="#e53935" stroke="#1a202c" stroke-width="1.4" />
-      <polygon points="-12,-26 -16,-34 -10,-28" fill="#fdd835" stroke="#1a202c" stroke-width="1.2" />
-      <!-- Eye -->
-      <circle cx="-22" cy="-21" r="2.2" fill="#1a202c" />
-
-      <!-- Top Majestic Wing (Flapping) -->
-      <g class="dragon-wing-top">
-        <!-- Structural Bone Ribs -->
-        <path d="M -2 0 Q -24 -38 -44 -48 Q -10 -40 22 -32 Q 10 -15 4 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="2.2" />
-        <!-- Wing Finger Ribs -->
-        <path d="M -44 -48 Q -28 -32 -2 0" fill="none" stroke="#1a202c" stroke-width="1.8" />
-        <path d="M -10 -40 Q 6 -24 4 0" fill="none" stroke="#1a202c" stroke-width="1.8" />
-        <!-- Wing Webbing Scallops -->
-        <path d="M -44 -48 Q -32 -42 -26 -38 Q -16 -34 -10 -40 Q 4 -34 22 -32" fill="none" stroke="#1a202c" stroke-width="2" />
-      </g>
-
-      <!-- Bottom Wing Behind Body (Flapping) -->
-      <g class="dragon-wing-bottom">
-        <path d="M 6 -2 Q 28 -28 48 -22 Q 38 -6 20 12 Z" fill="#c62828" stroke="#1a202c" stroke-width="2" opacity="0.9" />
-        <path d="M 48 -22 Q 36 -12 20 12" fill="none" stroke="#1a202c" stroke-width="1.4" />
-      </g>
-    </g>
-
-    <!-- Name Label -->
-    <rect x="-46" y="66" width="92" height="18" rx="9" fill="#1e293b" stroke="#ef4444" stroke-width="1" />
-    <text x="0" y="79" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" fill="#f87171" text-anchor="middle">
-      RED DRAGON
-    </text>
-  </g>
-
-  <!-- ============================================================== -->
-  <!-- 5. PURPLE HORNED MONSTER (Stomp & Fang Chomp Action)           -->
-  <!-- ============================================================== -->
-  <g transform="translate(855, 175)">
-    <!-- Spotlight Floor -->
-    <ellipse cx="0" cy="62" rx="44" ry="12" fill="url(#spotlight5)" />
-
-    <!-- Monster Entity -->
-    <g class="monster-anim">
-      <!-- Horn Left (Wiggling) -->
-      <g class="monster-horn-l">
-        <path d="M -22 -36 C -34 -52 -46 -42 -42 -30 C -36 -32 -28 -34 -22 -36 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="2.2" />
-        <line x1="-34" y1="-44" x2="-28" y2="-34" stroke="#1a202c" stroke-width="1.8" />
-      </g>
-
-      <!-- Horn Right (Wiggling) -->
-      <g class="monster-horn-r">
-        <path d="M 22 -36 C 34 -52 46 -42 42 -30 C 36 -32 28 -34 22 -36 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="2.2" />
-        <line x1="34" y1="-44" x2="28" y2="-34" stroke="#1a202c" stroke-width="1.8" />
-      </g>
-
-      <!-- Left Stubby Arm -->
-      <path d="M -26 -10 C -42 -10 -40 18 -26 14 Z" fill="#7986cb" stroke="#1a202c" stroke-width="2.2" />
-      <!-- Right Stubby Arm -->
-      <path d="M 26 -10 C 42 -10 40 18 26 14 Z" fill="#7986cb" stroke="#1a202c" stroke-width="2.2" />
-
-      <!-- Main Blocky Purple Body -->
-      <rect x="-28" y="-36" width="56" height="68" rx="14" fill="#7986cb" stroke="#1a202c" stroke-width="2.5" />
-
-      <!-- Bottom Blocky Feet -->
-      <rect x="-24" y="28" width="16" height="20" rx="5" fill="#7986cb" stroke="#1a202c" stroke-width="2" />
-      <rect x="8" y="28" width="16" height="20" rx="5" fill="#7986cb" stroke="#1a202c" stroke-width="2" />
-
-      <!-- Two Big Round Eyes -->
-      <g>
-        <!-- Left Eye White -->
-        <circle cx="-12" cy="-14" r="11" fill="#ffffff" stroke="#1a202c" stroke-width="2.2" />
-        <!-- Right Eye White -->
-        <circle cx="12" cy="-14" r="11" fill="#ffffff" stroke="#1a202c" stroke-width="2.2" />
-        <!-- Blue Pupils (Looking Around) -->
-        <g class="monster-pupil">
-          <circle cx="-11" cy="-13" r="5" fill="#2196f3" />
-          <circle cx="-11" cy="-13" r="2.5" fill="#1a202c" />
-          <circle cx="-9" cy="-15" r="1.5" fill="#ffffff" />
-
-          <circle cx="13" cy="-13" r="5" fill="#2196f3" />
-          <circle cx="13" cy="-13" r="2.5" fill="#1a202c" />
-          <circle cx="15" cy="-15" r="1.5" fill="#ffffff" />
+        <!-- Flapping Bat Wings -->
+        <g class="anim-dragon-wing">
+          <path d="M -2 0 Q -18 -28 -34 -36 Q -8 -30 16 -24 Q 8 -12 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.8" />
+          <polygon points="-34,-36 -28,-30 -22,-33" fill="#b71c1c" />
         </g>
       </g>
 
-      <!-- Chomping Mouth with Two Lower Fangs -->
-      <g class="monster-jaw">
-        <!-- Dark Mouth Cavity -->
-        <rect x="-20" y="10" width="40" height="15" rx="7.5" fill="#1a202c" />
-        <!-- Left Upward Pointing Fang -->
-        <polygon points="-14,24 -11,4 -7,24" fill="#ffffff" stroke="#1a202c" stroke-width="1.8" />
-        <!-- Right Upward Pointing Fang -->
-        <polygon points="7,24 11,4 14,24" fill="#ffffff" stroke="#1a202c" stroke-width="1.8" />
+      <!-- Fire Breath Burst (Soaring across Sky) -->
+      <g class="anim-dragon-fire" filter="url(#neonGlow)">
+        <polygon points="-28,-14 -50,-8 -36,-2" fill="#ef4444" />
+        <polygon points="-34,-12 -65,-7 -44,-3" fill="#f59e0b" />
+        <circle cx="-55" cy="-8" r="4" fill="#ffffff" />
       </g>
     </g>
-
-    <!-- Name Label -->
-    <rect x="-48" y="66" width="96" height="18" rx="9" fill="#1e293b" stroke="#8b5cf6" stroke-width="1" />
-    <text x="0" y="79" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" fill="#a78bfa" text-anchor="middle">
-      PURPLE MONSTER
-    </text>
   </g>
+
+
+  <!-- =========================================================
+       ROAMING CHARACTER 2: BLUE ASSISTANT BOT (AIR ROAMER & TEXT POINTER)
+       ========================================================= -->
+  <g class="roam-bot">
+    <g class="anim-bot-bob">
+      <!-- Shadow Under Bot -->
+      <ellipse cx="0" cy="38" rx="18" ry="4" fill="#000000" opacity="0.4" />
+
+      <!-- Left Arm (Waving) -->
+      <g class="anim-bot-arm-l">
+        <path d="M -16 6 L -28 14 C -32 16 -30 22 -24 20 L -14 12 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+        <circle cx="-28" cy="18" r="4" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
+      </g>
+
+      <!-- Right Arm (Pointing directly to text!) -->
+      <g class="anim-bot-arm-r">
+        <path d="M 16 6 L 30 -6 C 34 -8 38 -4 34 2 L 18 12 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+        <circle cx="32" cy="-4" r="4" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
+      </g>
+
+      <!-- Bot Head Ears -->
+      <circle cx="-26" cy="-14" r="6" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+      <circle cx="26" cy="-14" r="6" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+
+      <!-- Bot Head Capsule -->
+      <rect x="-24" y="-32" width="48" height="36" rx="18" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
+      <rect x="-18" y="-26" width="36" height="24" rx="12" fill="#eef2f7" />
+      <rect x="-15" y="-23" width="30" height="18" rx="9" fill="#48cfad" />
+
+      <!-- Smiling Eyes (Winking Animation) -->
+      <g class="anim-bot-visor">
+        <path d="M -10 -13 C -10 -18 -5 -18 -5 -13 M 5 -13 C 5 -18 10 -18 10 -13" stroke="#37474f" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Chassis Torso -->
+      <rect x="-18" y="6" width="36" height="24" rx="12" fill="#2b82c9" stroke="#1d5785" stroke-width="2" />
+      <!-- Glowing Diamond Heart -->
+      <polygon points="0,10 6,16 0,22 -6,16" fill="#48cfad" class="anim-bot-core" />
+
+      <!-- Bottom Thruster Wheel -->
+      <path d="M -7 28 L 7 28 L 5 35 L -5 35 Z" fill="#37474f" />
+      <circle cx="0" cy="35" r="3" fill="#38bdf8" filter="url(#neonGlow)" />
+
+      <!-- Fun Speech/Thought Bubble Popping Above Bot -->
+      <g class="anim-bubble-bot" transform="translate(15, -45)">
+        <rect x="0" y="-18" width="105" height="22" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1.2" />
+        <polygon points="10,4 16,10 18,4" fill="#1e293b" />
+        <text x="8" y="-4" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700">Pointing at code! ✦</text>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- =========================================================
+       ROAMING CHARACTER 3: NINJA TURTLE (GROUND PATROLLER & CODE SLASHER)
+       ========================================================= -->
+  <g class="roam-ninja">
+    <!-- Ground Shadow -->
+    <ellipse cx="0" cy="34" rx="24" ry="5" fill="#000000" opacity="0.45" />
+
+    <!-- Turtle Shell Back -->
+    <ellipse cx="0" cy="10" rx="20" ry="17" fill="#8d6e63" stroke="#1a202c" stroke-width="2" />
+    <rect x="-14" y="2" width="28" height="23" rx="7" fill="#ffe0b2" stroke="#1a202c" stroke-width="1.5" />
+
+    <!-- Head -->
+    <ellipse cx="0" cy="-14" rx="18" ry="15" fill="#7cb342" stroke="#1a202c" stroke-width="2" />
+    <!-- Blue Mask -->
+    <path d="M -18 -18 C -10 -15 10 -15 18 -18 C 19 -13 18 -8 18 -10 C 10 -11 -10 -11 -18 -10 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" />
+    <!-- Eyes -->
+    <circle cx="-7.5" cy="-14" r="3.2" fill="#1a202c" />
+    <circle cx="-8" cy="-15" r="1.1" fill="#fff" />
+    <circle cx="7.5" cy="-14" r="3.2" fill="#1a202c" />
+    <circle cx="7" cy="-15" r="1.1" fill="#fff" />
+    <!-- Grin -->
+    <path d="M -11 -5 Q 0 1 11 -5" stroke="#1a202c" stroke-width="1.8" stroke-linecap="round" fill="none" />
+
+    <!-- Bandana Tails Fluttering -->
+    <g class="anim-ninja-bandana">
+      <path d="M -16 -16 Q -28 -20 -38 -12" fill="none" stroke="#1e88e5" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <!-- Running Legs -->
+    <g class="anim-ninja-leg-l">
+      <rect x="-10" y="22" width="9" height="12" rx="4.5" fill="#7cb342" stroke="#1a202c" stroke-width="1.5" />
+      <line x1="-10" y1="28" x2="-1" y2="28" stroke="#1e88e5" stroke-width="2" />
+    </g>
+    <g class="anim-ninja-leg-r">
+      <rect x="1" y="22" width="9" height="12" rx="4.5" fill="#7cb342" stroke="#1a202c" stroke-width="1.5" />
+      <line x1="1" y1="28" x2="10" y2="28" stroke="#1e88e5" stroke-width="2" />
+    </g>
+
+    <!-- Dual Katana Arms (Slashing Action when near Code Terminal!) -->
+    <!-- Left Katana -->
+    <g class="anim-ninja-sword-l">
+      <line x1="-10" y1="6" x2="-22" y2="-4" stroke="#7cb342" stroke-width="4.5" stroke-linecap="round" />
+      <!-- Blade L -->
+      <line x1="-22" y1="-4" x2="-44" y2="-28" stroke="#eceff1" stroke-width="2.8" stroke-linecap="round" />
+      <line x1="-22" y1="-4" x2="-44" y2="-28" stroke="#ffffff" stroke-width="1.2" />
+    </g>
+    <!-- Right Katana -->
+    <g class="anim-ninja-sword-r">
+      <line x1="10" y1="6" x2="22" y2="-4" stroke="#7cb342" stroke-width="4.5" stroke-linecap="round" />
+      <!-- Blade R -->
+      <line x1="22" y1="-4" x2="44" y2="-28" stroke="#eceff1" stroke-width="2.8" stroke-linecap="round" />
+      <line x1="22" y1="-4" x2="44" y2="-28" stroke="#ffffff" stroke-width="1.2" />
+    </g>
+
+    <!-- Speed Slash Arcs -->
+    <path d="M -50 -35 Q -20 -60 20 -20" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" class="anim-ninja-arc" filter="url(#bladeSlashGlow)" />
+
+    <!-- Fun Bubble Above Ninja Turtle -->
+    <g class="anim-bubble-ninja" transform="translate(0, -42)">
+      <rect x="-45" y="-18" width="90" height="20" rx="5" fill="#1e293b" stroke="#22c55e" stroke-width="1.2" />
+      <text x="0" y="-4" fill="#4ade80" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">⚔️ Bug Slashed!</text>
+    </g>
+  </g>
+
+
+  <!-- =========================================================
+       ROAMING CHARACTER 4: BLUE BEAN CAPSULE (PLAYFUL WADDLER)
+       ========================================================= -->
+  <g class="roam-bean">
+    <g class="anim-bean-hop">
+      <!-- Ground Shadow -->
+      <ellipse cx="0" cy="30" rx="18" ry="4" fill="#000000" opacity="0.4" />
+
+      <!-- Left Flapping Arm -->
+      <g class="anim-bean-arm-l">
+        <path d="M -16 6 C -24 6 -28 14 -22 22 C -18 18 -16 12 -14 8 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+      </g>
+      <!-- Right Flapping Arm -->
+      <g class="anim-bean-arm-r">
+        <path d="M 16 6 C 24 6 28 14 22 22 C 18 18 16 12 14 8 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+      </g>
+
+      <!-- Bean Capsule Body -->
+      <path d="M -22 0 C -22 -30 22 -30 22 0 C 22 25 12 34 0 34 C -12 34 -22 25 -22 0 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.8" />
+      <!-- Face Visor -->
+      <ellipse cx="0" cy="-9" rx="17" ry="16" fill="#eef2f7" />
+      <ellipse cx="0" cy="-9" rx="15" ry="14" fill="#48cfad" />
+      <!-- Pill Eyes -->
+      <rect x="-7" y="-15" width="5" height="11" rx="2.5" fill="#37474f" />
+      <rect x="2" y="-15" width="5" height="11" rx="2.5" fill="#37474f" />
+
+      <!-- Fun Speech Bubble Above Blue Bean -->
+      <g class="anim-bubble-bean" transform="translate(0, -42)">
+        <rect x="-45" y="-18" width="90" height="20" rx="5" fill="#1e293b" stroke="#ec4899" stroke-width="1.2" />
+        <text x="0" y="-4" fill="#f472b6" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="700" text-anchor="middle">✨ Waddle Waddle!</text>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- =========================================================
+       ROAMING CHARACTER 5: PURPLE MONSTER (HEAVY STOMPER & CHOMPER)
+       ========================================================= -->
+  <g class="roam-monster">
+    <g class="anim-monster-stomp">
+      <!-- Ground Shadow -->
+      <ellipse cx="0" cy="30" rx="22" ry="5" fill="#000000" opacity="0.45" />
+
+      <!-- Horns -->
+      <path d="M -15 -25 C -23 -36 -32 -29 -28 -20 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.6" />
+      <path d="M 15 -25 C 23 -36 32 -29 28 -20 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.6" />
+
+      <!-- Blocky Body -->
+      <rect x="-20" y="-25" width="40" height="48" rx="10" fill="#7986cb" stroke="#1a202c" stroke-width="2" />
+
+      <!-- Big Eyes with Wandering Pupils -->
+      <circle cx="-8" cy="-9" r="8" fill="#fff" stroke="#1a202c" stroke-width="1.5" />
+      <circle cx="8" cy="-9" r="8" fill="#fff" stroke="#1a202c" stroke-width="1.5" />
+      <g class="anim-monster-eyes">
+        <circle cx="-7.5" cy="-8.5" r="3.5" fill="#2196f3" />
+        <circle cx="-8.5" cy="-9.5" r="1.2" fill="#ffffff" />
+        <circle cx="8.5" cy="-8.5" r="3.5" fill="#2196f3" />
+        <circle cx="7.5" cy="-9.5" r="1.2" fill="#ffffff" />
+      </g>
+
+      <!-- Chomping Mouth with Fangs -->
+      <g class="anim-monster-jaw">
+        <rect x="-14" y="7" width="28" height="11" rx="5.5" fill="#1a202c" />
+        <polygon points="-10,17 -8,3 -5,17" fill="#fff" stroke="#1a202c" stroke-width="1" />
+        <polygon points="5,17 8,3 10,17" fill="#fff" stroke="#1a202c" stroke-width="1" />
+      </g>
+
+      <!-- Stubby Stomping Legs -->
+      <rect x="-14" y="21" width="10" height="11" rx="4" fill="#7986cb" stroke="#1a202c" stroke-width="1.5" />
+      <rect x="4" y="21" width="10" height="11" rx="4" fill="#7986cb" stroke="#1a202c" stroke-width="1.5" />
+    </g>
+  </g>
+
 </svg>
