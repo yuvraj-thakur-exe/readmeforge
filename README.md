@@ -64,144 +64,10 @@
 
 <div align="center" id="heroes-squad">
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-heroes-squad.svg" alt="ReadmeForge Legendary Heroes Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(239,68,68,0.25);" />
-</div>
-
-<br />
-
-### Animated Character Champions & Feature Capabilities
-
-Every character represents a specialized capability of ReadmeForge with bespoke 60fps GPU-composited animations, showcased in dedicated feature modules:
-
-<div align="center">
-  <a href="public/assets/characters/blue-bot.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bot.svg" width="100" height="100" alt="Blue Assistant Bot" />
-  </a>
-  <h4>Blue Assistant Bot &bull; /developer Monaco IDE Studio</h4>
-  <p>
-    <strong>Feature: Sub-16ms Live Code Sync &amp; Type Verification</strong><br />
-    Synchronizes Monaco editor with live Markdown preview in real time with zero lag. Features AST-safe syntax diagnostics, bracket matching, and hover-code pointing animation.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/blue-bean.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bean.svg" width="100" height="100" alt="Blue Bean Capsule" />
-  </a>
-  <h4>Blue Bean Capsule &bull; 1-Line Quickstart &amp; Concurrency</h4>
-  <p>
-    <strong>Feature: Instant Zero-Install Studio Launch</strong><br />
-    Spawns local browser studio in under 2 seconds with <code>npx readmeforge@latest</code>. Powers async Goroutine-speed service compilation with joyful waddle-hop squash-and-stretch dancing.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/ninja-turtle.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/ninja-turtle.svg" width="100" height="100" alt="Ninja Turtle" />
-  </a>
-  <h4>Ninja Turtle &bull; ZeroBug Slicing &amp; 60fps GPU Performance</h4>
-  <p>
-    <strong>Feature: Automated Memory &amp; Latency Bug Slicing</strong><br />
-    Dual glowing katanas slicing syntax errors and broken URLs with luminous speed arc trails. Hardware-composited 60fps keyframes with zero layout repaints or CPU stutter.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/red-dragon.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/red-dragon.svg" width="100" height="100" alt="Red Flying Dragon" />
-  </a>
-  <h4>Red Flying Dragon &bull; Deterministic AI Personalization</h4>
-  <p>
-    <strong>Feature: 5 Custom Engineering Archetypes</strong><br />
-    Generates non-generic profile themes tailored for AI/ML, DevOps, Full-Stack, and Systems engineers with automated typing headlines and blazing vector flame bursts.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/chibi-deadpool.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/chibi-deadpool.svg" width="100" height="100" alt="Chibi Deadpool" />
-  </a>
-  <h4>Chibi Deadpool &bull; Command Palette &amp; Tactical Hotkeys</h4>
-  <p>
-    <strong>Feature: Instant Plugin Insertion (Cmd+K)</strong><br />
-    Rapid fuzzy search and hotkey insertion of widgets, badges, and templates. Bouncing swagger with dual-katana flourish and comedic expressive winks.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/pink-wyvern.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/pink-wyvern.svg" width="100" height="100" alt="Pink Wyvern" />
-  </a>
-  <h4>Pink Wyvern &bull; Creative Vector Motion Graphics</h4>
-  <p>
-    <strong>Feature: Stardust Particle Trails &amp; Accessibility</strong><br />
-    Fluid dual-wing flapping flight, tail swaying, and magenta starry stardust breath. Strict adherence to vestibular <code>prefers-reduced-motion</code> accessibility standards.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/insectoid-warrior.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/insectoid-warrior.svg" width="100" height="100" alt="Insectoid Warrior" />
-  </a>
-  <h4>Insectoid Warrior &bull; Security &amp; Token Shield</h4>
-  <p>
-    <strong>Feature: Client-Side OAuth Protection</strong><br />
-    Chitin-armored security protecting GitHub OAuth tokens with zero external telemetry or secret leakage. Pulsing crimson laser compound eyes and pectoral flexing sentry.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/dragonborn-paladin.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/dragonborn-paladin.svg" width="100" height="100" alt="Dragonborn Paladin" />
-  </a>
-  <h4>Dragonborn Paladin &bull; Authenticated GitHub Diff Sync</h4>
-  <p>
-    <strong>Feature: Confirmation-Gated Push Protection</strong><br />
-    Spear-guard defense requiring explicit visual diff preview before committing to GitHub. Holy spear thrust, flowing banner ribbon wave, and radiant gleam flare.
-  </p>
-</div>
-
-<br />
-
-<div align="center">
-  <a href="public/assets/characters/purple-monster.svg">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/purple-monster.svg" width="100" height="100" alt="Purple Monster" />
-  </a>
-  <h4>Purple Monster &bull; Dynamic Graphs &amp; Milestone Trophies</h4>
-  <p>
-    <strong>Feature: Native Mermaid &amp; 365-Day Heatmaps</strong><br />
-    Renders native Mermaid pie charts with zero external dependencies and annual commit velocity graphs. Heavy foot stomps and fanged memory bug chomping.
-  </p>
-</div>
-
-<br />
 
 ---
 
 ## Quickstart: 1-Line Install
-
-<div align="center">
-  <a href="public/assets/characters/blue-bean.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bean.svg" width="52" height="52" alt="Blue Bean" /></a>
-  &nbsp;&nbsp;
-  <a href="public/assets/characters/ninja-turtle.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/ninja-turtle.svg" width="52" height="52" alt="Ninja Turtle" /></a>
-  <br />
-  <strong>Zero-Install NPX Engine &bull; Goroutine Concurrency &bull; Bug-Slicing CI Validation</strong>
-</div>
-
-<br />
 
 Launch ReadmeForge instantly locally, inside an autonomous AI agent, or within your favorite IDE:
 
@@ -234,16 +100,6 @@ Launch ReadmeForge instantly locally, inside an autonomous AI agent, or within y
 
 ## `/developer` Mode: Monaco IDE & Live Sync
 
-<div align="center">
-  <a href="public/assets/characters/blue-bot.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bot.svg" width="52" height="52" alt="Blue Bot" /></a>
-  &nbsp;&nbsp;
-  <a href="public/assets/characters/chibi-deadpool.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/chibi-deadpool.svg" width="52" height="52" alt="Chibi Deadpool" /></a>
-  <br />
-  <strong>Sub-16ms AST Live Sync &bull; Bi-Directional State Binding &bull; Tactical Command Palette</strong>
-</div>
-
-<br />
-
 For power users who prefer code over clicking, ReadmeForge features a dedicated **`/developer` mode** powered by Microsoft's Monaco Editor (`@monaco-editor/react`):
 
 <div align="center">
@@ -263,16 +119,6 @@ For power users who prefer code over clicking, ReadmeForge features a dedicated 
 
 ## Personalized Profiles: Never The Same
 
-<div align="center">
-  <a href="public/assets/characters/red-dragon.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/red-dragon.svg" width="52" height="52" alt="Red Flying Dragon" /></a>
-  &nbsp;&nbsp;
-  <a href="public/assets/characters/pink-wyvern.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/pink-wyvern.svg" width="52" height="52" alt="Pink Wyvern" /></a>
-  <br />
-  <strong>5 Deterministic Engineering Archetypes &bull; Tailored Typing Lines &bull; Zero Cookie-Cutter Profiles</strong>
-</div>
-
-<br />
-
 Most profile generators output cookie-cutter markdown that looks identical for every engineer. **ReadmeForge features a deterministic Personalization Engine** (`src/lib/personalization/profile-generator.ts`) that tailors profile sections, visual hierarchies, color harmonies, typing lines, and data widgets to the user's authentic engineering role:
 
 | Engineering Persona | Accent Palette & Vibe | Core Visual Focus | Dynamic Typing Headlines |
@@ -288,16 +134,6 @@ Most profile generators output cookie-cutter markdown that looks identical for e
 ---
 
 ## Dynamic Graphs & Pie Charts
-
-<div align="center">
-  <a href="public/assets/characters/purple-monster.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/purple-monster.svg" width="52" height="52" alt="Purple Monster" /></a>
-  &nbsp;&nbsp;
-  <a href="public/assets/characters/dragonborn-paladin.svg"><img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/dragonborn-paladin.svg" width="52" height="52" alt="Dragonborn Paladin" /></a>
-  <br />
-  <strong>Native Mermaid Pie Charts &bull; 365-Day Commit Velocity Heatmaps &bull; Authenticated Diff Shield</strong>
-</div>
-
-<br />
 
 Showcase your true engineering strengths and commit habits with interactive visual charts rendered natively in GitHub Markdown:
 
