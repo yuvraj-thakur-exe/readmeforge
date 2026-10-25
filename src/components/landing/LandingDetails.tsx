@@ -274,6 +274,68 @@ export const LandingDetails: React.FC = () => {
                         <div className="text-[10px] text-neutral-500">Longest: 118 Days &bull; Steady Rhythm</div>
                       </div>
                     </div>
+
+                    {/* Contribution Activity Heatmap Mockup */}
+                    <div className="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800/80 space-y-2.5">
+                      <div className="flex items-center justify-between">
+                        <span className="text-[11px] font-semibold text-neutral-200 flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />
+                          <span>Contribution Activity</span>
+                        </span>
+                        <span className="text-[10px] text-neutral-400 font-mono">
+                          1,842 contributions in the last year
+                        </span>
+                      </div>
+
+                      {/* 36-column x 7-row interactive activity grid */}
+                      <div className="overflow-x-auto pb-1">
+                        <div className="flex gap-[3px] min-w-[500px]">
+                          {Array.from({ length: 36 }).map((_, cIdx) => (
+                            <div key={cIdx} className="flex flex-col gap-[3px]">
+                              {Array.from({ length: 7 }).map((_, rIdx) => {
+                                const weight = (cIdx * 5 + rIdx * 7 + (cIdx % 4) * 3) % 11;
+                                const level = weight < 3 ? 0 : weight < 6 ? 1 : weight < 8 ? 2 : weight < 10 ? 3 : 4;
+                                const colors = [
+                                  'bg-neutral-800/80',
+                                  'bg-emerald-950 border border-emerald-900/50',
+                                  'bg-emerald-800',
+                                  'bg-emerald-500',
+                                  'bg-cyan-400 shadow-[0_0_6px_rgba(34,211,238,0.5)]',
+                                ];
+                                return (
+                                  <span
+                                    key={rIdx}
+                                    className={`w-2.5 h-2.5 rounded-[2px] ${colors[level]} transition-transform hover:scale-125 cursor-pointer`}
+                                    title={`Week ${cIdx + 1}, Day ${rIdx + 1}: ${level * 3 + 1} contributions`}
+                                  />
+                                );
+                              })}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between text-[9px] text-neutral-500 pt-1 border-t border-neutral-800/60 font-mono">
+                        <div className="flex gap-6">
+                          <span>Jan</span>
+                          <span>Mar</span>
+                          <span>May</span>
+                          <span>Jul</span>
+                          <span>Sep</span>
+                          <span>Nov</span>
+                          <span>Dec</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span>Less</span>
+                          <span className="w-2 h-2 rounded-[2px] bg-neutral-800 inline-block" />
+                          <span className="w-2 h-2 rounded-[2px] bg-emerald-950 inline-block" />
+                          <span className="w-2 h-2 rounded-[2px] bg-emerald-800 inline-block" />
+                          <span className="w-2 h-2 rounded-[2px] bg-emerald-500 inline-block" />
+                          <span className="w-2 h-2 rounded-[2px] bg-cyan-400 inline-block" />
+                          <span>More</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -284,6 +346,9 @@ export const LandingDetails: React.FC = () => {
 
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=octocat&theme=tokyonight)](https://github.com/octocat)
 [![Streak Stats](https://streak-stats.demolab.com/?user=octocat&theme=tokyonight)](https://github.com/octocat)
+
+### 🟩 Contribution Activity
+[![Contribution Chart](https://ghchart.rshah.org/22d3ee/octocat)](https://github.com/octocat)
 
 ### 🛠️ Tech Stack
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
