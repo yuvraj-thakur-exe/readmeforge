@@ -62,6 +62,12 @@
 
 <br />
 
+<div align="center" id="heroes-squad">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-heroes-squad.svg" alt="ReadmeForge Legendary Heroes Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(239,68,68,0.25);" />
+</div>
+
+<br />
+
 ### Animated Character Champions & Feature Capabilities
 
 Every character represents a specialized capability of ReadmeForge with bespoke 60fps GPU-composited animations, showcased in dedicated feature modules:
