@@ -133,11 +133,11 @@ For power users who prefer code over clicking, ReadmeForge features a dedicated 
 <br />
 
 ### Key `/developer` Capabilities
-- **$\color{#38bdf8}\textbf{Split-Screen Studio}$**: Left pane renders the full Monaco JSON editor with syntax coloring, bracket matching, and auto-completion.
-- **$\color{#818cf8}\textbf{Sub-16ms Live Sync}$**: Any keystroke in the Monaco editor instantly re-renders the live Markdown preview with zero perceptible delay.
-- **$\color{#10b981}\textbf{Bi-Directional State Binding}$**: Switch seamlessly between the visual wizard and `/developer` mode without losing a single attribute.
-- **$\color{#f59e0b}\textbf{Strict Zod Schema Validation}$**: Real-time validation guarantees your configuration never generates corrupted Markdown.
-- **$\color{#ec4899}\textbf{Command Palette}$** (`Cmd+K` / `Ctrl+K`): Rapidly insert plugins, format JSON, or toggle dark/light preview themes.
+- **Split-Screen Studio** (`#38BDF8`): Left pane renders the full Monaco JSON editor with syntax coloring, bracket matching, and auto-completion.
+- **Sub-16ms Live Sync** (`#818CF8`): Any keystroke in the Monaco editor instantly re-renders the live Markdown preview with zero perceptible delay.
+- **Bi-Directional State Binding** (`#10B981`): Switch seamlessly between the visual wizard and `/developer` mode without losing a single attribute.
+- **Strict Zod Schema Validation** (`#F59E0B`): Real-time validation guarantees your configuration never generates corrupted Markdown.
+- **Command Palette** (`#EC4899` / `Cmd+K` / `Ctrl+K`): Rapidly insert plugins, format JSON, or toggle dark/light preview themes.
 
 ---
 
@@ -150,11 +150,11 @@ Most profile generators output cookie-cutter markdown that looks identical for e
 
 | Engineering Persona | Accent Palette & Vibe | Core Visual Focus | Dynamic Typing Headlines |
 | :--- | :--- | :--- | :--- |
-| $\color{#10b981}\mathbf{AI\ /\ Machine\ Learning}$ | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
-| $\color{#06b6d4}\mathbf{Cloud\ \&\ DevOps\ SRE}$ | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
-| $\color{#8b5cf6}\mathbf{Full-Stack\ Polyglot}$ | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
-| $\color{#ec4899}\mathbf{Creative\ \&\ Motion\ Designer}$ | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
-| $\color{#f97316}\mathbf{Systems\ \&\ Embedded\ Hacker}$ | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
+| **AI / Machine Learning** | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
+| **Cloud & DevOps SRE** | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
+| **Full-Stack Polyglot** | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
+| **Creative & Motion Designer** | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
+| **Systems & Embedded Hacker** | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
 
 *Select domain presets directly inside Step 1 of the visual wizard or via `/developer` mode.*
 
@@ -287,12 +287,12 @@ ReadmeForge provides a native, hardware-accelerated kinetic typography engine ca
 
 | Effect Name | Visual Mechanics | Palette & Glow | GitHub Compatibility |
 | :--- | :--- | :--- | :--- |
-| **Cyber Neon Glow** | Dual-stage Gaussian drop-shadow bloom with breathing luminescence | $\color{#22d3ee}\textbf{\#22D3EE}$ / $\color{#818cf8}\textbf{\#818CF8}$ | SVG `<filter>` with feMerge & drop-shadow |
-| **Holographic Shimmer** | 4-stop spectral linear-gradient continuous horizontal sweep | $\color{#38bdf8}\textbf{\#38BDF8}$ $\color{#ec4899}\textbf{\#EC4899}$ $\color{#22c55e}\textbf{\#22C55E}$ | Pure SVG `<linearGradient>` animation |
-| **Chromatic RGB Glitch** | Sub-pixel horizontal slice displacement with cyan/magenta phase shift | $\color{#06b6d4}\textbf{\#06B6D4}$ / $\color{#ef4444}\textbf{\#EF4444}$ | Keyframe CSS `@keyframes` with fill-box |
-| **Matrix Digital Phosphor** | Monospace terminal glyph decoding with cathode flicker | $\color{#4ade80}\textbf{\#4ADE80}$ CRT Glow | Zero-dependency SVG `<text>` & monospace |
-| **Harmonic Sinusoidal Wave** | Phase-staggered vertical letterform sinusoidal undulation | $\color{#fbbf24}\textbf{\#FBBF24}$ Amber | 60fps GPU `transform: translateY()` |
-| **Terminal Typewriter** | Discrete character cadence with blinking block cursor | $\color{#f8fafc}\textbf{\#F8FAFC}$ / $\color{#38bdf8}\textbf{\#38BDF8}$ | SVG `<text>` & `readme-typing-svg` |
+| **Cyber Neon Glow** | Dual-stage Gaussian drop-shadow bloom with breathing luminescence | `#22D3EE` / `#818CF8` | SVG `<filter>` with feMerge & drop-shadow |
+| **Holographic Shimmer** | 4-stop spectral linear-gradient continuous horizontal sweep | `#38BDF8` / `#EC4899` / `#22C55E` | Pure SVG `<linearGradient>` animation |
+| **Chromatic RGB Glitch** | Sub-pixel horizontal slice displacement with cyan/magenta phase shift | `#06B6D4` / `#EF4444` | Keyframe CSS `@keyframes` with fill-box |
+| **Matrix Digital Phosphor** | Monospace terminal glyph decoding with cathode flicker | `#4ADE80` (CRT Glow) | Zero-dependency SVG `<text>` & monospace |
+| **Harmonic Sinusoidal Wave** | Phase-staggered vertical letterform sinusoidal undulation | `#FBBF24` (Amber) | 60fps GPU `transform: translateY()` |
+| **Terminal Typewriter** | Discrete character cadence with blinking block cursor | `#F8FAFC` / `#38BDF8` | SVG `<text>` & `readme-typing-svg` |
 
 ```json
 // Example: Adding Kinetic Typography via /developer JSON Studio

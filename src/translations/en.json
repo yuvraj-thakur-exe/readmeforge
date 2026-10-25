@@ -567,7 +567,7 @@
       "title": "Frequently Asked Questions",
       "subtitle": "Everything you need to know about ReadmeForge and GitHub profile READMEs.",
       "q1": "How does ReadmeForge update my GitHub profile?",
-      "a1": "ReadmeForge generates clean, GitHub-compatible Markdown. You can copy the code, download the README.md file, or connect via GitHub to commit directly to your <username>/<username> repository after reviewing a side-by-side diff.",
+      "a1": "ReadmeForge generates clean, GitHub-compatible Markdown. You can copy the code, download the README.md file, or connect via GitHub to commit directly to your username/username repository after reviewing a side-by-side diff.",
       "q2": "Can I import an existing GitHub profile README?",
       "a2": "Yes. Our AST-based reverse parser extracts your existing headings, skills, badges, and text blocks into editable wizard fields so you never have to start from scratch.",
       "q3": "Is my personal data or GitHub token stored on any server?",
