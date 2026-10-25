@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="qBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060913" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+
+    <!-- Glowing Cyber Gradients -->
+    <linearGradient id="qCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="qAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <linearGradient id="qGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="qGrid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="rgba(99, 102, 241, 0.08)" stroke-width="1" />
+      <circle cx="36" cy="36" r="1" fill="rgba(56, 189, 248, 0.25)" />
+    </pattern>
+
+    <!-- Soft Glow Filter -->
+    <filter id="qGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="qGlowHigh" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur1" />
+      <feMerge>
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes borderRun {
+      0% { stroke-dashoffset: 0; }
+      100% { stroke-dashoffset: 2800; }
+    }
+    @keyframes promptBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+    @keyframes shimmerBar {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+
+    .border-runner {
+      stroke: url(#qCyan);
+      stroke-width: 2;
+      fill: none;
+      stroke-dasharray: 180 360;
+      animation: borderRun 10s linear infinite;
+    }
+    .cursor-blink {
+      animation: promptBlink 1s infinite;
+    }
+    .card-hover-1 {
+      animation: floatCard 4s ease-in-out infinite;
+    }
+    .card-hover-2 {
+      animation: floatCard 4s ease-in-out infinite -1.3s;
+    }
+    .card-hover-3 {
+      animation: floatCard 4s ease-in-out infinite -2.6s;
+    }
+  </style>
+
+  <!-- Card Background -->
+  <rect width="1100" height="360" rx="16" fill="url(#qBg)" />
+  <rect width="1100" height="360" rx="16" fill="url(#qGrid)" />
+  <rect x="2" y="2" width="1096" height="356" rx="15" class="border-runner" />
+
+  <!-- Ambient Light Orbs -->
+  <circle cx="180" cy="80" r="100" fill="rgba(56, 189, 248, 0.12)" filter="url(#qGlowHigh)" />
+  <circle cx="920" cy="280" r="120" fill="rgba(192, 132, 252, 0.12)" filter="url(#qGlowHigh)" />
+
+  <!-- Header Section -->
+  <g transform="translate(50, 45)">
+    <!-- Pill -->
+    <rect width="180" height="24" rx="12" fill="rgba(99, 102, 241, 0.2)" stroke="rgba(99, 102, 241, 0.5)" stroke-width="1" />
+    <circle cx="12" cy="12" r="4" fill="#34d399" />
+    <text x="24" y="16" font-family="'Fira Code', monospace" font-size="11" font-weight="700" fill="#a5b4fc">
+      1-LINE ZERO CONFIG
+    </text>
+
+    <!-- Main Title -->
+    <text x="0" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="900" font-size="28" fill="#ffffff">
+      Instant Install &amp; AI Agent Commands
+    </text>
+    <text x="0" y="80" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" fill="#94a3b8">
+      Launch directly in browser, mount as an MCP tool in Claude Code, or run within Google Antigravity IDE.
+    </text>
+  </g>
+
+  <!-- 3 Command Cards Grid -->
+
+  <!-- Card 1: NPX Instant Launch -->
+  <g transform="translate(50, 145)" class="card-hover-1">
+    <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1.5" />
+    <!-- Header -->
+    <circle cx="28" cy="30" r="12" fill="rgba(56, 189, 248, 0.2)" />
+    <text x="22" y="35" font-size="14">⚡</text>
+    <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">NPX Instant Studio</text>
+    <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">Zero-install local browser</text>
+
+    <!-- Code Block -->
+    <rect x="15" y="65" width="280" height="52" rx="8" fill="#030712" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <text x="28" y="90" font-family="'Fira Code', monospace" font-size="11" fill="#34d399">❯</text>
+    <text x="44" y="90" font-family="'Fira Code', monospace" font-size="11" font-weight="600" fill="#38bdf8">npx readmeforge@latest</text>
+    <text x="28" y="106" font-family="-apple-system, sans-serif" font-size="9.5" fill="#64748b">Auto-starts at http://localhost:3000</text>
+
+    <!-- Badge -->
+    <rect x="15" y="130" width="80" height="22" rx="6" fill="rgba(56, 189, 248, 0.15)" />
+    <text x="22" y="145" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#38bdf8">Single-Line</text>
+  </g>
+
+  <!-- Card 2: Claude Code Agent -->
+  <g transform="translate(395, 145)" class="card-hover-2">
+    <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1.5" />
+    <!-- Header -->
+    <circle cx="28" cy="30" r="12" fill="rgba(192, 132, 252, 0.2)" />
+    <text x="22" y="35" font-size="14">🤖</text>
+    <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">Claude Code CLI</text>
+    <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">Anthropic agent integration</text>
+
+    <!-- Code Block -->
+    <rect x="15" y="65" width="280" height="52" rx="8" fill="#030712" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <text x="28" y="88" font-family="'Fira Code', monospace" font-size="9.5" fill="#c084fc">claude mcp add readmeforge \</text>
+    <text x="38" y="104" font-family="'Fira Code', monospace" font-size="9.5" fill="#818cf8">-- npx -y readmeforge</text>
+
+    <!-- Badge -->
+    <rect x="15" y="130" width="95" height="22" rx="6" fill="rgba(192, 132, 252, 0.15)" />
+    <text x="22" y="145" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#c084fc">MCP Toolchain</text>
+  </g>
+
+  <!-- Card 3: Google Antigravity IDE -->
+  <g transform="translate(740, 145)" class="card-hover-3">
+    <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(52, 211, 153, 0.35)" stroke-width="1.5" />
+    <!-- Header -->
+    <circle cx="28" cy="30" r="12" fill="rgba(52, 211, 153, 0.2)" />
+    <text x="22" y="35" font-size="14">🚀</text>
+    <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">Google Antigravity IDE</text>
+    <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">DeepMind agent plugin</text>
+
+    <!-- Code Block -->
+    <rect x="15" y="65" width="280" height="52" rx="8" fill="#030712" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+    <text x="28" y="90" font-family="'Fira Code', monospace" font-size="11" fill="#34d399">❯</text>
+    <text x="44" y="90" font-family="'Fira Code', monospace" font-size="11" font-weight="600" fill="#34d399">agy add plugin readmeforge</text>
+    <text x="28" y="106" font-family="-apple-system, sans-serif" font-size="9.5" fill="#64748b">Auto-mounts to .agents/skills</text>
+
+    <!-- Badge -->
+    <rect x="15" y="130" width="85" height="22" rx="6" fill="rgba(52, 211, 153, 0.15)" />
+    <text x="22" y="145" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#34d399">Native Skill</text>
+  </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 72" width="100%" height="100%">
+  <defs>
+    <linearGradient id="suiteGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="35%" stop-color="#818cf8" />
+      <stop offset="70%" stop-color="#c084fc" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    .badge-pill {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+  </style>
+
+  <rect width="880" height="72" rx="14" fill="#090d16" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+  
+  <!-- Pill 1: Claude Code -->
+  <g transform="translate(18, 14)" class="badge-pill">
+    <rect width="195" height="44" rx="10" fill="rgba(192, 132, 252, 0.12)" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1" />
+    <circle cx="24" cy="22" r="11" fill="rgba(192, 132, 252, 0.2)" />
+    <text x="18" y="27" font-size="14">🤖</text>
+    <text x="44" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#e9d5ff">Claude Code</text>
+    <text x="44" y="34" font-family="-apple-system, sans-serif" font-size="9.5" fill="#a855f7">Official MCP Tool</text>
+  </g>
+
+  <!-- Pill 2: Antigravity IDE -->
+  <g transform="translate(230, 14)" class="badge-pill">
+    <rect width="200" height="44" rx="10" fill="rgba(52, 211, 153, 0.12)" stroke="rgba(52, 211, 153, 0.35)" stroke-width="1" />
+    <circle cx="24" cy="22" r="11" fill="rgba(52, 211, 153, 0.2)" />
+    <text x="18" y="27" font-size="14">🚀</text>
+    <text x="44" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#a7f3d0">Google Antigravity</text>
+    <text x="44" y="34" font-family="-apple-system, sans-serif" font-size="9.5" fill="#10b981">DeepMind Studio</text>
+  </g>
+
+  <!-- Pill 3: Next.js 16 Turbopack -->
+  <g transform="translate(448, 14)" class="badge-pill">
+    <rect width="200" height="44" rx="10" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.35)" stroke-width="1" />
+    <circle cx="24" cy="22" r="11" fill="rgba(56, 189, 248, 0.2)" />
+    <text x="18" y="27" font-size="14">⚡</text>
+    <text x="44" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#bae6fd">Turbopack Engine</text>
+    <text x="44" y="34" font-family="-apple-system, sans-serif" font-size="9.5" fill="#0284c7">Sub-16ms Renders</text>
+  </g>
+
+  <!-- Pill 4: Zero Telemetry Privacy -->
+  <g transform="translate(666, 14)" class="badge-pill">
+    <rect width="195" height="44" rx="10" fill="rgba(250, 204, 21, 0.12)" stroke="rgba(250, 204, 21, 0.35)" stroke-width="1" />
+    <circle cx="24" cy="22" r="11" fill="rgba(250, 204, 21, 0.2)" />
+    <text x="18" y="27" font-size="14">🛡️</text>
+    <text x="44" y="21" font-family="-apple-system, sans-serif" font-weight="700" font-size="12" fill="#fef08a">100% Client Privacy</text>
+    <text x="44" y="34" font-family="-apple-system, sans-serif" font-size="9.5" fill="#d97706">Zero Cloud Tracking</text>
+  </g>
+</svg>

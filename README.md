@@ -54,30 +54,34 @@
 
 ## :zap: Instant One-Line Install & Quickstart
 
-Get ReadmeForge running locally in seconds using your preferred method:
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/quick-install-banner.svg" alt="ReadmeForge 1-Line Install Commands" width="100%" />
+</div>
 
-### ⚡ 1. Bash / Linux / macOS (One-Liner)
-```bash
-curl -fsSL https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.sh | bash
-```
+<br />
 
-### 🪟 2. Windows PowerShell (One-Liner)
-```powershell
-iwr -useb https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.ps1 | iex
-```
+| Runtime / Agent | Single-Line Command | Description |
+| :--- | :--- | :--- |
+| **⚡ NPX (Instant Studio)** | `npx readmeforge@latest` | Zero-install local browser launch at `http://localhost:3000` |
+| **🤖 Claude Code Agent** | `claude mcp add readmeforge -- npx -y readmeforge` | Mount as native MCP tool inside Anthropic's Claude Code |
+| **🚀 Google Antigravity IDE** | `agy add plugin readmeforge` | Native DeepMind agent skill for autonomous profile forging |
+| **📦 PNPM / CLI** | `pnpm dlx readmeforge` | Fast, lightweight package runner |
+| **🐧 Linux / macOS** | `curl -fsSL https://git.new/readmeforge \| bash` | 1-line shell installer with auto-dependency setup |
+| **🪟 Windows PowerShell** | `iwr -useb https://git.new/readmeforge.ps1 \| iex` | 1-line PowerShell installer |
+| **📥 Direct ZIP Download** | [Download readmeforge.zip](https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip) | Standalone source archive for offline local dev |
 
-### 📦 3. Git + pnpm Quick Clone
-```bash
-git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge && corepack pnpm install && corepack pnpm dev
-```
+<div align="center" style="margin-top: 14px;">
+  <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip">
+    <img src="https://img.shields.io/badge/Download-Source%20ZIP%20Archive-brightgreen?style=for-the-badge&logo=github&logoColor=white" alt="Download ZIP" />
+  </a>
+  <a href="#camera_flash-live-visual-showcase">
+    <img src="https://img.shields.io/badge/Live-Showcase%20%26%20Widgets-6366F1?style=for-the-badge" alt="Showcase" />
+  </a>
+</div>
 
-### 🐳 4. Standalone Docker Run
-```bash
-# Build and run the lightweight standalone production container
-docker build -t readmeforge:latest . && docker run -d -p 3000:3000 --name readmeforge readmeforge:latest
-```
-
-> **🌐 Ready to forge:** Open **[http://localhost:3000](http://localhost:3000)** in your browser.
+<div align="center" style="margin-top: 12px;">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/agent-suite.svg" alt="Verified Compatibility Suite" width="90%" />
+</div>
 
 ---
 
