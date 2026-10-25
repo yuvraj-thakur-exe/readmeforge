@@ -69,9 +69,9 @@ export async function generateMetadata({
     },
     manifest: '/manifest.json',
     icons: {
-      icon: '/logo.svg',
-      shortcut: '/logo.svg',
-      apple: '/assets/icon-180.png',
+      icon: '/logo-icon.svg',
+      shortcut: '/favicon.svg',
+      apple: '/logo-icon.svg',
     },
     openGraph: {
       type: 'website',

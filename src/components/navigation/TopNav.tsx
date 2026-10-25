@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, Terminal, Github, Flame } from 'lucide-react';
+import { Sparkles, Terminal, Github } from 'lucide-react';
 import { ThemeToggle } from '#/components/theme/ThemeToggle';
 
 export function TopNav() {
@@ -11,9 +11,11 @@ export function TopNav() {
       <div className="max-w-[1600px] mx-auto flex items-center justify-between h-14 px-4 md:px-6">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 text-white shadow-sm group-hover:scale-105 transition-transform">
-            <Flame className="w-4 h-4 fill-white" />
-          </div>
+          <img
+            src="/logo-icon.svg"
+            alt="ReadmeForge Logo"
+            className="w-8 h-8 rounded-lg shadow-sm group-hover:scale-105 transition-transform"
+          />
           <div className="flex flex-col">
             <span className="font-bold text-sm tracking-tight bg-gradient-to-r from-violet-400 to-cyan-400 bg-clip-text text-transparent">
               ReadmeForge

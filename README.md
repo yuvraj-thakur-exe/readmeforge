@@ -1,5 +1,5 @@
 <div align="center" id="top">
-  <img src="public/logo.svg" width="120" height="120" alt="ReadmeForge Logo" />
+  <img src="public/logo.svg" width="460" alt="ReadmeForge Logo" />
   <h1>ReadmeForge</h1>
   <p><strong>Forge a GitHub profile that gets noticed.</strong></p>
   <p>Product-grade GitHub profile README builder featuring an interactive visual wizard, Monaco developer IDE, 8+ modular open-source plugins, confirmation-gated resume import, and direct GitHub sync.</p>

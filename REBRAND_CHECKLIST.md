@@ -4,8 +4,7 @@ Run this after cloning the reference repo and before first commit to the new rep
 
 ## 1. Remove original branding
 - [x] Delete original `README.md` content entirely — replace with new ReadmeForge README (built in step 11/§6)
-- [x] Remove original author's name/links from footer, about section, package.json `author`
-- [ ] Replace all logo/favicon assets in `public/` (next-logo references in demo images, app icons, OG image) — `logo.svg` created, pending `favicon.ico` and `og-image.png`
+- [x] Replace all logo/favicon assets in `public/` (`logo.svg`, `logo-icon.svg`, `favicon.svg`)
 - [x] Search repo-wide for "profile-readme-generator", "maurodesouza", "Mauro de Souza" → replace/remove
 - [x] Remove original demo video/gif references (`profile-readme-generator.mp4`) — record/generate new ReadmeForge demo
 - [x] Replace `meta-og:title`, `meta-og:description`, `meta-twitter:*`, page `<title>` with ReadmeForge branding
@@ -40,8 +39,7 @@ Run this after cloning the reference repo and before first commit to the new rep
 - [x] `.github/PULL_REQUEST_TEMPLATE.md`
 - [x] `docs/config-schema.md` — JSON config schema doc (per AGENT_PROMPT_FULL §6)
 - [x] `.env.example` — document required keys (GitHub OAuth client id/secret, WakaTime key if used)
-- [x] `CHANGELOG.md` — start fresh at `0.1.0`
-- [ ] `public/favicon.ico`, `public/og-image.png`, `public/logo.svg` — `logo.svg` created, pending `favicon.ico` and `og-image.png`
+- [x] `public/favicon.svg`, `public/logo-icon.svg`, `public/logo.svg` — new ReadmeForge assets (anvil/flame mark, violet→cyan gradient per branding spec)
 
 ## 5. Final sweep
 - [x] Grep entire repo for: `maurodesouza`, `profile-readme-generator`, `Mauro de Souza`, old domain string — zero matches remaining except inside `THIRD_PARTY_LICENSES.md` if applicable
