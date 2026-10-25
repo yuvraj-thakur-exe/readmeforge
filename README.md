@@ -1,7 +1,11 @@
 <div align="center" id="top">
 
   <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge">
-    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo.svg" width="460" alt="ReadmeForge Logo" />
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo-light.svg">
+      <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo.svg" width="460" alt="ReadmeForge Logo" />
+    </picture>
   </a>
 
   <br />

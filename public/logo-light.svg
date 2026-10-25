@@ -1,0 +1,40 @@
+<svg width="520" height="140" viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="rf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .rf-wordmark {
+      fill: #0b0b12;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 42px;
+      font-weight: 700;
+    }
+    .rf-tagline {
+      fill: #4b5563;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+    }
+  </style>
+
+  <!-- icon badge -->
+  <rect x="10" y="10" width="120" height="120" rx="28" fill="url(#rf-grad)"/>
+
+  <!-- anvil -->
+  <path d="M40 92 h50 l8 -10 h-66 z" fill="#0b0b12"/>
+  <rect x="58" y="72" width="14" height="20" fill="#0b0b12"/>
+  <rect x="48" y="66" width="34" height="10" rx="2" fill="#0b0b12"/>
+
+  <!-- spark / flame above anvil -->
+  <path d="M65 28 c6 10 10 16 10 24 c0 7 -5 12 -10 12 s-10 -5 -10 -12 c0 -8 4 -14 10 -24z"
+        fill="#ffffff"/>
+  <path d="M65 40 c3 6 5 9 5 13 c0 4 -2.5 7 -5 7 s-5 -3 -5 -7 c0 -4 2 -7 5 -13z"
+        fill="#0b0b12" opacity="0.15"/>
+
+  <!-- wordmark -->
+  <text x="150" y="80" class="rf-wordmark" fill="#0b0b12">Readme<tspan fill="url(#rf-grad)">Forge</tspan></text>
+  <text x="150" y="104" class="rf-tagline" fill="#4b5563">Forge a GitHub profile that gets noticed.</text>
+</svg>
