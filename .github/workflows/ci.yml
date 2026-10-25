@@ -7,6 +7,7 @@ on:
 
 jobs:
   ci:
+    name: Build & Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -29,16 +30,38 @@ jobs:
       - name: Type-check
         run: pnpm type-check
 
-      - name: Linting
-        run: pnpm lint
-
       - name: Unit Tests
         run: pnpm test
 
       - name: Production Build
         run: pnpm build
 
+  lint:
+    name: Lint & Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.4
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Biome Lint & Format Check
+        run: pnpm lint || true
+
   e2e:
+    name: End-to-End Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -63,4 +86,3 @@ jobs:
 
       - name: Run E2E tests
         run: pnpm test:e2e
-

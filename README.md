@@ -4,10 +4,10 @@
   <p>The next-generation <strong>profile-readme-generator</strong> and visual <strong>github-readme-generator</strong> studio — forge an iconic <strong>profile-readme</strong> with an interactive 6-step wizard, Monaco developer IDE, 8+ modular plugins, confirmation-gated resume import, and direct GitHub sync.</p>
 
   <p>
-    <a href="https://github.com/readmeforge/readmeforge/actions/workflows/ci.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/readmeforge/readmeforge/ci.yml?branch=main&label=CI&style=flat-square" alt="CI Status" />
+    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/actions/workflows/ci.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/yuvrajlaptop2008-byte/readmeforge/ci.yml?branch=main&label=CI&style=flat-square" alt="CI Status" />
     </a>
-    <a href="https://github.com/readmeforge/readmeforge/blob/main/LICENSE.md">
+    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/blob/main/LICENSE.md">
       <img src="https://img.shields.io/badge/License-MIT-violet?style=flat-square" alt="License: MIT" />
     </a>
     <a href="https://nextjs.org">
@@ -16,10 +16,10 @@
     <a href="https://www.typescriptlang.org">
       <img src="https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript" alt="TypeScript" />
     </a>
-    <a href="https://github.com/readmeforge/readmeforge/stargazers">
-      <img src="https://img.shields.io/github/stars/readmeforge/readmeforge?style=flat-square&color=cyan" alt="GitHub Stars" />
+    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/stargazers">
+      <img src="https://img.shields.io/github/stars/yuvrajlaptop2008-byte/readmeforge?style=flat-square&color=cyan" alt="GitHub Stars" />
     </a>
-    <a href="https://github.com/readmeforge/readmeforge/pulls">
+    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/pulls">
       <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" />
     </a>
   </p>
@@ -51,8 +51,8 @@
   - 👁️ `visitor-counter` — minimal privacy-respecting profile hit counter
   - 💼 `portfolio-contributions` — featured open-source repositories and highlighted PRs
 - 🎨 **Template Gallery & Starter Archetypes**: Choose from 10+ starter templates (Minimalist, Cyberpunk, Full-Stack Architect, Data Scientist, OSS Maintainer, and more) to jumpstart your profile.
-- 🛡️ **Confirmation-Gated Resume & Web Enrichment**: Upload a PDF or DOCX resume, or fetch your public GitHub profile. **Zero silent store modifications** — every single field passes through `ConfirmGate.tsx` with diff review before writing to your config.
-- 🚀 **Direct GitHub OAuth Sync**: Auto-detect your `<username>/<username>` profile repository and commit directly via Octokit with a side-by-side diff preview (`DiffPreview.tsx`).
+- 🛡️ **Confirmation-Gated Resume & Web Enrichment**: Upload a PDF, DOCX, or TXT resume with genuine server-side parsing backed by `pdf-parse` and `mammoth`. **Zero silent store modifications and zero hallucinated demonstration fields** — every single detected field passes through `ConfirmGate.tsx` with confidence ratings and diff review before writing to your config.
+- 🚀 **Direct GitHub Push & Diff Sync**: Commit your `README.md` (and companion action workflows like `snk`) directly to your `<username>/<username>` repository using an authenticated Personal Access Token and GitHub REST API, featuring a side-by-side diff preview against the real remote repository (`DiffPreview.tsx`).
 - 🖼️ **Profile Image Optimizer**: Crop, compress, and optimize avatar photos directly in-browser via `react-easy-crop` and `browser-image-compression`.
 - 📥 **AST-Based README Importer**: Paste an existing GitHub profile README and let the unified AST parser reverse-map it into interactive visual sections.
 - ⌨️ **Command Palette (`Ctrl/Cmd + K`)**: Instantly search templates, jump between wizard and `/developer` mode, toggle themes, or export configurations.

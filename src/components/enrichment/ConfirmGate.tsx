@@ -10,7 +10,9 @@ export interface ProposedEnrichmentItem {
   label: string;
   currentValue: string | string[];
   proposedValue: string | string[];
-  category: 'identity' | 'skills' | 'projects' | 'bio';
+  category: 'identity' | 'skills' | 'projects' | 'bio' | 'socials';
+  confidence?: 'high' | 'medium' | 'low';
+  evidence?: string;
 }
 
 interface ConfirmGateProps {
@@ -77,6 +79,11 @@ export const ConfirmGate: React.FC<ConfirmGateProps> = ({
         updateSettings(s => ({
           ...s,
           user: { ...s.user, location: finalValue },
+        }));
+      } else if (item.field === 'user.github') {
+        updateSettings(s => ({
+          ...s,
+          user: { ...s.user, github: finalValue },
         }));
       }
     }

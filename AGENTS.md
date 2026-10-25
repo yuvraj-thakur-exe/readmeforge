@@ -6,14 +6,14 @@ Instructions for any AI coding agent (Claude Code, Cursor, Devin, Copilot Worksp
 ReadmeForge — GitHub profile README generator. Visual wizard + `/developer` raw-mode editor, plugin-based stats/badges, resume import + web enrichment (confirmation-gated), direct GitHub push/sync.
 
 ## Stack
-Next.js 15 (App Router) · TypeScript · Tailwind · Shadcn/ui · Radix · zustand · zod · react-hook-form · Biome (lint/format) · Vitest (unit) · Playwright (e2e)
+Next.js 16 (App Router) · TypeScript · Tailwind · Shadcn/ui · Radix · zustand · zod · react-hook-form · Biome (lint/format) · Vitest (unit) · Playwright (e2e)
 
 ## Source of truth / architecture — do not violate
-- **One zustand store** (`src/store/useReadmeStore.ts`) holds all profile config. The wizard UI and `/developer` editor both read/write it. Never create parallel/duplicate state.
+- **One zustand store** (`src/store/useReadmeStore.ts`) holds all profile config. The wizard UI and `/developer` editor both read/write it. Never create parallel/duplicate state. (`src/stores/readme-store.ts` is a backwards-compatible alias re-exporting this exact store).
 - **`buildMarkdown(config) → string`** (`src/lib/buildMarkdown.ts`) is a pure function — no React, no side effects, fully unit-tested. Any change to output format goes through this function.
 - **Plugins** live in `src/lib/plugins/registry.ts`, each a plain object validated by the `Plugin` zod schema in `src/lib/plugins/types.ts`. To add a plugin: add one file, register it — never touch core wizard/editor logic.
-- **Nothing from resume parsing or web enrichment writes to the store without explicit per-item user confirmation.** This is a hard rule, not a UX suggestion — see `src/components/enrichment/ConfirmGate.tsx`.
-- **GitHub push/sync is never silent.** Any write to the user's GitHub repo goes through a diff preview + explicit "Confirm & push" step (`src/components/sync/DiffPreview.tsx`).
+- **Nothing from resume parsing or web enrichment writes to the store without explicit per-item user confirmation.** This is a hard rule, not a UX suggestion — see `src/components/enrichment/ConfirmGate.tsx`. Resume parsing is real and backed by server extraction in `src/app/api/enrichment/resume/route.ts` and `src/lib/parser/resume-parser.ts`.
+- **GitHub push/sync is never silent or simulated.** Any write to the user's GitHub repo fetches the real remote README content for diff preview, prompts for explicit "Confirm & push" step (`src/components/sync/DiffPreview.tsx`), and performs an authenticated REST API commit via `src/lib/github/sync.ts`.
 
 ## Directory map
 ```

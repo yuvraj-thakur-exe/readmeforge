@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { ConfirmGate, ProposedEnrichmentItem } from './ConfirmGate';
-import { Upload, FileText, Loader2, Sparkles, X } from 'lucide-react';
+import { Upload, FileText, Loader2, Sparkles, X, AlertCircle } from 'lucide-react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 
 interface ResumeUploadProps {
@@ -13,6 +13,7 @@ interface ResumeUploadProps {
 export const ResumeUpload: React.FC<ResumeUploadProps> = ({ isOpen, onClose }) => {
   const currentSettings = useReadmeStore(state => state.config.settings);
   const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const [proposedItems, setProposedItems] = useState<ProposedEnrichmentItem[] | null>(null);
 
   if (!isOpen) return null;
@@ -21,44 +22,62 @@ export const ResumeUpload: React.FC<ResumeUploadProps> = ({ isOpen, onClose }) =
     const file = event.target.files?.[0];
     if (!file) return;
 
+    setError(null);
+
+    // Validation: 5MB size limit
+    if (file.size > 5 * 1024 * 1024) {
+      setError('File size exceeds the 5MB limit. Please upload a smaller document.');
+      return;
+    }
+
     setIsProcessing(true);
 
     try {
-      // Read file name or text
-      const fileName = file.name;
-      await file.text();
+      const formData = new FormData();
+      formData.append('file', file);
 
-      // Heuristic extraction for demonstration / parsing
-      const proposed: ProposedEnrichmentItem[] = [
-        {
-          id: 'prop-name',
-          field: 'user.name',
-          label: 'Full Name',
-          currentValue: currentSettings.user.name || '',
-          proposedValue: fileName.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' '),
-          category: 'identity',
-        },
-        {
-          id: 'prop-role',
-          field: 'user.role',
-          label: 'Headline / Role',
-          currentValue: currentSettings.user.role || '',
-          proposedValue: 'Senior Full-Stack Software Engineer',
-          category: 'identity',
-        },
-        {
-          id: 'prop-bio',
-          field: 'user.bio',
-          label: 'Bio / Summary',
-          currentValue: currentSettings.user.bio || '',
-          proposedValue: 'Passionate open-source craftsman building delightful digital experiences and performant web tooling.',
-          category: 'bio',
-        },
-      ];
+      const res = await fetch('/api/enrichment/resume', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to extract text from resume');
+      }
+
+      if (!data.entities || data.entities.length === 0) {
+        setError('No profile fields could be reliably detected in this document. Please verify that the file contains readable text.');
+        return;
+      }
+
+      // Convert parsed entities to ProposedEnrichmentItem
+      const proposed: ProposedEnrichmentItem[] = data.entities.map(
+        (entity: { field: string; label: string; value: string; category: string; confidence: string; evidence: string }, index: number) => {
+          let currentValue = '';
+          if (entity.field === 'user.name') currentValue = currentSettings.user.name || '';
+          else if (entity.field === 'user.role') currentValue = currentSettings.user.role || '';
+          else if (entity.field === 'user.bio') currentValue = currentSettings.user.bio || '';
+          else if (entity.field === 'user.github') currentValue = currentSettings.user.github || '';
+          else if (entity.field === 'user.location') currentValue = currentSettings.user.location || '';
+
+          return {
+            id: `prop-${entity.field.replace('.', '-')}-${index}`,
+            field: entity.field,
+            label: entity.label,
+            currentValue,
+            proposedValue: entity.value,
+            category: entity.category as ProposedEnrichmentItem['category'],
+            confidence: entity.confidence as ProposedEnrichmentItem['confidence'],
+            evidence: entity.evidence,
+          };
+        }
+      );
 
       setProposedItems(proposed);
-    } catch {
-      // Handled gracefully
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'An error occurred during resume extraction');
     } finally {
       setIsProcessing(false);
     }
@@ -97,6 +116,13 @@ export const ResumeUpload: React.FC<ResumeUploadProps> = ({ isOpen, onClose }) =
             />
           ) : (
             <div className="space-y-4">
+              {error && (
+                <div className="flex items-center gap-2 p-3 bg-rose-950/50 border border-rose-800 rounded-lg text-rose-300 text-xs">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{error}</span>
+                </div>
+              )}
+
               <label
                 htmlFor="resume-file-input"
                 className="flex flex-col items-center justify-center border-2 border-dashed border-neutral-700 hover:border-violet-500 rounded-xl p-8 cursor-pointer transition-colors text-center group"

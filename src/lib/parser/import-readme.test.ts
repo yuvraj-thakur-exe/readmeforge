@@ -26,7 +26,7 @@ describe('importReadmeFromMarkdown', () => {
     expect(config.settings.user.github).toBe('alexmercer');
     expect(config.settings.user.bio).toContain("I'm currently working on Next.js architectures");
     expect(detectedFeatures).toContain('Name');
-    expect('Role').toBeTruthy();
+    expect(detectedFeatures).toContain('Role');
     expect(detectedFeatures).toContain('GitHub Username');
     expect(detectedFeatures).toContain('GitHub Readme Stats');
   });
