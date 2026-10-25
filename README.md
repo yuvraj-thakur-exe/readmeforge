@@ -1,202 +1,418 @@
 <div align="center" id="top">
-  <img src="public/logo.svg" width="460" alt="ReadmeForge Logo" />
-  <h1>ReadmeForge</h1>
-  <p>The next-generation <strong>profile-readme-generator</strong> and visual <strong>github-readme-generator</strong> studio — forge an iconic <strong>profile-readme</strong> with an interactive 6-step wizard, Monaco developer IDE, 8+ modular plugins, confirmation-gated resume import, and direct GitHub sync.</p>
+
+  <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge">
+    <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo.svg" width="500" alt="ReadmeForge Logo" />
+  </a>
+
+  <br />
+
+  <p align="center">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=6366F1&center=true&vCenter=true&width=740&lines=Forge+a+GitHub+Profile+That+Demands+Attention;Interactive+Visual+Wizard+%2B+Monaco+IDE+Developer+Mode;8%2B+Plug-and-Play+Dynamic+Widgets+%26+Live+Preview;Autonomous+Profile+Sync+Powered+by+ARIA+AI+Dev+Agent" alt="ReadmeForge Typing Banner" />
+  </p>
+
+  <p>
+    <strong>The next-generation profile README generator and visual markdown studio.</strong><br />
+    Craft an iconic GitHub profile with a 6-step interactive wizard, Monaco developer IDE, 8+ modular widgets, confirmation-gated resume parsing, and autonomous synchronization via the ARIA AI Dev Agent.
+  </p>
 
   <p>
     <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/actions/workflows/ci.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/yuvrajlaptop2008-byte/readmeforge/ci.yml?branch=main&label=CI&style=flat-square" alt="CI Status" />
-    </a>
-    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/blob/main/LICENSE.md">
-      <img src="https://img.shields.io/badge/License-MIT-violet?style=flat-square" alt="License: MIT" />
+      <img src="https://img.shields.io/github/actions/workflow/status/yuvrajlaptop2008-byte/readmeforge/ci.yml?branch=main&label=CI%20Build&style=for-the-badge&logo=githubactions&logoColor=white" alt="CI Status" />
     </a>
     <a href="https://nextjs.org">
-      <img src="https://img.shields.io/badge/Next.js-16%20(App%20Router)-black?style=flat-square&logo=next.js" alt="Next.js 16" />
+      <img src="https://img.shields.io/badge/Next.js-16%20Turbopack-black?style=for-the-badge&logo=next.js" alt="Next.js 16" />
     </a>
     <a href="https://www.typescriptlang.org">
-      <img src="https://img.shields.io/badge/TypeScript-5.0+-blue?style=flat-square&logo=typescript" alt="TypeScript" />
+      <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
     </a>
-    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/stargazers">
-      <img src="https://img.shields.io/github/stars/yuvrajlaptop2008-byte/readmeforge?style=flat-square&color=cyan" alt="GitHub Stars" />
+    <a href="https://github.com/yuvrajlaptop2008-byte/ai-dev-agent">
+      <img src="https://img.shields.io/badge/AI%20Agent-ARIA%20Powered-FF5722?style=for-the-badge&logo=openai&logoColor=white" alt="ARIA AI Agent" />
     </a>
-    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/pulls">
-      <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" />
+    <a href="https://biomejs.dev">
+      <img src="https://img.shields.io/badge/Code%20Style-Biome-60A5FA?style=for-the-badge&logo=biome&logoColor=white" alt="Biome" />
+    </a>
+    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/blob/main/LICENSE.md">
+      <img src="https://img.shields.io/badge/License-MIT-a855f7?style=for-the-badge" alt="License: MIT" />
     </a>
   </p>
 
   <p>
-    <a href="#sparkles-features">Features</a> &bull;
-    <a href="#rocket-quickstart">Quickstart</a> &bull;
-    <a href="#puzzle-piece-plugin-ecosystem">Plugins</a> &bull;
-    <a href="#desktop_computer-developer-mode">/developer Mode</a> &bull;
-    <a href="#compass-directory-map">Architecture</a> &bull;
-    <a href="#handshake-contributing">Contributing</a> &bull;
-    <a href="#page_facing_up-license">License</a>
+    <a href="#zap-instant-one-line-install">1-Line Quickstart</a> &bull;
+    <a href="#robot-autonomous-ai-dev-agent-aria">ARIA AI Agent</a> &bull;
+    <a href="#camera_flash-live-visual-showcase">Live Showcase</a> &bull;
+    <a href="#sparkles-key-features">Features</a> &bull;
+    <a href="#jigsaw-plugin-ecosystem">Plugins</a> &bull;
+    <a href="#classical_building-architecture">Architecture</a> &bull;
+    <a href="#bar_chart-feature-matrix">Comparison</a> &bull;
+    <a href="#whale-docker--local-setup">Docker</a> &bull;
+    <a href="#handshake-contributing">Contributing</a>
   </p>
+
 </div>
 
 ---
 
-## :sparkles: Features
+## :zap: Instant One-Line Install & Quickstart
 
-- 🧙 **Interactive 6-Step Visual Wizard**: Effortlessly customize identity, visual vibe, tech stacks, stats, social links, and pinned projects with an animated live preview pane powered by `@formkit/auto-animate`.
-- 💻 **Power-User `/developer` IDE Mode**: Split-screen raw JSON configuration editor backed by `@monaco-editor/react`, real-time schema validation via Zod, and instant side-by-side markdown rendering.
-- 🧩 **Curated Plugin Architecture**: Zero-friction integration with the best GitHub profile widgets:
-  - 📊 `github-readme-stats` — dynamic commit, PR, and repo stats cards
-  - 🐍 `snk` — animated GitHub contribution graph snake eating your commit blocks
-  - ⌨️ `readme-typing-svg` — dynamic typewriter headlines & role transitions
-  - ⏱️ `waka-readme-stats` — real-time coding time metrics from WakaTime
-  - 🏆 `github-profile-trophy` — achievements and ranks rendered in trophy layout
-  - 🏷️ `markdown-badges` — categorized shields.io badges with official tech brand logos
-  - 👁️ `visitor-counter` — minimal privacy-respecting profile hit counter
-  - 💼 `portfolio-contributions` — featured open-source repositories and highlighted PRs
-- 🎨 **Template Gallery & Starter Archetypes**: Choose from 10+ starter templates (Minimalist, Cyberpunk, Full-Stack Architect, Data Scientist, OSS Maintainer, and more) to jumpstart your profile.
-- 🛡️ **Confirmation-Gated Resume & Web Enrichment**: Upload a PDF, DOCX, or TXT resume with genuine server-side parsing backed by `pdf-parse` and `mammoth`. **Zero silent store modifications and zero hallucinated demonstration fields** — every single detected field passes through `ConfirmGate.tsx` with confidence ratings and diff review before writing to your config.
-- 🚀 **Direct GitHub Push & Diff Sync**: Commit your `README.md` (and companion action workflows like `snk`) directly to your `<username>/<username>` repository using an authenticated Personal Access Token and GitHub REST API, featuring a side-by-side diff preview against the real remote repository (`DiffPreview.tsx`).
-- 🖼️ **Profile Image Optimizer**: Crop, compress, and optimize avatar photos directly in-browser via `react-easy-crop` and `browser-image-compression`.
-- 📥 **AST-Based README Importer**: Paste an existing GitHub profile README and let the unified AST parser reverse-map it into interactive visual sections.
-- ⌨️ **Command Palette (`Ctrl/Cmd + K`)**: Instantly search templates, jump between wizard and `/developer` mode, toggle themes, or export configurations.
-- 🌐 **Full Internationalization (i18n)**: Out-of-the-box support for English (`en`) and Portuguese (`pt-BR`).
-- 📦 **Multi-Format Export Suite**: One-click copy, `.md` download, PNG snapshot via `html-to-image`, or shareable URL with compressed base64 state.
+Get ReadmeForge running locally in seconds using your preferred method:
+
+### ⚡ 1. Bash / Linux / macOS (One-Liner)
+```bash
+curl -fsSL https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.sh | bash
+```
+
+### 🪟 2. Windows PowerShell (One-Liner)
+```powershell
+iwr -useb https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.ps1 | iex
+```
+
+### 📦 3. Git + pnpm Quick Clone
+```bash
+git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge && corepack pnpm install && corepack pnpm dev
+```
+
+### 🐳 4. Standalone Docker Run
+```bash
+# Build and run the lightweight standalone production container
+docker build -t readmeforge:latest . && docker run -d -p 3000:3000 --name readmeforge readmeforge:latest
+```
+
+> **🌐 Ready to forge:** Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
 ---
 
-## :rocket: Quickstart
+## :robot: Autonomous AI Dev Agent: ARIA Integration
 
-### Prerequisites
-- Node.js 20.x, 22.x, or 24.x
-- `pnpm` (Corepack recommended)
+ReadmeForge is designed to seamlessly pair with **[ARIA (ai-dev-agent)](https://github.com/yuvrajlaptop2008-byte/ai-dev-agent)** — an autonomous AI software engineer built by [@yuvrajlaptop2008-byte](https://github.com/yuvrajlaptop2008-byte).
 
-### Local Development
+<div align="center">
+
+```
+  ┌───────────────────────────────┐                 ┌───────────────────────────────┐
+  │       🤖 ARIA AI Agent        │                 │        ⚡ ReadmeForge         │
+  │   (github/ai-dev-agent)       │                 │   (github/readmeforge)        │
+  ├───────────────────────────────┤                 ├───────────────────────────────┤
+  │ • Watches repos & issues      │ ── Activity ──> │ • Aggregates dynamic stats    │
+  │ • Solves GitHub issues        │                 │ • Renders live streak counters│
+  │ • Ships production code       │ <── Profile ─── │ • Formats typed markdown      │
+  │ • Keeps green heatmap alive   │     Assets      │ • Pushes verified profile sync│
+  └───────────────────────────────┘                 └───────────────────────────────┘
+```
+
+</div>
+
+### 🚀 One-Line Install for ARIA AI Dev Agent
+Launch ARIA alongside ReadmeForge to continuously maintain your repositories and power your live profile stats:
 
 ```bash
-# Clone the repository
+# Linux / macOS
+git clone https://github.com/yuvrajlaptop2008-byte/ai-dev-agent.git && cd ai-dev-agent && cp .env.example .env && bash run.sh
+```
+
+```powershell
+# Windows PowerShell
+git clone https://github.com/yuvrajlaptop2008-byte/ai-dev-agent.git; cd ai-dev-agent; Copy-Item .env.example .env; npm install; npm start
+```
+
+### 💡 Why Combine ARIA + ReadmeForge?
+| Capability | ARIA (`ai-dev-agent`) | ReadmeForge (`readmeforge`) |
+| :--- | :--- | :--- |
+| **Code & Issues** | Solves GitHub issues labelled `ai-fix`, commits bug fixes, writes tests | Summarizes featured PRs, contributions & project showcases |
+| **Commit Activity** | Generates authentic contribution velocity across your OSS projects | Renders real-time contribution charts (`ghchart`) & streak metrics |
+| **Profile Sync** | Can trigger headless automated runs to refresh profile metadata | Visual 6-step wizard, Monaco IDE `/developer`, side-by-side DiffPreview |
+| **Zero Cost** | Free OpenRouter & Gemini key rotation with zero iteration limits | 100% Client-side pure markdown generation with MIT license |
+
+---
+
+## :camera_flash: Live Visual Showcase & Internet Widget Previews
+
+ReadmeForge brings GitHub profiles to life with dynamic, real-time internet widgets and high-resolution visual headers. Here is a live taste of widgets generated by ReadmeForge:
+
+### 1. High-Resolution Visual Header & Banner
+Profiles generated by ReadmeForge pair sleek banners with high-contrast badge layouts:
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/yuvrajlaptop2008-byte/main/assets/banner.png" alt="Widescreen Visual Banner Showcase" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);" />
+</div>
+
+<br />
+
+### 2. Live Dynamic GitHub Stats & Streak Cards
+Integrated directly with verified cloud endpoints — always showing live metrics:
+
+<div align="center">
+  <a href="https://github.com/yuvrajlaptop2008-byte">
+    <img src="https://github-readme-stats.vercel.app/api?username=yuvrajlaptop2008-byte&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="ReadmeForge GitHub Stats Preview" height="175" />
+  </a>
+  <a href="https://github.com/yuvrajlaptop2008-byte">
+    <img src="https://streak-stats.demolab.com/?user=yuvrajlaptop2008-byte&theme=tokyonight&hide_border=true&background=0D1117" alt="ReadmeForge Streak Stats Preview" height="175" />
+  </a>
+</div>
+
+<br />
+
+### 3. Dynamic Contribution Activity Heatmap
+Powered by `ghchart.rshah.org` — zero-downtime SVG representation of your green commit matrix:
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/6366F1/yuvrajlaptop2008-byte" alt="Live Contribution Activity Graph" width="100%" />
+</div>
+
+<br />
+
+### 4. Animated Contribution Snake (`snk`)
+Built-in generator for animated SVG snakes eating your contribution tiles:
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/snake.svg" alt="Animated Contribution Snake" width="90%" />
+</div>
+
+---
+
+## :sparkles: Key Features
+
+### 🧙 1. Interactive 6-Step Visual Wizard
+- **Step 1: Identity & Vibe** — Full name, headline, avatar, social handles, custom pronouns, and aesthetic themes (Tokyo Night, Cyberpunk, Dracula, Nord, Minimal).
+- **Step 2: About & Biography** — Dynamic typing headlines (`readme-typing-svg`), customizable bio bullets, and current working goals.
+- **Step 3: Tech Stack & Tools** — Curated library of 150+ technology shields with official brand logos, grouped by category (Frontend, Backend, DevOps, AI/ML, Databases).
+- **Step 4: Stats & Activity Cards** — Toggle commit stats, PR counters, streak metrics, trophy cases, and WakaTime hourly tracking.
+- **Step 5: Pinned Projects & Showcases** — Clean grid cards showcasing open-source repositories, descriptions, tech tags, and star counts.
+- **Step 6: Sync & Export** — Copy raw Markdown, download `.md`, generate PNG screenshot, or commit directly to your GitHub repository.
+
+### 💻 2. Power-User `/developer` Mode (Monaco Editor)
+- Instant split-screen IDE featuring Microsoft's Monaco Editor (`@monaco-editor/react`).
+- Edit raw declarative JSON profile configuration with **instant bi-directional sync** with the visual wizard.
+- Real-time JSON schema validation powered by **Zod**.
+- Live Markdown preview pane updating with sub-16ms latency.
+
+### 🛡️ 3. Confirmation-Gated Resume Parsing (Zero Hallucinations)
+- Upload PDF, DOCX, or TXT resumes parsed on the server using `pdf-parse` and `mammoth`.
+- **Zero silent store mutations:** Every detected skill, company, title, and link passes through `ConfirmGate.tsx`.
+- Review confidence ratings, inspect proposed changes side-by-side, and approve only what you want.
+
+### 🚀 4. Remote Diff Preview & Direct GitHub Push
+- Connect via a scoped GitHub Personal Access Token (`repo` permission).
+- Inspect a side-by-side visual diff against the real remote repository (`<username>/<username>`) before writing a single byte.
+- Optional automated generation of companion GitHub Action workflows (e.g., daily `snk` snake generator).
+
+### 📥 5. AST-Based Reverse README Importer
+- Paste existing Markdown from any GitHub profile.
+- ReadmeForge's AST parser analyzes headers, badges, image URLs, and text blocks to reverse-map them back into the interactive wizard state.
+
+### 🌐 6. Native Internationalization (i18n)
+- Seamless dual-language support for English (`en`) and Portuguese (`pt-BR`).
+- Fully localized landing page, wizard labels, tooltips, and developer diagnostics.
+
+---
+
+## :jigsaw: Plugin Ecosystem
+
+Every widget in ReadmeForge is a modular, typed plugin defined in `src/lib/plugins/` adhering to strict Zod runtime schemas:
+
+| Plugin Name | Category | Badge Preview | Description |
+| :--- | :--- | :--- | :--- |
+| **`github-readme-stats`** | Stats | `![Stats](https://img.shields.io/badge/Widget-Stats_Card-blue?style=flat-square)` | Dynamic cards displaying total stars, commits, PRs, and top languages. |
+| **`readme-typing-svg`** | Animation | `![Typing](https://img.shields.io/badge/Widget-Typing_SVG-violet?style=flat-square)` | Animated SVG typewriter cycling through roles, quotes, or slogans. |
+| **`snk` (Snake Game)** | Animation | `![Snake](https://img.shields.io/badge/Widget-Contribution_Snake-brightgreen?style=flat-square)` | Generates an animated snake eating your GitHub contribution graph squares. |
+| **`waka-readme-stats`** | Metrics | `![WakaTime](https://img.shields.io/badge/Widget-WakaTime-orange?style=flat-square)` | Real-time coding statistics, daily hours, and IDE language breakdowns. |
+| **`github-profile-trophy`** | Gamification | `![Trophy](https://img.shields.io/badge/Widget-Trophies-yellow?style=flat-square)` | Dynamic achievement trophies reflecting your GitHub milestones and ranking. |
+| **`markdown-badges`** | Shields | `![Badges](https://img.shields.io/badge/Widget-Shields.io-green?style=flat-square)` | Official branded icons and shields for languages, frameworks, and tools. |
+| **`visitor-counter`** | Analytics | `![Counter](https://img.shields.io/badge/Widget-Hit_Counter-critical?style=flat-square)` | Lightweight, privacy-respecting profile view counter. |
+| **`portfolio-contributions`** | Showcase | `![Showcase](https://img.shields.io/badge/Widget-Repo_Grid-indigo?style=flat-square)` | Formatted cards linking to pinned open-source repositories and notable PRs. |
+
+---
+
+## :classical_building: Architecture & Data Flow
+
+```mermaid
+flowchart TD
+    subgraph Inputs["1. Input Channels"]
+        WIZ["🧙 6-Step Visual Wizard"]
+        DEV["💻 Monaco JSON IDE (/developer)"]
+        RES["📄 Resume Parser (PDF/DOCX/TXT)"]
+        AST["📥 AST Reverse Markdown Importer"]
+    end
+
+    subgraph CoreStore["2. Single Source of Truth"]
+        GATE{"🛡️ ConfirmGate (User Approval)"}
+        STORE[("📦 Zustand useReadmeStore")]
+        ZOD["✅ Zod Schema Validation"]
+    end
+
+    subgraph Generators["3. Deterministic Pipeline"]
+        MDGEN["⚙️ Pure buildMarkdown() Engine"]
+        PLUGINS["🧩 Plugin Registry (8+ Widgets)"]
+    end
+
+    subgraph OutputSync["4. Verification & Output"]
+        PREV["👁️ Live Preview Pane"]
+        DIFF["🔍 DiffPreview (Side-by-Side vs Remote)"]
+        GH["🚀 GitHub REST API (PAT Sync)"]
+        EXP["📦 Multi-Export (MD, PNG, URL)"]
+    end
+
+    subgraph AICompanion["5. Autonomous Layer"]
+        ARIA["🤖 ARIA AI Dev Agent (ai-dev-agent)"]
+    end
+
+    WIZ --> STORE
+    DEV <--> STORE
+    RES --> GATE --> STORE
+    AST --> STORE
+    STORE --> ZOD
+    STORE --> MDGEN
+    PLUGINS --> MDGEN
+    MDGEN --> PREV
+    MDGEN --> DIFF
+    DIFF --> GH
+    MDGEN --> EXP
+    ARIA -.->|Watches & Updates| GH
+```
+
+---
+
+## :bar_chart: Feature Matrix: ReadmeForge vs Others
+
+| Feature | ReadmeForge | GPRG / Profileme | Manual Markdown |
+| :--- | :---: | :---: | :---: |
+| **Interactive 6-Step Wizard** | **Yes** | Limited | No |
+| **Split-Screen Monaco IDE (`/developer`)** | **Yes** | No | No |
+| **Live Dynamic Widgets (8+ Plugins)** | **Yes** | Partial | Manual URLs |
+| **Confirmation-Gated Resume Parsing** | **Yes (Zero Hallucination)**| No | No |
+| **Direct GitHub Sync with Diff Preview** | **Yes (Safe Preview)** | No | Git CLI |
+| **AST Reverse README Importer** | **Yes** | No | No |
+| **Autonomous AI Agent Synergy (ARIA)** | **Yes** | No | No |
+| **Multi-Language Support (i18n)** | **Yes (en / pt-BR)** | English only | N/A |
+| **Docker Standalone Production Image** | **Yes (Multi-stage)** | No | N/A |
+| **Pure, Unit-Tested Markdown Engine** | **100% Deterministic** | Ad-hoc | Manual |
+
+---
+
+## :whale: Docker & Local Setup
+
+### System Requirements
+- Node.js 20.x, 22.x, or 24.x
+- `pnpm` (via Corepack recommended)
+- Docker 24+ (optional, for containerized deployment)
+
+### Development Commands
+```bash
+# Clone and enter directory
 git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git
 cd readmeforge
 
 # Install dependencies
 corepack pnpm install
 
-# Start local development server
+# Start development server with Turbopack
 corepack pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Verification & Testing
-
-```bash
-# Run unit tests (Vitest: store, pure buildMarkdown, plugin registry, AST parser)
+# Run unit tests (Vitest)
 corepack pnpm test run
 
-# Run production build (Next.js 16 Turbopack)
-corepack pnpm build
-
-# Run end-to-end browser tests
+# Run end-to-end browser tests (Playwright)
 corepack pnpm test:e2e
+
+# Run code formatting and linting (Biome)
+corepack pnpm lint
+
+# Production build
+corepack pnpm build
 ```
 
-### Docker Deployment
-
-A production-ready, multi-stage standalone `Dockerfile` is included:
-
+### Docker Container Deployment
 ```bash
-# Build the Docker image
+# Build standalone Docker image
 docker build -t readmeforge:latest .
 
 # Run container on port 3000
-docker run -p 3000:3000 readmeforge:latest
+docker run -d --name readmeforge -p 3000:3000 readmeforge:latest
+
+# Check container logs
+docker logs -f readmeforge
 ```
 
 ---
 
-## :compass: Directory Map
+## :shield: Security & Architectural Invariants
+
+- **Single Store Truth**: `src/store/useReadmeStore.ts` acts as the single authoritative source of truth. No desynced or diverging UI states.
+- **Pure Markdown Engine**: `buildMarkdown(config)` in `src/lib/buildMarkdown.ts` is 100% deterministic, functional, and completely decoupled from React or browser DOM.
+- **Zero Hallucination Guarantee**: Uploaded resumes or external profiles are strictly parsed and passed to `ConfirmGate.tsx`. Zero fields are injected into your profile without explicit review and confirmation.
+- **Safe Remote Writes**: Writes to GitHub repositories require authenticated PAT validation and side-by-side diff confirmation (`DiffPreview.tsx`).
+- **No Telemetry / No Tracking**: Your resume contents, tokens, and credentials remain private and are never stored on external databases.
+
+---
+
+## :open_file_folder: Repository Layout
 
 ```text
-src/
-├── app/                  # Next.js App Router (wizard, /[locale]/developer, api/og, sitemap)
-├── components/
-│   ├── developer/        # Monaco editor, plugin drawer, live preview, export bar
-│   ├── enrichment/       # Resume upload, GitHub profile fetch, ConfirmGate
-│   ├── motion/           # Reusable animations (FadeIn, Stagger)
-│   ├── navigation/       # TopNav, CommandPalette, footer
-│   ├── sync/             # GitHub OAuth, DiffPreview, push modal
-│   └── wizard/           # 6-step interactive visual wizard & LivePreviewPane
-├── lib/
-│   ├── buildMarkdown.ts  # Pure markdown generation engine (unit-tested)
-│   ├── export/           # Export utils (PNG snapshot, share URL compression)
-│   ├── parser/           # AST-based reverse README importer
-│   └── plugins/          # Plugin registry, Zod types, and 8 wrapped OSS plugins
-├── locales/              # i18n dictionaries (en.json, pt-BR.json)
-└── store/
-    └── useReadmeStore.ts # Single source of truth Zustand store
-docs/
-├── PLUGIN_GUIDE.md       # Plugin authoring and integration guide
-└── config-schema.md      # Declarative JSON configuration schema specification
+readmeforge/
+├── .github/              # CI/CD workflows, issue templates, PR guidelines
+├── docs/                 # Plugin development guide & config schema spec
+├── public/               # Static brand assets (logo.svg, favicon, snake.svg)
+├── install.sh            # 1-line bash installer for Linux & macOS
+├── install.ps1           # 1-line PowerShell installer for Windows
+├── Dockerfile            # Multi-stage production container definition
+├── src/
+│   ├── app/              # Next.js 16 App Router (wizard, /[locale]/developer, sitemap)
+│   ├── components/
+│   │   ├── developer/    # Monaco editor, plugin drawer, live preview, export bar
+│   │   ├── enrichment/   # Resume upload, GitHub profile fetch, ConfirmGate
+│   │   ├── landing/      # LandingDetails, hero section, template shelf, FAQ
+│   │   ├── motion/       # Reusable animations (FadeIn, Stagger)
+│   │   ├── navigation/   # TopNav, CommandPalette, Footer
+│   │   ├── sync/         # GitHub PAT auth, DiffPreview, push modal
+│   │   └── wizard/       # 6-step interactive visual wizard & LivePreviewPane
+│   ├── lib/
+│   │   ├── buildMarkdown.ts  # Pure markdown generation engine
+│   │   ├── export/       # Export utilities (PNG snapshot, share URL compression)
+│   │   ├── parser/       # AST-based reverse README importer
+│   │   └── plugins/      # Plugin registry, Zod types, and 8 wrapped OSS plugins
+│   ├── locales/          # i18n translation dictionaries (en.json, pt-BR.json)
+│   └── store/
+│       └── useReadmeStore.ts # Single source of truth Zustand store
+└── tests/                # Vitest unit tests & Playwright E2E suites
 ```
-
----
-
-## :puzzle_piece: Plugin Ecosystem
-
-ReadmeForge is built on an extensible, typed plugin engine (`src/lib/plugins/`). Every widget implements the typed `Plugin` Zod schema:
-
-```typescript
-import { z } from 'zod';
-import { Plugin } from '@/lib/plugins/types';
-
-export const myPlugin: Plugin = {
-  id: 'my-custom-plugin',
-  name: 'Custom Plugin',
-  version: '1.0.0',
-  description: 'Embeds custom stats cards into profile READMEs',
-  author: 'Community Contributor',
-  category: 'stats',
-  schema: z.object({
-    username: z.string().min(1),
-    theme: z.string().default('dark'),
-  }),
-  render: (config, theme) => {
-    return `<img src="https://my-service.com/api?user=${config.username}&theme=${theme}" alt="Stats" />`;
-  },
-};
-```
-
-To add your own plugin, consult the [Plugin Authoring Guide](docs/PLUGIN_GUIDE.md).
-
----
-
-## :desktop_computer: Developer Mode
-
-Need raw control? Jump straight to `/developer` for:
-- Monaco JSON code editor with autocompletion and diagnostic schema validation
-- Real-time two-way synchronization with the visual wizard state
-- Plugin insertion drawer: search, configure, and insert plugins with 1 click
-- Export bar: copy raw markdown, download `.md`, or generate a shareable compressed URL
-
----
-
-## :shield: Security & Architecture Invariants
-
-- **Single Store Truth**: `src/store/useReadmeStore.ts` holds all configuration state. No divergent or duplicate UI state.
-- **Pure Markdown Generator**: `buildMarkdown(config)` in `src/lib/buildMarkdown.ts` is 100% deterministic and free of React/DOM dependencies.
-- **Explicit Confirmation Gates**: No third-party data from resume parsing or API enrichment touches your profile without explicit approval (`ConfirmGate.tsx`).
-- **Diff Preview Before Push**: Writes to GitHub repositories require visual confirmation on a side-by-side diff (`DiffPreview.tsx`).
 
 ---
 
 ## :handshake: Contributing
 
-Contributions are welcome! Please read our [Contributing Guidelines](.github/CONTRIBUTING.md) and [Code of Conduct](.github/CODE_OF_CONDUCT.md) before submitting pull requests.
+Contributions make the open-source community thrive! Follow these steps to contribute:
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feat/amazing-feature`)
-3. Commit your Changes (`git commit -m 'feat: add some amazing feature'`)
-4. Push to the Branch (`git push origin feat/amazing-feature`)
-5. Open a Pull Request
+1. **Fork the Repository**
+2. **Create a Feature Branch** (`git checkout -b feat/epic-new-widget`)
+3. **Commit your Changes** following [Conventional Commits](https://www.conventionalcommits.org/):
+   ```bash
+   git commit -m 'feat(plugin): add leetcode-stats widget wrapper'
+   ```
+4. **Run Verification Suite**:
+   ```bash
+   corepack pnpm test run && corepack pnpm lint
+   ```
+5. **Push to the Branch** (`git push origin feat/epic-new-widget`)
+6. **Open a Pull Request** with a detailed summary.
+
+---
+
+## :star2: Star History
+
+If ReadmeForge helped you create a standout GitHub profile, drop a star on the repo:
+
+<div align="center">
+  <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/stargazers">
+    <img src="https://img.shields.io/github/stars/yuvrajlaptop2008-byte/readmeforge?style=for-the-badge&logo=github&color=6366F1" alt="Star ReadmeForge on GitHub" />
+  </a>
+</div>
 
 ---
 
 ## :page_facing_up: License
 
-Distributed under the MIT License. See [LICENSE.md](LICENSE.md) for details. Third-party notices and upstream attributions are documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+Distributed under the **MIT License**. See [LICENSE.md](LICENSE.md) for complete details.  
+Third-party component notices and upstream OSS attributions are documented in [THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md).
+
+<div align="center">
+  <sub>Forged with passion by <a href="https://github.com/yuvrajlaptop2008-byte">@yuvrajlaptop2008-byte</a> & the open-source community.</sub>
+</div>
