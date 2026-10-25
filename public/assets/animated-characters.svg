@@ -263,7 +263,7 @@
   </g>
 
   <!-- =========================================================
-       INTERACTIVE SECTION 1 (LEFT): HOLOGRAPHIC CODE TERMINAL
+       INTERACTIVE SECTION 1 (LEFT): TYPESCRIPT & WEB RUNTIME
        ========================================================= -->
   <g transform="translate(30, 75)">
     <!-- Terminal Box -->
@@ -273,15 +273,17 @@
     <circle cx="14" cy="12" r="3.5" fill="#ef4444" />
     <circle cx="26" cy="12" r="3.5" fill="#eab308" />
     <circle cx="38" cy="12" r="3.5" fill="#22c55e" />
-    <text x="50" y="16" fill="#94a3b8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">profile.config.ts</text>
+    <rect x="50" y="5" width="20" height="14" rx="2" fill="#3178c6" />
+    <text x="54" y="15" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">TS</text>
+    <text x="76" y="16" fill="#94a3b8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10">profile.types.ts</text>
 
-    <!-- Code Text Lines (Characters walk up to this!) -->
-    <text x="14" y="44" fill="#38bdf8" font-family="'JetBrains Mono', Consolas, monospace" font-size="11" font-weight="600">import { Character } from 'forge';</text>
-    <text x="14" y="62" fill="#c084fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">const squad = new Squad({</text>
-    <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">  mode: <tspan fill="#4ade80">'roaming-free'</tspan>,</text>
-    <text x="24" y="98" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">  kinematics: <tspan fill="#f59e0b">'60fps'</tspan>,</text>
-    <text x="24" y="116" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">  interactive: <tspan fill="#38bdf8">true</tspan></text>
-    <text x="14" y="134" fill="#c084fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="11">});</text>
+    <!-- Code Text Lines (Blue Bot points to this!) -->
+    <text x="14" y="44" fill="#38bdf8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="600">interface <tspan fill="#4ade80">ProfileForge</tspan> {</text>
+    <text x="24" y="62" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">  languages: <tspan fill="#f59e0b">'TS' | 'Rust' | 'Py'</tspan>;</text>
+    <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">  runtime: <tspan fill="#38bdf8">'60fps-vector'</tspan>;</text>
+    <text x="24" y="98" fill="#f8fafc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">  roaming: <tspan fill="#4ade80">true</tspan>;</text>
+    <text x="14" y="116" fill="#38bdf8" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="600">}</text>
+    <text x="14" y="134" fill="#c084fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10.5">export const <tspan fill="#f8fafc">squad</tspan> = new Squad();</text>
 
     <!-- Corner Neon Decals -->
     <path d="M 0 35 L 0 24 L 12 24" stroke="#00f5d4" stroke-width="2" fill="none" />
@@ -289,54 +291,43 @@
   </g>
 
   <!-- =========================================================
-       INTERACTIVE SECTION 2 (CENTER): LIVE ACTION STAGE CONSOLE
+       INTERACTIVE SECTION 2 (CENTER): RUST & GO CONCURRENCY HUB
        ========================================================= -->
   <g transform="translate(330, 65)">
     <!-- Console Box -->
     <rect width="300" height="110" rx="10" fill="url(#terminalBgGrad)" stroke="#818cf8" stroke-width="1.5" class="term-pulse" />
     <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 290 0 C 295.5 0 300 4.5 300 10 L 300 24 L 0 24 Z" fill="#0b1120" />
-    <text x="14" y="16" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" font-weight="700">✦ LIVE MOTION PLAYGROUND ✦</text>
+    <rect x="14" y="5" width="20" height="14" rx="2" fill="#dea584" />
+    <text x="17" y="15" fill="#1e293b" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">RS</text>
+    <rect x="38" y="5" width="20" height="14" rx="2" fill="#00add8" />
+    <text x="41" y="15" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">GO</text>
+    <text x="64" y="16" fill="#a5b4fc" font-family="'JetBrains Mono', Consolas, monospace" font-size="10" font-weight="700">main.rs &bull; goroutines</text>
 
-    <!-- Interactive Status Displays -->
-    <g transform="translate(14, 38)">
-      <rect width="130" height="26" rx="5" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
-      <circle cx="12" cy="13" r="3.5" fill="#22c55e" />
-      <text x="22" y="17" fill="#e0e7ff" font-family="'JetBrains Mono', monospace" font-size="10">STATUS: ROAMING</text>
-    </g>
-
-    <g transform="translate(154, 38)">
-      <rect width="132" height="26" rx="5" fill="#2e1065" stroke="#a855f7" stroke-width="1" />
-      <text x="10" y="17" fill="#f3e8ff" font-family="'JetBrains Mono', monospace" font-size="10">FPS: 60 (GPU)</text>
-    </g>
-
-    <text x="14" y="90" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="12" font-weight="600">
-      Walking, Hopping &amp; Flying across Divs!
-    </text>
-    <text x="14" y="104" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10">
-      Zero Clumping &bull; Free Path Kinematics
-    </text>
+    <!-- Rust & Go Code Lines (Ninja Turtle slashes bugs & Bean hops!) -->
+    <text x="14" y="44" fill="#f43f5e" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600">fn <tspan fill="#38bdf8">deploy_squad</tspan>() -&gt; Result&lt;(), ZeroBug&gt; {</text>
+    <text x="24" y="62" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  let <tspan fill="#f59e0b">opt</tspan> = Concurrency::spawn_goroutine();</text>
+    <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  opt.slash_memory_latency(<tspan fill="#4ade80">0.001ms</tspan>);</text>
+    <text x="14" y="98" fill="#f43f5e" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600">}</text>
   </g>
 
   <!-- =========================================================
-       INTERACTIVE SECTION 3 (RIGHT): GAMER / DEV STATS CARD
+       INTERACTIVE SECTION 3 (RIGHT): PYTHON & AI AGENT PIPELINE
        ========================================================= -->
   <g transform="translate(685, 75)">
-    <!-- Stats Box -->
+    <!-- Stats / Python Box -->
     <rect width="245" height="150" rx="10" fill="url(#terminalBgGrad)" stroke="#ec4899" stroke-width="1.5" class="term-pulse" />
     <path d="M 0 10 C 0 4.5 4.5 0 10 0 L 235 0 C 240.5 0 245 4.5 245 10 L 245 24 L 0 24 Z" fill="#0b1120" />
-    <circle cx="14" cy="12" r="3.5" fill="#ec4899" />
-    <text x="26" y="16" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" font-weight="700">CHAMPION STATS &bull; LVL 99</text>
+    <rect x="14" y="5" width="20" height="14" rx="2" fill="#3776ab" />
+    <text x="18" y="15" fill="#fcd34d" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="800">PY</text>
+    <text x="40" y="16" fill="#f472b6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">agent_pipeline.py</text>
 
-    <!-- Stats Lines -->
-    <text x="14" y="46" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="11" font-weight="600">XP Progress: 98.4%</text>
-    <!-- XP Bar -->
-    <rect x="14" y="54" width="217" height="8" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" />
-    <rect x="14" y="54" width="202" height="8" rx="4" fill="url(#cyberFloorGrad)" />
-
-    <text x="14" y="80" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Bugs Slashed: <tspan fill="#38bdf8" font-weight="700">1,337</tspan></text>
-    <text x="14" y="98" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Flames Cast: <tspan fill="#f43f5e" font-weight="700">8,420</tspan></text>
-    <text x="14" y="116" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Waddles Made: <tspan fill="#4ade80" font-weight="700">&infin;</tspan></text>
-    <text x="14" y="134" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="10">Stomps Done: <tspan fill="#a855f7" font-weight="700">9,999</tspan></text>
+    <!-- Python Code & Stats (Dragon breathes flames, Monster stomps!) -->
+    <text x="14" y="44" fill="#fb7185" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="600">@dataclass</text>
+    <text x="14" y="62" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10.5">class <tspan fill="#f8fafc">AICharacterAgent</tspan>:</text>
+    <text x="24" y="80" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  model = <tspan fill="#4ade80">"gemini-omni-flash"</tspan></text>
+    <text x="24" y="98" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  fps = <tspan fill="#f59e0b">60</tspan></text>
+    <text x="24" y="116" fill="#f8fafc" font-family="'JetBrains Mono', monospace" font-size="10.5">  async def <tspan fill="#38bdf8">roam</tspan>(self):</text>
+    <text x="34" y="134" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="10.5">    return <tspan fill="#4ade80">"VECTOR_MAGIC"</tspan></text>
   </g>
 
 

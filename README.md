@@ -56,49 +56,37 @@
 
 ---
 
-## Roaming AI Chatbot & Animated Characters
+## Multi-Language Playground &amp; Roaming Characters
 
-Watch the ReadmeForge animated assistant in action! Features a floating AI chatbot roaming back and forth with hovering thrusters and cycling status thoughts, paired with a walking pixel developer coding on a cyber tablet:
+Bring dynamic life, personality, and motion to your GitHub profile. ReadmeForge features pure vector SVG characters that roam freely across multi-language code environments—interacting with live code, slicing bugs, waving at interfaces, and compiling pipelines in real time:
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/roaming-bot.svg" alt="ReadmeForge Roaming AI Chatbot and Animated Characters" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(99,102,241,0.25);" />
-</div>
-
-<br />
-
-### Animated Character Squads: Pure SVG Vector Actions
-
-Bring personality and living motion to your profile with pure CSS `@keyframes` animated SVG characters. Zero external server dependencies—renders natively on GitHub:
-
-#### Squad 1: Cyber Champions Stage
-<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Animated Character Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(34,211,238,0.25);" />
-</div>
-
-<br />
-
-#### Squad 2: Legendary Heroes Stage
-<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-heroes-squad.svg" alt="ReadmeForge Animated Legendary Heroes Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(239,68,68,0.25);" />
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Multi-Language Playground with Free-Roaming Characters" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(56,189,248,0.25);" />
 </div>
 
 <br />
 
 <div align="center">
-
-| Character | Action &amp; Kinematics | Standalone SVG Preview |
-| :--- | :--- | :---: |
-| **Chibi Deadpool** | Dual katana slashing combos, comedic winking, and glowing ruby speed arcs | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/chibi-deadpool.svg" width="80" height="80" alt="Chibi Deadpool" /> |
-| **Pink Wyvern** | Dual-wing flapping hover, tail swaying, and magical starry stardust breath | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/pink-wyvern.svg" width="80" height="80" alt="Pink Wyvern" /> |
-| **Insectoid Warrior** | Pulsing laser eyes, scanning beam sweep, antennae twitching, and chest flex | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/insectoid-warrior.svg" width="80" height="80" alt="Insectoid Warrior" /> |
-| **Dragonborn Paladin** | Spear thrusting readiness, flowing banner ribbon, tail sway, and holy light gleam | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/dragonborn-paladin.svg" width="80" height="80" alt="Dragonborn Paladin" /> |
-| **Blue Assistant Bot** | Floating hover, waving arm pivots, blinking eyes, energy core pulse | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bot.svg" width="80" height="80" alt="Blue Bot" /> |
-| **Blue Bean Capsule** | Waddling side-to-side, jump bounce, flapping arms, blinking eyes | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bean.svg" width="80" height="80" alt="Blue Bean" /> |
-| **Ninja Turtle** | Dual katana slashing combos, luminous speed trails, fluttering bandana | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/ninja-turtle.svg" width="80" height="80" alt="Ninja Turtle" /> |
-| **Red Flying Dragon** | Dual-wing flapping flight, sky soaring swoop, fire breath burst | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/red-dragon.svg" width="80" height="80" alt="Red Dragon" /> |
-| **Purple Monster** | Alternating foot stomps, chomping fangs &amp; roaring jaw, wandering eyes | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/purple-monster.svg" width="80" height="80" alt="Purple Monster" /> |
-
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-heroes-squad.svg" alt="ReadmeForge Legendary Heroes Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(239,68,68,0.25);" />
 </div>
+
+<br />
+
+### Programming Language &amp; Character Kinematics
+
+Each character champions a core programming language ecosystem, featuring bespoke 60fps GPU-composited animations:
+
+| Language Ecosystem | Champion Character | In-Canvas Action &amp; Role | Standalone Asset |
+| :--- | :--- | :--- | :---: |
+| **TypeScript / Web** | **Blue Assistant Bot** | Hovers across terminals, points hands directly to type-safe interfaces, and winks smiling visor | [blue-bot.svg](file:///d:/profile%20genrater/public/assets/characters/blue-bot.svg) |
+| **Rust / Systems** | **Ninja Turtle** | Jogs along floor runways, slicing syntax &amp; memory bugs with dual glowing katana combos | [ninja-turtle.svg](file:///d:/profile%20genrater/public/assets/characters/ninja-turtle.svg) |
+| **Python / AI &amp; ML** | **Red Flying Dragon** | Soars across the sky corridor, diving over neural pipelines and breathing blazing fire bursts | [red-dragon.svg](file:///d:/profile%20genrater/public/assets/characters/red-dragon.svg) |
+| **Go / Concurrency** | **Blue Bean Capsule** | Waddles and hops with goroutine speed, flapping arms and cheering on async services | [blue-bean.svg](file:///d:/profile%20genrater/public/assets/characters/blue-bean.svg) |
+| **DevOps / Container** | **Purple Monster** | Stomps across deployment tracks, stomping build errors and chomping fangs with wandering eyes | [purple-monster.svg](file:///d:/profile%20genrater/public/assets/characters/purple-monster.svg) |
+| **Tactical Agile** | **Chibi Deadpool** | Bouncing swagger, dual katana slashing combos, and comedic expressive winks | [chibi-deadpool.svg](file:///d:/profile%20genrater/public/assets/characters/chibi-deadpool.svg) |
+| **Fantasy / Creative** | **Pink Wyvern** | Dual-wing flapping flight, tail swaying, and magical starry stardust flame bursts | [pink-wyvern.svg](file:///d:/profile%20genrater/public/assets/characters/pink-wyvern.svg) |
+| **Alien Performance** | **Insectoid Warrior** | Pulsing laser compound eyes, scanning sweep flares, antennae twitching, and chest flex | [insectoid-warrior.svg](file:///d:/profile%20genrater/public/assets/characters/insectoid-warrior.svg) |
+| **Enterprise Guardian** | **Dragonborn Paladin** | Spear thrusting readiness, flowing banner ribbon wave, tail sway, and holy light gleams | [dragonborn-paladin.svg](file:///d:/profile%20genrater/public/assets/characters/dragonborn-paladin.svg) |
 
 <br />
 
