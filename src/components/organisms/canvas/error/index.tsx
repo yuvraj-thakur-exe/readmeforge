@@ -29,7 +29,7 @@ export function CanvasErrorFallback() {
         <Text.Paragraph>
           {t('canvas-error.issue-before')}{' '}
           <Text.Link
-            href="https://github.com/maurodesouza/profile-readme-generator/issues/new/choose"
+            href="https://github.com/readmeforge/readmeforge/issues/new/choose"
             target="_blank"
             rel="noreferrer"
           >
@@ -45,7 +45,7 @@ export function CanvasErrorFallback() {
           soft
           target="_blank"
           rel="noreferrer"
-          href="https://github.com/maurodesouza/profile-readme-generator/issues/new/choose"
+          href="https://github.com/readmeforge/readmeforge/issues/new/choose"
         >
           {t('canvas-error.create-issue')}
         </Clickable.ExternalLink>

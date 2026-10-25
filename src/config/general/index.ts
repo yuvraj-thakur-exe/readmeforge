@@ -49,7 +49,7 @@ const general = {
   },
 
   storage: {
-    prefix: '@prg-ms',
+    prefix: '@readmeforge',
   },
 
   settings: {
@@ -59,7 +59,7 @@ const general = {
 
     preview: {
       user: {
-        github: 'maurodesouza',
+        github: 'octocat',
       },
     },
   },

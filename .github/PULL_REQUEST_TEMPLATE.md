@@ -1,28 +1,15 @@
-<!--
-  For Work In Progress Pull Requests, please use the Draft PR feature,
-  see https://github.blog/2019-02-14-introducing-draft-pull-requests/ for further details.
+## Description
+Briefly describe your changes and the motivation behind them.
 
-  For a timely review/response, please avoid force-pushing additional
-  commits if your PR already received reviews or comments.
+## Related Issue
+Fixes #(issue number)
 
-  Before submitting a Pull Request, please ensure you've done the following:
-  - 📖 Read the Contributing Guide: https://github.com/maurodesouza/profile-readme-generator/blob/main/.github/CONTRIBUTING.md#commiting
-  - 👷‍♀️ Create small PRs. In most cases this will be possible.
-  - 🔗 Provide issue number with link.
-  - 📝 Use descriptive commit messages.
-  - 📖 Update any related documentation and include any relevant screenshots.
--->
+## Changes
+- [ ] Added / updated plugin
+- [ ] Bug fix
+- [ ] New feature / UX enhancement
+- [ ] Documentation update
 
-## What type of PR is this? (check all applicable)
-
-- [ ] Refactor
-- [ ] Feature
-- [ ] Bug Fix
-- [ ] Enhancement
-- [ ] Documentation Update
-
-## What I did
-
-<!--
-  A clear and concise description of what you did. If applicable, add screenshots/gifs to show your UI changes
- -->
+## Verification
+- [ ] Ran `pnpm lint` and fixed errors
+- [ ] Ran `pnpm test` and all tests pass

@@ -11,21 +11,21 @@ export function FooterOwner() {
     <div className="hidden h-full shrink-0 gap-sm desktop:flex">
       <img
         className="size-8 self-center"
-        src="/assets/icon-32.png"
-        alt={t('footer.alt')}
+        src="/logo.svg"
+        alt="ReadmeForge"
       />
 
       <div className="flex flex-col h-full justify-center">
-        <Text.Strong>{t('footer.title')}</Text.Strong>
+        <Text.Strong>ReadmeForge</Text.Strong>
         <Text.Small className="not-italic">
-          {t('footer.maintained-by')}{' '}
+          Forge a GitHub profile that gets noticed.{' '}
           <Text.Link
-            href="https://github.com/maurodesouza"
+            href="https://github.com/readmeforge/readmeforge"
             target="_blank"
             rel="noreferrer"
             className="text-xs"
           >
-            {t('footer.author')}
+            GitHub
           </Text.Link>
         </Text.Small>
       </div>

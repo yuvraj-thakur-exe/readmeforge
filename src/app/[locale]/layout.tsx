@@ -68,15 +68,15 @@ export async function generateMetadata({
     },
     manifest: '/manifest.json',
     icons: {
-      icon: '/assets/icon-16.png',
-      shortcut: '/assets/icon-16.png',
+      icon: '/logo.svg',
+      shortcut: '/logo.svg',
       apple: '/assets/icon-180.png',
     },
     openGraph: {
       type: 'website',
       title,
       description,
-      siteName: title,
+      siteName: 'ReadmeForge',
       images: '/assets/app.png',
     },
     twitter: {
@@ -84,7 +84,7 @@ export async function generateMetadata({
       title,
       description,
       images: '/assets/app.png',
-      creator: 'https://github.com/maurodesouza',
+      creator: 'https://github.com/readmeforge',
     },
     alternates: {
       languages,

@@ -6,7 +6,7 @@ const contents = [
     icon: 'star',
     name: 'Star This Project',
 
-    href: 'https://github.com/maurodesouza/profile-readme-generator',
+    href: 'https://github.com/readmeforge/readmeforge',
     target: '_blank',
     rel: 'noreferrer',
     className: 'text-inherit! palette-surface-orange',
@@ -15,7 +15,7 @@ const contents = [
     icon: 'git-fork',
     name: 'Fork on Github',
 
-    href: 'https://github.com/maurodesouza/profile-readme-generator/fork',
+    href: 'https://github.com/readmeforge/readmeforge/fork',
     target: '_blank',
     rel: 'noreferrer',
     className: 'text-inherit! palette-surface-orange',

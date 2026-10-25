@@ -1,15 +1,15 @@
 {
   "metadata": {
-    "title": "Gerador de README de Perfil",
-    "description": "Deixe seu perfil do GitHub mais bonito com esta ferramenta incrível, criando seu README do seu jeito de forma simples e rápida",
-    "author": "Mauro de Souza",
+    "title": "ReadmeForge — Crie um perfil do GitHub que se destaca",
+    "description": "Crie um perfil do GitHub que se destaca com estatísticas dinâmicas, troféus, animação de cobra, badges e enriquecimento inteligente.",
+    "author": "Contribuidores do ReadmeForge",
     "keywords": [
+      "readmeforge",
       "github",
       "readme",
       "perfil",
       "gerador",
-      "profile-readme",
-      "profile-readme-generator",
+      "ferramentas-dev",
       "github-readme-generator"
     ]
   },

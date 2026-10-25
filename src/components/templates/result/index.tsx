@@ -68,7 +68,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             <Clickable.ExternalLink
               className="palette-orange"
               variant="ghost"
-              href="https://github.com/maurodesouza/profile-readme-generator"
+              href="https://github.com/readmeforge/readmeforge"
               target="_blank"
               rel="noreferrer"
             >
@@ -79,7 +79,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             <Clickable.ExternalLink
               className="palette-orange"
               variant="ghost"
-              href="https://github.com/maurodesouza/profile-readme-generator/fork"
+              href="https://github.com/readmeforge/readmeforge/fork"
               target="_blank"
               rel="noreferrer"
             >

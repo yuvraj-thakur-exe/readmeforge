@@ -22,15 +22,7 @@ const navItems: NavItem[] = [
   {
     label: 'Github',
     props: {
-      href: 'https://github.com/maurodesouza/profile-readme-generator',
-      target: '_blank',
-      rel: 'noreferrer',
-    },
-  },
-  {
-    label: 'Donate',
-    props: {
-      href: 'https://www.paypal.com/donate/?hosted_button_id=FR3A2DGVYKGJS',
+      href: 'https://github.com/readmeforge/readmeforge',
       target: '_blank',
       rel: 'noreferrer',
     },
