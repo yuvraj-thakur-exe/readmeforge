@@ -8,6 +8,8 @@ export type AnimationPresetId =
   | 'terminal'
   | '3d-banner'
   | 'minimal'
+  | 'fire'
+  | 'water'
   | 'custom';
 
 export type TextEffect =
@@ -19,12 +21,23 @@ export type TextEffect =
   | 'reveal';
 
 export type BackgroundEffect =
+  | 'fire'
+  | 'water'
   | 'particles'
   | 'grids'
   | 'stars'
   | 'animated-gradient'
   | 'matrix'
   | 'solid';
+
+export type FrameEffect =
+  | 'none'
+  | 'cyber-neon'
+  | 'glassmorphism'
+  | 'terminal-crt'
+  | 'hologram'
+  | 'gold-metallic'
+  | 'fire-border';
 
 export type SvgEffect =
   | 'none'
@@ -61,6 +74,7 @@ export interface AnimationConfig {
   // Specific Effect Layers
   textEffect: TextEffect;
   backgroundEffect: BackgroundEffect;
+  frameEffect?: FrameEffect;
   svgEffect: SvgEffect;
   threeDEffect: ThreeDEffect;
   // Color Palette
@@ -94,12 +108,13 @@ export interface ValidationResult {
 
 export const DEFAULT_ANIMATION_CONFIG: AnimationConfig = {
   preset: 'neon',
-  headline: '⚡ FULL-STACK ARCHITECT',
+  headline: 'FULL-STACK ARCHITECT',
   subtitle: 'Building Intelligent Developer Tools & Cloud Systems',
   tag: 'OPEN TO COLLABORATION',
   fontFamily: 'Fira Code',
   textEffect: 'gradient',
   backgroundEffect: 'grids',
+  frameEffect: 'cyber-neon',
   svgEffect: 'animated-logo',
   threeDEffect: 'interactive-card',
   primaryColor: '#6366f1',
@@ -127,66 +142,80 @@ export interface PresetMetadata {
 
 export const PRESET_METADATA: PresetMetadata[] = [
   {
+    id: 'fire',
+    name: 'Inferno Flame',
+    description: 'Blazing dynamic ember particles, glowing heat gradient, and animated fire rim.',
+    category: 'cyber',
+    icon: 'flame',
+  },
+  {
+    id: 'water',
+    name: 'Oceanic Ripple',
+    description: 'Fluid undulating water wave layers, caustic aqua ripples, and droplet expanding rings.',
+    category: 'modern',
+    icon: 'droplets',
+  },
+  {
     id: 'glitch',
     name: 'Glitch Cyberpunk',
     description: 'Chromatic aberration RGB split with jitter and horizontal displacement slice lines.',
     category: 'cyber',
-    icon: '⚡',
+    icon: 'zap',
   },
   {
     id: 'typing',
     name: 'Terminal Typewriter',
     description: 'Character-stepped typewriter effect with flashing shell cursor.',
     category: 'typography',
-    icon: '⌨️',
+    icon: 'terminal',
   },
   {
     id: 'wave',
     name: 'Oscillating Wave',
     description: 'Fluid sinusoidal wave shimmer along text and animated baseline grid.',
     category: 'modern',
-    icon: '🌊',
+    icon: 'activity',
   },
   {
     id: 'matrix',
     name: 'Matrix Digital Rain',
     description: 'Falling green phosphor stream code background with terminal overlay.',
     category: 'retro',
-    icon: '🟢',
+    icon: 'cpu',
   },
   {
     id: 'neon',
     name: 'Neon Forge',
     description: 'High-voltage electric tube glow with chasing border and subtle voltage flicker.',
     category: 'cyber',
-    icon: '💡',
+    icon: 'sparkles',
   },
   {
     id: 'particle',
     name: 'Particle Embers',
     description: 'Rising luminous energy sparks and ambient glowing orbs.',
     category: 'modern',
-    icon: '✨',
+    icon: 'flame',
   },
   {
     id: 'terminal',
     name: 'Hacker Shell',
     description: 'Classic command-line interface window with prompt prefix and status badge.',
     category: 'retro',
-    icon: '🖥️',
+    icon: 'code',
   },
   {
     id: '3d-banner',
     name: '3D Isometric Banner',
     description: 'Dimensional depth layering with metallic bevel and floating bobbing motion.',
     category: 'modern',
-    icon: '🧊',
+    icon: 'box',
   },
   {
     id: 'minimal',
     name: 'Minimal Modernist',
     description: 'Clean typographic layout with subtle fade-in, refined borders, and airy spacing.',
     category: 'typography',
-    icon: '◻️',
+    icon: 'layers',
   },
 ];

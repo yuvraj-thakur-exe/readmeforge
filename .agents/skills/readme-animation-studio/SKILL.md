@@ -52,14 +52,28 @@ All text animations are driven by CSS keyframes applied to SVG `<text>` or layer
 
 Rendered within the `<g id="background-layer">` group:
 
-1. **particles**: Staggered floating `<circle>` elements with variable radii (1.5px–3.5px) drifting upward with randomized pulse cycles.
-2. **grids**: Subtle perspective or orthogonal grid lines `<line>` with traveling coordinate dots or glowing scanner sweeps.
-3. **stars**: Multi-layered starfield with 2-level twinkle animations (brightness scaling from 0.2 to 1.0) and deep space nebula gradients.
-4. **animated-gradient**: Multi-point dynamic radial and linear gradients that morph hues between primary, secondary, and accent colors.
-5. **matrix**: Vertical streams of glowing monospace alphanumeric characters cascading with varying trail opacities.
-6. **solid**: Clean dark slate or high-contrast background with subtle vignette borders.
+1. **fire**: Rising heat ember particles (`@keyframes emberRise`), blazing multi-stop flame gradient (`#ff1a1a` -> `#ff6600` -> `#ffee32`), animated licking curves, and radial heat core.
+2. **water**: Fluid undulating sinusoidal wave layers, expanding water drop concentric ripples (`@keyframes waterDropRipple`), and caustic oceanic depth gradients.
+3. **particles**: Staggered floating `<circle>` elements with variable radii (1.5px–3.5px) drifting upward with randomized pulse cycles.
+4. **grids**: Subtle perspective or orthogonal grid lines `<line>` with traveling coordinate dots or glowing scanner sweeps.
+5. **stars**: Multi-layered starfield with 2-level twinkle animations (brightness scaling from 0.2 to 1.0) and deep space nebula gradients.
+6. **animated-gradient**: Multi-point dynamic radial and linear gradients that morph hues between primary, secondary, and accent colors.
+7. **matrix**: Vertical streams of glowing monospace alphanumeric characters cascading with varying trail opacities.
+8. **solid**: Clean dark slate or high-contrast background with subtle vignette borders.
 
 ---
+
+## 3.1 Frame & Cyber Border Effects Matrix
+
+Rendered within the `<g id="frame-layer">` overlay:
+
+1. **cyber-neon**: High-voltage laser chasing border (`stroke-dasharray: 120 240`) with animated corner targeting brackets and drop-shadow glow.
+2. **glassmorphism**: Translucent frosted glass rim with 45-degree traveling specular light sheen reflection.
+3. **terminal-crt**: Retro curved CRT monitor bezel, horizontal scanline raster overlay, and corner chassis mounting bolts.
+4. **hologram**: Sci-fi targeting HUD with telemetry coordinates (`SYS.RDY // 60FPS`), cardinal crosshair ticks, and vertical laser scanner.
+5. **gold-metallic**: Luxurious 3D beveled metallic gold border (`#bf953f` -> `#fcf6ba` -> `#b38728`) with twinkling 4-point star glints.
+6. **fire-border**: Blazing perimeter frame with heat pulsation keyframes and flame embers.
+
 
 ## 4. SVG Vector Effects
 

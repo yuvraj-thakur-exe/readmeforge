@@ -30,6 +30,13 @@ import {
   Code2,
   Film,
   ChevronUp,
+  Flame,
+  Droplets,
+  Zap,
+  Terminal,
+  Activity,
+  Cpu,
+  Square,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import {
@@ -43,6 +50,7 @@ import {
   TextAlignment,
   TextEffect,
   BackgroundEffect,
+  FrameEffect,
   SvgEffect,
   ThreeDEffect,
 } from '#/lib/animator/types';
@@ -55,6 +63,32 @@ import {
   decodeConfigFromBase64,
   generateHostedDemoUrl,
 } from '#/lib/animator/export-utils';
+
+function renderPresetIcon(iconName: string) {
+  switch (iconName) {
+    case 'flame':
+      return <Flame className="w-4 h-4 text-orange-400" />;
+    case 'droplets':
+      return <Droplets className="w-4 h-4 text-cyan-400" />;
+    case 'zap':
+      return <Zap className="w-4 h-4 text-yellow-400" />;
+    case 'terminal':
+      return <Terminal className="w-4 h-4 text-blue-400" />;
+    case 'activity':
+      return <Activity className="w-4 h-4 text-indigo-400" />;
+    case 'cpu':
+      return <Cpu className="w-4 h-4 text-emerald-400" />;
+    case 'sparkles':
+      return <Sparkles className="w-4 h-4 text-fuchsia-400" />;
+    case 'code':
+      return <Code2 className="w-4 h-4 text-sky-400" />;
+    case 'box':
+      return <Boxes className="w-4 h-4 text-amber-400" />;
+    case 'layers':
+    default:
+      return <Layers className="w-4 h-4 text-neutral-400" />;
+  }
+}
 
 export function AnimatorStudio() {
   const searchParams = useSearchParams();
@@ -110,12 +144,41 @@ export function AnimatorStudio() {
   const handlePresetSelect = (preset: AnimationPresetId) => {
     setConfig(prev => {
       switch (preset) {
+        case 'fire':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'glitch',
+            backgroundEffect: 'fire',
+            frameEffect: 'fire-border',
+            svgEffect: 'animated-logo',
+            threeDEffect: 'interactive-card',
+            primaryColor: '#ff2a2a',
+            secondaryColor: '#ff9900',
+            accentColor: '#ffee55',
+            backgroundColor: '#0d0404',
+          };
+        case 'water':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'wave',
+            backgroundEffect: 'water',
+            frameEffect: 'glassmorphism',
+            svgEffect: 'line-drawing',
+            threeDEffect: 'none',
+            primaryColor: '#00b4d8',
+            secondaryColor: '#48cae4',
+            accentColor: '#90e0ef',
+            backgroundColor: '#02121e',
+          };
         case 'matrix':
           return {
             ...prev,
             preset,
             textEffect: 'scramble',
             backgroundEffect: 'matrix',
+            frameEffect: 'hologram',
             svgEffect: 'none',
             threeDEffect: 'none',
             primaryColor: '#22c55e',
@@ -416,23 +479,59 @@ export function AnimatorStudio() {
 
                 {/* 2. Background Effects */}
                 <div>
-                  <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center gap-1">
-                    <Layers className="w-3.5 h-3.5 text-violet-400" />
-                    Background Style
+                  <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                    <span className="flex items-center gap-1">
+                      <Layers className="w-3.5 h-3.5 text-violet-400" />
+                      Background Style
+                    </span>
+                    <span className="text-[10px] font-mono text-cyan-400 capitalize">{config.backgroundEffect.replace('-', ' ')}</span>
                   </label>
-                  <div className="grid grid-cols-3 gap-1.5">
-                    {(['particles', 'grids', 'stars', 'animated-gradient', 'matrix', 'solid'] as BackgroundEffect[]).map(bg => (
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {(['fire', 'water', 'particles', 'grids', 'stars', 'animated-gradient', 'matrix', 'solid'] as BackgroundEffect[]).map(bg => (
                       <button
                         key={bg}
                         type="button"
                         onClick={() => setConfig(prev => ({ ...prev, backgroundEffect: bg }))}
-                        className={`py-1.5 px-2 rounded-lg text-[11px] font-mono capitalize border transition-all ${
+                        className={`py-1.5 px-1.5 rounded-lg text-[10.5px] font-mono capitalize border transition-all flex items-center justify-center gap-1 ${
                           config.backgroundEffect === bg
-                            ? 'border-violet-500 bg-violet-950/40 text-violet-300 font-bold'
+                            ? bg === 'fire'
+                              ? 'border-orange-500 bg-orange-950/40 text-orange-300 font-bold'
+                              : bg === 'water'
+                              ? 'border-cyan-500 bg-cyan-950/40 text-cyan-300 font-bold'
+                              : 'border-violet-500 bg-violet-950/40 text-violet-300 font-bold'
                             : 'border-palette-line bg-palette-base/60 text-neutral-400 hover:text-white'
                         }`}
                       >
-                        {bg.replace('-', ' ')}
+                        {bg === 'fire' && <Flame className="w-3 h-3 text-orange-400 shrink-0" />}
+                        {bg === 'water' && <Droplets className="w-3 h-3 text-cyan-400 shrink-0" />}
+                        <span className="truncate">{bg.replace('-', ' ')}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* 3. Frame & Cyber Border Effect */}
+                <div>
+                  <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                    <span className="flex items-center gap-1">
+                      <Square className="w-3.5 h-3.5 text-cyan-400" />
+                      Frame &amp; Border Effect
+                    </span>
+                    <span className="text-[10px] font-mono text-cyan-400 capitalize">{(config.frameEffect || 'cyber-neon').replace('-', ' ')}</span>
+                  </label>
+                  <div className="grid grid-cols-4 gap-1.5">
+                    {(['none', 'cyber-neon', 'glassmorphism', 'terminal-crt', 'hologram', 'gold-metallic', 'fire-border'] as FrameEffect[]).map(fe => (
+                      <button
+                        key={fe}
+                        type="button"
+                        onClick={() => setConfig(prev => ({ ...prev, frameEffect: fe }))}
+                        className={`py-1.5 px-1 rounded-lg text-[10px] font-mono capitalize border transition-all truncate text-center ${
+                          (config.frameEffect || 'cyber-neon') === fe
+                            ? 'border-cyan-500 bg-cyan-950/40 text-cyan-300 font-bold'
+                            : 'border-palette-line bg-palette-base/60 text-neutral-400 hover:text-white'
+                        }`}
+                      >
+                        {fe === 'none' ? 'No Frame' : fe.replace('-', ' ')}
                       </button>
                     ))}
                   </div>
@@ -676,9 +775,9 @@ export function AnimatorStudio() {
                           : 'border-palette-line/70 bg-palette-soft/20 text-neutral-400 hover:border-neutral-700 hover:text-neutral-200'
                       }`}
                     >
-                      <div className="text-base mb-1">{p.icon}</div>
-                      <div className="font-bold tracking-tight text-[11px] truncate w-full">
-                        {p.name.split(' ')[0]}
+                      <div className="mb-2">{renderPresetIcon(p.icon)}</div>
+                      <div className="font-bold tracking-tight text-[11px] truncate w-full text-neutral-200">
+                        {p.name}
                       </div>
                     </button>
                   );

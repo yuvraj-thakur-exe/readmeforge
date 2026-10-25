@@ -132,33 +132,38 @@
   <!-- Card 2: Claude Code Agent -->
   <g transform="translate(395, 145)" class="card-hover-2">
     <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(192, 132, 252, 0.35)" stroke-width="1.5" />
-    <!-- Header with Bot Chip SVG -->
-    <circle cx="28" cy="30" r="12" fill="rgba(192, 132, 252, 0.2)" />
-    <rect x="22" y="25" width="12" height="10" rx="2" fill="none" stroke="#c084fc" stroke-width="1.8" />
-    <circle cx="25" cy="29" r="1.2" fill="#c084fc" />
-    <circle cx="31" cy="29" r="1.2" fill="#c084fc" />
-    <path d="M28 22 L28 25 M20 30 L22 30 M34 30 L36 30" stroke="#c084fc" stroke-width="1.5" />
+    <!-- Header with Official Anthropic Claude Spark SVG -->
+    <circle cx="28" cy="30" r="13" fill="rgba(217, 119, 87, 0.2)" />
+    <g transform="translate(28, 30)">
+      <circle cx="0" cy="0" r="3" fill="#d97757" />
+      <path d="M0 -9 L0 -4.5 M0 4.5 L0 9 M-9 0 L-4.5 0 M4.5 0 L9 0 M-6 -6 L-3 -3 M3 3 L6 6 M-6 6 L-3 3 M3 -3 L6 -6" stroke="#d97757" stroke-width="1.6" stroke-linecap="round" />
+    </g>
     <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">Claude Code CLI</text>
-    <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">Anthropic agent integration</text>
+    <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#ea580c">Anthropic MCP Tool</text>
 
     <!-- Code Block -->
     <rect x="15" y="65" width="280" height="52" rx="8" fill="#030712" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
-    <text x="28" y="88" font-family="'Fira Code', monospace" font-size="9.5" fill="#c084fc">claude mcp add readmeforge \</text>
-    <text x="38" y="104" font-family="'Fira Code', monospace" font-size="9.5" fill="#818cf8">-- npx -y readmeforge</text>
+    <text x="28" y="88" font-family="'Fira Code', monospace" font-size="9.5" fill="#d97757">claude mcp add readmeforge \</text>
+    <text x="38" y="104" font-family="'Fira Code', monospace" font-size="9.5" fill="#fed7aa">-- npx -y readmeforge</text>
 
     <!-- Badge -->
-    <rect x="15" y="130" width="95" height="22" rx="6" fill="rgba(192, 132, 252, 0.15)" />
-    <text x="22" y="145" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#c084fc">MCP Toolchain</text>
+    <rect x="15" y="130" width="95" height="22" rx="6" fill="rgba(217, 119, 87, 0.2)" />
+    <text x="22" y="145" font-family="-apple-system, sans-serif" font-weight="700" font-size="10" fill="#d97757">MCP Toolchain</text>
   </g>
 
   <!-- Card 3: Google Antigravity IDE -->
   <g transform="translate(740, 145)" class="card-hover-3">
     <rect width="310" height="175" rx="12" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(52, 211, 153, 0.35)" stroke-width="1.5" />
-    <!-- Header with Rocket SVG -->
-    <circle cx="28" cy="30" r="12" fill="rgba(52, 211, 153, 0.2)" />
-    <path d="M31 22 C34 24 35 27 35 30 L33 32 L30 29 L29 34 L26 31 L23 33 L24 31 C22 28 24 24 28 22 Z" fill="#34d399" />
+    <!-- Header with Official Antigravity Orbital Ring SVG -->
+    <circle cx="28" cy="30" r="13" fill="rgba(52, 211, 153, 0.2)" />
+    <g transform="translate(28, 30)">
+      <circle cx="0" cy="0" r="3" fill="#34d399" />
+      <ellipse cx="0" cy="0" rx="8.5" ry="3.5" fill="none" stroke="#10b981" stroke-width="1.4" transform="rotate(-30)" />
+      <ellipse cx="0" cy="0" rx="8.5" ry="3.5" fill="none" stroke="#38bdf8" stroke-width="1.2" transform="rotate(45)" />
+      <circle cx="6" cy="-3" r="1.2" fill="#67e8f9" />
+    </g>
     <text x="48" y="32" font-family="-apple-system, sans-serif" font-weight="700" font-size="13" fill="#ffffff">Google Antigravity IDE</text>
-    <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#64748b">DeepMind agent plugin</text>
+    <text x="48" y="47" font-family="-apple-system, sans-serif" font-size="11" fill="#34d399">DeepMind Agent Studio</text>
 
     <!-- Code Block -->
     <rect x="15" y="65" width="280" height="52" rx="8" fill="#030712" stroke="rgba(255,255,255,0.08)" stroke-width="1" />

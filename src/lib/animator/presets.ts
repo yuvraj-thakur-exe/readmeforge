@@ -2,6 +2,7 @@ import {
   AnimationConfig,
   TextEffect,
   BackgroundEffect,
+  FrameEffect,
   SvgEffect,
   ThreeDEffect,
 } from './types';
@@ -52,6 +53,108 @@ function renderBackgroundLayer(
   }
 
   switch (bgEffect) {
+    case 'fire': {
+      return {
+        defs: `
+          <linearGradient id="fireBaseGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#ff1a1a" stop-opacity="0.85" />
+            <stop offset="25%" stop-color="#ff6600" stop-opacity="0.6" />
+            <stop offset="60%" stop-color="#ffb703" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#ffee32" stop-opacity="0" />
+          </linearGradient>
+          <radialGradient id="fireCenterAura" cx="50%" cy="85%" r="65%">
+            <stop offset="0%" stop-color="#ff7b00" stop-opacity="0.45" />
+            <stop offset="50%" stop-color="#d00000" stop-opacity="0.2" />
+            <stop offset="100%" stop-color="${backgroundColor}" stop-opacity="0" />
+          </radialGradient>
+        `,
+        style: `
+          @keyframes emberRise {
+            0% { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
+            15% { opacity: 0.95; }
+            70% { opacity: 0.8; }
+            100% { transform: translateY(-${height * 0.85}px) translateX(24px) scale(0.2); opacity: 0; }
+          }
+          @keyframes emberRiseAlt {
+            0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
+            20% { opacity: 0.9; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(-${height * 0.9}px) translateX(-28px) scale(0.15); opacity: 0; }
+          }
+          @keyframes flameTongue {
+            0%, 100% { transform: scaleY(1) skewX(0deg); opacity: 0.8; }
+            50% { transform: scaleY(1.22) skewX(2deg); opacity: 0.95; }
+          }
+          .ember1 { animation: emberRise ${duration * 0.8}s ease-out infinite 0.1s; }
+          .ember2 { animation: emberRiseAlt ${duration * 1.1}s ease-out infinite 0.4s; }
+          .ember3 { animation: emberRise ${duration * 0.9}s ease-out infinite 0.9s; }
+          .ember4 { animation: emberRiseAlt ${duration * 1.3}s ease-out infinite 1.3s; }
+          .ember5 { animation: emberRise ${duration * 0.7}s ease-out infinite 0.6s; }
+          .flame-wave { animation: flameTongue ${duration * 0.75}s ease-in-out infinite; transform-origin: center bottom; }
+        `,
+        markup: `
+          <rect width="${width}" height="${height}" rx="16" fill="${backgroundColor}" />
+          <rect width="${width}" height="${height}" rx="16" fill="url(#fireCenterAura)" />
+          <path d="M 0 ${height} Q ${width * 0.12} ${height - 45} ${width * 0.25} ${height} Q ${width * 0.38} ${height - 65} ${width * 0.5} ${height} Q ${width * 0.62} ${height - 50} ${width * 0.75} ${height} Q ${width * 0.88} ${height - 70} ${width} ${height} L ${width} ${height} L 0 ${height} Z" fill="url(#fireBaseGrad)" class="flame-wave" />
+          <circle cx="${width * 0.18}" cy="${height * 0.88}" r="3.5" fill="#ffee32" class="ember1" />
+          <circle cx="${width * 0.32}" cy="${height * 0.92}" r="4" fill="#ff7b00" class="ember2" />
+          <circle cx="${width * 0.48}" cy="${height * 0.85}" r="3" fill="#ffb703" class="ember3" />
+          <circle cx="${width * 0.68}" cy="${height * 0.9}" r="4.5" fill="#ffee32" class="ember4" />
+          <circle cx="${width * 0.82}" cy="${height * 0.86}" r="3" fill="#ff5400" class="ember5" />
+        `,
+      };
+    }
+
+    case 'water': {
+      return {
+        defs: `
+          <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="${backgroundColor}" />
+            <stop offset="45%" stop-color="#032539" stop-opacity="0.8" />
+            <stop offset="80%" stop-color="#006989" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#00a7b5" stop-opacity="0.4" />
+          </linearGradient>
+          <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.4" />
+            <stop offset="50%" stop-color="#2dd4bf" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.35" />
+          </linearGradient>
+        `,
+        style: `
+          @keyframes waveDrift1 {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-35px); }
+            100% { transform: translateX(0); }
+          }
+          @keyframes waveDrift2 {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(40px); }
+            100% { transform: translateX(0); }
+          }
+          @keyframes waterDropRipple {
+            0% { r: 3; opacity: 0.9; stroke-width: 2.5; }
+            100% { r: 55; opacity: 0; stroke-width: 0.5; }
+          }
+          .wave-1 { animation: waveDrift1 ${duration * 1.5}s ease-in-out infinite; }
+          .wave-2 { animation: waveDrift2 ${duration * 1.8}s ease-in-out infinite 0.4s; }
+          .ripple-1 { animation: waterDropRipple ${duration * 1.2}s ease-out infinite 0.2s; }
+          .ripple-2 { animation: waterDropRipple ${duration * 1.4}s ease-out infinite 1.1s; }
+        `,
+        markup: `
+          <rect width="${width}" height="${height}" rx="16" fill="${backgroundColor}" />
+          <rect width="${width}" height="${height}" rx="16" fill="url(#oceanGrad)" />
+          <g class="wave-1">
+            <path d="M -50 ${height * 0.72} Q ${width * 0.25} ${height * 0.62} ${width * 0.5} ${height * 0.72} T ${width + 50} ${height * 0.72} L ${width + 50} ${height} L -50 ${height} Z" fill="url(#waveGrad)" />
+          </g>
+          <g class="wave-2" opacity="0.6">
+            <path d="M -50 ${height * 0.78} Q ${width * 0.25} ${height * 0.86} ${width * 0.5} ${height * 0.78} T ${width + 50} ${height * 0.78} L ${width + 50} ${height} L -50 ${height} Z" fill="#38bdf8" fill-opacity="0.3" />
+          </g>
+          <circle cx="${width * 0.28}" cy="${height * 0.68}" r="3" fill="none" stroke="#67e8f9" class="ripple-1" />
+          <circle cx="${width * 0.74}" cy="${height * 0.75}" r="3" fill="none" stroke="#38bdf8" class="ripple-2" />
+        `,
+      };
+    }
+
     case 'particles': {
       return {
         defs: '',
@@ -546,6 +649,224 @@ function renderThreeDOverlay(
 }
 
 /**
+ * Generates frame and border overlay SVG markup and associated styles.
+ */
+function renderFrameLayer(
+  frameEffect: FrameEffect | undefined,
+  width: number,
+  height: number,
+  primaryColor: string,
+  secondaryColor: string,
+  accentColor: string,
+  duration: number
+): { defs: string; style: string; markup: string } {
+  if (!frameEffect || frameEffect === 'none') {
+    return { defs: '', style: '', markup: '' };
+  }
+
+  const pad = 3;
+  const fWidth = width - pad * 2;
+  const fHeight = height - pad * 2;
+  const rx = 14;
+
+  switch (frameEffect) {
+    case 'cyber-neon': {
+      return {
+        defs: `
+          <linearGradient id="neonFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${primaryColor}" />
+            <stop offset="50%" stop-color="${secondaryColor}" />
+            <stop offset="100%" stop-color="${accentColor}" />
+          </linearGradient>
+          <filter id="neonFrameGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        `,
+        style: `
+          @keyframes neonDash {
+            0% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 1400; }
+          }
+          @keyframes bracketPulse {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+          }
+          .neon-border-track {
+            stroke: url(#neonFrameGrad);
+            stroke-width: 2;
+            fill: none;
+            stroke-dasharray: 120 240;
+            animation: neonDash ${duration * 2}s linear infinite;
+            filter: url(#neonFrameGlow);
+          }
+          .neon-bracket {
+            stroke: ${secondaryColor};
+            stroke-width: 2.5;
+            fill: none;
+            animation: bracketPulse ${duration}s ease-in-out infinite;
+          }
+        `,
+        markup: `
+          <rect x="${pad}" y="${pad}" width="${fWidth}" height="${fHeight}" rx="${rx}" class="neon-border-track" />
+          <path d="M ${pad + 1} ${pad + 26} L ${pad + 1} ${pad + 1} L ${pad + 26} ${pad + 1}" class="neon-bracket" />
+          <path d="M ${width - pad - 26} ${pad + 1} L ${width - pad - 1} ${pad + 1} L ${width - pad - 1} ${pad + 26}" class="neon-bracket" />
+          <path d="M ${pad + 1} ${height - pad - 26} L ${pad + 1} ${height - pad - 1} L ${pad + 26} ${height - pad - 1}" class="neon-bracket" />
+          <path d="M ${width - pad - 26} ${height - pad - 1} L ${width - pad - 1} ${height - pad - 1} L ${width - pad - 1} ${height - pad - 26}" class="neon-bracket" />
+        `,
+      };
+    }
+
+    case 'glassmorphism': {
+      return {
+        defs: `
+          <linearGradient id="glassSheenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+            <stop offset="50%" stop-color="rgba(255,255,255,0.4)" />
+            <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+          </linearGradient>
+          <clipPath id="glassClip">
+            <rect x="${pad}" y="${pad}" width="${fWidth}" height="${fHeight}" rx="${rx}" />
+          </clipPath>
+        `,
+        style: `
+          @keyframes glassSlide {
+            0% { transform: translateX(-${width}px) skewX(-25deg); }
+            50%, 100% { transform: translateX(${width * 1.5}px) skewX(-25deg); }
+          }
+          .glass-sheen {
+            animation: glassSlide ${duration * 1.8}s ease-in-out infinite;
+          }
+        `,
+        markup: `
+          <rect x="${pad}" y="${pad}" width="${fWidth}" height="${fHeight}" rx="${rx}" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1.8" />
+          <rect x="${pad + 3}" y="${pad + 3}" width="${fWidth - 6}" height="${fHeight - 6}" rx="${rx - 2}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+          <g clip-path="url(#glassClip)">
+            <rect x="0" y="0" width="${width * 0.35}" height="${height}" fill="url(#glassSheenGrad)" class="glass-sheen" opacity="0.6" />
+          </g>
+        `,
+      };
+    }
+
+    case 'terminal-crt': {
+      return {
+        defs: `
+          <pattern id="crtScanlines" width="100%" height="4" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="100%" y2="0" stroke="rgba(0,0,0,0.3)" stroke-width="1.5" />
+          </pattern>
+        `,
+        style: `
+          @keyframes crtFlicker {
+            0%, 100% { opacity: 0.95; }
+            50% { opacity: 0.85; }
+          }
+          .crt-frame { animation: crtFlicker 0.15s infinite; }
+        `,
+        markup: `
+          <rect x="${pad}" y="${pad}" width="${fWidth}" height="${fHeight}" rx="18" fill="none" stroke="#334155" stroke-width="3" />
+          <rect x="${pad + 4}" y="${pad + 4}" width="${fWidth - 8}" height="${fHeight - 8}" rx="14" fill="url(#crtScanlines)" class="crt-frame" pointer-events="none" />
+          <circle cx="${pad + 12}" cy="${pad + 12}" r="3" fill="#64748b" />
+          <circle cx="${width - pad - 12}" cy="${pad + 12}" r="3" fill="#64748b" />
+          <circle cx="${pad + 12}" cy="${height - pad - 12}" r="3" fill="#64748b" />
+          <circle cx="${width - pad - 12}" cy="${height - pad - 12}" r="3" fill="#64748b" />
+        `,
+      };
+    }
+
+    case 'hologram': {
+      return {
+        defs: `
+          <linearGradient id="holoLaserGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#00f5d4" stop-opacity="0" />
+            <stop offset="50%" stop-color="#00f5d4" stop-opacity="0.7" />
+            <stop offset="100%" stop-color="#00f5d4" stop-opacity="0" />
+          </linearGradient>
+        `,
+        style: `
+          @keyframes holoScan {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(${height - 10}px); }
+            100% { transform: translateY(0); }
+          }
+          .holo-laser { animation: holoScan ${duration * 1.2}s ease-in-out infinite; }
+        `,
+        markup: `
+          <rect x="${pad}" y="${pad}" width="${fWidth}" height="${fHeight}" rx="8" fill="none" stroke="#00f5d4" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="6 4" />
+          <line x1="${width / 2 - 15}" y1="${pad}" x2="${width / 2 + 15}" y2="${pad}" stroke="#00f5d4" stroke-width="2" />
+          <line x1="${width / 2 - 15}" y1="${height - pad}" x2="${width / 2 + 15}" y2="${height - pad}" stroke="#00f5d4" stroke-width="2" />
+          <line x1="${pad}" y1="${height / 2 - 15}" x2="${pad}" y2="${height / 2 + 15}" stroke="#00f5d4" stroke-width="2" />
+          <line x1="${width - pad}" y1="${height / 2 - 15}" x2="${width - pad}" y2="${height / 2 + 15}" stroke="#00f5d4" stroke-width="2" />
+          <text x="${pad + 12}" y="${pad + 16}" font-family="monospace" font-size="9" fill="#00f5d4" opacity="0.8">SYS.RDY // 60FPS</text>
+          <text x="${width - pad - 80}" y="${height - pad - 8}" font-family="monospace" font-size="9" fill="#00f5d4" opacity="0.8">HUD.V4 // LAT</text>
+          <line x1="${pad}" y1="0" x2="${width - pad}" y2="0" stroke="url(#holoLaserGrad)" stroke-width="2" class="holo-laser" />
+        `,
+      };
+    }
+
+    case 'gold-metallic': {
+      return {
+        defs: `
+          <linearGradient id="goldFrameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#bf953f" />
+            <stop offset="25%" stop-color="#fcf6ba" />
+            <stop offset="50%" stop-color="#b38728" />
+            <stop offset="75%" stop-color="#fbf5b7" />
+            <stop offset="100%" stop-color="#aa771c" />
+          </linearGradient>
+        `,
+        style: `
+          @keyframes goldSparkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.4) rotate(45deg); }
+          }
+          .gold-star-1 { animation: goldSparkle ${duration * 0.9}s ease-in-out infinite 0.2s; transform-origin: ${pad + 18}px ${pad + 18}px; }
+          .gold-star-2 { animation: goldSparkle ${duration * 0.9}s ease-in-out infinite 0.7s; transform-origin: ${width - pad - 18}px ${height - pad - 18}px; }
+        `,
+        markup: `
+          <rect x="${pad}" y="${pad}" width="${fWidth}" height="${fHeight}" rx="${rx}" fill="none" stroke="url(#goldFrameGrad)" stroke-width="2.5" />
+          <rect x="${pad + 3}" y="${pad + 3}" width="${fWidth - 6}" height="${fHeight - 6}" rx="${rx - 2}" fill="none" stroke="#d4af37" stroke-opacity="0.3" stroke-width="1" />
+          <path d="M ${pad + 18} ${pad + 13} L ${pad + 18} ${pad + 23} M ${pad + 13} ${pad + 18} L ${pad + 23} ${pad + 18}" stroke="#fff" stroke-width="1.8" class="gold-star-1" />
+          <path d="M ${width - pad - 18} ${height - pad - 23} L ${width - pad - 18} ${height - pad - 13} M ${width - pad - 23} ${height - pad - 18} L ${width - pad - 13} ${height - pad - 18}" stroke="#fff" stroke-width="1.8" class="gold-star-2" />
+        `,
+      };
+    }
+
+    case 'fire-border': {
+      return {
+        defs: `
+          <linearGradient id="fireBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ff1e00" />
+            <stop offset="33%" stop-color="#ff8800" />
+            <stop offset="66%" stop-color="#ffee00" />
+            <stop offset="100%" stop-color="#ff1e00" />
+          </linearGradient>
+        `,
+        style: `
+          @keyframes fireEdgePulse {
+            0%, 100% { stroke-width: 2; opacity: 0.8; }
+            50% { stroke-width: 3.5; opacity: 1; }
+          }
+          .fire-frame {
+            stroke: url(#fireBorderGrad);
+            fill: none;
+            animation: fireEdgePulse ${duration * 0.6}s ease-in-out infinite;
+          }
+        `,
+        markup: `
+          <rect x="${pad}" y="${pad}" width="${fWidth}" height="${fHeight}" rx="${rx}" class="fire-frame" />
+        `,
+      };
+    }
+
+    default:
+      return { defs: '', style: '', markup: '' };
+  }
+}
+
+/**
  * Generates standalone, GitHub-sanitizer-compliant animated SVG code.
  */
 export function generateAnimatedSvg(config: AnimationConfig): string {
@@ -556,6 +877,7 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     fontFamily,
     textEffect,
     backgroundEffect,
+    frameEffect,
     svgEffect,
     threeDEffect,
     primaryColor,
@@ -620,6 +942,16 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     duration
   );
 
+  const frame = renderFrameLayer(
+    frameEffect,
+    width,
+    height,
+    primaryColor,
+    secondaryColor,
+    accentColor,
+    duration
+  );
+
   // Global & Accessibility Styles
   const globalStyles = `
     .svg-root {
@@ -640,6 +972,7 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     ${txt.defs}
     ${svgFx.defs}
     ${threeD.defs}
+    ${frame.defs}
   </defs>
   <style>
     ${globalStyles}
@@ -647,12 +980,15 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     ${txt.style}
     ${svgFx.style}
     ${threeD.style}
+    ${frame.style}
   </style>
   <g class="svg-root">
     ${bg.markup}
     ${threeD.markup}
     ${svgFx.markup}
     ${txt.markup}
+    ${frame.markup}
   </g>
 </svg>`;
 }
+

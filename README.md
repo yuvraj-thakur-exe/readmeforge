@@ -65,6 +65,8 @@
 | **NPX (Instant Studio)** | `npx readmeforge@latest` | Zero-install local browser launch at `http://localhost:3000` |
 | **Claude Code Agent** | `claude mcp add readmeforge -- npx -y readmeforge` | Mount as native MCP tool inside Anthropic's Claude Code |
 | **Google Antigravity IDE** | `agy add plugin readmeforge` | Native DeepMind agent skill for autonomous profile forging |
+| **Cursor IDE** | `cursor --install-extension readmeforge` | AI-first code editor extension with live README generation |
+| **VS Code** | `code --install-extension readmeforge` | Visual Studio Code extension with split-pane live markdown |
 | **PNPM / CLI** | `pnpm dlx readmeforge` | Fast, lightweight package runner |
 | **Linux / macOS** | `curl -fsSL https://git.new/readmeforge \| bash` | 1-line shell installer with auto-dependency setup |
 | **Windows PowerShell** | `iwr -useb https://git.new/readmeforge.ps1 \| iex` | 1-line PowerShell installer |
@@ -278,12 +280,22 @@ ReadmeForge features an enterprise-grade in-browser **Animation Studio** (`/anim
   - `reveal`: Smooth editorial curtain expansion and vertical slide-up.
 
 - **Background Effects:**
+  - `fire`: Dynamic rising heat embers, blazing multi-stop flame gradient, and animated lick curves.
+  - `water`: Fluid undulating sinusoidal wave layers, expanding water drop ripples, and caustic aqua depth.
   - `particles`: Rising luminous sparks and ambient glowing energy orbs.
   - `grids`: Perspective coordinate grid with traveling scanner sweeps.
   - `stars`: Deep space multi-layer starfield with dual-frequency twinkle cycles.
   - `animated-gradient`: Dynamic multi-stop radial and linear color morphing.
   - `matrix`: Vertical streams of phosphor digital code rain.
   - `solid`: High-contrast dark slate backdrop with subtle vignette borders.
+
+- **Frame & Cyber Border Effects:**
+  - `cyber-neon`: High-voltage laser chasing border with animated corner targeting brackets and neon glow.
+  - `glassmorphism`: Translucent frosted glass rim with 45-degree traveling specular light reflection.
+  - `terminal-crt`: Retro curved CRT monitor bezel, horizontal scanline raster, and chassis corner bolts.
+  - `hologram`: Sci-fi targeting HUD with telemetry coordinates, cardinal crosshairs, and laser scanner.
+  - `gold-metallic`: Luxurious 3D beveled metallic gold border with twinkling star glints.
+  - `fire-border`: Blazing perimeter frame with heat pulsation.
 
 - **SVG Vector Effects:**
   - `line-drawing`: Pure CSS `stroke-dashoffset` path tracing animation.

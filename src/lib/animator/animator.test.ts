@@ -127,6 +127,50 @@ describe('Animator Engine - Expanded Effects Pipeline', () => {
     expect(rightSvg).toContain('text-anchor="end"');
     expect(rightSvg).toContain('x="950"');
   });
+
+  it('generates valid SVG for fire effect and fire-border frame', () => {
+    const fireConfig: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      backgroundEffect: 'fire',
+      frameEffect: 'fire-border',
+    };
+
+    const svg = generateAnimatedSvg(fireConfig);
+    expect(svg).toContain('id="fireBaseGrad"');
+    expect(svg).toContain('class="fire-frame"');
+    const val = validateSvg(svg);
+    expect(val.isValid).toBe(true);
+    expect(val.isGitHubSafe).toBe(true);
+  });
+
+  it('generates valid SVG for water effect and glassmorphism frame', () => {
+    const waterConfig: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      backgroundEffect: 'water',
+      frameEffect: 'glassmorphism',
+    };
+
+    const svg = generateAnimatedSvg(waterConfig);
+    expect(svg).toContain('id="oceanGrad"');
+    expect(svg).toContain('class="glass-sheen"');
+    const val = validateSvg(svg);
+    expect(val.isValid).toBe(true);
+    expect(val.isGitHubSafe).toBe(true);
+  });
+
+  it('renders all frame effect styles safely (cyber-neon, terminal-crt, hologram, gold-metallic)', () => {
+    const frames = ['cyber-neon', 'terminal-crt', 'hologram', 'gold-metallic'] as const;
+    for (const frame of frames) {
+      const cfg: AnimationConfig = {
+        ...DEFAULT_ANIMATION_CONFIG,
+        frameEffect: frame,
+      };
+      const svg = generateAnimatedSvg(cfg);
+      const val = validateSvg(svg);
+      expect(val.isValid).toBe(true);
+      expect(val.isGitHubSafe).toBe(true);
+    }
+  });
 });
 
 describe('Animator Engine - Validator & Reliability Controls', () => {
