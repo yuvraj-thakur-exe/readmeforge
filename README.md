@@ -42,7 +42,7 @@
 
   <p>
     <a href="#quickstart-1-line-install">Quickstart</a> &bull;
-    <a href="#roaming-ai-chatbot--animated-characters">Roaming Characters</a> &bull;
+    <a href="#kinetic-typography--text-effects-engine">Text Effects</a> &bull;
     <a href="#developer-mode-monaco-ide--live-sync">/developer Mode</a> &bull;
     <a href="#personalized-profiles-never-the-same">Personalization</a> &bull;
     <a href="#dynamic-graphs--pie-charts">Charts & Graphs</a> &bull;
@@ -64,24 +64,29 @@
 
 <div align="center" id="heroes-squad">
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-heroes-squad.svg" alt="ReadmeForge Legendary Heroes Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(239,68,68,0.25);" />
+</div>
 
 ---
 
 ## Quickstart: 1-Line Install
 
+> [!TIP]
+> **Instant Studio Launch**: Run `npx readmeforge@latest` in any terminal to launch your personalized studio at `http://localhost:3000` in under 2 seconds. Zero global dependencies required.
+
 Launch ReadmeForge instantly locally, inside an autonomous AI agent, or within your favorite IDE:
 
-| Runtime / Agent | Single-Line Command | Description |
+| Runtime / Agent | Single-Line Command | Description | Status |
+| :--- | :--- | :--- | :--- |
 | :--- | :--- | :--- |
-| **NPX (Instant Studio)** | `npx readmeforge@latest` | Zero-install local browser launch at `http://localhost:3000` |
-| **Claude Code Agent** | `claude mcp add readmeforge -- npx -y readmeforge` | Mount as native MCP tool inside Anthropic's Claude Code |
-| **Google Antigravity IDE** | `agy add plugin readmeforge` | Native DeepMind agent skill for autonomous profile forging |
-| **Cursor IDE** | `cursor --install-extension readmeforge` | AI-first code editor extension with live README generation |
-| **VS Code** | `code --install-extension readmeforge` | Visual Studio Code extension with split-pane live markdown |
-| **PNPM / CLI** | `pnpm dlx readmeforge` | Fast, lightweight package runner |
-| **Linux / macOS** | `curl -fsSL https://git.new/readmeforge \| bash` | 1-line shell installer with auto-dependency setup |
-| **Windows PowerShell** | `iwr -useb https://git.new/readmeforge.ps1 \| iex` | 1-line PowerShell installer |
-| **Direct ZIP Download** | [Download readmeforge.zip](https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip) | Standalone source archive for offline local dev |
+| **NPX (Instant Studio)** | `npx readmeforge@latest` | Zero-install local browser launch at `http://localhost:3000` | `![Ready](https://img.shields.io/badge/Status-Instant_2s-brightgreen?style=flat-square)` |
+| **Claude Code Agent** | `claude mcp add readmeforge -- npx -y readmeforge` | Mount as native MCP tool inside Anthropic's Claude Code | `![Verified](https://img.shields.io/badge/MCP-Native_Tool-blue?style=flat-square)` |
+| **Google Antigravity IDE** | `agy add plugin readmeforge` | Native DeepMind agent skill for autonomous profile forging | `![DeepMind](https://img.shields.io/badge/Agent-Autonomous-6366F1?style=flat-square)` |
+| **Cursor IDE** | `cursor --install-extension readmeforge` | AI-first code editor extension with live README generation | `![AI-First](https://img.shields.io/badge/IDE-Sub--16ms-cyan?style=flat-square)` |
+| **VS Code** | `code --install-extension readmeforge` | Visual Studio Code extension with split-pane live markdown | `![Extension](https://img.shields.io/badge/VS_Code-Ready-007ACC?style=flat-square)` |
+| **PNPM / CLI** | `pnpm dlx readmeforge` | Fast, lightweight package runner | `![Fast](https://img.shields.io/badge/Runner-Sub--Second-orange?style=flat-square)` |
+| **Linux / macOS** | `curl -fsSL https://git.new/readmeforge \| bash` | 1-line shell installer with auto-dependency setup | `![Shell](https://img.shields.io/badge/POSIX-Universal-success?style=flat-square)` |
+| **Windows PowerShell** | `iwr -useb https://git.new/readmeforge.ps1 \| iex` | 1-line PowerShell installer | `![PowerShell](https://img.shields.io/badge/Windows-Native-5391FE?style=flat-square)` |
+| **Direct ZIP Download** | [Download readmeforge.zip](https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip) | Standalone source archive for offline local dev | `![Archive](https://img.shields.io/badge/ZIP-Offline_Ready-purple?style=flat-square)` |
 
 <div align="center" style="margin-top: 14px;">
   <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip">
@@ -96,9 +101,28 @@ Launch ReadmeForge instantly locally, inside an autonomous AI agent, or within y
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/agent-suite.svg" alt="Verified Compatibility Suite" width="90%" />
 </div>
 
+<br />
+
+### High-Integrity Architecture Matrix: ReadmeForge vs Generic Generators
+
+```diff
++ [FEATURE] Sub-16ms Live Monaco IDE Keystroke Synchronization
++ [FEATURE] 60fps GPU Hardware-Composited Pure Vector SVG Kinetic Typography & Character Motion
++ [FEATURE] Deterministic Engineering Persona Engine (AI/ML, DevOps, Polyglot, Creative, Systems)
++ [FEATURE] Confirmation-Gated Resume Parsing with strict zero-hallucination trust boundaries
++ [FEATURE] Native Mermaid Markdown Charts & SVG Activity Graphs (Zero external image dependencies)
+! [SECURITY] Authenticated PAT storage strictly client-side in memory; zero remote telemetry
+- [BANNED] Cookie-cutter copy-paste markdown templates with generic boilerplate
+- [BANNED] Bloated runtime dependencies or unvalidated third-party scripts
+- [BANNED] Desynced multi-store state or unconfirmed remote Git writes
+```
+
 ---
 
 ## `/developer` Mode: Monaco IDE & Live Sync
+
+> [!IMPORTANT]
+> **Sub-16ms Live Sync & Bi-Directional State Binding**: Keystrokes in Monaco IDE update the live Markdown preview in real time with sub-16ms latency. State updates pass through strict Zod schemas ensuring corrupt JSON never generates malformed Markdown.
 
 For power users who prefer code over clicking, ReadmeForge features a dedicated **`/developer` mode** powered by Microsoft's Monaco Editor (`@monaco-editor/react`):
 
@@ -109,25 +133,28 @@ For power users who prefer code over clicking, ReadmeForge features a dedicated 
 <br />
 
 ### Key `/developer` Capabilities
-- **Split-Screen Studio**: Left pane renders the full Monaco JSON editor with syntax coloring, bracket matching, and auto-completion.
-- **Sub-16ms Live Sync**: Any keystroke in the Monaco editor instantly re-renders the live Markdown preview with zero perceptible delay.
-- **Bi-Directional State Binding**: Switch seamlessly between the visual wizard and `/developer` mode without losing a single attribute.
-- **Strict Zod Schema Validation**: Real-time validation guarantees your configuration never generates corrupted Markdown.
-- **Command Palette (`Cmd+K` / `Ctrl+K`)**: Rapidly insert plugins, format JSON, or toggle dark/light preview themes.
+- **$\color{#38bdf8}\textbf{Split-Screen Studio}$**: Left pane renders the full Monaco JSON editor with syntax coloring, bracket matching, and auto-completion.
+- **$\color{#818cf8}\textbf{Sub-16ms Live Sync}$**: Any keystroke in the Monaco editor instantly re-renders the live Markdown preview with zero perceptible delay.
+- **$\color{#10b981}\textbf{Bi-Directional State Binding}$**: Switch seamlessly between the visual wizard and `/developer` mode without losing a single attribute.
+- **$\color{#f59e0b}\textbf{Strict Zod Schema Validation}$**: Real-time validation guarantees your configuration never generates corrupted Markdown.
+- **$\color{#ec4899}\textbf{Command Palette}$** (`Cmd+K` / `Ctrl+K`): Rapidly insert plugins, format JSON, or toggle dark/light preview themes.
 
 ---
 
 ## Personalized Profiles: Never The Same
 
+> [!NOTE]
+> **Authentic Engineering Identities**: Generic profiles harm credibility. ReadmeForge deterministically tunes palettes, visual hierarchies, dynamic typing headlines, and chart layouts to reflect your actual day-to-day discipline.
+
 Most profile generators output cookie-cutter markdown that looks identical for every engineer. **ReadmeForge features a deterministic Personalization Engine** (`src/lib/personalization/profile-generator.ts`) that tailors profile sections, visual hierarchies, color harmonies, typing lines, and data widgets to the user's authentic engineering role:
 
 | Engineering Persona | Accent Palette & Vibe | Core Visual Focus | Dynamic Typing Headlines |
 | :--- | :--- | :--- | :--- |
-| **AI / Machine Learning** | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
-| **Cloud & DevOps SRE** | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
-| **Full-Stack Polyglot** | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
-| **Creative & Motion Designer** | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
-| **Systems & Embedded Hacker** | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
+| $\color{#10b981}\mathbf{AI\ /\ Machine\ Learning}$ | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
+| $\color{#06b6d4}\mathbf{Cloud\ \&\ DevOps\ SRE}$ | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
+| $\color{#8b5cf6}\mathbf{Full-Stack\ Polyglot}$ | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
+| $\color{#ec4899}\mathbf{Creative\ \&\ Motion\ Designer}$ | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
+| $\color{#f97316}\mathbf{Systems\ \&\ Embedded\ Hacker}$ | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
 
 *Select domain presets directly inside Step 1 of the visual wizard or via `/developer` mode.*
 
@@ -248,6 +275,38 @@ Vector status shields for engineering humor and workstation pride:
 
 ---
 
+## Kinetic Typography & Text Effects Engine
+
+ReadmeForge provides a native, hardware-accelerated kinetic typography engine capable of generating standalone, GitHub-safe animated SVG text banners and inline markdown text effects:
+
+<div align="center" id="kinetic-typography--text-effects-engine">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/text-effects.svg" alt="ReadmeForge Kinetic Typography and Dynamic Text Effects Engine" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(99,102,241,0.25);" />
+</div>
+
+<br />
+
+| Effect Name | Visual Mechanics | Palette & Glow | GitHub Compatibility |
+| :--- | :--- | :--- | :--- |
+| **Cyber Neon Glow** | Dual-stage Gaussian drop-shadow bloom with breathing luminescence | $\color{#22d3ee}\textbf{\#22D3EE}$ / $\color{#818cf8}\textbf{\#818CF8}$ | SVG `<filter>` with feMerge & drop-shadow |
+| **Holographic Shimmer** | 4-stop spectral linear-gradient continuous horizontal sweep | $\color{#38bdf8}\textbf{\#38BDF8}$ $\color{#ec4899}\textbf{\#EC4899}$ $\color{#22c55e}\textbf{\#22C55E}$ | Pure SVG `<linearGradient>` animation |
+| **Chromatic RGB Glitch** | Sub-pixel horizontal slice displacement with cyan/magenta phase shift | $\color{#06b6d4}\textbf{\#06B6D4}$ / $\color{#ef4444}\textbf{\#EF4444}$ | Keyframe CSS `@keyframes` with fill-box |
+| **Matrix Digital Phosphor** | Monospace terminal glyph decoding with cathode flicker | $\color{#4ade80}\textbf{\#4ADE80}$ CRT Glow | Zero-dependency SVG `<text>` & monospace |
+| **Harmonic Sinusoidal Wave** | Phase-staggered vertical letterform sinusoidal undulation | $\color{#fbbf24}\textbf{\#FBBF24}$ Amber | 60fps GPU `transform: translateY()` |
+| **Terminal Typewriter** | Discrete character cadence with blinking block cursor | $\color{#f8fafc}\textbf{\#F8FAFC}$ / $\color{#38bdf8}\textbf{\#38BDF8}$ | SVG `<text>` & `readme-typing-svg` |
+
+```json
+// Example: Adding Kinetic Typography via /developer JSON Studio
+{
+  "plugin": "kinetic-typography",
+  "effect": "holographic-shimmer",
+  "palette": ["#38bdf8", "#818cf8", "#ec4899", "#22c55e"],
+  "headline": "Distributing AI Systems & Full-Stack Architectures",
+  "cadenceMs": 4000
+}
+```
+
+---
+
 ## Animation Studio & Motion Toolkit
 
 ReadmeForge features an enterprise-grade in-browser **Animation Studio** (`/animator`) and AI agent skill (`.agents/skills/readme-animation-studio/SKILL.md`) for crafting GitHub-compliant animated SVG banners, dynamic typography, 3D illusions, and interactive motion components:
@@ -344,11 +403,32 @@ Every widget in ReadmeForge is a modular, typed plugin defined in `src/lib/plugi
 
 ## Security & Architectural Invariants
 
+> [!CAUTION]
+> **Strict Confirmation-Gated Boundaries**: ReadmeForge never pushes to remote repositories or modifies profile markdown without explicit human confirmation in `ConfirmGate.tsx`. Zero telemetry, zero tracking, and zero external credential transmission.
+
 - **Single Store Truth**: `src/store/useReadmeStore.ts` acts as the single authoritative source of truth. No desynced or diverging UI states.
 - **Pure Markdown Engine**: `buildMarkdown(config)` in `src/lib/buildMarkdown.ts` is 100% deterministic, functional, and completely decoupled from React or browser DOM.
 - **Zero Hallucination Guarantee**: Uploaded resumes or external profiles are strictly parsed and passed to `ConfirmGate.tsx`. Zero fields are injected into your profile without explicit review and confirmation.
 - **Safe Remote Writes**: Writes to GitHub repositories require authenticated PAT validation and side-by-side diff confirmation (`DiffPreview.tsx`).
 - **No Telemetry / No Tracking**: Your resume contents, tokens, and credentials remain private and are never stored on external databases.
+
+<br />
+
+```mermaid
+flowchart LR
+    A["<b>1. User Inputs & Wizard</b><br/><code>Custom Handles & Tags</code>"]:::blue --> B["<b>2. Personalization Engine</b><br/><code>5 Disciplines & Themes</code>"]:::purple
+    B --> C["<b>3. Monaco IDE /developer</b><br/><code>Sub-16ms Live Sync</code>"]:::cyan
+    C --> D["<b>4. Confirmation Gate</b><br/><code>Zero-Hallucination Review</code>"]:::amber
+    D --> E["<b>5. Deterministic Markdown</b><br/><code>Pure AST Generator</code>"]:::green
+    E --> F["<b>6. GitHub Remote Sync</b><br/><code>PAT Confirmed Write</code>"]:::emerald
+
+    classDef blue fill:#0f172a,stroke:#38bdf8,stroke-width:2px,color:#f8fafc;
+    classDef purple fill:#2e1065,stroke:#a855f7,stroke-width:2px,color:#f8fafc;
+    classDef cyan fill:#083344,stroke:#06b6d4,stroke-width:2px,color:#f8fafc;
+    classDef amber fill:#451a03,stroke:#f59e0b,stroke-width:2px,color:#f8fafc;
+    classDef green fill:#064e3b,stroke:#10b981,stroke-width:2px,color:#f8fafc;
+    classDef emerald fill:#022c22,stroke:#34d399,stroke-width:2px,color:#f8fafc;
+```
 
 ---
 
