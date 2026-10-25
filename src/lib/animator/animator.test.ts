@@ -175,7 +175,22 @@ describe('Animator Engine - Expanded Effects Pipeline', () => {
   });
 
   it('renders characters walking across the banner baseline safely', () => {
-    const characters: CharacterType[] = ['pixel-dev', 'cyber-bot', 'builder-crafter', 'ninja-coder', 'wizard-mage'];
+    const characters: CharacterType[] = [
+      'pixel-dev',
+      'cyber-bot',
+      'builder-crafter',
+      'ninja-coder',
+      'wizard-mage',
+      'blue-bot',
+      'blue-bean',
+      'ninja-turtle',
+      'red-dragon',
+      'purple-monster',
+      'chibi-deadpool',
+      'pink-wyvern',
+      'insectoid-warrior',
+      'dragonborn-paladin',
+    ];
     for (const charType of characters) {
       const cfg: AnimationConfig = {
         ...DEFAULT_ANIMATION_CONFIG,

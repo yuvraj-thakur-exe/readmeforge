@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Radial Glows -->
+    <radialGradient id="paladinGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="holyGleam" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+      <stop offset="40%" stop-color="#38bdf8" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#0284c7" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="paladinShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#090d16" flood-opacity="0.5" />
+    </filter>
+    <filter id="steelShine" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* 60fps GPU acceleration */
+    @keyframes paladinStance {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-5px) rotate(-1deg); }
+    }
+    @keyframes paladinTailSway {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(12deg); }
+    }
+    @keyframes spearThrustMotion {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      30%      { transform: translateY(5px) rotate(1deg); }
+      45%      { transform: translateY(-14px) rotate(-2deg); }
+      60%      { transform: translateY(-2px) rotate(0deg); }
+    }
+    @keyframes ribbonWaveFlutter {
+      0%, 100% { transform: rotate(0deg) skewX(0deg); }
+      35%      { transform: rotate(-18deg) skewX(-10deg); }
+      70%      { transform: rotate(12deg) skewX(8deg); }
+    }
+    @keyframes holyGlintFlash {
+      0%, 40%, 100% { opacity: 0; transform: scale(0.2) rotate(0deg); }
+      48%           { opacity: 1; transform: scale(1.3) rotate(90deg); }
+      58%           { opacity: 0; transform: scale(0.2) rotate(180deg); }
+    }
+    @keyframes armorReflection {
+      0%, 100% { opacity: 0.3; }
+      50%      { opacity: 0.9; }
+    }
+
+    .paladin-root { animation: paladinStance 3.8s ease-in-out infinite; transform-origin: 100px 150px; }
+    .paladin-tail { animation: paladinTailSway 3.2s ease-in-out infinite; transform-origin: 135px 150px; }
+    .spear-arm { animation: spearThrustMotion 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 50px 130px; }
+    .ribbon-wave { animation: ribbonWaveFlutter 2.2s ease-in-out infinite; transform-origin: 35px 72px; }
+    .glint-flash { animation: holyGlintFlash 3.8s ease-out infinite; transform-origin: 32px 30px; }
+    .armor-shimmer { animation: armorReflection 2.5s ease-in-out infinite; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .paladin-root, .paladin-tail, .spear-arm, .ribbon-wave, .glint-flash, .armor-shimmer {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Ambient Glow -->
+  <circle cx="100" cy="110" r="75" fill="url(#paladinGlow)" />
+
+  <!-- Ground Shadow -->
+  <ellipse cx="105" cy="186" rx="52" ry="9" fill="#090d16" opacity="0.45" />
+
+  <!-- Animated Character Root -->
+  <g class="paladin-root" filter="url(#paladinShadow)">
+
+    <!-- Long Sweeping Dragonborn Tail (Background Layer) -->
+    <g class="paladin-tail">
+      <path d="M 130 148 C 158 140 185 115 180 75 C 178 50 162 45 158 60 C 155 85 142 125 115 150 Z" 
+            fill="#dca072" stroke="#b45309" stroke-width="1.8" stroke-linejoin="round" />
+      <!-- Tail Shadow Underside -->
+      <path d="M 130 148 C 145 142 165 125 168 95 C 160 115 142 135 115 150 Z" fill="#b45309" opacity="0.6" />
+    </g>
+
+    <!-- Torso, Tabard & Legs -->
+    <!-- Armored Faulds & Greaves -->
+    <path d="M 72 155 L 70 190 L 90 190 L 94 158 Z" fill="#64748b" stroke="#334155" stroke-width="1.5" />
+    <path d="M 128 155 L 130 190 L 110 190 L 106 158 Z" fill="#475569" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Royal Crimson Tabard -->
+    <polygon points="86,135 114,135 112,192 88,192" fill="#be185d" stroke="#831843" stroke-width="1.5" />
+    <line x1="100" y1="135" x2="100" y2="190" stroke="#f43f5e" stroke-width="1.5" stroke-opacity="0.6" />
+
+    <!-- Tassets (Side Armor Flaps) -->
+    <polygon points="68,145 88,145 92,175 66,165" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+    <polygon points="132,145 112,145 108,175 134,165" fill="#94a3b8" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Back Left Arm (Right side of viewer) with Vambrace Gauntlet -->
+    <path d="M 125 90 C 148 95 160 115 152 142 L 138 135 C 145 118 138 105 125 98 Z" 
+          fill="#dca072" stroke="#b45309" stroke-width="1.5" />
+    <!-- Steel Vambrace Guard -->
+    <path d="M 138 115 L 158 122 L 148 142 L 135 135 Z" fill="#64748b" stroke="#334155" stroke-width="1.5" />
+
+    <!-- Dragonborn Torso with Steel Chevron Breastplate -->
+    <g>
+      <!-- Base Under-Tunic -->
+      <path d="M 78 88 L 122 88 L 128 145 L 72 145 Z" fill="#1e293b" />
+      <!-- Chevron Steel Cuirass (Left Light Side) -->
+      <polygon points="100,78 74,90 76,132 100,146" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" />
+      <!-- Chevron Steel Cuirass (Right Shaded Side) -->
+      <polygon points="100,78 126,90 124,132 100,146" fill="#94a3b8" stroke="#475569" stroke-width="1.5" />
+      <!-- Polished Ridge Shimmer Highlight -->
+      <line x1="100" y1="80" x2="100" y2="144" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" class="armor-shimmer" />
+    </g>
+
+    <!-- Winged Shoulder Pauldrons -->
+    <!-- Left Pauldron (Viewer Left) -->
+    <g>
+      <path d="M 82 86 C 68 84 55 76 56 68 C 65 64 78 72 86 78 Z" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5" />
+      <path d="M 80 84 C 70 82 60 76 60 70 C 68 68 76 74 84 80 Z" fill="#cbd5e1" />
+    </g>
+    <!-- Right Pauldron (Viewer Right) -->
+    <g>
+      <path d="M 118 86 C 132 84 145 76 144 68 C 135 64 122 72 114 78 Z" fill="#94a3b8" stroke="#475569" stroke-width="1.5" />
+      <path d="M 120 84 C 130 82 140 76 140 70 C 132 68 124 74 116 80 Z" fill="#64748b" />
+    </g>
+
+    <!-- Dragonborn Head & Snout -->
+    <g>
+      <!-- Scaled Reptilian Neck -->
+      <path d="M 88 55 C 88 78 94 85 98 85 C 102 85 108 78 108 55 Z" fill="#dca072" stroke="#b45309" stroke-width="1.5" />
+      <!-- Throat Segment Rings -->
+      <line x1="90" y1="64" x2="105" y2="64" stroke="#b45309" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="92" y1="72" x2="104" y2="72" stroke="#b45309" stroke-width="1.5" stroke-linecap="round" />
+
+      <!-- Backward Sweeping Ridged Horn -->
+      <path d="M 98 32 C 108 18 125 15 124 8 C 114 12 95 24 92 36 Z" fill="#334155" stroke="#1e293b" stroke-width="1.5" />
+      <line x1="104" y1="26" x2="114" y2="18" stroke="#64748b" stroke-width="1.5" />
+      <line x1="108" y1="20" x2="118" y2="14" stroke="#64748b" stroke-width="1.5" />
+
+      <!-- Head Snout Profile -->
+      <path d="M 98 32 C 92 35 78 44 68 48 C 66 52 70 56 75 56 C 85 54 94 52 104 50 C 112 48 114 36 98 32 Z" 
+            fill="#dca072" stroke="#b45309" stroke-width="1.8" stroke-linejoin="round" />
+      <!-- Under-jaw & Brow Accent -->
+      <polygon points="76,54 84,53 82,58" fill="#b45309" />
+
+      <!-- Amber Dragon Eye -->
+      <circle cx="88" cy="44" r="2.8" fill="#b45309" />
+      <circle cx="87.5" cy="43.5" r="1.5" fill="#f59e0b" />
+      <line x1="87.5" y1="42.5" x2="87.5" y2="44.5" stroke="#1e293b" stroke-width="0.8" />
+    </g>
+
+    <!-- Front Arm Holding the Spear (Articulated Thrust Kinematics) -->
+    <g class="spear-arm">
+      <!-- Upper Arm & Gauntlet Hand -->
+      <path d="M 78 88 L 48 118 L 42 128 L 52 135 L 68 122 Z" fill="#dca072" stroke="#b45309" stroke-width="1.5" />
+      <!-- Armored Vambrace -->
+      <path d="M 46 112 L 64 122 L 56 132 L 40 120 Z" fill="#cbd5e1" stroke="#475569" stroke-width="1.5" />
+      <!-- Clenched Gauntlet Fist Gripping Shaft -->
+      <circle cx="38" cy="128" r="7.5" fill="#dca072" stroke="#b45309" stroke-width="1.5" />
+
+      <!-- Crimson Spear Weapon -->
+      <!-- Spear Shaft -->
+      <rect x="33" y="15" width="6" height="175" rx="3" fill="#dc2626" stroke="#991b1b" stroke-width="1.2" />
+      <!-- Golden Metal Ferrules / Grip Wraps -->
+      <rect x="32" y="65" width="8" height="10" rx="1" fill="#f59e0b" stroke="#b45309" stroke-width="1" />
+      <line x1="33" y1="122" x2="39" y2="122" stroke="#fef08a" stroke-width="1.5" />
+      <line x1="33" y1="134" x2="39" y2="134" stroke="#fef08a" stroke-width="1.5" />
+
+      <!-- Flowing Purple-Magenta Spear Banner Ribbon -->
+      <g class="ribbon-wave">
+        <path d="M 32 70 C 20 75 14 90 24 100 C 30 106 32 118 20 124 C 28 116 26 102 18 96 C 10 90 18 78 32 70 Z" 
+              fill="#be185d" stroke="#831843" stroke-width="1.5" />
+      </g>
+
+      <!-- Polished Leaf-Shaped Steel Spearhead -->
+      <g filter="url(#steelShine)">
+        <!-- Spearhead Base Socket -->
+        <rect x="33" y="55" width="6" height="12" fill="#64748b" stroke="#334155" stroke-width="1" />
+        <!-- Left Steel Bevel (Light) -->
+        <polygon points="36,12 24,48 36,55" fill="#f8fafc" stroke="#64748b" stroke-width="1" />
+        <!-- Right Steel Bevel (Shadow) -->
+        <polygon points="36,12 48,48 36,55" fill="#cbd5e1" stroke="#64748b" stroke-width="1" />
+        <!-- Center Razor Ridge -->
+        <line x1="36" y1="12" x2="36" y2="55" stroke="#ffffff" stroke-width="1.5" />
+      </g>
+
+      <!-- Holy Light Glint Flare on Spear Tip -->
+      <g class="glint-flash">
+        <polygon points="36,6 38,14 46,16 38,18 36,26 34,18 26,16 34,14" fill="#ffffff" filter="url(#steelShine)" />
+        <circle cx="36" cy="16" r="3" fill="#38bdf8" />
+      </g>
+    </g>
+
+  </g>
+</svg>

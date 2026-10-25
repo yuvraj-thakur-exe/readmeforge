@@ -66,25 +66,37 @@ Watch the ReadmeForge animated assistant in action! Features a floating AI chatb
 
 <br />
 
-### Animated Character Squad: Pure SVG Vector Actions
+### Animated Character Squads: Pure SVG Vector Actions
 
 Bring personality and living motion to your profile with pure CSS `@keyframes` animated SVG characters. Zero external server dependencies—renders natively on GitHub:
 
+#### Squad 1: Cyber Champions Stage
 <div align="center">
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Animated Character Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(34,211,238,0.25);" />
 </div>
 
 <br />
 
+#### Squad 2: Legendary Heroes Stage
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-heroes-squad.svg" alt="ReadmeForge Animated Legendary Heroes Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(239,68,68,0.25);" />
+</div>
+
+<br />
+
 <div align="center">
 
-| Character | Action & Kinematics | Standalone SVG Preview |
+| Character | Action &amp; Kinematics | Standalone SVG Preview |
 | :--- | :--- | :---: |
+| **Chibi Deadpool** | Dual katana slashing combos, comedic winking, and glowing ruby speed arcs | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/chibi-deadpool.svg" width="80" height="80" alt="Chibi Deadpool" /> |
+| **Pink Wyvern** | Dual-wing flapping hover, tail swaying, and magical starry stardust breath | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/pink-wyvern.svg" width="80" height="80" alt="Pink Wyvern" /> |
+| **Insectoid Warrior** | Pulsing laser eyes, scanning beam sweep, antennae twitching, and chest flex | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/insectoid-warrior.svg" width="80" height="80" alt="Insectoid Warrior" /> |
+| **Dragonborn Paladin** | Spear thrusting readiness, flowing banner ribbon, tail sway, and holy light gleam | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/dragonborn-paladin.svg" width="80" height="80" alt="Dragonborn Paladin" /> |
 | **Blue Assistant Bot** | Floating hover, waving arm pivots, blinking eyes, energy core pulse | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bot.svg" width="80" height="80" alt="Blue Bot" /> |
 | **Blue Bean Capsule** | Waddling side-to-side, jump bounce, flapping arms, blinking eyes | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bean.svg" width="80" height="80" alt="Blue Bean" /> |
 | **Ninja Turtle** | Dual katana slashing combos, luminous speed trails, fluttering bandana | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/ninja-turtle.svg" width="80" height="80" alt="Ninja Turtle" /> |
 | **Red Flying Dragon** | Dual-wing flapping flight, sky soaring swoop, fire breath burst | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/red-dragon.svg" width="80" height="80" alt="Red Dragon" /> |
-| **Purple Monster** | Alternating foot stomps, chomping fangs & roaring jaw, wandering eyes | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/purple-monster.svg" width="80" height="80" alt="Purple Monster" /> |
+| **Purple Monster** | Alternating foot stomps, chomping fangs &amp; roaring jaw, wandering eyes | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/purple-monster.svg" width="80" height="80" alt="Purple Monster" /> |
 
 </div>
 

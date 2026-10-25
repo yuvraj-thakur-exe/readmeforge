@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Radial Glows -->
+    <radialGradient id="wyvernGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="sparkleGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fda4af" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#f43f5e" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="wyvernShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#090d16" flood-opacity="0.45" />
+    </filter>
+    <filter id="stardustGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* 60fps GPU acceleration */
+    @keyframes wyvernHover {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-12px) rotate(2deg); }
+    }
+    @keyframes wyvernShadowScale {
+      0%, 100% { transform: scaleX(1); opacity: 0.4; }
+      50%      { transform: scaleX(0.82); opacity: 0.2; }
+    }
+    @keyframes wyvernWingFlapL {
+      0%, 100% { transform: rotate(0deg) scale(1, 1); }
+      50%      { transform: rotate(-32deg) scale(0.9, 1.15); }
+    }
+    @keyframes wyvernWingFlapR {
+      0%, 100% { transform: rotate(0deg) scale(1, 1); }
+      50%      { transform: rotate(28deg) scale(0.9, 1.15); }
+    }
+    @keyframes wyvernTailSway {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(14deg); }
+    }
+    @keyframes wyvernHeadBob {
+      0%, 100% { transform: rotate(0deg); }
+      35%      { transform: rotate(-6deg); }
+      70%      { transform: rotate(4deg); }
+    }
+    @keyframes wyvernFireBurst {
+      0%, 40%  { opacity: 0; transform: translate(0, 0) scale(0.2); }
+      55%      { opacity: 1; transform: translate(14px, -8px) scale(1.1); }
+      75%      { opacity: 0.8; transform: translate(28px, -16px) scale(1.3); }
+      90%, 100%{ opacity: 0; transform: translate(36px, -22px) scale(0.4); }
+    }
+    @keyframes starSpin {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .wyvern-root { animation: wyvernHover 3.5s ease-in-out infinite; transform-origin: 100px 140px; }
+    .wyvern-shadow { animation: wyvernShadowScale 3.5s ease-in-out infinite; transform-origin: 100px 182px; }
+    .wyvern-wing-l { animation: wyvernWingFlapL 1.2s ease-in-out infinite; transform-origin: 85px 85px; }
+    .wyvern-wing-r { animation: wyvernWingFlapR 1.2s ease-in-out infinite 0.1s; transform-origin: 110px 80px; }
+    .wyvern-tail { animation: wyvernTailSway 2.4s ease-in-out infinite; transform-origin: 45px 120px; }
+    .wyvern-head { animation: wyvernHeadBob 3.5s ease-in-out infinite; transform-origin: 130px 75px; }
+    .wyvern-breath { animation: wyvernFireBurst 3.5s ease-out infinite; }
+    .star-sparkle { animation: starSpin 3s linear infinite; transform-origin: center; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wyvern-root, .wyvern-shadow, .wyvern-wing-l, .wyvern-wing-r, .wyvern-tail, .wyvern-head, .wyvern-breath, .star-sparkle {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Ambient Glow -->
+  <circle cx="100" cy="110" r="75" fill="url(#wyvernGlow)" />
+
+  <!-- Ground Shadow -->
+  <ellipse cx="100" cy="182" rx="48" ry="9" fill="#090d16" class="wyvern-shadow" />
+
+  <!-- Animated Character Root -->
+  <g class="wyvern-root" filter="url(#wyvernShadow)">
+
+    <!-- Tail (Curled dragon tail with spade fin) -->
+    <g class="wyvern-tail">
+      <!-- Tail Base Curve -->
+      <path d="M 75 140 C 45 155 20 135 22 98 C 24 68 52 70 56 94 C 58 112 40 120 32 110" 
+            fill="none" stroke="#ff6584" stroke-width="15" stroke-linecap="round" />
+      <path d="M 75 140 C 45 155 20 135 22 98 C 24 68 52 70 56 94 C 58 112 40 120 32 110" 
+            fill="none" stroke="#102a45" stroke-width="3" stroke-linecap="round" />
+      <!-- Tail Spade Fin -->
+      <polygon points="26,100 16,84 34,88" fill="#818cf8" stroke="#102a45" stroke-width="2.5" />
+      <polygon points="34,88 44,98 32,106" fill="#f43f5e" stroke="#102a45" stroke-width="2" />
+    </g>
+
+    <!-- Left Wing (Back Layer) -->
+    <g class="wyvern-wing-r">
+      <path d="M 105 85 Q 120 40 148 45 Q 135 65 140 85 Q 120 80 105 85 Z" fill="#ff8da1" stroke="#102a45" stroke-width="3" stroke-linejoin="round" />
+      <polygon points="148,45 154,42 146,52" fill="#818cf8" stroke="#102a45" stroke-width="2" />
+      <line x1="105" y1="85" x2="148" y2="45" stroke="#102a45" stroke-width="2.5" />
+    </g>
+
+    <!-- Hind Legs & Claws -->
+    <!-- Back Hind Leg -->
+    <path d="M 68 135 Q 52 155 58 174 L 75 174 Q 80 156 82 142 Z" fill="#ff6584" stroke="#102a45" stroke-width="3" stroke-linejoin="round" />
+    <path d="M 58 174 L 54 178 M 66 174 L 66 179 M 75 174 L 78 178" stroke="#102a45" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Forelegs & Claws -->
+    <path d="M 125 138 Q 135 155 130 174 L 148 174 Q 155 154 142 135 Z" fill="#ff6584" stroke="#102a45" stroke-width="3" stroke-linejoin="round" />
+    <path d="M 130 174 L 126 178 M 139 174 L 139 179 M 148 174 L 152 178" stroke="#102a45" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Main Dragon Torso -->
+    <path d="M 65 135 C 60 105 85 92 115 95 C 138 98 145 120 138 145 C 130 162 75 160 65 135 Z" 
+          fill="#ff6584" stroke="#102a45" stroke-width="3.5" stroke-linejoin="round" />
+    <!-- Cream / Peach Underbelly plates -->
+    <path d="M 85 148 C 95 152 120 152 128 138 C 122 128 105 124 95 128 C 88 132 82 142 85 148 Z" 
+          fill="#fecdd3" stroke="#102a45" stroke-width="2" />
+
+    <!-- Front Wing (Articulated Wing Flap) -->
+    <g class="wyvern-wing-l">
+      <!-- Wing Bone & Webbing -->
+      <path d="M 88 98 Q 72 42 108 34 Q 112 58 126 74 Q 106 88 88 98 Z" 
+            fill="#ff8da1" stroke="#102a45" stroke-width="3.5" stroke-linejoin="round" />
+      <!-- Lavender Wing Tip Claw -->
+      <polygon points="108,34 116,28 112,42" fill="#818cf8" stroke="#102a45" stroke-width="2" />
+      <!-- Wing Strut Ridges -->
+      <line x1="88" y1="98" x2="108" y2="34" stroke="#102a45" stroke-width="3" />
+      <line x1="94" y1="78" x2="126" y2="74" stroke="#102a45" stroke-width="2" />
+    </g>
+
+    <!-- Neck & Head Group (With Bobbing Motion) -->
+    <g class="wyvern-head">
+      <!-- Graceful Neck -->
+      <path d="M 125 105 C 132 85 142 75 152 68 C 160 62 165 65 168 74 C 158 85 148 102 136 114 Z" 
+            fill="#ff6584" stroke="#102a45" stroke-width="3" stroke-linejoin="round" />
+      <!-- Neck Throat Peach Accent -->
+      <path d="M 132 104 C 138 92 146 84 154 78 C 150 88 144 98 138 108 Z" fill="#fecdd3" />
+
+      <!-- Dragon Head -->
+      <path d="M 152 68 C 158 54 176 56 182 66 C 188 74 184 84 175 86 C 166 88 158 84 152 68 Z" 
+            fill="#ff6584" stroke="#102a45" stroke-width="3" stroke-linejoin="round" />
+      <!-- Snout Tip -->
+      <ellipse cx="180" cy="74" rx="4" ry="5" fill="#f43f5e" />
+
+      <!-- Horn with Lavender Tip -->
+      <path d="M 158 56 Q 164 36 150 32 Q 146 44 154 58 Z" fill="#818cf8" stroke="#102a45" stroke-width="2.5" />
+      <polygon points="150,32 144,28 148,38" fill="#c7d2fe" stroke="#102a45" stroke-width="1.5" />
+
+      <!-- Back Ear Fin -->
+      <polygon points="144,62 136,54 142,70" fill="#818cf8" stroke="#102a45" stroke-width="2" />
+
+      <!-- Adorable White Dot Eye -->
+      <circle cx="168" cy="65" r="3.2" fill="#ffffff" filter="url(#stardustGlow)" />
+      <circle cx="169" cy="64.5" r="1.2" fill="#102a45" />
+
+      <!-- Breath Flare Origin -->
+      <!-- Magical Stardust Fire Breath Burst -->
+      <g class="wyvern-breath" filter="url(#stardustGlow)">
+        <!-- Fire Cloud / Magic Puffs -->
+        <circle cx="188" cy="74" r="7" fill="#f43f5e" opacity="0.85" />
+        <circle cx="198" cy="68" r="9" fill="#fda4af" opacity="0.9" />
+        <circle cx="208" cy="62" r="6" fill="#fb7185" opacity="0.75" />
+        <!-- Floating Sparkle Stars -->
+        <g transform="translate(198, 68)" class="star-sparkle">
+          <polygon points="0,-6 2,-2 6,0 2,2 0,6 -2,2 -6,0 -2,-2" fill="#ffffff" />
+        </g>
+        <g transform="translate(210, 56)" class="star-sparkle">
+          <polygon points="0,-4 1.5,-1.5 4,0 1.5,1.5 0,4 -1.5,1.5 -4,0 -1.5,-1.5" fill="#fecdd3" />
+        </g>
+      </g>
+    </g>
+
+  </g>
+</svg>

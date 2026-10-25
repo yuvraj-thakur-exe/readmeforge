@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Radial Glows -->
+    <radialGradient id="dpGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="slashGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f87171" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#dc2626" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="dpShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+    <filter id="bladeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* 60fps GPU acceleration */
+    @keyframes dpSwagger {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25%      { transform: translateY(-7px) rotate(-3deg); }
+      50%      { transform: translateY(0px) rotate(0deg); }
+      75%      { transform: translateY(-7px) rotate(3deg); }
+    }
+    @keyframes dpShadowScale {
+      0%, 50%, 100% { transform: scaleX(1); opacity: 0.45; }
+      25%, 75%      { transform: scaleX(0.85); opacity: 0.25; }
+    }
+    @keyframes dpKatanaSlashL {
+      0%, 100% { transform: rotate(-25deg); }
+      40%      { transform: rotate(15deg) translateY(4px); }
+      50%      { transform: rotate(-55deg) translateY(-8px); }
+      65%      { transform: rotate(-20deg); }
+    }
+    @keyframes dpKatanaSlashR {
+      0%, 100% { transform: rotate(25deg); }
+      45%      { transform: rotate(-20deg) translateY(4px); }
+      55%      { transform: rotate(55deg) translateY(-8px); }
+      70%      { transform: rotate(20deg); }
+    }
+    @keyframes dpSlashArcL {
+      0%, 45%  { opacity: 0; stroke-dashoffset: 80; }
+      50%      { opacity: 1; stroke-dashoffset: 0; }
+      60%, 100%{ opacity: 0; stroke-dashoffset: -80; }
+    }
+    @keyframes dpSlashArcR {
+      0%, 50%  { opacity: 0; stroke-dashoffset: 80; }
+      55%      { opacity: 1; stroke-dashoffset: 0; }
+      65%, 100%{ opacity: 0; stroke-dashoffset: -80; }
+    }
+    @keyframes dpEyeWinkL {
+      0%, 88%, 100% { transform: scaleY(1); }
+      92%           { transform: scaleY(0.15); }
+      96%           { transform: scaleY(1); }
+    }
+    @keyframes dpEyeSquintR {
+      0%, 70%, 100% { transform: scale(1); }
+      75%, 85%      { transform: scale(0.85, 0.7); }
+    }
+    @keyframes dpSparkPulse {
+      0%, 48%, 68%, 100% { opacity: 0; transform: scale(0.2); }
+      52%, 60%           { opacity: 1; transform: scale(1.4); }
+    }
+
+    .dp-root { animation: dpSwagger 3.2s ease-in-out infinite; transform-origin: 100px 175px; }
+    .dp-shadow { animation: dpShadowScale 3.2s ease-in-out infinite; transform-origin: 100px 185px; }
+    .dp-sword-l { animation: dpKatanaSlashL 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 65px 115px; }
+    .dp-sword-r { animation: dpKatanaSlashR 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 135px 115px; }
+    .dp-arc-l { animation: dpSlashArcL 3.2s ease-out infinite; stroke-dasharray: 80; }
+    .dp-arc-r { animation: dpSlashArcR 3.2s ease-out infinite; stroke-dasharray: 80; }
+    .dp-eye-l { animation: dpEyeWinkL 4s ease-in-out infinite; transform-origin: 80px 62px; }
+    .dp-eye-r { animation: dpEyeSquintR 4s ease-in-out infinite; transform-origin: 120px 62px; }
+    .dp-spark { animation: dpSparkPulse 3.2s ease-out infinite; transform-origin: 100px 110px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dp-root, .dp-shadow, .dp-sword-l, .dp-sword-r, .dp-arc-l, .dp-arc-r, .dp-eye-l, .dp-eye-r, .dp-spark {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Ambient Glow -->
+  <circle cx="100" cy="115" r="75" fill="url(#dpGlow)" />
+
+  <!-- Ground Contact Shadow -->
+  <ellipse cx="100" cy="186" rx="46" ry="9" fill="#090d16" class="dp-shadow" />
+
+  <!-- Animated Character Group -->
+  <g class="dp-root" filter="url(#dpShadow)">
+
+    <!-- Back Swords / Scabbards (Crossed) -->
+    <!-- Scabbard Left to Top-Right -->
+    <g>
+      <rect x="25" y="45" width="8" height="95" rx="3" transform="rotate(-40 25 45)" fill="#37474f" stroke="#263238" stroke-width="1.2" />
+      <rect x="23" y="45" width="12" height="6" rx="1.5" transform="rotate(-40 25 45)" fill="#78909c" />
+      <!-- Diamond Handle Wrap -->
+      <polygon points="126,38 129,35 126,32 123,35" fill="#cfd8dc" />
+      <polygon points="132,32 135,29 132,26 129,29" fill="#cfd8dc" />
+    </g>
+    <!-- Scabbard Right to Top-Left -->
+    <g>
+      <rect x="165" y="45" width="8" height="95" rx="3" transform="rotate(40 165 45)" fill="#37474f" stroke="#263238" stroke-width="1.2" />
+      <rect x="163" y="45" width="12" height="6" rx="1.5" transform="rotate(40 165 45)" fill="#78909c" />
+      <!-- Diamond Handle Wrap -->
+      <polygon points="74,38 71,35 74,32 77,35" fill="#cfd8dc" />
+      <polygon points="68,32 65,29 68,26 71,29" fill="#cfd8dc" />
+    </g>
+
+    <!-- Stubby Legs & Boots -->
+    <!-- Left Leg -->
+    <path d="M 72 138 L 65 174 C 65 182 82 182 84 174 L 88 138 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.5" />
+    <!-- Thigh Holster Band L -->
+    <path d="M 67 156 L 85 156" stroke="#5d4037" stroke-width="6.5" stroke-linecap="round" />
+    <rect x="74" y="153" width="5" height="6" rx="1" fill="#78909c" />
+
+    <!-- Right Leg -->
+    <path d="M 128 138 L 135 174 C 135 182 118 182 116 174 L 112 138 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.5" />
+    <!-- Thigh Holster Band R -->
+    <path d="M 115 156 L 133 156" stroke="#5d4037" stroke-width="6.5" stroke-linecap="round" />
+    <rect x="121" y="153" width="5" height="6" rx="1" fill="#78909c" />
+
+    <!-- Crotch/Pelvis Triangle -->
+    <polygon points="85,138 100,160 115,138" fill="#c62828" />
+
+    <!-- Main Torso -->
+    <path d="M 68 95 C 65 125 74 145 100 145 C 126 145 135 125 132 95 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.8" />
+    <!-- Black Side Panels -->
+    <path d="M 68 95 C 65 118 73 138 82 142 L 78 95 Z" fill="#212121" />
+    <path d="M 132 95 C 135 118 127 138 118 142 L 122 95 Z" fill="#212121" />
+
+    <!-- Crossed Tactical Chest Harness Straps -->
+    <!-- Strap 1 (TL to BR) -->
+    <path d="M 72 94 L 128 138" stroke="#5d4037" stroke-width="8" stroke-linecap="square" />
+    <!-- Strap 2 (TR to BL) -->
+    <path d="M 128 94 L 72 138" stroke="#6d4c41" stroke-width="8" stroke-linecap="square" />
+    <!-- Harness Center Metal Buckle -->
+    <circle cx="100" cy="116" r="6.5" fill="#455a64" stroke="#78909c" stroke-width="1.8" />
+    <circle cx="100" cy="116" r="2.5" fill="#90a4ae" />
+
+    <!-- Utility Belt -->
+    <rect x="70" y="133" width="60" height="8" rx="2" fill="#4e342e" stroke="#3e2723" stroke-width="1" />
+    <!-- Belt Buckle -->
+    <rect x="93" y="131" width="14" height="12" rx="2" fill="#78909c" stroke="#37474f" stroke-width="1.2" />
+    <rect x="97" y="134" width="6" height="6" rx="1" fill="#37474f" />
+    <!-- Ammo Pouches -->
+    <rect x="74" y="133" width="7" height="8" rx="1.5" fill="#5d4037" />
+    <rect x="83" y="133" width="7" height="8" rx="1.5" fill="#5d4037" />
+    <rect x="110" y="133" width="7" height="8" rx="1.5" fill="#5d4037" />
+    <rect x="119" y="133" width="7" height="8" rx="1.5" fill="#5d4037" />
+
+    <!-- Left Arm & Drawn Katana -->
+    <g class="dp-sword-l">
+      <!-- Upper Arm -->
+      <path d="M 70 100 L 46 116 C 40 120 46 128 53 126 L 73 112 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.5" />
+      <!-- Black Wrist Cuff -->
+      <path d="M 52 114 L 46 124" stroke="#212121" stroke-width="5" stroke-linecap="round" />
+      <!-- Fist -->
+      <circle cx="43" cy="123" r="8" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.2" />
+      <!-- Wielded Katana Blade L -->
+      <g filter="url(#bladeGlow)">
+        <!-- Guard Tsuba -->
+        <rect x="36" y="120" width="14" height="3" rx="1" fill="#78909c" transform="rotate(-30 43 121)" />
+        <!-- Steel Blade -->
+        <path d="M 43 121 L 18 68 C 17 65 21 64 24 67 L 46 118 Z" fill="#eceff1" stroke="#b0bec5" stroke-width="1" />
+        <!-- Blade Edge Highlight -->
+        <line x1="20" y1="67" x2="44" y2="120" stroke="#ffffff" stroke-width="1.2" />
+      </g>
+    </g>
+
+    <!-- Right Arm & Drawn Katana -->
+    <g class="dp-sword-r">
+      <!-- Upper Arm -->
+      <path d="M 130 100 L 154 116 C 160 120 154 128 147 126 L 127 112 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.5" />
+      <!-- Black Wrist Cuff -->
+      <path d="M 148 114 L 154 124" stroke="#212121" stroke-width="5" stroke-linecap="round" />
+      <!-- Fist -->
+      <circle cx="157" cy="123" r="8" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.2" />
+      <!-- Wielded Katana Blade R -->
+      <g filter="url(#bladeGlow)">
+        <!-- Guard Tsuba -->
+        <rect x="150" y="120" width="14" height="3" rx="1" fill="#78909c" transform="rotate(30 157 121)" />
+        <!-- Steel Blade -->
+        <path d="M 157 121 L 182 68 C 183 65 179 64 176 67 L 154 118 Z" fill="#eceff1" stroke="#b0bec5" stroke-width="1" />
+        <!-- Blade Edge Highlight -->
+        <line x1="180" y1="67" x2="156" y2="120" stroke="#ffffff" stroke-width="1.2" />
+      </g>
+    </g>
+
+    <!-- Round Chibi Head -->
+    <g>
+      <!-- Head Base -->
+      <circle cx="100" cy="58" r="44" fill="#d32f2f" stroke="#b71c1c" stroke-width="2" />
+      <!-- Mask Crown Seam / Point Fold -->
+      <path d="M 97 14 Q 100 8 103 14 Z" fill="#b71c1c" />
+
+      <!-- Left Black Mask Patch -->
+      <path d="M 86 32 C 64 33 54 50 56 68 C 58 84 74 88 88 84 C 98 80 98 64 96 48 C 95 38 92 32 86 32 Z" fill="#212121" />
+      <!-- Right Black Mask Patch -->
+      <path d="M 114 32 C 136 33 146 50 144 68 C 142 84 126 88 112 84 C 102 80 102 64 104 48 C 105 38 108 32 114 32 Z" fill="#212121" />
+
+      <!-- Left Eye (Winking Action) -->
+      <g class="dp-eye-l">
+        <path d="M 68 54 Q 82 46 86 64 Q 72 72 68 54 Z" fill="#cfd8dc" stroke="#263238" stroke-width="1.2" />
+        <circle cx="78" cy="58" r="3.2" fill="#212121" />
+        <circle cx="76.5" cy="56.5" r="1.1" fill="#ffffff" />
+      </g>
+
+      <!-- Right Eye (Squinting Fierce Action) -->
+      <g class="dp-eye-r">
+        <path d="M 132 54 Q 118 46 114 64 Q 128 72 132 54 Z" fill="#cfd8dc" stroke="#263238" stroke-width="1.2" />
+        <circle cx="122" cy="58" r="3.2" fill="#212121" />
+        <circle cx="120.5" cy="56.5" r="1.1" fill="#ffffff" />
+      </g>
+    </g>
+
+  </g>
+
+  <!-- Luminous Slash Speed Trails -->
+  <path d="M 10 130 Q 80 160 170 50" fill="none" stroke="#f87171" stroke-width="4" stroke-linecap="round" class="dp-arc-l" filter="url(#bladeGlow)" />
+  <path d="M 190 130 Q 120 160 30 50" fill="none" stroke="#fca5a5" stroke-width="3" stroke-linecap="round" class="dp-arc-r" filter="url(#bladeGlow)" />
+
+  <!-- Action Spark Burst -->
+  <g class="dp-spark">
+    <polygon points="100,98 103,107 112,110 103,113 100,122 97,113 88,110 97,107" fill="#ffffff" filter="url(#bladeGlow)" />
+    <circle cx="100" cy="110" r="5" fill="#fca5a5" opacity="0.6" />
+  </g>
+
+</svg>

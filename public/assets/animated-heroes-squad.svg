@@ -1,0 +1,529 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="300" fill="none">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="heroStageBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070a14" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <!-- Floor Glow Gradient -->
+    <linearGradient id="heroStageFloor" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0" />
+      <stop offset="25%" stop-color="#ef4444" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#ec4899" stop-opacity="0.9" />
+      <stop offset="75%" stop-color="#3b82f6" stop-opacity="0.9" />
+      <stop offset="90%" stop-color="#0ea5e9" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Spotlights -->
+    <radialGradient id="spotDP" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="spotWyvern" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ec4899" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="spotInsect" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="spotPaladin" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="heroGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <filter id="bladeSlashGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* 60fps GPU-accelerated Keyframe Choreography */
+
+    /* 1. Deadpool Animations */
+    @keyframes dpMotion {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      25%      { transform: translateY(-8px) rotate(-3deg); }
+      50%      { transform: translateY(0px) rotate(0deg); }
+      75%      { transform: translateY(-8px) rotate(3deg); }
+    }
+    @keyframes dpSlashL {
+      0%, 100% { transform: rotate(-25deg); }
+      40%      { transform: rotate(15deg) translateY(4px); }
+      50%      { transform: rotate(-55deg) translateY(-8px); }
+      65%      { transform: rotate(-20deg); }
+    }
+    @keyframes dpSlashR {
+      0%, 100% { transform: rotate(25deg); }
+      45%      { transform: rotate(-20deg) translateY(4px); }
+      55%      { transform: rotate(55deg) translateY(-8px); }
+      70%      { transform: rotate(20deg); }
+    }
+    @keyframes dpArcFX {
+      0%, 45%  { opacity: 0; stroke-dashoffset: 90; }
+      52%      { opacity: 1; stroke-dashoffset: 0; }
+      62%, 100%{ opacity: 0; stroke-dashoffset: -90; }
+    }
+    @keyframes dpEyeBlink {
+      0%, 88%, 100% { transform: scaleY(1); }
+      92%           { transform: scaleY(0.15); }
+      96%           { transform: scaleY(1); }
+    }
+
+    /* 2. Pink Wyvern Animations */
+    @keyframes wyvernHoverLoop {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%      { transform: translateY(-14px) rotate(2deg); }
+    }
+    @keyframes wyvernWingLoopL {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-34deg); }
+    }
+    @keyframes wyvernWingLoopR {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(30deg); }
+    }
+    @keyframes wyvernTailLoop {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(15deg); }
+    }
+    @keyframes wyvernBreathPuff {
+      0%, 40%  { opacity: 0; transform: translate(0, 0) scale(0.2); }
+      55%      { opacity: 1; transform: translate(14px, -8px) scale(1.1); }
+      75%      { opacity: 0.8; transform: translate(28px, -16px) scale(1.3); }
+      90%, 100%{ opacity: 0; transform: translate(36px, -22px) scale(0.4); }
+    }
+
+    /* 3. Insectoid Warrior Animations */
+    @keyframes insectBreathing {
+      0%, 100% { transform: scale(1, 1); }
+      50%      { transform: scale(1.03, 1.02); }
+    }
+    @keyframes antennaWiggleL {
+      0%, 100% { transform: rotate(0deg); }
+      20%      { transform: rotate(-9deg); }
+      40%      { transform: rotate(4deg); }
+      70%      { transform: rotate(-10deg); }
+    }
+    @keyframes antennaWiggleR {
+      0%, 100% { transform: rotate(0deg); }
+      25%      { transform: rotate(9deg); }
+      45%      { transform: rotate(-4deg); }
+      75%      { transform: rotate(10deg); }
+    }
+    @keyframes laserEyeLoop {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #ef4444); }
+      50%      { transform: scale(1.25); filter: drop-shadow(0 0 10px #ff2a6d); }
+    }
+    @keyframes laserSweepScan {
+      0%, 100% { opacity: 0.2; transform: rotate(-10deg); }
+      50%      { opacity: 0.85; transform: rotate(14deg); }
+    }
+
+    /* 4. Dragonborn Paladin Animations */
+    @keyframes paladinStanceLoop {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-6px); }
+    }
+    @keyframes paladinThrust {
+      0%, 100% { transform: translateY(0px); }
+      30%      { transform: translateY(5px); }
+      45%      { transform: translateY(-16px); }
+      60%      { transform: translateY(-2px); }
+    }
+    @keyframes paladinRibbon {
+      0%, 100% { transform: rotate(0deg); }
+      35%      { transform: rotate(-18deg); }
+      70%      { transform: rotate(14deg); }
+    }
+    @keyframes paladinTailLoop {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(14deg); }
+    }
+    @keyframes holyGleamSpark {
+      0%, 40%, 100% { opacity: 0; transform: scale(0.2); }
+      48%           { opacity: 1; transform: scale(1.3) rotate(90deg); }
+      58%           { opacity: 0; transform: scale(0.2) rotate(180deg); }
+    }
+
+    /* Common Particle Dust */
+    @keyframes particleDust {
+      0%   { transform: translateY(0) scale(0.8); opacity: 0.2; }
+      50%  { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+      100% { transform: translateY(-40px) scale(0.8); opacity: 0; }
+    }
+
+    /* Classes */
+    .anim-dp { animation: dpMotion 3.2s ease-in-out infinite; transform-origin: 120px 220px; }
+    .anim-dp-l { animation: dpSlashL 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 95px 165px; }
+    .anim-dp-r { animation: dpSlashR 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 145px 165px; }
+    .anim-dp-arc { animation: dpArcFX 3.2s ease-out infinite; stroke-dasharray: 90; }
+    .anim-dp-eye { animation: dpEyeBlink 4s ease-in-out infinite; transform-origin: 105px 125px; }
+
+    .anim-wyvern { animation: wyvernHoverLoop 3.5s ease-in-out infinite; transform-origin: 360px 170px; }
+    .anim-wyvern-wl { animation: wyvernWingLoopL 1.2s ease-in-out infinite; transform-origin: 345px 135px; }
+    .anim-wyvern-wr { animation: wyvernWingLoopR 1.2s ease-in-out infinite 0.1s; transform-origin: 375px 130px; }
+    .anim-wyvern-tail { animation: wyvernTailLoop 2.4s ease-in-out infinite; transform-origin: 310px 165px; }
+    .anim-wyvern-breath { animation: wyvernBreathPuff 3.5s ease-out infinite; }
+
+    .anim-insect { animation: insectBreathing 2.8s ease-in-out infinite; transform-origin: 600px 160px; }
+    .anim-ant-l { animation: antennaWiggleL 3.6s ease-in-out infinite; transform-origin: 575px 95px; }
+    .anim-ant-r { animation: antennaWiggleR 3.6s ease-in-out infinite; transform-origin: 625px 95px; }
+    .anim-laser-eye { animation: laserEyeLoop 2s ease-in-out infinite; transform-origin: center; }
+    .anim-laser-sweep { animation: laserSweepScan 2.5s ease-in-out infinite; transform-origin: 600px 120px; }
+
+    .anim-paladin { animation: paladinStanceLoop 3.8s ease-in-out infinite; transform-origin: 840px 170px; }
+    .anim-paladin-spear { animation: paladinThrust 3.8s cubic-bezier(0.4, 0, 0.2, 1) infinite; transform-origin: 790px 160px; }
+    .anim-paladin-ribbon { animation: paladinRibbon 2.2s ease-in-out infinite; transform-origin: 785px 115px; }
+    .anim-paladin-tail { animation: paladinTailLoop 3.2s ease-in-out infinite; transform-origin: 865px 170px; }
+    .anim-paladin-gleam { animation: holyGleamSpark 3.8s ease-out infinite; transform-origin: 785px 75px; }
+
+    .spark-dust-1 { animation: particleDust 2.5s ease-out infinite; }
+    .spark-dust-2 { animation: particleDust 3.2s ease-out infinite 0.8s; }
+    .spark-dust-3 { animation: particleDust 2.8s ease-out infinite 1.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+
+  <!-- Stage Background Card -->
+  <rect width="960" height="300" rx="16" fill="url(#heroStageBg)" stroke="#1e293b" stroke-width="1.5" />
+
+  <!-- Cyber Grid Lines -->
+  <g stroke="#334155" stroke-opacity="0.18" stroke-width="1">
+    <line x1="0" y1="230" x2="960" y2="230" />
+    <line x1="0" y1="260" x2="960" y2="260" />
+    <line x1="0" y1="285" x2="960" y2="285" />
+    <line x1="80" y1="230" x2="40" y2="300" />
+    <line x1="240" y1="230" x2="220" y2="300" />
+    <line x1="400" y1="230" x2="400" y2="300" />
+    <line x1="560" y1="230" x2="560" y2="300" />
+    <line x1="720" y1="230" x2="740" y2="300" />
+    <line x1="880" y1="230" x2="920" y2="300" />
+  </g>
+
+  <!-- Hero Spotlights Behind Each Champion -->
+  <!-- 1. Deadpool Spot (X=120) -->
+  <ellipse cx="120" cy="180" rx="90" ry="70" fill="url(#spotDP)" />
+  <!-- 2. Pink Wyvern Spot (X=360) -->
+  <ellipse cx="360" cy="180" rx="95" ry="70" fill="url(#spotWyvern)" />
+  <!-- 3. Insectoid Spot (X=600) -->
+  <ellipse cx="600" cy="180" rx="95" ry="70" fill="url(#spotInsect)" />
+  <!-- 4. Paladin Spot (X=840) -->
+  <ellipse cx="840" cy="180" rx="95" ry="70" fill="url(#spotPaladin)" />
+
+  <!-- Stage Illuminated Platform Floor -->
+  <path d="M 40 230 L 920 230 L 960 270 L 0 270 Z" fill="url(#heroStageFloor)" opacity="0.3" />
+  <line x1="40" y1="230" x2="920" y2="230" stroke="url(#heroStageFloor)" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Top Banner Wordmark Header -->
+  <g>
+    <rect x="24" y="16" width="350" height="28" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1" />
+    <circle cx="38" cy="30" r="5" fill="#ef4444" />
+    <circle cx="52" cy="30" r="5" fill="#ec4899" />
+    <circle cx="66" cy="30" r="5" fill="#3b82f6" />
+    <circle cx="80" cy="30" r="5" fill="#0ea5e9" />
+    <text x="96" y="34" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="11" letter-spacing="1.2">HEROES SQUAD • PURE SVG KINEMATICS</text>
+  </g>
+
+  <!-- Floating Spark Embers -->
+  <circle cx="120" cy="200" r="2" fill="#ef4444" class="spark-dust-1" />
+  <circle cx="380" cy="190" r="2.5" fill="#ec4899" class="spark-dust-2" />
+  <circle cx="620" cy="210" r="2" fill="#3b82f6" class="spark-dust-3" />
+  <circle cx="820" cy="195" r="2.5" fill="#0ea5e9" class="spark-dust-1" />
+
+  <!-- ==================== HERO 1: CHIBI DEADPOOL (X=120) ==================== -->
+  <g transform="translate(40, 20)">
+    <!-- Floor Shadow -->
+    <ellipse cx="80" cy="216" rx="36" ry="7" fill="#050811" opacity="0.5" />
+
+    <!-- Animated Character Root -->
+    <g class="anim-dp">
+      <!-- Crossed Scabbards on Back -->
+      <rect x="25" y="80" width="6" height="75" rx="2" transform="rotate(-40 25 80)" fill="#37474f" stroke="#263238" stroke-width="1" />
+      <rect x="135" y="80" width="6" height="75" rx="2" transform="rotate(40 135 80)" fill="#37474f" stroke="#263238" stroke-width="1" />
+
+      <!-- Legs -->
+      <path d="M 58 178 L 52 208 C 52 214 66 214 68 208 L 71 178 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.2" />
+      <path d="M 102 178 L 108 208 C 108 214 94 214 92 208 L 89 178 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.2" />
+      <!-- Thigh Straps -->
+      <rect x="54" y="192" width="16" height="4" rx="1" fill="#5d4037" />
+      <rect x="90" y="192" width="16" height="4" rx="1" fill="#5d4037" />
+
+      <!-- Torso -->
+      <path d="M 54 142 C 52 165 60 182 80 182 C 100 182 108 165 106 142 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.5" />
+      <!-- Black Side Panels -->
+      <path d="M 54 142 C 52 160 58 176 66 180 L 63 142 Z" fill="#212121" />
+      <path d="M 106 142 C 108 160 102 176 94 180 L 97 142 Z" fill="#212121" />
+
+      <!-- Crossed Tactical Straps -->
+      <path d="M 58 142 L 102 178" stroke="#5d4037" stroke-width="6" />
+      <path d="M 102 142 L 58 178" stroke="#6d4c41" stroke-width="6" />
+      <circle cx="80" cy="160" r="5" fill="#455a64" stroke="#78909c" stroke-width="1.5" />
+
+      <!-- Utility Belt -->
+      <rect x="56" y="174" width="48" height="6" rx="1.5" fill="#4e342e" />
+      <rect x="75" y="172" width="10" height="10" rx="1.5" fill="#78909c" />
+
+      <!-- Left Arm & Katana -->
+      <g class="anim-dp-l">
+        <path d="M 56 148 L 36 160 C 32 164 36 170 42 168 L 58 156 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.2" />
+        <circle cx="34" cy="165" r="6" fill="#d32f2f" stroke="#b71c1c" stroke-width="1" />
+        <!-- Katana L -->
+        <g filter="url(#bladeSlashGlow)">
+          <line x1="34" y1="165" x2="14" y2="120" stroke="#eceff1" stroke-width="2.5" stroke-linecap="round" />
+          <line x1="14" y1="120" x2="34" y2="165" stroke="#ffffff" stroke-width="1" />
+        </g>
+      </g>
+
+      <!-- Right Arm & Katana -->
+      <g class="anim-dp-r">
+        <path d="M 104 148 L 124 160 C 128 164 124 170 118 168 L 102 156 Z" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.2" />
+        <circle cx="126" cy="165" r="6" fill="#d32f2f" stroke="#b71c1c" stroke-width="1" />
+        <!-- Katana R -->
+        <g filter="url(#bladeSlashGlow)">
+          <line x1="126" y1="165" x2="146" y2="120" stroke="#eceff1" stroke-width="2.5" stroke-linecap="round" />
+          <line x1="146" y1="120" x2="126" y2="165" stroke="#ffffff" stroke-width="1" />
+        </g>
+      </g>
+
+      <!-- Chibi Head -->
+      <g>
+        <circle cx="80" cy="112" r="35" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.8" />
+        <!-- Mask Seam -->
+        <path d="M 78 77 Q 80 72 82 77 Z" fill="#b71c1c" />
+
+        <!-- Black Eye Patches -->
+        <path d="M 69 92 C 52 93 44 106 46 120 C 48 132 60 135 71 132 C 79 129 79 116 77 104 Z" fill="#212121" />
+        <path d="M 91 92 C 108 93 116 106 114 120 C 112 132 100 135 89 132 C 81 129 81 116 83 104 Z" fill="#212121" />
+
+        <!-- Eyes -->
+        <g class="anim-dp-eye">
+          <path d="M 55 109 Q 66 103 69 117 Q 58 123 55 109 Z" fill="#cfd8dc" />
+          <circle cx="63" cy="112" r="2.5" fill="#212121" />
+        </g>
+        <g>
+          <path d="M 105 109 Q 94 103 91 117 Q 102 123 105 109 Z" fill="#cfd8dc" />
+          <circle cx="97" cy="112" r="2.5" fill="#212121" />
+        </g>
+      </g>
+
+      <!-- Blade Slash Trails -->
+      <path d="M 10 170 Q 60 195 130 110" fill="none" stroke="#f87171" stroke-width="3" stroke-linecap="round" class="anim-dp-arc" filter="url(#bladeSlashGlow)" />
+    </g>
+
+    <!-- Character Label -->
+    <text x="80" y="246" fill="#fca5a5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="12" text-anchor="middle">CHIBI DEADPOOL</text>
+    <text x="80" y="260" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" text-anchor="middle">Dual Katana Slash</text>
+  </g>
+
+  <!-- ==================== HERO 2: PINK WYVERN (X=360) ==================== -->
+  <g transform="translate(280, 20)">
+    <!-- Floor Shadow -->
+    <ellipse cx="80" cy="216" rx="38" ry="7" fill="#050811" opacity="0.5" />
+
+    <!-- Animated Wyvern Root -->
+    <g class="anim-wyvern">
+
+      <!-- Curled Dragon Tail -->
+      <g class="anim-wyvern-tail">
+        <path d="M 60 162 C 36 174 16 158 18 128 C 20 104 42 106 45 125 C 47 139 32 145 26 137" 
+              fill="none" stroke="#ff6584" stroke-width="12" stroke-linecap="round" />
+        <path d="M 60 162 C 36 174 16 158 18 128 C 20 104 42 106 45 125 C 47 139 32 145 26 137" 
+              fill="none" stroke="#102a45" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Spade -->
+        <polygon points="21,129 13,116 27,119" fill="#818cf8" stroke="#102a45" stroke-width="2" />
+      </g>
+
+      <!-- Back Wing -->
+      <g class="anim-wyvern-wr">
+        <path d="M 85 118 Q 97 82 119 86 Q 109 102 113 118 Z" fill="#ff8da1" stroke="#102a45" stroke-width="2.5" />
+      </g>
+
+      <!-- Legs -->
+      <path d="M 54 158 Q 41 174 46 189 L 60 189 Q 64 174 66 163 Z" fill="#ff6584" stroke="#102a45" stroke-width="2.5" />
+      <path d="M 100 160 Q 108 174 104 189 L 118 189 Q 124 173 114 158 Z" fill="#ff6584" stroke="#102a45" stroke-width="2.5" />
+
+      <!-- Torso -->
+      <path d="M 52 158 C 48 134 68 124 92 126 C 110 128 116 146 110 166 C 104 180 60 178 52 158 Z" 
+            fill="#ff6584" stroke="#102a45" stroke-width="3" />
+      <path d="M 68 168 C 76 171 96 171 102 160 C 97 152 84 149 76 152 Z" fill="#fecdd3" stroke="#102a45" stroke-width="1.5" />
+
+      <!-- Front Wing (Flap) -->
+      <g class="anim-wyvern-wl">
+        <path d="M 70 128 Q 57 83 86 77 Q 89 96 100 109 Q 84 120 70 128 Z" fill="#ff8da1" stroke="#102a45" stroke-width="3" />
+        <polygon points="86,77 92,72 89,83" fill="#818cf8" stroke="#102a45" stroke-width="1.8" />
+      </g>
+
+      <!-- Head & Neck -->
+      <g>
+        <path d="M 100 134 C 106 118 114 110 122 104 C 128 100 132 102 134 110 C 126 118 118 132 109 141 Z" fill="#ff6584" stroke="#102a45" stroke-width="2.5" />
+        <path d="M 122 104 C 127 93 141 94 146 102 C 151 109 148 117 140 118 C 133 120 127 117 122 104 Z" fill="#ff6584" stroke="#102a45" stroke-width="2.5" />
+        <!-- Horn -->
+        <path d="M 127 94 Q 132 78 121 75 Q 118 84 124 96 Z" fill="#818cf8" stroke="#102a45" stroke-width="2" />
+        <!-- Eye -->
+        <circle cx="135" cy="102" r="2.5" fill="#ffffff" />
+        <circle cx="136" cy="101.5" r="1" fill="#102a45" />
+
+        <!-- Breath Flurry -->
+        <g class="anim-wyvern-breath">
+          <circle cx="152" cy="108" r="5" fill="#ec4899" opacity="0.8" />
+          <circle cx="160" cy="104" r="6" fill="#f472b6" opacity="0.9" />
+          <polygon points="160,98 161,101 164,102 161,103 160,106 159,103 156,102 159,101" fill="#ffffff" />
+        </g>
+      </g>
+
+    </g>
+
+    <!-- Character Label -->
+    <text x="80" y="246" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="12" text-anchor="middle">PINK WYVERN</text>
+    <text x="80" y="260" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" text-anchor="middle">Wing Flap &amp; Stardust</text>
+  </g>
+
+  <!-- ==================== HERO 3: INSECTOID WARRIOR (X=600) ==================== -->
+  <g transform="translate(520, 20)">
+    <!-- Floor Shadow -->
+    <ellipse cx="80" cy="216" rx="44" ry="7" fill="#050811" opacity="0.5" />
+
+    <!-- Scanning Laser Beams -->
+    <g class="anim-laser-sweep" opacity="0.45">
+      <polygon points="61,112 10,165 40,190" fill="#ef4444" opacity="0.4" />
+      <polygon points="99,112 150,165 120,190" fill="#ef4444" opacity="0.4" />
+    </g>
+
+    <!-- Animated Insectoid Root -->
+    <g class="anim-insect">
+
+      <!-- Shoulders & Biceps -->
+      <path d="M 50 140 C 32 142 19 153 18 169 C 16 185 26 202 37 206 L 46 206 C 38 192 38 174 50 166 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.5" />
+      <path d="M 110 140 C 128 142 141 153 142 169 C 144 185 134 202 123 206 L 114 206 C 122 192 122 174 110 166 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.5" />
+
+      <!-- Torso Carapace -->
+      <path d="M 46 144 C 44 172 50 206 80 206 C 110 206 116 172 114 144 Z" fill="#2563eb" stroke="#0f172a" stroke-width="2.8" />
+      <!-- Pectoral Armor -->
+      <path d="M 51 150 C 51 168 75 172 78 162 C 78 151 68 145 51 150 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.2" />
+      <path d="M 109 150 C 109 168 85 172 82 162 C 82 151 92 145 109 150 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.2" />
+      <!-- Sternum & Abs -->
+      <line x1="80" y1="148" x2="80" y2="200" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" />
+      <path d="M 62 172 Q 72 175 78 172" stroke="#0f172a" stroke-width="2" fill="none" />
+      <path d="M 98 172 Q 88 175 82 172" stroke="#0f172a" stroke-width="2" fill="none" />
+      <path d="M 64 184 Q 72 186 78 184" stroke="#0f172a" stroke-width="1.8" fill="none" />
+      <path d="M 96 184 Q 88 186 82 184" stroke="#0f172a" stroke-width="1.8" fill="none" />
+
+      <!-- Head & Mandibles -->
+      <path d="M 51 106 C 51 81 109 81 109 106 C 109 122 101 136 80 136 C 59 136 51 122 51 106 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2.8" />
+      <!-- Serrated Beard Jaw -->
+      <path d="M 57 126 L 64 136 L 69 129 L 75 138 L 80 130 L 85 138 L 91 129 L 96 136 L 103 126 L 95 143 L 80 151 L 65 143 Z" fill="#2563eb" stroke="#0f172a" stroke-width="2.2" />
+
+      <!-- Glowing Laser Eyes -->
+      <g transform="translate(61, 112)">
+        <ellipse cx="0" cy="0" rx="9" ry="8" fill="#ef4444" stroke="#0f172a" stroke-width="2" class="anim-laser-eye" />
+        <ellipse cx="-1.5" cy="-1.5" rx="3" ry="2.2" fill="#ffffff" opacity="0.8" />
+      </g>
+      <g transform="translate(99, 112)">
+        <ellipse cx="0" cy="0" rx="9" ry="8" fill="#ef4444" stroke="#0f172a" stroke-width="2" class="anim-laser-eye" />
+        <ellipse cx="-1.5" cy="-1.5" rx="3" ry="2.2" fill="#ffffff" opacity="0.8" />
+      </g>
+
+      <!-- Antennae -->
+      <g class="anim-ant-l">
+        <path d="M 57 90 C 40 74 16 77 6 66" fill="none" stroke="#0f172a" stroke-width="2.8" stroke-linecap="round" />
+        <circle cx="6" cy="66" r="2" fill="#ef4444" />
+      </g>
+      <g class="anim-ant-r">
+        <path d="M 103 90 C 120 74 144 77 154 66" fill="none" stroke="#0f172a" stroke-width="2.8" stroke-linecap="round" />
+        <circle cx="154" cy="66" r="2" fill="#ef4444" />
+      </g>
+
+    </g>
+
+    <!-- Character Label -->
+    <text x="80" y="246" fill="#60a5fa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="12" text-anchor="middle">INSECTOID WARRIOR</text>
+    <text x="80" y="260" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" text-anchor="middle">Laser Eyes &amp; Pec Flex</text>
+  </g>
+
+  <!-- ==================== HERO 4: DRAGONBORN PALADIN (X=840) ==================== -->
+  <g transform="translate(760, 20)">
+    <!-- Floor Shadow -->
+    <ellipse cx="80" cy="216" rx="42" ry="7" fill="#050811" opacity="0.5" />
+
+    <!-- Animated Paladin Root -->
+    <g class="anim-paladin">
+
+      <!-- Long Dragonborn Tail -->
+      <g class="anim-paladin-tail">
+        <path d="M 104 174 C 126 168 148 148 144 116 C 142 96 130 92 126 104 C 124 124 114 156 92 176 Z" 
+              fill="#dca072" stroke="#b45309" stroke-width="1.5" />
+      </g>
+
+      <!-- Greaves & Tabard -->
+      <path d="M 58 180 L 56 208 L 72 208 L 75 182 Z" fill="#64748b" stroke="#334155" stroke-width="1.2" />
+      <path d="M 102 180 L 104 208 L 88 208 L 85 182 Z" fill="#475569" stroke="#334155" stroke-width="1.2" />
+      <!-- Crimson Tabard -->
+      <polygon points="69,164 91,164 89,210 71,210" fill="#be185d" stroke="#831843" stroke-width="1.2" />
+
+      <!-- Steel Breastplate -->
+      <polygon points="80,118 60,128 61,161 80,172" fill="#e2e8f0" stroke="#64748b" stroke-width="1.2" />
+      <polygon points="80,118 100,128 99,161 80,172" fill="#94a3b8" stroke="#475569" stroke-width="1.2" />
+      <line x1="80" y1="120" x2="80" y2="170" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+
+      <!-- Pauldrons -->
+      <path d="M 66 125 C 55 123 44 117 45 111 C 52 107 62 113 69 118 Z" fill="#f1f5f9" stroke="#64748b" stroke-width="1.2" />
+      <path d="M 94 125 C 105 123 116 117 115 111 C 108 107 98 113 91 118 Z" fill="#94a3b8" stroke="#475569" stroke-width="1.2" />
+
+      <!-- Head, Horn & Snout -->
+      <g>
+        <path d="M 70 100 C 70 118 75 124 78 124 C 82 124 86 118 86 100 Z" fill="#dca072" stroke="#b45309" stroke-width="1.2" />
+        <!-- Horn -->
+        <path d="M 78 82 C 86 71 100 68 99 63 C 91 66 76 76 74 85 Z" fill="#334155" stroke="#1e293b" stroke-width="1.2" />
+        <!-- Snout Profile -->
+        <path d="M 78 82 C 73 84 62 91 54 95 C 53 98 56 101 60 101 C 68 99 75 98 83 96 C 90 94 91 85 78 82 Z" fill="#dca072" stroke="#b45309" stroke-width="1.5" />
+        <circle cx="70" cy="91" r="2" fill="#b45309" />
+        <circle cx="69.5" cy="90.5" r="1.1" fill="#f59e0b" />
+      </g>
+
+      <!-- Arm Holding the Spear (Thrust Action) -->
+      <g class="anim-paladin-spear">
+        <!-- Vambrace & Fist -->
+        <path d="M 62 125 L 38 149 L 33 157 L 41 163 L 54 152 Z" fill="#dca072" stroke="#b45309" stroke-width="1.2" />
+        <circle cx="30" cy="157" r="6" fill="#dca072" stroke="#b45309" stroke-width="1.2" />
+
+        <!-- Spear Shaft -->
+        <rect x="26" y="68" width="5" height="140" rx="2.5" fill="#dc2626" stroke="#991b1b" stroke-width="1" />
+        <!-- Gold Ferrule -->
+        <rect x="25" y="108" width="7" height="8" rx="1" fill="#f59e0b" />
+
+        <!-- Fluttering Ribbon -->
+        <g class="anim-paladin-ribbon">
+          <path d="M 25 112 C 15 116 10 128 18 136 C 23 141 24 150 15 155 C 21 149 20 138 13 133 C 7 128 14 118 25 112 Z" fill="#be185d" />
+        </g>
+
+        <!-- Polished Spearhead -->
+        <polygon points="28.5,65 19,94 28.5,100" fill="#f8fafc" stroke="#64748b" stroke-width="0.8" />
+        <polygon points="28.5,65 38,94 28.5,100" fill="#cbd5e1" stroke="#64748b" stroke-width="0.8" />
+        <line x1="28.5" y1="65" x2="28.5" y2="100" stroke="#ffffff" stroke-width="1.2" />
+
+        <!-- Holy Gleam Flare -->
+        <g class="anim-paladin-gleam">
+          <polygon points="28.5,60 30,66 36,68 30,70 28.5,76 27,70 21,68 27,66" fill="#ffffff" filter="url(#heroGlow)" />
+        </g>
+      </g>
+
+    </g>
+
+    <!-- Character Label -->
+    <text x="80" y="246" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-weight="700" font-size="12" text-anchor="middle">DRAGONBORN PALADIN</text>
+    <text x="80" y="260" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif" font-size="10" text-anchor="middle">Spear Thrust &amp; Holy Gleam</text>
+  </g>
+
+</svg>

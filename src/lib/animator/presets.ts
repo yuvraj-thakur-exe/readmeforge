@@ -1119,6 +1119,103 @@ function renderAvatarBody(
       `;
     }
 
+    case 'chibi-deadpool': {
+      return `
+        <g class="char-bobber">
+          <!-- Back Scabbards -->
+          <line x1="-14" y1="-10" x2="14" y2="-32" stroke="#37474f" stroke-width="2.2" stroke-linecap="round" />
+          <line x1="14" y1="-10" x2="-14" y2="-32" stroke="#37474f" stroke-width="2.2" stroke-linecap="round" />
+          <!-- Head -->
+          <circle cx="0" cy="-24" r="14" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.5" />
+          <!-- Black Mask Patches -->
+          <ellipse cx="-5" cy="-24" rx="5.5" ry="7" fill="#212121" />
+          <ellipse cx="5" cy="-24" rx="5.5" ry="7" fill="#212121" />
+          <ellipse cx="-4.5" cy="-24" rx="2.5" ry="3.5" fill="#cfd8dc" />
+          <ellipse cx="4.5" cy="-24" rx="2.5" ry="3.5" fill="#cfd8dc" />
+          <circle cx="-4" cy="-24" r="1.2" fill="#212121" />
+          <circle cx="4" cy="-24" r="1.2" fill="#212121" />
+          <!-- Torso -->
+          <rect x="-10" y="-12" width="20" height="15" rx="3.5" fill="#d32f2f" stroke="#b71c1c" stroke-width="1.3" />
+          <!-- Harness Straps -->
+          <line x1="-9" y1="-12" x2="9" y2="2" stroke="#5d4037" stroke-width="2.2" />
+          <line x1="9" y1="-12" x2="-9" y2="2" stroke="#6d4c41" stroke-width="2.2" />
+          <circle cx="0" cy="-5" r="2.2" fill="#78909c" />
+          <!-- Belt -->
+          <rect x="-10" y="0" width="20" height="3" fill="#4e342e" />
+          <rect x="-2" y="-0.5" width="4" height="4" rx="1" fill="#78909c" />
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
+    case 'pink-wyvern': {
+      return `
+        <g class="char-bobber">
+          <!-- Curled Tail -->
+          <path d="M -8 2 C -18 4 -22 -6 -18 -12 C -14 -18 -8 -10 -12 -6" fill="none" stroke="#ff6584" stroke-width="4.5" stroke-linecap="round" />
+          <polygon points="-12,-6 -17,-10 -14,-4" fill="#818cf8" />
+          <!-- Body -->
+          <ellipse cx="0" cy="-4" rx="12" ry="10" fill="#ff6584" stroke="#102a45" stroke-width="1.5" />
+          <ellipse cx="2" cy="-2" rx="7" ry="5" fill="#fecdd3" />
+          <!-- Horn & Head -->
+          <path d="M 8 -12 Q 14 -20 18 -16 Q 16 -10 10 -8 Z" fill="#818cf8" stroke="#102a45" stroke-width="1" />
+          <circle cx="8" cy="-10" r="6" fill="#ff6584" stroke="#102a45" stroke-width="1.3" />
+          <circle cx="10" cy="-11" r="1.3" fill="#fff" />
+          <!-- Bat Wing -->
+          <path d="M -3 -8 Q 0 -22 10 -18 Q 6 -10 0 -5 Z" fill="#ff8da1" stroke="#102a45" stroke-width="1.3" />
+          <polygon points="10,-18 13,-20 11,-15" fill="#818cf8" />
+          ${armsAndTools}
+          <line x1="-5" y1="5" x2="-5" y2="9" stroke="#102a45" stroke-width="2.2" stroke-linecap="round" />
+          <line x1="5" y1="5" x2="5" y2="9" stroke="#102a45" stroke-width="2.2" stroke-linecap="round" />
+        </g>
+      `;
+    }
+
+    case 'insectoid-warrior': {
+      return `
+        <g class="char-bobber">
+          <!-- Antennae -->
+          <path d="M -5 -25 Q -12 -36 -18 -32" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round" />
+          <path d="M 5 -25 Q 12 -36 18 -32" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round" />
+          <circle cx="-18" cy="-32" r="1.2" fill="#ef4444" />
+          <circle cx="18" cy="-32" r="1.2" fill="#ef4444" />
+          <!-- Chitin Head -->
+          <ellipse cx="0" cy="-20" rx="9" ry="8" fill="#3b82f6" stroke="#0f172a" stroke-width="1.5" />
+          <ellipse cx="-4" cy="-20" rx="3" ry="2.6" fill="#ef4444" stroke="#0f172a" stroke-width="1" />
+          <ellipse cx="4" cy="-20" rx="3" ry="2.6" fill="#ef4444" stroke="#0f172a" stroke-width="1" />
+          <!-- Mandibles -->
+          <polygon points="-5,-14 -2,-10 0,-13 2,-10 5,-14 0,-8" fill="#2563eb" stroke="#0f172a" stroke-width="1" />
+          <!-- Chiseled Muscular Torso -->
+          <rect x="-11" y="-12" width="22" height="16" rx="3.5" fill="#2563eb" stroke="#0f172a" stroke-width="1.5" />
+          <path d="M -9 -10 Q 0 -6 0 -2 Q 0 -6 9 -10" stroke="#0f172a" stroke-width="1.4" fill="none" />
+          <line x1="0" y1="-2" x2="0" y2="4" stroke="#0f172a" stroke-width="1.4" />
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
+    case 'dragonborn-paladin': {
+      return `
+        <g class="char-bobber">
+          <!-- Dragon Tail -->
+          <path d="M 8 -2 Q 18 -6 16 -18" fill="none" stroke="#dca072" stroke-width="3.5" stroke-linecap="round" />
+          <!-- Horn & Snout Head -->
+          <path d="M 0 -22 Q 8 -30 14 -28" fill="none" stroke="#334155" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M -6 -18 Q -12 -16 -4 -25 Q 4 -23 4 -18 Z" fill="#dca072" stroke="#b45309" stroke-width="1.2" />
+          <circle cx="-5" cy="-20" r="1.2" fill="#f59e0b" />
+          <!-- Chevron Steel Breastplate & Pauldrons -->
+          <path d="M -12 -13 L -8 -16 L 0 -13 L 8 -16 L 12 -13 L 8 2 L -8 2 Z" fill="#cbd5e1" stroke="#475569" stroke-width="1.3" />
+          <line x1="0" y1="-13" x2="0" y2="2" stroke="#ffffff" stroke-width="1.5" />
+          <!-- Crimson Tabard -->
+          <rect x="-3" y="-3" width="6" height="8" fill="#be185d" />
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
     case 'pixel-dev':
     default: {
       return `

@@ -62,7 +62,11 @@ export type CharacterType =
   | 'blue-bean'
   | 'ninja-turtle'
   | 'red-dragon'
-  | 'purple-monster';
+  | 'purple-monster'
+  | 'chibi-deadpool'
+  | 'pink-wyvern'
+  | 'insectoid-warrior'
+  | 'dragonborn-paladin';
 
 export type CharacterAction =
   | 'walk'

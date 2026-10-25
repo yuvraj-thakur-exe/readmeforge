@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Radial Glows -->
+    <radialGradient id="insectGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="laserEyeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff2a6d" stop-opacity="1" />
+      <stop offset="40%" stop-color="#ef4444" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#b91c1c" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="laserBeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff2a6d" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#f43f5e" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Drop Shadow & Laser Filters -->
+    <filter id="insectShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#090d16" flood-opacity="0.5" />
+    </filter>
+    <filter id="eyeLaserBloom" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <style>
+    /* 60fps GPU acceleration */
+    @keyframes muscleFlexPec {
+      0%, 100% { transform: scale(1, 1); }
+      50%      { transform: scale(1.03, 1.02); }
+    }
+    @keyframes antennaeTwitchL {
+      0%, 100% { transform: rotate(0deg); }
+      20%      { transform: rotate(-8deg); }
+      40%      { transform: rotate(4deg); }
+      70%      { transform: rotate(-10deg); }
+    }
+    @keyframes antennaeTwitchR {
+      0%, 100% { transform: rotate(0deg); }
+      25%      { transform: rotate(8deg); }
+      45%      { transform: rotate(-4deg); }
+      75%      { transform: rotate(10deg); }
+    }
+    @keyframes laserEyePulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px #ef4444); }
+      50%      { transform: scale(1.2); filter: drop-shadow(0 0 10px #ff2a6d); }
+    }
+    @keyframes laserBeamSweep {
+      0%, 100% { opacity: 0.15; transform: rotate(-8deg); }
+      50%      { opacity: 0.85; transform: rotate(12deg); }
+    }
+    @keyframes mandibleTwitch {
+      0%, 85%, 100% { transform: translateY(0); }
+      90%           { transform: translateY(3px) scale(1.05, 0.95); }
+      95%           { transform: translateY(0); }
+    }
+
+    .insect-root { animation: muscleFlexPec 2.8s ease-in-out infinite; transform-origin: 100px 140px; }
+    .antenna-l { animation: antennaeTwitchL 3.6s ease-in-out infinite; transform-origin: 65px 45px; }
+    .antenna-r { animation: antennaeTwitchR 3.6s ease-in-out infinite; transform-origin: 135px 45px; }
+    .eye-pulse { animation: laserEyePulse 2s ease-in-out infinite; transform-origin: center; }
+    .beam-sweep { animation: laserBeamSweep 2.5s ease-in-out infinite; transform-origin: 100px 65px; }
+    .mandibles { animation: mandibleTwitch 4s ease-in-out infinite; transform-origin: 100px 90px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .insect-root, .antenna-l, .antenna-r, .eye-pulse, .beam-sweep, .mandibles {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Ambient Glow -->
+  <circle cx="100" cy="100" r="75" fill="url(#insectGlow)" />
+
+  <!-- Ground Shadow -->
+  <ellipse cx="100" cy="184" rx="55" ry="9" fill="#090d16" opacity="0.45" />
+
+  <!-- Scanning Laser Sweep Beams -->
+  <g class="beam-sweep" opacity="0.6">
+    <polygon points="76,65 10,130 50,160" fill="url(#laserBeam)" />
+    <polygon points="124,65 190,130 150,160" fill="url(#laserBeam)" />
+  </g>
+
+  <!-- Insectoid Warrior Body -->
+  <g class="insect-root" filter="url(#insectShadow)">
+
+    <!-- Massive Bulging Deltoids & Shoulders -->
+    <!-- Left Shoulder & Bicep -->
+    <g>
+      <path d="M 62 100 C 40 102 24 116 22 136 C 20 156 32 178 46 182 L 58 182 C 48 165 48 142 62 132 Z" 
+            fill="#3b82f6" stroke="#0f172a" stroke-width="3" stroke-linejoin="round" />
+      <!-- Bicep Chiseled Crease -->
+      <path d="M 32 136 C 36 150 42 162 52 168" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    </g>
+
+    <!-- Right Shoulder & Bicep -->
+    <g>
+      <path d="M 138 100 C 160 102 176 116 178 136 C 180 156 168 178 154 182 L 142 182 C 152 165 152 142 138 132 Z" 
+            fill="#3b82f6" stroke="#0f172a" stroke-width="3" stroke-linejoin="round" />
+      <!-- Bicep Chiseled Crease -->
+      <path d="M 168 136 C 164 150 158 162 148 168" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    </g>
+
+    <!-- Muscular Chiseled Torso -->
+    <!-- Torso Carapace Base -->
+    <path d="M 58 105 C 55 140 62 182 100 182 C 138 182 145 140 142 105 Z" 
+          fill="#2563eb" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+
+    <!-- Left Pectoral Armor Plate -->
+    <path d="M 64 112 C 64 135 94 140 98 128 C 98 114 85 106 64 112 Z" 
+          fill="#3b82f6" stroke="#0f172a" stroke-width="2.8" stroke-linejoin="round" />
+    <!-- Right Pectoral Armor Plate -->
+    <path d="M 136 112 C 136 135 106 140 102 128 C 102 114 115 106 136 112 Z" 
+          fill="#3b82f6" stroke="#0f172a" stroke-width="2.8" stroke-linejoin="round" />
+
+    <!-- Sternum Center Chitin Line -->
+    <line x1="100" y1="110" x2="100" y2="175" stroke="#0f172a" stroke-width="3" stroke-linecap="round" />
+
+    <!-- 6-Pack Abdominal Chitin Segments -->
+    <!-- Upper Abs -->
+    <path d="M 78 140 Q 90 144 98 140" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M 122 140 Q 110 144 102 140" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <!-- Mid Abs -->
+    <path d="M 80 155 Q 90 158 98 155" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M 120 155 Q 110 158 102 155" stroke="#0f172a" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <!-- Lower Abs -->
+    <path d="M 84 170 Q 92 172 98 170" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" fill="none" />
+    <path d="M 116 170 Q 108 172 102 170" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" fill="none" />
+
+    <!-- Head & Mandibles -->
+    <g>
+      <!-- Head Dome Carapace -->
+      <path d="M 64 58 C 64 26 136 26 136 58 C 136 78 126 95 100 95 C 74 95 64 78 64 58 Z" 
+            fill="#3b82f6" stroke="#0f172a" stroke-width="3.5" stroke-linejoin="round" />
+
+      <!-- Serrated Mandibles / Chitinous Beard -->
+      <g class="mandibles">
+        <path d="M 72 82 L 80 95 L 86 86 L 94 98 L 100 88 L 106 98 L 114 86 L 120 95 L 128 82 L 118 104 L 100 114 L 82 104 Z" 
+              fill="#2563eb" stroke="#0f172a" stroke-width="2.8" stroke-linejoin="round" />
+        <!-- Inner Mandible Teeth Claws -->
+        <polygon points="90,88 94,96 97,90" fill="#1e293b" />
+        <polygon points="110,88 106,96 103,90" fill="#1e293b" />
+      </g>
+
+      <!-- Fierce Chitin Brow Ridges -->
+      <path d="M 70 48 Q 84 42 96 52" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+      <path d="M 130 48 Q 116 42 104 52" stroke="#0f172a" stroke-width="3" stroke-linecap="round" fill="none" />
+
+      <!-- Glowing Red Compound Eyes -->
+      <!-- Left Eye -->
+      <g transform="translate(76, 65)">
+        <ellipse cx="0" cy="0" rx="12" ry="11" fill="#ef4444" stroke="#0f172a" stroke-width="2.8" class="eye-pulse" filter="url(#eyeLaserBloom)" />
+        <ellipse cx="-2" cy="-2" rx="4" ry="3" fill="#ffffff" opacity="0.8" />
+        <circle cx="2" cy="2" r="1.5" fill="#ff2a6d" />
+      </g>
+      <!-- Right Eye -->
+      <g transform="translate(124, 65)">
+        <ellipse cx="0" cy="0" rx="12" ry="11" fill="#ef4444" stroke="#0f172a" stroke-width="2.8" class="eye-pulse" filter="url(#eyeLaserBloom)" />
+        <ellipse cx="-2" cy="-2" rx="4" ry="3" fill="#ffffff" opacity="0.8" />
+        <circle cx="2" cy="2" r="1.5" fill="#ff2a6d" />
+      </g>
+    </g>
+
+    <!-- Articulated Sensory Antennae -->
+    <!-- Left Antenna -->
+    <g class="antenna-l">
+      <path d="M 72 38 C 50 18 20 22 8 8" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round" />
+      <circle cx="8" cy="8" r="2.5" fill="#ef4444" />
+    </g>
+    <!-- Right Antenna -->
+    <g class="antenna-r">
+      <path d="M 128 38 C 150 18 180 22 192 8" fill="none" stroke="#0f172a" stroke-width="3.5" stroke-linecap="round" />
+      <circle cx="192" cy="8" r="2.5" fill="#ef4444" />
+    </g>
+
+  </g>
+</svg>
