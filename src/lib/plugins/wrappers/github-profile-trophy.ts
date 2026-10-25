@@ -10,6 +10,26 @@ export const githubProfileTrophyPlugin: Plugin = {
   icon: 'award',
   fields: [
     {
+      name: 'mirror',
+      label: 'Service Host / Mirror (Fixes 402 Downtime)',
+      type: 'select',
+      defaultValue: 'https://github-profile-repo.vercel.app',
+      options: [
+        { label: 'Active Mirror 1 (github-profile-repo)', value: 'https://github-profile-repo.vercel.app' },
+        { label: 'Active Mirror 2 (unserori)', value: 'https://github-profile-trophy-unserori.vercel.app' },
+        { label: 'Active Mirror 3 (ryglcloud)', value: 'https://trophy.ryglcloud.net' },
+        { label: 'Official Instance (May be 402 disabled)', value: 'https://github-profile-trophy.vercel.app' },
+      ],
+      required: false,
+    },
+    {
+      name: 'customUrl',
+      label: 'Custom Self-Hosted Vercel URL (Optional)',
+      type: 'text',
+      defaultValue: '',
+      required: false,
+    },
+    {
       name: 'theme',
       label: 'Trophy Theme',
       type: 'select',
@@ -54,6 +74,8 @@ export const githubProfileTrophyPlugin: Plugin = {
     },
   ],
   defaultConfig: {
+    mirror: 'https://github-profile-repo.vercel.app',
+    customUrl: '',
     theme: 'flat',
     row: 1,
     column: 6,
@@ -70,7 +92,11 @@ export const githubProfileTrophyPlugin: Plugin = {
     const noFrame = props.noFrame ? '&no-frame=true' : '';
     const align = settings.align || 'left';
 
-    const url = `https://github-profile-trophy.vercel.app/?username=${user}&theme=${theme}&row=${row}&column=${column}${noBg}${noFrame}`;
+    const customUrl = typeof props.customUrl === 'string' ? props.customUrl.trim() : '';
+    const mirror = customUrl || (props.mirror as string) || 'https://github-profile-repo.vercel.app';
+    const baseUrl = mirror.replace(/\/+$/, '');
+
+    const url = `${baseUrl}/?username=${user}&theme=${theme}&row=${row}&column=${column}${noBg}${noFrame}`;
 
     return {
       markdown: `<div align="${align}">\n  <a href="https://github.com/ryo-ma/github-profile-trophy">\n    <img src="${url}" alt="${user} trophies" />\n  </a>\n</div>`,

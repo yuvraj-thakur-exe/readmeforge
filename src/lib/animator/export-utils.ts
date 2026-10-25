@@ -45,7 +45,7 @@ export function generateHostedDemoUrl(
  */
 export function generateMarkdownSnippet(
   config: AnimationConfig,
-  filename = 'banner-animated.svg',
+  filename = 'readmeforge-banner.svg',
   baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://readmeforge.dev'
 ): { relative: string; dataUri: string; githubRaw: string; hostedDemo: string } {
   const svg = generateAnimatedSvg(config);
@@ -99,7 +99,7 @@ export function downloadFile(content: string, filename: string, mimeType: string
 /**
  * Downloads the animated SVG.
  */
-export function downloadSvgFile(config: AnimationConfig, filename = 'banner-animated.svg') {
+export function downloadSvgFile(config: AnimationConfig, filename = 'readmeforge-banner.svg') {
   const svg = generateAnimatedSvg(config);
   downloadFile(svg, filename, 'image/svg+xml;charset=utf-8');
 }
