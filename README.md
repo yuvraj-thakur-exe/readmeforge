@@ -297,6 +297,18 @@ ReadmeForge features an enterprise-grade in-browser **Animation Studio** (`/anim
   - `gold-metallic`: Luxurious 3D beveled metallic gold border with twinkling star glints.
   - `fire-border`: Blazing perimeter frame with heat pulsation.
 
+- **Animated Vector Characters & Actions:**
+  - `pixel-dev`: Cyberpunk developer in dark hoodie, visor, and headphones.
+  - `cyber-bot`: Floating robot companion with antenna beacon and pulsing thruster engine.
+  - `builder-crafter`: Construction crafter in safety hardhat and high-vis vest.
+  - `ninja-coder`: Shinobi coder with fluttering headband ribbons and cyber kunai.
+  - `wizard-mage`: Sorcerer with wizard hat and pulsating arcane crystal staff.
+  - `walk action`: Ground baseline patrol with alternating leg swing cycles.
+  - `build action`: Active building scene with swinging hammer, spark bursts, and stacked modular tech blocks.
+  - `code action`: Floating translucent holographic terminal workstation with blinking prompt.
+  - `construct action`: High-tech circuit truss welding with electrical arc flash and spark shower.
+  - `cheer action`: Celebratory victory jump with raised arms, gold trophy, and falling confetti.
+
 - **SVG Vector Effects:**
   - `line-drawing`: Pure CSS `stroke-dashoffset` path tracing animation.
   - `path-morphing`: Seamless breathing geometric polygon interpolation.

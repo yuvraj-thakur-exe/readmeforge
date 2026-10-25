@@ -74,6 +74,27 @@ Rendered within the `<g id="frame-layer">` overlay:
 5. **gold-metallic**: Luxurious 3D beveled metallic gold border (`#bf953f` -> `#fcf6ba` -> `#b38728`) with twinkling 4-point star glints.
 6. **fire-border**: Blazing perimeter frame with heat pulsation keyframes and flame embers.
 
+---
+
+## 3.2 Animated Vector Characters & Actions Matrix
+
+Rendered within the `<g class="char-layer">` group along the baseline runner:
+
+### Character Models:
+1. **pixel-dev**: Retro cyberpunk developer in dark hoodie (`#1e1b4b`), cyber visor (`#00f5d4`), and blue headphones.
+2. **cyber-bot**: Hovering robotic companion with blinking antenna beacon, glowing visor optics, energy core, and pulsing thruster flame.
+3. **builder-crafter**: Master architect in bright yellow safety hardhat, high-vis safety vest, and utility toolbelt.
+4. **ninja-coder**: Cyber shinobi in dark stealth tunic with trailing fluttering headband ribbons and glowing cyan eyes.
+5. **wizard-mage**: Software sorcerer in starry wizard hat and robes, casting spells with a pulsating arcane crystal staff.
+
+### Character Actions:
+1. **walk**: Horizontal back-and-forth patrol movement across the banner baseline with alternating leg swings and body bobbing.
+2. **build**: Active construction scene where the character swings a hammer with spark bursts, stacking modular tech blocks (`<DATA>`, `API.v2`, `CLOUD`) while a top core block drops from a crane and locks with golden glow.
+3. **code**: Character stationed at a floating translucent holographic workstation HUD typing with animated hands as code lines and cursor blink.
+4. **construct**: Heavy industrial welding on a circuit truss tower with intense electrical blue arc flashes and falling spark showers.
+5. **cheer**: Celebratory victory jump with raised arms in 'V' shape, spinning gold trophy/star, and fluttering multi-colored confetti.
+
+---
 
 ## 4. SVG Vector Effects
 

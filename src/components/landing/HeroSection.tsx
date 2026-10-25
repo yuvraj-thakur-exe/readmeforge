@@ -19,6 +19,9 @@ import {
   Terminal as TerminalIcon,
   Sliders,
   Square,
+  Bot,
+  Hammer,
+  Footprints,
 } from 'lucide-react';
 import { ResumeUpload } from '#/components/enrichment/ResumeUpload';
 import { importReadmeFromMarkdown } from '#/lib/parser/import-readme';
@@ -36,6 +39,8 @@ import {
   AnimationConfig,
   BackgroundEffect,
   FrameEffect,
+  CharacterType,
+  CharacterAction,
 } from '#/lib/animator/types';
 
 interface InstallOption {
@@ -126,6 +131,8 @@ export const HeroSection: React.FC = () => {
     frameEffect: 'fire-border',
     svgEffect: 'animated-logo',
     threeDEffect: 'interactive-card',
+    characterType: 'builder-crafter',
+    characterAction: 'build',
     primaryColor: '#ff2a2a',
     secondaryColor: '#ff9900',
     accentColor: '#ffee55',
@@ -186,7 +193,9 @@ export const HeroSection: React.FC = () => {
     pColor: string,
     sColor: string,
     aColor: string,
-    bgColor: string
+    bgColor: string,
+    charType?: CharacterType,
+    charAct?: CharacterAction
   ) => {
     setPlaygroundConfig(prev => ({
       ...prev,
@@ -197,6 +206,8 @@ export const HeroSection: React.FC = () => {
       secondaryColor: sColor,
       accentColor: aColor,
       backgroundColor: bgColor,
+      characterType: charType ?? prev.characterType,
+      characterAction: charAct ?? prev.characterAction,
     }));
   };
 
@@ -406,7 +417,9 @@ export const HeroSection: React.FC = () => {
                     '#ff2a2a',
                     '#ff9900',
                     '#ffee55',
-                    '#0c0404'
+                    '#0c0404',
+                    'builder-crafter',
+                    'build'
                   )
                 }
                 className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
@@ -429,7 +442,9 @@ export const HeroSection: React.FC = () => {
                     '#00b4d8',
                     '#48cae4',
                     '#90e0ef',
-                    '#02121e'
+                    '#02121e',
+                    'wizard-mage',
+                    'walk'
                   )
                 }
                 className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
@@ -452,7 +467,9 @@ export const HeroSection: React.FC = () => {
                     '#6366f1',
                     '#38bdf8',
                     '#c084fc',
-                    '#0a0d17'
+                    '#0a0d17',
+                    'pixel-dev',
+                    'walk'
                   )
                 }
                 className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
@@ -475,7 +492,9 @@ export const HeroSection: React.FC = () => {
                     '#22c55e',
                     '#86efac',
                     '#4ade80',
-                    '#051309'
+                    '#051309',
+                    'cyber-bot',
+                    'code'
                   )
                 }
                 className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
@@ -498,7 +517,9 @@ export const HeroSection: React.FC = () => {
                     '#bf953f',
                     '#fcf6ba',
                     '#b38728',
-                    '#09090b'
+                    '#09090b',
+                    'ninja-coder',
+                    'cheer'
                   )
                 }
                 className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
@@ -575,6 +596,58 @@ export const HeroSection: React.FC = () => {
                 <option value="hologram">Hologram HUD</option>
                 <option value="gold-metallic">Metallic Gold</option>
                 <option value="none">No Frame</option>
+              </select>
+            </div>
+
+            {/* Character & Action Controls */}
+            <div className="sm:col-span-6">
+              <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1 flex items-center gap-1">
+                <Bot className="w-3 h-3 text-emerald-400" />
+                <span>Vector Character</span>
+              </label>
+              <select
+                value={playgroundConfig.characterType || 'builder-crafter'}
+                onChange={e =>
+                  setPlaygroundConfig(prev => ({
+                    ...prev,
+                    characterType: e.target.value as CharacterType,
+                  }))
+                }
+                className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
+              >
+                <option value="builder-crafter">Builder Crafter (Hardhat &amp; Vest)</option>
+                <option value="pixel-dev">Pixel Dev (Hoodie &amp; Visor)</option>
+                <option value="cyber-bot">Cyber Bot (Thruster &amp; Antenna)</option>
+                <option value="ninja-coder">Ninja Coder (Mask &amp; Ribbon)</option>
+                <option value="wizard-mage">Wizard Mage (Hat &amp; Magic Staff)</option>
+                <option value="none">No Character</option>
+              </select>
+            </div>
+
+            <div className="sm:col-span-6">
+              <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1 flex items-center gap-1">
+                {playgroundConfig.characterAction === 'build' ? (
+                  <Hammer className="w-3 h-3 text-amber-400" />
+                ) : (
+                  <Footprints className="w-3 h-3 text-cyan-400" />
+                )}
+                <span>Character Action</span>
+              </label>
+              <select
+                value={playgroundConfig.characterAction || 'build'}
+                onChange={e =>
+                  setPlaygroundConfig(prev => ({
+                    ...prev,
+                    characterAction: e.target.value as CharacterAction,
+                  }))
+                }
+                className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
+              >
+                <option value="build">Build (Stack Tech Blocks &amp; Sparks)</option>
+                <option value="walk">Walk (Patrol Ground Baseline)</option>
+                <option value="code">Code (Floating Terminal HUD)</option>
+                <option value="construct">Construct (Weld Circuit Truss)</option>
+                <option value="cheer">Cheer (Victory Jump &amp; Confetti)</option>
               </select>
             </div>
           </div>

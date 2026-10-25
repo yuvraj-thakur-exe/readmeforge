@@ -14,6 +14,8 @@ import {
   BackgroundEffect,
   SvgEffect,
   ThreeDEffect,
+  CharacterType,
+  CharacterAction,
 } from './types';
 
 describe('Animator Engine - Expanded Effects Pipeline', () => {
@@ -169,6 +171,66 @@ describe('Animator Engine - Expanded Effects Pipeline', () => {
       const val = validateSvg(svg);
       expect(val.isValid).toBe(true);
       expect(val.isGitHubSafe).toBe(true);
+    }
+  });
+
+  it('renders characters walking across the banner baseline safely', () => {
+    const characters: CharacterType[] = ['pixel-dev', 'cyber-bot', 'builder-crafter', 'ninja-coder', 'wizard-mage'];
+    for (const charType of characters) {
+      const cfg: AnimationConfig = {
+        ...DEFAULT_ANIMATION_CONFIG,
+        characterType: charType,
+        characterAction: 'walk',
+      };
+      const svg = generateAnimatedSvg(cfg);
+      expect(svg).toContain('class="char-walk-carrier"');
+      expect(svg).toContain('class="char-ground-line"');
+      const val = validateSvg(svg);
+      expect(val.isValid).toBe(true);
+      expect(val.isGitHubSafe).toBe(true);
+    }
+  });
+
+  it('renders building action with stacked blocks, swinging hammer, and sparks', () => {
+    const cfg: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      characterType: 'builder-crafter',
+      characterAction: 'build',
+    };
+    const svg = generateAnimatedSvg(cfg);
+    expect(svg).toContain('class="construction-site"');
+    expect(svg).toContain('class="char-hammer-arm"');
+    expect(svg).toContain('class="build-spark"');
+    expect(svg).toContain('class="build-top-block"');
+    expect(svg).toContain('BUILD: OK');
+
+    const val = validateSvg(svg);
+    expect(val.isValid).toBe(true);
+    expect(val.isGitHubSafe).toBe(true);
+  });
+
+  it('renders coding, construct welding, and cheering victory actions safely', () => {
+    const actions: CharacterAction[] = ['code', 'construct', 'cheer'];
+    for (const action of actions) {
+      const cfg: AnimationConfig = {
+        ...DEFAULT_ANIMATION_CONFIG,
+        characterType: 'pixel-dev',
+        characterAction: action,
+      };
+      const svg = generateAnimatedSvg(cfg);
+      const val = validateSvg(svg);
+      expect(val.isValid).toBe(true);
+      expect(val.isGitHubSafe).toBe(true);
+
+      if (action === 'code') {
+        expect(svg).toContain('class="coding-terminal"');
+      } else if (action === 'construct') {
+        expect(svg).toContain('class="construction-truss"');
+        expect(svg).toContain('class="weld-flash"');
+      } else if (action === 'cheer') {
+        expect(svg).toContain('class="char-cheer-carrier"');
+        expect(svg).toContain('class="confetti-1"');
+      }
     }
   });
 });

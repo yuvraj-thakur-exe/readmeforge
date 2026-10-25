@@ -51,6 +51,21 @@ export type ThreeDEffect =
   | 'interactive-card'
   | 'particle-environment';
 
+export type CharacterType =
+  | 'none'
+  | 'pixel-dev'
+  | 'cyber-bot'
+  | 'builder-crafter'
+  | 'ninja-coder'
+  | 'wizard-mage';
+
+export type CharacterAction =
+  | 'walk'
+  | 'build'
+  | 'code'
+  | 'construct'
+  | 'cheer';
+
 export type FontFamily =
   | 'Fira Code'
   | 'JetBrains Mono'
@@ -77,6 +92,8 @@ export interface AnimationConfig {
   frameEffect?: FrameEffect;
   svgEffect: SvgEffect;
   threeDEffect: ThreeDEffect;
+  characterType?: CharacterType;
+  characterAction?: CharacterAction;
   // Color Palette
   primaryColor: string;
   secondaryColor: string;
@@ -115,6 +132,8 @@ export const DEFAULT_ANIMATION_CONFIG: AnimationConfig = {
   textEffect: 'gradient',
   backgroundEffect: 'grids',
   frameEffect: 'cyber-neon',
+  characterType: 'none',
+  characterAction: 'walk',
   svgEffect: 'animated-logo',
   threeDEffect: 'interactive-card',
   primaryColor: '#6366f1',

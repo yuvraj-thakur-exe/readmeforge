@@ -37,6 +37,9 @@ import {
   Activity,
   Cpu,
   Square,
+  Bot,
+  Hammer,
+  Footprints,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import {
@@ -53,6 +56,8 @@ import {
   FrameEffect,
   SvgEffect,
   ThreeDEffect,
+  CharacterType,
+  CharacterAction,
 } from '#/lib/animator/types';
 import { generateAnimatedSvg } from '#/lib/animator/presets';
 import { validateSvg } from '#/lib/animator/validator';
@@ -572,6 +577,65 @@ export function AnimatorStudio() {
                       <option value="particle-environment">Warp Tunnel</option>
                     </select>
                   </div>
+                </div>
+
+                {/* 4. Animated Characters & Actions */}
+                <div className="space-y-2 pt-2 border-t border-palette-line/40">
+                  <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1 flex items-center justify-between">
+                    <span className="flex items-center gap-1">
+                      <Bot className="w-3.5 h-3.5 text-emerald-400" />
+                      Vector Character &amp; Action
+                    </span>
+                    <span className="text-[10px] font-mono text-cyan-400 capitalize">
+                      {(config.characterType || 'none').replace('-', ' ')} &bull; {config.characterAction || 'walk'}
+                    </span>
+                  </label>
+
+                  {/* Character Model Selector */}
+                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-1">
+                    {(['none', 'pixel-dev', 'cyber-bot', 'builder-crafter', 'ninja-coder', 'wizard-mage'] as CharacterType[]).map(char => (
+                      <button
+                        key={char}
+                        type="button"
+                        onClick={() => setConfig(prev => ({ ...prev, characterType: char }))}
+                        className={`py-1.5 px-1 rounded-lg text-[10px] font-mono capitalize border transition-all truncate text-center ${
+                          (config.characterType || 'none') === char
+                            ? 'border-emerald-500 bg-emerald-950/40 text-emerald-300 font-bold'
+                            : 'border-palette-line bg-palette-base/60 text-neutral-400 hover:text-white'
+                        }`}
+                      >
+                        {char === 'none' ? 'No Avatar' : char.replace('-', ' ')}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Action Selector (only when character is not 'none') */}
+                  {(config.characterType && config.characterType !== 'none') && (
+                    <div className="pt-1.5">
+                      <div className="text-[10px] font-medium text-neutral-400 mb-1 flex items-center gap-1">
+                        <Footprints className="w-3 h-3 text-cyan-400" />
+                        <span>Character Action Animation</span>
+                      </div>
+                      <div className="grid grid-cols-5 gap-1">
+                        {(['walk', 'build', 'code', 'construct', 'cheer'] as CharacterAction[]).map(act => (
+                          <button
+                            key={act}
+                            type="button"
+                            onClick={() => setConfig(prev => ({ ...prev, characterAction: act }))}
+                            className={`py-1 px-1 rounded-md text-[10px] font-mono capitalize border transition-all text-center flex items-center justify-center gap-1 ${
+                              (config.characterAction || 'walk') === act
+                                ? 'border-cyan-500 bg-cyan-950/50 text-cyan-300 font-bold'
+                                : 'border-palette-line bg-palette-base/60 text-neutral-400 hover:text-white'
+                            }`}
+                          >
+                            {act === 'build' && <Hammer className="w-2.5 h-2.5 text-amber-400" />}
+                            {act === 'walk' && <Footprints className="w-2.5 h-2.5 text-cyan-400" />}
+                            <span>{act}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 

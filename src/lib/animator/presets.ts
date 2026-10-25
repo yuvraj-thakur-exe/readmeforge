@@ -5,6 +5,8 @@ import {
   FrameEffect,
   SvgEffect,
   ThreeDEffect,
+  CharacterType,
+  CharacterAction,
 } from './types';
 
 /**
@@ -867,6 +869,557 @@ function renderFrameLayer(
 }
 
 /**
+ * Renders avatar body vector based on CharacterType.
+ */
+function renderAvatarBody(
+  type: CharacterType,
+  _primaryColor: string,
+  _secondaryColor: string,
+  accentColor: string,
+  action: CharacterAction
+): string {
+  // Arm & tool configurations based on active action
+  let armsAndTools = '';
+  switch (action) {
+    case 'build':
+      armsAndTools = `
+        <line x1="-8" y1="-8" x2="-14" y2="0" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+        <g class="char-hammer-arm">
+          <line x1="8" y1="-10" x2="20" y2="-4" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+          <line x1="18" y1="-6" x2="28" y2="0" stroke="#78350f" stroke-width="2.5" />
+          <rect x="25" y="-7" width="7" height="13" rx="1.5" fill="#94a3b8" stroke="#cbd5e1" stroke-width="0.8" />
+        </g>
+      `;
+      break;
+    case 'code':
+      armsAndTools = `
+        <g class="char-typing-arms">
+          <line x1="-8" y1="-8" x2="4" y2="-4" stroke="#475569" stroke-width="2.5" stroke-linecap="round" />
+          <line x1="8" y1="-8" x2="16" y2="-2" stroke="#475569" stroke-width="2.5" stroke-linecap="round" />
+          <circle cx="4" cy="-4" r="2" fill="#fed7aa" />
+          <circle cx="16" cy="-2" r="2" fill="#fed7aa" />
+        </g>
+      `;
+      break;
+    case 'construct':
+      armsAndTools = `
+        <line x1="-8" y1="-8" x2="-12" y2="2" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+        <g class="char-torch-arm">
+          <line x1="8" y1="-10" x2="22" y2="-8" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+          <line x1="22" y1="-8" x2="29" y2="-8" stroke="#0ea5e9" stroke-width="2.5" />
+          <polygon points="29,-10 33,-8 29,-6" fill="#e0f2fe" />
+        </g>
+      `;
+      break;
+    case 'cheer':
+      armsAndTools = `
+        <g class="char-cheer-arms">
+          <line x1="-8" y1="-10" x2="-16" y2="-26" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+          <line x1="8" y1="-10" x2="16" y2="-26" stroke="#475569" stroke-width="3" stroke-linecap="round" />
+          <circle cx="-16" cy="-27" r="2" fill="#fed7aa" />
+          <circle cx="16" cy="-27" r="2" fill="#fed7aa" />
+        </g>
+      `;
+      break;
+    case 'walk':
+    default:
+      armsAndTools = `
+        <rect x="-13" y="-12" width="4" height="11" rx="2" fill="#475569" class="char-arm-l" />
+        <rect x="9" y="-12" width="4" height="11" rx="2" fill="#475569" class="char-arm-r" />
+      `;
+      break;
+  }
+
+  // Legs for biped characters
+  const bipedLegs =
+    action === 'walk'
+      ? `
+        <rect x="-6" y="0" width="4" height="12" rx="2" fill="#1e293b" class="char-leg-l" />
+        <rect x="2" y="0" width="4" height="12" rx="2" fill="#1e293b" class="char-leg-r" />
+      `
+      : `
+        <rect x="-6" y="0" width="4" height="12" rx="2" fill="#1e293b" />
+        <rect x="2" y="0" width="4" height="12" rx="2" fill="#1e293b" />
+      `;
+
+  switch (type) {
+    case 'cyber-bot': {
+      return `
+        <g class="char-bobber">
+          <!-- Bot Antenna -->
+          <line x1="0" y1="-36" x2="0" y2="-43" stroke="#38bdf8" stroke-width="1.5" />
+          <circle cx="0" cy="-44" r="2.5" fill="#f43f5e" class="bot-antenna" />
+          <!-- Bot Dome Head -->
+          <ellipse cx="0" cy="-27" rx="12" ry="9" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+          <!-- Glowing Visor -->
+          <rect x="-8" y="-30" width="16" height="5" rx="2.5" fill="#06b6d4" />
+          <circle cx="-3" cy="-27.5" r="1.2" fill="#fff" />
+          <circle cx="3" cy="-27.5" r="1.2" fill="#fff" />
+          <!-- Chassis Torso -->
+          <rect x="-10" y="-18" width="20" height="16" rx="4" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.5" />
+          <!-- Reactor Core -->
+          <circle cx="0" cy="-10" r="3.5" fill="${accentColor}" class="bot-core" />
+          <!-- Arms / Tools -->
+          ${armsAndTools}
+          <!-- Hover Thruster Flame -->
+          <path d="M -5 -2 L 5 -2 L 2 3 L -2 3 Z" fill="#475569" />
+          <ellipse cx="0" cy="5" rx="5" ry="3" fill="#38bdf8" class="bot-thruster" />
+        </g>
+      `;
+    }
+
+    case 'builder-crafter': {
+      return `
+        <g class="char-bobber">
+          <!-- Yellow Hardhat -->
+          <path d="M -12 -30 C -12 -40 12 -40 12 -30 Z" fill="#eab308" />
+          <rect x="-14" y="-30" width="28" height="3" rx="1.5" fill="#ca8a04" />
+          <!-- Face -->
+          <rect x="-8" y="-27" width="16" height="11" rx="2.5" fill="#fed7aa" />
+          <circle cx="-3" cy="-22" r="1.2" fill="#1e293b" />
+          <circle cx="3" cy="-22" r="1.2" fill="#1e293b" />
+          <!-- High-Vis Vest -->
+          <rect x="-10" y="-16" width="20" height="16" rx="3" fill="#f97316" />
+          <rect x="-5" y="-16" width="10" height="16" fill="#22c55e" />
+          <line x1="-10" y1="-8" x2="10" y2="-8" stroke="#ffffff" stroke-width="1.8" stroke-opacity="0.9" />
+          <!-- Toolbelt -->
+          <rect x="-11" y="-2" width="22" height="3" rx="1" fill="#78350f" />
+          <rect x="-2" y="-3" width="4" height="5" rx="1" fill="#eab308" />
+          <!-- Arms & Legs -->
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
+    case 'ninja-coder': {
+      return `
+        <g class="char-bobber">
+          <!-- Ninja Head & Mask -->
+          <circle cx="0" cy="-25" r="9.5" fill="#0f172a" />
+          <rect x="-8" y="-32" width="16" height="5" rx="1" fill="#334155" />
+          <line x1="-4" y1="-29.5" x2="4" y2="-29.5" stroke="#00f5d4" stroke-width="1.4" />
+          <path d="M -8 -25 C -8 -19 8 -19 8 -25 Z" fill="#1e293b" />
+          <!-- Cyan Cyber Eyes -->
+          <line x1="-5" y1="-26" x2="-2" y2="-26" stroke="#00f5d4" stroke-width="1.5" />
+          <line x1="2" y1="-26" x2="5" y2="-26" stroke="#00f5d4" stroke-width="1.5" />
+          <!-- Fluttering Headband Ribbon -->
+          <path d="M 8 -30 Q 18 -34 26 -27" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" class="ninja-ribbon" />
+          <!-- Dark Tunic -->
+          <polygon points="0,-16 -10,-14 -7,0 7,0 10,-14" fill="#090d16" stroke="#00f5d4" stroke-width="1" />
+          <!-- Arms & Legs -->
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
+    case 'wizard-mage': {
+      return `
+        <g class="char-bobber">
+          <!-- Wizard Hat -->
+          <polygon points="0,-48 -12,-30 12,-30" fill="#4f46e5" stroke="#818cf8" stroke-width="1" />
+          <ellipse cx="0" cy="-30" rx="15" ry="3.5" fill="#3730a3" />
+          <circle cx="0" cy="-39" r="1.8" fill="#facc15" />
+          <!-- Face & Beard -->
+          <circle cx="0" cy="-23" r="7.5" fill="#fed7aa" />
+          <path d="M -6 -22 Q 0 -8 0 0 Q 0 -8 6 -22 Z" fill="#e2e8f0" />
+          <!-- Robe -->
+          <path d="M -9 -15 L -14 0 L 14 0 L 9 -15 Z" fill="#312e81" stroke="#c084fc" stroke-width="1" />
+          <!-- Crystal Staff -->
+          <line x1="12" y1="-6" x2="19" y2="-34" stroke="#78350f" stroke-width="2.2" stroke-linecap="round" />
+          <circle cx="20" cy="-36" r="4.5" fill="#a855f7" class="wizard-orb" />
+          <circle cx="20" cy="-36" r="7.5" fill="#c084fc" opacity="0.35" class="wizard-orb-glow" />
+          <!-- Arms & Legs -->
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
+    case 'pixel-dev':
+    default: {
+      return `
+        <g class="char-bobber">
+          <!-- Headphones Headband -->
+          <path d="M -10 -31 C -10 -38 10 -38 10 -31" fill="none" stroke="#38bdf8" stroke-width="2" />
+          <rect x="-12" y="-31" width="3" height="8" rx="1.5" fill="#38bdf8" />
+          <rect x="9" y="-31" width="3" height="8" rx="1.5" fill="#38bdf8" />
+          <!-- Head / Hair -->
+          <rect x="-9" y="-33" width="18" height="15" rx="3" fill="#334155" />
+          <!-- Face -->
+          <rect x="-7" y="-29" width="14" height="9" rx="1.5" fill="#fed7aa" />
+          <!-- Cyber Visor / Glasses -->
+          <rect x="-6" y="-28" width="12" height="3.5" rx="1" fill="#00f5d4" />
+          <!-- Hoodie Body -->
+          <rect x="-10" y="-17" width="20" height="17" rx="3" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
+          <!-- Code symbol on chest < / > -->
+          <path d="M -3 -9 L -6 -6 L -3 -3 M 3 -9 L 6 -6 L 3 -3" stroke="#a5b4fc" stroke-width="1.2" fill="none" stroke-linecap="round" />
+          <!-- Arms & Legs -->
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+  }
+}
+
+/**
+ * Generates character layer SVG markup, styles, and action animations.
+ */
+function renderCharacterLayer(
+  characterType: CharacterType | undefined,
+  characterAction: CharacterAction | undefined,
+  width: number,
+  height: number,
+  primaryColor: string,
+  secondaryColor: string,
+  accentColor: string,
+  duration: number
+): { defs: string; style: string; markup: string } {
+  if (!characterType || characterType === 'none') {
+    return { defs: '', style: '', markup: '' };
+  }
+
+  const action = characterAction || 'walk';
+  const groundY = height - 36;
+  const avatar = renderAvatarBody(characterType, primaryColor, secondaryColor, accentColor, action);
+
+  const style = `
+    /* Ground baseline runner */
+    .char-ground-line { stroke: ${primaryColor}; opacity: 0.35; stroke-dasharray: 6 5; }
+
+    /* Character Walk Patrol */
+    @keyframes charPatrolWalk {
+      0% { transform: translateX(60px) scaleX(1); }
+      47% { transform: translateX(${width - 90}px) scaleX(1); }
+      50% { transform: translateX(${width - 90}px) scaleX(-1); }
+      97% { transform: translateX(60px) scaleX(-1); }
+      100% { transform: translateX(60px) scaleX(1); }
+    }
+    @keyframes legWalkLeft {
+      0%, 100% { transform: rotate(-24deg); }
+      50% { transform: rotate(24deg); }
+    }
+    @keyframes legWalkRight {
+      0%, 100% { transform: rotate(24deg); }
+      50% { transform: rotate(-24deg); }
+    }
+    @keyframes charWalkBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .char-walk-carrier {
+      animation: charPatrolWalk ${duration * 2.8}s ease-in-out infinite;
+    }
+    .char-leg-l {
+      transform-origin: -4px 0px;
+      animation: legWalkLeft ${duration * 0.4}s ease-in-out infinite;
+    }
+    .char-leg-r {
+      transform-origin: 4px 0px;
+      animation: legWalkRight ${duration * 0.4}s ease-in-out infinite;
+    }
+    .char-arm-l {
+      transform-origin: -12px -12px;
+      animation: legWalkRight ${duration * 0.4}s ease-in-out infinite;
+    }
+    .char-arm-r {
+      transform-origin: 10px -12px;
+      animation: legWalkLeft ${duration * 0.4}s ease-in-out infinite;
+    }
+    .char-bobber {
+      animation: charWalkBob ${duration * 0.4}s ease-in-out infinite;
+    }
+
+    /* Cyber Bot Hover & Glowing Effects */
+    @keyframes botThrusterPulse {
+      0%, 100% { transform: scale(1) translateY(0); opacity: 0.7; }
+      50% { transform: scale(1.3) translateY(2px); opacity: 1; }
+    }
+    .bot-thruster {
+      transform-origin: 0px 5px;
+      animation: botThrusterPulse ${duration * 0.25}s ease-in-out infinite;
+    }
+    @keyframes botAntennaBlink {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; fill: #ef4444; }
+    }
+    .bot-antenna {
+      animation: botAntennaBlink ${duration * 0.3}s infinite;
+    }
+    @keyframes botCorePulse {
+      0%, 100% { opacity: 0.7; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+    .bot-core {
+      transform-origin: 0px -10px;
+      animation: botCorePulse ${duration * 0.5}s ease-in-out infinite;
+    }
+
+    /* Ninja Ribbon Flutter */
+    @keyframes ribbonFlutter {
+      0%, 100% { transform: rotate(0deg) skewY(0deg); }
+      50% { transform: rotate(8deg) skewY(4deg); }
+    }
+    .ninja-ribbon {
+      transform-origin: 8px -30px;
+      animation: ribbonFlutter ${duration * 0.3}s ease-in-out infinite;
+    }
+
+    /* Wizard Orb Pulsation */
+    @keyframes orbPulsate {
+      0%, 100% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    .wizard-orb {
+      transform-origin: 20px -36px;
+      animation: orbPulsate ${duration * 0.5}s ease-in-out infinite;
+    }
+    .wizard-orb-glow {
+      transform-origin: 20px -36px;
+      animation: orbPulsate ${duration * 0.5}s ease-in-out infinite 0.1s;
+    }
+
+    /* Build Action Animations */
+    @keyframes hammerStrikeMotion {
+      0%, 100% { transform: rotate(-35deg); }
+      42% { transform: rotate(45deg); }
+      50% { transform: rotate(38deg); }
+      68% { transform: rotate(-35deg); }
+    }
+    .char-hammer-arm {
+      transform-origin: 8px -10px;
+      animation: hammerStrikeMotion ${duration * 0.6}s ease-in-out infinite;
+    }
+    @keyframes strikeSparkBurst {
+      0%, 38% { opacity: 0; transform: scale(0.2); }
+      43% { opacity: 1; transform: scale(1.4); }
+      60% { opacity: 0; transform: scale(2.2); }
+      100% { opacity: 0; }
+    }
+    .build-spark {
+      transform-origin: ${width - 120}px ${groundY - 20}px;
+      animation: strikeSparkBurst ${duration * 0.6}s ease-out infinite;
+    }
+    @keyframes blockDropSnap {
+      0% { transform: translateY(-30px); opacity: 0; }
+      35% { transform: translateY(0); opacity: 1; }
+      45% { transform: scale(1.08); }
+      55% { transform: scale(1); }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .build-top-block {
+      transform-origin: ${width - 96}px ${groundY - 52}px;
+      animation: blockDropSnap ${duration * 1.8}s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+    }
+    @keyframes craneSway {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+    .crane-cable {
+      transform-origin: ${width - 96}px ${groundY - 80}px;
+      animation: craneSway ${duration * 1.2}s ease-in-out infinite;
+    }
+
+    /* Code Action Animations */
+    @keyframes typingHandsMotion {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+    }
+    .char-typing-arms {
+      animation: typingHandsMotion ${duration * 0.25}s ease-in-out infinite;
+    }
+    @keyframes terminalCursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .cursor-blink {
+      animation: terminalCursorBlink 0.8s infinite;
+    }
+    @keyframes codeStreamRise {
+      0% { transform: translateY(0); opacity: 0; }
+      30% { opacity: 0.9; }
+      80% { opacity: 0.7; }
+      100% { transform: translateY(-24px); opacity: 0; }
+    }
+    .code-particle-1 { animation: codeStreamRise ${duration * 0.7}s ease-out infinite 0.1s; }
+    .code-particle-2 { animation: codeStreamRise ${duration * 0.8}s ease-out infinite 0.4s; }
+
+    /* Construct Action Animations */
+    @keyframes weldFlashPulsing {
+      0%, 100% { opacity: 0.15; transform: scale(0.6); }
+      25%, 30%, 70%, 75% { opacity: 1; transform: scale(1.5); }
+    }
+    .weld-flash {
+      transform-origin: ${width - 98}px ${groundY - 32}px;
+      animation: weldFlashPulsing ${duration * 0.4}s ease-in-out infinite;
+    }
+    @keyframes sparkShower {
+      0% { transform: translate(0, 0) scale(1); opacity: 1; }
+      100% { transform: translate(14px, 22px) scale(0.1); opacity: 0; }
+    }
+    .weld-spark-1 { animation: sparkShower ${duration * 0.35}s ease-out infinite 0.05s; }
+    .weld-spark-2 { animation: sparkShower ${duration * 0.4}s ease-out infinite 0.2s; }
+    .weld-spark-3 { animation: sparkShower ${duration * 0.3}s ease-out infinite 0.15s; }
+
+    /* Cheer Action Animations */
+    @keyframes cheerJumpCycle {
+      0%, 100% { transform: translateY(0); }
+      35% { transform: translateY(-22px) rotate(2deg); }
+      50% { transform: translateY(-18px) rotate(-2deg); }
+      70% { transform: translateY(0); }
+    }
+    .char-cheer-carrier {
+      animation: cheerJumpCycle ${duration * 0.7}s ease-in-out infinite;
+    }
+    @keyframes cheerWaveArms {
+      0%, 100% { transform: rotate(-10deg); }
+      50% { transform: rotate(10deg); }
+    }
+    .char-cheer-arms {
+      transform-origin: 0px -10px;
+      animation: cheerWaveArms ${duration * 0.35}s ease-in-out infinite;
+    }
+    @keyframes confettiFall {
+      0% { transform: translateY(-16px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(30px) rotate(360deg); opacity: 0; }
+    }
+    .confetti-1 { animation: confettiFall ${duration * 0.8}s ease-out infinite 0.1s; }
+    .confetti-2 { animation: confettiFall ${duration * 0.9}s ease-out infinite 0.3s; }
+    .confetti-3 { animation: confettiFall ${duration * 0.7}s ease-out infinite 0.5s; }
+    .confetti-4 { animation: confettiFall ${duration * 0.85}s ease-out infinite 0.2s; }
+  `;
+
+  // Baseline ground runner markup
+  const groundTrack = `
+    <line x1="25" y1="${groundY + 12}" x2="${width - 25}" y2="${groundY + 12}" class="char-ground-line" />
+    <circle cx="25" cy="${groundY + 12}" r="2.5" fill="${secondaryColor}" opacity="0.6" />
+    <circle cx="${width - 25}" cy="${groundY + 12}" r="2.5" fill="${secondaryColor}" opacity="0.6" />
+  `;
+
+  let actionMarkup = '';
+  switch (action) {
+    case 'build':
+      actionMarkup = `
+        <!-- Character at Build Site -->
+        <g transform="translate(${width - 170}, ${groundY})">
+          ${avatar}
+        </g>
+        <!-- Building Construction Zone -->
+        <g class="construction-site">
+          <!-- Scaffolding Cable -->
+          <line x1="${width - 96}" y1="${groundY - 80}" x2="${width - 96}" y2="${groundY - 50}" stroke="#94a3b8" stroke-dasharray="3 3" stroke-width="1" class="crane-cable" />
+          <polygon points="${width - 100},${groundY - 80} ${width - 92},${groundY - 80} ${width - 96},${groundY - 76}" fill="#f59e0b" />
+          <!-- Modular Stacked Tech Blocks -->
+          <rect x="${width - 110}" y="${groundY - 14}" width="28" height="14" rx="2" fill="#0284c7" stroke="#38bdf8" stroke-width="1" />
+          <text x="${width - 96}" y="${groundY - 4}" font-family="monospace" font-size="7" fill="#e0f2fe" text-anchor="middle">&lt;DATA&gt;</text>
+          <rect x="${width - 110}" y="${groundY - 29}" width="28" height="14" rx="2" fill="#6366f1" stroke="#818cf8" stroke-width="1" />
+          <text x="${width - 96}" y="${groundY - 19}" font-family="monospace" font-size="7" fill="#ede9fe" text-anchor="middle">API.v2</text>
+          <rect x="${width - 110}" y="${groundY - 44}" width="28" height="14" rx="2" fill="#059669" stroke="#34d399" stroke-width="1" />
+          <text x="${width - 96}" y="${groundY - 34}" font-family="monospace" font-size="7" fill="#d1fae5" text-anchor="middle">CLOUD</text>
+          <!-- Top Descending Block with Golden Halo -->
+          <g class="build-top-block">
+            <rect x="${width - 110}" y="${groundY - 59}" width="28" height="14" rx="2" fill="#d97706" stroke="#fbbf24" stroke-width="1" />
+            <text x="${width - 96}" y="${groundY - 49}" font-family="monospace" font-size="7" fill="#fef3c7" text-anchor="middle">CORE</text>
+          </g>
+          <!-- Hammer Strike Sparks -->
+          <g class="build-spark">
+            <circle cx="${width - 120}" cy="${groundY - 20}" r="5" fill="#ffee55" opacity="0.9" />
+            <line x1="${width - 120}" y1="${groundY - 20}" x2="${width - 128}" y2="${groundY - 26}" stroke="#ffee55" stroke-width="1.5" />
+            <line x1="${width - 120}" y1="${groundY - 20}" x2="${width - 114}" y2="${groundY - 28}" stroke="#ffee55" stroke-width="1.5" />
+            <line x1="${width - 120}" y1="${groundY - 20}" x2="${width - 125}" y2="${groundY - 12}" stroke="#ffee55" stroke-width="1.5" />
+          </g>
+          <!-- Progress Badge -->
+          <rect x="${width - 125}" y="${groundY - 76}" width="58" height="13" rx="6.5" fill="#0f172a" stroke="#22c55e" stroke-width="1" />
+          <text x="${width - 96}" y="${groundY - 67}" font-family="monospace" font-size="8" fill="#22c55e" font-weight="bold" text-anchor="middle">BUILD: OK</text>
+        </g>
+      `;
+      break;
+
+    case 'code':
+      actionMarkup = `
+        <!-- Character at Terminal -->
+        <g transform="translate(${width - 145}, ${groundY})">
+          ${avatar}
+        </g>
+        <!-- Floating Holographic Workstation HUD -->
+        <g class="coding-terminal">
+          <rect x="${width - 105}" y="${groundY - 50}" width="50" height="36" rx="4" fill="#020617" fill-opacity="0.88" stroke="#38bdf8" stroke-width="1.2" />
+          <circle cx="${width - 100}" cy="${groundY - 44}" r="1.5" fill="#f43f5e" />
+          <circle cx="${width - 95}" cy="${groundY - 44}" r="1.5" fill="#eab308" />
+          <circle cx="${width - 90}" cy="${groundY - 44}" r="1.5" fill="#22c55e" />
+          <line x1="${width - 100}" y1="${groundY - 36}" x2="${width - 72}" y2="${groundY - 36}" stroke="#22c55e" stroke-width="2" />
+          <line x1="${width - 100}" y1="${groundY - 28}" x2="${width - 62}" y2="${groundY - 28}" stroke="#38bdf8" stroke-width="2" />
+          <line x1="${width - 100}" y1="${groundY - 20}" x2="${width - 80}" y2="${groundY - 20}" stroke="#c084fc" stroke-width="2" />
+          <rect x="${width - 78}" y="${groundY - 22}" width="3" height="5" fill="#00f5d4" class="cursor-blink" />
+          <circle cx="${width - 85}" cy="${groundY - 54}" r="1.5" fill="#38bdf8" class="code-particle-1" />
+          <circle cx="${width - 72}" cy="${groundY - 52}" r="1.5" fill="#00f5d4" class="code-particle-2" />
+        </g>
+      `;
+      break;
+
+    case 'construct':
+      actionMarkup = `
+        <!-- Character Welding -->
+        <g transform="translate(${width - 165}, ${groundY})">
+          ${avatar}
+        </g>
+        <!-- Structural Circuit Truss -->
+        <g class="construction-truss">
+          <line x1="${width - 98}" y1="${groundY}" x2="${width - 98}" y2="${groundY - 65}" stroke="#475569" stroke-width="2.5" />
+          <line x1="${width - 78}" y1="${groundY}" x2="${width - 78}" y2="${groundY - 65}" stroke="#475569" stroke-width="2.5" />
+          <line x1="${width - 98}" y1="${groundY - 14}" x2="${width - 78}" y2="${groundY - 32}" stroke="#0ea5e9" stroke-width="1.5" />
+          <line x1="${width - 78}" y1="${groundY - 14}" x2="${width - 98}" y2="${groundY - 32}" stroke="#0ea5e9" stroke-width="1.5" />
+          <line x1="${width - 98}" y1="${groundY - 32}" x2="${width - 78}" y2="${groundY - 50}" stroke="#0ea5e9" stroke-width="1.5" />
+          <!-- Intense Arc Flash -->
+          <circle cx="${width - 98}" cy="${groundY - 32}" r="7" fill="#67e8f9" class="weld-flash" />
+          <circle cx="${width - 98}" cy="${groundY - 32}" r="2" fill="#ffffff" />
+          <!-- Falling Sparks -->
+          <circle cx="${width - 96}" cy="${groundY - 30}" r="1.2" fill="#38bdf8" class="weld-spark-1" />
+          <circle cx="${width - 94}" cy="${groundY - 28}" r="1.2" fill="#67e8f9" class="weld-spark-2" />
+          <circle cx="${width - 92}" cy="${groundY - 26}" r="1" fill="#ffee55" class="weld-spark-3" />
+        </g>
+      `;
+      break;
+
+    case 'cheer':
+      actionMarkup = `
+        <!-- Jumping Celebrating Character -->
+        <g class="char-cheer-carrier" transform="translate(${width - 130}, ${groundY})">
+          ${avatar}
+        </g>
+        <!-- Victory Star / Trophy -->
+        <polygon points="${width - 130},${groundY - 48} ${width - 128},${groundY - 44} ${width - 123},${groundY - 44} ${width - 127},${groundY - 41} ${width - 125},${groundY - 37} ${width - 130},${groundY - 40} ${width - 135},${groundY - 37} ${width - 133},${groundY - 41} ${width - 137},${groundY - 44} ${width - 132},${groundY - 44}" fill="#facc15" stroke="#eab308" stroke-width="0.5" />
+        <!-- Confetti Flakes -->
+        <rect x="${width - 146}" y="${groundY - 30}" width="3" height="3" fill="#38bdf8" class="confetti-1" />
+        <rect x="${width - 114}" y="${groundY - 35}" width="3" height="3" fill="#f43f5e" class="confetti-2" />
+        <rect x="${width - 138}" y="${groundY - 40}" width="2.5" height="2.5" fill="#22c55e" class="confetti-3" />
+        <rect x="${width - 122}" y="${groundY - 42}" width="2.5" height="2.5" fill="#fbbf24" class="confetti-4" />
+      `;
+      break;
+
+    case 'walk':
+    default:
+      actionMarkup = `
+        <g class="char-walk-carrier" transform="translate(60, ${groundY})">
+          ${avatar}
+        </g>
+      `;
+      break;
+  }
+
+  const markup = `
+    <g class="char-layer">
+      ${groundTrack}
+      ${actionMarkup}
+    </g>
+  `;
+
+  return { defs: '', style, markup };
+}
+
+/**
  * Generates standalone, GitHub-sanitizer-compliant animated SVG code.
  */
 export function generateAnimatedSvg(config: AnimationConfig): string {
@@ -878,6 +1431,8 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     textEffect,
     backgroundEffect,
     frameEffect,
+    characterType,
+    characterAction,
     svgEffect,
     threeDEffect,
     primaryColor,
@@ -942,6 +1497,17 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     duration
   );
 
+  const char = renderCharacterLayer(
+    characterType,
+    characterAction,
+    width,
+    height,
+    primaryColor,
+    secondaryColor,
+    accentColor,
+    duration
+  );
+
   const frame = renderFrameLayer(
     frameEffect,
     width,
@@ -972,6 +1538,7 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     ${txt.defs}
     ${svgFx.defs}
     ${threeD.defs}
+    ${char.defs}
     ${frame.defs}
   </defs>
   <style>
@@ -980,6 +1547,7 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     ${txt.style}
     ${svgFx.style}
     ${threeD.style}
+    ${char.style}
     ${frame.style}
   </style>
   <g class="svg-root">
@@ -987,6 +1555,7 @@ export function generateAnimatedSvg(config: AnimationConfig): string {
     ${threeD.markup}
     ${svgFx.markup}
     ${txt.markup}
+    ${char.markup}
     ${frame.markup}
   </g>
 </svg>`;
