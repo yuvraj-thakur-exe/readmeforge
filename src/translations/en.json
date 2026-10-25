@@ -504,5 +504,78 @@
     "fragiola": "Fragiola",
     "an-ecosystem-of-headless-components-behavior-state-and-accessibility-built-in-the-look-is-yours": "🧩 An ecosystem of headless components — behavior, state and accessibility built in, the look is yours 🚀",
     "explore-the-projects": "👉 Explore the projects 👈"
+  },
+  "landing": {
+    "preview": {
+      "badge": "Profile Preview",
+      "title": "A Complete Developer Profile at a Glance",
+      "subtitle": "See how structured Markdown, dynamic GitHub stats, curated tech stacks, and modular widgets come together into a high-impact profile.",
+      "tabVisual": "Interactive Preview",
+      "tabMarkdown": "Live Markdown View"
+    },
+    "features": {
+      "badge": "Platform Capabilities",
+      "title": "Engineered for Complete Control and Craft",
+      "subtitle": "Everything you need to design, customize, and maintain your GitHub presence without fragile markdown hacks.",
+      "wizardTitle": "6-Step Interactive Wizard",
+      "wizardDesc": "Step-by-step guidance for identity, vibe, tech stacks, stats, dynamic widgets, and socials with real-time feedback.",
+      "monacoTitle": "Monaco /developer IDE",
+      "monacoDesc": "Split-screen raw JSON configuration editor backed by Monaco, real-time Zod schema validation, and instant side-by-side markdown view.",
+      "pluginsTitle": "8+ Curated OSS Plugins",
+      "pluginsDesc": "Zero-friction integration with GitHub stats cards, contribution snakes, typing lines, trophies, WakaTime, and visitor counters.",
+      "enrichmentTitle": "Confirmation-Gated Enrichment",
+      "enrichmentDesc": "Upload PDF, DOCX, or TXT resumes. Server-side extraction with confidence ratings and per-field confirmation before applying.",
+      "exportTitle": "Multi-Format Export Suite",
+      "exportDesc": "One-click copy, .md download, PNG snapshots via html-to-image, and shareable compressed URLs.",
+      "diffSyncTitle": "Direct GitHub Diff & Sync",
+      "diffSyncDesc": "Push your README directly to your username/username repository with an authenticated side-by-side remote diff preview."
+    },
+    "workflow": {
+      "badge": "Simple 3-Step Process",
+      "title": "From Blank Slate to Live Profile",
+      "subtitle": "Create an unforgettable developer presentation in three straightforward stages.",
+      "step1Title": "Choose an Archetype or Import",
+      "step1Desc": "Jumpstart with one of our curated archetypes or paste an existing GitHub README to reverse-map into interactive sections.",
+      "step1Detail": "AST-Based Importer · 6 Curated Archetypes",
+      "step2Title": "Customize & Enrich Safely",
+      "step2Desc": "Tweak sections, arrange layout, add plugins, or upload a resume with strict confirmation gates before anything touches your profile.",
+      "step2Detail": "Resume Parser · Strict ConfirmGate · Single Store",
+      "step3Title": "Review Diff & Push Live",
+      "step3Desc": "Inspect your generated Markdown or push directly to your GitHub profile repository via authenticated REST API after reviewing exact line changes.",
+      "step3Detail": "Side-by-Side Diff · Direct OAuth Push · Pure Generator"
+    },
+    "safeguards": {
+      "badge": "Built-In Safety",
+      "title": "Zero Silent Writes. Complete Transparency.",
+      "subtitle": "Your repository and profile configuration remain strictly under your control at every step.",
+      "confirmGateTitle": "Confirmation Gates",
+      "confirmGateDesc": "External data from resumes or APIs is never silently applied; you review and approve every single field.",
+      "diffPreviewTitle": "Diff Before Commit",
+      "diffPreviewDesc": "View exact side-by-side line additions and deletions against your remote GitHub repository before confirming pushes.",
+      "singleStoreTitle": "Single State of Truth",
+      "singleStoreDesc": "The visual wizard and raw Monaco editor share identical validated state with undo/redo and schema validation.",
+      "pureEngineTitle": "Pure Deterministic Engine",
+      "pureEngineDesc": "Markdown generation is completely decoupled from UI rendering, ensuring 100% testable, reproducible output."
+    },
+    "developerMode": {
+      "badge": "Power-User Route",
+      "title": "Prefer Raw JSON? Use /developer",
+      "subtitle": "A dedicated IDE workspace for developers who want full schema control, instant syntax validation, and live Markdown output.",
+      "cta": "Open /developer IDE"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Everything you need to know about ReadmeForge and GitHub profile READMEs.",
+      "q1": "How does ReadmeForge update my GitHub profile?",
+      "a1": "ReadmeForge generates clean, GitHub-compatible Markdown. You can copy the code, download the README.md file, or connect via GitHub to commit directly to your <username>/<username> repository after reviewing a side-by-side diff.",
+      "q2": "Can I import an existing GitHub profile README?",
+      "a2": "Yes. Our AST-based reverse parser extracts your existing headings, skills, badges, and text blocks into editable wizard fields so you never have to start from scratch.",
+      "q3": "Is my personal data or GitHub token stored on any server?",
+      "a3": "No. ReadmeForge is client-first. All profile configuration is stored locally in your browser session. GitHub authentication tokens are handled securely without persistent database storage.",
+      "q4": "Do the dynamic plugins work automatically on GitHub?",
+      "a4": "Yes. Bundled plugins generate standard Markdown image links or GitHub Actions workflows (such as the contribution snake) that run natively on GitHub.",
+      "q5": "What happens if a resume parser suggests incorrect information?",
+      "a5": "Nothing is applied automatically. Every parsed field passes through an explicit Confirmation Gate where you inspect the detected value, confidence rating, and diff before choosing to accept or discard it."
+    }
   }
 }

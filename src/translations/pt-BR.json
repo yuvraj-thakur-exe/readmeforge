@@ -505,5 +505,78 @@
     "fragiola": "Fragiola",
     "an-ecosystem-of-headless-components-behavior-state-and-accessibility-built-in-the-look-is-yours": "🧩 Um ecossistema de componentes headless — comportamento, estado e acessibilidade prontos, o visual é seu 🚀",
     "explore-the-projects": "👉 Explore os projetos 👈"
+  },
+  "landing": {
+    "preview": {
+      "badge": "Prévia do Perfil",
+      "title": "Um Perfil Completo de Desenvolvedor num Relance",
+      "subtitle": "Veja como Markdown estruturado, métricas dinâmicas do GitHub, stack curada e widgets modulares se unem em um perfil de alto impacto.",
+      "tabVisual": "Prévia Interativa",
+      "tabMarkdown": "Visualização Markdown"
+    },
+    "features": {
+      "badge": "Recursos da Plataforma",
+      "title": "Desenvolvido para Controle Total e Precisão",
+      "subtitle": "Tudo o que você precisa para desenhar, personalizar e manter sua presença no GitHub sem gambiarras.",
+      "wizardTitle": "Assistente Visual em 6 Etapas",
+      "wizardDesc": "Guia passo a passo para identidade, estilo visual, stacks, estatísticas, widgets dinâmicos e redes sociais com feedback em tempo real.",
+      "monacoTitle": "IDE Monaco em /developer",
+      "monacoDesc": "Editor JSON com tela dividida alimentado por Monaco, validação de schema Zod em tempo real e visualização lado a lado de Markdown.",
+      "pluginsTitle": "8+ Plugins Open-Source Curados",
+      "pluginsDesc": "Integração direta com cards de estatísticas do GitHub, jogo da cobrinha, linhas de digitação, troféus, WakaTime e contador de visitas.",
+      "enrichmentTitle": "Enriquecimento com Confirmação Obrigatória",
+      "enrichmentDesc": "Envie currículos em PDF, DOCX ou TXT. Extração no servidor com pontuação de confiança e aprovação campo a campo antes da aplicação.",
+      "exportTitle": "Conjunto de Exportação Multi-Formato",
+      "exportDesc": "Cópia com um clique, download de .md, captura PNG via html-to-image e URLs compactadas para compartilhamento.",
+      "diffSyncTitle": "Diff e Sincronização Direta com GitHub",
+      "diffSyncDesc": "Envie seu README diretamente ao repositório nome-do-usuario/nome-do-usuario com prévia lado a lado das alterações remotas."
+    },
+    "workflow": {
+      "badge": "Processo Simples em 3 Etapas",
+      "title": "Do Início em Branco ao Perfil no Ar",
+      "subtitle": "Crie uma apresentação marcante como desenvolvedor em três fases diretas.",
+      "step1Title": "Escolha um Arquétipo ou Importe",
+      "step1Desc": "Comece com um de nossos arquétipos curados ou cole um README existente para mapear em seções interativas.",
+      "step1Detail": "Importador Baseado em AST · 6 Arquétipos Curados",
+      "step2Title": "Personalize e Enriqueça com Segurança",
+      "step2Desc": "Ajuste seções, organize o layout, adicione plugins ou envie um currículo com validação rigorosa antes de aplicar.",
+      "step2Detail": "Parser de Currículo · ConfirmGate Rigoroso · Store Única",
+      "step3Title": "Revise o Diff e Publique",
+      "step3Desc": "Inspecione o Markdown gerado ou envie diretamente ao seu repositório de perfil via API autenticada após conferir cada linha alterada.",
+      "step3Detail": "Diff Lado a Lado · Push OAuth Direto · Gerador Puro"
+    },
+    "safeguards": {
+      "badge": "Segurança Integrada",
+      "title": "Zero Escritas Silenciosas. Transparência Total.",
+      "subtitle": "Seu repositório e suas configurações permanecem sob seu controle estrito em cada etapa.",
+      "confirmGateTitle": "Portões de Confirmação",
+      "confirmGateDesc": "Dados externos de currículos ou APIs nunca são aplicados silenciosamente; você revisa e aprova cada campo.",
+      "diffPreviewTitle": "Diff Antes do Commit",
+      "diffPreviewDesc": "Veja exatamente as linhas adicionadas e removidas em relação ao repositório remoto do GitHub antes de confirmar.",
+      "singleStoreTitle": "Fonte Única da Verdade",
+      "singleStoreDesc": "O assistente visual e o editor Monaco compartilham o mesmo estado validado, com histórico de desfazer/refazer.",
+      "pureEngineTitle": "Motor Determinístico Puro",
+      "pureEngineDesc": "A geração de Markdown é totalmente desacoplada da interface, garantindo saídas 100% testáveis e reproduzíveis."
+    },
+    "developerMode": {
+      "badge": "Rota para Usuários Avançados",
+      "title": "Prefere JSON Puro? Use /developer",
+      "subtitle": "Um ambiente IDE dedicado para desenvolvedores que desejam controle total de schema, validação instantânea e Markdown em tempo real.",
+      "cta": "Abrir IDE /developer"
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "subtitle": "Tudo o que você precisa saber sobre o ReadmeForge e perfis do GitHub.",
+      "q1": "Como o ReadmeForge atualiza meu perfil do GitHub?",
+      "a1": "O ReadmeForge gera Markdown limpo e compatível com o GitHub. Você pode copiar o código, baixar o arquivo README.md ou conectar via GitHub para commitar diretamente no seu repositório <username>/<username> após revisar o diff lado a lado.",
+      "q2": "Posso importar um README de perfil existente?",
+      "a2": "Sim. Nosso parser reverso baseado em AST extrai títulos, habilidades, badges e blocos de texto em campos editáveis do assistente para você não começar do zero.",
+      "q3": "Meus dados pessoais ou token do GitHub são salvos em algum servidor?",
+      "a3": "Não. O ReadmeForge opera com foco no cliente. Todas as configurações ficam salvas localmente na sessão do seu navegador, e os tokens de autenticação são tratados com segurança sem armazenamento persistente em banco externo.",
+      "q4": "Os plugins dinâmicos funcionam automaticamente no GitHub?",
+      "a4": "Sim. Os plugins geram links padrão de imagem Markdown ou workflows do GitHub Actions (como o jogo da cobrinha) que rodam nativamente no GitHub.",
+      "q5": "O que acontece se o parser de currículo sugerir dados incorretos?",
+      "a5": "Nada é aplicado automaticamente. Cada campo extraído passa por um Portão de Confirmação explícito onde você vê o valor, o nível de confiança e o diff antes de decidir aceitar ou descartar."
+    }
   }
 }

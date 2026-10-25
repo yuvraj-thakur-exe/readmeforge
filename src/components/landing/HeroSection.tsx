@@ -49,7 +49,7 @@ export const HeroSection: React.FC = () => {
               2000,
               'Split-screen Monaco IDE with real-time JSON validation.',
               2000,
-              'Zero config required — from blank slate to 3,000+ stars.',
+              'Zero config required — from blank slate to profile-ready Markdown.',
               2000,
             ]}
             wrapper="span"

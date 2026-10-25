@@ -44,7 +44,7 @@ export function TopNav() {
           <ThemeToggle />
 
           <a
-            href="https://github.com/readmeforge/readmeforge"
+            href="https://github.com/yuvrajlaptop2008-byte/readmeforge"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-palette-soft border border-palette-line hover:border-palette-contrast/40 text-palette-contrast transition-all"

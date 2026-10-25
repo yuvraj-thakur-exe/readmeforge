@@ -30,7 +30,7 @@ const general = {
 
       socials: {
         iconBaseUrl:
-          'https://raw.githubusercontent.com/readmeforge/readmeforge/main/public/assets/icons/social',
+          'https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/icons/social',
         badgeBaseUrl: 'https://img.shields.io/static/v1',
       },
 

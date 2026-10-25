@@ -4,6 +4,7 @@ import { TopNav } from '#/components/navigation/TopNav';
 import { HeroSection } from '#/components/landing/HeroSection';
 import { ParticleBackground } from '#/components/landing/ParticleBackground';
 import { TemplateGallery } from '#/components/landing/TemplateGallery';
+import { LandingDetails } from '#/components/landing/LandingDetails';
 import { WizardContainer } from '#/components/wizard/WizardContainer';
 import { Flame, Github } from 'lucide-react';
 
@@ -18,9 +19,14 @@ export default function HomePage() {
         <HeroSection />
       </div>
 
-      {/* Curated 10+ Star Archetype Starters */}
+      {/* Curated Star Archetype Starters */}
       <div className="border-b border-palette-line/40 bg-neutral-950/40">
         <TemplateGallery />
+      </div>
+
+      {/* Extended Product Story, Capabilities, Safeguards & FAQ */}
+      <div className="border-b border-palette-line/40 bg-palette-base">
+        <LandingDetails />
       </div>
 
       {/* 6-Step Visual Wizard Builder */}
@@ -50,7 +56,7 @@ export default function HomePage() {
 
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/readmeforge/readmeforge"
+              href="https://github.com/yuvrajlaptop2008-byte/readmeforge"
               target="_blank"
               rel="noreferrer"
               className="hover:text-neutral-200 flex items-center gap-1 transition-colors"
@@ -59,7 +65,7 @@ export default function HomePage() {
               <span>GitHub</span>
             </a>
             <a
-              href="https://github.com/readmeforge/readmeforge/blob/main/LICENSE.md"
+              href="https://github.com/yuvrajlaptop2008-byte/readmeforge/blob/main/LICENSE.md"
               target="_blank"
               rel="noreferrer"
               className="hover:text-neutral-200 transition-colors"

@@ -17,7 +17,7 @@ export function FooterOwner() {
         <Text.Small className="not-italic">
           Forge a GitHub profile that gets noticed.{' '}
           <Text.Link
-            href="https://github.com/readmeforge/readmeforge"
+            href="https://github.com/yuvrajlaptop2008-byte/readmeforge"
             target="_blank"
             rel="noreferrer"
             className="text-xs"

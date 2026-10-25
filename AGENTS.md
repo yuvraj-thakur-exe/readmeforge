@@ -52,7 +52,7 @@ pnpm format      # biome format
 - Styling: Tailwind utility classes + `tailwind-variants` for variants; no plain CSS files except globals.
 - Animation: reuse `<FadeIn>` / `<Stagger>` wrappers (`src/components/motion/`) instead of inlining Framer Motion variants in every component.
 - Commit messages: Conventional Commits (`feat:`, `fix:`, `chore:`, etc.).
-- i18n strings go in `src/locales/<lang>.json` — never hardcode user-facing text in components.
+- i18n strings go in `src/translations/<locale>.json` — never hardcode user-facing text in components.
 
 ## Full feature/build spec
 See `AGENT_PROMPT_FULL.md` in repo root for the complete build plan (branding, libraries, plugin list, wizard question set, resume/enrichment spec, GitHub sync spec, execution order). AGENTS.md is the standing reference for ongoing work; AGENT_PROMPT_FULL.md was the original build brief.

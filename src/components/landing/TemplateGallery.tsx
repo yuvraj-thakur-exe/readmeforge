@@ -267,10 +267,10 @@ export const TemplateGallery: React.FC = () => {
           <span>Curated Starters</span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-100">
-          Start from a 3,000+ Star Archetype
+          Curated Starter Archetypes
         </h2>
         <p className="text-sm text-neutral-400 max-w-xl mx-auto">
-          One-click apply proven, battle-tested templates inspired by the most starred developer profiles on GitHub.
+          One-click apply clean, structured templates designed to make your developer profile stand out.
         </p>
       </div>
 

@@ -22,7 +22,7 @@ const navItems: NavItem[] = [
   {
     label: 'Github',
     props: {
-      href: 'https://github.com/readmeforge/readmeforge',
+      href: 'https://github.com/yuvrajlaptop2008-byte/readmeforge',
       target: '_blank',
       rel: 'noreferrer',
     },

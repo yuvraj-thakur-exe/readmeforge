@@ -65,7 +65,7 @@ export async function generateMetadata({
     keywords: t.raw('keywords') as string[],
     robots: {
       index: true,
-      follow: false,
+      follow: true,
     },
     manifest: '/manifest.json',
     icons: {
@@ -85,7 +85,7 @@ export async function generateMetadata({
       title,
       description,
       images: '/api/og',
-      creator: 'https://github.com/readmeforge',
+      creator: 'https://github.com/yuvrajlaptop2008-byte/readmeforge',
     },
     alternates: {
       languages,
