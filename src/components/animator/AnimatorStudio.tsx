@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import {
   Sparkles,
   Download,
@@ -22,6 +23,13 @@ import {
   Layers,
   ChevronDown,
   ExternalLink,
+  Share2,
+  Accessibility,
+  Boxes,
+  Compass,
+  Code2,
+  Film,
+  ChevronUp,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import {
@@ -33,6 +41,10 @@ import {
   AnimationDirection,
   RepeatMode,
   TextAlignment,
+  TextEffect,
+  BackgroundEffect,
+  SvgEffect,
+  ThreeDEffect,
 } from '#/lib/animator/types';
 import { generateAnimatedSvg } from '#/lib/animator/presets';
 import { validateSvg } from '#/lib/animator/validator';
@@ -40,17 +52,35 @@ import {
   generateMarkdownSnippet,
   downloadSvgFile,
   downloadAnimationConfigJson,
+  decodeConfigFromBase64,
+  generateHostedDemoUrl,
 } from '#/lib/animator/export-utils';
 
 export function AnimatorStudio() {
+  const searchParams = useSearchParams();
   const [config, setConfig] = useState<AnimationConfig>(DEFAULT_ANIMATION_CONFIG);
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
   const [previewTheme, setPreviewTheme] = useState<'dark' | 'light'>('dark');
   const [isMobileView, setIsMobileView] = useState(false);
   const [simulateError, setSimulateError] = useState(false);
-  const [markdownTab, setMarkdownTab] = useState<'relative' | 'githubRaw' | 'dataUri'>('relative');
+  const [markdownTab, setMarkdownTab] = useState<'relative' | 'githubRaw' | 'dataUri' | 'hostedDemo'>('relative');
+  const [activeTab, setActiveTab] = useState<'layers' | 'presets' | 'uiMotion'>('layers');
   const [showEcosystem, setShowEcosystem] = useState(false);
+  const [isPanelExpanded, setIsPanelExpanded] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(50);
+  const [showGifModal, setShowGifModal] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // Restore state from hosted demo link `?c=<base64>`
+  useEffect(() => {
+    const compressed = searchParams.get('c');
+    if (compressed) {
+      const decoded = decodeConfigFromBase64(compressed);
+      if (decoded && decoded.headline) {
+        setConfig(prev => ({ ...prev, ...decoded }));
+      }
+    }
+  }, [searchParams]);
 
   // Real-time generated SVG
   const svgCode = useMemo(() => generateAnimatedSvg(config), [config]);
@@ -58,8 +88,9 @@ export function AnimatorStudio() {
   // Real-time GitHub Sanitizer validation
   const validation = useMemo(() => validateSvg(svgCode), [svgCode]);
 
-  // Markdown Snippets
+  // Markdown Snippets & Hosted Demo URL
   const snippets = useMemo(() => generateMarkdownSnippet(config), [config]);
+  const hostedUrl = useMemo(() => generateHostedDemoUrl(config), [config]);
 
   const handleCopy = async (text: string, key: string) => {
     try {
@@ -77,20 +108,128 @@ export function AnimatorStudio() {
   };
 
   const handlePresetSelect = (preset: AnimationPresetId) => {
-    setConfig(prev => ({
-      ...prev,
-      preset,
-      // Adjust palette defaults for distinct theme vibes
-      ...(preset === 'matrix'
-        ? { primaryColor: '#22c55e', secondaryColor: '#86efac', accentColor: '#4ade80', backgroundColor: '#051309' }
-        : preset === 'glitch'
-        ? { primaryColor: '#ef4444', secondaryColor: '#06b6d4', accentColor: '#f43f5e', backgroundColor: '#09090b' }
-        : preset === 'neon'
-        ? { primaryColor: '#6366f1', secondaryColor: '#38bdf8', accentColor: '#c084fc', backgroundColor: '#0a0d17' }
-        : preset === 'minimal'
-        ? { primaryColor: '#94a3b8', secondaryColor: '#cbd5e1', accentColor: '#e2e8f0', backgroundColor: '#0f172a' }
-        : {}),
-    }));
+    setConfig(prev => {
+      switch (preset) {
+        case 'matrix':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'scramble',
+            backgroundEffect: 'matrix',
+            svgEffect: 'none',
+            threeDEffect: 'none',
+            primaryColor: '#22c55e',
+            secondaryColor: '#86efac',
+            accentColor: '#4ade80',
+            backgroundColor: '#051309',
+          };
+        case 'glitch':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'glitch',
+            backgroundEffect: 'grids',
+            svgEffect: 'line-drawing',
+            threeDEffect: 'interactive-card',
+            primaryColor: '#ef4444',
+            secondaryColor: '#06b6d4',
+            accentColor: '#f43f5e',
+            backgroundColor: '#09090b',
+          };
+        case 'typing':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'typing',
+            backgroundEffect: 'solid',
+            svgEffect: 'none',
+            threeDEffect: 'none',
+            primaryColor: '#38bdf8',
+            secondaryColor: '#94a3b8',
+            accentColor: '#10b981',
+            backgroundColor: '#0f172a',
+          };
+        case 'wave':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'wave',
+            backgroundEffect: 'animated-gradient',
+            svgEffect: 'line-drawing',
+            threeDEffect: 'none',
+            primaryColor: '#818cf8',
+            secondaryColor: '#38bdf8',
+            accentColor: '#c084fc',
+            backgroundColor: '#0a0d17',
+          };
+        case 'particle':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'gradient',
+            backgroundEffect: 'particles',
+            svgEffect: 'animated-logo',
+            threeDEffect: 'particle-environment',
+            primaryColor: '#38bdf8',
+            secondaryColor: '#c084fc',
+            accentColor: '#facc15',
+            backgroundColor: '#0a0c16',
+          };
+        case 'terminal':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'typing',
+            backgroundEffect: 'solid',
+            svgEffect: 'none',
+            threeDEffect: 'interactive-card',
+            primaryColor: '#38bdf8',
+            secondaryColor: '#94a3b8',
+            accentColor: '#10b981',
+            backgroundColor: '#030712',
+          };
+        case '3d-banner':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'reveal',
+            backgroundEffect: 'grids',
+            svgEffect: 'path-morphing',
+            threeDEffect: 'rotating-cube',
+            primaryColor: '#6366f1',
+            secondaryColor: '#38bdf8',
+            accentColor: '#c084fc',
+            backgroundColor: '#0f172a',
+          };
+        case 'minimal':
+          return {
+            ...prev,
+            preset,
+            textEffect: 'reveal',
+            backgroundEffect: 'solid',
+            svgEffect: 'none',
+            threeDEffect: 'none',
+            primaryColor: '#94a3b8',
+            secondaryColor: '#cbd5e1',
+            accentColor: '#e2e8f0',
+            backgroundColor: '#0f172a',
+          };
+        case 'neon':
+        default:
+          return {
+            ...prev,
+            preset,
+            textEffect: 'gradient',
+            backgroundEffect: 'grids',
+            svgEffect: 'animated-logo',
+            threeDEffect: 'interactive-card',
+            primaryColor: '#6366f1',
+            secondaryColor: '#38bdf8',
+            accentColor: '#c084fc',
+            backgroundColor: '#0a0d17',
+          };
+      }
+    });
   };
 
   const handleLoadConfig = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -101,7 +240,7 @@ export function AnimatorStudio() {
     reader.onload = event => {
       try {
         const loaded = JSON.parse(event.target?.result as string);
-        if (loaded && loaded.preset && loaded.headline) {
+        if (loaded && loaded.headline) {
           setConfig(prev => ({ ...prev, ...loaded }));
         }
       } catch {
@@ -129,15 +268,44 @@ export function AnimatorStudio() {
             </Link>
             <div className="flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse" />
-              <h1 className="font-extrabold text-base tracking-tight">Animation Studio</h1>
+              <h1 className="font-extrabold text-base tracking-tight">Animation &amp; Motion Studio</h1>
               <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-cyan-500/15 border border-cyan-500/30 text-cyan-300">
-                SVG &bull; GitHub Compatible
+                SVG &bull; 3D &bull; a11y Compliant
               </span>
             </div>
           </div>
 
           {/* Quick Actions */}
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setConfig(DEFAULT_ANIMATION_CONFIG)}
+              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-palette-line text-xs font-medium hover:border-neutral-700 bg-palette-soft/50 text-neutral-400 hover:text-white transition-colors"
+              title="Reset to default settings"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span>Reset</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleCopy(hostedUrl, 'demoLink')}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-cyan-500/40 bg-cyan-950/20 text-cyan-300 text-xs font-medium hover:bg-cyan-950/40 transition-colors"
+              title="Copy shareable hosted demo link"
+            >
+              {copiedKey === 'demoLink' ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Link Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5" />
+                  <span>Share Demo</span>
+                </>
+              )}
+            </button>
+
             <input
               type="file"
               ref={fileInputRef}
@@ -175,314 +343,496 @@ export function AnimatorStudio() {
 
       {/* Main Studio Content Grid */}
       <div className="max-w-[1600px] mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left Column: Preset Selector & Precise Controls (5 cols) */}
+        {/* Left Column: Effect Layers & Precise Controls (5 cols) */}
         <div className="lg:col-span-5 space-y-6">
-          {/* Preset Cards Drawer */}
-          <div className="p-4 rounded-xl border border-palette-line bg-palette-soft/40 space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-palette-contrast/70 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                Animation Presets
-              </span>
-              <span className="text-[11px] font-mono text-cyan-400 font-semibold uppercase">
-                {config.preset}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2">
-              {PRESET_METADATA.map(p => {
-                const isSelected = config.preset === p.id;
-                return (
-                  <button
-                    key={p.id}
-                    type="button"
-                    onClick={() => handlePresetSelect(p.id)}
-                    className={`p-2.5 rounded-lg text-left transition-all border text-xs flex flex-col justify-between ${
-                      isSelected
-                        ? 'border-cyan-500/80 bg-cyan-950/30 text-white shadow-sm ring-1 ring-cyan-500/40'
-                        : 'border-palette-line/70 bg-palette-soft/20 text-neutral-400 hover:border-neutral-700 hover:text-neutral-200'
-                    }`}
-                  >
-                    <div className="text-base mb-1">{p.icon}</div>
-                    <div className="font-bold tracking-tight text-[11px] truncate w-full">
-                      {p.name.split(' ')[0]}
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
+          {/* Navigation Mode Tabs: Layers vs Presets vs UI Motion */}
+          <div className="flex items-center gap-1 p-1 rounded-xl bg-palette-soft/40 border border-palette-line text-xs">
+            <button
+              type="button"
+              onClick={() => setActiveTab('layers')}
+              className={`flex-1 py-1.5 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
+                activeTab === 'layers'
+                  ? 'bg-violet-600 text-white shadow-sm'
+                  : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              <Sliders className="w-3.5 h-3.5" />
+              <span>Layer Controls</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('presets')}
+              className={`flex-1 py-1.5 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
+                activeTab === 'presets'
+                  ? 'bg-violet-600 text-white shadow-sm'
+                  : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Presets Shelf</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('uiMotion')}
+              className={`flex-1 py-1.5 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
+                activeTab === 'uiMotion'
+                  ? 'bg-violet-600 text-white shadow-sm'
+                  : 'text-neutral-400 hover:text-white'
+              }`}
+            >
+              <Boxes className="w-3.5 h-3.5" />
+              <span>UI Motion</span>
+            </button>
           </div>
 
-          {/* Precise Controls Panel */}
-          <div className="p-5 rounded-xl border border-palette-line bg-palette-soft/30 space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-palette-line/60">
-              <span className="text-xs font-bold uppercase tracking-wider text-palette-contrast/80 flex items-center gap-1.5">
-                <Sliders className="w-3.5 h-3.5 text-violet-400" />
-                Precise Controls
-              </span>
-              <button
-                type="button"
-                onClick={() => setConfig(DEFAULT_ANIMATION_CONFIG)}
-                className="text-[11px] text-neutral-400 hover:text-neutral-200 flex items-center gap-1 transition-colors"
-              >
-                <RotateCcw className="w-3 h-3" />
-                Reset
-              </button>
-            </div>
+          {/* TAB 1: Layer Controls (Text, Background, SVG, 3D Effects) */}
+          {activeTab === 'layers' && (
+            <div className="p-5 rounded-xl border border-palette-line bg-palette-soft/30 space-y-5">
+              {/* Effect Selectors Grid */}
+              <div className="space-y-4">
+                {/* 1. Text Effects */}
+                <div>
+                  <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                    <Code2 className="w-3.5 h-3.5 text-cyan-400" />
+                    Text Effect
+                  </label>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {(['typing', 'scramble', 'gradient', 'glitch', 'wave', 'reveal'] as TextEffect[]).map(eff => (
+                      <button
+                        key={eff}
+                        type="button"
+                        onClick={() => setConfig(prev => ({ ...prev, textEffect: eff }))}
+                        className={`py-1.5 px-2 rounded-lg text-[11px] font-mono capitalize border transition-all ${
+                          config.textEffect === eff
+                            ? 'border-cyan-500 bg-cyan-950/40 text-cyan-300 font-bold'
+                            : 'border-palette-line bg-palette-base/60 text-neutral-400 hover:text-white'
+                        }`}
+                      >
+                        {eff}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-            {/* 1. Text Inputs */}
-            <div className="space-y-3">
-              <div>
-                <label className="block text-[11px] font-medium text-neutral-400 mb-1">
-                  Main Headline
-                </label>
-                <input
-                  type="text"
-                  value={config.headline}
-                  onChange={e => setConfig(prev => ({ ...prev, headline: e.target.value }))}
-                  className="w-full px-3 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white focus:outline-none focus:border-cyan-500/80"
-                  placeholder="e.g. ⚡ FULL-STACK ARCHITECT"
-                />
-              </div>
+                {/* 2. Background Effects */}
+                <div>
+                  <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                    <Layers className="w-3.5 h-3.5 text-violet-400" />
+                    Background Style
+                  </label>
+                  <div className="grid grid-cols-3 gap-1.5">
+                    {(['particles', 'grids', 'stars', 'animated-gradient', 'matrix', 'solid'] as BackgroundEffect[]).map(bg => (
+                      <button
+                        key={bg}
+                        type="button"
+                        onClick={() => setConfig(prev => ({ ...prev, backgroundEffect: bg }))}
+                        className={`py-1.5 px-2 rounded-lg text-[11px] font-mono capitalize border transition-all ${
+                          config.backgroundEffect === bg
+                            ? 'border-violet-500 bg-violet-950/40 text-violet-300 font-bold'
+                            : 'border-palette-line bg-palette-base/60 text-neutral-400 hover:text-white'
+                        }`}
+                      >
+                        {bg.replace('-', ' ')}
+                      </button>
+                    ))}
+                  </div>
+                </div>
 
-              <div>
-                <label className="block text-[11px] font-medium text-neutral-400 mb-1">
-                  Subtitle / Mission
-                </label>
-                <input
-                  type="text"
-                  value={config.subtitle}
-                  onChange={e => setConfig(prev => ({ ...prev, subtitle: e.target.value }))}
-                  className="w-full px-3 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white focus:outline-none focus:border-cyan-500/80"
-                  placeholder="e.g. Building Intelligent Systems"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-medium text-neutral-400 mb-1">
-                  Tag / Prompt / Role Prefix (Optional)
-                </label>
-                <input
-                  type="text"
-                  value={config.tag}
-                  onChange={e => setConfig(prev => ({ ...prev, tag: e.target.value }))}
-                  className="w-full px-3 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white focus:outline-none focus:border-cyan-500/80"
-                  placeholder="e.g. OPEN TO COLLABORATION"
-                />
-              </div>
-            </div>
-
-            {/* 2. Typography & Layout */}
-            <div className="grid grid-cols-2 gap-3 pt-2 border-t border-palette-line/50">
-              <div>
-                <label className="block text-[11px] font-medium text-neutral-400 mb-1">
-                  Font Family
-                </label>
-                <select
-                  value={config.fontFamily}
-                  onChange={e => setConfig(prev => ({ ...prev, fontFamily: e.target.value as FontFamily }))}
-                  className="w-full px-2.5 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white focus:outline-none focus:border-cyan-500/80"
-                >
-                  <option value="Fira Code">Fira Code (Monospace)</option>
-                  <option value="JetBrains Mono">JetBrains Mono</option>
-                  <option value="Inter">Inter (Modern Sans)</option>
-                  <option value="Press Start 2P">Press Start 2P (Retro 8-bit)</option>
-                  <option value="Orbitron">Orbitron (Cyberpunk)</option>
-                  <option value="system-ui">System UI</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-medium text-neutral-400 mb-1">
-                  Alignment
-                </label>
-                <div className="grid grid-cols-3 gap-1 bg-palette-base p-1 rounded-lg border border-palette-line text-center text-xs">
-                  {(['left', 'center', 'right'] as TextAlignment[]).map(align => (
-                    <button
-                      key={align}
-                      type="button"
-                      onClick={() => setConfig(prev => ({ ...prev, alignment: align }))}
-                      className={`py-1 rounded capitalize font-medium text-[11px] ${
-                        config.alignment === align
-                          ? 'bg-violet-600 text-white shadow-sm'
-                          : 'text-neutral-400 hover:text-white'
-                      }`}
+                {/* 3. SVG & 3D Overlays */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                      <Compass className="w-3.5 h-3.5 text-fuchsia-400" />
+                      SVG Line/Path
+                    </label>
+                    <select
+                      value={config.svgEffect}
+                      onChange={e => setConfig(prev => ({ ...prev, svgEffect: e.target.value as SvgEffect }))}
+                      className="w-full px-2 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white"
                     >
-                      {align}
-                    </button>
-                  ))}
+                      <option value="none">None</option>
+                      <option value="line-drawing">Line Drawing</option>
+                      <option value="path-morphing">Path Morphing</option>
+                      <option value="animated-logo">Animated Logo</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                      <Boxes className="w-3.5 h-3.5 text-amber-400" />
+                      3D Perspective
+                    </label>
+                    <select
+                      value={config.threeDEffect}
+                      onChange={e => setConfig(prev => ({ ...prev, threeDEffect: e.target.value as ThreeDEffect }))}
+                      className="w-full px-2 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white"
+                    >
+                      <option value="none">None</option>
+                      <option value="rotating-cube">Rotating Cube</option>
+                      <option value="interactive-card">Card Bevel</option>
+                      <option value="particle-environment">Warp Tunnel</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* 3. Dimensions & Aspect Presets */}
-            <div className="space-y-2 pt-2 border-t border-palette-line/50">
-              <label className="block text-[11px] font-medium text-neutral-400">
-                Dimensions & Aspect Presets
-              </label>
-              <div className="flex flex-wrap gap-1.5">
-                {[
-                  { label: 'Banner (900×280)', w: 900, h: 280 },
-                  { label: 'Header (800×200)', w: 800, h: 200 },
-                  { label: 'Card (600×240)', w: 600, h: 240 },
-                  { label: 'Badge (400×120)', w: 400, h: 120 },
-                  { label: 'Square (500×500)', w: 500, h: 500 },
-                ].map(preset => (
-                  <button
-                    key={preset.label}
-                    type="button"
-                    onClick={() => setSizePreset(preset.w, preset.h)}
-                    className={`px-2 py-1 rounded text-[10px] font-mono border transition-colors ${
-                      config.width === preset.w && config.height === preset.h
-                        ? 'border-cyan-500 bg-cyan-950/40 text-cyan-300'
-                        : 'border-palette-line bg-palette-base text-neutral-400 hover:text-neutral-200'
-                    }`}
+              {/* Text Fields */}
+              <div className="space-y-3 pt-3 border-t border-palette-line/50">
+                <div>
+                  <label className="block text-[11px] font-medium text-neutral-400 mb-1">
+                    Main Headline
+                  </label>
+                  <input
+                    type="text"
+                    value={config.headline}
+                    onChange={e => setConfig(prev => ({ ...prev, headline: e.target.value }))}
+                    className="w-full px-3 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white focus:outline-none focus:border-cyan-500/80"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-medium text-neutral-400 mb-1">
+                    Subtitle / Mission
+                  </label>
+                  <input
+                    type="text"
+                    value={config.subtitle}
+                    onChange={e => setConfig(prev => ({ ...prev, subtitle: e.target.value }))}
+                    className="w-full px-3 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white focus:outline-none focus:border-cyan-500/80"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-medium text-neutral-400 mb-1">
+                    Tag / Prompt / Role Prefix
+                  </label>
+                  <input
+                    type="text"
+                    value={config.tag}
+                    onChange={e => setConfig(prev => ({ ...prev, tag: e.target.value }))}
+                    className="w-full px-3 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white focus:outline-none focus:border-cyan-500/80"
+                  />
+                </div>
+              </div>
+
+              {/* Typography & Dimensions */}
+              <div className="grid grid-cols-2 gap-3 pt-3 border-t border-palette-line/50">
+                <div>
+                  <label className="block text-[11px] font-medium text-neutral-400 mb-1">
+                    Font Family
+                  </label>
+                  <select
+                    value={config.fontFamily}
+                    onChange={e => setConfig(prev => ({ ...prev, fontFamily: e.target.value as FontFamily }))}
+                    className="w-full px-2.5 py-1.5 text-xs rounded-lg bg-palette-base border border-palette-line text-white"
                   >
-                    {preset.label}
-                  </button>
-                ))}
+                    <option value="Fira Code">Fira Code</option>
+                    <option value="JetBrains Mono">JetBrains Mono</option>
+                    <option value="Inter">Inter</option>
+                    <option value="Press Start 2P">Press Start 2P</option>
+                    <option value="Orbitron">Orbitron</option>
+                    <option value="system-ui">System UI</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-medium text-neutral-400 mb-1">
+                    Alignment
+                  </label>
+                  <div className="grid grid-cols-3 gap-1 bg-palette-base p-1 rounded-lg border border-palette-line text-center text-xs">
+                    {(['left', 'center', 'right'] as TextAlignment[]).map(align => (
+                      <button
+                        key={align}
+                        type="button"
+                        onClick={() => setConfig(prev => ({ ...prev, alignment: align }))}
+                        className={`py-1 rounded capitalize font-medium text-[11px] ${
+                          config.alignment === align
+                            ? 'bg-violet-600 text-white shadow-sm'
+                            : 'text-neutral-400 hover:text-white'
+                        }`}
+                      >
+                        {align}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-3 pt-1">
-                <div>
-                  <span className="text-[10px] text-neutral-500 font-mono">Width (px)</span>
-                  <input
-                    type="number"
-                    value={config.width}
-                    onChange={e => setConfig(prev => ({ ...prev, width: Number(e.target.value) || 100 }))}
-                    className="w-full px-2.5 py-1 text-xs rounded-lg bg-palette-base border border-palette-line text-white"
-                  />
+              {/* Dynamics & Accessibility Controls */}
+              <div className="space-y-3 pt-3 border-t border-palette-line/50">
+                <div className="flex items-center justify-between text-[11px]">
+                  <span className="font-medium text-neutral-400">Duration / Speed</span>
+                  <span className="font-mono text-cyan-400 font-bold">{config.duration.toFixed(1)}s</span>
                 </div>
-                <div>
-                  <span className="text-[10px] text-neutral-500 font-mono">Height (px)</span>
-                  <input
-                    type="number"
-                    value={config.height}
-                    onChange={e => setConfig(prev => ({ ...prev, height: Number(e.target.value) || 50 }))}
-                    className="w-full px-2.5 py-1 text-xs rounded-lg bg-palette-base border border-palette-line text-white"
-                  />
-                </div>
-              </div>
-            </div>
+                <input
+                  type="range"
+                  min="0.5"
+                  max="8.0"
+                  step="0.1"
+                  value={config.duration}
+                  onChange={e => setConfig(prev => ({ ...prev, duration: parseFloat(e.target.value) }))}
+                  className="w-full accent-cyan-500 cursor-pointer"
+                />
 
-            {/* 4. Colors & Transparency */}
-            <div className="space-y-3 pt-2 border-t border-palette-line/50">
-              <div className="flex items-center justify-between">
-                <span className="text-[11px] font-medium text-neutral-400">Palette & Theme</span>
-                <label className="flex items-center gap-1.5 text-[11px] text-neutral-300 cursor-pointer">
+                {/* Dimensions Presets */}
+                <div className="space-y-1.5 pt-1">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="font-medium text-neutral-400">Dimensions ({config.width}×{config.height})</span>
+                  </div>
+                  <div className="grid grid-cols-3 gap-1">
+                    {[
+                      { label: 'Ultra (900×280)', w: 900, h: 280 },
+                      { label: 'Banner (800×200)', w: 800, h: 200 },
+                      { label: 'Compact (600×180)', w: 600, h: 180 },
+                    ].map(dp => (
+                      <button
+                        key={dp.label}
+                        type="button"
+                        onClick={() => setSizePreset(dp.w, dp.h)}
+                        className={`py-1 px-1 rounded text-[10px] font-mono border transition-colors ${
+                          config.width === dp.w && config.height === dp.h
+                            ? 'border-cyan-500 bg-cyan-950/40 text-cyan-300'
+                            : 'border-palette-line/60 bg-palette-base/60 text-neutral-400 hover:text-white'
+                        }`}
+                      >
+                        {dp.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Loop Count & Direction Controls */}
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  <div>
+                    <label className="block text-[10px] font-medium text-neutral-400 mb-1">Repeat / Loop</label>
+                    <select
+                      value={config.repeat}
+                      onChange={e => setConfig(prev => ({ ...prev, repeat: e.target.value as RepeatMode }))}
+                      className="w-full px-2 py-1 text-[11px] rounded bg-palette-base border border-palette-line text-white font-mono"
+                    >
+                      <option value="infinite">Infinite (Loop)</option>
+                      <option value="1">1 Cycle</option>
+                      <option value="2">2 Cycles</option>
+                      <option value="3">3 Cycles</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-medium text-neutral-400 mb-1">Direction</label>
+                    <select
+                      value={config.direction}
+                      onChange={e => setConfig(prev => ({ ...prev, direction: e.target.value as AnimationDirection }))}
+                      className="w-full px-2 py-1 text-[11px] rounded bg-palette-base border border-palette-line text-white font-mono"
+                    >
+                      <option value="normal">Normal</option>
+                      <option value="reverse">Reverse</option>
+                      <option value="alternate">Alternate</option>
+                    </select>
+                  </div>
+                </div>
+
+                {/* Accessibility Toggle */}
+                <div className="p-3 rounded-lg border border-palette-line/60 bg-palette-base/50 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Accessibility className="w-4 h-4 text-emerald-400" />
+                    <div>
+                      <span className="text-xs font-semibold text-neutral-200 block">
+                        Accessibility &bull; Reduced Motion
+                      </span>
+                      <span className="text-[10px] text-neutral-400">
+                        Respects prefers-reduced-motion for motion sensitivity
+                      </span>
+                    </div>
+                  </div>
                   <input
                     type="checkbox"
-                    checked={config.transparentBackground}
-                    onChange={e => setConfig(prev => ({ ...prev, transparentBackground: e.target.checked }))}
-                    className="rounded bg-neutral-900 border-neutral-700 text-cyan-500 focus:ring-0"
+                    checked={config.reducedMotion}
+                    onChange={e => setConfig(prev => ({ ...prev, reducedMotion: e.target.checked }))}
+                    className="w-4 h-4 rounded text-emerald-500 focus:ring-0 bg-neutral-900 border-neutral-700 cursor-pointer"
                   />
-                  <span>Transparent BG</span>
-                </label>
+                </div>
               </div>
+            </div>
+          )}
+
+          {/* TAB 2: Presets Shelf */}
+          {activeTab === 'presets' && (
+            <div className="p-4 rounded-xl border border-palette-line bg-palette-soft/40 space-y-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-palette-contrast/70 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                Select Curated Preset Archetype
+              </span>
 
               <div className="grid grid-cols-3 gap-2">
-                <div>
-                  <span className="text-[10px] text-neutral-400 block mb-1">Primary</span>
-                  <div className="flex items-center gap-1.5 p-1 rounded-lg bg-palette-base border border-palette-line">
-                    <input
-                      type="color"
-                      value={config.primaryColor}
-                      onChange={e => setConfig(prev => ({ ...prev, primaryColor: e.target.value }))}
-                      className="w-5 h-5 rounded cursor-pointer border-0 bg-transparent p-0"
-                    />
-                    <input
-                      type="text"
-                      value={config.primaryColor}
-                      onChange={e => setConfig(prev => ({ ...prev, primaryColor: e.target.value }))}
-                      className="w-full text-[10px] font-mono bg-transparent text-white uppercase focus:outline-none"
-                    />
+                {PRESET_METADATA.map(p => {
+                  const isSelected = config.preset === p.id;
+                  return (
+                    <button
+                      key={p.id}
+                      type="button"
+                      onClick={() => handlePresetSelect(p.id)}
+                      className={`p-2.5 rounded-lg text-left transition-all border text-xs flex flex-col justify-between ${
+                        isSelected
+                          ? 'border-cyan-500/80 bg-cyan-950/30 text-white shadow-sm ring-1 ring-cyan-500/40'
+                          : 'border-palette-line/70 bg-palette-soft/20 text-neutral-400 hover:border-neutral-700 hover:text-neutral-200'
+                      }`}
+                    >
+                      <div className="text-base mb-1">{p.icon}</div>
+                      <div className="font-bold tracking-tight text-[11px] truncate w-full">
+                        {p.name.split(' ')[0]}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: UI Motion Showcase (Springs, Hover, Panels, Parallax) */}
+          {activeTab === 'uiMotion' && (
+            <div className="p-4 rounded-xl border border-palette-line bg-palette-soft/40 space-y-4 text-xs">
+              <span className="text-xs font-bold uppercase tracking-wider text-palette-contrast/80 flex items-center gap-1.5">
+                <Boxes className="w-3.5 h-3.5 text-violet-400" />
+                UI Motion &amp; Scroll Effects Laboratory
+              </span>
+
+              {/* 1. Spring Transition Card */}
+              <div className="p-3.5 rounded-lg border border-palette-line/60 bg-palette-base/60 space-y-2">
+                <span className="font-semibold text-neutral-200 block text-[11px]">
+                  1. Damped Spring Physics &bull; Hover Card
+                </span>
+                <div className="p-4 rounded-lg bg-gradient-to-r from-violet-950/40 to-cyan-950/40 border border-violet-500/30 hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300 ease-out cursor-pointer text-center">
+                  <span className="font-bold text-white text-xs">Hover Me for Spring Lift</span>
+                  <div className="text-[10px] text-cyan-300 font-mono mt-0.5">scale(1.02) translateY(-4px)</div>
+                </div>
+              </div>
+
+              {/* 2. Specular Shimmer Hover */}
+              <div className="p-3.5 rounded-lg border border-palette-line/60 bg-palette-base/60 space-y-2">
+                <span className="font-semibold text-neutral-200 block text-[11px]">
+                  2. Specular Glare &bull; Magnetic Glow
+                </span>
+                <button
+                  type="button"
+                  className="w-full py-2.5 rounded-lg bg-neutral-900 border border-neutral-700 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] text-white font-bold transition-all text-xs"
+                >
+                  Glow Button Hover
+                </button>
+              </div>
+
+              {/* 3. Animated Panels & Collapsible Drawers */}
+              <div className="p-3.5 rounded-lg border border-palette-line/60 bg-palette-base/60 space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-neutral-200 block text-[11px]">
+                    3. Animated Panels &bull; Spring Expand
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setIsPanelExpanded(prev => !prev)}
+                    className="flex items-center gap-1 text-[11px] text-cyan-400 hover:text-cyan-300 font-mono"
+                  >
+                    <span>{isPanelExpanded ? 'Collapse' : 'Expand'}</span>
+                    {isPanelExpanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                  </button>
+                </div>
+                <div
+                  className={`overflow-hidden transition-all duration-300 ease-out border rounded-lg ${
+                    isPanelExpanded
+                      ? 'max-h-40 border-cyan-500/40 bg-cyan-950/20 p-3'
+                      : 'max-h-0 border-transparent p-0'
+                  }`}
+                >
+                  <p className="text-[11px] text-neutral-300 leading-relaxed">
+                    Zero layout-shift collapsible drawer with spring-interpolated height transitions and dynamic child staggering.
+                  </p>
+                  <div className="mt-2 flex items-center gap-2 font-mono text-[10px] text-cyan-400">
+                    <span className="px-1.5 py-0.5 rounded bg-cyan-950 border border-cyan-800">grid-template-rows</span>
+                    <span className="px-1.5 py-0.5 rounded bg-cyan-950 border border-cyan-800">spring-damped</span>
                   </div>
                 </div>
+              </div>
 
-                <div>
-                  <span className="text-[10px] text-neutral-400 block mb-1">Secondary</span>
-                  <div className="flex items-center gap-1.5 p-1 rounded-lg bg-palette-base border border-palette-line">
-                    <input
-                      type="color"
-                      value={config.secondaryColor}
-                      onChange={e => setConfig(prev => ({ ...prev, secondaryColor: e.target.value }))}
-                      className="w-5 h-5 rounded cursor-pointer border-0 bg-transparent p-0"
-                    />
-                    <input
-                      type="text"
-                      value={config.secondaryColor}
-                      onChange={e => setConfig(prev => ({ ...prev, secondaryColor: e.target.value }))}
-                      className="w-full text-[10px] font-mono bg-transparent text-white uppercase focus:outline-none"
-                    />
+              {/* 4. Drag & Drop Tactile Shelf Preview */}
+              <div className="p-3.5 rounded-lg border border-palette-line/60 bg-palette-base/60 space-y-2">
+                <span className="font-semibold text-neutral-200 block text-[11px]">
+                  4. Reorderable Widget Drag &bull; Drop
+                </span>
+                <div className="grid grid-cols-3 gap-1.5 text-center font-mono text-[10px]">
+                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-violet-500 transition-colors">
+                    :: 📊 Stats
+                  </div>
+                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-violet-500 transition-colors">
+                    :: 🐍 Snake
+                  </div>
+                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-violet-500 transition-colors">
+                    :: 🏆 Trophy
                   </div>
                 </div>
+              </div>
 
-                <div>
-                  <span className="text-[10px] text-neutral-400 block mb-1">Accent</span>
-                  <div className="flex items-center gap-1.5 p-1 rounded-lg bg-palette-base border border-palette-line">
-                    <input
-                      type="color"
-                      value={config.accentColor}
-                      onChange={e => setConfig(prev => ({ ...prev, accentColor: e.target.value }))}
-                      className="w-5 h-5 rounded cursor-pointer border-0 bg-transparent p-0"
-                    />
-                    <input
-                      type="text"
-                      value={config.accentColor}
-                      onChange={e => setConfig(prev => ({ ...prev, accentColor: e.target.value }))}
-                      className="w-full text-[10px] font-mono bg-transparent text-white uppercase focus:outline-none"
+              {/* 5. Scroll Effects Laboratory */}
+              <div className="p-3.5 rounded-lg border border-palette-line/60 bg-palette-base/60 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="font-semibold text-neutral-200 block text-[11px]">
+                    5. Scroll Effects (Reveal &bull; Parallax &bull; Pinned &bull; Sequence)
+                  </span>
+                  <span className="font-mono text-cyan-400 text-[10px]">{scrollProgress}% Scrolled</span>
+                </div>
+
+                {/* Simulated Scroll Scrub Control */}
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={scrollProgress}
+                  onChange={e => setScrollProgress(parseInt(e.target.value, 10))}
+                  className="w-full accent-cyan-500 cursor-pointer"
+                />
+
+                {/* Interactive Simulated Scroll Canvas */}
+                <div className="relative h-28 rounded-lg bg-neutral-950 border border-neutral-800 overflow-hidden p-2 text-[10px]">
+                  {/* Sticky / Pinned Section Anchor */}
+                  <div className="sticky top-0 z-10 px-2 py-1 bg-violet-950/80 backdrop-blur border border-violet-500/40 rounded flex items-center justify-between">
+                    <span className="font-bold text-violet-200">Pinned Section Anchor</span>
+                    <span className="font-mono text-[9px] text-violet-300">sticky-top</span>
+                  </div>
+
+                  {/* Parallax Background Grid (moves slowly: -0.2x) */}
+                  <div
+                    className="absolute inset-0 opacity-20 pointer-events-none"
+                    style={{
+                      transform: `translateY(-${(scrollProgress * 0.2).toFixed(1)}px)`,
+                      backgroundImage: 'radial-gradient(circle, #38bdf8 1px, transparent 1px)',
+                      backgroundSize: '12px 12px',
+                    }}
+                  />
+
+                  {/* Scroll Reveal Card (fades in as progress > 30%) */}
+                  <div
+                    className="mt-3 p-2 rounded border border-neutral-700 bg-neutral-900/90 transition-all duration-150"
+                    style={{
+                      opacity: Math.min(1, Math.max(0.1, scrollProgress / 60)),
+                      transform: `translateY(${Math.max(0, 20 - scrollProgress * 0.3)}px)`,
+                    }}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-cyan-300 font-bold">Scroll-Reveal Element</span>
+                      <span className="font-mono text-neutral-400 text-[9px]">
+                        opacity: {(Math.min(1, Math.max(0.1, scrollProgress / 60))).toFixed(2)}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Scroll-Linked Progress Bar Sequence */}
+                  <div className="mt-2 w-full h-1.5 bg-neutral-900 rounded-full overflow-hidden border border-neutral-800">
+                    <div
+                      className="h-full bg-gradient-to-r from-cyan-500 via-indigo-500 to-violet-500 transition-all duration-75"
+                      style={{ width: `${scrollProgress}%` }}
                     />
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* 5. Animation Dynamics */}
-            <div className="space-y-3 pt-2 border-t border-palette-line/50">
-              <div className="flex items-center justify-between text-[11px]">
-                <span className="font-medium text-neutral-400">Duration / Speed</span>
-                <span className="font-mono text-cyan-400 font-bold">{config.duration.toFixed(1)}s</span>
-              </div>
-              <input
-                type="range"
-                min="0.5"
-                max="8.0"
-                step="0.1"
-                value={config.duration}
-                onChange={e => setConfig(prev => ({ ...prev, duration: parseFloat(e.target.value) }))}
-                className="w-full accent-cyan-500 cursor-pointer"
-              />
-
-              <div className="grid grid-cols-2 gap-3 pt-1">
-                <div>
-                  <span className="text-[10px] text-neutral-400 block mb-1">Direction</span>
-                  <select
-                    value={config.direction}
-                    onChange={e => setConfig(prev => ({ ...prev, direction: e.target.value as AnimationDirection }))}
-                    className="w-full px-2.5 py-1 text-xs rounded-lg bg-palette-base border border-palette-line text-white"
-                  >
-                    <option value="normal">Normal</option>
-                    <option value="reverse">Reverse</option>
-                    <option value="alternate">Alternate (Ping-Pong)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <span className="text-[10px] text-neutral-400 block mb-1">Repeat Mode</span>
-                  <select
-                    value={config.repeat}
-                    onChange={e => setConfig(prev => ({ ...prev, repeat: e.target.value as RepeatMode }))}
-                    className="w-full px-2.5 py-1 text-xs rounded-lg bg-palette-base border border-palette-line text-white"
-                  >
-                    <option value="infinite">Infinite Loop</option>
-                    <option value="1">Play Once (1x)</option>
-                    <option value="2">Play Twice (2x)</option>
-                    <option value="3">Play 3 Times (3x)</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
 
         {/* Right Column: Live Compatibility Preview & Reliability Controls (7 cols) */}
@@ -619,10 +969,6 @@ export function AnimatorStudio() {
                 </div>
               ))}
             </div>
-
-            <p className="text-[11px] text-neutral-400 pt-1 border-t border-palette-line/40">
-              💡 <b>Reliability Invariant:</b> Generated animations rely entirely on native CSS <code>@keyframes</code> embedded inside valid SVG definitions. Zero external scripts, zero trackers, and zero external webfonts ensure zero-downtime rendering on GitHub.
-            </p>
           </div>
 
           {/* Asset Export Suite */}
@@ -644,7 +990,7 @@ export function AnimatorStudio() {
                       : 'text-neutral-400 hover:text-white'
                   }`}
                 >
-                  Local / Repo
+                  Local Asset
                 </button>
                 <button
                   type="button"
@@ -655,7 +1001,7 @@ export function AnimatorStudio() {
                       : 'text-neutral-400 hover:text-white'
                   }`}
                 >
-                  Raw GitHub
+                  GitHub Raw
                 </button>
                 <button
                   type="button"
@@ -668,6 +1014,17 @@ export function AnimatorStudio() {
                 >
                   Data URI
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setMarkdownTab('hostedDemo')}
+                  className={`px-2.5 py-1 rounded font-medium ${
+                    markdownTab === 'hostedDemo'
+                      ? 'bg-violet-600 text-white'
+                      : 'text-neutral-400 hover:text-white'
+                  }`}
+                >
+                  Hosted Demo
+                </button>
               </div>
             </div>
 
@@ -678,7 +1035,9 @@ export function AnimatorStudio() {
                   ? snippets.relative
                   : markdownTab === 'githubRaw'
                   ? snippets.githubRaw
-                  : snippets.dataUri}
+                  : markdownTab === 'dataUri'
+                  ? snippets.dataUri
+                  : snippets.hostedDemo}
               </pre>
 
               <button
@@ -689,7 +1048,9 @@ export function AnimatorStudio() {
                       ? snippets.relative
                       : markdownTab === 'githubRaw'
                       ? snippets.githubRaw
-                      : snippets.dataUri,
+                      : markdownTab === 'dataUri'
+                      ? snippets.dataUri
+                      : snippets.hostedDemo,
                     'markdown'
                   )
                 }
@@ -710,7 +1071,7 @@ export function AnimatorStudio() {
             </div>
 
             {/* Quick Export Actions */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 pt-1">
               <button
                 type="button"
                 onClick={() => handleCopy(svgCode, 'svg')}
@@ -747,6 +1108,19 @@ export function AnimatorStudio() {
                 <span>Save .json</span>
               </button>
 
+              <button
+                type="button"
+                onClick={() => setShowGifModal(prev => !prev)}
+                className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border text-xs font-medium transition-colors ${
+                  showGifModal
+                    ? 'border-amber-500 bg-amber-950/40 text-amber-300'
+                    : 'border-palette-line bg-palette-base hover:border-amber-500/50 text-neutral-200'
+                }`}
+              >
+                <Film className="w-3.5 h-3.5 text-amber-400" />
+                <span>GIF / WebP</span>
+              </button>
+
               <Link
                 href="/developer"
                 className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-palette-line bg-palette-base hover:border-violet-500/50 text-xs font-medium text-neutral-200 transition-colors"
@@ -754,6 +1128,35 @@ export function AnimatorStudio() {
                 <span>/developer &rarr;</span>
               </Link>
             </div>
+
+            {/* Headless GIF & WebP Export Drawer */}
+            {showGifModal && (
+              <div className="mt-3 p-3.5 rounded-lg border border-amber-500/40 bg-amber-950/20 text-xs space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-amber-300 font-bold text-[11px]">
+                    <Film className="w-4 h-4" />
+                    <span>Headless GIF &amp; WebP Render Engine</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-amber-400/80">PIL + NumPy 24fps</span>
+                </div>
+                <p className="text-[11px] text-neutral-300">
+                  Generate optimized 24-frame looping WebP and GIF animations with cybernetic ember particles and holographic scanline sweeps for GitHub READMEs.
+                </p>
+                <div className="p-2 rounded bg-neutral-950 border border-neutral-800 font-mono text-[10px] text-cyan-300 flex items-center justify-between">
+                  <code>python scripts/animate_hero.py</code>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy('python scripts/animate_hero.py', 'gif-cmd')}
+                    className="px-2 py-0.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-[9px]"
+                  >
+                    {copiedKey === 'gif-cmd' ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <div className="text-[10px] text-neutral-400">
+                  Outputs: <code className="text-neutral-200">public/assets/hero-animated.gif</code> &bull; <code className="text-neutral-200">public/assets/hero-animated.webp</code>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

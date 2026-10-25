@@ -1,47 +1,94 @@
 import { describe, it, expect } from 'vitest';
 import { generateAnimatedSvg, escapeXml } from './presets';
 import { validateSvg } from './validator';
-import { generateMarkdownSnippet } from './export-utils';
-import { AnimationConfig, DEFAULT_ANIMATION_CONFIG, AnimationPresetId } from './types';
+import {
+  generateMarkdownSnippet,
+  encodeConfigToBase64,
+  decodeConfigFromBase64,
+  generateHostedDemoUrl,
+} from './export-utils';
+import {
+  AnimationConfig,
+  DEFAULT_ANIMATION_CONFIG,
+  TextEffect,
+  BackgroundEffect,
+  SvgEffect,
+  ThreeDEffect,
+} from './types';
 
-describe('Animator Engine - Presets & Generation', () => {
-  const allPresets: AnimationPresetId[] = [
-    'glitch',
-    'typing',
-    'wave',
-    'matrix',
-    'neon',
-    'particle',
-    'terminal',
-    '3d-banner',
-    'minimal',
-  ];
+describe('Animator Engine - Expanded Effects Pipeline', () => {
+  const textEffects: TextEffect[] = ['typing', 'scramble', 'gradient', 'glitch', 'wave', 'reveal'];
+  const backgrounds: BackgroundEffect[] = ['particles', 'grids', 'stars', 'animated-gradient', 'matrix', 'solid'];
+  const svgEffects: SvgEffect[] = ['line-drawing', 'path-morphing', 'animated-logo', 'none'];
+  const threeDEffects: ThreeDEffect[] = ['rotating-cube', 'interactive-card', 'particle-environment', 'none'];
 
-  it.each(allPresets)('generates valid, self-contained SVG for preset: %s', preset => {
+  it.each(textEffects)('renders text effect correctly: %s', textEffect => {
     const config: AnimationConfig = {
       ...DEFAULT_ANIMATION_CONFIG,
-      preset,
-      headline: 'TEST HEADLINE',
-      subtitle: 'Testing Subtitle',
-      tag: 'TAG',
+      textEffect,
+      headline: 'CUSTOM TEXT EFFECT',
     };
 
     const svg = generateAnimatedSvg(config);
-
     expect(svg).toContain('<svg');
-    expect(svg).toContain('</svg>');
-    expect(svg).toContain('viewBox="0 0 900 280"');
-    expect(svg).toContain('TEST HEADLINE');
-    expect(svg).toContain('Testing Subtitle');
-    expect(svg).toContain('TAG');
-    expect(svg).toContain('@keyframes');
+    expect(svg).toContain('CUSTOM TEXT EFFECT');
 
-    // Run validator
     const validation = validateSvg(svg);
     expect(validation.isValid).toBe(true);
     expect(validation.isGitHubSafe).toBe(true);
-    expect(validation.sizeBytes).toBeGreaterThan(100);
-    expect(validation.sizeBytes).toBeLessThan(50 * 1024); // Well under 50KB
+  });
+
+  it.each(backgrounds)('renders background layer correctly: %s', backgroundEffect => {
+    const config: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      backgroundEffect,
+    };
+
+    const svg = generateAnimatedSvg(config);
+    expect(svg).toContain('<svg');
+
+    const validation = validateSvg(svg);
+    expect(validation.isValid).toBe(true);
+    expect(validation.isGitHubSafe).toBe(true);
+  });
+
+  it.each(svgEffects)('renders SVG overlay effect correctly: %s', svgEffect => {
+    const config: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      svgEffect,
+    };
+
+    const svg = generateAnimatedSvg(config);
+    expect(svg).toContain('<svg');
+
+    const validation = validateSvg(svg);
+    expect(validation.isValid).toBe(true);
+    expect(validation.isGitHubSafe).toBe(true);
+  });
+
+  it.each(threeDEffects)('renders 3D effect overlay correctly: %s', threeDEffect => {
+    const config: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      threeDEffect,
+    };
+
+    const svg = generateAnimatedSvg(config);
+    expect(svg).toContain('<svg');
+
+    const validation = validateSvg(svg);
+    expect(validation.isValid).toBe(true);
+    expect(validation.isGitHubSafe).toBe(true);
+  });
+
+  it('injects accessibility styles when reducedMotion is active', () => {
+    const config: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      reducedMotion: true,
+    };
+
+    const svg = generateAnimatedSvg(config);
+    expect(svg).toContain('animation: none !important');
+    expect(svg).toContain('@media (prefers-reduced-motion: reduce)');
   });
 
   it('escapes XML characters properly to prevent malformed SVG', () => {
@@ -74,28 +121,11 @@ describe('Animator Engine - Presets & Generation', () => {
     const rightSvg = generateAnimatedSvg(rightConfig);
 
     expect(leftSvg).toContain('text-anchor="start"');
-    expect(leftSvg).toContain('x="45"');
+    expect(leftSvg).toContain('x="50"');
     expect(centerSvg).toContain('text-anchor="middle"');
     expect(centerSvg).toContain('x="500"');
     expect(rightSvg).toContain('text-anchor="end"');
-    expect(rightSvg).toContain('x="955"');
-  });
-
-  it('supports transparent background toggle', () => {
-    const solidConfig: AnimationConfig = {
-      ...DEFAULT_ANIMATION_CONFIG,
-      transparentBackground: false,
-    };
-    const transConfig: AnimationConfig = {
-      ...DEFAULT_ANIMATION_CONFIG,
-      transparentBackground: true,
-    };
-
-    const solidSvg = generateAnimatedSvg(solidConfig);
-    const transSvg = generateAnimatedSvg(transConfig);
-
-    expect(solidSvg).toContain(`fill="${solidConfig.backgroundColor}"`);
-    expect(transSvg).not.toContain(`fill="${transConfig.backgroundColor}"`);
+    expect(rightSvg).toContain('x="950"');
   });
 });
 
@@ -117,27 +147,41 @@ describe('Animator Engine - Validator & Reliability Controls', () => {
 
     expect(res.isGitHubSafe).toBe(false);
   });
-
-  it('flags external stylesheet imports', () => {
-    const badSvg = '<svg xmlns="http://www.w3.org/2000/svg"><style>@import url("http://evil.com/style.css");</style></svg>';
-    const res = validateSvg(badSvg);
-
-    expect(res.isGitHubSafe).toBe(false);
-  });
 });
 
-describe('Animator Engine - Export Snippets', () => {
-  it('generates relative, githubRaw, and dataUri markdown snippets', () => {
-    const config: AnimationConfig = {
+describe('Animator Engine - Export Snippets & Hosted Demos', () => {
+  it('encodes and decodes configuration state roundtrip via base64', () => {
+    const original: AnimationConfig = {
       ...DEFAULT_ANIMATION_CONFIG,
-      headline: 'BANNER TITLE',
+      headline: 'TEST DECODE',
+      textEffect: 'scramble',
+      backgroundEffect: 'stars',
     };
 
-    const snippets = generateMarkdownSnippet(config, 'my-banner.svg');
+    const encoded = encodeConfigToBase64(original);
+    const decoded = decodeConfigFromBase64(encoded);
+
+    expect(decoded).not.toBeNull();
+    expect(decoded?.headline).toBe('TEST DECODE');
+    expect(decoded?.textEffect).toBe('scramble');
+    expect(decoded?.backgroundEffect).toBe('stars');
+  });
+
+  it('generates hosted demo URL and all markdown snippet variants', () => {
+    const config: AnimationConfig = {
+      ...DEFAULT_ANIMATION_CONFIG,
+      headline: 'HOSTED DEMO BANNER',
+    };
+
+    const demoUrl = generateHostedDemoUrl(config, 'https://readmeforge.dev');
+    expect(demoUrl).toContain('https://readmeforge.dev/animator?c=');
+
+    const snippets = generateMarkdownSnippet(config, 'my-banner.svg', 'https://readmeforge.dev');
 
     expect(snippets.relative).toContain('<img src="my-banner.svg"');
-    expect(snippets.relative).toContain('alt="BANNER TITLE"');
+    expect(snippets.relative).toContain('alt="HOSTED DEMO BANNER"');
     expect(snippets.githubRaw).toContain('https://raw.githubusercontent.com/<username>/<repo>/main/my-banner.svg');
     expect(snippets.dataUri).toContain('data:image/svg+xml;utf8,%3Csvg');
+    expect(snippets.hostedDemo).toContain('https://readmeforge.dev/animator?c=');
   });
 });

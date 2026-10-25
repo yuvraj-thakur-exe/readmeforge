@@ -2,25 +2,71 @@ import { AnimationConfig } from './types';
 import { generateAnimatedSvg } from './presets';
 
 /**
+ * Safely encodes configuration object into base64 string.
+ */
+export function encodeConfigToBase64(config: AnimationConfig): string {
+  const json = JSON.stringify(config);
+  if (typeof window !== 'undefined') {
+    return btoa(unescape(encodeURIComponent(json)));
+  }
+  return Buffer.from(json, 'utf-8').toString('base64');
+}
+
+/**
+ * Safely decodes base64 string back into configuration object.
+ */
+export function decodeConfigFromBase64(base64: string): AnimationConfig | null {
+  try {
+    let json: string;
+    if (typeof window !== 'undefined') {
+      json = decodeURIComponent(escape(atob(base64)));
+    } else {
+      json = Buffer.from(base64, 'base64').toString('utf-8');
+    }
+    return JSON.parse(json);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Generates hosted demo URL.
+ */
+export function generateHostedDemoUrl(
+  config: AnimationConfig,
+  baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://readmeforge.dev'
+): string {
+  const encoded = encodeConfigToBase64(config);
+  return `${baseUrl}/animator?c=${encoded}`;
+}
+
+/**
  * Generates ready-to-paste markdown snippets for the animation.
  */
 export function generateMarkdownSnippet(
   config: AnimationConfig,
-  filename = 'banner-animated.svg'
-): { relative: string; dataUri: string; githubRaw: string } {
+  filename = 'banner-animated.svg',
+  baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://readmeforge.dev'
+): { relative: string; dataUri: string; githubRaw: string; hostedDemo: string } {
   const svg = generateAnimatedSvg(config);
   const encoded = encodeURIComponent(svg)
     .replace(/'/g, '%27')
     .replace(/"/g, '%22');
 
+  const hostedUrl = generateHostedDemoUrl(config, baseUrl);
+
   const relative = `<!-- Self-Hosted / Local Asset (Recommended for fastest load) -->
 <div align="${config.alignment}">
-  <img src="${filename}" width="${config.width}" alt="${config.headline}" />
+  <a href="${hostedUrl}">
+    <img src="${filename}" width="${config.width}" alt="${config.headline}" />
+  </a>
 </div>`;
 
   const githubRaw = `<!-- GitHub Raw URL (Replace <username>/<repo>) -->
 <div align="${config.alignment}">
-  <img src="https://raw.githubusercontent.com/<username>/<repo>/main/${filename}" width="${config.width}" alt="${config.headline}" />
+  <a href="${hostedUrl}">
+    <img src="https://raw.githubusercontent.com/<username>/<repo>/main/${filename}" width="${config.width}" alt="${config.headline}" />
+  </a>
 </div>`;
 
   const dataUri = `<!-- Inline Data URI (Zero external files needed) -->
@@ -28,7 +74,9 @@ export function generateMarkdownSnippet(
   <img src="data:image/svg+xml;utf8,${encoded}" width="${config.width}" alt="${config.headline}" />
 </div>`;
 
-  return { relative, githubRaw, dataUri };
+  const hostedDemo = `[![Interactive Demo](${filename})](${hostedUrl})`;
+
+  return { relative, githubRaw, dataUri, hostedDemo };
 }
 
 /**

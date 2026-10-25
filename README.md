@@ -280,11 +280,57 @@ python scripts/animate_hero.py
 - **Dual Export:** Generates high-compression 24-bit animated WebP (only ~1.7 MB for 960x536 @ 16fps) and universal GIF.
 👉 *Inspect the script in [`scripts/animate_hero.py`](scripts/animate_hero.py).*
 
-### 3. ✨ Built-In Web Animation Studio (`/animator`)
-ReadmeForge now features a dedicated in-browser **Animation Studio** (`/animator`) with 9 presets, precise typographic & dynamic controls, dark/light theme testing, and GitHub sanitizer validation:
-- **9 Presets:** `glitch`, `typing`, `wave`, `matrix`, `neon`, `particle`, `terminal`, `3d-banner`, and `minimal`.
-- **Live Compatibility Testing:** Simulate GitHub dark/light mode, mobile 375px viewport, and alt-text error handling.
-- **Direct Exports:** Standalone `.svg` download, raw SVG copy, Markdown snippets, and `.json` configuration backup.
+### 3. ✨ Built-In Web Animation Studio (`/animator`) & Motion Suite
+ReadmeForge features an enterprise-grade in-browser **Animation Studio** (`/animator`) and AI agent skill (`.agents/skills/readme-animation-studio/SKILL.md`) for crafting GitHub-compliant animated SVG banners, dynamic typography, 3D illusions, and interactive motion components:
+
+- **Text Effects:**
+  - `typing`: Character-stepped terminal typewriter effect with blinking shell cursor.
+  - `scramble`: Rapid cipher glyph flicker and matrix decryption jitter.
+  - `gradient`: Continuous iridescent horizontal chrome shimmer sweep.
+  - `glitch`: Chromatic aberration RGB split with horizontal slice lines.
+  - `wave`: Harmonic sinusoidal displacement wave across sequential characters.
+  - `reveal`: Smooth editorial curtain expansion and vertical slide-up.
+
+- **Background Effects:**
+  - `particles`: Rising luminous sparks and ambient glowing energy orbs.
+  - `grids`: Perspective coordinate grid with traveling scanner sweeps.
+  - `stars`: Deep space multi-layer starfield with dual-frequency twinkle cycles.
+  - `animated-gradient`: Dynamic multi-stop radial and linear color morphing.
+  - `matrix`: Vertical streams of phosphor digital code rain.
+  - `solid`: High-contrast dark slate backdrop with subtle vignette borders.
+
+- **SVG Vector Effects:**
+  - `line-drawing`: Pure CSS `stroke-dashoffset` path tracing animation.
+  - `path-morphing`: Seamless breathing geometric polygon interpolation.
+  - `animated-logo`: Multi-ring orbital gear assembly with rotating core monogram.
+
+- **3D Projections in Pure SVG:**
+  - `rotating-cube`: Isometric 3-face wireframe box with oscillating tilt and float.
+  - `interactive-card`: Multi-layer card with depth bevel and specular sweep.
+  - `particle-environment`: Perspective warp tunnel with expanding concentric horizon rings.
+
+- **UI Motion & Scroll Laboratory:**
+  - `spring transitions`: Damped harmonic oscillation curve (`scale(1.02) translateY(-4px)`).
+  - `hover effects`: Specular glare and magnetic border glow buttons.
+  - `animated panels`: Spring-damped zero layout-shift collapsible accordion drawers.
+  - `drag-and-drop`: Tactile reorderable widget shelf preview.
+  - `scroll effects`: Interactive scrub slider testing scroll-reveal, 2.5D parallax displacement, sticky pinned section anchors, and scroll-linked progress sequences.
+
+- **Export Tools & Workflows:**
+  - **Markdown Snippets:** Four one-click copy modes: Relative URL, GitHub Raw CDN, Data URI (zero HTTP requests), and Hosted Demo Link.
+  - **SVG Generation:** Real-time compliant SVG export (`readmeforge-banner.svg`).
+  - **GIF & WebP Export:** Headless Python generator (`python scripts/animate_hero.py`) producing 24-frame looping WebP/GIF assets.
+  - **Hosted Demos:** Shareable state serialized in base64 URL queries (`/animator?c=<state>`).
+
+- **Precision Controls:**
+  - `Speed`: Fine-grained duration slider (0.5s – 8.0s).
+  - `Colors`: 5-channel palette pickers (primary, secondary, accent, background, text) + transparent mode.
+  - `Dimensions`: Aspect ratio presets (16:9, Ultra-wide 900×280, Banner 800×200, Compact 600×180) + custom dimensions.
+  - `Loop count`: Repeat mode selector (`infinite`, `1`, `2`, `3`).
+  - `Accessibility`: Dedicated `prefers-reduced-motion` compliance toggle.
+  - `Live preview`: Real-time rendering stage with GitHub Dark/Light modes, mobile 375px viewport simulation, and image load failure alt-text testing.
+
+> 🤖 **Agent Skill Available**: AI coding assistants can directly load and reference the detailed authoring guidelines at [`.agents/skills/readme-animation-studio/SKILL.md`](.agents/skills/readme-animation-studio/SKILL.md).
 
 ### 4. 🌐 Cross-Platform Animation & Motion Ecosystem
 When building interactive web platforms, mobile apps, mathematical visualizations, or portable assets, here is the recommended motion toolkit across languages and ecosystems:

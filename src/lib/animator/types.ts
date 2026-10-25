@@ -7,7 +7,36 @@ export type AnimationPresetId =
   | 'particle'
   | 'terminal'
   | '3d-banner'
-  | 'minimal';
+  | 'minimal'
+  | 'custom';
+
+export type TextEffect =
+  | 'typing'
+  | 'scramble'
+  | 'gradient'
+  | 'glitch'
+  | 'wave'
+  | 'reveal';
+
+export type BackgroundEffect =
+  | 'particles'
+  | 'grids'
+  | 'stars'
+  | 'animated-gradient'
+  | 'matrix'
+  | 'solid';
+
+export type SvgEffect =
+  | 'none'
+  | 'line-drawing'
+  | 'path-morphing'
+  | 'animated-logo';
+
+export type ThreeDEffect =
+  | 'none'
+  | 'rotating-cube'
+  | 'interactive-card'
+  | 'particle-environment';
 
 export type FontFamily =
   | 'Fira Code'
@@ -29,18 +58,27 @@ export interface AnimationConfig {
   subtitle: string;
   tag: string;
   fontFamily: FontFamily;
+  // Specific Effect Layers
+  textEffect: TextEffect;
+  backgroundEffect: BackgroundEffect;
+  svgEffect: SvgEffect;
+  threeDEffect: ThreeDEffect;
+  // Color Palette
   primaryColor: string;
   secondaryColor: string;
   accentColor: string;
   backgroundColor: string;
   textColor: string;
   transparentBackground: boolean;
+  // Layout & Dimensions
   width: number;
   height: number;
   duration: number; // in seconds
   direction: AnimationDirection;
   repeat: RepeatMode;
   alignment: TextAlignment;
+  // Accessibility & Compliance
+  reducedMotion: boolean; // Accessible prefers-reduced-motion fallback
 }
 
 export interface ValidationResult {
@@ -60,6 +98,10 @@ export const DEFAULT_ANIMATION_CONFIG: AnimationConfig = {
   subtitle: 'Building Intelligent Developer Tools & Cloud Systems',
   tag: 'OPEN TO COLLABORATION',
   fontFamily: 'Fira Code',
+  textEffect: 'gradient',
+  backgroundEffect: 'grids',
+  svgEffect: 'animated-logo',
+  threeDEffect: 'interactive-card',
   primaryColor: '#6366f1',
   secondaryColor: '#38bdf8',
   accentColor: '#c084fc',
@@ -72,6 +114,7 @@ export const DEFAULT_ANIMATION_CONFIG: AnimationConfig = {
   direction: 'normal',
   repeat: 'infinite',
   alignment: 'center',
+  reducedMotion: false,
 };
 
 export interface PresetMetadata {
