@@ -78,13 +78,13 @@ export async function generateMetadata({
       title,
       description,
       siteName: 'ReadmeForge',
-      images: '/assets/app.png',
+      images: '/api/og',
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: '/assets/app.png',
+      images: '/api/og',
       creator: 'https://github.com/readmeforge',
     },
     alternates: {

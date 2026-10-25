@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: today,
       changeFrequency: 'yearly',
       priority: isDefault && pathname === '' ? 1 : 0.2,
-      images: [`${basePath}/assets/app.png`],
+      images: [`${basePath}/api/og`],
       alternates: {
         languages: Object.fromEntries(
           routing.locales.map(loc => [loc, `${basePath}/${loc}${pathname}`])
