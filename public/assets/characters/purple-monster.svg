@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="200" fill="none">
+  <style>
+    @keyframes monsterStomp {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      25%      { transform: translateY(-14px) rotate(0deg); }
+      50%      { transform: translateY(0) rotate(4deg); }
+      75%      { transform: translateY(-14px) rotate(0deg); }
+    }
+    @keyframes chompJaw {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(6px); }
+    }
+    @keyframes eyeWander {
+      0%, 100% { transform: translate(0, 0); }
+      25%      { transform: translate(-3.5px, 1px); }
+      75%      { transform: translate(3.5px, -1px); }
+    }
+    @keyframes hornL {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(9deg); }
+    }
+    @keyframes hornR {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(-9deg); }
+    }
+    .monster { animation: monsterStomp 1.8s ease-in-out infinite; transform-origin: center bottom; }
+    .jaw { animation: chompJaw 1s ease-in-out infinite; }
+    .pupils { animation: eyeWander 2.6s ease-in-out infinite; }
+    .horn-l { transform-origin: -30px -44px; animation: hornL 1.4s ease-in-out infinite alternate; }
+    .horn-r { transform-origin: 30px -44px; animation: hornR 1.4s ease-in-out infinite alternate; }
+  </style>
+
+  <g transform="translate(100, 105)" class="monster">
+    <!-- Horn Left -->
+    <g class="horn-l">
+      <path d="M -26 -44 C -40 -64 -56 -52 -50 -36 C -44 -40 -34 -42 -26 -44 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="2.5" />
+      <line x1="-42" y1="-54" x2="-34" y2="-42" stroke="#1a202c" stroke-width="2" />
+    </g>
+
+    <!-- Horn Right -->
+    <g class="horn-r">
+      <path d="M 26 -44 C 40 -64 56 -52 50 -36 C 44 -40 34 -42 26 -44 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="2.5" />
+      <line x1="42" y1="-54" x2="34" y2="-42" stroke="#1a202c" stroke-width="2" />
+    </g>
+
+    <!-- Arms -->
+    <path d="M -32 -12 C -52 -12 -50 22 -32 18 Z" fill="#7986cb" stroke="#1a202c" stroke-width="2.5" />
+    <path d="M 32 -12 C 52 -12 50 22 32 18 Z" fill="#7986cb" stroke="#1a202c" stroke-width="2.5" />
+
+    <!-- Body -->
+    <rect x="-34" y="-44" width="68" height="82" rx="17" fill="#7986cb" stroke="#1a202c" stroke-width="3" />
+
+    <!-- Feet -->
+    <rect x="-30" y="34" width="20" height="25" rx="6" fill="#7986cb" stroke="#1a202c" stroke-width="2.5" />
+    <rect x="10" y="34" width="20" height="25" rx="6" fill="#7986cb" stroke="#1a202c" stroke-width="2.5" />
+
+    <!-- Big Eyes -->
+    <circle cx="-14" cy="-17" r="14" fill="#ffffff" stroke="#1a202c" stroke-width="2.5" />
+    <circle cx="14" cy="-17" r="14" fill="#ffffff" stroke="#1a202c" stroke-width="2.5" />
+
+    <!-- Pupils -->
+    <g class="pupils">
+      <circle cx="-13" cy="-16" r="6" fill="#2196f3" />
+      <circle cx="-13" cy="-16" r="3" fill="#1a202c" />
+      <circle cx="-10.5" cy="-18.5" r="1.8" fill="#ffffff" />
+
+      <circle cx="15" cy="-16" r="6" fill="#2196f3" />
+      <circle cx="15" cy="-16" r="3" fill="#1a202c" />
+      <circle cx="17.5" cy="-18.5" r="1.8" fill="#ffffff" />
+    </g>
+
+    <!-- Chomping Jaw with Upward Fangs -->
+    <g class="jaw">
+      <rect x="-25" y="12" width="50" height="19" rx="9.5" fill="#1a202c" />
+      <polygon points="-18,29 -14,4 -9,29" fill="#ffffff" stroke="#1a202c" stroke-width="2" />
+      <polygon points="9,29 14,4 18,29" fill="#ffffff" stroke="#1a202c" stroke-width="2" />
+    </g>
+  </g>
+</svg>

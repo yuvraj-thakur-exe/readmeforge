@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="200" fill="none">
+  <defs>
+    <filter id="swordGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <style>
+    @keyframes turtleHop {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    @keyframes slashL {
+      0%, 100% { transform: rotate(0deg); }
+      30%      { transform: rotate(-55deg) translate(-8px, -4px); }
+      40%      { transform: rotate(25deg) translate(6px, 4px); }
+      60%      { transform: rotate(0deg); }
+    }
+    @keyframes slashR {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(55deg) translate(8px, -4px); }
+      60%      { transform: rotate(-25deg) translate(-6px, 4px); }
+      80%      { transform: rotate(0deg); }
+    }
+    @keyframes slashArcL {
+      0%, 25%   { opacity: 0; stroke-dashoffset: 120; }
+      35%       { opacity: 1; stroke-dashoffset: 0; }
+      45%, 100% { opacity: 0; stroke-dashoffset: -120; }
+    }
+    @keyframes slashArcR {
+      0%, 45%   { opacity: 0; stroke-dashoffset: 120; }
+      55%       { opacity: 1; stroke-dashoffset: 0; }
+      65%, 100% { opacity: 0; stroke-dashoffset: -120; }
+    }
+    @keyframes ribbonWave {
+      0%, 100% { transform: rotate(0deg); }
+      50%      { transform: rotate(18deg) skewX(8deg); }
+    }
+    .turtle { animation: turtleHop 1.6s ease-in-out infinite; transform-origin: center bottom; }
+    .katana-l { transform-origin: -32px 18px; animation: slashL 2.4s infinite ease-in-out; }
+    .katana-r { transform-origin: 32px 18px; animation: slashR 2.4s infinite ease-in-out; }
+    .arc-l { stroke-dasharray: 120; animation: slashArcL 2.4s infinite linear; }
+    .arc-r { stroke-dasharray: 120; animation: slashArcR 2.4s infinite linear; }
+    .ribbon { transform-origin: 32px -34px; animation: ribbonWave 1.4s infinite ease-in-out; }
+  </style>
+
+  <!-- Luminous Slash Trails -->
+  <path d="M 25 25 A 65 65 0 0 1 110 95" fill="none" stroke="#22d3ee" stroke-width="3" stroke-linecap="round" filter="url(#swordGlow)" class="arc-l" />
+  <path d="M 175 25 A 65 65 0 0 0 90 95" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" filter="url(#swordGlow)" class="arc-r" />
+
+  <g transform="translate(100, 105)" class="turtle">
+    <!-- Back Shell -->
+    <ellipse cx="0" cy="18" rx="34" ry="30" fill="#8d6e63" stroke="#1a202c" stroke-width="3" />
+
+    <!-- Legs & Knee Wraps -->
+    <g>
+      <rect x="-28" y="32" width="18" height="30" rx="7" fill="#7cb342" stroke="#1a202c" stroke-width="2.5" />
+      <rect x="-28" y="46" width="18" height="6" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" />
+      <rect x="-28" y="54" width="18" height="6" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" />
+
+      <rect x="10" y="32" width="18" height="30" rx="7" fill="#7cb342" stroke="#1a202c" stroke-width="2.5" />
+      <rect x="10" y="46" width="18" height="6" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" />
+      <rect x="10" y="54" width="18" height="6" fill="#1e88e5" stroke="#1a202c" stroke-width="1.5" />
+    </g>
+
+    <!-- Tan Plastron Chest -->
+    <rect x="-24" y="2" width="48" height="40" rx="12" fill="#ffe0b2" stroke="#1a202c" stroke-width="2.5" />
+    <line x1="0" y1="2" x2="0" y2="42" stroke="#1a202c" stroke-width="2.2" />
+    <line x1="-24" y1="16" x2="24" y2="16" stroke="#1a202c" stroke-width="2.2" />
+    <line x1="-24" y1="29" x2="24" y2="29" stroke="#1a202c" stroke-width="2.2" />
+
+    <!-- Head -->
+    <ellipse cx="0" cy="-26" rx="32" ry="26" fill="#7cb342" stroke="#1a202c" stroke-width="3" />
+
+    <!-- Blue Bandana Mask -->
+    <path d="M -31 -34 C -18 -28 18 -28 31 -34 C 32 -24 30 -16 31 -18 C 18 -20 -18 -20 -31 -18 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="2.5" />
+    <!-- Ribbon Tails -->
+    <path d="M 31 -26 Q 44 -34 52 -24 Q 42 -18 31 -22 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="2" class="ribbon" />
+
+    <!-- Eyes -->
+    <circle cx="-13" cy="-26" r="5.5" fill="#1a202c" />
+    <circle cx="-14" cy="-27.5" r="1.8" fill="#ffffff" />
+    <circle cx="13" cy="-26" r="5.5" fill="#1a202c" />
+    <circle cx="12" cy="-27.5" r="1.8" fill="#ffffff" />
+
+    <!-- Smirk Smile -->
+    <path d="M -20 -9 Q 0 0 20 -9" stroke="#1a202c" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Left Katana (Slashing) -->
+    <g class="katana-l">
+      <path d="M -19 8 L -32 18" stroke="#7cb342" stroke-width="10" stroke-linecap="round" />
+      <rect x="-30" y="8" width="8" height="10" rx="2" fill="#1e88e5" />
+      <circle cx="-33" cy="18" r="6" fill="#7cb342" stroke="#1a202c" stroke-width="2" />
+      <rect x="-43" y="14" width="20" height="5" rx="2" fill="#37474f" stroke="#1a202c" stroke-width="1.2" />
+      <rect x="-35" y="19" width="5" height="18" rx="1.5" fill="#78909c" stroke="#1a202c" stroke-width="1.2" />
+      <polygon points="-35,14 -30,14 -30,-50 -35,-54" fill="#eceff1" stroke="#1a202c" stroke-width="2" />
+      <polygon points="-30,14 -29,14 -29,-48 -30,-50" fill="#cfd8dc" />
+    </g>
+
+    <!-- Right Katana (Slashing) -->
+    <g class="katana-r">
+      <path d="M 19 8 L 32 18" stroke="#7cb342" stroke-width="10" stroke-linecap="round" />
+      <rect x="22" y="8" width="8" height="10" rx="2" fill="#1e88e5" />
+      <circle cx="33" cy="18" r="6" fill="#7cb342" stroke="#1a202c" stroke-width="2" />
+      <rect x="23" y="14" width="20" height="5" rx="2" fill="#37474f" stroke="#1a202c" stroke-width="1.2" />
+      <rect x="30" y="19" width="5" height="18" rx="1.5" fill="#78909c" stroke="#1a202c" stroke-width="1.2" />
+      <polygon points="30,14 35,14 35,-54 30,-50" fill="#eceff1" stroke="#1a202c" stroke-width="2" />
+      <polygon points="29,14 30,14 30,-50 29,-48" fill="#cfd8dc" />
+    </g>
+  </g>
+</svg>

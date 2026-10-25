@@ -1037,6 +1037,88 @@ function renderAvatarBody(
       `;
     }
 
+    case 'blue-bot': {
+      return `
+        <g class="char-bobber">
+          <circle cx="-21" cy="-12" r="5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
+          <circle cx="21" cy="-12" r="5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.2" />
+          <rect x="-19" y="-27" width="38" height="29" rx="14.5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+          <rect x="-14.5" y="-22.5" width="29" height="20" rx="10" fill="#eef2f7" />
+          <rect x="-12.5" y="-20.5" width="25" height="16" rx="8" fill="#48cfad" />
+          <path d="M -8 -12 C -8 -16 -4 -16 -4 -12 M 4 -12 C 4 -16 8 -16 8 -12" stroke="#37474f" stroke-width="1.8" stroke-linecap="round" fill="none" />
+          <rect x="-14" y="5" width="28" height="19" rx="9.5" fill="#2b82c9" stroke="#1d5785" stroke-width="1.5" />
+          <polygon points="0,9.5 5,14 0,18.5 -5,14" fill="#48cfad" />
+          ${armsAndTools}
+          <path d="M -5 22 L 5 22 L 3.5 28 L -3.5 28 Z" fill="#37474f" />
+        </g>
+      `;
+    }
+
+    case 'blue-bean': {
+      return `
+        <g class="char-bobber">
+          <path d="M -20 0 C -20 -27 20 -27 20 0 C 20 23 11 31 0 31 C -11 31 -20 23 -20 0 Z" fill="#2b82c9" stroke="#1d5785" stroke-width="1.6" />
+          <ellipse cx="0" cy="-8" rx="15" ry="14" fill="#eef2f7" />
+          <ellipse cx="0" cy="-8" rx="13.5" ry="12.5" fill="#48cfad" />
+          <rect x="-6" y="-13" width="4.5" height="10" rx="2.25" fill="#37474f" />
+          <rect x="1.5" y="-13" width="4.5" height="10" rx="2.25" fill="#37474f" />
+          ${armsAndTools}
+        </g>
+      `;
+    }
+
+    case 'ninja-turtle': {
+      return `
+        <g class="char-bobber">
+          <ellipse cx="0" cy="8" rx="17" ry="15" fill="#8d6e63" stroke="#1a202c" stroke-width="1.5" />
+          <rect x="-12" y="1" width="24" height="20" rx="6" fill="#ffe0b2" stroke="#1a202c" stroke-width="1.3" />
+          <ellipse cx="0" cy="-13" rx="16" ry="13" fill="#7cb342" stroke="#1a202c" stroke-width="1.5" />
+          <path d="M -15 -17 C -9 -14 9 -14 15 -17 C 16 -12 15 -8 15 -9 C 9 -10 -9 -10 -15 -9 Z" fill="#1e88e5" stroke="#1a202c" stroke-width="1.2" />
+          <circle cx="-6.5" cy="-13" r="2.8" fill="#1a202c" />
+          <circle cx="-7" cy="-13.8" r="0.9" fill="#fff" />
+          <circle cx="6.5" cy="-13" r="2.8" fill="#1a202c" />
+          <circle cx="6" cy="-13.8" r="0.9" fill="#fff" />
+          <path d="M -10 -5 Q 0 0 10 -5" stroke="#1a202c" stroke-width="1.5" stroke-linecap="round" fill="none" />
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
+    case 'red-dragon': {
+      return `
+        <g class="char-bobber">
+          <path d="M 7 9 Q 20 15 18 26" fill="none" stroke="#e53935" stroke-width="4.5" stroke-linecap="round" />
+          <ellipse cx="1" cy="7" rx="11" ry="14" fill="#e53935" stroke="#1a202c" stroke-width="1.5" />
+          <path d="M -7 4 Q -5 17 0 19 Q -8 16 -7 4 Z" fill="#fdd835" stroke="#1a202c" stroke-width="0.8" />
+          <path d="M -4 4 Q -10 -3 -10 -11 Q -15 -12 -19 -9 Q -18 -15 -10 -16 Q -7 -17 -5 -13 Q -2 -9 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.5" />
+          <polygon points="-10,-16 -14,-22 -9,-17" fill="#e53935" stroke="#1a202c" stroke-width="0.8" />
+          <circle cx="-13" cy="-13" r="1.3" fill="#1a202c" />
+          <path d="M -1 0 Q -14 -22 -26 -28 Q -6 -23 13 -19 Q 6 -9 2 0 Z" fill="#e53935" stroke="#1a202c" stroke-width="1.5" />
+          ${armsAndTools}
+        </g>
+      `;
+    }
+
+    case 'purple-monster': {
+      return `
+        <g class="char-bobber">
+          <path d="M -13 -22 C -20 -32 -28 -26 -25 -18 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.4" />
+          <path d="M 13 -22 C 20 -32 28 -26 25 -18 Z" fill="#ffccbc" stroke="#1a202c" stroke-width="1.4" />
+          <rect x="-17" y="-22" width="34" height="41" rx="8.5" fill="#7986cb" stroke="#1a202c" stroke-width="1.6" />
+          <circle cx="-7" cy="-8.5" r="7" fill="#fff" stroke="#1a202c" stroke-width="1.3" />
+          <circle cx="7" cy="-8.5" r="7" fill="#fff" stroke="#1a202c" stroke-width="1.3" />
+          <circle cx="-6.5" cy="-8" r="3" fill="#2196f3" />
+          <circle cx="7.5" cy="-8" r="3" fill="#2196f3" />
+          <rect x="-12.5" y="6" width="25" height="9.5" rx="4.75" fill="#1a202c" />
+          <polygon points="-9,14.5 -7,2 -4.5,14.5" fill="#fff" stroke="#1a202c" stroke-width="0.9" />
+          <polygon points="4.5,14.5 7,2 9,14.5" fill="#fff" stroke="#1a202c" stroke-width="0.9" />
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
     case 'pixel-dev':
     default: {
       return `

@@ -57,7 +57,12 @@ export type CharacterType =
   | 'cyber-bot'
   | 'builder-crafter'
   | 'ninja-coder'
-  | 'wizard-mage';
+  | 'wizard-mage'
+  | 'blue-bot'
+  | 'blue-bean'
+  | 'ninja-turtle'
+  | 'red-dragon'
+  | 'purple-monster';
 
 export type CharacterAction =
   | 'walk'

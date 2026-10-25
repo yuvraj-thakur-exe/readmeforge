@@ -66,6 +66,30 @@ Watch the ReadmeForge animated assistant in action! Features a floating AI chatb
 
 <br />
 
+### Animated Character Squad: Pure SVG Vector Actions
+
+Bring personality and living motion to your profile with pure CSS `@keyframes` animated SVG characters. Zero external server dependencies—renders natively on GitHub:
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Animated Character Squad with Active Actions" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(34,211,238,0.25);" />
+</div>
+
+<br />
+
+<div align="center">
+
+| Character | Action & Kinematics | Standalone SVG Preview |
+| :--- | :--- | :---: |
+| **Blue Assistant Bot** | Floating hover, waving arm pivots, blinking eyes, energy core pulse | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bot.svg" width="80" height="80" alt="Blue Bot" /> |
+| **Blue Bean Capsule** | Waddling side-to-side, jump bounce, flapping arms, blinking eyes | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bean.svg" width="80" height="80" alt="Blue Bean" /> |
+| **Ninja Turtle** | Dual katana slashing combos, luminous speed trails, fluttering bandana | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/ninja-turtle.svg" width="80" height="80" alt="Ninja Turtle" /> |
+| **Red Flying Dragon** | Dual-wing flapping flight, sky soaring swoop, fire breath burst | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/red-dragon.svg" width="80" height="80" alt="Red Dragon" /> |
+| **Purple Monster** | Alternating foot stomps, chomping fangs & roaring jaw, wandering eyes | <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/purple-monster.svg" width="80" height="80" alt="Purple Monster" /> |
+
+</div>
+
+<br />
+
 ---
 
 ## Quickstart: 1-Line Install
