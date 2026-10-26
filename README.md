@@ -225,11 +225,11 @@ ReadmeForge is engineered from the ground up for tactile, physics-based responsi
 
 ReadmeForge brings GitHub profiles to life with dynamic internet widgets and high-resolution vector assets:
 
-### 1. Sun-Breathing Night Coder & Digital Genesis Showcase
-Bespoke widescreen hero artwork and 60fps GPU-composited animated vector header for deep-work autonomous AI engineers:
+### 1. Animated Developer Terminal & 60fps Vector Motion Card
+Bespoke interactive developer terminal card and 60fps GPU-composited animated vector header for deep-work autonomous AI engineers:
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/slayer-night-coder-banner.jpg" alt="Sun-Breathing Night Coder Hero Banner" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8);" />
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/terminal_animated.svg" alt="Animated Developer Terminal Card" width="100%" style="border-radius: 14px;" />
   <br/><br/>
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/slayer-night-coder-header.svg" alt="60fps Hardware-Accelerated Animated SVG Header" width="100%" />
 </div>
