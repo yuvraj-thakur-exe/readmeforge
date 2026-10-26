@@ -231,6 +231,8 @@ Bespoke interactive developer terminal card and 60fps GPU-composited animated ve
 <div align="center">
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/terminal_animated.svg" alt="Animated Developer Terminal Card" width="100%" style="border-radius: 14px;" />
   <br/><br/>
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/demon-slayer-tanjiro.jpg" alt="Sun-Breathing Fighter" width="360" style="border-radius: 18px; border: 2.5px solid #EF4444; box-shadow: 0 0 35px rgba(239, 68, 68, 0.45);" />
+  <br/><br/>
   <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/slayer-night-coder-header.svg" alt="60fps Hardware-Accelerated Animated SVG Header" width="100%" />
 </div>
 
