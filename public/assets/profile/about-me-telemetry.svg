@@ -1,0 +1,297 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 370" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="cyberBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050914" />
+      <stop offset="50%" stop-color="#091124" />
+      <stop offset="100%" stop-color="#0f1a36" />
+    </linearGradient>
+
+    <!-- Glowing Cyber Border Gradient -->
+    <linearGradient id="cyberBorder" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.9" />
+      <stop offset="35%" stop-color="#3b82f6" stop-opacity="0.8" />
+      <stop offset="70%" stop-color="#8b5cf6" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#ec4899" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Logic Bus Gradient -->
+    <linearGradient id="logicBusGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Scanline Gradient -->
+    <linearGradient id="scannerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0" />
+      <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Grid Pattern -->
+    <pattern id="circuitGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1e293b" stroke-width="0.5" stroke-opacity="0.35" />
+    </pattern>
+  </defs>
+
+  <style>
+    @keyframes pulseBeacon {
+      0%, 100% { opacity: 0.6; transform: scale(0.92); }
+      50% { opacity: 1; transform: scale(1.18); }
+    }
+    @keyframes radarWave {
+      0% { r: 3.5; opacity: 1; }
+      100% { r: 14; opacity: 0; }
+    }
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes scanSweep {
+      0% { transform: translateY(0); opacity: 0; }
+      15% { opacity: 0.45; }
+      85% { opacity: 0.45; }
+      100% { transform: translateY(330px); opacity: 0; }
+    }
+    @keyframes dataStream {
+      0% { stroke-dashoffset: 32; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes logicPulse {
+      0%, 100% { fill-opacity: 0.15; stroke-opacity: 0.4; }
+      50% { fill-opacity: 0.4; stroke-opacity: 1; }
+    }
+
+    .pulse-dot { animation: pulseBeacon 2.4s infinite ease-in-out; transform-box: fill-box; }
+    .radar-ring { animation: radarWave 2.2s infinite cubic-bezier(0.1, 0.8, 0.3, 1); }
+    .term-cursor { animation: cursorBlink 1s infinite; }
+    .scanner-beam { animation: scanSweep 5s infinite linear; }
+    .stream-line { stroke-dasharray: 6 4; animation: dataStream 1.5s infinite linear; }
+    .logic-pill { animation: logicPulse 3s infinite ease-in-out; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pulse-dot, .radar-ring, .term-cursor, .scanner-beam, .stream-line, .logic-pill {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Card Frame -->
+  <rect x="1.5" y="1.5" width="737" height="367" rx="14" fill="url(#cyberBg)" stroke="url(#cyberBorder)" stroke-width="1.8" />
+  
+  <!-- Circuit Grid Texture -->
+  <rect x="2" y="38" width="736" height="330" fill="url(#circuitGrid)" />
+
+  <!-- Scanning Sweep Line -->
+  <line x1="2" y1="42" x2="738" y2="42" stroke="url(#scannerGrad)" stroke-width="1.6" class="scanner-beam" />
+
+  <!-- Top Window Header Bar -->
+  <path d="M 2 2 H 738 V 38 H 2 Z" fill="#040711" opacity="0.88" />
+  <line x1="2" y1="38" x2="738" y2="38" stroke="#1e293b" stroke-width="1.2" />
+
+  <!-- Window Dots -->
+  <circle cx="22" cy="20" r="4.5" fill="#f43f5e" />
+  <circle cx="37" cy="20" r="4.5" fill="#facc15" />
+  <circle cx="52" cy="20" r="4.5" fill="#10b981" />
+
+  <!-- Terminal Session Info -->
+  <text x="70" y="24" fill="#94a3b8" font-family="'Fira Code', 'JetBrains Mono', Consolas, monospace" font-size="11.5" font-weight="600">
+    yuvraj@core: ~/telemetry/about-me
+  </text>
+
+  <!-- Live Status Badge -->
+  <g transform="translate(540, 10)">
+    <rect x="0" y="0" width="182" height="19" rx="9.5" fill="#042f2e" stroke="#0d9488" stroke-width="0.9" />
+    <circle cx="13" cy="9.5" r="3.5" fill="#2dd4bf" class="pulse-dot" />
+    <circle cx="13" cy="9.5" r="3.5" stroke="#2dd4bf" stroke-width="1.2" fill="none" class="radar-ring" />
+    <text x="25" y="13.5" fill="#5eead4" font-family="'Fira Code', monospace" font-size="9" font-weight="700" letter-spacing="0.5">
+      SYSTEM: OPERATIONAL
+    </text>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- LOGIC PIPELINE FLOW (CIRCUIT BUS)                        -->
+  <!-- ======================================================== -->
+  <g transform="translate(24, 48)">
+    <rect x="0" y="0" width="692" height="22" rx="5" fill="#0b1329" stroke="#1e293b" stroke-width="0.8" />
+    
+    <!-- Stage 1 -->
+    <rect x="6" y="3" width="76" height="16" rx="3" fill="#082f49" stroke="#0284c7" stroke-width="0.7" />
+    <text x="44" y="14" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" text-anchor="middle">1. INTENT</text>
+    
+    <line x1="84" y1="11" x2="148" y2="11" stroke="#38bdf8" stroke-width="1.2" class="stream-line" />
+
+    <!-- Stage 2 -->
+    <rect x="150" y="3" width="94" height="16" rx="3" fill="#1e1b4b" stroke="#6366f1" stroke-width="0.7" />
+    <text x="197" y="14" fill="#a5b4fc" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" text-anchor="middle">2. AGENT LOOP</text>
+
+    <line x1="246" y1="11" x2="310" y2="11" stroke="#818cf8" stroke-width="1.2" class="stream-line" />
+
+    <!-- Stage 3 -->
+    <rect x="312" y="3" width="94" height="16" rx="3" fill="#451a03" stroke="#d97706" stroke-width="0.7" />
+    <text x="359" y="14" fill="#fcd34d" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" text-anchor="middle">3. AST PARSER</text>
+
+    <line x1="408" y1="11" x2="472" y2="11" stroke="#f59e0b" stroke-width="1.2" class="stream-line" />
+
+    <!-- Stage 4 -->
+    <rect x="474" y="3" width="102" height="16" rx="3" fill="#064e3b" stroke="#059669" stroke-width="0.7" />
+    <text x="525" y="14" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" text-anchor="middle">4. MINIMAL DIFF</text>
+
+    <line x1="578" y1="11" x2="618" y2="11" stroke="#10b981" stroke-width="1.2" class="stream-line" />
+
+    <!-- Stage 5 -->
+    <rect x="620" y="3" width="66" height="16" rx="3" fill="#3b0764" stroke="#a855f7" stroke-width="0.7" />
+    <text x="653" y="14" fill="#d8b4fe" font-family="'Fira Code', monospace" font-size="8.5" font-weight="700" text-anchor="middle">5. DEPLOY</text>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- 5 CORE ENGINEERING PILLARS WITH LOGIC STATUS              -->
+  <!-- ======================================================== -->
+
+  <!-- ROW 1: AUTONOMOUS AI SYSTEMS -->
+  <g transform="translate(24, 82)">
+    <!-- Circuit connector node -->
+    <circle cx="10" cy="14" r="5" fill="#38bdf8" class="pulse-dot" />
+    <line x1="10" y1="19" x2="10" y2="44" stroke="#1e293b" stroke-width="1.5" />
+    <!-- Category Badge -->
+    <rect x="26" y="3" width="102" height="20" rx="5" fill="#082f49" stroke="#0284c7" stroke-width="0.8" />
+    <text x="77" y="16" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9.5" font-weight="800" text-anchor="middle">
+      🚀 AI AGENTS
+    </text>
+    <!-- Title & Tech -->
+    <text x="138" y="17" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">
+      Crafting Autonomous AI Systems
+    </text>
+    <text x="355" y="17" fill="#64748b" font-family="'Fira Code', monospace" font-size="11">
+      &bull; ARIA (ai-dev-agent) &amp; Nova
+    </text>
+    <!-- Right Logic Pill -->
+    <rect x="548" y="3" width="144" height="20" rx="4" fill="#082f49" stroke="#38bdf8" stroke-width="0.8" class="logic-pill" />
+    <text x="620" y="16" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="9" font-weight="700" text-anchor="middle">
+      [STATE: LOOP_ACTIVE]
+    </text>
+    <!-- Description -->
+    <text x="28" y="36" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5">
+      Engineering self-directed agentic loops, multi-turn tool calling, git worktrees, and local assistant gateways.
+    </text>
+  </g>
+
+  <!-- ROW 2: DEVELOPER TOOLING -->
+  <g transform="translate(24, 136)">
+    <!-- Circuit connector node -->
+    <circle cx="10" cy="14" r="5" fill="#818cf8" class="pulse-dot" />
+    <line x1="10" y1="19" x2="10" y2="44" stroke="#1e293b" stroke-width="1.5" />
+    <!-- Category Badge -->
+    <rect x="26" y="3" width="102" height="20" rx="5" fill="#1e1b4b" stroke="#4f46e5" stroke-width="0.8" />
+    <text x="77" y="16" fill="#a5b4fc" font-family="'Fira Code', monospace" font-size="9.5" font-weight="800" text-anchor="middle">
+      🛠️ DEV TOOLS
+    </text>
+    <!-- Title & Tech -->
+    <text x="138" y="17" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">
+      Developer Tooling Pioneer
+    </text>
+    <text x="325" y="17" fill="#64748b" font-family="'Fira Code', monospace" font-size="11">
+      &bull; Creator of ReadmeForge
+    </text>
+    <!-- Right Logic Pill -->
+    <rect x="548" y="3" width="144" height="20" rx="4" fill="#1e1b4b" stroke="#818cf8" stroke-width="0.8" class="logic-pill" />
+    <text x="620" y="16" fill="#a5b4fc" font-family="'Fira Code', monospace" font-size="9" font-weight="700" text-anchor="middle">
+      [SYNC: &lt;16MS_AST]
+    </text>
+    <!-- Description -->
+    <text x="28" y="36" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5">
+      Architected sub-16ms Monaco IDE split-preview, AST-safe Markdown parsing, and 1-click GitHub sync.
+    </text>
+  </g>
+
+  <!-- ROW 3: CORE PHILOSOPHY -->
+  <g transform="translate(24, 190)">
+    <!-- Circuit connector node -->
+    <circle cx="10" cy="14" r="5" fill="#f59e0b" class="pulse-dot" />
+    <line x1="10" y1="19" x2="10" y2="44" stroke="#1e293b" stroke-width="1.5" />
+    <!-- Category Badge -->
+    <rect x="26" y="3" width="102" height="20" rx="5" fill="#451a03" stroke="#b45309" stroke-width="0.8" />
+    <text x="77" y="16" fill="#fcd34d" font-family="'Fira Code', monospace" font-size="9.5" font-weight="800" text-anchor="middle">
+      🧠 PHILOSOPHY
+    </text>
+    <!-- Title & Tech -->
+    <text x="138" y="17" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">
+      Core Engineering Philosophy
+    </text>
+    <!-- Right Logic Pill -->
+    <rect x="548" y="3" width="144" height="20" rx="4" fill="#451a03" stroke="#f59e0b" stroke-width="0.8" class="logic-pill" />
+    <text x="620" y="16" fill="#fcd34d" font-family="'Fira Code', monospace" font-size="9" font-weight="700" text-anchor="middle">
+      [RULE: LEAST_CODE]
+    </text>
+    <!-- Description -->
+    <text x="28" y="36" fill="#fde68a" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-style="italic">
+      &ldquo;The best code is the code never written.&rdquo; Prioritizing correctness, zero premature bloat, and minimal blast radius.
+    </text>
+  </g>
+
+  <!-- ROW 4: FULL-STACK MASTERY -->
+  <g transform="translate(24, 244)">
+    <!-- Circuit connector node -->
+    <circle cx="10" cy="14" r="5" fill="#10b981" class="pulse-dot" />
+    <line x1="10" y1="19" x2="10" y2="44" stroke="#1e293b" stroke-width="1.5" />
+    <!-- Category Badge -->
+    <rect x="26" y="3" width="102" height="20" rx="5" fill="#064e3b" stroke="#059669" stroke-width="0.8" />
+    <text x="77" y="16" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9.5" font-weight="800" text-anchor="middle">
+      🌐 FULL-STACK
+    </text>
+    <!-- Title & Tech -->
+    <text x="138" y="17" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">
+      Full-Stack &amp; Cloud Mastery
+    </text>
+    <text x="320" y="17" fill="#64748b" font-family="'Fira Code', monospace" font-size="11">
+      &bull; Modern Web Architecture
+    </text>
+    <!-- Right Logic Pill -->
+    <rect x="548" y="3" width="144" height="20" rx="4" fill="#064e3b" stroke="#10b981" stroke-width="0.8" class="logic-pill" />
+    <text x="620" y="16" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9" font-weight="700" text-anchor="middle">
+      [STACK: TS_NODE_GCP]
+    </text>
+    <!-- Description -->
+    <text x="28" y="36" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5">
+      Production mastery across TypeScript, Next.js 15, React, Node.js, Python, Firebase, Docker, and Google Cloud.
+    </text>
+  </g>
+
+  <!-- ROW 5: COLLABORATION & DISCOURSE -->
+  <g transform="translate(24, 298)">
+    <!-- Circuit connector node -->
+    <circle cx="10" cy="14" r="5" fill="#c084fc" class="pulse-dot" />
+    <!-- Category Badge -->
+    <rect x="26" y="3" width="102" height="20" rx="5" fill="#3b0764" stroke="#7e22ce" stroke-width="0.8" />
+    <text x="77" y="16" fill="#d8b4fe" font-family="'Fira Code', monospace" font-size="9.5" font-weight="800" text-anchor="middle">
+      💬 LET&apos;S TALK
+    </text>
+    <!-- Title & Tech -->
+    <text x="138" y="17" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">
+      Connect &amp; Collaborate
+    </text>
+    <text x="285" y="17" fill="#22d3ee" font-family="'Fira Code', monospace" font-size="11">
+      $ open --topic agentic-workflows
+    </text>
+    <rect x="525" y="7" width="7" height="13" fill="#22d3ee" class="term-cursor" />
+    <!-- Right Logic Pill -->
+    <rect x="548" y="3" width="144" height="20" rx="4" fill="#3b0764" stroke="#c084fc" stroke-width="0.8" class="logic-pill" />
+    <text x="620" y="16" fill="#d8b4fe" font-family="'Fira Code', monospace" font-size="9" font-weight="700" text-anchor="middle">
+      [GATEWAY: OPEN_RFC]
+    </text>
+    <!-- Description -->
+    <text x="28" y="36" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5">
+      Always excited to discuss agentic loops, LLM reasoning pipelines, developer experience, and distributed platforms.
+    </text>
+  </g>
+</svg>
