@@ -10,13 +10,11 @@ import {
   Sparkles,
   Flame,
   Droplets,
+  Zap,
   Copy,
   Check,
   Download,
   Sparkle,
-  Zap,
-  Package,
-  Terminal as TerminalIcon,
   Sliders,
   Square,
   Bot,
@@ -35,6 +33,10 @@ import {
   CursorLogo,
   WindsurfLogo,
   NeovimLogo,
+  NpmLogo,
+  PnpmLogo,
+  BashLogo,
+  PowerShellLogo,
 } from '#/components/common/IdeLogos';
 import { generateAnimatedSvg } from '#/lib/animator/presets';
 import {
@@ -58,7 +60,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
   {
     id: 'npx',
     label: 'NPX Instant',
-    icon: <Zap className="w-3.5 h-3.5 text-cyan-400" />,
+    icon: <NpmLogo className="w-3.5 h-3.5" />,
     command: 'npx readmeforge@latest',
     description: 'Instant zero-install execution in your local browser',
     badge: 'Fastest',
@@ -96,9 +98,25 @@ const INSTALL_OPTIONS: InstallOption[] = [
     badge: 'Extension',
   },
   {
+    id: 'windsurf',
+    label: 'Windsurf',
+    icon: <WindsurfLogo className="w-3.5 h-3.5" />,
+    command: 'windsurf --install-extension readmeforge',
+    description: 'Codeium Windsurf IDE AI-powered cascade workflow integration',
+    badge: 'AI IDE',
+  },
+  {
+    id: 'neovim',
+    label: 'Neovim',
+    icon: <NeovimLogo className="w-3.5 h-3.5" />,
+    command: 'nvim --headless -c "Lazy load readmeforge" -c "q"',
+    description: 'Terminal modal editor integration for Lua-configured setups',
+    badge: 'Terminal',
+  },
+  {
     id: 'pnpm',
     label: 'PNPM / CLI',
-    icon: <Package className="w-3.5 h-3.5 text-amber-400" />,
+    icon: <PnpmLogo className="w-3.5 h-3.5" />,
     command: 'pnpm dlx readmeforge',
     description: 'High-performance standalone package runner',
     badge: 'Lightweight',
@@ -106,10 +124,18 @@ const INSTALL_OPTIONS: InstallOption[] = [
   {
     id: 'curl',
     label: 'Bash / Curl',
-    icon: <TerminalIcon className="w-3.5 h-3.5 text-blue-400" />,
+    icon: <BashLogo className="w-3.5 h-3.5" />,
     command: 'curl -fsSL https://git.new/readmeforge | bash',
     description: 'Automated 1-line shell installer with auto-dependency check',
     badge: 'Unix',
+  },
+  {
+    id: 'powershell',
+    label: 'PowerShell',
+    icon: <PowerShellLogo className="w-3.5 h-3.5" />,
+    command: 'iwr -useb https://git.new/readmeforge.ps1 | iex',
+    description: 'Native Windows PowerShell 1-line automated environment provisioner',
+    badge: 'Windows',
   },
 ];
 

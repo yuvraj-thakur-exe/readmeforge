@@ -77,16 +77,17 @@ Launch ReadmeForge instantly locally, inside an autonomous AI agent, or within y
 
 | Runtime / Agent | Single-Line Command | Description | Status |
 | :--- | :--- | :--- | :--- |
-| :--- | :--- | :--- |
-| **NPX (Instant Studio)** | `npx readmeforge@latest` | Zero-install local browser launch at `http://localhost:3000` | `![Ready](https://img.shields.io/badge/Status-Instant_2s-brightgreen?style=flat-square)` |
-| **Claude Code Agent** | `claude mcp add readmeforge -- npx -y readmeforge` | Mount as native MCP tool inside Anthropic's Claude Code | `![Verified](https://img.shields.io/badge/MCP-Native_Tool-blue?style=flat-square)` |
-| **Google Antigravity IDE** | `agy add plugin readmeforge` | Native DeepMind agent skill for autonomous profile forging | `![DeepMind](https://img.shields.io/badge/Agent-Autonomous-6366F1?style=flat-square)` |
-| **Cursor IDE** | `cursor --install-extension readmeforge` | AI-first code editor extension with live README generation | `![AI-First](https://img.shields.io/badge/IDE-Sub--16ms-cyan?style=flat-square)` |
-| **VS Code** | `code --install-extension readmeforge` | Visual Studio Code extension with split-pane live markdown | `![Extension](https://img.shields.io/badge/VS_Code-Ready-007ACC?style=flat-square)` |
-| **PNPM / CLI** | `pnpm dlx readmeforge` | Fast, lightweight package runner | `![Fast](https://img.shields.io/badge/Runner-Sub--Second-orange?style=flat-square)` |
-| **Linux / macOS** | `curl -fsSL https://git.new/readmeforge \| bash` | 1-line shell installer with auto-dependency setup | `![Shell](https://img.shields.io/badge/POSIX-Universal-success?style=flat-square)` |
-| **Windows PowerShell** | `iwr -useb https://git.new/readmeforge.ps1 \| iex` | 1-line PowerShell installer | `![PowerShell](https://img.shields.io/badge/Windows-Native-5391FE?style=flat-square)` |
-| **Direct ZIP Download** | [Download readmeforge.zip](https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip) | Standalone source archive for offline local dev | `![Archive](https://img.shields.io/badge/ZIP-Offline_Ready-purple?style=flat-square)` |
+| <img src="https://img.shields.io/badge/npm_npx-CB3837?style=flat-square&logo=npm&logoColor=white" height="18" alt="npm" /> **NPX Instant** | `npx readmeforge@latest` | Zero-install local browser studio at `http://localhost:3000` | `![Ready](https://img.shields.io/badge/Status-Instant_2s-brightgreen?style=flat-square)` |
+| <img src="https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white" height="18" alt="Claude" /> **Claude Code Agent** | `claude mcp add readmeforge -- npx -y readmeforge` | Mount as native MCP tool inside Anthropic's Claude Code | `![Verified](https://img.shields.io/badge/MCP-Native_Tool-blue?style=flat-square)` |
+| <img src="https://img.shields.io/badge/DeepMind-10B981?style=flat-square&logo=google&logoColor=white" height="18" alt="DeepMind" /> **Antigravity IDE** | `agy add plugin readmeforge` | Native DeepMind agent skill for autonomous profile forging | `![DeepMind](https://img.shields.io/badge/Agent-Autonomous-6366F1?style=flat-square)` |
+| <img src="https://img.shields.io/badge/Cursor-000000?style=flat-square&logo=cursor&logoColor=white" height="18" alt="Cursor" /> **Cursor IDE** | `cursor --install-extension readmeforge` | AI-first code editor extension with live README generation | `![AI-First](https://img.shields.io/badge/IDE-Sub--16ms-cyan?style=flat-square)` |
+| <img src="https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white" height="18" alt="VS Code" /> **VS Code** | `code --install-extension readmeforge` | Visual Studio Code extension with split-pane live markdown | `![Extension](https://img.shields.io/badge/VS_Code-Ready-007ACC?style=flat-square)` |
+| <img src="https://img.shields.io/badge/Windsurf-00E599?style=flat-square&logo=codeium&logoColor=black" height="18" alt="Windsurf" /> **Windsurf (Codeium)** | `windsurf --install-extension readmeforge` | Codeium Windsurf IDE AI-powered cascade workflow | `![AI-IDE](https://img.shields.io/badge/Cascade-Ready-00E599?style=flat-square)` |
+| <img src="https://img.shields.io/badge/Neovim-57A143?style=flat-square&logo=neovim&logoColor=white" height="18" alt="Neovim" /> **Neovim** | `nvim --headless -c "Lazy load readmeforge" -c "q"` | Terminal modal editor integration for Lua-configured setups | `![Terminal](https://img.shields.io/badge/Modal-Lua_Ready-57A143?style=flat-square)` |
+| <img src="https://img.shields.io/badge/pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white" height="18" alt="pnpm" /> **PNPM / CLI** | `pnpm dlx readmeforge` | Fast, lightweight package runner | `![Fast](https://img.shields.io/badge/Runner-Sub--Second-orange?style=flat-square)` |
+| <img src="https://img.shields.io/badge/Linux_macOS-4EAA25?style=flat-square&logo=gnubash&logoColor=white" height="18" alt="Bash" /> **Bash / Curl** | `curl -fsSL https://git.new/readmeforge \| bash` | 1-line shell installer with auto-dependency setup | `![Shell](https://img.shields.io/badge/POSIX-Universal-success?style=flat-square)` |
+| <img src="https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white" height="18" alt="PowerShell" /> **Windows PowerShell** | `iwr -useb https://git.new/readmeforge.ps1 \| iex` | 1-line PowerShell installer | `![PowerShell](https://img.shields.io/badge/Windows-Native-5391FE?style=flat-square)` |
+| <img src="https://img.shields.io/badge/Archive-purple?style=flat-square&logo=github&logoColor=white" height="18" alt="ZIP" /> **Direct ZIP Download** | [Download readmeforge.zip](https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip) | Standalone source archive for offline local dev | `![Archive](https://img.shields.io/badge/ZIP-Offline_Ready-purple?style=flat-square)` |
 
 <div align="center" style="margin-top: 14px;">
   <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip">
@@ -133,11 +134,11 @@ For power users who prefer code over clicking, ReadmeForge features a dedicated 
 <br />
 
 ### Key `/developer` Capabilities
-- **Split-Screen Studio** (`#38BDF8`): Left pane renders the full Monaco JSON editor with syntax coloring, bracket matching, and auto-completion.
-- **Sub-16ms Live Sync** (`#818CF8`): Any keystroke in the Monaco editor instantly re-renders the live Markdown preview with zero perceptible delay.
-- **Bi-Directional State Binding** (`#10B981`): Switch seamlessly between the visual wizard and `/developer` mode without losing a single attribute.
-- **Strict Zod Schema Validation** (`#F59E0B`): Real-time validation guarantees your configuration never generates corrupted Markdown.
-- **Command Palette** (`#EC4899` / `Cmd+K` / `Ctrl+K`): Rapidly insert plugins, format JSON, or toggle dark/light preview themes.
+- <img src="https://img.shields.io/badge/Monaco_IDE-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white" height="16" alt="Monaco" /> **Split-Screen Studio** (`#38BDF8`): Left pane renders the full Monaco JSON editor with syntax coloring, bracket matching, and auto-completion.
+- <img src="https://img.shields.io/badge/Live_Sync-Sub--16ms-brightgreen?style=flat-square&logo=fastapi&logoColor=white" height="16" alt="Sync" /> **Sub-16ms Live Sync** (`#818CF8`): Any keystroke in the Monaco editor instantly re-renders the live Markdown preview with zero perceptible delay.
+- <img src="https://img.shields.io/badge/State-Zustand_Bound-purple?style=flat-square&logo=react&logoColor=white" height="16" alt="State" /> **Bi-Directional State Binding** (`#10B981`): Switch seamlessly between the visual wizard and `/developer` mode without losing a single attribute.
+- <img src="https://img.shields.io/badge/Validation-Zod_Strict-3E67B1?style=flat-square&logo=zod&logoColor=white" height="16" alt="Zod" /> **Strict Zod Schema Validation** (`#F59E0B`): Real-time validation guarantees your configuration never generates corrupted Markdown.
+- <img src="https://img.shields.io/badge/Hotkeys-Cmd%2BK-EA4C89?style=flat-square&logo=apple&logoColor=white" height="16" alt="Hotkeys" /> **Command Palette** (`#EC4899` / `Cmd+K` / `Ctrl+K`): Rapidly insert plugins, format JSON, or toggle dark/light preview themes.
 
 ---
 
@@ -150,11 +151,11 @@ Most profile generators output cookie-cutter markdown that looks identical for e
 
 | Engineering Persona | Accent Palette & Vibe | Core Visual Focus | Dynamic Typing Headlines |
 | :--- | :--- | :--- | :--- |
-| **AI / Machine Learning** | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
-| **Cloud & DevOps SRE** | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
-| **Full-Stack Polyglot** | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
-| **Creative & Motion Designer** | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
-| **Systems & Embedded Hacker** | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
+| <img src="https://img.shields.io/badge/AI_ML-10B981?style=flat-square&logo=pytorch&logoColor=white" height="18" alt="AI/ML" /> **AI / Machine Learning** | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
+| <img src="https://img.shields.io/badge/DevOps-06B6D4?style=flat-square&logo=kubernetes&logoColor=white" height="18" alt="DevOps" /> **Cloud & DevOps SRE** | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
+| <img src="https://img.shields.io/badge/Full_Stack-8B5CF6?style=flat-square&logo=typescript&logoColor=white" height="18" alt="FullStack" /> **Full-Stack Polyglot** | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
+| <img src="https://img.shields.io/badge/Creative-EC4899?style=flat-square&logo=threedotjs&logoColor=white" height="18" alt="Creative" /> **Creative & Motion Designer** | Rose (`#EC4899`) & Radical Neon | Shader Illusions, 60fps Micro-Interactions, 3D Canvas Showcase | Fluid Web Animations, Three.js & WebGL Shaders, Spatial 3D UIs |
+| <img src="https://img.shields.io/badge/Systems-F97316?style=flat-square&logo=rust&logoColor=white" height="18" alt="Systems" /> **Systems & Embedded Hacker** | Amber (`#F97316`) & One Dark | Memory-Safe Metrics, Bare-Metal Low-Level Stacks, SIMD Highlights | Rust & Modern C++, Bare-Metal Linux Drivers, Lock-Free Concurrency |
 
 *Select domain presets directly inside Step 1 of the visual wizard or via `/developer` mode.*
 
@@ -287,12 +288,12 @@ ReadmeForge provides a native, hardware-accelerated kinetic typography engine ca
 
 | Effect Name | Visual Mechanics | Palette & Glow | GitHub Compatibility |
 | :--- | :--- | :--- | :--- |
-| **Cyber Neon Glow** | Dual-stage Gaussian drop-shadow bloom with breathing luminescence | `#22D3EE` / `#818CF8` | SVG `<filter>` with feMerge & drop-shadow |
-| **Holographic Shimmer** | 4-stop spectral linear-gradient continuous horizontal sweep | `#38BDF8` / `#EC4899` / `#22C55E` | Pure SVG `<linearGradient>` animation |
-| **Chromatic RGB Glitch** | Sub-pixel horizontal slice displacement with cyan/magenta phase shift | `#06B6D4` / `#EF4444` | Keyframe CSS `@keyframes` with fill-box |
-| **Matrix Digital Phosphor** | Monospace terminal glyph decoding with cathode flicker | `#4ADE80` (CRT Glow) | Zero-dependency SVG `<text>` & monospace |
-| **Harmonic Sinusoidal Wave** | Phase-staggered vertical letterform sinusoidal undulation | `#FBBF24` (Amber) | 60fps GPU `transform: translateY()` |
-| **Terminal Typewriter** | Discrete character cadence with blinking block cursor | `#F8FAFC` / `#38BDF8` | SVG `<text>` & `readme-typing-svg` |
+| <img src="https://img.shields.io/badge/Neon-22D3EE?style=flat-square&logo=target&logoColor=white" height="16" alt="Neon" /> **Cyber Neon Glow** | Dual-stage Gaussian drop-shadow bloom with breathing luminescence | `#22D3EE` / `#818CF8` | SVG `<filter>` with feMerge & drop-shadow |
+| <img src="https://img.shields.io/badge/Shimmer-38BDF8?style=flat-square&logo=sparkles&logoColor=white" height="16" alt="Shimmer" /> **Holographic Shimmer** | 4-stop spectral linear-gradient continuous horizontal sweep | `#38BDF8` / `#EC4899` / `#22C55E` | Pure SVG `<linearGradient>` animation |
+| <img src="https://img.shields.io/badge/Glitch-06B6D4?style=flat-square&logo=crunchyroll&logoColor=white" height="16" alt="Glitch" /> **Chromatic RGB Glitch** | Sub-pixel horizontal slice displacement with cyan/magenta phase shift | `#06B6D4` / `#EF4444` | Keyframe CSS `@keyframes` with fill-box |
+| <img src="https://img.shields.io/badge/Phosphor-4ADE80?style=flat-square&logo=matrix&logoColor=white" height="16" alt="Phosphor" /> **Matrix Digital Phosphor** | Monospace terminal glyph decoding with cathode flicker | `#4ADE80` (CRT Glow) | Zero-dependency SVG `<text>` & monospace |
+| <img src="https://img.shields.io/badge/Wave-FBBF24?style=flat-square&logo=soundcharts&logoColor=white" height="16" alt="Wave" /> **Harmonic Sinusoidal Wave** | Phase-staggered vertical letterform sinusoidal undulation | `#FBBF24` (Amber) | 60fps GPU `transform: translateY()` |
+| <img src="https://img.shields.io/badge/Typewriter-F8FAFC?style=flat-square&logo=gnubash&logoColor=black" height="16" alt="Typewriter" /> **Terminal Typewriter** | Discrete character cadence with blinking block cursor | `#F8FAFC` / `#38BDF8` | SVG `<text>` & `readme-typing-svg` |
 
 ```json
 // Example: Adding Kinetic Typography via /developer JSON Studio

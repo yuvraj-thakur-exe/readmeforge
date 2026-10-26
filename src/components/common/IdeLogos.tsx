@@ -160,3 +160,76 @@ export const NeovimLogo: React.FC<LogoProps> = ({ className = 'w-4 h-4', size })
     <path d="M8.5 4 L15.5 20" stroke="#81A1C1" strokeWidth="1.6" />
   </svg>
 );
+
+/**
+ * Official NPM / NPX Vector Block Logo
+ */
+export const NpmLogo: React.FC<LogoProps> = ({ className = 'w-4 h-4', size }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="24" height="24" rx="4" fill="#CB3837" />
+    <path d="M4 6 H20 V18 H13 V10 H9 V18 H4 Z" fill="#FFFFFF" />
+  </svg>
+);
+
+/**
+ * Official PNPM Quad-Block Isometric Logo
+ */
+export const PnpmLogo: React.FC<LogoProps> = ({ className = 'w-4 h-4', size }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="3" y="3" width="8" height="8" rx="2" fill="#F69220" />
+    <rect x="13" y="3" width="8" height="8" rx="2" fill="#F9AD34" />
+    <rect x="13" y="13" width="8" height="8" rx="2" fill="#F69220" />
+    <rect x="3" y="13" width="8" height="8" rx="2" fill="#4B5563" />
+  </svg>
+);
+
+/**
+ * POSIX Bash / Shell Terminal Prompt Logo
+ */
+export const BashLogo: React.FC<LogoProps> = ({ className = 'w-4 h-4', size }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="2" y="3" width="20" height="18" rx="4" fill="#1E293B" stroke="#475569" strokeWidth="1.5" />
+    <path d="M6 8 L10 12 L6 16" stroke="#4ADE80" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <line x1="12" y1="16" x2="17" y2="16" stroke="#4ADE80" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+);
+
+/**
+ * Official Windows PowerShell Shell Symbol Logo
+ */
+export const PowerShellLogo: React.FC<LogoProps> = ({ className = 'w-4 h-4', size }) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    className={className}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="24" height="24" rx="4" fill="#0F172A" stroke="#3B82F6" strokeWidth="1.2" />
+    <path d="M6 7 L13 12 L6 17" stroke="#60A5FA" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    <line x1="13" y1="17" x2="18" y2="17" stroke="#93C5FD" strokeWidth="2.2" strokeLinecap="round" />
+  </svg>
+);
+
