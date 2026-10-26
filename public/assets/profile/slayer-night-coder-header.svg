@@ -1,0 +1,388 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 340" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="headerBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07090e" />
+      <stop offset="45%" stop-color="#0d111a" />
+      <stop offset="85%" stop-color="#120c18" />
+      <stop offset="100%" stop-color="#1a0b12" />
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8" />
+      <stop offset="30%" stop-color="#ef4444" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#f59e0b" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#a855f7" stop-opacity="0.8" />
+    </linearGradient>
+
+    <radialGradient id="flameAura" cx="20%" cy="60%" r="65%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.35" />
+      <stop offset="40%" stop-color="#f97316" stop-opacity="0.18" />
+      <stop offset="80%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <radialGradient id="laptopGlow" cx="62%" cy="65%" r="45%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.32" />
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="textFlame" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f87171" />
+      <stop offset="35%" stop-color="#fb923c" />
+      <stop offset="70%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+
+    <linearGradient id="cyberText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <!-- Filters -->
+    <filter id="neonBloom" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="flameGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes emberFloat {
+      0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
+      20% { opacity: 0.95; }
+      80% { opacity: 0.8; }
+      100% { transform: translateY(-160px) translateX(25px) scale(0.2); opacity: 0; }
+    }
+    @keyframes emberFloatAlt {
+      0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+      30% { opacity: 0.9; }
+      85% { opacity: 0.7; }
+      100% { transform: translateY(-190px) translateX(-30px) scale(0.1); opacity: 0; }
+    }
+    @keyframes sparkPulse {
+      0%, 100% { opacity: 0.3; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.35); }
+    }
+    @keyframes screenFlicker {
+      0%, 100% { opacity: 0.88; }
+      48% { opacity: 0.95; }
+      50% { opacity: 0.78; }
+      52% { opacity: 0.98; }
+    }
+    @keyframes breathingSword {
+      0%, 100% { stroke-dashoffset: 0; opacity: 0.85; }
+      50% { stroke-dashoffset: 40; opacity: 1; }
+    }
+    @keyframes cursorBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes floatTech {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes floatTechDelayed {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(7px); }
+    }
+    @keyframes pulseRing {
+      0% { r: 4; opacity: 1; }
+      100% { r: 16; opacity: 0; }
+    }
+
+    .ember-1 { animation: emberFloat 4.2s infinite ease-out; transform-box: fill-box; }
+    .ember-2 { animation: emberFloatAlt 3.6s infinite ease-out 1.2s; transform-box: fill-box; }
+    .ember-3 { animation: emberFloat 4.8s infinite ease-out 2.4s; transform-box: fill-box; }
+    .ember-4 { animation: emberFloatAlt 5.1s infinite ease-out 0.6s; transform-box: fill-box; }
+    .spark { animation: sparkPulse 2s infinite ease-in-out; transform-box: fill-box; }
+    .screen-pulse { animation: screenFlicker 6s infinite ease-in-out; }
+    .sword-arc { animation: breathingSword 3s infinite linear; stroke-dasharray: 20 10; }
+    .blinking-cursor { animation: cursorBlink 1s infinite; }
+    .float-item-1 { animation: floatTech 4s infinite ease-in-out; transform-box: fill-box; }
+    .float-item-2 { animation: floatTechDelayed 4.5s infinite ease-in-out; transform-box: fill-box; }
+    .pulse-glow { animation: pulseRing 2s infinite cubic-bezier(0.2, 0.8, 0.4, 1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ember-1, .ember-2, .ember-3, .ember-4,
+      .spark, .screen-pulse, .sword-arc,
+      .float-item-1, .float-item-2, .pulse-glow {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Background Base Canvas -->
+  <rect width="920" height="340" rx="16" fill="url(#headerBg)" />
+  <rect width="920" height="340" rx="16" fill="url(#flameAura)" />
+  <rect width="920" height="340" rx="16" fill="url(#laptopGlow)" />
+  <rect x="1" y="1" width="918" height="338" rx="15" fill="none" stroke="url(#borderGrad)" stroke-width="1.8" />
+
+  <!-- Cyber Matrix Dotted Grid Floor & Sky -->
+  <g opacity="0.18">
+    <pattern id="matrixDots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#38bdf8" />
+      <circle cx="12" cy="12" r="0.75" fill="#f43f5e" />
+    </pattern>
+    <rect x="0" y="0" width="920" height="340" rx="16" fill="url(#matrixDots)" />
+  </g>
+
+  <!-- DOTTED HANDS OF CREATION (Digital Genesis) Across the Top Header -->
+  <g opacity="0.75" filter="url(#neonBloom)">
+    <!-- Left Hand Matrix Dots -->
+    <g transform="translate(290, 22) scale(0.48)">
+      <circle cx="20" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="26" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="32" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="38" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="44" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="50" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="56" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="62" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="68" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="74" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <!-- Finger Extension -->
+      <circle cx="82" cy="26" r="2.4" fill="#38bdf8" opacity="0.95" />
+      <circle cx="90" cy="28" r="2.4" fill="#38bdf8" opacity="0.95" />
+      <circle cx="98" cy="30" r="2.6" fill="#38bdf8" opacity="1" />
+      <circle cx="106" cy="32" r="2.8" fill="#38bdf8" opacity="1" />
+      <circle cx="114" cy="34" r="3.2" fill="#67e8f9" opacity="1" />
+      <!-- Palm Contour -->
+      <circle cx="32" cy="32" r="2" fill="#fff" opacity="0.8" />
+      <circle cx="44" cy="32" r="2" fill="#fff" opacity="0.8" />
+      <circle cx="56" cy="32" r="2" fill="#fff" opacity="0.8" />
+      <circle cx="68" cy="32" r="2" fill="#fff" opacity="0.8" />
+      <circle cx="80" cy="34" r="2.2" fill="#fff" opacity="0.85" />
+      <circle cx="40" cy="40" r="1.8" fill="#fff" opacity="0.7" />
+      <circle cx="52" cy="40" r="1.8" fill="#fff" opacity="0.7" />
+      <circle cx="64" cy="40" r="1.8" fill="#fff" opacity="0.7" />
+    </g>
+
+    <!-- Pulsing Neural Spark Between Index Fingertips -->
+    <g transform="translate(460, 39)">
+      <circle cx="0" cy="0" r="4" fill="#22d3ee" class="spark" />
+      <circle cx="0" cy="0" r="8" fill="#38bdf8" opacity="0.4" class="spark" />
+      <line x1="-12" y1="-2" x2="12" y2="2" stroke="#67e8f9" stroke-width="1.8" stroke-linecap="round" class="spark" />
+      <line x1="-2" y1="-12" x2="2" y2="12" stroke="#67e8f9" stroke-width="1.8" stroke-linecap="round" class="spark" />
+      <circle cx="0" cy="0" r="6" stroke="#f43f5e" stroke-width="1.2" fill="none" class="pulse-glow" />
+    </g>
+
+    <!-- Right Hand Matrix Dots -->
+    <g transform="translate(485, 22) scale(0.48)">
+      <circle cx="10" cy="34" r="3.2" fill="#f43f5e" opacity="1" />
+      <circle cx="18" cy="32" r="2.8" fill="#fb7185" opacity="1" />
+      <circle cx="26" cy="30" r="2.6" fill="#fb7185" opacity="1" />
+      <circle cx="34" cy="28" r="2.4" fill="#fff" opacity="0.95" />
+      <circle cx="42" cy="26" r="2.4" fill="#fff" opacity="0.95" />
+      <!-- Finger Continuation & Palm -->
+      <circle cx="50" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="58" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="66" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="74" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="82" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="90" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="98" cy="24" r="2.2" fill="#fff" opacity="0.9" />
+      <circle cx="44" cy="34" r="2.2" fill="#fff" opacity="0.85" />
+      <circle cx="56" cy="32" r="2" fill="#fff" opacity="0.8" />
+      <circle cx="68" cy="32" r="2" fill="#fff" opacity="0.8" />
+      <circle cx="80" cy="32" r="2" fill="#fff" opacity="0.8" />
+      <circle cx="58" cy="40" r="1.8" fill="#fff" opacity="0.7" />
+      <circle cx="70" cy="40" r="1.8" fill="#fff" opacity="0.7" />
+      <circle cx="82" cy="40" r="1.8" fill="#fff" opacity="0.7" />
+    </g>
+  </g>
+
+  <!-- LEFT FLANK: DEMON SLAYER WARRIOR & HINOKAMI KAGURA FLAME AURA -->
+  <g transform="translate(70, 185)">
+    <!-- Swirling Hinokami Dragon Flame Ribbon -->
+    <path d="M -30 40 Q -10 -40 25 -20 Q 60 0 40 45" fill="none" stroke="#ef4444" stroke-width="4" stroke-linecap="round" class="sword-arc" filter="url(#flameGlow)" />
+    <path d="M -25 35 Q -5 -35 25 -15 Q 55 5 35 40" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" class="sword-arc" />
+
+    <!-- Nichirin Blade Katana -->
+    <line x1="-35" y1="55" x2="35" y2="-55" stroke="#090d16" stroke-width="3.5" stroke-linecap="round" />
+    <line x1="-33" y1="53" x2="33" y2="-53" stroke="#e11d48" stroke-width="1.8" stroke-linecap="round" />
+    <!-- Katana Tsuba (Flame Guard) -->
+    <polygon points="-5,12 5,8 2,18 -8,22" fill="#f59e0b" stroke="#78350f" stroke-width="0.8" />
+
+    <!-- Demon Slayer Body Silhouette -->
+    <!-- Checkered Green/Black Haori Robe Pattern -->
+    <path d="M -32 45 L -20 -15 L 20 -15 L 32 45 Z" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+    <rect x="-18" y="-12" width="9" height="9" fill="#0f172a" />
+    <rect x="-9" y="-3" width="9" height="9" fill="#0f172a" />
+    <rect x="-18" y="6" width="9" height="9" fill="#0f172a" />
+    <rect x="0" y="-12" width="9" height="9" fill="#0f172a" />
+    <rect x="9" y="-3" width="9" height="9" fill="#0f172a" />
+    <rect x="0" y="6" width="9" height="9" fill="#0f172a" />
+    <rect x="-9" y="15" width="9" height="9" fill="#0f172a" />
+    <rect x="9" y="15" width="9" height="9" fill="#0f172a" />
+
+    <!-- White Belt -->
+    <rect x="-24" y="28" width="48" height="5" fill="#f8fafc" rx="1" />
+
+    <!-- Spiky Burgundy Hair & Head -->
+    <circle cx="0" cy="-35" r="17" fill="#fed7aa" />
+    <!-- Spiky Hair -->
+    <path d="M -18 -38 Q -24 -56 -10 -52 Q 0 -62 10 -52 Q 24 -56 18 -38 Q 24 -30 20 -22 L -20 -22 Q -24 -30 -18 -38 Z" fill="#881337" stroke="#4c0519" stroke-width="1.2" />
+    <path d="M -14 -42 Q -20 -58 -8 -54 Q 0 -64 8 -54 Q 20 -58 14 -42" fill="#be123c" />
+
+    <!-- Flame Demon Slayer Mark on Left Forehead -->
+    <path d="M -12 -42 Q -9 -37 -6 -44 Q -4 -39 -2 -46" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" />
+    <circle cx="-7" cy="-40" r="1.5" fill="#f59e0b" />
+
+    <!-- Glowing Crimson Eyes -->
+    <ellipse cx="-6" cy="-33" rx="3.5" ry="4" fill="#991b1b" />
+    <circle cx="-6" cy="-33" r="1.8" fill="#ef4444" class="spark" />
+    <circle cx="-5.2" cy="-34" r="0.8" fill="#fff" />
+    <ellipse cx="6" cy="-33" rx="3.5" ry="4" fill="#991b1b" />
+    <circle cx="6" cy="-33" r="1.8" fill="#ef4444" class="spark" />
+    <circle cx="6.8" cy="-34" r="0.8" fill="#fff" />
+
+    <!-- Hanafuda Earring -->
+    <rect x="-17" y="-28" width="4" height="10" rx="0.5" fill="#f8fafc" stroke="#0f172a" stroke-width="0.6" />
+    <circle cx="-15" cy="-24" r="1.2" fill="#ef4444" />
+
+    <!-- Embers Floating Upward -->
+    <circle cx="-18" cy="20" r="2" fill="#f59e0b" class="ember-1" />
+    <circle cx="22" cy="10" r="2.5" fill="#ef4444" class="ember-2" />
+    <circle cx="-5" cy="-10" r="1.8" fill="#fb923c" class="ember-3" />
+    <circle cx="32" cy="-25" r="1.5" fill="#fcd34d" class="ember-4" />
+  </g>
+
+  <!-- CENTER TYPOGRAPHY & DEVELOPER PERSONA -->
+  <g transform="translate(160, 95)">
+    <!-- Status Chip -->
+    <rect x="0" y="0" width="220" height="24" rx="12" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
+    <circle cx="12" cy="12" r="4" fill="#22d3ee" class="spark" />
+    <text x="24" y="16" fill="#a5b4fc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="1">
+      2:00 AM • DEEP WORK FLOW
+    </text>
+
+    <!-- Name Heading -->
+    <text x="0" y="62" fill="url(#textFlame)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="900" letter-spacing="-0.5">
+      YUVRAJ THAKUR
+    </text>
+
+    <!-- Subtitle / Mission Statement -->
+    <text x="0" y="92" fill="#e2e8f0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="600">
+      Autonomous AI Systems &amp; Modern Web Architect
+    </text>
+
+    <!-- Terminal Code Cadence -->
+    <g transform="translate(0, 114)">
+      <rect x="0" y="0" width="375" height="34" rx="8" fill="#090d16" stroke="#1e293b" stroke-width="1" />
+      <text x="14" y="22" fill="#38bdf8" font-family="'Fira Code', 'JetBrains Mono', Consolas, monospace" font-size="12.5" font-weight="600">
+        <tspan fill="#f43f5e">const</tspan> stance = <tspan fill="#facc15">&apos;Hinokami_Kagura&apos;</tspan>; <tspan fill="#4ade80">// Zero Bloat</tspan>
+      </text>
+      <rect x="345" y="10" width="8" height="15" fill="#22d3ee" class="blinking-cursor" />
+    </g>
+
+    <!-- Core Philosophy Quote -->
+    <text x="0" y="174" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-style="italic">
+      &ldquo;The best code is the code never written. Solve the whole problem with the least new code.&rdquo;
+    </text>
+  </g>
+
+  <!-- RIGHT FLANK: 2 AM NIGHT CODER AT LAPTOP & FLOATING TECH ECOSYSTEM -->
+  <g transform="translate(670, 180)">
+    <!-- Laptop Ambient Screen Glow -->
+    <ellipse cx="0" cy="18" rx="70" ry="24" fill="#38bdf8" opacity="0.18" class="screen-pulse" />
+
+    <!-- Night Coder Hoodie & Head -->
+    <g transform="translate(0, -35)">
+      <!-- Black Hoodie Silhouette -->
+      <path d="M -26 40 C -32 10 -24 -22 0 -26 C 24 -22 32 10 26 40 Z" fill="#0f172a" stroke="#334155" stroke-width="1.5" />
+      <!-- Inner Hood Depth -->
+      <path d="M -18 36 C -22 14 -16 -14 0 -17 C 16 -14 22 14 18 36 Z" fill="#020617" />
+      <!-- Head / Face emerging from shadow -->
+      <ellipse cx="0" cy="8" rx="12" ry="14" fill="#fed7aa" opacity="0.9" />
+      <!-- Anime Bangs -->
+      <path d="M -13 0 L -8 10 L -4 2 L 0 12 L 4 2 L 8 10 L 13 0 Z" fill="#1e293b" />
+      <!-- Eyes reflecting cyan laptop screen -->
+      <ellipse cx="-5" cy="9" rx="2.5" ry="1.5" fill="#38bdf8" class="spark" />
+      <ellipse cx="5" cy="9" rx="2.5" ry="1.5" fill="#38bdf8" class="spark" />
+      <!-- Striped undershirt collar -->
+      <path d="M -8 34 L 8 34 L 6 42 L -6 42 Z" fill="#f8fafc" />
+      <line x1="-7" y1="37" x2="7" y2="37" stroke="#0f172a" stroke-width="1.5" />
+      <line x1="-6" y1="40" x2="6" y2="40" stroke="#0f172a" stroke-width="1.5" />
+    </g>
+
+    <!-- Glowing Laptop Screen & Base -->
+    <g transform="translate(0, 12)">
+      <!-- Laptop Screen Open Lid -->
+      <polygon points="-36,-32 36,-32 40,8 -40,8" fill="#090d16" stroke="#475569" stroke-width="1.5" />
+      <polygon points="-33,-29 33,-29 37,5 -37,5" fill="#030712" />
+      <!-- Code syntax lines on screen -->
+      <line x1="-30" y1="-22" x2="-10" y2="-22" stroke="#f43f5e" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-6" y1="-22" x2="16" y2="-22" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-30" y1="-15" x2="4" y2="-15" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-30" y1="-8" x2="-14" y2="-8" stroke="#fb923c" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-10" y1="-8" x2="22" y2="-8" stroke="#a855f7" stroke-width="1.8" stroke-linecap="round" />
+      <line x1="-30" y1="-1" x2="10" y2="-1" stroke="#facc15" stroke-width="1.8" stroke-linecap="round" />
+      <!-- Laptop Base / Keyboard Deck -->
+      <polygon points="-48,10 48,10 42,22 -42,22" fill="#1e293b" stroke="#334155" stroke-width="1.2" />
+      <rect x="-14" y="14" width="28" height="5" rx="1" fill="#0f172a" />
+      <!-- Hands typing on keyboard -->
+      <circle cx="-16" cy="10" r="3.5" fill="#fed7aa" />
+      <circle cx="16" cy="10" r="3.5" fill="#fed7aa" />
+    </g>
+
+    <!-- Floating Badge: 2 am 2024 -->
+    <g transform="translate(0, 48)">
+      <rect x="-42" y="-10" width="84" height="20" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+      <text x="0" y="4" fill="#090d16" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="800" text-anchor="middle">
+        2 am 2024
+      </text>
+    </g>
+
+    <!-- FLOATING TECH ARSENAL ORBS (Surrounding the Night Coder) -->
+    <!-- Python -->
+    <g transform="translate(-75, -45)" class="float-item-1">
+      <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#3776ab" stroke-width="1.5" />
+      <text x="0" y="4" fill="#38bdf8" font-family="sans-serif" font-size="10" font-weight="900" text-anchor="middle">PY</text>
+    </g>
+
+    <!-- React -->
+    <g transform="translate(75, -45)" class="float-item-2">
+      <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#61dafb" stroke-width="1.5" />
+      <text x="0" y="4" fill="#61dafb" font-family="sans-serif" font-size="10" font-weight="900" text-anchor="middle">⚛</text>
+    </g>
+
+    <!-- TypeScript -->
+    <g transform="translate(-85, 10)" class="float-item-2">
+      <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#3178c6" stroke-width="1.5" />
+      <text x="0" y="4" fill="#60a5fa" font-family="sans-serif" font-size="10" font-weight="900" text-anchor="middle">TS</text>
+    </g>
+
+    <!-- Next.js -->
+    <g transform="translate(85, 10)" class="float-item-1">
+      <circle cx="0" cy="0" r="14" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5" />
+      <text x="0" y="4" fill="#fff" font-family="sans-serif" font-size="10" font-weight="900" text-anchor="middle">▲</text>
+    </g>
+
+    <!-- Docker -->
+    <g transform="translate(65, 60)" class="float-item-2">
+      <circle cx="0" cy="0" r="13" fill="#0f172a" stroke="#2496ed" stroke-width="1.5" />
+      <text x="0" y="4" fill="#38bdf8" font-family="sans-serif" font-size="9" font-weight="900" text-anchor="middle">🐳</text>
+    </g>
+
+    <!-- Git -->
+    <g transform="translate(-65, 60)" class="float-item-1">
+      <circle cx="0" cy="0" r="13" fill="#0f172a" stroke="#f05032" stroke-width="1.5" />
+      <text x="0" y="4" fill="#fb7185" font-family="sans-serif" font-size="9" font-weight="900" text-anchor="middle">GIT</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM ACCENT DIVISION BAR -->
+  <line x1="30" y1="322" x2="890" y2="322" stroke="url(#textFlame)" stroke-width="1.5" stroke-opacity="0.6" stroke-dasharray="8 4" />
+</svg>

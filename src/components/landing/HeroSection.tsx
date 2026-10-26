@@ -760,6 +760,8 @@ export const HeroSection: React.FC = () => {
                     }
                     className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-cyan-400 outline-none capitalize"
                   >
+                    <option value="demon-slayer">Demon Slayer (Flame Mark &amp; Katana)</option>
+                    <option value="night-coder">Night Coder (2 AM Hoodie &amp; Glow Laptop)</option>
                     <option value="builder-crafter">Builder Crafter (Hardhat &amp; Vest)</option>
                     <option value="pixel-dev">Pixel Dev (Hoodie &amp; Visor)</option>
                     <option value="cyber-bot">Cyber Bot (Thruster &amp; Antenna)</option>

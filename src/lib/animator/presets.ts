@@ -1216,6 +1216,69 @@ function renderAvatarBody(
       `;
     }
 
+    case 'demon-slayer': {
+      return `
+        <g class="char-bobber">
+          <!-- Hinokami Kagura Flame Aura Ribbon -->
+          <path d="M -16 6 Q -22 -14 -8 -22 Q 6 -30 18 -18" fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round" />
+          <path d="M -12 4 Q -16 -10 -6 -18 Q 4 -24 14 -14" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-linecap="round" />
+          <!-- Nichirin Katana -->
+          <line x1="-16" y1="12" x2="16" y2="-24" stroke="#090d16" stroke-width="2.2" stroke-linecap="round" />
+          <line x1="-15" y1="11" x2="15" y2="-23" stroke="#e11d48" stroke-width="1" stroke-linecap="round" />
+          <!-- Head & Spiky Burgundy Hair -->
+          <circle cx="0" cy="-24" r="8" fill="#fed7aa" />
+          <path d="M -9 -24 Q -13 -36 -5 -32 Q 0 -40 5 -32 Q 13 -36 9 -24 Z" fill="#881337" stroke="#4c0519" stroke-width="0.8" />
+          <!-- Flame Demon Slayer Mark -->
+          <path d="M -6 -28 Q -4 -25 -2 -29" fill="none" stroke="#ef4444" stroke-width="1.4" stroke-linecap="round" />
+          <!-- Glowing Crimson Eyes -->
+          <circle cx="-3" cy="-24" r="1.5" fill="#ef4444" />
+          <circle cx="3" cy="-24" r="1.5" fill="#ef4444" />
+          <!-- Hanafuda Earring -->
+          <rect x="-8" y="-21" width="2" height="5" fill="#f8fafc" stroke="#0f172a" stroke-width="0.4" />
+          <circle cx="-7" cy="-19" r="0.6" fill="#ef4444" />
+          <!-- Checkered Green/Black Haori Torso -->
+          <rect x="-10" y="-14" width="20" height="15" rx="2" fill="#064e3b" stroke="#10b981" stroke-width="1" />
+          <rect x="-9" y="-13" width="5" height="5" fill="#0f172a" />
+          <rect x="4" y="-13" width="5" height="5" fill="#0f172a" />
+          <rect x="-2" y="-7" width="5" height="5" fill="#0f172a" />
+          <rect x="-9" y="-1" width="5" height="4" fill="#0f172a" />
+          <rect x="4" y="-1" width="5" height="4" fill="#0f172a" />
+          <!-- White Belt -->
+          <rect x="-10" y="0" width="20" height="2.5" fill="#f8fafc" />
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
+    case 'night-coder': {
+      return `
+        <g class="char-bobber">
+          <!-- Oversized Black Hoodie -->
+          <path d="M -14 6 C -18 -10 -13 -32 0 -34 C 13 -32 18 -10 14 6 Z" fill="#0f172a" stroke="#334155" stroke-width="1.2" />
+          <path d="M -9 4 C -12 -8 -8 -25 0 -27 C 8 -25 12 -8 9 4 Z" fill="#020617" />
+          <!-- Head / Face emerging from shadow -->
+          <ellipse cx="0" cy="-15" rx="7" ry="8" fill="#fed7aa" />
+          <path d="M -7 -20 L -4 -13 L -2 -18 L 0 -12 L 2 -18 L 4 -13 L 7 -20 Z" fill="#1e293b" />
+          <!-- Glowing Eyes reflecting laptop screen -->
+          <ellipse cx="-3" cy="-15" rx="1.5" ry="1" fill="#38bdf8" />
+          <ellipse cx="3" cy="-15" rx="1.5" ry="1" fill="#38bdf8" />
+          <!-- Striped Undershirt -->
+          <rect x="-4" y="-5" width="8" height="6" fill="#f8fafc" />
+          <line x1="-4" y1="-3" x2="4" y2="-3" stroke="#0f172a" stroke-width="1" />
+          <!-- Glowing Mini Laptop -->
+          <polygon points="-10,2 10,2 12,9 -12,9" fill="#1e293b" stroke="#475569" stroke-width="0.8" />
+          <polygon points="-8,-6 8,-6 9,2 -9,2" fill="#090d16" stroke="#38bdf8" stroke-width="0.8" />
+          <line x1="-6" y1="-3" x2="2" y2="-3" stroke="#4ade80" stroke-width="0.8" />
+          <line x1="-6" y1="-1" x2="4" y2="-1" stroke="#38bdf8" stroke-width="0.8" />
+          <line x1="-6" y1="1" x2="-1" y2="1" stroke="#f43f5e" stroke-width="0.8" />
+          <!-- Arms & Legs -->
+          ${armsAndTools}
+          ${bipedLegs}
+        </g>
+      `;
+    }
+
     case 'pixel-dev':
     default: {
       return `

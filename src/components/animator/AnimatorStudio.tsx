@@ -592,8 +592,8 @@ export function AnimatorStudio() {
                   </label>
 
                   {/* Character Model Selector */}
-                  <div className="grid grid-cols-3 sm:grid-cols-6 gap-1">
-                    {(['none', 'pixel-dev', 'cyber-bot', 'builder-crafter', 'ninja-coder', 'wizard-mage'] as CharacterType[]).map(char => (
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-1">
+                    {(['none', 'demon-slayer', 'night-coder', 'pixel-dev', 'cyber-bot', 'builder-crafter', 'ninja-coder', 'wizard-mage'] as CharacterType[]).map(char => (
                       <button
                         key={char}
                         type="button"

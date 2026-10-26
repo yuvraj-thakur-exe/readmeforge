@@ -190,6 +190,8 @@ describe('Animator Engine - Expanded Effects Pipeline', () => {
       'pink-wyvern',
       'insectoid-warrior',
       'dragonborn-paladin',
+      'demon-slayer',
+      'night-coder',
     ];
     for (const charType of characters) {
       const cfg: AnimationConfig = {

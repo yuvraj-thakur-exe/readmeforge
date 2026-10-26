@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="divBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#07090e" stop-opacity="0" />
+      <stop offset="25%" stop-color="#0d111a" stop-opacity="0.9" />
+      <stop offset="75%" stop-color="#0d111a" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#07090e" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="divLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0" />
+      <stop offset="35%" stop-color="#ef4444" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="1" />
+      <stop offset="65%" stop-color="#8b5cf6" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0" />
+    </linearGradient>
+
+    <filter id="genesisGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes arcFlash {
+      0%, 100% { opacity: 0.25; stroke-dashoffset: 0; }
+      50% { opacity: 1; stroke-dashoffset: 24; }
+    }
+    @keyframes dotBreathe {
+      0%, 100% { opacity: 0.6; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+    @keyframes rippleExpand {
+      0% { r: 3; opacity: 1; }
+      100% { r: 24; opacity: 0; }
+    }
+    .arc-line { animation: arcFlash 2.4s infinite ease-in-out; stroke-dasharray: 6 3; }
+    .dot-cluster { animation: dotBreathe 3s infinite ease-in-out; transform-box: fill-box; }
+    .ripple { animation: rippleExpand 2s infinite cubic-bezier(0.1, 0.8, 0.3, 1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .arc-line, .dot-cluster, .ripple { animation: none !important; }
+    }
+  </style>
+
+  <rect width="900" height="120" fill="url(#divBg)" />
+
+  <!-- Horizontal Axis Lines -->
+  <line x1="40" y1="60" x2="350" y2="60" stroke="url(#divLine)" stroke-width="1.2" stroke-dasharray="8 4" />
+  <line x1="550" y1="60" x2="860" y2="60" stroke="url(#divLine)" stroke-width="1.2" stroke-dasharray="8 4" />
+
+  <!-- DOTTED HANDS OF CREATION (Digital Genesis) -->
+  <g filter="url(#genesisGlow)">
+    <!-- Left Hand Matrix Dots -->
+    <g transform="translate(320, 28) scale(0.65)" class="dot-cluster">
+      <circle cx="20" cy="40" r="2.2" fill="#94a3b8" />
+      <circle cx="28" cy="40" r="2.2" fill="#94a3b8" />
+      <circle cx="36" cy="40" r="2.2" fill="#cbd5e1" />
+      <circle cx="44" cy="40" r="2.2" fill="#cbd5e1" />
+      <circle cx="52" cy="40" r="2.4" fill="#e2e8f0" />
+      <circle cx="60" cy="40" r="2.4" fill="#e2e8f0" />
+      <circle cx="68" cy="42" r="2.6" fill="#fff" />
+      <circle cx="76" cy="44" r="2.6" fill="#fff" />
+      <!-- Reaching Index Finger -->
+      <circle cx="86" cy="46" r="2.8" fill="#38bdf8" />
+      <circle cx="96" cy="48" r="3" fill="#38bdf8" />
+      <circle cx="106" cy="50" r="3.2" fill="#22d3ee" />
+      <circle cx="116" cy="50" r="3.6" fill="#67e8f9" />
+      <!-- Lower Finger Knuckles -->
+      <circle cx="36" cy="48" r="2" fill="#64748b" />
+      <circle cx="46" cy="50" r="2" fill="#64748b" />
+      <circle cx="56" cy="52" r="2" fill="#94a3b8" />
+      <circle cx="66" cy="54" r="2.2" fill="#cbd5e1" />
+      <circle cx="76" cy="56" r="2.2" fill="#cbd5e1" />
+      <circle cx="48" cy="58" r="1.8" fill="#475569" />
+      <circle cx="58" cy="60" r="1.8" fill="#64748b" />
+      <circle cx="68" cy="62" r="1.8" fill="#64748b" />
+    </g>
+
+    <!-- Electric Arc Spark Connection -->
+    <g transform="translate(450, 60)">
+      <circle cx="0" cy="0" r="4.5" fill="#22d3ee" />
+      <circle cx="0" cy="0" r="8" fill="#67e8f9" opacity="0.45" />
+      <circle cx="0" cy="0" r="12" stroke="#38bdf8" stroke-width="1.5" fill="none" class="ripple" />
+      <circle cx="0" cy="0" r="18" stroke="#f43f5e" stroke-width="1" fill="none" class="ripple" style="animation-delay: 0.7s;" />
+      <!-- High-Frequency Arc Lightning -->
+      <path d="M -48 -8 Q -24 6 -8 -4 Q 8 6 48 -8" fill="none" stroke="#22d3ee" stroke-width="1.8" stroke-linecap="round" class="arc-line" />
+      <path d="M -45 5 Q -20 -6 0 3 Q 20 -6 45 5" fill="none" stroke="#f43f5e" stroke-width="1.2" stroke-linecap="round" class="arc-line" />
+    </g>
+
+    <!-- Right Hand Matrix Dots -->
+    <g transform="translate(460, 28) scale(0.65)" class="dot-cluster">
+      <circle cx="24" cy="50" r="3.6" fill="#f43f5e" />
+      <circle cx="34" cy="50" r="3.2" fill="#fb7185" />
+      <circle cx="44" cy="48" r="3" fill="#fb7185" />
+      <circle cx="54" cy="46" r="2.8" fill="#fda4af" />
+      <!-- Reaching Index Finger & Palm -->
+      <circle cx="64" cy="44" r="2.6" fill="#fff" />
+      <circle cx="72" cy="42" r="2.6" fill="#fff" />
+      <circle cx="80" cy="40" r="2.4" fill="#e2e8f0" />
+      <circle cx="88" cy="40" r="2.4" fill="#e2e8f0" />
+      <circle cx="96" cy="40" r="2.2" fill="#cbd5e1" />
+      <circle cx="104" cy="40" r="2.2" fill="#cbd5e1" />
+      <circle cx="112" cy="40" r="2.2" fill="#94a3b8" />
+      <circle cx="120" cy="40" r="2.2" fill="#94a3b8" />
+      <!-- Lower Knuckles -->
+      <circle cx="64" cy="54" r="2.2" fill="#cbd5e1" />
+      <circle cx="74" cy="52" r="2" fill="#94a3b8" />
+      <circle cx="84" cy="50" r="2" fill="#64748b" />
+      <circle cx="94" cy="48" r="2" fill="#64748b" />
+      <circle cx="72" cy="62" r="1.8" fill="#64748b" />
+      <circle cx="82" cy="60" r="1.8" fill="#64748b" />
+      <circle cx="92" cy="58" r="1.8" fill="#475569" />
+    </g>
+  </g>
+
+  <!-- Subtitle Tag -->
+  <text x="450" y="105" fill="#64748b" font-family="'Fira Code', 'JetBrains Mono', Consolas, monospace" font-size="10.5" font-weight="600" text-anchor="middle" letter-spacing="3">
+    [ DIGITAL GENESIS &bull; HUMAN INTENT &times; AUTONOMOUS AI ]
+  </text>
+</svg>

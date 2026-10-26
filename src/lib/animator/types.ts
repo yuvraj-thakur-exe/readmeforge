@@ -66,7 +66,9 @@ export type CharacterType =
   | 'chibi-deadpool'
   | 'pink-wyvern'
   | 'insectoid-warrior'
-  | 'dragonborn-paladin';
+  | 'dragonborn-paladin'
+  | 'demon-slayer'
+  | 'night-coder';
 
 export type CharacterAction =
   | 'walk'
