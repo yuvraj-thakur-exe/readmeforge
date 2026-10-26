@@ -151,8 +151,6 @@ Most profile generators output cookie-cutter markdown that looks identical for e
 
 | Engineering Persona | Accent Palette & Vibe | Core Visual Focus | Dynamic Typing Headlines |
 | :--- | :--- | :--- | :--- |
-| <img src="https://img.shields.io/badge/Demon_Slayer-EF4444?style=flat-square&logo=target&logoColor=white" height="18" alt="Demon Slayer" /> **Demon Slayer Warrior** | Crimson (`#EF4444`) & Tokyo Dark | Hinokami Kagura Flame Auras, Nichirin Katana Bug Slicing, Focus Metrics | Sun-Breathing Tenth Form, AST Bug Slicing, Constant Flux Flow State |
-| <img src="https://img.shields.io/badge/Night_Coder-22D3EE?style=flat-square&logo=gnubash&logoColor=white" height="18" alt="Night Coder" /> **2 AM Night Coder** | Cyan (`#22D3EE`) & Deep Void | Glowing Laptop Reflection, Autonomous AI Swarms, Deep Work Telemetry | 2:00 AM Flow State, Autonomous Agents, Zero Premature Abstraction |
 | <img src="https://img.shields.io/badge/AI_ML-10B981?style=flat-square&logo=pytorch&logoColor=white" height="18" alt="AI/ML" /> **AI / Machine Learning** | Emerald (`#10B981`) & Tokyo Night | Language Pie/Donut Chart, Model Inference Heatmap, Research Bullets | Transformer Models, Multi-Agent Swarms, Distributed RAG Runtimes |
 | <img src="https://img.shields.io/badge/DevOps-06B6D4?style=flat-square&logo=kubernetes&logoColor=white" height="18" alt="DevOps" /> **Cloud & DevOps SRE** | Cyan (`#06B6D4`) & Nord Ice | Platform Activity Velocity Graph, Multi-Cloud Topology Shields | Zero-Trust Meshes, Terraform IaC, Sub-Second GitOps Pipelines |
 | <img src="https://img.shields.io/badge/Full_Stack-8B5CF6?style=flat-square&logo=typescript&logoColor=white" height="18" alt="FullStack" /> **Full-Stack Polyglot** | Violet (`#8B5CF6`) & Radical Cyber | Languages Donut Chart, Commit Velocity Heatmap, Full-Stack Badges | TypeScript & Next.js 16, Reactive Systems, Distributed Postgres |
@@ -225,20 +223,7 @@ ReadmeForge is engineered from the ground up for tactile, physics-based responsi
 
 ReadmeForge brings GitHub profiles to life with dynamic internet widgets and high-resolution vector assets:
 
-### 1. Animated Developer Terminal & 60fps Vector Motion Card
-Bespoke interactive developer terminal card and 60fps GPU-composited animated vector header for deep-work autonomous AI engineers:
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/terminal_animated.svg" alt="Animated Developer Terminal Card" width="100%" style="border-radius: 14px;" />
-  <br/><br/>
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/demon-slayer-tanjiro.jpg" alt="Sun-Breathing Fighter" width="360" style="border-radius: 18px; border: 2.5px solid #EF4444; box-shadow: 0 0 35px rgba(239, 68, 68, 0.45);" />
-  <br/><br/>
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/profile/slayer-night-coder-header.svg" alt="60fps Hardware-Accelerated Animated SVG Header" width="100%" />
-</div>
-
-<br />
-
-### 2. Holographic Developer Command Deck
+### 1. Holographic Developer Command Deck
 Custom visual artwork featuring a futuristic developer workstation with floating holographic profiles, emerald heatmaps, dynamic metrics, and live data streams:
 
 <div align="center">
@@ -357,7 +342,7 @@ ReadmeForge features an enterprise-grade in-browser **Animation Studio** (`/anim
   - `fire-border`: Blazing perimeter frame with heat pulsation.
 
 - **Animated Vector Characters & Actions**:
-  - Characters: `demon-slayer` (flame mark & Nichirin katana), `night-coder` (2 AM hoodie & glowing laptop), `pixel-dev` (hoodie & visor), `cyber-bot` (floating robot), `builder-crafter` (hardhat & vest), `ninja-coder` (headband & kunai), `wizard-mage` (wizard hat & crystal staff).
+  - Characters: `pixel-dev` (hoodie & visor), `cyber-bot` (floating robot), `builder-crafter` (hardhat & vest), `ninja-coder` (headband & kunai), `wizard-mage` (wizard hat & crystal staff).
   - Actions: `walk` (patrol baseline), `build` (hammering blocks), `code` (holographic terminal), `construct` (circuit welding), `cheer` (victory jump with gold trophy).
 
 </details>
