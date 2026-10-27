@@ -102,7 +102,7 @@ export async function generateMetadata({
       languages,
     },
     verification: {
-      google: 'nH_oO8Fxc76PZpqDg9y4loKj8DNPDL84Zz0zAKgAaSA',
+      google: ['google6fe900e7443f16a1', 'nH_oO8Fxc76PZpqDg9y4loKj8DNPDL84Zz0zAKgAaSA'],
     },
   };
 }
@@ -137,6 +137,7 @@ export default async function RootLayout({
         <link rel="help" href="/llms.txt" />
         <link rel="describedby" href="/api/schema" />
         <meta name="ai:ready" content="true" />
+        <meta name="google-site-verification" content="google6fe900e7443f16a1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
