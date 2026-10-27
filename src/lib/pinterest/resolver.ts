@@ -45,6 +45,15 @@ export interface ResolvePinterestResult {
 export async function resolvePinterestUrl(input: string): Promise<ResolvePinterestResult> {
   const clean = input ? input.trim() : '';
 
+  if (!clean) {
+    return {
+      success: false,
+      url: '',
+      source: 'preset',
+      error: 'Empty Pinterest URL provided',
+    };
+  }
+
   // 1. Check if it matches a preset key
   if (PINTEREST_PRESETS[clean]) {
     const p = PINTEREST_PRESETS[clean];
@@ -53,15 +62,6 @@ export async function resolvePinterestUrl(input: string): Promise<ResolvePintere
       url: p.url,
       title: p.title,
       source: 'preset',
-    };
-  }
-
-  if (!clean) {
-    return {
-      success: false,
-      url: '',
-      source: 'preset',
-      error: 'Empty Pinterest URL provided',
     };
   }
 
@@ -153,3 +153,4 @@ export async function resolvePinterestUrl(input: string): Promise<ResolvePintere
     error: 'Unrecognized URL format',
   };
 }
+

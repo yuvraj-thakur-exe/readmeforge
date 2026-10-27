@@ -52,3 +52,4 @@ describe('pinterestImagePlugin', () => {
     expect(mdCat).toContain('e426702edf874b181aced1e2fa5c6cde.gif');
   });
 });
+

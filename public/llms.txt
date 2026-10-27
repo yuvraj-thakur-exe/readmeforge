@@ -19,27 +19,49 @@ All profiles conform to the `ReadmeConfig` specification:
   - **`align`** (string): `"left"` | `"center"` | `"right"`.
 - **`sections`** (array of SectionConfig):
   - **`id`** (string): Unique identifier (e.g. `"sec-1"`).
-  - **`type`** (string): One of the 11 registered plugin IDs below.
+  - **`type`** (string): One of the 15 registered plugin IDs below.
   - **`props`** (object): `{ content: Record<string, unknown>, styles: Record<string, unknown>, state?: string }`.
 
-## Modular Plugin Registry (11 Core Plugins)
+## Modular Plugin Registry (15 Plugins)
 1. `header-bio`: Custom title, subtitle, status badge, pronouns, location, and avatar.
-2. `readme-typing-svg`: Dynamic typewriter headline via pure SVG animation.
-3. `markdown-badges`: 150+ technology, language, framework, database, and tool badges.
-4. `github-readme-stats`: Overall GitHub telemetry (stars, commits, pull requests, reviews).
-5. `streak-stats`: GitHub contribution streak and total lifetime contributions.
-6. `activity-graph`: Waveform contribution graph and activity trendlines.
-7. `github-profile-trophy`: Gamified achievement trophies ranked by stars, commits, and PRs.
-8. `pie-chart`: Top programming languages breakdown (donut, pie, or compact bar).
-9. `visitor-counter`: Non-invasive profile visitor counter badge.
-10. `snk`: Animated retro snake game eating through user's contribution grid.
-11. `social-links`: Social media, portfolio, blog, and community contact badges.
+2. `capsule-banner`: Modern curved/waving capsule-render SVG hero banner.
+3. `mascot-bio`: Side-by-side or stacked animated mascot character with custom bio card.
+4. `skill-icons`: Multi-icon SVG skill cluster with auto-wrapping and dark/light mode.
+5. `readme-typing-svg`: Dynamic typewriter headline via pure SVG animation.
+6. `markdown-badges`: 150+ technology, language, framework, database, and tool badges.
+7. `github-readme-stats`: Overall GitHub telemetry (stars, commits, pull requests, reviews).
+8. `streak-stats`: GitHub contribution streak and total lifetime contributions.
+9. `activity-graph`: Waveform contribution graph and activity trendlines.
+10. `github-profile-trophy`: Gamified achievement trophies ranked by stars, commits, and PRs.
+11. `pie-chart`: Top programming languages breakdown (donut, pie, or compact bar).
+12. `pinterest-image`: Aesthetic image showcase resolved from direct Pinterest links or search queries.
+13. `visitor-counter`: Non-invasive profile visitor counter badge.
+14. `snk`: Animated retro snake game eating through user's contribution grid.
+15. `social-links`: Social media, portfolio, blog, and community contact badges.
+
+## AI Agent Integration & CLI
+AI agents (Claude, Cursor, Devin, Antigravity, Copilot) can execute ReadmeForge directly:
+- **CLI Generate**: `npx readmeforge generate --username <handle> --archetype <id>`
+- **List Archetypes**: `npx readmeforge list`
+- **Agent Skill Install**: `npx readmeforge skill-install`
+- **MCP Server (stdio)**: `npx readmeforge mcp` (exposes `generate_profile_readme` & `list_archetypes`)
+- **Agent Skill Spec**: `/.agents/skills/readmeforge/SKILL.md`
+
+## 8 Built-in Archetypes
+1. `wow-3d-city-cat`: 3D isometric contribution city with peeking kitten header and glowing language telemetry.
+2. `bento-signal-dashboard`: High-density dark glass bento grid with live signal telemetry.
+3. `metrics-telemetry-dashboard`: Simon Lecoq / lowlighter-style metrics dashboard.
+4. `neon-craftsman-owl`: Purple/magenta capsule banner, celebratory owl mascot, and achievement badges.
+5. `minimal-light-unicorn`: Clean light mode aesthetic with rainbow unicorn developer mascot.
+6. `dark-glass-devops`: Constellation mesh banner, terminal window, and tech badges.
+7. `cyber-terminal`: Neon cyan retro terminal header with animated typing SVG.
+8. `pinterest-lofi-aesthetic`: Cozy anime/lo-fi coffee workspace visual moodboard.
 
 ## Machine Endpoints & URLs
-- **Web App**: https://readmeforge.dev
-- **/developer IDE**: https://readmeforge.dev/en/developer
-- **JSON Schema API**: https://readmeforge.dev/api/schema
-- **Agent Context (Full)**: https://readmeforge.dev/llms-full.txt
+- **Web App**: https://readmeforge-black.vercel.app
+- **/developer IDE**: https://readmeforge-black.vercel.app/en/developer
+- **JSON Schema API**: https://readmeforge-black.vercel.app/api/schema
+- **Agent Context (Full)**: https://readmeforge-black.vercel.app/llms-full.txt
 - **GitHub Repository**: https://github.com/yuvrajlaptop2008-byte/readmeforge
 
 ## Sample Valid Configuration

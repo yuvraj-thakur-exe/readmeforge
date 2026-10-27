@@ -27,6 +27,9 @@
     "url": "https://github.com/yuvrajlaptop2008-byte/readmeforge/issues"
   },
   "homepage": "https://readmeforge.dev",
+  "bin": {
+    "readmeforge": "./bin/readmeforge.js"
+  },
   "private": true,
   "packageManager": "pnpm@10.12.4",
   "scripts": {

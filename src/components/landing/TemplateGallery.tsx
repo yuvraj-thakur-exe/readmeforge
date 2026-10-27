@@ -908,7 +908,7 @@ export const TEMPLATES: TemplateItem[] = [
           type: 'custom',
           props: {
             content: {
-              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/ReadmeForge/main/public/assets/peeking-cat-header.svg" width="100%" alt="Peeking Cat Header" />\n</div>`,
+              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/peeking-cat-header.svg" width="100%" alt="Peeking Cat Header" />\n</div>`,
             },
             styles: {},
             state: 'default',
@@ -977,7 +977,7 @@ export const TEMPLATES: TemplateItem[] = [
           type: 'custom',
           props: {
             content: {
-              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/ReadmeForge/main/public/assets/bento-dashboard-header.svg" width="100%" alt="Bento Dashboard Header" />\n</div>`,
+              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/bento-dashboard-header.svg" width="100%" alt="Bento Dashboard Header" />\n</div>`,
             },
             styles: {},
             state: 'default',

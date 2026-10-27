@@ -77,6 +77,19 @@ export async function generateMetadata({
     robots: {
       index: true,
       follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    other: {
+      'ai:ready': 'true',
+      'ai:model-context': `${appUrl}/llms.txt`,
+      'ai:agent-skill': `${appUrl}/.agents/skills/readmeforge/SKILL.md`,
+      'ai:mcp': 'npx readmeforge mcp',
     },
     manifest: '/manifest.json',
     icons: {
@@ -135,21 +148,35 @@ export default async function RootLayout({
           type="image/svg+xml"
         />
         <link rel="help" href="/llms.txt" />
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
         <link rel="describedby" href="/api/schema" />
         <meta name="ai:ready" content="true" />
+        <meta name="ai:agent-skill" content="/.agents/skills/readmeforge/SKILL.md" />
         <meta name="google-site-verification" content="google6fe900e7443f16a1" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'WebApplication',
+              '@type': ['WebApplication', 'SoftwareApplication'],
               name: 'ReadmeForge',
+              softwareVersion: '1.0.0',
               applicationCategory: 'DeveloperApplication',
               operatingSystem: 'All',
               url: config.general.urls.app,
               description:
-                'AI-native GitHub profile README generator featuring visual wizard, raw JSON /developer IDE, dynamic vector animator, and zero-drift plugin registry.',
+                'AI-native GitHub profile README generator and visual studio featuring visual wizard, raw JSON /developer IDE, dynamic vector animator, agent skills, and zero-drift plugin registry.',
+              featureList: [
+                'GitHub Profile README Generator',
+                'Visual Wizard with Real-time Preview',
+                'Developer Raw Mode Monaco IDE',
+                'Autonomous Agent Skill & MCP Server',
+                '8 Curated Visual Archetypes',
+                'Pinterest Aesthetic Moodboard Support',
+                'Zero-script Camo-safe SVG Animations',
+                'Resume Import & Web Enrichment Confirmation Gate',
+                'Direct Authenticated GitHub Push with Diff Preview',
+              ],
               offers: {
                 '@type': 'Offer',
                 price: '0',
@@ -160,6 +187,9 @@ export default async function RootLayout({
                 name: 'Yuvraj Thakur',
                 url: 'https://github.com/yuvrajlaptop2008-byte',
               },
+              sameAs: [
+                'https://github.com/yuvrajlaptop2008-byte/readmeforge',
+              ],
             }),
           }}
         />

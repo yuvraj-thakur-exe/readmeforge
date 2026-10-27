@@ -12,18 +12,18 @@
 
   <p>
     <strong>Forge a GitHub profile that gets noticed.</strong><br />
-    An interactive profile studio with GPU-accelerated animated SVGs, 11 modular plugins, and direct GitHub sync.
+    An interactive profile studio, autonomous AI agent skill, and zero-dependency CLI with GPU-accelerated animated SVGs, 15 modular plugins, and direct GitHub sync.
   </p>
 
   <p>
-    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/actions/workflows/ci.yml">
-      <img src="https://img.shields.io/github/actions/workflow/status/yuvrajlaptop2008-byte/readmeforge/ci.yml?branch=main&label=CI%20Build&style=for-the-badge&logo=githubactions&logoColor=white" alt="CI Status" />
+    <a href="https://readmeforge-black.vercel.app">
+      <img src="https://img.shields.io/badge/Live_Studio-Vercel-black?style=for-the-badge&logo=vercel" alt="Live Studio" />
     </a>
-    <a href="https://nextjs.org">
-      <img src="https://img.shields.io/badge/Next.js-16%20Turbopack-black?style=for-the-badge&logo=next.js" alt="Next.js 16" />
+    <a href="https://www.npmjs.com/package/readmeforge">
+      <img src="https://img.shields.io/badge/CLI-npx%20readmeforge-cb3837?style=for-the-badge&logo=npm" alt="npx readmeforge" />
     </a>
-    <a href="https://www.typescriptlang.org">
-      <img src="https://img.shields.io/badge/TypeScript-5.8-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <a href="#-ai-agent-skill--mcp-server">
+      <img src="https://img.shields.io/badge/Agent_Skill-MCP_Ready-8b5cf6?style=for-the-badge&logo=anthropic" alt="Agent Skill Ready" />
     </a>
     <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/blob/main/LICENSE.md">
       <img src="https://img.shields.io/badge/License-MIT-a855f7?style=for-the-badge" alt="License: MIT" />
@@ -31,16 +31,101 @@
   </p>
 
   <p>
-    <a href="#quick-start">Quick Start</a> &bull;
-    <a href="#key-features">Key Features</a> &bull;
-    <a href="#plugin-arsenal-11-plugins">Plugins</a> &bull;
-    <a href="#animated-vector-art--typography">Animated Vectors</a> &bull;
-    <a href="#security--token-safety">Security</a> &bull;
-    <a href="#docker--development">Docker & Dev</a> &bull;
-    <a href="#contributing">Contributing</a>
+    <a href="#-1-click-copy-paste-install">Install & Use</a> &bull;
+    <a href="#-ai-agent-skill--mcp-server">AI Agent Skill / MCP</a> &bull;
+    <a href="#-visual-archetypes-gallery">Archetypes Gallery</a> &bull;
+    <a href="#-key-features">Features</a> &bull;
+    <a href="#-plugin-arsenal-15-plugins">Plugins</a> &bull;
+    <a href="#-contributing">Contributing</a>
   </p>
 
 </div>
+
+---
+
+## ⚡ 1-Click Copy-Paste Install
+
+### Option A: Instant CLI Generation (No Install Needed)
+Run directly via `npx` anywhere to create your profile in seconds:
+
+```bash
+# Generate high-impact 3D City Cat profile to README.md
+npx readmeforge generate --username <your-github-username> --archetype wow-3d-city-cat --output README.md
+
+# Or generate the #5 Bento Signal Dashboard
+npx readmeforge generate --username <your-github-username> --archetype bento-signal-dashboard --output README.md
+
+# Explore all 8 archetypes in your terminal
+npx readmeforge list
+```
+
+### Option B: Install Globally
+```bash
+npm install -g readmeforge
+readmeforge generate --username <your-github-username>
+```
+
+### Option C: Web Studio & /developer Editor
+Prefer a visual GUI? Open the web studio:
+👉 **[https://readmeforge-black.vercel.app](https://readmeforge-black.vercel.app)** (or raw Monaco IDE at [`/en/developer`](https://readmeforge-black.vercel.app/en/developer))
+
+---
+
+## 🤖 AI Agent Skill & MCP Server
+
+ReadmeForge is built from the ground up for **AI Agents** (Claude Code, Cursor, Devin, Antigravity, GitHub Copilot). Any agent can use ReadmeForge as a specialized capability to craft and maintain READMEs.
+
+### 1. Install as an Open Agent Skill (1-Liner)
+Run this command in any repository or agent workspace:
+
+```bash
+# macOS / Linux / WSL
+curl -fsSL https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/scripts/install-agent-skill.sh | bash
+
+# Windows PowerShell
+irm https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/scripts/install-agent-skill.ps1 | iex
+
+# Or using the CLI:
+npx readmeforge skill-install
+```
+This installs [`.agents/skills/readmeforge/SKILL.md`](.agents/skills/readmeforge/SKILL.md), allowing agents to autonomously generate, inspect, and style GitHub profile READMEs adhering strictly to GitHub Camo constraints.
+
+### 2. Connect as a Model Context Protocol (MCP) Server
+Add ReadmeForge to your Cursor (`.cursor/mcp.json`) or Claude Desktop configuration:
+
+```json
+{
+  "mcpServers": {
+    "readmeforge": {
+      "command": "npx",
+      "args": ["readmeforge", "mcp"]
+    }
+  }
+}
+```
+
+**MCP Tools Provided**:
+- `generate_profile_readme`: Generates GitHub Camo-safe markdown profiles with selected archetypes, custom bio, tech stack, and widgets.
+- `list_archetypes`: Returns metadata, preview descriptions, and layout schemes for all 8 archetypes.
+
+---
+
+## 🎨 Visual Archetypes Gallery
+
+ReadmeForge includes 8 production-grade visual archetypes ready out-of-the-box:
+
+| Archetype ID | Style & Mascot | Highlights |
+| :--- | :--- | :--- |
+| **`wow-3d-city-cat`** | Peeking Kitten + 3D City | 3D isometric contribution city, peeking black cat header, glowing language stack |
+| **`bento-signal-dashboard`** | Dark Glass Bento Grid | High-density telemetry cards, signal metrics, repository showcase |
+| **`metrics-telemetry-dashboard`** | Cyber Anime Hacker | Comprehensive telemetry dashboard (PageSpeed, contribution calendar, music) |
+| **`neon-craftsman-owl`** | Celebratory Owl Mascot | Purple/magenta capsule banner, confetti owl, gamified achievements |
+| **`minimal-light-unicorn`** | Coding Unicorn Mascot | Crisp light mode, rainbow unicorn developer mascot, minimal clean cards |
+| **`dark-glass-devops`** | Constellation Terminal | Dark mesh banner, terminal window, clean tech grid |
+| **`cyber-terminal`** | Retro Cyan Terminal | Dynamic terminal typing SVG, retro scanlines, developer stats |
+| **`pinterest-lofi-aesthetic`** | Lo-Fi Coffee Workspace | Aesthetic Pinterest moodboard, warm cozy tones, rounded glass cards |
+
+---
 
 ---
 
@@ -87,13 +172,17 @@ Open **[http://localhost:3000/en](http://localhost:3000/en)** in your browser.
 
 ---
 
-## 🧩 Plugin Arsenal (11 Plugins)
+## 🧩 Plugin Arsenal (15 Plugins)
 
 Every widget in ReadmeForge is a modular plugin defined in `src/lib/plugins/` and validated against a shared Zod schema:
 
 | Plugin | Type | Description |
 | :--- | :--- | :--- |
-| **`header-bio`** | Layout | Custom headline, status pill, pronouns, and location |
+| **`header-bio`** | Layout | Custom headline, status pill, pronouns, and avatar |
+| **`capsule-banner`** | Visual | Modern waving/curved SVG hero banner with custom titles & palettes |
+| **`mascot-bio`** | Mascot | Animated SVG mascots (Peeking Cat, Owl, Unicorn, Dev Desk) paired with bio |
+| **`skill-icons`** | Badges | Clustered multi-technology SVG icons with auto-scaling & theme adaptation |
+| **`pinterest-image`** | Aesthetic | Aesthetic moodboard images resolved from Pinterest links & topics |
 | **`readme-typing-svg`** | Animation | Animated typewriter headline with customizable speed & color |
 | **`markdown-badges`** | Badges | 150+ technology, framework, and database badges |
 | **`github-readme-stats`** | Telemetry | Overall stars, commits, PRs, and review statistics |

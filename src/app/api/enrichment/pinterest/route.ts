@@ -46,3 +46,4 @@ export async function GET(req: NextRequest) {
   const result = await resolvePinterestUrl(url);
   return NextResponse.json(result);
 }
+
