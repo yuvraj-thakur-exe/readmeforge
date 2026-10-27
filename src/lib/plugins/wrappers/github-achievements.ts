@@ -1,4 +1,4 @@
-import { Plugin, UserSettings } from '../types';
+import { Plugin, UserSettings, resolveEffectiveUsername } from '../types';
 
 export const GITHUB_ACHIEVEMENT_LIST = [
   {
@@ -144,8 +144,8 @@ export const githubAchievementsPlugin: Plugin = {
     publicSponsor: false,
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const rawUser = (settings.user.github || 'username').trim();
-    const user = encodeURIComponent(rawUser);
+    const effectiveUser = resolveEffectiveUsername(props, settings);
+    const user = encodeURIComponent(effectiveUser);
     const align = settings.align || 'left';
     const size = typeof props.badgeSize === 'number' ? props.badgeSize : 64;
 

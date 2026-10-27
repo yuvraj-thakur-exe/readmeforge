@@ -117,3 +117,47 @@ export interface Plugin {
   defaultConfig: Record<string, unknown>;
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => PluginOutput | string;
 }
+
+const PLACEHOLDER_USERNAMES = new Set([
+  '',
+  'username',
+  'your-username',
+  'your_username',
+  'zusername',
+  'user',
+  'placeholder',
+  'example',
+  'login',
+]);
+
+export function isPlaceholderUsername(username?: string): boolean {
+  if (!username || typeof username !== 'string') return true;
+  const clean = username.trim().toLowerCase();
+  return clean === '' || PLACEHOLDER_USERNAMES.has(clean) || clean.startsWith('your-username');
+}
+
+export function resolveEffectiveUsername(
+  props?: Record<string, unknown>,
+  settings?: UserSettings,
+  fallback = 'octocat'
+): string {
+  const propUser =
+    typeof props?.username === 'string'
+      ? props.username.trim()
+      : typeof props?.github === 'string'
+      ? props.github.trim()
+      : '';
+
+  if (propUser && !isPlaceholderUsername(propUser)) {
+    return propUser;
+  }
+
+  const globalUser =
+    typeof settings?.user?.github === 'string' ? settings.user.github.trim() : '';
+
+  if (globalUser && !isPlaceholderUsername(globalUser)) {
+    return globalUser;
+  }
+
+  return fallback;
+}

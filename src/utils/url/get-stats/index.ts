@@ -4,12 +4,20 @@ const { imageBaseUrl, streakBaseUrl, trophyBaseUrl, activityGraphBaseUrl } =
   config.general.urls.sections.stats;
 
 function urls(value: string) {
+  const normalized = value ? value.trim() : '';
+  const safeValue =
+    !normalized ||
+    normalized.toLowerCase() === 'username' ||
+    normalized.toLowerCase() === 'zusername'
+      ? 'octocat'
+      : normalized;
+
   return {
-    stats: `${imageBaseUrl}?username=${value}`,
-    languages: `${imageBaseUrl}/top-langs?username=${value}`,
-    streak: `${streakBaseUrl}?user=${value}`,
-    trophy: `${trophyBaseUrl}?username=${value}`,
-    'activity-graph': `${activityGraphBaseUrl}?username=${value}`,
+    stats: `${imageBaseUrl}?username=${safeValue}`,
+    languages: `${imageBaseUrl}/top-langs?username=${safeValue}`,
+    streak: `${streakBaseUrl}?user=${safeValue}`,
+    trophy: `${trophyBaseUrl}?username=${safeValue}`,
+    'activity-graph': `${activityGraphBaseUrl}?username=${safeValue}`,
   };
 }
 

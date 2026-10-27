@@ -1,4 +1,4 @@
-import { Plugin, UserSettings } from '../types';
+import { Plugin, UserSettings, resolveEffectiveUsername } from '../types';
 
 export const pieChartPlugin: Plugin = {
   id: 'pie-chart',
@@ -50,8 +50,8 @@ export const pieChartPlugin: Plugin = {
     theme: 'tokyonight',
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const rawUser = (settings.user.github || 'username').trim();
-    const user = encodeURIComponent(rawUser);
+    const effectiveUser = resolveEffectiveUsername(props, settings);
+    const user = encodeURIComponent(effectiveUser);
     const mode = (props.chartMode as string) || 'top-langs-donut';
     const title = (props.title as string) || 'Core Technical Focus';
     const theme = (props.theme as string) || 'tokyonight';

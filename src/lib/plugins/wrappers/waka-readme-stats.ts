@@ -1,4 +1,4 @@
-import { Plugin, UserSettings } from '../types';
+import { Plugin, UserSettings, resolveEffectiveUsername } from '../types';
 
 export const wakaReadmeStatsPlugin: Plugin = {
   id: 'waka-readme-stats',
@@ -44,7 +44,7 @@ export const wakaReadmeStatsPlugin: Plugin = {
     theme: 'radical',
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const user = (props.wakaUsername as string)?.trim() || settings.user.github || 'username';
+    const user = (props.wakaUsername as string)?.trim() || resolveEffectiveUsername(props, settings);
     const align = settings.align || 'left';
     const theme = (props.theme as string) || 'radical';
     const layout = props.compact ? '&layout=compact' : '';

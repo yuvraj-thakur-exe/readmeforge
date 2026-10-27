@@ -88,6 +88,9 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
   const lineCount = markdown.split('\n').length;
   const charCount = markdown.length;
 
+  const rawUser = config.settings?.user?.github?.trim().toLowerCase();
+  const isPlaceholder = !rawUser || rawUser === 'username' || rawUser === 'zusername' || rawUser === 'your-username';
+
   return (
     <div className={`flex flex-col h-full bg-neutral-900 rounded-lg border border-neutral-800 overflow-hidden ${className}`}>
       {/* Header Bar */}
@@ -141,6 +144,14 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
           </pre>
         ) : (
           <div className="max-w-none text-neutral-200 text-sm">
+            {isPlaceholder && (
+              <div className="mb-3 px-3 py-2 rounded bg-violet-950/40 border border-violet-800/40 text-[11px] text-violet-300 flex items-center gap-2">
+                <span>💡</span>
+                <span>
+                  Previewing live cards with active demo account (<strong>octocat</strong>). Set <code>settings.user.github</code> to your username to see your real profile trophies and stats!
+                </span>
+              </div>
+            )}
             <div className="p-5 bg-neutral-950/90 rounded-md border border-neutral-800/80 space-y-4">
               <div className="flex items-center gap-2 pb-3 border-b border-neutral-800 text-xs text-neutral-400">
                 <FileText className="w-4 h-4 text-violet-400" />

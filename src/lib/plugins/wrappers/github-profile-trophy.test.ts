@@ -30,6 +30,7 @@ describe('githubProfileTrophyPlugin', () => {
     expect(md).toContain('row=1');
     expect(md).toContain('column=6');
     expect(md).toContain('&no-bg=true');
+    expect(md).toContain('alt="octocat trophies"');
   });
 
   it('allows switching to alternate high-availability mirror', () => {
@@ -74,5 +75,45 @@ describe('githubProfileTrophyPlugin', () => {
     expect(md).toContain('column=4');
     expect(md).not.toContain('&no-bg=true');
     expect(md).toContain('&no-frame=true');
+  });
+
+  it('safely falls back to octocat instead of broken literal username or zusername', () => {
+    const emptySettings: UserSettings = {
+      ...mockSettings,
+      user: { github: '' },
+    };
+    const result1 = githubProfileTrophyPlugin.renderMarkdown(
+      githubProfileTrophyPlugin.defaultConfig,
+      emptySettings
+    );
+    const md1 = getMarkdown(result1);
+    expect(md1).toContain('?username=octocat');
+    expect(md1).not.toContain('?username=username');
+    expect(md1).not.toContain('alt="username trophies"');
+
+    const placeholderSettings: UserSettings = {
+      ...mockSettings,
+      user: { github: 'Zusername' },
+    };
+    const result2 = githubProfileTrophyPlugin.renderMarkdown(
+      githubProfileTrophyPlugin.defaultConfig,
+      placeholderSettings
+    );
+    const md2 = getMarkdown(result2);
+    expect(md2).toContain('?username=octocat');
+    expect(md2).not.toContain('?username=Zusername');
+  });
+
+  it('supports explicit username override via props', () => {
+    const result = githubProfileTrophyPlugin.renderMarkdown(
+      {
+        ...githubProfileTrophyPlugin.defaultConfig,
+        username: 'torvalds',
+      },
+      mockSettings
+    );
+    const md = getMarkdown(result);
+    expect(md).toContain('?username=torvalds');
+    expect(md).toContain('alt="torvalds trophies"');
   });
 });

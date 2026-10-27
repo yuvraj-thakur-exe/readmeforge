@@ -1,4 +1,4 @@
-import { Plugin, UserSettings } from '../types';
+import { Plugin, UserSettings, resolveEffectiveUsername } from '../types';
 
 export const snkPlugin: Plugin = {
   id: 'snk',
@@ -25,7 +25,7 @@ export const snkPlugin: Plugin = {
     theme: 'dark',
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const user = settings.user.github || 'username';
+    const user = resolveEffectiveUsername(props, settings);
     const align = settings.align || 'left';
     const isDark = props.theme !== 'light';
     const filename = isDark

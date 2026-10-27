@@ -130,3 +130,4 @@ const encoded = btoa(unescape(encodeURIComponent(jsonString)));
 const url = `https://readmeforge.dev/en/developer?config=${encoded}`;
 ```
 Navigating to this URL automatically hydrates the store, populates the Monaco editor, and renders the markdown preview.
+

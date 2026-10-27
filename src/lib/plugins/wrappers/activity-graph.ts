@@ -1,4 +1,4 @@
-import { Plugin, UserSettings } from '../types';
+import { Plugin, UserSettings, resolveEffectiveUsername } from '../types';
 
 export const activityGraphPlugin: Plugin = {
   id: 'activity-graph',
@@ -37,8 +37,8 @@ export const activityGraphPlugin: Plugin = {
     title: 'Annual Contribution Activity',
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const rawUser = (settings.user.github || 'username').trim();
-    const user = encodeURIComponent(rawUser);
+    const effectiveUser = resolveEffectiveUsername(props, settings);
+    const user = encodeURIComponent(effectiveUser);
     const color = (props.color as string || '6366F1').replace(/^#/, '');
     const title = (props.title as string) || 'Annual Contribution Activity';
     const align = settings.align || 'center';

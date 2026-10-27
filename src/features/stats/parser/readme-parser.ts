@@ -39,7 +39,8 @@ const statsSectionParser = (
 ) => {
   const { graphs } = content;
   const { align, direction } = styles;
-  const { github } = settings.user;
+  const rawGithub = settings.user?.github?.trim();
+  const github = (!rawGithub || rawGithub.toLowerCase() === 'username' || rawGithub.toLowerCase() === 'zusername') ? 'octocat' : rawGithub;
 
   const imgsHtml = (Object.entries(graphs) as [Graphs, Obj][])
     .filter(([, props]) => props.show)

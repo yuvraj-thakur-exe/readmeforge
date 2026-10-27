@@ -43,7 +43,13 @@ export const StatsSection = observer(function StatsSection(
   const t = useTranslations('ui.alts');
 
   const { graphs } = content;
-  const { github } = settingsStore.$settings.user;
+  const rawGithub = settingsStore.$settings.user?.github?.trim();
+  const github =
+    !rawGithub ||
+    rawGithub.toLowerCase() === 'username' ||
+    rawGithub.toLowerCase() === 'zusername'
+      ? 'octocat'
+      : rawGithub;
 
   function getStyles() {
     if (containerStyles.direction === 'column') {
@@ -67,7 +73,7 @@ export const StatsSection = observer(function StatsSection(
         }}
       >
         {(Object.entries(graphs) as [Graphs, Obj][]).map(([graph, props]) => {
-          const srcUrl = url.getStats(graph as Graphs, github!);
+          const srcUrl = url.getStats(graph as Graphs, github);
 
           const { height = '', show = false, ...rest } = { ...props };
           if (!graph || !show) return null;

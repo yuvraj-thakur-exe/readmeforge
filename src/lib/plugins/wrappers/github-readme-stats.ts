@@ -1,4 +1,4 @@
-import { Plugin, UserSettings } from '../types';
+import { Plugin, UserSettings, resolveEffectiveUsername } from '../types';
 
 export const githubReadmeStatsPlugin: Plugin = {
   id: 'github-readme-stats',
@@ -9,6 +9,14 @@ export const githubReadmeStatsPlugin: Plugin = {
   category: 'stats',
   icon: 'bar-chart-2',
   fields: [
+    {
+      name: 'username',
+      label: 'GitHub Username Override (Leave blank to use profile)',
+      type: 'text',
+      defaultValue: '',
+      placeholder: 'e.g. octocat or leave blank',
+      required: false,
+    },
     {
       name: 'showStats',
       label: 'Show Overall Stats Card',
@@ -79,6 +87,7 @@ export const githubReadmeStatsPlugin: Plugin = {
     },
   ],
   defaultConfig: {
+    username: '',
     showStats: true,
     showStreak: true,
     showLanguages: true,
@@ -88,7 +97,8 @@ export const githubReadmeStatsPlugin: Plugin = {
     hideBorder: false,
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const user = settings.user.github || 'username';
+    const effectiveUser = resolveEffectiveUsername(props, settings);
+    const user = encodeURIComponent(effectiveUser);
     const theme = (props.theme as string) || 'radical';
     const hideBorder = props.hideBorder ? '&hide_border=true' : '';
     const align = settings.align || 'left';
@@ -99,19 +109,19 @@ export const githubReadmeStatsPlugin: Plugin = {
 
     if (props.showStats !== false) {
       cards.push(
-        `<img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=${theme}${hideBorder}" alt="${user}'s GitHub Stats" />`
+        `<img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=${theme}${hideBorder}" alt="${effectiveUser}'s GitHub Stats" />`
       );
     }
 
     if (props.showStreak) {
       cards.push(
-        `<img src="https://github-readme-streak-stats.herokuapp.com/?user=${user}&theme=${theme}${hideBorder}" alt="${user}'s Streak Stats" />`
+        `<img src="https://github-readme-streak-stats.herokuapp.com/?user=${user}&theme=${theme}${hideBorder}" alt="${effectiveUser}'s Streak Stats" />`
       );
     }
 
     if (props.showLanguages) {
       cards.push(
-        `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=${layout}&langs_count=${count}&theme=${theme}${hideBorder}" alt="${user}'s Top Languages (${layout})" />`
+        `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${user}&layout=${layout}&langs_count=${count}&theme=${theme}${hideBorder}" alt="${effectiveUser}'s Top Languages (${layout})" />`
       );
     }
 

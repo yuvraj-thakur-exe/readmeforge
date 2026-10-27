@@ -84,6 +84,9 @@ export function LivePreviewPane() {
     confetti({ particleCount: 40, spread: 50 });
   };
 
+  const rawUser = config.settings?.user?.github?.trim().toLowerCase();
+  const isPlaceholder = !rawUser || rawUser === 'username' || rawUser === 'zusername' || rawUser === 'your-username';
+
   return (
     <div className="flex flex-col h-full rounded-xl border border-palette-line bg-palette-base shadow-lg overflow-hidden">
       {/* Header bar */}
@@ -120,6 +123,15 @@ export function LivePreviewPane() {
           />
         </div>
       </div>
+
+      {isPlaceholder && (
+        <div className="mx-4 mt-3 mb-1 px-3 py-2 rounded-lg bg-violet-950/40 border border-violet-800/40 text-[11px] text-violet-300 flex items-center gap-2">
+          <span>💡</span>
+          <span>
+            Previewing with active demo account (<strong>octocat</strong>). Set your GitHub username in step 1 to see your real personal trophies and stats!
+          </span>
+        </div>
+      )}
 
       {/* Rendered Preview Body */}
       <div

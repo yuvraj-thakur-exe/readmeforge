@@ -1,4 +1,4 @@
-import { Plugin, UserSettings } from '../types';
+import { Plugin, UserSettings, resolveEffectiveUsername } from '../types';
 
 export const githubProfileTrophyPlugin: Plugin = {
   id: 'github-profile-trophy',
@@ -9,6 +9,14 @@ export const githubProfileTrophyPlugin: Plugin = {
   category: 'trophy',
   icon: 'award',
   fields: [
+    {
+      name: 'username',
+      label: 'GitHub Username Override (Leave blank to use profile)',
+      type: 'text',
+      defaultValue: '',
+      placeholder: 'e.g. octocat or leave blank',
+      required: false,
+    },
     {
       name: 'mirror',
       label: 'Service Host / Mirror (Fixes 402 Downtime)',
@@ -74,6 +82,7 @@ export const githubProfileTrophyPlugin: Plugin = {
     },
   ],
   defaultConfig: {
+    username: '',
     mirror: 'https://github-profile-repo.vercel.app',
     customUrl: '',
     theme: 'flat',
@@ -83,8 +92,8 @@ export const githubProfileTrophyPlugin: Plugin = {
     noFrame: false,
   },
   renderMarkdown: (props: Record<string, unknown>, settings: UserSettings) => {
-    const rawUser = (settings.user.github || 'username').trim();
-    const user = encodeURIComponent(rawUser);
+    const effectiveUser = resolveEffectiveUsername(props, settings);
+    const user = encodeURIComponent(effectiveUser);
     const theme = (props.theme as string) || 'flat';
     const row = props.row || 1;
     const column = props.column || 6;
@@ -99,7 +108,7 @@ export const githubProfileTrophyPlugin: Plugin = {
     const url = `${baseUrl}/?username=${user}&theme=${theme}&row=${row}&column=${column}${noBg}${noFrame}`;
 
     return {
-      markdown: `<div align="${align}">\n  <a href="https://github.com/ryo-ma/github-profile-trophy">\n    <img src="${url}" alt="${user} trophies" />\n  </a>\n</div>`,
+      markdown: `<div align="${align}">\n  <a href="https://github.com/ryo-ma/github-profile-trophy">\n    <img src="${url}" alt="${effectiveUser} trophies" />\n  </a>\n</div>`,
     };
   },
 };
