@@ -49,9 +49,9 @@
   /* Font */
 
   --font-sans:
-    var(--font-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --font-mono:
-    var(--font-mono), 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+    'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
 
   --text-xs: 1.2rem;
   --text-sm: 1.4rem;
