@@ -33,6 +33,7 @@ export const markdownBadgesPlugin: Plugin = {
         { label: 'Google Cloud', value: 'gcp' },
         { label: 'Git', value: 'git' },
         { label: 'Linux', value: 'linux' },
+        { label: 'Pinterest', value: 'pinterest' },
       ],
       required: false,
     },
@@ -78,6 +79,7 @@ export const markdownBadgesPlugin: Plugin = {
       gcp: { label: 'Google_Cloud', logo: 'googlecloud', color: '4285F4', logoColor: 'white' },
       git: { label: 'Git', logo: 'git', color: 'F05032', logoColor: 'white' },
       linux: { label: 'Linux', logo: 'linux', color: 'FCC624', logoColor: 'black' },
+      pinterest: { label: 'Pinterest', logo: 'pinterest', color: 'BD081C', logoColor: 'white' },
     };
 
     const badgesHtml = selected

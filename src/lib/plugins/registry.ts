@@ -13,10 +13,12 @@ import { pieChartPlugin } from './wrappers/pie-chart';
 import { capsuleBannerPlugin } from './wrappers/capsule-banner';
 import { mascotBioPlugin } from './wrappers/mascot-bio';
 import { skillIconsPlugin } from './wrappers/skill-icons';
+import { pinterestImagePlugin } from './wrappers/pinterest-image';
 
 export const pluginRegistry: Plugin[] = [
   capsuleBannerPlugin,
   mascotBioPlugin,
+  pinterestImagePlugin,
   readmeTypingSvgPlugin,
   githubReadmeStatsPlugin,
   pieChartPlugin,

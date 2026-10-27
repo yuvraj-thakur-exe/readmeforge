@@ -1014,6 +1014,84 @@ export const TEMPLATES: TemplateItem[] = [
       ],
     },
   },
+  {
+    id: 'pinterest-lofi-aesthetic',
+    name: 'Aesthetic Lo-Fi & Pinterest Art',
+    description: 'Vibrant, cozy developer profile with animated Lo-Fi midnight coding desk artwork from Pinterest, ambient music player, aesthetic tech badges, and clean stats.',
+    category: 'Design',
+    accent: '#ec4899',
+    prompt:
+      'Generate an aesthetic Lo-Fi developer GitHub profile README featuring a cozy animated Pinterest midnight coding desk artwork banner, ambient playlist aesthetics, pastel tech badges, gentle typography, and clean GitHub contribution activity stats.',
+    config: {
+      version: '1.0.0',
+      title: 'Aesthetic Lo-Fi Profile',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Aria Vance',
+          role: 'Creative Technologist & Lo-Fi Enthusiast',
+          bio: 'Turning coffee, ambient synth, and midnight ideas into elegant digital software.',
+          location: 'Tokyo / Remote',
+          pronouns: 'she/her',
+          status: 'Listening to Lo-Fi beats & shipping creative UI',
+        },
+        theme: 'dark',
+        accentColor: '#ec4899',
+        badgeStyle: 'for-the-badge',
+        align: 'center',
+      },
+      sections: [
+        {
+          id: 'pinterest-art-1',
+          type: 'pinterest-image',
+          props: {
+            content: {
+              preset: 'lofi-coder',
+              width: '100%',
+              caption: '✦ Turning coffee and midnight playlists into clean software architectures ✦',
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'typing-aesthetic',
+          type: 'readme-typing-svg',
+          props: {
+            content: {
+              lines: ['Creative Technologist', 'Aesthetic Web Architect', 'Midnight Lo-Fi Coder'],
+              color: 'ec4899',
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'skills-aesthetic',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'ts,react,nextjs,tailwind,nodejs,python,docker,git',
+              theme: 'dark',
+              perLine: 12,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'activity-aesthetic',
+          type: 'activity-graph',
+          props: { content: { color: 'EC4899', title: 'Aesthetic Commit Velocity' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'stats-aesthetic',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'radical', showIcons: true }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
 ];
 
 const KEYWORDS = [

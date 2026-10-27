@@ -18,6 +18,7 @@ describe('Plugin Registry', () => {
     expect(ids).toContain('capsule-banner');
     expect(ids).toContain('mascot-bio');
     expect(ids).toContain('skill-icons');
+    expect(ids).toContain('pinterest-image');
   });
 
   it('validates that every plugin has valid fields and renderMarkdown output', () => {
