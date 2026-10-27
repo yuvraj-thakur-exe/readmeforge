@@ -14,11 +14,13 @@ import { capsuleBannerPlugin } from './wrappers/capsule-banner';
 import { mascotBioPlugin } from './wrappers/mascot-bio';
 import { skillIconsPlugin } from './wrappers/skill-icons';
 import { pinterestImagePlugin } from './wrappers/pinterest-image';
+import { figmaDesignPlugin } from './wrappers/figma-design';
 
 export const pluginRegistry: Plugin[] = [
   capsuleBannerPlugin,
   mascotBioPlugin,
   pinterestImagePlugin,
+  figmaDesignPlugin,
   readmeTypingSvgPlugin,
   githubReadmeStatsPlugin,
   pieChartPlugin,

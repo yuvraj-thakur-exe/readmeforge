@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date();
 
   // Public indexable routes across locales
-  const pathnames = ['', '/wizard', '/developer', '/animator', '/info', '/privacy-policy'];
+  const pathnames = ['', '/wizard', '/canvas', '/developer', '/animator', '/info', '/privacy-policy'];
 
   return routing.locales.flatMap(locale => {
     const isDefault = locale === routing.defaultLocale;

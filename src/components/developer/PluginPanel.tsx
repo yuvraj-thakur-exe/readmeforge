@@ -100,10 +100,10 @@ export const PluginPanel: React.FC<PluginPanelProps> = ({
 
   const handleCopyAiPrompt = async () => {
     const prompt = `Act as a senior developer personal branding expert.
-I am configuring my GitHub Profile README using ReadmeForge (https://readmeforge.vercel.app).
+I am configuring my GitHub Profile README using ReadmeForge (https://readmeforge-black.vercel.app).
 
-Machine-readable JSON schema is at: https://readmeforge.vercel.app/api/schema
-Developer documentation: https://readmeforge.vercel.app/llms.txt
+Machine-readable JSON schema is at: https://readmeforge-black.vercel.app/api/schema
+Developer documentation: https://readmeforge-black.vercel.app/llms.txt
 
 Here is my current profile configuration in ReadmeForge JSON format:
 \`\`\`json

@@ -6,7 +6,7 @@ import { ThemeToggle } from '#/components/theme/ThemeToggle';
 
 export function TopNav() {
   const pathname = usePathname();
-  const isWizard = pathname?.includes('/wizard');
+  const isWizard = pathname?.includes('/wizard') || pathname?.includes('/canvas');
   const isDev = pathname?.includes('/developer');
   const isAnimator = pathname?.includes('/animator');
   const isInfo = pathname?.includes('/info');

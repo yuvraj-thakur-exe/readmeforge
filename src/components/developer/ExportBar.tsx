@@ -108,9 +108,9 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
   const handleCopyAiPrompt = async () => {
     try {
       const prompt = `Act as an expert GitHub Profile README engineer.
-I am configuring my profile README via ReadmeForge (https://readmeforge.vercel.app).
-Schema Documentation: https://readmeforge.vercel.app/api/schema
-AI Guidance: https://readmeforge.vercel.app/llms.txt
+I am configuring my profile README via ReadmeForge (https://readmeforge-black.vercel.app).
+Schema Documentation: https://readmeforge-black.vercel.app/api/schema
+AI Guidance: https://readmeforge-black.vercel.app/llms.txt
 
 Here is my current profile JSON configuration:
 \`\`\`json
