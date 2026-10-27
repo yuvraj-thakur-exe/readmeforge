@@ -9,7 +9,7 @@ echo "📦 Installing ReadmeForge Agent Skill to ${TARGET_DIR}..."
 
 mkdir -p "${TARGET_DIR}"
 
-BASE_URL="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/.agents/skills/readmeforge/SKILL.md"
+BASE_URL="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/.agents/skills/readmeforge/SKILL.md"
 
 if command -v curl >/dev/null 2>&1; then
   curl -fsSL "${BASE_URL}" -o "${TARGET_DIR}/SKILL.md"

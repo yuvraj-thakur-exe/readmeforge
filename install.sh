@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ReadmeForge 1-Line Installer & Quickstart
-# Usage: curl -fsSL https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.sh | bash
 
 set -e
 
@@ -30,7 +30,7 @@ else
     cd "$TARGET_DIR"
   else
     echo "📥 Cloning ReadmeForge..."
-    git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git "$TARGET_DIR"
+    git clone https://github.com/yuvraj-thakur-exe/readmeforge.git "$TARGET_DIR"
     cd "$TARGET_DIR"
   fi
 fi

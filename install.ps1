@@ -1,5 +1,5 @@
 # ReadmeForge 1-Line Installer for Windows PowerShell
-# Usage: iwr -useb https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.ps1 | iex
+# Usage: iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
@@ -23,7 +23,7 @@ if ((Test-Path "package.json") -and (Select-String -Path "package.json" -Pattern
         Set-Location $targetDir
     } else {
         Write-Host "📥 Cloning ReadmeForge..." -ForegroundColor Cyan
-        git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git $targetDir
+        git clone https://github.com/yuvraj-thakur-exe/readmeforge.git $targetDir
         Set-Location $targetDir
     }
 }

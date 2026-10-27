@@ -84,3 +84,4 @@ describe('figmaDesignPlugin', () => {
     expect(output).toContain('WCAG_AAA');
   });
 });
+

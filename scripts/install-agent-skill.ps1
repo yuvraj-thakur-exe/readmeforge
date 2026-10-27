@@ -13,7 +13,7 @@ if (-not (Test-Path $TargetDir)) {
   New-Item -ItemType Directory -Path $TargetDir -Force | Out-Null
 }
 
-$url = "https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/.agents/skills/readmeforge/SKILL.md"
+$url = "https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/.agents/skills/readmeforge/SKILL.md"
 $dest = Join-Path $TargetDir "SKILL.md"
 
 Invoke-WebRequest -Uri $url -OutFile $dest
