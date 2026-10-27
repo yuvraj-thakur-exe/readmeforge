@@ -97,7 +97,7 @@ export function TopNav() {
           <ThemeToggle />
 
           <a
-            href="https://github.com/yuvrajlaptop2008-byte/readmeforge"
+            href="https://github.com/yuvraj-thakur-exe/readmeforge"
             target="_blank"
             rel="noreferrer"
             className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-neutral-900/90 border border-neutral-700/80 hover:border-neutral-500 hover:bg-neutral-800 text-neutral-200 transition-all duration-200 shadow-sm active:scale-95"

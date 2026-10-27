@@ -223,10 +223,10 @@ export function InfoHub() {
   }, [templateFilter, searchQuery]);
 
   // Commands for installer
-  const linuxInstallCmd = 'curl -fsSL https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.sh | bash';
-  const windowsInstallCmd = 'iwr -useb https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/install.ps1 | iex';
-  const gitCloneCmd = 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git\ncd readmeforge\ncorepack enable\npnpm install\npnpm dev';
-  const npmCmd = 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git\ncd readmeforge\nnpm install\nnpm run dev';
+  const linuxInstallCmd = 'curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.sh | bash';
+  const windowsInstallCmd = 'iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.ps1 | iex';
+  const gitCloneCmd = 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git\ncd readmeforge\ncorepack enable\npnpm install\npnpm dev';
+  const npmCmd = 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git\ncd readmeforge\nnpm install\nnpm run dev';
   const dockerCmd = 'docker build -t readmeforge .\ndocker run -p 3000:3000 readmeforge';
 
   const currentInstallCmd = useMemo(() => {
@@ -773,7 +773,7 @@ export function InfoHub() {
                   <div className="flex items-center justify-between p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
                     <span className="truncate mr-2">git clone https://...</span>
                     <CopyButton
-                      textToCopy="git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git"
+                      textToCopy="git clone https://github.com/yuvraj-thakur-exe/readmeforge.git"
                       variant="ghost"
                       size="xs"
                       iconOnly
@@ -1553,7 +1553,7 @@ export function InfoHub() {
                 <div>
                   <h4 className="text-base font-bold text-white">Yuvraj Thakur</h4>
                   <p className="text-xs text-neutral-400 font-mono">
-                    Maintainer &amp; Creator of ReadmeForge • @yuvrajlaptop2008-byte
+                    Maintainer &amp; Creator of ReadmeForge • @yuvraj-thakur-exe
                   </p>
                   <div className="flex items-center gap-3 mt-1.5 text-xs">
                     <span className="text-emerald-400 font-semibold">MIT License</span>
@@ -1565,7 +1565,7 @@ export function InfoHub() {
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <a
-                  href="https://github.com/yuvrajlaptop2008-byte/readmeforge"
+                  href="https://github.com/yuvraj-thakur-exe/readmeforge"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs border border-neutral-700 transition-colors shadow-sm"

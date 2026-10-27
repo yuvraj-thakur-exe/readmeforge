@@ -1,10 +1,10 @@
 <div align="center" id="top">
 
-  <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge">
+  <a href="https://github.com/yuvraj-thakur-exe/readmeforge">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo-light.svg">
-      <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/logo.svg" width="420" alt="ReadmeForge Logo" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/logo-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/logo-light.svg">
+      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/logo.svg" width="420" alt="ReadmeForge Logo" />
     </picture>
   </a>
 
@@ -25,7 +25,7 @@
     <a href="#-ai-agent-skill--mcp-server">
       <img src="https://img.shields.io/badge/Agent_Skill-MCP_Ready-8b5cf6?style=for-the-badge&logo=anthropic" alt="Agent Skill Ready" />
     </a>
-    <a href="https://github.com/yuvrajlaptop2008-byte/readmeforge/blob/main/LICENSE.md">
+    <a href="https://github.com/yuvraj-thakur-exe/readmeforge/blob/main/LICENSE.md">
       <img src="https://img.shields.io/badge/License-MIT-a855f7?style=for-the-badge" alt="License: MIT" />
     </a>
   </p>
@@ -80,10 +80,10 @@ Run this command in any repository or agent workspace:
 
 ```bash
 # macOS / Linux / WSL
-curl -fsSL https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/scripts/install-agent-skill.sh | bash
+curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/scripts/install-agent-skill.sh | bash
 
 # Windows PowerShell
-irm https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/scripts/install-agent-skill.ps1 | iex
+irm https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/scripts/install-agent-skill.ps1 | iex
 
 # Or using the CLI:
 npx readmeforge skill-install
@@ -130,7 +130,7 @@ ReadmeForge includes 8 production-grade visual archetypes ready out-of-the-box:
 ---
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Multi-Language Playground with Dynamic Character Kinematics" width="100%" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/animated-characters.svg" alt="ReadmeForge Multi-Language Playground with Dynamic Character Kinematics" width="100%" />
 </div>
 
 ---
@@ -141,7 +141,7 @@ Run ReadmeForge locally in under a minute with Node.js 20+ and pnpm:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git
+git clone https://github.com/yuvraj-thakur-exe/readmeforge.git
 cd readmeforge
 
 # 2. Install dependencies
@@ -167,7 +167,7 @@ Open **[http://localhost:3000/en](http://localhost:3000/en)** in your browser.
 - **100% Client-Side Privacy**: All parsing, state management, and Markdown generation run locally in your browser.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/developer-mode.svg" alt="ReadmeForge Developer Mode Split IDE Preview" width="100%" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/developer-mode.svg" alt="ReadmeForge Developer Mode Split IDE Preview" width="100%" />
 </div>
 
 ---

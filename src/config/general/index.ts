@@ -1,8 +1,21 @@
+const getAppUrl = (): string => {
+  if (process.env.NEXT_PUBLIC_APP_URL) {
+    return process.env.NEXT_PUBLIC_APP_URL.replace(/\/+$/, '');
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`.replace(/\/+$/, '');
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`.replace(/\/+$/, '');
+  }
+  return 'https://readmeforge-black.vercel.app';
+};
+
 const general = {
   name: 'ReadmeForge',
   tagline: 'Forge a GitHub profile that gets noticed.',
   urls: {
-    app: 'https://readmeforge.dev',
+    app: getAppUrl(),
     sections: {
       music: {
         spotify: {
@@ -30,7 +43,7 @@ const general = {
 
       socials: {
         iconBaseUrl:
-          'https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/icons/social',
+          'https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/icons/social',
         badgeBaseUrl: 'https://img.shields.io/static/v1',
       },
 

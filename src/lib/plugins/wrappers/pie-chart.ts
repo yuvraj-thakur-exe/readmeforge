@@ -5,7 +5,7 @@ export const pieChartPlugin: Plugin = {
   name: 'Skills & Language Pie Chart',
   description: 'Generate dynamic visual pie charts and donut charts representing skill distributions or language metrics.',
   author: 'ReadmeForge',
-  repository: 'https://github.com/yuvrajlaptop2008-byte/readmeforge',
+  repository: 'https://github.com/yuvraj-thakur-exe/readmeforge',
   category: 'stats',
   icon: 'pie-chart',
   fields: [

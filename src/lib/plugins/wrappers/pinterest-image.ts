@@ -6,7 +6,7 @@ export const pinterestImagePlugin: Plugin = {
   name: 'Pinterest Aesthetic Banner & Art',
   description: 'Embed high-resolution aesthetic Pinterest artworks, animated GIFs, anime banners, and visual media into your GitHub README.',
   author: 'ReadmeForge',
-  repository: 'https://github.com/yuvrajlaptop2008-byte/readmeforge',
+  repository: 'https://github.com/yuvraj-thakur-exe/readmeforge',
   category: 'widgets',
   icon: 'image',
   fields: [

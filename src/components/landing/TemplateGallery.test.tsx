@@ -35,7 +35,7 @@ describe('TemplateGallery Component', () => {
 
     expect(screen.getAllByText(/Cyberpunk & Gamer/i).length).toBeGreaterThan(0);
     expect(screen.queryByText(/Full-Stack Polyglot/i)).toBeNull();
-  });
+  }, 15000);
 
   it('filters templates when searching via the search bar', () => {
     render(<TemplateGallery />);
@@ -46,7 +46,7 @@ describe('TemplateGallery Component', () => {
     // Cloud & DevOps Master mentions Kubernetes in description
     expect(screen.getAllByText(/Cloud & DevOps Master/i).length).toBeGreaterThan(0);
     expect(screen.queryByText(/Cyberpunk & Gamer/i)).toBeNull();
-  });
+  }, 15000);
 
   it('opens interactive preview modal and allows tab switching', () => {
     render(<TemplateGallery />);

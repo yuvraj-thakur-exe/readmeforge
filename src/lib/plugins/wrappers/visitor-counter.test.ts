@@ -14,7 +14,7 @@ describe('visitor-counter wrapper', () => {
   describe('sanitizeGitHubUsername', () => {
     it('accepts valid GitHub usernames', () => {
       expect(sanitizeGitHubUsername('octocat')).toBe('octocat');
-      expect(sanitizeGitHubUsername('yuvrajlaptop2008-byte')).toBe('yuvrajlaptop2008-byte');
+      expect(sanitizeGitHubUsername('yuvraj-thakur-exe')).toBe('yuvraj-thakur-exe');
       expect(sanitizeGitHubUsername('john-doe-123')).toBe('john-doe-123');
     });
 

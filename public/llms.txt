@@ -62,7 +62,7 @@ AI agents (Claude, Cursor, Devin, Antigravity, Copilot) can execute ReadmeForge 
 - **/developer IDE**: https://readmeforge-black.vercel.app/en/developer
 - **JSON Schema API**: https://readmeforge-black.vercel.app/api/schema
 - **Agent Context (Full)**: https://readmeforge-black.vercel.app/llms-full.txt
-- **GitHub Repository**: https://github.com/yuvrajlaptop2008-byte/readmeforge
+- **GitHub Repository**: https://github.com/yuvraj-thakur-exe/readmeforge
 
 ## Sample Valid Configuration
 ```json

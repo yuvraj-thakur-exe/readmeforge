@@ -19,7 +19,7 @@ test('clicking Star This Project opens the project repository', async ({
   ]);
 
   await expect(newPage).toHaveURL(
-    'https://github.com/yuvrajlaptop2008-byte/readmeforge'
+    'https://github.com/yuvraj-thakur-exe/readmeforge'
   );
   await newPage.close();
 });
@@ -28,7 +28,7 @@ test('clicking Fork on Github opens the fork page', async ({ page }) => {
   const fork = page.getByTestId('Fork on Github');
   await expect(fork).toHaveAttribute(
     'href',
-    'https://github.com/yuvrajlaptop2008-byte/readmeforge/fork'
+    'https://github.com/yuvraj-thakur-exe/readmeforge/fork'
   );
 });
 

@@ -109,7 +109,7 @@ export async function generateMetadata({
       title,
       description,
       images: '/api/og',
-      creator: 'https://github.com/yuvrajlaptop2008-byte/readmeforge',
+      creator: 'https://github.com/yuvraj-thakur-exe/readmeforge',
     },
     alternates: {
       languages,
@@ -185,10 +185,10 @@ export default async function RootLayout({
               creator: {
                 '@type': 'Person',
                 name: 'Yuvraj Thakur',
-                url: 'https://github.com/yuvrajlaptop2008-byte',
+                url: 'https://github.com/yuvraj-thakur-exe',
               },
               sameAs: [
-                'https://github.com/yuvrajlaptop2008-byte/readmeforge',
+                'https://github.com/yuvraj-thakur-exe/readmeforge',
               ],
             }),
           }}

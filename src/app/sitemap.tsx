@@ -6,7 +6,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const basePath = config.general.urls.app;
   const today = new Date();
 
-  const pathnames = ['', '/result', '/privacy-policy'];
+  // Public indexable routes across locales
+  const pathnames = ['', '/wizard', '/developer', '/animator', '/info', '/privacy-policy'];
 
   return routing.locales.flatMap(locale => {
     const isDefault = locale === routing.defaultLocale;
@@ -14,9 +15,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return pathnames.map(pathname => ({
       url: `${basePath}/${locale}${pathname}`,
       lastModified: today,
-      changeFrequency: 'yearly',
-      priority: isDefault && pathname === '' ? 1 : 0.2,
-      images: [`${basePath}/api/og`],
+      changeFrequency: pathname === '' ? 'daily' : 'weekly',
+      priority: isDefault && pathname === '' ? 1.0 : 0.8,
       alternates: {
         languages: Object.fromEntries(
           routing.locales.map(loc => [loc, `${basePath}/${loc}${pathname}`])

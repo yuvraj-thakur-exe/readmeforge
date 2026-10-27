@@ -5,7 +5,7 @@ export const mascotBioPlugin: Plugin = {
   name: 'Mascot Companion Bio',
   description: 'Two-column GitHub profile layout pairing structured bulleted bio points with an animated vector mascot sticker.',
   author: 'ReadmeForge',
-  repository: 'https://github.com/yuvrajlaptop2008-byte/readmeforge',
+  repository: 'https://github.com/yuvraj-thakur-exe/readmeforge',
   category: 'widgets',
   icon: 'user-check',
   fields: [
@@ -97,11 +97,11 @@ export const mascotBioPlugin: Plugin = {
       .join('\n            ');
 
     const MASCOT_URLS: Record<string, string> = {
-      'owl-confetti': 'https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/owl-confetti.svg',
-      'coding-unicorn': 'https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/coding-unicorn.svg',
-      'developer-desk': 'https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/developer-desk.svg',
-      'octocat-coffee': 'https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/octocat-coffee.svg',
-      'cyber-bot': 'https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/characters/blue-bot.svg',
+      'owl-confetti': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/owl-confetti.svg',
+      'coding-unicorn': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/coding-unicorn.svg',
+      'developer-desk': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/developer-desk.svg',
+      'octocat-coffee': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/octocat-coffee.svg',
+      'cyber-bot': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/characters/blue-bot.svg',
     };
 
     const mascotUrl = MASCOT_URLS[mascot] || MASCOT_URLS['owl-confetti'];

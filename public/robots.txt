@@ -54,7 +54,6 @@ Allow: /
 
 # Sitemaps
 Sitemap: https://readmeforge-black.vercel.app/sitemap.xml
-Sitemap: https://readmeforge.dev/sitemap.xml
 
 # AI Agent Context & API Schemas
 # llms.txt: https://readmeforge-black.vercel.app/llms.txt
