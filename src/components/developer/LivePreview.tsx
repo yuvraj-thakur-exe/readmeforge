@@ -1,9 +1,42 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import parse from 'html-react-parser';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
+import rehypeStringify from 'rehype-stringify';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { buildMarkdown } from '#/lib/buildMarkdown';
 import { Copy, Check, Eye, Code, FileText } from 'lucide-react';
+
+const sanitizeSchema = {
+  ...defaultSchema,
+  attributes: {
+    ...defaultSchema.attributes,
+    div: [...(defaultSchema.attributes?.div || []), 'align', 'className', 'class'],
+    p: [...(defaultSchema.attributes?.p || []), 'align', 'className', 'class'],
+    h1: [...(defaultSchema.attributes?.h1 || []), 'align'],
+    h2: [...(defaultSchema.attributes?.h2 || []), 'align'],
+    h3: [...(defaultSchema.attributes?.h3 || []), 'align'],
+    img: [...(defaultSchema.attributes?.img || []), 'src', 'alt', 'height', 'width', 'align'],
+    source: [...(defaultSchema.attributes?.source || []), 'media', 'srcset'],
+    picture: [...(defaultSchema.attributes?.picture || [])],
+    a: [...(defaultSchema.attributes?.a || []), 'href', 'target', 'rel'],
+  },
+  tagNames: [
+    ...(defaultSchema.tagNames || []),
+    'picture',
+    'source',
+    'svg',
+    'path',
+    'circle',
+    'rect',
+  ],
+};
 
 interface LivePreviewProps {
   className?: string;
@@ -21,6 +54,26 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
       return '<!-- Error generating markdown from configuration -->';
     }
   }, [config]);
+
+  const renderedContent = useMemo(() => {
+    try {
+      const file = unified()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkRehype, { allowDangerousHtml: true })
+        .use(rehypeRaw)
+        .use(rehypeSanitize, sanitizeSchema)
+        .use(rehypeStringify)
+        .processSync(markdown);
+      return parse(String(file));
+    } catch {
+      return (
+        <pre className="font-mono text-xs text-neutral-300 whitespace-pre-wrap leading-relaxed">
+          {markdown}
+        </pre>
+      );
+    }
+  }, [markdown]);
 
   const handleCopy = async () => {
     try {
@@ -87,16 +140,15 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
             {markdown}
           </pre>
         ) : (
-          <div className="prose prose-invert max-w-none text-neutral-200 text-sm">
-            {/* Render formatted preview representation */}
-            <div className="p-4 bg-neutral-950/80 rounded-md border border-neutral-800 space-y-4">
+          <div className="max-w-none text-neutral-200 text-sm">
+            <div className="p-5 bg-neutral-950/90 rounded-md border border-neutral-800/80 space-y-4">
               <div className="flex items-center gap-2 pb-3 border-b border-neutral-800 text-xs text-neutral-400">
                 <FileText className="w-4 h-4 text-violet-400" />
-                <span>README.md Preview</span>
+                <span className="font-medium">README.md Live Preview</span>
               </div>
-              <pre className="font-mono text-xs text-neutral-300 whitespace-pre-wrap leading-relaxed">
-                {markdown}
-              </pre>
+              <div className="markdown-body text-neutral-200 text-sm leading-relaxed overflow-x-auto">
+                {renderedContent}
+              </div>
             </div>
           </div>
         )}

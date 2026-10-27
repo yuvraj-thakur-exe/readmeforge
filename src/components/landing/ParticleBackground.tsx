@@ -8,7 +8,22 @@ export const ParticleBackground = () => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+    const win = window as any;
+    const schedule = win.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1200));
+    const handle = schedule(() => {
+      setMounted(true);
+    });
+
+    return () => {
+      if (win.cancelIdleCallback) {
+        win.cancelIdleCallback(handle);
+      } else {
+        clearTimeout(handle);
+      }
+    };
   }, []);
 
   const particlesInit = useCallback(async (engine: any) => {

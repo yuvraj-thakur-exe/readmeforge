@@ -13,6 +13,7 @@ import {
   RotateCcw,
   Sparkles,
   Github,
+  Bot,
 } from 'lucide-react';
 
 interface ExportBarProps {
@@ -30,6 +31,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
   const [copied, setCopied] = useState<boolean>(false);
   const [copiedUrl, setCopiedUrl] = useState<boolean>(false);
+  const [copiedAiPrompt, setCopiedAiPrompt] = useState<boolean>(false);
 
   const triggerCelebration = () => {
     try {
@@ -103,6 +105,27 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
     }
   };
 
+  const handleCopyAiPrompt = async () => {
+    try {
+      const prompt = `Act as an expert GitHub Profile README engineer.
+I am configuring my profile README via ReadmeForge (https://readmeforge.vercel.app).
+Schema Documentation: https://readmeforge.vercel.app/api/schema
+AI Guidance: https://readmeforge.vercel.app/llms.txt
+
+Here is my current profile JSON configuration:
+\`\`\`json
+${JSON.stringify(config, null, 2)}
+\`\`\`
+
+Please update or enhance this ReadmeConfig JSON. Return only the valid JSON.`;
+      await navigator.clipboard.writeText(prompt);
+      setCopiedAiPrompt(true);
+      setTimeout(() => setCopiedAiPrompt(false), 2000);
+    } catch {
+      // Fallback
+    }
+  };
+
   return (
     <div className={`flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 bg-neutral-900 border-t border-neutral-800 text-xs ${className}`}>
       {/* Undo / Redo / Reset */}
@@ -142,6 +165,16 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
       {/* Export Actions */}
       <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={handleCopyAiPrompt}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-cyan-300 border border-cyan-800/40 hover:border-cyan-700 transition-colors"
+          title="Copy pre-engineered prompt and config for AI coding agents"
+        >
+          {copiedAiPrompt ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Bot className="w-3.5 h-3.5 text-cyan-400" />}
+          <span>{copiedAiPrompt ? 'Prompt Copied!' : 'AI Prompt'}</span>
+        </button>
+
         <button
           type="button"
           onClick={handleShareUrl}

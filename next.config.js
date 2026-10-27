@@ -9,7 +9,8 @@ const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  // Use standalone output for container builds (Docker), but native serverless on Vercel
+  ...(process.env.VERCEL ? {} : { output: 'standalone' }),
   allowedDevOrigins: ['127.0.0.1', 'localhost'],
 };
 

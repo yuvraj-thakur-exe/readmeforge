@@ -40,9 +40,11 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+.playwright-mcp/
 
 # git worktrees
 .worktrees/
 
 # TypeScript cache
 *.tsbuildinfo
+.env*

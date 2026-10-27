@@ -1,0 +1,87 @@
+# ReadmeForge — AI Agent Specification & Context (llms.txt)
+> https://readmeforge.dev | An open-source, client-side GitHub profile README generator and visual studio.
+
+## Project Summary
+ReadmeForge generates production-grade, GitHub-safe markdown profiles with zero required runtime servers.
+It supports two primary creation workflows:
+1. **Visual Wizard**: Step-by-step modular form with real-time preview and resume import.
+2. **/developer Mode**: Raw-mode Monaco JSON editor with instant two-way synchronization, Zod schema validation, plugin registry drawer, and live markdown preview.
+
+## Canonical Schema
+All profiles conform to the `ReadmeConfig` specification:
+- **`version`** (string): Current schema version (e.g. `"1.0.0"`).
+- **`title`** (string): User profile title or project headline.
+- **`settings`** (object):
+  - **`user`** (object): `github` (required string), `name`, `role`, `bio`, `location`, `pronouns`, `status`.
+  - **`theme`** (string): `"dark"` | `"light"` | `"auto"`.
+  - **`accentColor`** (string): Hex color (e.g. `"#8b5cf6"`, `"#10b981"`).
+  - **`badgeStyle`** (string): `"for-the-badge"` | `"flat"` | `"flat-square"` | `"plastic"`.
+  - **`align`** (string): `"left"` | `"center"` | `"right"`.
+- **`sections`** (array of SectionConfig):
+  - **`id`** (string): Unique identifier (e.g. `"sec-1"`).
+  - **`type`** (string): One of the 11 registered plugin IDs below.
+  - **`props`** (object): `{ content: Record<string, unknown>, styles: Record<string, unknown>, state?: string }`.
+
+## Modular Plugin Registry (11 Core Plugins)
+1. `header-bio`: Custom title, subtitle, status badge, pronouns, location, and avatar.
+2. `readme-typing-svg`: Dynamic typewriter headline via pure SVG animation.
+3. `markdown-badges`: 150+ technology, language, framework, database, and tool badges.
+4. `github-readme-stats`: Overall GitHub telemetry (stars, commits, pull requests, reviews).
+5. `streak-stats`: GitHub contribution streak and total lifetime contributions.
+6. `activity-graph`: Waveform contribution graph and activity trendlines.
+7. `github-profile-trophy`: Gamified achievement trophies ranked by stars, commits, and PRs.
+8. `pie-chart`: Top programming languages breakdown (donut, pie, or compact bar).
+9. `visitor-counter`: Non-invasive profile visitor counter badge.
+10. `snk`: Animated retro snake game eating through user's contribution grid.
+11. `social-links`: Social media, portfolio, blog, and community contact badges.
+
+## Machine Endpoints & URLs
+- **Web App**: https://readmeforge.dev
+- **/developer IDE**: https://readmeforge.dev/en/developer
+- **JSON Schema API**: https://readmeforge.dev/api/schema
+- **Agent Context (Full)**: https://readmeforge.dev/llms-full.txt
+- **GitHub Repository**: https://github.com/yuvrajlaptop2008-byte/readmeforge
+
+## Sample Valid Configuration
+```json
+{
+  "version": "1.0.0",
+  "title": "Full-Stack Engineer Profile",
+  "settings": {
+    "user": {
+      "github": "octocat",
+      "name": "Alex Mercer",
+      "role": "Full-Stack & Systems Engineer",
+      "bio": "Building fast, reliable web applications and distributed backends.",
+      "location": "San Francisco, CA",
+      "pronouns": "they/them",
+      "status": "Exploring Rust & Turbopack"
+    },
+    "theme": "dark",
+    "accentColor": "#8b5cf6",
+    "badgeStyle": "for-the-badge",
+    "align": "left"
+  },
+  "sections": [
+    {
+      "id": "typing-header",
+      "type": "readme-typing-svg",
+      "props": {
+        "content": {
+          "lines": ["Building high-concurrency systems", "Open source contributor & maintainer"],
+          "color": "8b5cf6"
+        },
+        "styles": {}
+      }
+    },
+    {
+      "id": "gh-stats",
+      "type": "github-readme-stats",
+      "props": {
+        "content": { "showIcons": true, "includeAllCommits": true },
+        "styles": {}
+      }
+    }
+  ]
+}
+```

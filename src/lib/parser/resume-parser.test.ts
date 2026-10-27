@@ -70,4 +70,30 @@ Some grocery list items: apples, bananas, milk.
     const text = await extractTextFromBuffer(buf, 'resume.txt', 'text/plain');
     expect(text).toContain('Alex Developer');
   });
+
+  describe('hardening and bounds checking', () => {
+    it('safely caps excessively large input without failing', () => {
+      // Create 300KB repeated string
+      const hugeText = 'Alex Developer\nSenior Software Engineer\n' + 'TypeScript and React '.repeat(15000);
+      const result = parseResumeText(hugeText);
+
+      expect(result.entities.find(e => e.field === 'user.name')?.value).toBe('Alex Developer');
+      expect(result.skills).toContain('TypeScript');
+      expect(result.rawTextLength).toBeLessThanOrEqual(150000);
+    });
+
+    it('rejects buffers larger than 5MB', async () => {
+      const hugeBuffer = Buffer.alloc(6 * 1024 * 1024);
+      await expect(extractTextFromBuffer(hugeBuffer, 'huge.txt', 'text/plain')).rejects.toThrow(
+        /exceeds maximum allowable size/i
+      );
+    });
+
+    it('ignores reserved GitHub names from URL patterns', () => {
+      const text = 'Find docs at github.com/settings or github.com/features or github.com/explore';
+      const result = parseResumeText(text);
+
+      expect(result.entities.find(e => e.field === 'user.github')).toBeUndefined();
+    });
+  });
 });

@@ -129,5 +129,14 @@
     "typescript": "^7.0.2",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^4.1.10"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "esbuild",
+      "react-tsparticles",
+      "tsparticles-engine"
+    ]
   }
 }

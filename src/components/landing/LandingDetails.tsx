@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import {
-  Wand2,
+  BookOpen,
   Terminal,
   Puzzle,
   ShieldCheck,
@@ -44,7 +44,7 @@ export const LandingDetails: React.FC = () => {
 
   const featureCards = [
     {
-      icon: <Wand2 className="w-5 h-5 text-violet-400" />,
+      icon: <Layers className="w-5 h-5 text-violet-400" />,
       title: t('features.wizardTitle'),
       description: t('features.wizardDesc'),
       badge: 'Visual Builder',
@@ -53,7 +53,7 @@ export const LandingDetails: React.FC = () => {
       icon: <Terminal className="w-5 h-5 text-cyan-400" />,
       title: t('features.monacoTitle'),
       description: t('features.monacoDesc'),
-      badge: '/developer IDE',
+      badge: 'AST Sync',
     },
     {
       icon: <Puzzle className="w-5 h-5 text-fuchsia-400" />,
@@ -210,7 +210,7 @@ export const LandingDetails: React.FC = () => {
                     <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
                       Demo Developer <span className="text-violet-400 font-mono">(@developer-preview)</span>
                     </h3>
-                    <p className="text-xs text-neutral-300 max-w-md">
+                    <p className="text-xs text-neutral-300 max-w-[480px]">
                       Building next-generation intelligent developer tools and distributed web platforms.
                     </p>
                   </div>
@@ -586,28 +586,28 @@ export const LandingDetails: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Developer Mode Callout */}
+      {/* 5. Profile Wizard Callout */}
       <section className="relative overflow-hidden p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-violet-950/50 via-neutral-900 to-cyan-950/40 border border-violet-800/50 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-3 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-900/50 border border-violet-700/60 text-violet-300 text-xs font-semibold">
-            <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-            <span>{t('developerMode.badge')}</span>
+            <Layers className="w-3.5 h-3.5 text-cyan-400" />
+            <span>Interactive Profile Studio</span>
           </div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-neutral-100">
-            {t('developerMode.title')}
+            Ready to forge an unforgettable profile?
           </h3>
           <p className="text-sm text-neutral-300 leading-relaxed">
-            {t('developerMode.subtitle')}
+            Explore curated developer archetypes, dynamic shields badges, animated vector characters, and verified toolchain setups for your GitHub profile.
           </p>
         </div>
 
         <div className="flex-shrink-0">
           <Link
-            href="/developer"
-            className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-semibold shadow-lg shadow-violet-900/30 transition-all hover:scale-105"
+            href="/info"
+            className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-semibold shadow-lg shadow-violet-900/30 transition-all hover:scale-105 active:scale-95"
           >
-            <Terminal className="w-4 h-4" />
-            <span>{t('developerMode.cta')}</span>
+            <BookOpen className="w-4 h-4 text-emerald-300" />
+            <span>Explore Developer Guide</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

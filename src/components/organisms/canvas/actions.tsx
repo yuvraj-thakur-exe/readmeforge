@@ -146,33 +146,6 @@ export const CanvasActions = observer(function CanvasActions() {
           </Tooltip>
 
           <LanguageSwitcher />
-
-          <Tooltip
-            position="left"
-            content={t('canvas-actions.import-readme')}
-            className="palette-blue"
-          >
-            <Clickable.Button
-              aria-label={t('canvas-actions.import-readme')}
-              data-testid="canvas-action-import-readme"
-              size="icon"
-              variant="icon"
-              className="palette-blue"
-              onClick={actions.canvas.import.loadFile}
-            >
-              <Icon name="upload-cloud" />
-            </Clickable.Button>
-          </Tooltip>
-
-          <input
-            id="readme-file-import"
-            type="file"
-            accept=".md,text/markdown"
-            style={{
-              display: 'none',
-            }}
-            onChange={actions.canvas.import.apply}
-          />
         </div>
       </div>
     </>

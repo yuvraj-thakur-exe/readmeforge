@@ -35,7 +35,8 @@
   </defs>
 
   <style>
-    /* Blinking Caret & Typing Animation */
+    <![CDATA[
+    /* Blinking Caret and Typing Animation */
     @keyframes blinkCursor {
       0%, 100% { opacity: 1; }
       50%      { opacity: 0; }
@@ -75,6 +76,7 @@
     .preview-scan {
       animation: radarScan 4s infinite linear;
     }
+    ]]>
   </style>
 
   <!-- Container Window Frame -->
@@ -234,7 +236,7 @@
         <text x="288" y="10" font-family="system-ui" font-size="7" font-weight="700" fill="#fff" text-anchor="middle">DOCKER</text>
       </g>
 
-      <!-- Language Donut Chart Card & Activity Graph Card Mockup -->
+      <!-- Language Donut Chart Card and Activity Graph Card Mockup -->
       <g transform="translate(0, 48)">
         <!-- Donut Chart Miniature -->
         <rect x="12" y="0" width="168" height="92" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8" />

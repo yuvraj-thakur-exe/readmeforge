@@ -51,9 +51,23 @@ pnpm format      # biome format
 - Components: PascalCase, one per file, colocated `*.test.tsx` where logic warrants it.
 - Styling: Tailwind utility classes + `tailwind-variants` for variants; no plain CSS files except globals.
 - Animation: reuse `<FadeIn>` / `<Stagger>` wrappers (`src/components/motion/`) instead of inlining Framer Motion variants in every component.
-- SVG Character Kinematics: All animated vector characters must use `transform-box: fill-box;` on animated elements to prevent transform runaway, preserve aspect-ratio scaling (`preserveAspectRatio="xMidYMid meet"`), and be stationed logically with purposeful movement (walking, fighting, dancing, text interaction) near relevant code divs with corner-to-corner balance.
+- SVG Character Kinematics & Animated Assets: Refer to `.agents/skills/readme-vector-animator/SKILL.md`. All animated vector characters (Cyber Bot, Pixel Dev at desk, Ninja Coder, Builder, Wizard, and custom avatars) and non-character animations (fire banners, matrix rain, kinetic typewriter typography, laser border beams, floating tech orbits) must use `transform-box: fill-box; transform-origin: center;`, preserve aspect-ratio scaling (`preserveAspectRatio="xMidYMid meet"`), adhere to GitHub Camo rules (zero `<script>`, zero `<foreignObject>`, system font fallbacks, 60fps GPU `transform`/`opacity` only), and be stationed with purposeful motion.
 - Commit messages: Conventional Commits (`feat:`, `fix:`, `chore:`, etc.).
 - i18n strings go in `src/translations/<locale>.json` — never hardcode user-facing text in components.
+
+## Animated Vector & Character Motion Engine (README.md & Web)
+- **Primary Skill**: `.agents/skills/readme-vector-animator/SKILL.md` (and `.agents/rules/animated-vector-engine.md`).
+- **Scope**: Not limited to characters. Author standalone, production-ready SVGs including:
+  1. **Animated Characters**: Cyber Bot (thruster flicker, antenna beacon, terminal speech bubble), Pixel Developer (at dual-monitor desk with typing hands & coffee steam), Ninja Coder (combat stance, headband flutter, katana glint), Builder Crafter (hammer swing, sparks, stacking tech blocks), Wizard Mage (pulsating crystal staff, rotating runic circle).
+  2. **Atmospheric Banners**: Fire/ember rises, Matrix digital rain, Starfield nebula twinkle, CRT scanlines, Cyber grids.
+  3. **Kinetic Typography**: Terminal typewriter with blinking cursor, chromatic glitch split, gradient chrome sweep.
+  4. **Cyber Frames & Border Beams**: 60fps traveling perimeter laser lines (`stroke-dasharray`), targeting crosshairs, corner brackets.
+  5. **Floating Tech Orbits**: Elliptical orbiting tech badges (TypeScript, Rust, React, Docker, Kubernetes).
+- **GitHub Camo & Optimization Rules**:
+  - Always embed valid CSS `@keyframes` inside `<style>` blocks (never external fonts or JS scripts).
+  - Include `@media (prefers-reduced-motion: reduce)` for accessibility.
+  - Support dark/light mode via `@media (prefers-color-scheme: light)` or `<picture>` tags.
+  - Output copy-pasteable Markdown snippets (`<p align="center"><img src="..." width="100%" /></p>`) for instant user integration.
 
 ## Full feature/build spec
 See `AGENT_PROMPT_FULL.md` in repo root for the complete build plan (branding, libraries, plugin list, wizard question set, resume/enrichment spec, GitHub sync spec, execution order). AGENTS.md is the standing reference for ongoing work; AGENT_PROMPT_FULL.md was the original build brief.

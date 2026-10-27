@@ -1,20 +1,14 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
-import Link from 'next/link';
-import { TypeAnimation } from 'react-type-animation';
+import { Link } from '#/i18n/navigation';
+import { KineticTypewriter } from '#/components/landing/KineticTypewriter';
 import {
-  Wand2,
-  Terminal,
-  FileUp,
-  Sparkles,
+  Sparkle,
   Flame,
   Droplets,
   Zap,
-  Copy,
-  Check,
   Download,
-  Sparkle,
   Sliders,
   Square,
   Bot,
@@ -22,25 +16,28 @@ import {
   Footprints,
   Swords,
   Type,
+  BookOpen,
+  Terminal,
+  Activity,
+  Sparkles,
+  Code2,
 } from 'lucide-react';
-import { ResumeUpload } from '#/components/enrichment/ResumeUpload';
-import { importReadmeFromMarkdown } from '#/lib/parser/import-readme';
-import { useReadmeStore } from '#/store/useReadmeStore';
+import { IdeIntegrationShelf } from '#/components/landing/IdeIntegrationShelf';
+import { CopyButton } from '#/components/common/CopyButton';
 import {
   ClaudeLogo,
   AntigravityLogo,
   VsCodeLogo,
   CursorLogo,
-  WindsurfLogo,
-  NeovimLogo,
   NpmLogo,
   PnpmLogo,
   BashLogo,
-  PowerShellLogo,
 } from '#/components/common/IdeLogos';
 import { generateAnimatedSvg } from '#/lib/animator/presets';
 import {
   AnimationConfig,
+  AnimationPresetId,
+  TextEffect,
   BackgroundEffect,
   FrameEffect,
   CharacterType,
@@ -58,95 +55,66 @@ interface InstallOption {
 
 const INSTALL_OPTIONS: InstallOption[] = [
   {
-    id: 'npx',
-    label: 'NPX Instant',
+    id: 'pnpm',
+    label: 'pnpm (Fastest)',
+    icon: <PnpmLogo className="w-3.5 h-3.5" />,
+    command: 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge && pnpm install && pnpm dev',
+    description: 'Clone and launch locally with pnpm and Turbopack',
+    badge: 'Recommended',
+  },
+  {
+    id: 'npm',
+    label: 'npm / npx',
     icon: <NpmLogo className="w-3.5 h-3.5" />,
-    command: 'npx readmeforge@latest',
-    description: 'Instant zero-install execution in your local browser',
-    badge: 'Fastest',
+    command: 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge && npm install && npm run dev',
+    description: 'Standard Node.js setup with zero prerequisite package managers',
+    badge: 'Universal',
   },
   {
     id: 'claude',
     label: 'Claude Code',
     icon: <ClaudeLogo className="w-3.5 h-3.5" />,
-    command: 'claude mcp add readmeforge -- npx -y readmeforge',
-    description: 'Mount as native Model Context Protocol (MCP) tool in Anthropic Claude Code',
+    command: 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge && claude',
+    description: 'Clone and launch with Anthropic Claude Code agentic CLI',
     badge: 'AI Agent',
   },
   {
     id: 'antigravity',
     label: 'Antigravity IDE',
     icon: <AntigravityLogo className="w-3.5 h-3.5" />,
-    command: 'agy add plugin readmeforge',
-    description: 'Native agent integration for Google DeepMind Antigravity studio',
+    command: 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge && agy',
+    description: 'Clone and launch with Google DeepMind Antigravity studio',
     badge: 'DeepMind',
   },
   {
     id: 'cursor',
     label: 'Cursor IDE',
     icon: <CursorLogo className="w-3.5 h-3.5" />,
-    command: 'cursor --install-extension readmeforge',
-    description: 'AI-first code editor extension for real-time README preview & generation',
+    command: 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cursor readmeforge',
+    description: 'Open workspace in Cursor AI-first editor',
     badge: 'Editor',
   },
   {
     id: 'vscode',
     label: 'VS Code',
     icon: <VsCodeLogo className="w-3.5 h-3.5" />,
-    command: 'code --install-extension readmeforge',
-    description: 'Visual Studio Code native extension with split-pane live preview',
+    command: 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && code readmeforge',
+    description: 'Visual Studio Code workspace with split-pane live preview',
     badge: 'Extension',
   },
   {
-    id: 'windsurf',
-    label: 'Windsurf',
-    icon: <WindsurfLogo className="w-3.5 h-3.5" />,
-    command: 'windsurf --install-extension readmeforge',
-    description: 'Codeium Windsurf IDE AI-powered cascade workflow integration',
-    badge: 'AI IDE',
-  },
-  {
-    id: 'neovim',
-    label: 'Neovim',
-    icon: <NeovimLogo className="w-3.5 h-3.5" />,
-    command: 'nvim --headless -c "Lazy load readmeforge" -c "q"',
-    description: 'Terminal modal editor integration for Lua-configured setups',
-    badge: 'Terminal',
-  },
-  {
-    id: 'pnpm',
-    label: 'PNPM / CLI',
-    icon: <PnpmLogo className="w-3.5 h-3.5" />,
-    command: 'pnpm dlx readmeforge',
-    description: 'High-performance standalone package runner',
-    badge: 'Lightweight',
-  },
-  {
-    id: 'curl',
-    label: 'Bash / Curl',
+    id: 'docker',
+    label: 'Docker',
     icon: <BashLogo className="w-3.5 h-3.5" />,
-    command: 'curl -fsSL https://git.new/readmeforge | bash',
-    description: 'Automated 1-line shell installer with auto-dependency check',
-    badge: 'Unix',
-  },
-  {
-    id: 'powershell',
-    label: 'PowerShell',
-    icon: <PowerShellLogo className="w-3.5 h-3.5" />,
-    command: 'iwr -useb https://git.new/readmeforge.ps1 | iex',
-    description: 'Native Windows PowerShell 1-line automated environment provisioner',
-    badge: 'Windows',
+    command: 'git clone https://github.com/yuvrajlaptop2008-byte/readmeforge.git && cd readmeforge && docker build -t readmeforge . && docker run -p 3000:3000 readmeforge',
+    description: 'Isolated containerized build running at http://localhost:3000',
+    badge: 'Container',
   },
 ];
 
 export const HeroSection: React.FC = () => {
-  const [selectedTab, setSelectedTab] = useState<string>('npx');
-  const [copied, setCopied] = useState<boolean>(false);
-  const [isResumeOpen, setIsResumeOpen] = useState(false);
-  const [isImportOpen, setIsImportOpen] = useState(false);
-  const [importText, setImportText] = useState('');
+  const [selectedTab, setSelectedTab] = useState<string>('pnpm');
   const [showcaseTab, setShowcaseTab] = useState<'characters' | 'heroes' | 'typography' | 'customizer'>('characters');
-  const setEntireConfig = useReadmeStore(state => state.setEntireConfig);
 
   // Playground state for real-time visitor experimentation
   const [playgroundConfig, setPlaygroundConfig] = useState<AnimationConfig>({
@@ -177,43 +145,118 @@ export const HeroSection: React.FC = () => {
     reducedMotion: false,
   });
 
-  const [copiedSnippet, setCopiedSnippet] = useState(false);
-
   // Generate live SVG
   const liveSvgMarkup = useMemo(() => generateAnimatedSvg(playgroundConfig), [playgroundConfig]);
 
+  // Dedicated Kinetic Typography Studio state
+  const [typographyPreset, setTypographyPreset] = useState<
+    'neon' | 'glitch' | 'gradient' | 'typewriter' | 'wave' | 'matrix'
+  >('neon');
+  const [typographyText, setTypographyText] = useState('FULL-STACK CLOUD ARCHITECT');
+  const [typographySubtitle, setTypographySubtitle] = useState('Distributed Systems & Real-Time AI Toolchains');
+  const [typographyTag, setTypographyTag] = useState('OPEN SOURCE CONTRIBUTOR');
+
+  const typographySvgMarkup = useMemo(() => {
+    const configMap: Record<
+      string,
+      {
+        preset: AnimationPresetId;
+        textEffect: TextEffect;
+        primaryColor: string;
+        secondaryColor: string;
+        accentColor: string;
+        backgroundEffect: BackgroundEffect;
+        frameEffect: FrameEffect;
+      }
+    > = {
+      neon: {
+        preset: 'neon',
+        textEffect: 'scramble',
+        primaryColor: '#22d3ee',
+        secondaryColor: '#818cf8',
+        accentColor: '#c084fc',
+        backgroundEffect: 'grids',
+        frameEffect: 'cyber-neon',
+      },
+      glitch: {
+        preset: 'glitch',
+        textEffect: 'glitch',
+        primaryColor: '#06b6d4',
+        secondaryColor: '#ec4899',
+        accentColor: '#38bdf8',
+        backgroundEffect: 'matrix',
+        frameEffect: 'terminal-crt',
+      },
+      gradient: {
+        preset: 'custom',
+        textEffect: 'gradient',
+        primaryColor: '#38bdf8',
+        secondaryColor: '#ec4899',
+        accentColor: '#22c55e',
+        backgroundEffect: 'animated-gradient',
+        frameEffect: 'glassmorphism',
+      },
+      typewriter: {
+        preset: 'typing',
+        textEffect: 'typing',
+        primaryColor: '#38bdf8',
+        secondaryColor: '#94a3b8',
+        accentColor: '#22c55e',
+        backgroundEffect: 'solid',
+        frameEffect: 'terminal-crt',
+      },
+      wave: {
+        preset: 'wave',
+        textEffect: 'wave',
+        primaryColor: '#fbbf24',
+        secondaryColor: '#f59e0b',
+        accentColor: '#fcd34d',
+        backgroundEffect: 'stars',
+        frameEffect: 'gold-metallic',
+      },
+      matrix: {
+        preset: 'matrix',
+        textEffect: 'reveal',
+        primaryColor: '#4ade80',
+        secondaryColor: '#22c55e',
+        accentColor: '#86efac',
+        backgroundEffect: 'matrix',
+        frameEffect: 'terminal-crt',
+      },
+    };
+
+    const activeSettings = configMap[typographyPreset] || configMap.neon;
+
+    return generateAnimatedSvg({
+      preset: activeSettings.preset,
+      headline: typographyText,
+      subtitle: typographySubtitle,
+      tag: typographyTag,
+      fontFamily: 'Fira Code',
+      textEffect: activeSettings.textEffect,
+      backgroundEffect: activeSettings.backgroundEffect,
+      frameEffect: activeSettings.frameEffect,
+      svgEffect: 'none',
+      threeDEffect: 'none',
+      characterType: 'none',
+      characterAction: 'code',
+      primaryColor: activeSettings.primaryColor,
+      secondaryColor: activeSettings.secondaryColor,
+      accentColor: activeSettings.accentColor,
+      backgroundColor: '#0a0f1d',
+      textColor: '#f8fafc',
+      transparentBackground: false,
+      width: 900,
+      height: 220,
+      duration: 3,
+      direction: 'normal',
+      repeat: 'infinite',
+      alignment: 'center',
+      reducedMotion: false,
+    });
+  }, [typographyPreset, typographyText, typographySubtitle, typographyTag]);
+
   const activeOption = INSTALL_OPTIONS.find(o => o.id === selectedTab) || INSTALL_OPTIONS[0];
-
-  const handleCopyCommand = async () => {
-    try {
-      await navigator.clipboard.writeText(activeOption.command);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2200);
-    } catch {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2200);
-    }
-  };
-
-  const handleCopyMarkdown = async () => {
-    const snippet = `[![Dynamic Header](https://raw.githubusercontent.com/username/username/main/header.svg)](https://readmeforge.dev)`;
-    try {
-      await navigator.clipboard.writeText(snippet);
-      setCopiedSnippet(true);
-      setTimeout(() => setCopiedSnippet(false), 2000);
-    } catch {
-      setCopiedSnippet(true);
-      setTimeout(() => setCopiedSnippet(false), 2000);
-    }
-  };
-
-  const handleImportSubmit = () => {
-    if (!importText.trim()) return;
-    const { config } = importReadmeFromMarkdown(importText);
-    setEntireConfig(config);
-    setIsImportOpen(false);
-    document.getElementById('wizard-builder')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const applyPlaygroundPreset = (
     bg: BackgroundEffect,
@@ -253,36 +296,18 @@ export const HeroSection: React.FC = () => {
       <div className="space-y-4 max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-neutral-100 leading-tight">
           Forge a GitHub profile that{' '}
-          <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(56,189,248,0.35)]">
+          <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(56,189,248,0.35)] animate-text-shimmer">
             gets noticed.
           </span>
         </h1>
 
-        <div className="text-base sm:text-xl font-medium text-neutral-300 min-h-[40px] flex items-center justify-center font-mono">
-          <span className="text-cyan-400 mr-2 font-bold">❯</span>
-          <TypeAnimation
-            sequence={[
-              'Turn your GitHub profile into an iconic developer portfolio.',
-              2200,
-              'Dynamic fire embers, fluid water ripples, and cyber frame effects.',
-              2200,
-              'Native toolchain in Claude Code, Google Antigravity & Cursor.',
-              2200,
-              'Split-screen Monaco IDE with real-time JSON validation.',
-              2200,
-              'Zero config required — from blank slate to profile-ready Markdown.',
-              2200,
-            ]}
-            wrapper="span"
-            speed={55}
-            repeat={Infinity}
-            className="text-neutral-200 font-semibold"
-          />
+        <div className="min-h-[48px] flex items-center justify-center">
+          <KineticTypewriter />
         </div>
       </div>
 
       {/* High-Tech 1-Line Install Command Console with Official IDE Logos */}
-      <div className="max-w-3xl mx-auto">
+      <div id="install-console-anchor" className="max-w-3xl mx-auto scroll-mt-24">
         <div className="rounded-2xl bg-neutral-950/90 border border-cyan-500/30 p-4 sm:p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl relative overflow-hidden transition-all hover:border-cyan-500/50">
           <div className="absolute -top-24 -left-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-fuchsia-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -298,7 +323,6 @@ export const HeroSection: React.FC = () => {
                     type="button"
                     onClick={() => {
                       setSelectedTab(opt.id);
-                      setCopied(false);
                     }}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 select-none ${
                       isActive
@@ -333,29 +357,13 @@ export const HeroSection: React.FC = () => {
               </code>
             </div>
 
-            {/* Quick Copy Button */}
-            <button
-              type="button"
-              onClick={handleCopyCommand}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold font-sans transition-all duration-200 shrink-0 select-none shadow-md ${
-                copied
-                  ? 'bg-emerald-600 text-white shadow-emerald-900/40 scale-105'
-                  : 'bg-gradient-to-r from-cyan-600 to-violet-600 hover:from-cyan-500 hover:to-violet-500 text-white shadow-cyan-900/30 hover:scale-105'
-              } active:scale-95`}
-              title="Copy 1-line command to clipboard"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-3.5 h-3.5" />
-                  <span>Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy</span>
-                </>
-              )}
-            </button>
+            {/* Quick Animated Copy Button */}
+            <CopyButton
+              textToCopy={activeOption.command}
+              label="Copy"
+              copiedLabel="Copied!"
+              variant="primary"
+            />
           </div>
 
           {/* Description line below command */}
@@ -369,55 +377,37 @@ export const HeroSection: React.FC = () => {
       {/* Main Action Call-to-Actions (Download & Launch) */}
       <div className="flex flex-wrap items-center justify-center gap-3.5 pt-1">
         <a
-          href="#wizard-builder"
-          className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-violet-900/40 transition-all hover:scale-105 hover:-translate-y-0.5 active:scale-95 select-none"
+          href="#templates-shelf"
+          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-violet-900/40 transition-all hover:scale-105 hover:-translate-y-0.5 active:scale-95 select-none"
         >
-          <Wand2 className="w-4 h-4 text-cyan-200 animate-spin-slow" />
-          <span>Launch Visual Wizard</span>
-        </a>
-
-        <a
-          href="https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip"
-          download
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700/80 hover:border-emerald-500/50 text-neutral-100 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
-        >
-          <Download className="w-4 h-4 text-emerald-400" />
-          <span>Download (.ZIP)</span>
+          <Sparkle className="w-4 h-4 text-cyan-200 group-hover:rotate-12 transition-transform duration-300" />
+          <span>Explore Curated Archetypes</span>
         </a>
 
         <Link
           href="/developer"
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-cyan-500/40 text-neutral-200 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-violet-950/40 hover:bg-violet-900/60 border border-violet-500/40 hover:border-violet-400 text-violet-200 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
         >
-          <Terminal className="w-4 h-4 text-cyan-400" />
-          <span>/developer IDE</span>
+          <Code2 className="w-4 h-4 text-violet-400" />
+          <span>Launch /developer IDE</span>
         </Link>
 
         <Link
-          href="/animator"
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 hover:border-fuchsia-500/40 text-neutral-200 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none"
+          href="/info"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700/80 hover:border-emerald-500/50 text-neutral-100 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
         >
-          <Sparkle className="w-4 h-4 text-fuchsia-400" />
-          <span>Animation Studio</span>
+          <BookOpen className="w-4 h-4 text-emerald-400" />
+          <span>Guide &amp; Archetypes</span>
         </Link>
 
-        <button
-          type="button"
-          onClick={() => setIsImportOpen(true)}
-          className="flex items-center gap-2 px-4 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none"
+        <a
+          href="https://github.com/yuvrajlaptop2008-byte/readmeforge/archive/refs/heads/main.zip"
+          download
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-neutral-300 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none"
         >
-          <FileUp className="w-4 h-4 text-violet-400" />
-          <span>Import README</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={() => setIsResumeOpen(true)}
-          className="flex items-center gap-2 px-4 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-neutral-300 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none"
-        >
-          <Sparkles className="w-4 h-4 text-amber-400" />
-          <span>AI Resume</span>
-        </button>
+          <Download className="w-4 h-4 text-neutral-400" />
+          <span>Download (.ZIP)</span>
+        </a>
       </div>
 
       {/* DYNAMIC ANIMATED SHOWCASE & INTERACTIVE FRAME STUDIO */}
@@ -504,6 +494,12 @@ export const HeroSection: React.FC = () => {
                 <img
                   src="/assets/animated-characters.svg"
                   alt="Multi-Language Playground with Dynamic Character Kinematics"
+                  width={1000}
+                  height={400}
+                  // @ts-ignore - React 19 / Next 16 fetchPriority support
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                   className="w-full h-auto rounded-xl shadow-sm"
                 />
               </div>
@@ -533,17 +529,104 @@ export const HeroSection: React.FC = () => {
 
           {/* Tab 3: Kinetic Typography */}
           {showcaseTab === 'typography' && (
-            <div className="space-y-3">
-              <div className="relative group rounded-2xl overflow-hidden border border-indigo-500/30 bg-neutral-950 p-2 shadow-2xl transition-all">
+            <div className="space-y-4">
+              {/* Presets and Effect Pickers */}
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-neutral-800/80">
+                <div className="flex flex-wrap items-center gap-1.5 text-xs">
+                  {[
+                    { id: 'neon', label: 'Cyber Neon', icon: <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> },
+                    { id: 'glitch', label: 'RGB Glitch', icon: <Zap className="w-3.5 h-3.5 text-pink-400" /> },
+                    { id: 'gradient', label: 'Holo Shimmer', icon: <Droplets className="w-3.5 h-3.5 text-emerald-400" /> },
+                    { id: 'typewriter', label: 'Typewriter', icon: <Terminal className="w-3.5 h-3.5 text-sky-400" /> },
+                    { id: 'wave', label: 'Harmonic Wave', icon: <Activity className="w-3.5 h-3.5 text-amber-400" /> },
+                    { id: 'matrix', label: 'Matrix Rain', icon: <Flame className="w-3.5 h-3.5 text-green-400" /> },
+                  ].map(eff => (
+                    <button
+                      key={eff.id}
+                      type="button"
+                      onClick={() => setTypographyPreset(eff.id as any)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all select-none ${
+                        typographyPreset === eff.id
+                          ? 'bg-neutral-800 text-white border border-indigo-500/60 shadow-md shadow-indigo-950/40 scale-100'
+                          : 'bg-neutral-900/60 hover:bg-neutral-800 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+                      }`}
+                    >
+                      {eff.icon}
+                      <span>{eff.label}</span>
+                    </button>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-1.5">
+                  <CopyButton
+                    textToCopy="[![Kinetic Typography](https://raw.githubusercontent.com/username/username/main/typography.svg)](https://readmeforge.dev)"
+                    label="Copy SVG Snippet"
+                    copiedLabel="Copied Markdown!"
+                    variant="primary"
+                  />
+                </div>
+              </div>
+
+              {/* Real-Time Live Rendered Kinetic Typography SVG */}
+              <div className="p-2 rounded-2xl bg-neutral-950 border border-neutral-800 shadow-inner overflow-hidden">
+                <div
+                  className="w-full h-auto flex items-center justify-center"
+                  dangerouslySetInnerHTML={{ __html: typographySvgMarkup }}
+                />
+              </div>
+
+              {/* Text Input Customization Controls */}
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 p-3 rounded-xl bg-neutral-900/50 border border-neutral-800/80 text-left text-xs">
+                <div className="sm:col-span-5">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
+                    Main Headline
+                  </label>
+                  <input
+                    type="text"
+                    value={typographyText}
+                    onChange={e => setTypographyText(e.target.value)}
+                    className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-indigo-400 outline-none"
+                    placeholder="FULL-STACK CLOUD ARCHITECT"
+                  />
+                </div>
+                <div className="sm:col-span-5">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
+                    Subtitle / Bio
+                  </label>
+                  <input
+                    type="text"
+                    value={typographySubtitle}
+                    onChange={e => setTypographySubtitle(e.target.value)}
+                    className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-indigo-400 outline-none"
+                    placeholder="Distributed Systems & Real-Time AI Toolchains"
+                  />
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="block text-[10px] font-mono uppercase text-neutral-400 mb-1">
+                    Header Tag
+                  </label>
+                  <input
+                    type="text"
+                    value={typographyTag}
+                    onChange={e => setTypographyTag(e.target.value)}
+                    className="w-full px-2.5 py-1.5 rounded-lg bg-neutral-900 border border-neutral-700 text-neutral-100 font-mono text-xs focus:border-indigo-400 outline-none"
+                    placeholder="OPEN SOURCE"
+                  />
+                </div>
+              </div>
+
+              {/* Static Showcase Overview Card */}
+              <div className="relative group rounded-2xl overflow-hidden border border-indigo-500/20 bg-neutral-950 p-2 shadow-2xl transition-all">
                 <img
                   src="/assets/text-effects.svg"
                   alt="Kinetic Typography and Dynamic Text Effects Engine"
                   className="w-full h-auto rounded-xl shadow-sm"
                 />
               </div>
+
               <div className="flex flex-wrap items-center justify-between gap-2 px-1 text-[11px] text-neutral-400 font-mono">
                 <span>Cyber neon &bull; Holographic shimmer &bull; Chromatic glitch &bull; Matrix phosphor code rain</span>
-                <span className="text-indigo-400 font-semibold">GitHub Camo Compliant</span>
+                <span className="text-indigo-400 font-semibold">GitHub Camo Compliant &bull; 60 FPS GPU Motion</span>
               </div>
             </div>
           )}
@@ -814,31 +897,12 @@ export const HeroSection: React.FC = () => {
                 </span>
 
                 <div className="flex items-center gap-2">
-                  <Link
-                    href="/animator"
-                    className="px-3.5 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-200 font-medium text-xs transition-colors flex items-center gap-1.5"
-                  >
-                    <Sliders className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Open Full Studio</span>
-                  </Link>
-
-                  <button
-                    type="button"
-                    onClick={handleCopyMarkdown}
-                    className="px-4 py-1.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition-all shadow-md flex items-center gap-1.5"
-                  >
-                    {copiedSnippet ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-emerald-300" />
-                        <span>Copied Markdown!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-3.5 h-3.5" />
-                        <span>Copy Snippet</span>
-                      </>
-                    )}
-                  </button>
+                  <CopyButton
+                    textToCopy="[![Dynamic Header](https://raw.githubusercontent.com/username/username/main/header.svg)](https://readmeforge.dev)"
+                    label="Copy Snippet"
+                    copiedLabel="Copied Markdown!"
+                    variant="primary"
+                  />
                 </div>
               </div>
             </div>
@@ -846,118 +910,11 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Official IDE Ecosystem Bar with Vector Logos */}
-      <div className="pt-2 max-w-4xl mx-auto space-y-3">
-        {/* Verified IDE & AI Agent Integration Shelf */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 text-left">
-          <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-center gap-2 transition-colors hover:border-orange-500/40">
-            <ClaudeLogo className="w-4 h-4 shrink-0" />
-            <div>
-              <div className="text-[11px] font-bold text-neutral-200">Claude Code</div>
-              <div className="text-[9px] text-orange-400 font-mono">Anthropic MCP</div>
-            </div>
-          </div>
-
-          <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-center gap-2 transition-colors hover:border-emerald-500/40">
-            <AntigravityLogo className="w-4 h-4 shrink-0" />
-            <div>
-              <div className="text-[11px] font-bold text-neutral-200">Antigravity</div>
-              <div className="text-[9px] text-emerald-400 font-mono">DeepMind IDE</div>
-            </div>
-          </div>
-
-          <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-center gap-2 transition-colors hover:border-sky-500/40">
-            <VsCodeLogo className="w-4 h-4 shrink-0" />
-            <div>
-              <div className="text-[11px] font-bold text-neutral-200">VS Code</div>
-              <div className="text-[9px] text-sky-400 font-mono">Split Preview</div>
-            </div>
-          </div>
-
-          <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-center gap-2 transition-colors hover:border-cyan-500/40">
-            <CursorLogo className="w-4 h-4 shrink-0" />
-            <div>
-              <div className="text-[11px] font-bold text-neutral-200">Cursor</div>
-              <div className="text-[9px] text-cyan-400 font-mono">AI Generator</div>
-            </div>
-          </div>
-
-          <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-center gap-2 transition-colors hover:border-teal-500/40">
-            <WindsurfLogo className="w-4 h-4 shrink-0" />
-            <div>
-              <div className="text-[11px] font-bold text-neutral-200">Windsurf</div>
-              <div className="text-[9px] text-teal-400 font-mono">Codeium Flow</div>
-            </div>
-          </div>
-
-          <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 flex items-center gap-2 transition-colors hover:border-green-500/40">
-            <NeovimLogo className="w-4 h-4 shrink-0" />
-            <div>
-              <div className="text-[11px] font-bold text-neutral-200">Neovim</div>
-              <div className="text-[9px] text-green-400 font-mono">Terminal CLI</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Vector SVG Badge Suite */}
-        <div className="p-1 rounded-xl bg-neutral-950/60 border border-neutral-800/80 shadow-inner">
-          <img
-            src="/assets/agent-suite.svg"
-            alt="Supported Platforms: Claude Code, Google Antigravity, VS Code, Cursor, and Zero Telemetry"
-            className="w-full h-auto rounded-lg"
-          />
-        </div>
-
-        {/* Fun Community Badges */}
-        <div className="p-1 rounded-xl bg-neutral-950/60 border border-neutral-800/80 shadow-inner">
-          <img
-            src="/assets/developer-fun-badges.svg"
-            alt="Developer Community Badges: Works on My Machine, Coffee to Code Engine, Friday Deployer"
-            className="w-full h-auto rounded-lg"
-          />
-        </div>
-      </div>
-
-      {/* Resume Upload Modal */}
-      <ResumeUpload
-        isOpen={isResumeOpen}
-        onClose={() => setIsResumeOpen(false)}
+      {/* Official IDE Ecosystem Bar, Supported Platforms & Community Badges */}
+      <IdeIntegrationShelf
+        selectedTab={selectedTab}
+        onSelectTab={setSelectedTab}
       />
-
-      {/* Import Modal */}
-      {isImportOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-          <div className="w-full max-w-lg bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden shadow-2xl p-6 space-y-4 text-left">
-            <h3 className="text-sm font-bold text-neutral-100 flex items-center gap-2">
-              <FileUp className="w-4 h-4 text-violet-400" />
-              Paste Existing GitHub README.md
-            </h3>
-            <textarea
-              rows={8}
-              value={importText}
-              onChange={e => setImportText(e.target.value)}
-              placeholder="# Developer Profile&#10;&#10;- Working on: Distributed systems..."
-              className="w-full p-3.5 bg-neutral-950 border border-neutral-800 rounded-xl text-xs font-mono text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-violet-500 leading-relaxed"
-            />
-            <div className="flex items-center justify-end gap-2.5">
-              <button
-                type="button"
-                onClick={() => setIsImportOpen(false)}
-                className="px-4 py-2 rounded-lg text-xs font-medium text-neutral-400 hover:text-neutral-200 transition-colors"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                onClick={handleImportSubmit}
-                className="px-5 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold shadow-md active:scale-95 transition-all"
-              >
-                Parse &amp; Import
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };

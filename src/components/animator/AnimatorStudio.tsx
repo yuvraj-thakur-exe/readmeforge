@@ -1080,7 +1080,7 @@ export function AnimatorStudio() {
                     <div className="text-xs text-amber-400/80 font-mono">
                       alt="{config.headline}"
                     </div>
-                    <p className="text-[11px] text-neutral-400 max-w-sm mx-auto">
+                    <p className="text-[11px] text-neutral-400 max-w-[360px] mx-auto">
                       If image rendering fails or client blocks images, GitHub displays the accessible alt tag above.
                     </p>
                   </div>

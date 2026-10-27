@@ -4,6 +4,17 @@ import '#/styles/prism-syntax-theme.css';
 
 import '#/features/text/text-styles.css';
 
+// Suppress React 19 false-positive warning for next-themes inline script injection during SSR
+if (typeof console !== 'undefined') {
+  const origError = console.error;
+  console.error = (...args: unknown[]) => {
+    if (typeof args[0] === 'string' && args[0].includes('Encountered a script tag')) {
+      return;
+    }
+    origError.apply(console, args);
+  };
+}
+
 import type { Metadata, Viewport } from 'next';
 
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -45,7 +56,7 @@ export async function generateMetadata({
   const description = t('description');
   const appUrl = config.general.urls.app;
 
-  const pathnames = ['/', '/result', '/privacy-policy'];
+  const pathnames = ['/', '/result', '/privacy-policy', '/info', '/developer', '/animator'];
 
   const languages = pathnames.reduce<Record<string, string>>(
     (acc, pathname) => {
@@ -116,6 +127,42 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <link
+          rel="preload"
+          href="/assets/animated-characters.svg"
+          as="image"
+          type="image/svg+xml"
+        />
+        <link rel="help" href="/llms.txt" />
+        <link rel="describedby" href="/api/schema" />
+        <meta name="ai:ready" content="true" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebApplication',
+              name: 'ReadmeForge',
+              applicationCategory: 'DeveloperApplication',
+              operatingSystem: 'All',
+              url: config.general.urls.app,
+              description:
+                'AI-native GitHub profile README generator featuring visual wizard, raw JSON /developer IDE, dynamic vector animator, and zero-drift plugin registry.',
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD',
+              },
+              creator: {
+                '@type': 'Person',
+                name: 'Yuvraj Thakur',
+                url: 'https://github.com/yuvrajlaptop2008-byte',
+              },
+            }),
+          }}
+        />
+      </head>
       <body className="palette-surface min-h-screen">
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>

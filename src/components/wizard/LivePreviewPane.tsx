@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState, useMemo } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import autoAnimate from '@formkit/auto-animate';
 import parse from 'html-react-parser';
 import { unified } from 'unified';
@@ -12,8 +12,9 @@ import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import rehypeStringify from 'rehype-stringify';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { buildMarkdown } from '#/lib/buildMarkdown';
-import { Copy, Check, Eye, Download } from 'lucide-react';
+import { Eye, Download } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { CopyButton } from '#/components/common/CopyButton';
 
 const sanitizeSchema = {
   ...defaultSchema,
@@ -43,9 +44,8 @@ const sanitizeSchema = {
 export function LivePreviewPane() {
   const config = useReadmeStore(state => state.config);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [copied, setCopied] = useState(false);
 
-  const markdown = buildMarkdown(config);
+  const markdown = useMemo(() => buildMarkdown(config), [config]);
 
   const renderedContent = useMemo(() => {
     try {
@@ -72,21 +72,6 @@ export function LivePreviewPane() {
       autoAnimate(containerRef.current);
     }
   }, []);
-
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(markdown);
-      setCopied(true);
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.8 },
-      });
-      setTimeout(() => setCopied(false), 2000);
-    } catch (e) {
-      console.error(e);
-    }
-  };
 
   const handleDownload = () => {
     const blob = new Blob([markdown], { type: 'text/markdown;charset=utf-8' });
@@ -119,28 +104,20 @@ export function LivePreviewPane() {
             onClick={handleDownload}
             className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-lg bg-palette-base border border-palette-line hover:border-violet-500/50 text-palette-contrast transition-all"
             title="Download README.md"
+            aria-label="Download README.md"
           >
             <Download className="w-3.5 h-3.5" />
             <span>.md</span>
           </button>
 
-          <button
-            type="button"
-            onClick={handleCopy}
-            className="flex items-center gap-1.5 px-3 py-1 text-xs font-medium rounded-lg bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-sm hover:opacity-95 transition-all"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 text-emerald-300" />
-                <span>Copied!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3.5 h-3.5" />
-                <span>Copy</span>
-              </>
-            )}
-          </button>
+          <CopyButton
+            textToCopy={markdown}
+            label="Copy"
+            copiedLabel="Copied!"
+            variant="primary"
+            size="xs"
+            className="rounded-lg shadow-sm"
+          />
         </div>
       </div>
 

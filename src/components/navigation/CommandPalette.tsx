@@ -6,7 +6,6 @@ import { Command } from 'cmdk';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { useTheme } from 'next-themes';
 import {
-  Wand2,
   Terminal,
   Sun,
   Moon,
@@ -15,6 +14,8 @@ import {
   Download,
   FileUp,
   Sparkles,
+  BookOpen,
+  Globe,
 } from 'lucide-react';
 import { buildMarkdown } from '#/lib/buildMarkdown';
 import confetti from 'canvas-confetti';
@@ -109,8 +110,18 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                 }}
                 className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
               >
-                <Wand2 className="w-4 h-4 text-violet-400" />
-                <span>Go to Visual Wizard</span>
+                <Globe className="w-4 h-4 text-cyan-400" />
+                <span>Go to Home &amp; Archetypes</span>
+              </Command.Item>
+              <Command.Item
+                onSelect={() => {
+                  router.push('/info');
+                  setOpen(false);
+                }}
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-emerald-600/30 hover:text-emerald-200 cursor-pointer transition-colors"
+              >
+                <BookOpen className="w-4 h-4 text-emerald-400" />
+                <span>Go to Info, Install &amp; Templates Guide</span>
               </Command.Item>
               <Command.Item
                 onSelect={() => {

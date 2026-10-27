@@ -1,7 +1,6 @@
-'use client';
-
-import AnimatorPage from '#/app/animator/page';
+import { redirect } from 'next/navigation';
 
 export default function LocalizedAnimatorPage() {
-  return <AnimatorPage />;
+  redirect('/');
 }
+

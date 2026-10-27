@@ -28,6 +28,14 @@ const COMMON_TECHS: string[] = [
   'HTML5', 'CSS3', 'Vue.js', 'Angular', 'Svelte', 'FastAPI', 'Django'
 ];
 
+export const MAX_RAW_TEXT_LENGTH = 150_000;
+const MAX_BUFFER_SIZE = 5 * 1024 * 1024; // 5MB
+
+const RESERVED_GH_USERNAMES = new Set([
+  'settings', 'about', 'join', 'pricing', 'features', 'support',
+  'security', 'blog', 'explore', 'orgs', 'contact', 'help', 'readme'
+]);
+
 /**
  * Extracts entities from raw resume text
  */
@@ -35,18 +43,23 @@ export function parseResumeText(rawText: string): ResumeParseResult {
   const entities: ParsedResumeEntity[] = [];
   const skills: string[] = [];
 
-  if (!rawText || !rawText.trim()) {
+  if (!rawText || typeof rawText !== 'string' || !rawText.trim()) {
     return { entities, skills, rawTextLength: 0 };
   }
 
-  const cleanText = rawText.replace(/\r\n/g, '\n').trim();
+  // Cap input text length to prevent ReDoS on excessively large documents
+  const boundedText = rawText.length > MAX_RAW_TEXT_LENGTH
+    ? rawText.slice(0, MAX_RAW_TEXT_LENGTH)
+    : rawText;
+
+  const cleanText = boundedText.replace(/\r\n/g, '\n').trim();
   const lines = cleanText.split('\n').map(l => l.trim()).filter(Boolean);
 
   // 1. Extract GitHub Handle
   const githubRegex = /(?:https?:\/\/)?(?:www\.)?github\.com\/([a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38})|(?:github:\s*@?)(?!github\.com)([a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38})/i;
   const githubMatch = cleanText.match(githubRegex);
   const rawGhUser = githubMatch ? (githubMatch[1] || githubMatch[2]) : null;
-  if (rawGhUser && !['settings', 'about', 'join', 'pricing', 'features'].includes(rawGhUser.toLowerCase())) {
+  if (rawGhUser && !RESERVED_GH_USERNAMES.has(rawGhUser.toLowerCase())) {
     entities.push({
       field: 'user.github',
       label: 'GitHub Username',
@@ -59,9 +72,8 @@ export function parseResumeText(rawText: string): ResumeParseResult {
 
   // 2. Extract Candidate Name (usually the first prominent non-contact line)
   const candidateNameLine = lines.find(line => {
-    // Avoid lines with emails, urls, or common section headers
-    if (/@|http|github|linkedin|resume|curriculum|vitae|page\s*\d/i.test(line)) return false;
-    // Name should be 2 to 4 words, alphabetic
+    // Avoid excessively long lines, lines with emails, urls, or common headers
+    if (line.length > 50 || /@|http|github|linkedin|resume|curriculum|vitae|page\s*\d/i.test(line)) return false;
     const words = line.split(/\s+/);
     return words.length >= 2 && words.length <= 4 && /^[A-Z][a-zA-Z.'-]+(?:\s+[A-Z][a-zA-Z.'-]+)+$/.test(line);
   });
@@ -156,22 +168,38 @@ export async function extractTextFromBuffer(
   filename: string,
   mimeType?: string
 ): Promise<string> {
+  if (!buffer || buffer.length === 0) {
+    return '';
+  }
+
+  if (buffer.length > MAX_BUFFER_SIZE) {
+    throw new Error('File exceeds maximum allowable size (5MB).');
+  }
+
   const lowerName = filename.toLowerCase();
 
   // DOCX extraction via mammoth
   if (lowerName.endsWith('.docx') || mimeType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-    const mammoth = await import('mammoth');
-    const result = await mammoth.extractRawText({ buffer });
-    return result.value || '';
+    try {
+      const mammoth = await import('mammoth');
+      const result = await mammoth.extractRawText({ buffer });
+      return result.value || '';
+    } catch {
+      throw new Error('Unable to parse DOCX document. Please verify the file is not corrupted.');
+    }
   }
 
   // PDF extraction via pdf-parse
   if (lowerName.endsWith('.pdf') || mimeType === 'application/pdf') {
-    // pdf-parse uses standard CommonJS function
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const pdfParse = require('pdf-parse');
-    const data = await pdfParse(buffer);
-    return data.text || '';
+    try {
+      // pdf-parse uses standard CommonJS function
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const pdfParse = require('pdf-parse');
+      const data = await pdfParse(buffer);
+      return data.text || '';
+    } catch {
+      throw new Error('Unable to parse PDF document. Please verify the file contains extractable text and is not encrypted.');
+    }
   }
 
   // Plain text / Markdown fallback

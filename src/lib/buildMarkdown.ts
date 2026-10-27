@@ -6,6 +6,19 @@ export interface BuildMarkdownResult {
   workflows: Record<string, string>;
 }
 
+/**
+ * Strips dangerous executable script tags and unsafe event handlers from markdown inputs
+ * while safely preserving standard markdown, emoji, unicode, tables, and fenced code blocks.
+ */
+export function sanitizeInputText(str: string): string {
+  if (!str || typeof str !== 'string') return '';
+  return str
+    .replace(/<(?:script|iframe|object|embed|applet|style)[\s\S]*?<\/(?:script|iframe|object|embed|applet|style)>/gi, '')
+    .replace(/<\/?(?:script|iframe|object|embed|applet|style|base|form)[\s\S]*?>/gi, '')
+    .replace(/on\w+\s*=\s*(?:["'][^"']*["']|[^\s>]+)/gi, '')
+    .replace(/javascript:/gi, '');
+}
+
 export function buildMarkdown(config: ReadmeConfig): string {
   return buildMarkdownWithWorkflows(config).markdown;
 }
@@ -14,26 +27,41 @@ export function buildMarkdownWithWorkflows(config: ReadmeConfig): BuildMarkdownR
   const workflows: Record<string, string> = {};
   const markdownParts: string[] = [];
 
-  const { settings, sections } = config;
-  const { user, align = 'left' } = settings;
+  const settings = config?.settings || ({} as ReadmeConfig['settings']);
+  const sections = Array.isArray(config?.sections) ? config.sections : [];
+  const user = settings?.user || ({} as ReadmeConfig['settings']['user']);
+
+  // Strict whitelist for layout alignment attribute
+  const rawAlign = settings?.align;
+  const align = rawAlign === 'center' || rawAlign === 'right' ? rawAlign : 'left';
 
   // Header / Bio Block if configured in user settings
-  if (user.name || user.role || user.bio) {
+  const name = sanitizeInputText(user.name || '');
+  const role = sanitizeInputText(user.role || '');
+  const bio = sanitizeInputText(user.bio || '');
+
+  if (name || role || bio) {
     const headerLines: string[] = [];
-    if (user.name) {
-      headerLines.push(`# Hi there, I'm ${user.name} 👋`);
+    if (name) {
+      headerLines.push(`# Hi there, I'm ${name} 👋`);
     }
-    if (user.role) {
-      headerLines.push(`### ${user.role}`);
+    if (role) {
+      headerLines.push(`### ${role}`);
     }
-    if (user.bio) {
-      headerLines.push(`\n${user.bio}\n`);
+    if (bio) {
+      headerLines.push(`\n${bio}\n`);
     }
 
     const metaItems: string[] = [];
-    if (user.location) metaItems.push(`📍 Based in **${user.location}**`);
-    if (user.status) metaItems.push(`🔭 Currently: **${user.status}**`);
-    if (user.pronouns) metaItems.push(`💬 Pronouns: **${user.pronouns}**`);
+    if (user.location) {
+      metaItems.push(`📍 Based in **${sanitizeInputText(user.location)}**`);
+    }
+    if (user.status) {
+      metaItems.push(`🔭 Currently: **${sanitizeInputText(user.status)}**`);
+    }
+    if (user.pronouns) {
+      metaItems.push(`💬 Pronouns: **${sanitizeInputText(user.pronouns)}**`);
+    }
 
     if (metaItems.length > 0) {
       headerLines.push(`\n- ${metaItems.join('\n- ')}\n`);
@@ -44,29 +72,35 @@ export function buildMarkdownWithWorkflows(config: ReadmeConfig): BuildMarkdownR
 
   // Iterate over sections and render via plugins
   for (const section of sections) {
+    if (!section || !section.type) continue;
     const plugin = getPluginById(section.type);
 
     if (plugin) {
-      const output = plugin.renderMarkdown(section.props.content, settings);
+      try {
+        const contentProps = section.props?.content || {};
+        const output = plugin.renderMarkdown(contentProps, settings);
 
-      if (typeof output === 'string') {
-        if (output.trim()) {
-          markdownParts.push(output.trim());
+        if (typeof output === 'string') {
+          if (output.trim()) {
+            markdownParts.push(output.trim());
+          }
+        } else if (output && output.markdown) {
+          if (output.markdown.trim()) {
+            markdownParts.push(output.markdown.trim());
+          }
+          if (output.workflows) {
+            Object.assign(workflows, output.workflows);
+          }
         }
-      } else if (output && output.markdown) {
-        if (output.markdown.trim()) {
-          markdownParts.push(output.markdown.trim());
-        }
-        if (output.workflows) {
-          Object.assign(workflows, output.workflows);
-        }
+      } catch {
+        // Resiliently isolate plugin errors without crashing full generation
       }
     } else {
       // Fallback for custom or direct text blocks
-      const content = section.props.content;
+      const content = section.props?.content;
       if (typeof content?.text === 'string' && content.text.trim()) {
         const as = (content.as as string) || 'p';
-        const text = content.text.trim();
+        const text = sanitizeInputText(content.text.trim());
         if (as === 'h1') markdownParts.push(`# ${text}`);
         else if (as === 'h2') markdownParts.push(`## ${text}`);
         else if (as === 'h3') markdownParts.push(`### ${text}`);

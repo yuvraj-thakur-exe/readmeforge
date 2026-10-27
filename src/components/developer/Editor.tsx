@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import MonacoEditor, { OnChange } from '@monaco-editor/react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { ReadmeConfigSchema } from '#/lib/plugins/types';
-import { CheckCircle2, AlertTriangle, RefreshCw } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, RefreshCw, Copy, Check } from 'lucide-react';
 
 interface EditorProps {
   theme?: 'vs-dark' | 'light';
@@ -18,6 +18,7 @@ export const Editor: React.FC<EditorProps> = ({ theme = 'vs-dark', className = '
   const [editorValue, setEditorValue] = useState<string>(() => JSON.stringify(config, null, 2));
   const [validationError, setValidationError] = useState<string | null>(null);
   const [isValid, setIsValid] = useState<boolean>(true);
+  const [copiedJson, setCopiedJson] = useState<boolean>(false);
   const isInternalChange = useRef<boolean>(false);
 
   // Sync external store changes into editor if they originate outside editor
@@ -67,6 +68,16 @@ export const Editor: React.FC<EditorProps> = ({ theme = 'vs-dark', className = '
     }
   };
 
+  const handleCopyJson = async () => {
+    try {
+      await navigator.clipboard.writeText(editorValue);
+      setCopiedJson(true);
+      setTimeout(() => setCopiedJson(false), 2000);
+    } catch {
+      // Fallback
+    }
+  };
+
   return (
     <div className={`flex flex-col h-full bg-[#1e1e1e] rounded-lg border border-neutral-800 overflow-hidden ${className}`}>
       {/* Editor Header Bar */}
@@ -84,6 +95,18 @@ export const Editor: React.FC<EditorProps> = ({ theme = 'vs-dark', className = '
           )}
         </div>
         <div className="flex items-center gap-2">
+          <span className="text-[11px] text-neutral-400 hidden sm:inline">
+            {config.sections?.length || 0} sections
+          </span>
+          <button
+            onClick={handleCopyJson}
+            type="button"
+            className="flex items-center gap-1 px-2 py-0.5 rounded bg-neutral-700/60 hover:bg-neutral-700 text-neutral-300 transition-colors"
+            title="Copy JSON to clipboard"
+          >
+            {copiedJson ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+            <span>{copiedJson ? 'Copied' : 'Copy'}</span>
+          </button>
           <button
             onClick={handleFormat}
             type="button"

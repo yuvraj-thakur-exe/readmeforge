@@ -85,7 +85,7 @@ export const ResumeUpload: React.FC<ResumeUploadProps> = ({ isOpen, onClose }) =
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-      <div className="w-full max-w-xl bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl">
+      <div className="w-full max-w-2xl bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl">
         <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-950 border-b border-neutral-800">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-violet-400" />

@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { buildMarkdownWithWorkflows } from '#/lib/buildMarkdown';
 import { DiffPreview } from './DiffPreview';
-import { fetchRemoteReadme, pushReadmeToGitHub } from '#/lib/github/sync';
+import { fetchRemoteReadme, pushReadmeToGitHub, sanitizeErrorMessage } from '#/lib/github/sync';
 import { Github, CheckCircle2, AlertCircle, X, ExternalLink, Key, Loader2, RefreshCw } from 'lucide-react';
 
 interface GitHubSyncModalProps {
@@ -34,11 +34,14 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
     }
   }, [githubUser]);
 
-  // Load saved token from localStorage
+  // Clean up any legacy tokens from localStorage to maintain strict in-memory security
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('readmeforge_gh_token');
-      if (saved) setToken(saved);
+      try {
+        localStorage.removeItem('readmeforge_gh_token');
+      } catch {
+        // Ignore errors in storage-restricted environments
+      }
     }
   }, []);
 
@@ -81,11 +84,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
   if (!isOpen) return null;
 
   const handleTokenChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    setToken(val);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('readmeforge_gh_token', val);
-    }
+    setToken(e.target.value);
   };
 
   const handleConfirmPush = async () => {
@@ -121,7 +120,8 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
 
       setSuccessUrl(result.commitUrl || result.repoUrl);
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'Failed to push to GitHub');
+      const rawMsg = err instanceof Error ? err.message : 'Failed to push to GitHub';
+      setError(sanitizeErrorMessage(rawMsg, token));
     } finally {
       setIsPushing(false);
     }
@@ -157,7 +157,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
               <h4 className="text-base font-semibold text-neutral-100">
                 Pushed Successfully!
               </h4>
-              <p className="text-xs text-neutral-400 max-w-sm mx-auto">
+              <p className="text-xs text-neutral-400 max-w-[360px] mx-auto">
                 Your profile README has been verified and committed directly to GitHub via the REST API.
               </p>
               <div className="flex items-center justify-center gap-3 pt-2">
@@ -217,6 +217,9 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
                     placeholder="ghp_••••••••••••••••••••"
                     className="w-full px-2.5 py-1.5 bg-neutral-900 border border-neutral-700 rounded text-xs text-neutral-200 focus:outline-none focus:border-violet-500 font-mono"
                   />
+                  <p className="mt-1 text-[10px] text-neutral-500 leading-tight">
+                    In-memory only. Never written to storage, URLs, or external servers.
+                  </p>
                 </div>
               </div>
 

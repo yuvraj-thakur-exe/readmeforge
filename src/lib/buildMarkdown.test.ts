@@ -99,4 +99,130 @@ describe('buildMarkdown', () => {
     expect(result.workflows['.github/workflows/snake.yml']).toBeDefined();
     expect(result.workflows['.github/workflows/snake.yml']).toContain('generate snake animation');
   });
+
+  describe('security and robustness', () => {
+    it('handles null, undefined, or empty config properties without crashing', () => {
+      // @ts-expect-error Testing edge case with empty config
+      const res1 = buildMarkdown({});
+      expect(res1).toContain('ReadmeForge');
+
+      // @ts-expect-error Testing edge case with null
+      const res2 = buildMarkdown(null);
+      expect(res2).toContain('ReadmeForge');
+    });
+
+    it('sanitizes executable script and iframe injection in profile fields', () => {
+      const config: ReadmeConfig = {
+        version: '1.0.0',
+        title: 'Exploit attempt',
+        settings: {
+          user: {
+            github: 'hacker',
+            name: 'Alex <script>alert("xss")</script>',
+            role: 'Engineer <iframe src="https://evil.com"></iframe>',
+            bio: 'Bio with <img src=x onerror=alert(1)> and javascript:void(0)',
+          },
+          theme: 'dark',
+          accentColor: '#8b5cf6',
+          badgeStyle: 'for-the-badge',
+          align: 'center',
+        },
+        sections: [],
+      };
+
+      const output = buildMarkdown(config);
+      expect(output).not.toContain('<script>');
+      expect(output).not.toContain('alert("xss")');
+      expect(output).not.toContain('<iframe');
+      expect(output).not.toContain('onerror=');
+      expect(output).not.toContain('javascript:');
+      expect(output).toContain('Alex');
+      expect(output).toContain('Engineer');
+    });
+
+    it('enforces safe whitelist on alignment attribute', () => {
+      const config: ReadmeConfig = {
+        version: '1.0.0',
+        title: 'Align test',
+        settings: {
+          user: { github: 'dev', name: 'User', role: 'Dev' },
+          theme: 'dark',
+          accentColor: '#8b5cf6',
+          badgeStyle: 'for-the-badge',
+          // @ts-expect-error Testing invalid alignment string
+          align: 'center"><script>alert(1)</script><div align="',
+        },
+        sections: [],
+      };
+
+      const output = buildMarkdown(config);
+      expect(output).not.toContain('<script>');
+      expect(output).toContain('<div align="left">');
+    });
+
+    it('preserves unicode, emojis, markdown code blocks, and tables in content', () => {
+      const complexBio = `
+### Quick Overview
+| Tech | Experience |
+| --- | --- |
+| 🦀 Rust | 3 years |
+| ⚡ TypeScript | 5 years |
+
+\`\`\`typescript
+const greeting = "こんにちは、世界 🌍";
+console.log(greeting);
+\`\`\`
+- 🔭 Working on high-concurrency event loops
+  - Sub-task: zero-copy packet processing
+`;
+
+      const config: ReadmeConfig = {
+        version: '1.0.0',
+        title: 'Rich Profile',
+        settings: {
+          user: {
+            github: 'rustacean',
+            name: '佐藤 健 (Sato Takeru)',
+            role: 'Systems Architect 🚀',
+            bio: complexBio,
+          },
+          theme: 'dark',
+          accentColor: '#8b5cf6',
+          badgeStyle: 'for-the-badge',
+          align: 'left',
+        },
+        sections: [],
+      };
+
+      const output = buildMarkdown(config);
+      expect(output).toContain('佐藤 健');
+      expect(output).toContain('Systems Architect 🚀');
+      expect(output).toContain('| 🦀 Rust | 3 years |');
+      expect(output).toContain('```typescript');
+      expect(output).toContain('こんにちは、世界 🌍');
+      expect(output).toContain('Sub-task: zero-copy packet processing');
+    });
+
+    it('survives corrupted sections with missing props or unknown plugins', () => {
+      const config = {
+        version: '1.0.0',
+        title: 'Corrupted Profile',
+        settings: {
+          user: { github: 'dev' },
+          theme: 'dark',
+          accentColor: '#8b5cf6',
+          badgeStyle: 'for-the-badge',
+          align: 'left',
+        },
+        sections: [
+          null,
+          { id: 'bad-1' },
+          { id: 'bad-2', type: 'unknown-plugin', props: {} },
+        ],
+      } as unknown as ReadmeConfig;
+
+      const output = buildMarkdown(config);
+      expect(output).toContain('ReadmeForge');
+    });
+  });
 });

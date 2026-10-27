@@ -1,0 +1,132 @@
+# ReadmeForge — Complete AI Agent Technical Reference (llms-full.txt)
+> https://readmeforge.dev | Comprehensive schema, types, plugins, and integration instructions.
+
+## 1. Zod Schema Specification (TypeScript)
+
+```typescript
+import { z } from 'zod';
+
+export const UserSettingsSchema = z.object({
+  github: z.string().default(''),
+  name: z.string().optional().default(''),
+  role: z.string().optional().default(''),
+  bio: z.string().optional().default(''),
+  location: z.string().optional().default(''),
+  pronouns: z.string().optional().default(''),
+  status: z.string().optional().default(''),
+});
+
+export const SettingsSchema = z.object({
+  user: UserSettingsSchema.default({ github: '' }),
+  theme: z.enum(['dark', 'light', 'auto']).default('dark'),
+  accentColor: z.string().default('#8b5cf6'),
+  badgeStyle: z.enum(['for-the-badge', 'flat', 'flat-square', 'plastic']).default('for-the-badge'),
+  align: z.enum(['left', 'center', 'right']).default('left'),
+});
+
+export const SectionConfigSchema = z.object({
+  id: z.string(),
+  type: z.string(),
+  props: z.object({
+    content: z.record(z.unknown()).default({}),
+    styles: z.record(z.unknown()).default({}),
+    state: z.string().optional(),
+  }),
+});
+
+export const ReadmeConfigSchema = z.object({
+  version: z.string().default('1.0.0'),
+  title: z.string().default('ReadmeForge Profile'),
+  settings: SettingsSchema,
+  sections: z.array(SectionConfigSchema).default([]),
+});
+
+export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
+```
+
+## 2. All 11 Plugins Reference
+
+### `header-bio`
+- **Category**: `header`
+- **Props**:
+  - `title`: string (headline greeting)
+  - `subtitle`: string (primary role/focus)
+  - `status`: string (current active status)
+  - `showAvatar`: boolean
+  - `avatarUrl`: string (optional custom image)
+
+### `readme-typing-svg`
+- **Category**: `animation`
+- **Props**:
+  - `lines`: string[] (array of rotating text phrases)
+  - `color`: string (hex color without `#`)
+  - `font`: string (e.g. `'Fira Code'`)
+  - `duration`: number (milliseconds)
+
+### `markdown-badges`
+- **Category**: `badges`
+- **Props**:
+  - `badges`: Array<{ name: string; logo: string; color: string; category?: string }>
+  - `style`: `'for-the-badge'` | `'flat'` | `'flat-square'`
+
+### `github-readme-stats`
+- **Category**: `stats`
+- **Props**:
+  - `showIcons`: boolean
+  - `includeAllCommits`: boolean
+  - `countPrivate`: boolean
+  - `hideTitle`: boolean
+  - `theme`: string (e.g. `'tokyonight'`, `'radical'`)
+
+### `streak-stats`
+- **Category**: `stats`
+- **Props**:
+  - `theme`: string (e.g. `'tokyonight'`)
+  - `hideBorder`: boolean
+
+### `activity-graph`
+- **Category**: `activity`
+- **Props**:
+  - `theme`: string
+  - `area`: boolean
+  - `customTitle`: string
+
+### `github-profile-trophy`
+- **Category**: `trophy`
+- **Props**:
+  - `theme`: string (e.g. `'onedark'`, `'flat'`)
+  - `noFrame`: boolean
+  - `row`: number
+  - `column`: number
+
+### `pie-chart`
+- **Category**: `languages`
+- **Props**:
+  - `layout`: `'compact'` | `'donut'` | `'pie'`
+  - `hideProgress`: boolean
+
+### `visitor-counter`
+- **Category**: `metrics`
+- **Props**:
+  - `style`: string
+  - `color`: string
+
+### `snk`
+- **Category**: `animation`
+- **Props**:
+  - `username`: string
+  - `theme`: `'dark'` | `'light'` | `'matrix'`
+
+### `social-links`
+- **Category**: `social`
+- **Props**:
+  - `links`: Array<{ platform: string; url: string; label?: string }>
+
+## 3. URL Hydration & Deep-linking
+Any full profile configuration can be encoded into a shareable URL:
+```javascript
+const jsonString = JSON.stringify(config);
+const encoded = btoa(unescape(encodeURIComponent(jsonString)));
+const url = `https://readmeforge.dev/en/developer?config=${encoded}`;
+```
+Navigating to this URL automatically hydrates the store, populates the Monaco editor, and renders the markdown preview.
