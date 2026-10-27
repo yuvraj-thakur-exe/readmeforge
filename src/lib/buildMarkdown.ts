@@ -105,6 +105,10 @@ export function buildMarkdownWithWorkflows(config: ReadmeConfig): BuildMarkdownR
         else if (as === 'h2') markdownParts.push(`## ${text}`);
         else if (as === 'h3') markdownParts.push(`### ${text}`);
         else markdownParts.push(text);
+      } else if (typeof content?.markdown === 'string' && content.markdown.trim()) {
+        markdownParts.push(sanitizeInputText(content.markdown.trim()));
+      } else if (typeof content?.raw === 'string' && content.raw.trim()) {
+        markdownParts.push(sanitizeInputText(content.raw.trim()));
       }
     }
   }

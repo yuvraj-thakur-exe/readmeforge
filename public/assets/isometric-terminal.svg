@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%">
+  <defs>
+    <!-- Isometric Cube Lighting -->
+    <linearGradient id="cubeTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="cubeLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="cubeRight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="neonCyanGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <filter id="terminalGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, .cube-float, .cursor-blink {
+        animation: none !important;
+      }
+    }
+    .cube-float {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: isoFloat 3.5s ease-in-out infinite alternate;
+    }
+    @keyframes isoFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+    .cursor-blink {
+      animation: blinkText 1s step-end infinite;
+    }
+    @keyframes blinkText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+
+  <!-- ISOMETRIC 3D FLOATING TERMINAL CUBE -->
+  <g class="cube-float" filter="url(#terminalGlow)">
+    <!-- Bottom Shadow -->
+    <ellipse cx="160" cy="275" rx="80" ry="25" fill="#020617" opacity="0.6"/>
+
+    <!-- Left Face -->
+    <polygon points="160,170 70,120 70,225 160,275" fill="url(#cubeLeft)" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.4"/>
+
+    <!-- Right Face (Side Panel with Cyber Lines) -->
+    <polygon points="160,170 250,120 250,225 160,275" fill="url(#cubeRight)" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.3"/>
+    <!-- Decorative isometric bus lines on right face -->
+    <line x1="180" y1="180" x2="230" y2="152" stroke="#334155" stroke-width="2"/>
+    <line x1="180" y1="205" x2="230" y2="177" stroke="#334155" stroke-width="2"/>
+    <line x1="180" y1="230" x2="230" y2="202" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.5"/>
+
+    <!-- Top Face (Terminal Screen Surface) -->
+    <polygon points="160,65 250,120 160,170 70,120" fill="url(#cubeTop)" stroke="#38BDF8" stroke-width="2"/>
+
+    <!-- Screen Bezel Window Dots (Mac RGB style) -->
+    <!-- Transformed in isometric perspective -->
+    <g transform="translate(100, 110) skewY(30) scale(0.9, 0.6)">
+      <!-- Red / Yellow / Green Dots -->
+      <circle cx="10" cy="8" r="4.5" fill="#EF4444"/>
+      <circle cx="24" cy="8" r="4.5" fill="#F59E0B"/>
+      <circle cx="38" cy="8" r="4.5" fill="#10B981"/>
+    </g>
+
+    <!-- Glowing Isometric Terminal Prompt '>_' -->
+    <g transform="translate(80, 142) skewY(-30) scale(0.9, 0.6)">
+      <path d="M12 25 L32 40 L12 55" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+      <line class="cursor-blink" x1="42" y1="55" x2="65" y2="55" stroke="#38BDF8" stroke-width="7" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

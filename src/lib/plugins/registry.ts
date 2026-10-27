@@ -10,8 +10,13 @@ import { portfolioContributionsPlugin } from './wrappers/portfolio-contributions
 import { githubAchievementsPlugin } from './wrappers/github-achievements';
 import { activityGraphPlugin } from './wrappers/activity-graph';
 import { pieChartPlugin } from './wrappers/pie-chart';
+import { capsuleBannerPlugin } from './wrappers/capsule-banner';
+import { mascotBioPlugin } from './wrappers/mascot-bio';
+import { skillIconsPlugin } from './wrappers/skill-icons';
 
 export const pluginRegistry: Plugin[] = [
+  capsuleBannerPlugin,
+  mascotBioPlugin,
   readmeTypingSvgPlugin,
   githubReadmeStatsPlugin,
   pieChartPlugin,
@@ -19,6 +24,7 @@ export const pluginRegistry: Plugin[] = [
   githubProfileTrophyPlugin,
   githubAchievementsPlugin,
   snkPlugin,
+  skillIconsPlugin,
   markdownBadgesPlugin,
   wakaReadmeStatsPlugin,
   visitorCounterPlugin,

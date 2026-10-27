@@ -472,6 +472,410 @@ export const TEMPLATES: TemplateItem[] = [
       ],
     },
   },
+  {
+    id: 'metrics-telemetry-dashboard',
+    name: 'Metrics & Telemetry Dashboard',
+    description: 'Telemetry dashboard inspired by lowlighter/metrics with PageSpeed scores, 3D contribution calendar, commit activity graphs, and tech icons.',
+    category: 'Popular',
+    accent: '#10b981',
+    prompt:
+      'Generate a dark-mode GitHub profile README in the style of lowlighter/metrics with a telemetry dashboard, PageSpeed insights scores, 3D isometric contributions calendar, coding habits hourly/daily activity graphs, top languages breakdown, and mastered technologies icon grid.',
+    config: {
+      version: '1.0.0',
+      title: 'Metrics Telemetry Profile',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Alex Rivers',
+          role: 'Principal Systems Architect & Open-Source Engineer',
+          bio: 'Designing resilient distributed systems, high-throughput pipelines, and developer tooling.',
+          location: 'San Francisco, CA',
+          pronouns: 'they/them',
+          status: 'Benchmarking low-latency architectures',
+        },
+        theme: 'dark',
+        accentColor: '#10b981',
+        badgeStyle: 'for-the-badge',
+        align: 'left',
+      },
+      sections: [
+        {
+          id: 'telemetry-pagespeed',
+          type: 'custom',
+          props: {
+            content: {
+              markdown: `<div align="center">\n  <img src="https://img.shields.io/badge/Performance-97%25-10B981?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Performance" />\n  <img src="https://img.shields.io/badge/Accessibility-100%25-10B981?style=for-the-badge&logo=w3c&logoColor=white" alt="Accessibility" />\n  <img src="https://img.shields.io/badge/Best_Practices-100%25-10B981?style=for-the-badge&logo=lighthouse&logoColor=white" alt="Best Practices" />\n  <img src="https://img.shields.io/badge/SEO-100%25-10B981?style=for-the-badge&logo=google&logoColor=white" alt="SEO" />\n</div>`,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'contrib-3d',
+          type: 'portfolio-contributions',
+          props: { content: { username: 'octocat' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'activity-metrics',
+          type: 'activity-graph',
+          props: { content: { color: '10B981', title: 'Commit Velocity & Habits' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'pie-metrics',
+          type: 'pie-chart',
+          props: { content: { chartMode: 'top-langs-donut', theme: 'tokyonight', title: 'Language Activity & Distribution' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'skills-metrics',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'js,ts,python,cpp,vue,docker,git,aws,gcp,arduino,raspberrypi,linux,bash,react',
+              theme: 'dark',
+              perLine: 14,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'stats-metrics',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'tokyonight', showIcons: true }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
+  {
+    id: 'neon-craftsman-owl',
+    name: 'Purple Neon & Digital Craftsman',
+    description: 'Curved waving purple neon banner (HELLO WORLD), two-column layout with emoji status bullets and a celebratory owl party popper mascot sticker.',
+    category: 'Design',
+    accent: '#9333ea',
+    prompt:
+      'Generate a vibrant developer profile featuring a curved waving purple neon header banner (HELLO WORLD / WELCOME TO MY PROFILE), two-column layout with emoji status bullets on the left and a celebratory owl party popper mascot on the right, profile views counter badge, and tech stack.',
+    config: {
+      version: '1.0.0',
+      title: 'Digital Craftsman Profile',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Morgan Reed',
+          role: 'Digital Craftsman (Developer / Programmer)',
+          bio: 'Full Stack Developer and Systems Enthusiast with a passion for Python, TypeScript, React, distributed data pipelines, and elegant UI.',
+          location: 'Remote / Global',
+          pronouns: 'they/them',
+          status: 'Exploring AI reasoning agents & distributed nodes',
+        },
+        theme: 'dark',
+        accentColor: '#9333ea',
+        badgeStyle: 'for-the-badge',
+        align: 'center',
+      },
+      sections: [
+        {
+          id: 'banner-neon',
+          type: 'capsule-banner',
+          props: {
+            content: {
+              bannerType: 'waving',
+              colorTheme: 'purple-neon',
+              text: 'HELLO WORLD',
+              desc: 'WELCOME TO MY PROFILE',
+              height: 220,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'mascot-craftsman',
+          type: 'mascot-bio',
+          props: {
+            content: {
+              mascot: 'owl-confetti',
+              headline: "⚡ I'm a Digital Craftsman!",
+              subtitle: 'Digital Craftsman (Developer / Programmer)',
+              bio: 'Full Stack Developer and Systems Enthusiast with a passion for Python, TypeScript, React, distributed data pipelines, and elegant UI.',
+              bullets: "🌱 Student of life :)\n🔭 Currently learning distributed systems, cloud-native Go, and AI reasoning agents\n👨‍💻 Lifetime open-source contributor and technical mentor\n✍️ I write technical deep dives on systems engineering\n🤝 Passionate about collaborative open-source\n📫 Connect with me to discuss architectures and projects",
+              showViewsBadge: true,
+              viewsBadgeColor: '9333ea',
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'skills-craftsman',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'python,react,nodejs,django,postgres,fastapi,typescript,docker,git,linux',
+              theme: 'dark',
+              perLine: 12,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'stats-craftsman',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'radical', showIcons: true }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
+  {
+    id: 'minimal-light-unicorn',
+    name: 'Minimal Light & Coding Unicorn',
+    description: 'Clean light-mode layout with centered greeting, monochromatic social badges row, checkmarked bio achievements, and cute pastel coding unicorn at laptop sticker.',
+    category: 'Minimal',
+    accent: '#3b82f6',
+    prompt:
+      'Generate a clean, light-themed developer profile README with centered friendly greeting, monochromatic social badges row, two-column layout with checkmarked bio achievements and a cute pastel coding unicorn at laptop sticker on the right, skill icons grid, and light GitHub stats.',
+    config: {
+      version: '1.0.0',
+      title: 'Minimal Light Profile',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Jordan Lee',
+          role: 'Software Engineer | Technical Writer | Open Source Enthusiast',
+          bio: 'A budding Full-Stack Software Developer & Systems Craftsman who is obsessed with the idea of writing clean, resilient code and building delightful digital experiences.',
+          location: 'Global / Remote',
+          pronouns: 'they/them',
+          status: 'Building delightful developer tools',
+        },
+        theme: 'light',
+        accentColor: '#3b82f6',
+        badgeStyle: 'flat',
+        align: 'center',
+      },
+      sections: [
+        {
+          id: 'socials-unicorn',
+          type: 'custom',
+          props: {
+            content: {
+              markdown: `<div align="center">\n  <a href="https://linkedin.com"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>\n  <a href="https://dev.to"><img src="https://img.shields.io/badge/Dev.to-0A0A0A?style=flat&logo=devdotto&logoColor=white" alt="Dev.to" /></a>\n  <a href="https://leetcode.com"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=flat&logo=leetcode&logoColor=black" alt="LeetCode" /></a>\n  <a href="https://medium.com"><img src="https://img.shields.io/badge/Medium-12100E?style=flat&logo=medium&logoColor=white" alt="Medium" /></a>\n  <a href="https://github.com/octocat"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub" /></a>\n</div>`,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'mascot-unicorn',
+          type: 'mascot-bio',
+          props: {
+            content: {
+              mascot: 'coding-unicorn',
+              headline: '🌟 Talking about Personal Stuffs...',
+              subtitle: 'Software Engineer & Technical Content Writer',
+              bio: 'Learning while HOPING & HUSTLING! Building scalable apps and sharing knowledge along the way.',
+              bullets: "✔ Pronouns: they/them\n✔ Currently developing payment gateways & microservices\n✔ Learning ReactJS, NodeJS & cloud architecture\n✔ Looking to collaborate on high-impact open source\n✔ Regularly writing technical blogs and tutorials\n✔ Active problem solver on LeetCode\n✔ Fun fact: I turn coffee into clean, well-tested commits",
+              showViewsBadge: true,
+              viewsBadgeColor: '3b82f6',
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'skills-unicorn',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'c,cpp,python,flask,css,html,js,nodejs,react,sass,git,linux',
+              theme: 'light',
+              perLine: 12,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'stats-unicorn',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'default', showIcons: true }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'snk-unicorn',
+          type: 'snk',
+          props: { content: { username: 'octocat', theme: 'light' }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
+  {
+    id: 'constellation-devops-desk',
+    name: 'Constellation DevOps & Workstation',
+    description: 'Dark constellation cyberpunk DevOps engineer profile with deep space banner, SRE bullet points, and programmer at workstation desk illustration.',
+    category: 'DevOps',
+    accent: '#38bdf8',
+    prompt:
+      'Generate a dark constellation cyberpunk DevOps engineer GitHub profile README with a dark starfield banner, two-column layout featuring SRE/DevOps cloud bullets on the left and a programmer with beanie and glasses at workstation desk illustration on the right, followed by cloud stack badges and GitHub stats.',
+    config: {
+      version: '1.0.0',
+      title: 'Constellation DevOps Profile',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Samir Patel',
+          role: 'DevOps & Cloud Infrastructure Engineer',
+          bio: 'Automating everything between commit and production across multi-region Kubernetes, Terraform IaC, and zero-trust GitOps pipelines.',
+          location: 'Remote / Global',
+          pronouns: 'he/him',
+          status: 'Hardening Kubernetes clusters & eBPF observability',
+        },
+        theme: 'dark',
+        accentColor: '#38bdf8',
+        badgeStyle: 'for-the-badge',
+        align: 'left',
+      },
+      sections: [
+        {
+          id: 'banner-devops',
+          type: 'capsule-banner',
+          props: {
+            content: {
+              bannerType: 'rect',
+              colorTheme: 'dark-constellation',
+              text: 'Hey! I am a DevOps Engineer',
+              desc: 'Automating everything between commit and production',
+              height: 180,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'mascot-devops',
+          type: 'mascot-bio',
+          props: {
+            content: {
+              mascot: 'developer-desk',
+              headline: "Hi 👋, I'm a DevOps Engineer",
+              subtitle: 'Passionate and aspiring DevOps & Cloud Infrastructure Engineer',
+              bio: 'Dedicated to high-availability distributed systems, automated CI/CD pipelines, and infrastructure as code.',
+              bullets: "🔭 Currently engineering multi-region Kubernetes clusters\n🌱 Learning eBPF, service mesh observability, and zero-trust security\n👨‍💻 Stack: Git, Docker, Kubernetes, Jenkins, Ansible, AWS, GCP, Grafana\n⚡ Passionate about automated testing, 99.99% uptime, and sub-minute deploys\n📫 Reach out to collaborate on platform engineering",
+              showViewsBadge: true,
+              viewsBadgeColor: '38bdf8',
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'skills-devops',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'docker,kubernetes,aws,gcp,linux,git,ansible,grafana,prometheus,bash,python,go',
+              theme: 'dark',
+              perLine: 12,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'activity-devops',
+          type: 'activity-graph',
+          props: { content: { color: '38BDF8', title: 'Platform Deployment & Commit Velocity' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'stats-devops',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'tokyonight', showIcons: true }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
+  {
+    id: 'isometric-terminal-connect',
+    name: 'Isometric Terminal & Fullstack Connect',
+    description: '3D isometric terminal cube header banner, Competitive Programmer subtitle, vibrant "Let\'s Connect and have a Chat!" callout with colorful rounded social badge arsenal, skills matrix, and trophy rack.',
+    category: 'Popular',
+    accent: '#6366f1',
+    prompt:
+      'Generate a dark full-stack engineer GitHub profile README featuring a 3D isometric terminal cube header banner, Competitive Programmer subtitle, vibrant "Let\'s Connect and have a Chat!" callout with colorful rounded social badge arsenal, skills matrix, and trophy rack.',
+    config: {
+      version: '1.0.0',
+      title: 'Fullstack Terminal Profile',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Casey Vance',
+          role: 'Full-Stack Developer & Competitive Programmer',
+          bio: 'Passionate developer specializing in Spring Boot, MERN stack, high-frequency algorithms, and cloud architectures.',
+          location: 'Remote / Global',
+          pronouns: 'they/them',
+          status: 'Solving algorithmic puzzles & building full-stack platforms',
+        },
+        theme: 'dark',
+        accentColor: '#6366f1',
+        badgeStyle: 'for-the-badge',
+        align: 'center',
+      },
+      sections: [
+        {
+          id: 'banner-terminal',
+          type: 'capsule-banner',
+          props: {
+            content: {
+              bannerType: 'cylinder',
+              colorTheme: 'cyber-cylinder',
+              text: "Hey ! I'm a Full-Stack Developer",
+              desc: '>_ Competitive Programmer & Cloud Architect',
+              height: 200,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'connect-socials',
+          type: 'custom',
+          props: {
+            content: {
+              markdown: `<div align="center">\n  <h3>Let's Connect and have a Chat! 💭</h3>\n  <a href="https://github.com/octocat"><img src="https://img.shields.io/badge/Portfolio-2563EB?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio" /></a>\n  <a href="https://linkedin.com"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>\n  <a href="https://dev.to"><img src="https://img.shields.io/badge/DEV.TO-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white" alt="Dev.to" /></a>\n  <a href="https://twitter.com"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" /></a>\n  <a href="https://instagram.com"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram" /></a>\n</div>`,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'skills-terminal',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'java,spring,ts,react,nodejs,mongodb,docker,git,mysql,aws,redux,tailwind',
+              theme: 'dark',
+              perLine: 12,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'trophy-terminal',
+          type: 'github-profile-trophy',
+          props: { content: { username: 'octocat', theme: 'radical' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'activity-terminal',
+          type: 'activity-graph',
+          props: { content: { color: '6366F1', title: 'Commit Velocity & Contribution Graph' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'stats-terminal',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'tokyonight', showIcons: true }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
 ];
 
 const KEYWORDS = [

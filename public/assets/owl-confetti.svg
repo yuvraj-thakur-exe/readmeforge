@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="owlBody" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5A2B"/>
+      <stop offset="50%" stop-color="#6F441B"/>
+      <stop offset="100%" stop-color="#4A2D11"/>
+    </linearGradient>
+    <linearGradient id="owlBelly" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDE8CD"/>
+      <stop offset="100%" stop-color="#E8C39E"/>
+    </linearGradient>
+    <linearGradient id="popperGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="50%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+    <filter id="confettiGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, .confetti-particle, .streamer, .popper-burst, .owl-dance {
+        animation: none !important;
+      }
+    }
+    .owl-dance {
+      transform-box: fill-box;
+      transform-origin: bottom center;
+      animation: owlWiggle 3s ease-in-out infinite alternate;
+    }
+    @keyframes owlWiggle {
+      0% { transform: rotate(-2deg) translateY(0); }
+      50% { transform: rotate(2deg) translateY(-4px); }
+      100% { transform: rotate(-2deg) translateY(0); }
+    }
+    .confetti-particle {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: burstFloat 2.5s ease-out infinite;
+    }
+    @keyframes burstFloat {
+      0% { transform: scale(0.2) translate(0, 0); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 0.9; }
+      100% { transform: scale(1.1) translate(var(--dx, 20px), var(--dy, -80px)); opacity: 0; }
+    }
+    .streamer {
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+      animation: streamFlow 2.8s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+    }
+    @keyframes streamFlow {
+      0% { stroke-dashoffset: 60; opacity: 0; }
+      30% { stroke-dashoffset: 0; opacity: 1; }
+      80% { opacity: 1; }
+      100% { stroke-dashoffset: -60; opacity: 0; }
+    }
+    .wing-wave {
+      transform-box: fill-box;
+      transform-origin: top left;
+      animation: wavePopper 1.5s ease-in-out infinite alternate;
+    }
+    @keyframes wavePopper {
+      0% { transform: rotate(-3deg); }
+      100% { transform: rotate(4deg); }
+    }
+  </style>
+
+  <!-- CELEBRATORY CONFETTI & STREAMERS BURST -->
+  <g class="popper-burst" filter="url(#confettiGlow)">
+    <!-- Serpentine Streamers -->
+    <path class="streamer" d="M230 180 Q210 130 170 100 T120 40" fill="none" stroke="#EC4899" stroke-width="4" stroke-linecap="round" style="animation-delay: 0.1s;"/>
+    <path class="streamer" d="M240 170 Q270 120 260 70 T230 20" fill="none" stroke="#3B82F6" stroke-width="4" stroke-linecap="round" style="animation-delay: 0.4s;"/>
+    <path class="streamer" d="M225 185 Q180 140 140 120 T80 90" fill="none" stroke="#10B981" stroke-width="4" stroke-linecap="round" style="animation-delay: 0.7s;"/>
+    <path class="streamer" d="M250 175 Q290 130 320 100 T360 60" fill="none" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" style="animation-delay: 0.3s;"/>
+    <path class="streamer" d="M235 165 Q220 100 190 60 T160 10" fill="none" stroke="#8B5CF6" stroke-width="4.5" stroke-linecap="round" style="animation-delay: 0.6s;"/>
+
+    <!-- Confetti Dots & Stars -->
+    <circle class="confetti-particle" cx="210" cy="140" r="6" fill="#F43F5E" style="--dx:-40px; --dy:-90px; animation-delay:0.1s;"/>
+    <circle class="confetti-particle" cx="260" cy="130" r="5" fill="#3B82F6" style="--dx:50px; --dy:-80px; animation-delay:0.3s;"/>
+    <circle class="confetti-particle" cx="190" cy="110" r="6" fill="#10B981" style="--dx:-70px; --dy:-70px; animation-delay:0.5s;"/>
+    <rect class="confetti-particle" x="240" y="100" width="9" height="9" rx="2" fill="#FBBF24" transform="rotate(25 244 104)" style="--dx:40px; --dy:-110px; animation-delay:0.2s;"/>
+    <rect class="confetti-particle" x="220" y="80" width="8" height="8" rx="2" fill="#8B5CF6" transform="rotate(45 224 84)" style="--dx:-20px; --dy:-120px; animation-delay:0.4s;"/>
+    <circle class="confetti-particle" cx="280" cy="90" r="6" fill="#EC4899" style="--dx:80px; --dy:-60px; animation-delay:0.6s;"/>
+    <polygon class="confetti-particle" points="160,50 163,57 170,57 165,62 167,69 160,65 153,69 155,62 150,57 157,57" fill="#F59E0B" style="--dx:-60px; --dy:-90px; animation-delay:0.35s;"/>
+    <polygon class="confetti-particle" points="290,40 293,47 300,47 295,52 297,59 290,55 283,59 285,52 280,47 287,47" fill="#06B6D4" style="--dx:90px; --dy:-80px; animation-delay:0.65s;"/>
+  </g>
+
+  <!-- OWL CHARACTER BODY -->
+  <g class="owl-dance">
+    <!-- Tail Feathers -->
+    <path d="M175 340 Q190 375 205 340" fill="#4A2D11"/>
+
+    <!-- Feet -->
+    <ellipse cx="165" cy="355" rx="14" ry="7" fill="#F59E0B"/>
+    <ellipse cx="215" cy="355" rx="14" ry="7" fill="#F59E0B"/>
+
+    <!-- Main Owl Torso -->
+    <ellipse cx="190" cy="275" rx="72" ry="82" fill="url(#owlBody)"/>
+
+    <!-- Belly Patch -->
+    <ellipse cx="190" cy="285" rx="48" ry="58" fill="url(#owlBelly)"/>
+    <!-- Belly Feather Chevrons -->
+    <path d="M175 265 L190 275 L205 265 M170 288 L190 300 L210 288 M175 312 L190 322 L205 312" fill="none" stroke="#D4A373" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Left Wing -->
+    <path d="M122 235 C105 260 110 310 140 330 C130 300 130 260 145 235 Z" fill="#6F441B"/>
+
+    <!-- Owl Head -->
+    <ellipse cx="190" cy="180" rx="64" ry="54" fill="url(#owlBody)"/>
+    <!-- Ear Tufts -->
+    <polygon points="135,145 150,110 165,138" fill="#6F441B"/>
+    <polygon points="215,138 230,110 245,145" fill="#6F441B"/>
+
+    <!-- Eyes (Big Expressive Discs) -->
+    <circle cx="165" cy="175" r="24" fill="#FFFFFF"/>
+    <circle cx="215" cy="175" r="24" fill="#FFFFFF"/>
+    <circle cx="168" cy="175" r="14" fill="#1E293B"/>
+    <circle cx="212" cy="175" r="14" fill="#1E293B"/>
+    <!-- Eye Highlights -->
+    <circle cx="164" cy="171" r="5" fill="#FFFFFF"/>
+    <circle cx="173" cy="178" r="2" fill="#FFFFFF"/>
+    <circle cx="208" cy="171" r="5" fill="#FFFFFF"/>
+    <circle cx="217" cy="178" r="2" fill="#FFFFFF"/>
+
+    <!-- Golden Beak -->
+    <polygon points="190,180 182,198 198,198" fill="#F59E0B"/>
+    <polygon points="182,198 190,210 198,198" fill="#D97706"/>
+
+    <!-- Right Wing & Confetti Popper Party Cannon -->
+    <g class="wing-wave">
+      <!-- Party Popper Cylinder -->
+      <g transform="rotate(-38 235 240)">
+        <rect x="220" y="195" width="34" height="85" rx="7" fill="url(#popperGrad)"/>
+        <!-- Popper decorative stripes -->
+        <line x1="220" y1="215" x2="254" y2="215" stroke="#FFFFFF" stroke-width="4" stroke-opacity="0.8"/>
+        <line x1="220" y1="245" x2="254" y2="245" stroke="#FBBF24" stroke-width="4"/>
+        <ellipse cx="237" cy="195" rx="17" ry="6" fill="#F43F5E"/>
+      </g>
+      <!-- Owl Right Wing Holding Popper -->
+      <path d="M230 225 C255 210 270 240 255 270 C240 265 230 250 230 225 Z" fill="#6F441B"/>
+      <!-- Small Claw grips -->
+      <circle cx="238" cy="246" r="4" fill="#F59E0B"/>
+      <circle cx="244" cy="250" r="4" fill="#F59E0B"/>
+      <circle cx="240" cy="255" r="4" fill="#F59E0B"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="codeCyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="deskWood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="hoodieBeanie" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, .coffee-steam, .monitor-pulse, .dev-typing {
+        animation: none !important;
+      }
+    }
+    .coffee-steam {
+      stroke-dasharray: 20;
+      animation: steamCurling 2.5s ease-out infinite;
+    }
+    @keyframes steamCurling {
+      0% { stroke-dashoffset: 20; opacity: 0; transform: translateY(0); }
+      50% { opacity: 0.8; }
+      100% { stroke-dashoffset: -20; opacity: 0; transform: translateY(-16px); }
+    }
+    .monitor-pulse {
+      animation: screenFlicker 4s ease-in-out infinite alternate;
+    }
+    @keyframes screenFlicker {
+      0% { opacity: 0.9; }
+      50% { opacity: 1; }
+      100% { opacity: 0.85; }
+    }
+    .dev-typing {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: handsTap 0.3s ease-in-out infinite alternate;
+    }
+    @keyframes handsTap {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-2px); }
+    }
+  </style>
+
+  <!-- BACKGROUND CODE & TERMINAL MOTE PARTICLES -->
+  <g opacity="0.6">
+    <text x="30" y="60" fill="#38BDF8" font-family="monospace" font-size="12" opacity="0.4">{ devops: ok }</text>
+    <text x="320" y="80" fill="#10B981" font-family="monospace" font-size="12" opacity="0.4">k8s::99.99%</text>
+    <text x="20" y="140" fill="#818CF8" font-family="monospace" font-size="12" opacity="0.4">$ git push prod</text>
+  </g>
+
+  <!-- WORKSTATION DESK -->
+  <g id="workstation">
+    <!-- Desk Surface Top Surface -->
+    <polygon points="10,290 410,290 380,350 40,350" fill="url(#deskWood)"/>
+    <polygon points="10,290 410,290 410,298 10,298" fill="#475569"/>
+
+    <!-- Dual Monitor Arms & Bases -->
+    <rect x="195" y="220" width="14" height="72" rx="3" fill="#64748B"/>
+    <ellipse cx="202" cy="292" rx="32" ry="8" fill="#475569"/>
+
+    <!-- Left Monitor (Code Editor) -->
+    <g class="monitor-pulse" transform="translate(60, 110)">
+      <rect x="0" y="0" width="130" height="95" rx="6" fill="#0F172A" stroke="#334155" stroke-width="3"/>
+      <!-- Screen Inner Bezel -->
+      <rect x="6" y="6" width="118" height="83" rx="3" fill="#020617"/>
+      <!-- Code lines -->
+      <line x1="14" y1="20" x2="60" y2="20" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+      <line x1="20" y1="32" x2="85" y2="32" stroke="#A855F7" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="20" y1="42" x2="105" y2="42" stroke="#10B981" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="20" y1="52" x2="70" y2="52" stroke="#F59E0B" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="14" y1="64" x2="50" y2="64" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+      <line x1="14" y1="76" x2="35" y2="76" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- Right Monitor (Grafana / Cloud Metrics Dashboard) -->
+    <g class="monitor-pulse" transform="translate(210, 110)">
+      <rect x="0" y="0" width="140" height="95" rx="6" fill="#0F172A" stroke="#334155" stroke-width="3"/>
+      <rect x="6" y="6" width="128" height="83" rx="3" fill="#020617"/>
+      <!-- Telemetry metric bars -->
+      <path d="M16 70 L35 45 L55 60 L75 35 L95 50 L118 25" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+      <circle cx="118" cy="25" r="3.5" fill="#38BDF8"/>
+      <!-- Mini Bar Gauges -->
+      <rect x="16" y="20" width="22" height="6" rx="2" fill="#10B981"/>
+      <rect x="44" y="20" width="22" height="6" rx="2" fill="#10B981"/>
+      <rect x="72" y="20" width="22" height="6" rx="2" fill="#38BDF8"/>
+      <rect x="100" y="20" width="18" height="6" rx="2" fill="#F59E0B"/>
+    </g>
+
+    <!-- Steaming Coffee Cup on Desk -->
+    <g transform="translate(350, 260)">
+      <ellipse cx="14" cy="24" rx="14" ry="4" fill="#0F172A" opacity="0.4"/>
+      <path d="M4 8 L6 24 C6 28 22 28 22 24 L24 8 Z" fill="#E2E8F0"/>
+      <ellipse cx="14" cy="8" rx="10" ry="3.5" fill="#451A03"/>
+      <!-- Cup handle -->
+      <path d="M23 11 C28 11 28 20 23 20" fill="none" stroke="#E2E8F0" stroke-width="2.5"/>
+      <!-- Steam lines -->
+      <path class="coffee-steam" d="M11 5 Q9 -4 13 -12" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+      <path class="coffee-steam" d="M17 5 Q19 -4 15 -12" fill="none" stroke="#94A3B8" stroke-width="2" stroke-linecap="round" style="animation-delay: 0.8s;"/>
+    </g>
+
+    <!-- Mechanical Keyboard & Glowing Mouse -->
+    <polygon points="140,296 260,296 268,314 132,314" fill="#1E293B" stroke="#475569" stroke-width="1.5"/>
+    <!-- RGB Spacebar strip -->
+    <line x1="170" y1="309" x2="230" y2="309" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+    <!-- Mouse -->
+    <ellipse cx="295" cy="305" rx="8" ry="12" fill="#0F172A" stroke="#38BDF8" stroke-width="1"/>
+  </g>
+
+  <!-- DEVELOPER (With Beanie & Glasses) -->
+  <g id="dev-character" transform="translate(145, 160)">
+    <!-- Shoulders & Dark Hoodie -->
+    <path d="M-10 135 C10 100 35 95 65 95 C95 95 120 100 140 135 Z" fill="url(#hoodieBeanie)"/>
+    <!-- Hoodie Strings -->
+    <line x1="55" y1="96" x2="52" y2="118" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="75" y1="96" x2="78" y2="118" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Neck & Face -->
+    <rect x="52" y="75" width="26" height="25" fill="#FBCFE8"/>
+    <ellipse cx="65" cy="60" rx="30" ry="34" fill="#FBCFE8"/>
+
+    <!-- Beanie (Black/Dark Slate) -->
+    <path d="M34 50 C34 16 96 16 96 50 Z" fill="#0F172A"/>
+    <rect x="30" y="46" width="70" height="12" rx="4" fill="#1E293B"/>
+
+    <!-- Developer Glasses (Square Stylish Specs) -->
+    <rect x="42" y="52" width="18" height="14" rx="3" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <rect x="70" y="52" width="18" height="14" rx="3" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <line x1="60" y1="58" x2="70" y2="58" stroke="#38BDF8" stroke-width="2"/>
+    <!-- Eyes behind glasses -->
+    <circle cx="51" cy="59" r="3" fill="#0F172A"/>
+    <circle cx="79" cy="59" r="3" fill="#0F172A"/>
+
+    <!-- Focused Smile -->
+    <path d="M59 74 Q65 78 71 74" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Hands Typing on Keyboard -->
+    <g class="dev-typing">
+      <ellipse cx="28" cy="136" rx="12" ry="7" fill="#FBCFE8"/>
+      <ellipse cx="102" cy="136" rx="12" ry="7" fill="#FBCFE8"/>
+    </g>
+  </g>
+</svg>

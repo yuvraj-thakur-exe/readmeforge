@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="100%" height="100%">
+  <defs>
+    <radialGradient id="platformGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.6"/>
+      <stop offset="70%" stop-color="#0284C7" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="catDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, .coffee-steam-cat, .cat-sway {
+        animation: none !important;
+      }
+    }
+    .cat-sway {
+      transform-box: fill-box;
+      transform-origin: bottom center;
+      animation: catSway 3s ease-in-out infinite alternate;
+    }
+    @keyframes catSway {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-4px); }
+    }
+    .coffee-steam-cat {
+      stroke-dasharray: 14;
+      animation: steamRising 2.2s ease-out infinite;
+    }
+    @keyframes steamRising {
+      0% { stroke-dashoffset: 14; opacity: 0; transform: translateY(0); }
+      50% { opacity: 0.8; }
+      100% { stroke-dashoffset: -14; opacity: 0; transform: translateY(-12px); }
+    }
+  </style>
+
+  <!-- GLOWING CYAN PLATFORM DISC -->
+  <ellipse cx="160" cy="275" rx="85" ry="24" fill="url(#platformGlow)"/>
+  <ellipse cx="160" cy="275" rx="55" ry="14" fill="none" stroke="#38BDF8" stroke-width="1.5" stroke-opacity="0.8"/>
+
+  <g class="cat-sway">
+    <!-- Tentacles / Base Legs -->
+    <path d="M115 240 Q105 270 120 270 Q135 270 130 240" fill="url(#catDark)"/>
+    <path d="M140 245 Q135 275 150 275 Q160 275 155 245" fill="url(#catDark)"/>
+    <path d="M165 245 Q160 275 175 275 Q185 275 180 245" fill="url(#catDark)"/>
+    <path d="M190 240 Q185 270 200 270 Q215 270 205 240" fill="url(#catDark)"/>
+
+    <!-- Octocat Torso in Hoodie -->
+    <ellipse cx="160" cy="205" rx="46" ry="48" fill="url(#catDark)"/>
+    <path d="M148 200 L160 215 L172 200" fill="none" stroke="#38BDF8" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Octocat Head with Cat Ears -->
+    <ellipse cx="160" cy="130" rx="54" ry="46" fill="url(#catDark)"/>
+    <!-- Cat Ears -->
+    <polygon points="115,115 110,75 140,95" fill="url(#catDark)"/>
+    <polygon points="116,110 115,85 135,100" fill="#F472B6" opacity="0.6"/>
+    <polygon points="205,115 210,75 180,95" fill="url(#catDark)"/>
+    <polygon points="204,110 205,85 185,100" fill="#F472B6" opacity="0.6"/>
+
+    <!-- Expressive Eyes -->
+    <ellipse cx="140" cy="130" rx="8" ry="11" fill="#FFFFFF"/>
+    <ellipse cx="180" cy="130" rx="8" ry="11" fill="#FFFFFF"/>
+    <circle cx="141" cy="130" r="5" fill="#0F172A"/>
+    <circle cx="179" cy="130" r="5" fill="#0F172A"/>
+    <circle cx="139" cy="128" r="2" fill="#FFFFFF"/>
+    <circle cx="177" cy="128" r="2" fill="#FFFFFF"/>
+
+    <!-- Cute Cat Snout & Whiskers -->
+    <ellipse cx="160" cy="142" rx="4" ry="3" fill="#F472B6"/>
+    <path d="M157 145 Q160 148 163 145" fill="none" stroke="#64748B" stroke-width="1.5"/>
+    <!-- Whiskers -->
+    <line x1="120" y1="138" x2="100" y2="134" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="120" y1="144" x2="98" y2="146" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="200" y1="138" x2="220" y2="134" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="200" y1="144" x2="222" y2="146" stroke="#64748B" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Steaming Coffee Mug Held in Paws -->
+    <g transform="translate(182, 185)">
+      <!-- Mug Body -->
+      <path d="M4 6 L6 28 C6 32 26 32 26 28 L28 6 Z" fill="#38BDF8"/>
+      <ellipse cx="16" cy="6" rx="12" ry="4" fill="#0284C7"/>
+      <ellipse cx="16" cy="7" rx="9" ry="2.5" fill="#3E2723"/>
+      <!-- Mug Handle -->
+      <path d="M27 10 C34 10 34 22 27 22" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+      <!-- GitHub Logo Icon on Mug -->
+      <circle cx="16" cy="18" r="4" fill="#FFFFFF" opacity="0.9"/>
+      <!-- Coffee Steam -->
+      <path class="coffee-steam-cat" d="M12 2 Q9 -6 13 -14" fill="none" stroke="#BAE6FD" stroke-width="2" stroke-linecap="round"/>
+      <path class="coffee-steam-cat" d="M19 2 Q22 -6 18 -14" fill="none" stroke="#BAE6FD" stroke-width="2" stroke-linecap="round" style="animation-delay: 0.7s;"/>
+    </g>
+
+    <!-- Paws gripping mug -->
+    <ellipse cx="178" cy="202" rx="7" ry="5" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <ellipse cx="196" cy="202" rx="6" ry="5" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+  </g>
+</svg>

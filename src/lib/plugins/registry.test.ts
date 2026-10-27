@@ -15,6 +15,9 @@ describe('Plugin Registry', () => {
     expect(ids).toContain('portfolio-contributions');
     expect(ids).toContain('activity-graph');
     expect(ids).toContain('pie-chart');
+    expect(ids).toContain('capsule-banner');
+    expect(ids).toContain('mascot-bio');
+    expect(ids).toContain('skill-icons');
   });
 
   it('validates that every plugin has valid fields and renderMarkdown output', () => {
