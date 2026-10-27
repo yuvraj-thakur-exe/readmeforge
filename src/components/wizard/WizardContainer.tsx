@@ -378,7 +378,6 @@ export function WizardContainer() {
                     { id: 'github-profile-trophy', title: 'GitHub Trophies', desc: 'Showcase achievements and ranking trophies.' },
                     { id: 'github-achievements', title: 'GitHub Achievements', desc: 'Display unlocked official GitHub profile achievement badges.' },
                     { id: 'snk', title: 'Contribution Snake (snk)', desc: 'Generates animated snake eating your contribution graph.' },
-                    { id: 'waka-readme-stats', title: 'WakaTime Stats', desc: 'Coding hours and weekly breakdown.' },
                     { id: 'visitor-counter', title: 'Visitor Counter', desc: 'Live profile view counter badge.' },
                     { id: 'portfolio-contributions', title: 'Contribution Graph Grid', desc: 'Visual 3D contribution matrix.' },
                   ].map(plugin => {

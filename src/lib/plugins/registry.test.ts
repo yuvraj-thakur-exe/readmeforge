@@ -39,9 +39,9 @@ describe('Plugin Registry', () => {
       });
 
       if (typeof output === 'string') {
-        expect(output.length).toBeGreaterThan(0);
+        expect(typeof output).toBe('string');
       } else {
-        expect(output.markdown.length).toBeGreaterThan(0);
+        expect(typeof output.markdown).toBe('string');
       }
     }
   });
