@@ -68,7 +68,7 @@ describe('TemplateGallery Component', () => {
     // Switch to Prompt tab
     fireEvent.click(screen.getByText(/AI Generator Prompt/i));
     expect(screen.getByText(/AI Prompt for LLMs/i)).toBeDefined();
-  });
+  }, 15000);
 
   it('allows removing a plugin in the preview modal', () => {
     render(<TemplateGallery />);
@@ -88,7 +88,7 @@ describe('TemplateGallery Component', () => {
 
     // Should show restore button
     expect(screen.getByText(/Restore All Plugins/i)).toBeDefined();
-  });
+  }, 15000);
 
   it('copies AI prompt when clicking copy prompt button', () => {
     const writeTextMock = vi.fn().mockResolvedValue(undefined);

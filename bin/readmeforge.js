@@ -402,6 +402,1062 @@ export const ARCHETYPES = [
 </div>`;
     },
   },
+  {
+    id: 'data-engineer-streaming',
+    name: 'Data Engineer & Stream Processor',
+    category: 'AI & Data',
+    accent: '#0284c7',
+    description: 'High-throughput data pipelines, Kafka streaming, Spark transformations, and Snowflake analytics warehouse.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:0284c7&height=180&section=header&text=Data%20Platform%20%26%20Distributed%20Systems&desc=Streaming%20billions%20of%20events%20per%20second%20with%20sub-second%20latency&fontSize=28&fontColor=ffffff&descSize=14&descColor=0284c7" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,kafka,apache,spark,postgres,docker,aws,linux,git,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/0284C7/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'game-dev-3d-graphics',
+    name: '3D Game Developer & Graphics Engineer',
+    category: 'Design',
+    accent: '#ec4899',
+    description: 'Real-time ray tracing, custom HLSL/GLSL shaders, Unreal Engine 5, Unity, and procedural generation.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:ec4899&height=180&section=header&text=3D%20Graphics%20%26%20Game%20Engine%20Architecture&desc=Translating%20mathematical%20equations%20into%20living%2C%20breathing%20real-time%20wo&fontSize=28&fontColor=ffffff&descSize=14&descColor=ec4899" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=cpp,rust,unity,unreal,blender,js,webgl,git,linux&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/EC4899/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'web3-solidity-defi',
+    name: 'Web3 & DeFi Smart Contract Architect',
+    category: 'Mobile & Web3',
+    accent: '#8b5cf6',
+    description: 'Gas-optimized EVM bytecode, formal smart contract verification, Foundry test suites, and decentralized finance.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:8b5cf6&height=180&section=header&text=Trustless%20Decentralized%20Protocols&desc=Formal%20verification%2C%20sub-21k%20gas%20execution%2C%20and%20cryptographic%20security&fontSize=28&fontColor=ffffff&descSize=14&descColor=8b5cf6" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=solidity,rust,ethereum,ts,ipfs,git,linux,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/8B5CF6/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'embedded-iot-firmware',
+    name: 'Embedded Systems & IoT Firmware Engineer',
+    category: 'Systems',
+    accent: '#10b981',
+    description: 'Bare-metal C/C++, FreeRTOS multitasking, STM32 microcontrollers, low-power Bluetooth, and hardware drivers.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:10b981&height=180&section=header&text=Bare-Metal%20%26%20Real-Time%20Firmware&desc=Deterministic%20execution%20in%20microsecond%20budgets%20on%20resource-constrained&fontSize=28&fontColor=ffffff&descSize=14&descColor=10b981" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=c,cpp,rust,linux,arduino,raspberrypi,git,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/10B981/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'creative-technologist-motion',
+    name: 'Creative Technologist & Interaction Designer',
+    category: 'Design',
+    accent: '#f43f5e',
+    description: 'Fluid GLSL canvas shaders, reactive micro-interactions, generative SVG animations, and design systems.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:f43f5e&height=180&section=header&text=Interactive%20Motion%20%26%20Generative%20Systems&desc=Sculpting%20delightful%20digital%20interactions%20at%20silky%2060fps&fontSize=28&fontColor=ffffff&descSize=14&descColor=f43f5e" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,ts,threejs,figma,tailwind,css,html,git,nextjs&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/F43F5E/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'quantum-algorithms-physicist',
+    name: 'Quantum Computing & Algorithms Researcher',
+    category: 'AI & Data',
+    accent: '#6366f1',
+    description: 'Quantum circuits, Qiskit error mitigation, topological qubits, and quantum variational eigensolvers.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:6366f1&height=180&section=header&text=Quantum%20Information%20%26%20Superposition&desc=Harnessing%20quantum%20entanglement%20to%20solve%20classically%20intractable%20probl&fontSize=28&fontColor=ffffff&descSize=14&descColor=6366f1" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,julia,c,linux,git,latex,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/6366F1/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'site-reliability-sre-chaos',
+    name: 'Site Reliability Engineer (SRE & Observability)',
+    category: 'DevOps',
+    accent: '#f59e0b',
+    description: 'Multi-region Kubernetes clusters, 99.999% SLA budgeting, eBPF telemetry, and chaos engineering drills.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:f59e0b&height=180&section=header&text=Five-Nines%20Uptime%20%26%20Chaos%20Engineering&desc=Automated%20self-healing%20infrastructure%20engineered%20for%20planetary%20scale&fontSize=28&fontColor=ffffff&descSize=14&descColor=f59e0b" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=kubernetes,docker,prometheus,grafana,linux,bash,go,python,terraform&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/F59E0B/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'competitive-programmer-grandmaster',
+    name: 'Competitive Programmer & Algorithmic Specialist',
+    category: 'Systems',
+    accent: '#ef4444',
+    description: 'Master of graph theory, dynamic programming, Segment Trees, and sub-millisecond C++20 execution.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:ef4444&height=180&section=header&text=Optimal%20Algorithms%20%26%20Sub-Millisecond%20Speed&desc=Transforming%20NP-hard%20computational%20challenges%20into%20elegant%20optimal%20sol&fontSize=28&fontColor=ffffff&descSize=14&descColor=ef4444" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=cpp,java,python,c,linux,git,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/EF4444/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'indie-hacker-solopreneur',
+    name: 'Solo Founder & Indie Hacker',
+    category: 'Popular',
+    accent: '#10b981',
+    description: 'Shipping profitable micro-SaaS products, public revenue metrics, full-stack velocity, and user-centric features.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:10b981&height=180&section=header&text=Building%20in%20Public%20%26%20Bootstrapping%20SaaS&desc=Zero%20fluff%2C%20zero%20meetings%2C%20100%25%20customer%20value%20delivered%20weekly&fontSize=28&fontColor=ffffff&descSize=14&descColor=10b981" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=nextjs,react,ts,tailwind,postgres,supabase,git,html,css&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/10B981/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'bioinformatics-genomics-core',
+    name: 'Bioinformatics & Computational Genomics Specialist',
+    category: 'AI & Data',
+    accent: '#06b6d4',
+    description: 'Whole-genome sequencing pipelines, variant effect prediction, single-cell RNA-seq, and reproducibility.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:06b6d4&height=180&section=header&text=Genomic%20Big%20Data%20%26%20Molecular%20Discovery&desc=Accelerating%20therapeutic%20breakthroughs%20with%20statistical%20genomics%20and%20d&fontSize=28&fontColor=ffffff&descSize=14&descColor=06b6d4" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,r,linux,bash,docker,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/06B6D4/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'audio-dsp-audio-engineer',
+    name: 'Audio Programmer & DSP Software Engineer',
+    category: 'Systems',
+    accent: '#a855f7',
+    description: 'Real-time VST/AU plugins, low-latency SIMD buffers, spatial HRTF synthesis, and musical acoustics.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:a855f7&height=180&section=header&text=Digital%20Signal%20Processing%20%26%20Acoustics&desc=Microsecond%20buffer%20latency%2C%20pristine%20harmonics%2C%20and%20real-time%20DSP%20filt&fontSize=28&fontColor=ffffff&descSize=14&descColor=a855f7" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=cpp,c,rust,python,linux,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/A855F7/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'backend-systems-rust-tokio',
+    name: 'High-Concurrency Distributed Systems Engineer',
+    category: 'Systems',
+    accent: '#ea580c',
+    description: 'Lock-free data structures, Tokio async runtime, Raft consensus, and microsecond IPC communication.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:ea580c&height=180&section=header&text=Zero-Cost%20Abstractions%20%26%20Concurrency&desc=Memory%20safety%20without%20garbage%20collection%2C%20scaling%20horizontally%20across%20&fontSize=28&fontColor=ffffff&descSize=14&descColor=ea580c" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=rust,go,redis,postgres,docker,linux,git,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/EA580C/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'enterprise-java-spring-boot',
+    name: 'Enterprise Java & Microservices Architect',
+    category: 'Systems',
+    accent: '#b45309',
+    description: 'Domain-Driven Design, event-driven Kafka messaging, Spring Boot 3, and mission-critical reliability.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:b45309&height=180&section=header&text=Enterprise%20Resilience%20%26%20Event%20Sourcing&desc=Domain-Driven%20Design%2C%20robust%20transaction%20boundaries%2C%20and%2099.999%25%20enter&fontSize=28&fontColor=ffffff&descSize=14&descColor=b45309" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=java,spring,docker,kubernetes,postgres,aws,git,linux&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/B45309/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'flutter-crossplatform-specialist',
+    name: 'Cross-Platform Mobile Architect',
+    category: 'Mobile & Web3',
+    accent: '#0284c7',
+    description: 'Pixel-perfect mobile applications for iOS & Android, offline-first sync, reactive Riverpod state, and native plugins.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:0284c7&height=180&section=header&text=High-Performance%20Cross-Platform%20Mobile&desc=Single%20codebase%2C%20120fps%20native%20performance%20across%20iOS%2C%20Android%2C%20and%20De&fontSize=28&fontColor=ffffff&descSize=14&descColor=0284c7" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=flutter,dart,react,ts,swift,kotlin,git,figma&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/0284C7/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'red-team-ethical-hacker',
+    name: 'Penetration Tester & Offensive Security Specialist',
+    category: 'Systems',
+    accent: '#dc2626',
+    description: 'Red team adversary simulation, binary exploitation, zero-day research, and network intrusion analysis.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:dc2626&height=180&section=header&text=Offensive%20Security%20%26%20Binary%20Exploitation&desc=Discovering%20edge-case%20attack%20vectors%20to%20harden%20mission-critical%20softwa&fontSize=28&fontColor=ffffff&descSize=14&descColor=dc2626" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,bash,linux,c,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/DC2626/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'synthwave-outrun-coder',
+    name: 'Synthwave 80s Cyber Hacker',
+    category: 'Design',
+    accent: '#d946ef',
+    description: 'Retro 80s synthwave horizon, neon purple chrome gradients, electronic beats, and ultra-fast frontend applications.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:d946ef&height=180&section=header&text=Neon%20Outrun%20%26%20Retro%20Synth%20Aesthetics&desc=Cruising%20down%20the%20digital%20highway%20with%2080s%20synths%20and%20modern%20clean%20cod&fontSize=28&fontColor=ffffff&descSize=14&descColor=d946ef" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=vue,ts,tailwind,vite,pinia,git,html,css&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/D946EF/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'terminal-matrix-digital-rain',
+    name: 'Neo Matrix Cyber Terminal',
+    category: 'Popular',
+    accent: '#22c55e',
+    description: 'Phosphor green digital rain, pure terminal cadence, Linux kernel hacker aesthetic, and minimal overhead.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:22c55e&height=180&section=header&text=Phosphor%20Green%20Matrix%20Terminal&desc=Wake%20up%2C%20Neo...%20The%20terminal%20holds%20the%20truth&fontSize=28&fontColor=ffffff&descSize=14&descColor=22c55e" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=c,bash,linux,git,python&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/22C55E/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'frontend-design-system-lead',
+    name: 'Design Systems Lead & UI Architect',
+    category: 'Design',
+    accent: '#3b82f6',
+    description: 'Token architectures, WCAG AAA accessibility, component libraries, Storybook documentation, and micro-interactions.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:3b82f6&height=180&section=header&text=Accessible%20Design%20Systems%20%26%20Tokens&desc=Pixel%20precision%2C%20WCAG%20AAA%20conformance%2C%20and%20effortless%20multi-brand%20them&fontSize=28&fontColor=ffffff&descSize=14&descColor=3b82f6" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,ts,tailwind,nextjs,figma,html,css,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/3B82F6/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'deep-learning-computer-vision',
+    name: 'Deep Learning & Computer Vision Researcher',
+    category: 'AI & Data',
+    accent: '#8b5cf6',
+    description: 'Convolutional neural networks, Vision Transformers (ViT), real-time object detection, and edge tensor runtimes.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:8b5cf6&height=180&section=header&text=Spatial%20Vision%20%26%20Neural%20Representations&desc=Real-time%20multi-modal%20perception%20models%20running%20inference%20on%20edge%20hard&fontSize=28&fontColor=ffffff&descSize=14&descColor=8b5cf6" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=pytorch,python,opencv,linux,docker,git,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/8B5CF6/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'platform-engineer-kubernetes',
+    name: 'Platform Engineer & Developer Portal Specialist',
+    category: 'DevOps',
+    accent: '#0ea5e9',
+    description: 'Internal Developer Platforms (IDP), GitOps with ArgoCD, golden path infrastructure templates, and developer happiness.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:0ea5e9&height=180&section=header&text=Internal%20Developer%20Platforms%20%26%20GitOps&desc=Empowering%20product%20engineers%20to%20deploy%20with%20confidence%20in%20seconds%2C%20not&fontSize=28&fontColor=ffffff&descSize=14&descColor=0ea5e9" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=kubernetes,docker,terraform,go,linux,bash,git,aws&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/0EA5E9/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'graphql-api-architect',
+    name: 'API Architect & GraphQL Specialist',
+    category: 'Systems',
+    accent: '#e11d48',
+    description: 'Federated GraphQL supergraphs, schema stitching, ultra-fast Fastify servers, and OpenAPI contract testing.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:e11d48&height=180&section=header&text=Federated%20Graph%20Architecture%20%26%20Gateway&desc=Type-safe%20client%20contracts%20with%20zero%20over-fetching%20and%20millisecond%20res&fontSize=28&fontColor=ffffff&descSize=14&descColor=e11d48" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=nodejs,ts,graphql,postgres,redis,docker,git,linux&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/E11D48/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'database-tuner-dba',
+    name: 'Database Architect & Performance Tuner',
+    category: 'Systems',
+    accent: '#0284c7',
+    description: 'Query plan optimization, pgvector similarity indexing, horizontal sharding, and high-availability replication.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:0284c7&height=180&section=header&text=High-Throughput%20Relational%20%26%20Vector%20Storage&desc=Zero-downtime%20failovers%2C%20index%20optimization%2C%20and%20sub-millisecond%20query&fontSize=28&fontColor=ffffff&descSize=14&descColor=0284c7" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=postgres,redis,linux,bash,python,docker,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/0284C7/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'blue-team-soc-analyst',
+    name: 'Security Operations & Blue Team Defense Specialist',
+    category: 'Systems',
+    accent: '#3b82f6',
+    description: 'Threat hunting, SIEM log correlation, automated incident response playbooks, and perimeter defense.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:3b82f6&height=180&section=header&text=Defensive%20Perimeter%20%26%20Threat%20Detection&desc=Uncompromising%20security%20posture%2C%20automated%20containment%2C%20and%2024%2F7%20resil&fontSize=28&fontColor=ffffff&descSize=14&descColor=3b82f6" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=python,bash,linux,docker,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/3B82F6/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'robotics-ros2-navigation',
+    name: 'Robotics & Autonomous Navigation Engineer',
+    category: 'Systems',
+    accent: '#f97316',
+    description: 'Simultaneous Localization and Mapping (SLAM), ROS2 micro-nodes, trajectory planning, and hardware sensor fusion.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:f97316&height=180&section=header&text=Autonomous%20Navigation%20%26%20Sensor%20Fusion&desc=Real-time%20kinematic%20planning%2C%20multi-sensor%20integration%2C%20and%20determinis&fontSize=28&fontColor=ffffff&descSize=14&descColor=f97316" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=cpp,python,linux,ros,git,docker,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/F97316/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'spatial-computing-visionos',
+    name: 'Spatial Computing & VisionOS Developer',
+    category: 'Mobile & Web3',
+    accent: '#6366f1',
+    description: 'Volumetric windows, RealityKit spatial anchors, hand-tracking gestures, and immersive 3D mixed reality.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:6366f1&height=180&section=header&text=Spatial%20Computing%20%26%20Volumetric%20Realities&desc=Transcending%20flat%20screens%20with%20interactive%20spatial%20anchors%20and%20mixed%20r&fontSize=28&fontColor=ffffff&descSize=14&descColor=6366f1" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=swift,apple,unity,blender,git,figma&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/6366F1/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'tech-educator-content-creator',
+    name: 'Technical Content Creator & Educator',
+    category: 'Popular',
+    accent: '#eab308',
+    description: 'Visual coding tutorials, open-source educational repositories, engineering guides, and community mentorship.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:eab308&height=180&section=header&text=Open%20Knowledge%20%26%20Developer%20Mentorship&desc=Empowering%20the%20next%20million%20engineers%20with%20free%2C%20accessible%2C%20and%20cryst&fontSize=28&fontColor=ffffff&descSize=14&descColor=eab308" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=js,ts,react,python,git,markdown,html,css&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/EAB308/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'kernel-driver-lowlevel-dev',
+    name: 'Linux Kernel & Low-Level Driver Developer',
+    category: 'Systems',
+    accent: '#64748b',
+    description: 'Ring-0 privilege programming, memory-mapped I/O, PCIe device drivers, and kernel crash dump analysis.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:64748b&height=180&section=header&text=Kernel%20Internals%20%26%20Memory%20Architecture&desc=Operating%20at%20Ring%200%2C%20where%20every%20byte%20and%20cycle%20directly%20controls%20phys&fontSize=28&fontColor=ffffff&descSize=14&descColor=64748b" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=c,linux,bash,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/64748B/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'fintech-hft-low-latency',
+    name: 'FinTech & High-Frequency Trading Developer',
+    category: 'Systems',
+    accent: '#059669',
+    description: 'Sub-microsecond order execution, kernel-bypass networking, FPGA packet parsing, and modern C++20.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:059669&height=180&section=header&text=Sub-Microsecond%20Quantitative%20Systems&desc=Deterministic%20nanosecond%20performance%20where%20latency%20directly%20equals%20com&fontSize=28&fontColor=ffffff&descSize=14&descColor=059669" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=cpp,python,linux,git,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/059669/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'edtech-simulation-developer',
+    name: 'EdTech & Interactive Simulation Developer',
+    category: 'Design',
+    accent: '#8b5cf6',
+    description: 'Interactive STEM physics simulations, mathematical visualizations, HTML5 Canvas animations, and gamified learning.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:8b5cf6&height=180&section=header&text=Interactive%20STEM%20Simulations&desc=Visualizing%20abstract%20mathematical%20principles%20into%20playful%2C%20intuitive%20t&fontSize=28&fontColor=ffffff&descSize=14&descColor=8b5cf6" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=js,react,ts,html,css,git&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/8B5CF6/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'pixel-art-indie-gamedev',
+    name: 'Cozy Pixel Artist & Retro Indie Gamedev',
+    category: 'Design',
+    accent: '#f59e0b',
+    description: '16-bit nostalgic worlds, chiptune soundscapes, Godot game mechanics, and handcrafted sprite animations.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:f59e0b&height=180&section=header&text=16-Bit%20Nostalgia%20%26%20Handcrafted%20Games&desc=Painting%20retro%20worlds%20one%20pixel%20at%20a%20time%20with%20endless%20heart%20and%20imagi&fontSize=28&fontColor=ffffff&descSize=14&descColor=f59e0b" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=godot,blender,git,linux,python&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/F59E0B/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'cloud-serverless-specialist',
+    name: 'Cloud Native Serverless Architect',
+    category: 'DevOps',
+    accent: '#f97316',
+    description: 'Event-driven architectures, DynamoDB single-table design, zero-idle infrastructure cost, and AWS CDK/SST.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:f97316&height=180&section=header&text=True%20Serverless%20%26%20Event%20Choreography&desc=Scaling%20from%200%20to%20100%2C000%20requests%20in%20milliseconds%20with%20zero%20idle%20infr&fontSize=28&fontColor=ffffff&descSize=14&descColor=f97316" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=aws,ts,nodejs,docker,git,linux,bash&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/F97316/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
+  {
+    id: 'developer-experience-dx-lead',
+    name: 'Developer Experience & Documentation Engineer',
+    category: 'Popular',
+    accent: '#10b981',
+    description: 'Instant CLI toolchain feedback, interactive SDK documentation, AST code generation, and ergonomic APIs.',
+    generator: (u) => {
+      const user = u.username || 'octocat';
+      return `<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f172a,100:10b981&height=180&section=header&text=Zero-Friction%20Developer%20Experience&desc=Transforming%20painful%20onboarding%20friction%20into%20effortless%2C%20delightfully&fontSize=28&fontColor=ffffff&descSize=14&descColor=10b981" width="100%" alt="Header" />
+</div>
+
+<br/>
+
+<div align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=astro,react,ts,tailwind,markdown,git,nextjs&theme=dark&perline=10" alt="Tech Stack" />
+  </a>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://ghchart.rshah.org/10B981/${user}" alt="Commit Activity" />
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=${user}&show_icons=true&theme=tokyonight" alt="GitHub Stats" />
+</div>`;
+    },
+  },
 ];
 
 // Helper to generate profile markdown with footer attribution

@@ -43,6 +43,15 @@ When a user asks: *"Build me a great GitHub profile"* or provides their resume/b
 | **DevOps / SRE / Cloud** | `constellation-devops-desk` | Dark constellation deep-space banner with Octocat holding coffee, DevOps bullet points, developer with beanie and glasses at dual-monitor workstation desk illustration. |
 | **Competitive / Fullstack** | `isometric-terminal-connect` | 3D isometric terminal cube header banner, cyan `>_ Competitive Programmer` callout, glowing `"Let's Connect and have a Chat!"` rounded social badge arsenal. |
 | **Lo-Fi / Creative Designer** | `pinterest-lofi-aesthetic` | Cozy animated Lo-Fi midnight coding desk artwork from Pinterest, ambient playlist aesthetics, pastel tech badges, gentle typography. |
+| **Data Platform & Streaming** | `data-engineer-streaming` | Real-time event streaming banner, PySpark/Kafka/Snowflake skill icons, commit velocity, telemetry cards. |
+| **3D Game & Graphics Dev** | `game-dev-3d-graphics` | Real-time shader aesthetics, C++/Unreal/Unity skill cluster, commit streaks, developer statistics. |
+| **Web3 & DeFi Protocol** | `web3-solidity-defi` | Trustless protocol banner, gas-optimized Solidity/Rust stack, achievement trophies, contribution curve. |
+| **Embedded & IoT Firmware** | `embedded-iot-firmware` | Deterministic bare-metal banner, C/FreeRTOS/STM32 skill icons, language analytics breakdown. |
+| **Site Reliability (SRE)** | `site-reliability-sre-chaos` | Five-nines uptime banner, Kubernetes/Prometheus observability stack, developer at workstation desk, streak stats. |
+| **Quantum Algorithms** | `quantum-algorithms-physicist` | Quantum superposition banner, Python/Qiskit/Julia scientific computing icons, activity telemetry. |
+| **Solo Founder / Indie Hacker** | `indie-hacker-solopreneur` | Building-in-public typing headline, Next.js/Supabase/Stripe stack, live visitor counter, commit activity. |
+| **Terminal Matrix Hacker** | `terminal-matrix-digital-rain` | Phosphor green matrix code rain banner, pure C/Linux kernel skill cluster, trophy cabinet, activity curve. |
+| *+ 34 More Archetypes* | *(See CLI: `npx readmeforge list`)* | 50 total verified archetypes covering Mobile, Bio-informatics, Audio DSP, HFT, Kernel, Robotics, VisionOS, and more. |
 
 ---
 

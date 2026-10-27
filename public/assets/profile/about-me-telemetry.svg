@@ -90,7 +90,7 @@
 
   <!-- Terminal Session Info -->
   <text x="70" y="24" fill="#94a3b8" font-family="'Fira Code', 'JetBrains Mono', Consolas, monospace" font-size="11.5" font-weight="600">
-    yuvraj@workspace: ~/portfolio/architecture
+    developer@workspace: ~/portfolio/architecture
   </text>
 
   <!-- Verified Status Badge -->
