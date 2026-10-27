@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 @import './themes/index.css';
 
@@ -50,9 +49,9 @@
   /* Font */
 
   --font-sans:
-    'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    var(--font-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
   --font-mono:
-    'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+    var(--font-mono), 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
 
   --text-xs: 1.2rem;
   --text-sm: 1.4rem;

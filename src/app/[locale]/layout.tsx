@@ -16,6 +16,21 @@ if (typeof console !== 'undefined') {
 }
 
 import type { Metadata, Viewport } from 'next';
+import { Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+  weight: ['400', '500', '600', '700', '800'],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+  weight: ['400', '500', '600', '700'],
+});
 
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import {
@@ -56,17 +71,12 @@ export async function generateMetadata({
   const description = t('description');
   const appUrl = config.general.urls.app;
 
-  const pathnames = ['/', '/result', '/privacy-policy', '/info', '/developer', '/animator'];
-
-  const languages = pathnames.reduce<Record<string, string>>(
-    (acc, pathname) => {
-      for (const loc of routing.locales) {
-        acc[`${appUrl}/${loc}${pathname === '/' ? '' : pathname}`] = loc;
-      }
-      return acc;
-    },
-    {}
-  );
+  const languages: Record<string, string> = {
+    'x-default': `${appUrl}/en`,
+  };
+  for (const loc of routing.locales) {
+    languages[loc] = `${appUrl}/${loc}`;
+  }
 
   return {
     metadataBase: new URL(appUrl),
@@ -112,6 +122,7 @@ export async function generateMetadata({
       creator: 'https://github.com/yuvraj-thakur-exe/readmeforge',
     },
     alternates: {
+      canonical: `${appUrl}/${locale}`,
       languages,
     },
     verification: {
@@ -139,7 +150,11 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link
           rel="preload"

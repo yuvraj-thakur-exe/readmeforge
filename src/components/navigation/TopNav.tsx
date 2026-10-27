@@ -20,6 +20,8 @@ export function TopNav() {
             <img
               src="/logo-icon.svg"
               alt="ReadmeForge Logo"
+              width={32}
+              height={32}
               className="w-8 h-8 rounded-xl shadow-md group-hover:scale-105 transition-transform duration-200"
             />
             <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-neutral-950 animate-pulse" />

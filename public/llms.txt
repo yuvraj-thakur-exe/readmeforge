@@ -1,110 +1,42 @@
-# ReadmeForge — AI Agent Specification & Context (llms.txt)
-> https://readmeforge.dev | An open-source, client-side GitHub profile README generator and visual studio.
+# ReadmeForge
 
-## Project Summary
-ReadmeForge generates production-grade, GitHub-safe markdown profiles with zero required runtime servers.
-It supports two primary creation workflows:
-1. **Visual Wizard**: Step-by-step modular form with real-time preview and resume import.
-2. **/developer Mode**: Raw-mode Monaco JSON editor with instant two-way synchronization, Zod schema validation, plugin registry drawer, and live markdown preview.
+> An open-source, AI-native GitHub profile README generator and visual studio.
 
-## Canonical Schema
-All profiles conform to the `ReadmeConfig` specification:
-- **`version`** (string): Current schema version (e.g. `"1.0.0"`).
-- **`title`** (string): User profile title or project headline.
-- **`settings`** (object):
-  - **`user`** (object): `github` (required string), `name`, `role`, `bio`, `location`, `pronouns`, `status`.
-  - **`theme`** (string): `"dark"` | `"light"` | `"auto"`.
-  - **`accentColor`** (string): Hex color (e.g. `"#8b5cf6"`, `"#10b981"`).
-  - **`badgeStyle`** (string): `"for-the-badge"` | `"flat"` | `"flat-square"` | `"plastic"`.
-  - **`align`** (string): `"left"` | `"center"` | `"right"`.
-- **`sections`** (array of SectionConfig):
-  - **`id`** (string): Unique identifier (e.g. `"sec-1"`).
-  - **`type`** (string): One of the 15 registered plugin IDs below.
-  - **`props`** (object): `{ content: Record<string, unknown>, styles: Record<string, unknown>, state?: string }`.
+ReadmeForge generates production-grade, GitHub-safe markdown profiles with zero required runtime servers. It supports visual drag-and-drop canvas editing, raw JSON /developer mode, and dynamic vector animation.
 
-## Modular Plugin Registry (15 Plugins)
-1. `header-bio`: Custom title, subtitle, status badge, pronouns, location, and avatar.
-2. `capsule-banner`: Modern curved/waving capsule-render SVG hero banner.
-3. `mascot-bio`: Side-by-side or stacked animated mascot character with custom bio card.
-4. `skill-icons`: Multi-icon SVG skill cluster with auto-wrapping and dark/light mode.
-5. `readme-typing-svg`: Dynamic typewriter headline via pure SVG animation.
-6. `markdown-badges`: 150+ technology, language, framework, database, and tool badges.
-7. `github-readme-stats`: Overall GitHub telemetry (stars, commits, pull requests, reviews).
-8. `streak-stats`: GitHub contribution streak and total lifetime contributions.
-9. `activity-graph`: Waveform contribution graph and activity trendlines.
-10. `github-profile-trophy`: Gamified achievement trophies ranked by stars, commits, and PRs.
-11. `pie-chart`: Top programming languages breakdown (donut, pie, or compact bar).
-12. `pinterest-image`: Aesthetic image showcase resolved from direct Pinterest links or search queries.
-13. `visitor-counter`: Non-invasive profile visitor counter badge.
-14. `snk`: Animated retro snake game eating through user's contribution grid.
-15. `social-links`: Social media, portfolio, blog, and community contact badges.
+## Documentation & Studio
 
-## AI Agent Integration & CLI
-AI agents (Claude, Cursor, Devin, Antigravity, Copilot) can execute ReadmeForge directly:
-- **CLI Generate**: `npx readmeforge generate --username <handle> --archetype <id>`
-- **List Archetypes**: `npx readmeforge list`
-- **Agent Skill Install**: `npx readmeforge skill-install`
-- **MCP Server (stdio)**: `npx readmeforge mcp` (exposes `generate_profile_readme` & `list_archetypes`)
-- **Agent Skill Spec**: `/.agents/skills/readmeforge/SKILL.md`
+- [Visual Studio](https://readmeforge-black.vercel.app/en/wizard): Interactive visual README builder with real-time preview and drag-and-drop layout.
+- [Visual Canvas Builder](https://readmeforge-black.vercel.app/en/canvas): Full canvas studio inspired by profile-readme-generator.com.
+- [Developer Raw Mode IDE](https://readmeforge-black.vercel.app/en/developer): Raw-mode Monaco JSON editor with live markdown preview and plugin arsenal.
+- [Dynamic Vector Animator](https://readmeforge-black.vercel.app/en/animator): Zero-script Camo-safe animated SVG hero banners and kinetic typography.
+- [Architecture & Guide Hub](https://readmeforge-black.vercel.app/en/info): Architectural guides, 8 curated visual archetypes, and documentation.
+- [Privacy Policy](https://readmeforge-black.vercel.app/en/privacy-policy): Zero-telemetry client-side privacy disclosure.
 
-## 8 Built-in Archetypes
-1. `wow-3d-city-cat`: 3D isometric contribution city with peeking kitten header and glowing language telemetry.
-2. `bento-signal-dashboard`: High-density dark glass bento grid with live signal telemetry.
-3. `metrics-telemetry-dashboard`: Simon Lecoq / lowlighter-style metrics dashboard.
-4. `neon-craftsman-owl`: Purple/magenta capsule banner, celebratory owl mascot, and achievement badges.
-5. `minimal-light-unicorn`: Clean light mode aesthetic with rainbow unicorn developer mascot.
-6. `dark-glass-devops`: Constellation mesh banner, terminal window, and tech badges.
-7. `cyber-terminal`: Neon cyan retro terminal header with animated typing SVG.
-8. `pinterest-lofi-aesthetic`: Cozy anime/lo-fi coffee workspace visual moodboard.
+## Developer & Machine Endpoints
 
-## Machine Endpoints & URLs
-- **Web App**: https://readmeforge-black.vercel.app
-- **/developer IDE**: https://readmeforge-black.vercel.app/en/developer
-- **JSON Schema API**: https://readmeforge-black.vercel.app/api/schema
-- **Agent Context (Full)**: https://readmeforge-black.vercel.app/llms-full.txt
-- **GitHub Repository**: https://github.com/yuvraj-thakur-exe/readmeforge
+- [JSON Schema API](https://readmeforge-black.vercel.app/api/schema): Machine-readable ReadmeConfig Zod/JSON schema.
+- [Full LLM Specification](https://readmeforge-black.vercel.app/llms-full.txt): Comprehensive AI prompt instructions and schema models.
+- [Agent Skill Spec](https://readmeforge-black.vercel.app/.agents/skills/readmeforge/SKILL.md): Declarative AI agent skill for automated execution.
+- [GitHub Repository](https://github.com/yuvraj-thakur-exe/readmeforge): Open-source repository and issue tracker.
+- [Sitemap XML](https://readmeforge-black.vercel.app/sitemap.xml): Multi-language sitemap with hreflang alternate links.
+- [Robots Policy](https://readmeforge-black.vercel.app/robots.txt): Search engine crawl policy and sitemap reference.
 
-## Sample Valid Configuration
-```json
-{
-  "version": "1.0.0",
-  "title": "Full-Stack Engineer Profile",
-  "settings": {
-    "user": {
-      "github": "octocat",
-      "name": "Alex Mercer",
-      "role": "Full-Stack & Systems Engineer",
-      "bio": "Building fast, reliable web applications and distributed backends.",
-      "location": "San Francisco, CA",
-      "pronouns": "they/them",
-      "status": "Exploring Rust & Turbopack"
-    },
-    "theme": "dark",
-    "accentColor": "#8b5cf6",
-    "badgeStyle": "for-the-badge",
-    "align": "left"
-  },
-  "sections": [
-    {
-      "id": "typing-header",
-      "type": "readme-typing-svg",
-      "props": {
-        "content": {
-          "lines": ["Building high-concurrency systems", "Open source contributor & maintainer"],
-          "color": "8b5cf6"
-        },
-        "styles": {}
-      }
-    },
-    {
-      "id": "gh-stats",
-      "type": "github-readme-stats",
-      "props": {
-        "content": { "showIcons": true, "includeAllCommits": true },
-        "styles": {}
-      }
-    }
-  ]
-}
-```
+## Plugins & Features
 
+- [Header & Bio](https://readmeforge-black.vercel.app/en/developer): Custom title, subtitle, status badge, pronouns, and avatar.
+- [Capsule Banner](https://readmeforge-black.vercel.app/en/developer): Modern curved/waving capsule-render SVG hero banners.
+- [Animated Mascot Bio](https://readmeforge-black.vercel.app/en/developer): Side-by-side or stacked animated mascot character with custom bio card.
+- [Skill Icons Cluster](https://readmeforge-black.vercel.app/en/developer): Multi-icon SVG skill cluster with dark/light mode.
+- [Readme Typing SVG](https://readmeforge-black.vercel.app/en/developer): Dynamic typewriter headline via pure SVG animation.
+- [Markdown Badges](https://readmeforge-black.vercel.app/en/developer): 150+ technology, language, framework, and database badges.
+- [GitHub Telemetry Stats](https://readmeforge-black.vercel.app/en/developer): Overall GitHub stars, commits, PRs, and review telemetry.
+- [Streak Stats](https://readmeforge-black.vercel.app/en/developer): GitHub contribution streak and total lifetime contributions.
+- [Activity Graph](https://readmeforge-black.vercel.app/en/developer): Waveform contribution graph and activity trendlines.
+- [Profile Trophies](https://readmeforge-black.vercel.app/en/developer): Gamified achievement trophies ranked by GitHub activity.
+- [Languages Breakdown](https://readmeforge-black.vercel.app/en/developer): Top programming languages breakdown in donut, pie, or compact bar.
+- [Pinterest Image Showcase](https://readmeforge-black.vercel.app/en/developer): Aesthetic image showcase resolved from direct Pinterest links or search queries.
+- [Figma Design Showcase](https://readmeforge-black.vercel.app/en/developer): Design system tokens, prototype links, and Figma project cards.
+- [Visitor Counter](https://readmeforge-black.vercel.app/en/developer): Non-invasive profile visitor counter badge.
+- [Snake Game](https://readmeforge-black.vercel.app/en/developer): Animated retro snake eating through user contribution grid.
+- [Social Links](https://readmeforge-black.vercel.app/en/developer): Social media, portfolio, and community contact badges.

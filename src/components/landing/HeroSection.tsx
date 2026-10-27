@@ -525,6 +525,8 @@ export const HeroSection: React.FC = () => {
                 <img
                   src="/assets/animated-heroes-squad.svg"
                   alt="Legendary Heroes Squad with Active Actions"
+                  width={1000}
+                  height={400}
                   className="w-full h-auto rounded-xl shadow-sm"
                 />
               </div>
@@ -628,6 +630,8 @@ export const HeroSection: React.FC = () => {
                 <img
                   src="/assets/text-effects.svg"
                   alt="Kinetic Typography and Dynamic Text Effects Engine"
+                  width={900}
+                  height={220}
                   className="w-full h-auto rounded-xl shadow-sm"
                 />
               </div>
