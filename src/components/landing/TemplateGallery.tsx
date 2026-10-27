@@ -8,7 +8,6 @@ import { buildMarkdown } from '#/lib/buildMarkdown';
 import confetti from 'canvas-confetti';
 import {
   Check,
-  ArrowRight,
   LayoutTemplate,
   Sparkles,
   Copy,
@@ -51,8 +50,6 @@ const TEMPLATE_PREVIEWS: Record<string, string> = {
 export const TemplateGallery: React.FC = () => {
   const setEntireConfig = useReadmeStore(state => state.setEntireConfig);
 
-  const [appliedId, setAppliedId] = useState<string | null>(null);
-  const [mergedId, setMergedId] = useState<string | null>(null);
   const [copiedPromptId, setCopiedPromptId] = useState<string | null>(null);
   const [copiedMarkdown, setCopiedMarkdown] = useState<boolean>(false);
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -115,62 +112,6 @@ export const TemplateGallery: React.FC = () => {
       return matchesCat && matchesSearch;
     });
   }, [activeCategory, searchQuery]);
-
-  // Apply template (replaces entire config & copies markdown)
-  const handleApply = (template: TemplateItem) => {
-    setEntireConfig(template.config);
-    setAppliedId(template.id);
-
-    try {
-      confetti({
-        particleCount: 50,
-        spread: 60,
-        origin: { y: 0.7 },
-        colors: [template.accent, '#8b5cf6', '#06b6d4'],
-      });
-    } catch {
-      // Ignored
-    }
-
-    const md = buildMarkdown(template.config);
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      navigator.clipboard.writeText(md);
-      showToast(`Template "${template.name}" applied & Markdown copied!`);
-    } else {
-      showToast(`Template "${template.name}" applied to your profile!`);
-    }
-
-    setTimeout(() => {
-      setAppliedId(null);
-    }, 1500);
-  };
-
-  // Merge template (appends sections to existing user config)
-  const handleMerge = (template: TemplateItem) => {
-    const current = useReadmeStore.getState().config;
-    const mergedSections = [...current.sections, ...template.config.sections];
-    setEntireConfig({
-      ...current,
-      sections: mergedSections,
-    });
-    setMergedId(template.id);
-    showToast(`${template.config.sections.length} plugin(s) from "${template.name}" added to your profile!`);
-
-    try {
-      confetti({
-        particleCount: 35,
-        spread: 50,
-        origin: { y: 0.7 },
-        colors: ['#10b981', '#3b82f6', template.accent],
-      });
-    } catch {
-      // Ignored
-    }
-
-    setTimeout(() => {
-      setMergedId(null);
-    }, 1500);
-  };
 
   // Copy AI prompt to clipboard with tactile confetti
   const handleCopyPrompt = (template: TemplateItem) => {
@@ -362,8 +303,6 @@ export const TemplateGallery: React.FC = () => {
       {/* Grid of Templates */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
         {filtered.map(tmpl => {
-          const isApplied = appliedId === tmpl.id;
-          const isMerged = mergedId === tmpl.id;
           const isCopied = copiedPromptId === tmpl.id;
 
           return (
@@ -508,90 +447,50 @@ export const TemplateGallery: React.FC = () => {
               </div>
 
               {/* Action Buttons Toolbar */}
-              <div className="pt-4 mt-5 border-t border-neutral-800/80 space-y-2.5">
+              <div className="pt-3 mt-4 border-t border-neutral-800/80 space-y-2.5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-neutral-500 font-mono font-medium">
                     {tmpl.config.sections.length} plugin{tmpl.config.sections.length === 1 ? '' : 's'} configured
                   </span>
-
-                  <div className="flex items-center gap-1.5">
-                    {/* Copy Prompt Button */}
-                    <button
-                      type="button"
-                      onClick={() => handleCopyPrompt(tmpl)}
-                      title="Copy AI Prompt"
-                      className={`relative p-1.5 rounded-lg border transition-all overflow-hidden ${
-                        isCopied
-                          ? 'animate-copy-pop bg-emerald-950/80 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.4)]'
-                          : 'bg-neutral-800/90 hover:bg-neutral-700 text-neutral-400 hover:text-amber-300 border-neutral-700/50'
-                      }`}
-                    >
-                      {/* Specular gleam on copied */}
-                      {isCopied && (
-                        <span className="absolute inset-0 overflow-hidden pointer-events-none">
-                          <span className="absolute inset-0 -translate-x-full animate-copy-gleam bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                        </span>
-                      )}
-                      {isCopied ? (
-                        <CheckCheck className="w-3.5 h-3.5 text-emerald-300 animate-check-spring drop-shadow-[0_0_6px_rgba(52,211,153,0.9)]" />
-                      ) : (
-                        <Sparkles className="w-3.5 h-3.5" />
-                      )}
-                    </button>
-
-                    {/* Preview Button */}
-                    <button
-                      type="button"
-                      onClick={() => handleOpenPreview(tmpl)}
-                      title="Preview Template"
-                      className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-neutral-800/90 hover:bg-neutral-700 text-neutral-300 hover:text-white border border-neutral-700/50 text-xs font-medium transition-colors"
-                    >
-                      <Eye className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>Preview</span>
-                    </button>
-                  </div>
+                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400">
+                    {tmpl.category}
+                  </span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
-                  {/* Merge into Current Profile */}
+                <div className="grid grid-cols-2 gap-2 pt-1">
+                  {/* Primary: Copy AI Prompt */}
                   <button
                     type="button"
-                    onClick={() => handleMerge(tmpl)}
-                    title="Add sections to your current profile without replacing bio"
-                    className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 text-neutral-300 hover:text-white transition-all active:scale-95"
+                    onClick={() => handleCopyPrompt(tmpl)}
+                    title="Copy AI Prompt"
+                    className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 duration-200 ${
+                      isCopied
+                        ? 'bg-emerald-600 text-white shadow-emerald-900/40 ring-1 ring-emerald-400'
+                        : 'bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:brightness-110 text-white shadow-violet-900/30'
+                    }`}
                   >
-                    {isMerged ? (
+                    {isCopied ? (
                       <>
-                        <Check className="w-3.5 h-3.5 text-emerald-400" /> Merged!
+                        <CheckCheck className="w-3.5 h-3.5 text-white animate-check-spring drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]" />
+                        <span>Copied Prompt!</span>
                       </>
                     ) : (
                       <>
-                        <Plus className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Add to Profile</span>
+                        <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
+                        <span>Copy AI Prompt</span>
                       </>
                     )}
                   </button>
 
-                  {/* Apply Template */}
+                  {/* Secondary: Preview & Edit */}
                   <button
                     type="button"
-                    onClick={() => handleApply(tmpl)}
-                    className={`flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 duration-200 ${
-                      isApplied
-                        ? 'bg-emerald-600 text-white shadow-emerald-900/40'
-                        : 'bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white shadow-violet-900/30'
-                    }`}
+                    onClick={() => handleOpenPreview(tmpl)}
+                    title="Preview Template"
+                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 text-neutral-200 hover:text-white transition-all active:scale-95"
                   >
-                    {isApplied ? (
-                      <>
-                        <Check className="w-3.5 h-3.5 text-white" /> Applied!
-                      </>
-                    ) : (
-                      <>
-                        <span>Apply</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
+                    <Eye className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Preview &amp; Edit</span>
                   </button>
                 </div>
               </div>

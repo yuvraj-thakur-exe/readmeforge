@@ -107,11 +107,14 @@ describe('TemplateGallery Component', () => {
     expect(writeTextMock).toHaveBeenCalledWith(TEMPLATES[0].prompt);
   });
 
-  it('applies template to store on 1-click apply', () => {
+  it('applies template to store on apply from preview modal', () => {
     render(<TemplateGallery />);
 
-    const applyButtons = screen.getAllByRole('button', { name: /Apply/i });
-    fireEvent.click(applyButtons[0]);
+    const previewButtons = screen.getAllByRole('button', { name: /Preview/i });
+    fireEvent.click(previewButtons[0]);
+
+    const applyButton = screen.getByRole('button', { name: /Apply Template/i });
+    fireEvent.click(applyButton);
 
     const storeConfig = useReadmeStore.getState().config;
     expect(storeConfig.settings.user.name).toBe(TEMPLATES[0].config.settings.user.name);
@@ -133,9 +136,12 @@ describe('TemplateGallery Component', () => {
 
     render(<TemplateGallery />);
 
-    // Merge Cyberpunk template (which has 5 plugins)
-    const addButtons = screen.getAllByRole('button', { name: /Add to Profile/i });
-    fireEvent.click(addButtons[1]);
+    // Open preview on Cyberpunk template (2nd template in list)
+    const previewButtons = screen.getAllByRole('button', { name: /Preview/i });
+    fireEvent.click(previewButtons[1]);
+
+    const mergeButton = screen.getByRole('button', { name: /Add to My Profile/i });
+    fireEvent.click(mergeButton);
 
     const storeConfig = useReadmeStore.getState().config;
     // User settings should remain intact

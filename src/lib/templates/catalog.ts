@@ -10,7 +10,91 @@ export interface TemplateItem {
   config: ReadmeConfig;
 }
 
-export const TEMPLATES: TemplateItem[] = [
+export function buildRichPrompt(item: {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+  accent: string;
+  prompt?: string;
+  config: ReadmeConfig;
+}): string {
+  const user = item.config.settings.user;
+  const settings = item.config.settings;
+  const sections = item.config.sections;
+
+  const hasFigma = sections.some(s => s.type === 'figma-design');
+  const hasPinterest = sections.some(s => s.type === 'pinterest-image');
+  const hasMascot = sections.some(s => s.type === 'mascot-bio');
+  const hasTyping = sections.some(s => s.type === 'readme-typing-svg');
+  const hasSnake = sections.some(s => s.type === 'snk');
+  const hasCapsule = sections.some(s => s.type === 'capsule-banner');
+  const hasTrophy = sections.some(s => s.type === 'github-profile-trophy');
+  const has3D = sections.some(s => s.type === 'portfolio-contributions');
+
+  const animationDirectives: string[] = [
+    `1. Dynamic Hero Visuals: Use GitHub Camo-compliant SVG (0 scripts, 0 foreignObject, 60fps hardware-accelerated CSS animations).`,
+  ];
+
+  if (hasCapsule) {
+    animationDirectives.push(`2. Capsule Hero Banner: Curved waving or geometric animated header with gradient colors tuned to ${item.accent}.`);
+  }
+  if (hasTyping) {
+    animationDirectives.push(`3. Kinetic Typewriter: Real-time typing SVG terminal effect highlighting key engineering specializations.`);
+  }
+  if (hasMascot) {
+    animationDirectives.push(`4. Vector Kinematics Mascot: Animated developer avatar / companion with idle hovering, thruster glow, or coffee steam.`);
+  }
+  if (hasSnake) {
+    animationDirectives.push(`5. Retro Arcade Game: Interactive contribution snake eating through GitHub contribution blocks.`);
+  }
+  if (hasFigma) {
+    animationDirectives.push(`6. Figma Design Integration: Interactive Figma showcase cards, token badges, and prototype links.`);
+  }
+  if (hasPinterest) {
+    animationDirectives.push(`7. Aesthetic Visual Moodboard: Curated high-resolution design / anime moodboard via Pinterest integration.`);
+  }
+  if (hasTrophy) {
+    animationDirectives.push(`8. Gamified Achievements: Golden trophy cards celebrating stars, pull requests, and commit streaks.`);
+  }
+  if (has3D) {
+    animationDirectives.push(`9. 3D Contribution Landscape: Isometric skyscraper block visualization of GitHub contribution history.`);
+  }
+
+  const sectionsList =
+    sections.length > 0
+      ? sections.map((s, idx) => `  ${idx + 1}. [${s.type}]: ${JSON.stringify(s.props.content)}`).join('\n')
+      : `  * Minimalist layout using structured markdown cards, crisp blockquotes, and targeted badge clusters.`;
+
+  return [
+    `You are an elite developer personal branding consultant and open-source portfolio engineer.`,
+    `Generate an exceptional, high-impact, production-grade GitHub Profile README based on the "${item.name}" archetype.`,
+    ``,
+    `### 🎯 Developer Persona & Narrative`,
+    `- **Professional Role**: ${user.role || item.name}`,
+    `- **Engineering Philosophy**: ${user.bio || item.description}`,
+    `- **Archetype Vibe & Focus**: ${item.description}`,
+    `- **Visual Accent Color**: ${item.accent} (Base Theme: ${settings.theme})`,
+    `- **Badge & Component Styling**: ${settings.badgeStyle} (Alignment: ${settings.align})`,
+    `- **Domain & Category**: ${item.category}`,
+    ``,
+    `### 🎨 Visual Motion & Asset Directives`,
+    ...animationDirectives,
+    `- Strictly comply with GitHub Camo image proxy sanitizer standards (system font fallbacks, dark/light theme adaptability).`,
+    ``,
+    `### 🧩 Section Breakdown & Registered Plugins`,
+    sectionsList,
+    ``,
+    `### 🛠️ Complete ReadmeForge Machine-Readable Configuration (JSON)`,
+    `\`\`\`json`,
+    JSON.stringify(item.config, null, 2),
+    `\`\`\``,
+    ``,
+    `Generate the full, polished, copy-pasteable README.md output incorporating all the sections, aesthetics, and badges described above.`
+  ].join('\n');
+}
+
+const RAW_TEMPLATES: TemplateItem[] = [
 {
     id: 'minimalist',
     name: 'Minimalist Clean',
@@ -400,6 +484,19 @@ export const TEMPLATES: TemplateItem[] = [
           id: 'stats-creative',
           type: 'github-readme-stats',
           props: { content: { username: 'octocat', theme: 'radical', showIcons: true }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'figma-showcase-creative',
+          type: 'figma-design',
+          props: {
+            content: {
+              style: 'showcase-card',
+              projectName: 'WebGL UI & Physics Shaders Kit',
+              figmaUrl: 'https://figma.com/@creativetech',
+            },
+            styles: {},
+            state: 'default',
+          },
         },
       ],
     },
@@ -2596,6 +2693,19 @@ export const TEMPLATES: TemplateItem[] = [
             state: 'default',
           },
         },
+        {
+          id: 'figma-tokens-design-system-lead',
+          type: 'figma-design',
+          props: {
+            content: {
+              style: 'design-system',
+              projectName: 'Prism System Tokens & WCAG AAA',
+              figmaUrl: 'https://figma.com/@designsystem',
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
       ],
     },
   },
@@ -3790,3 +3900,8 @@ export const TEMPLATES: TemplateItem[] = [
     },
   },
 ];
+
+export const TEMPLATES: TemplateItem[] = RAW_TEMPLATES.map(t => ({
+  ...t,
+  prompt: buildRichPrompt(t),
+}));
