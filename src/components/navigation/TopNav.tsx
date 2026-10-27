@@ -1,13 +1,15 @@
 'use client';
 
 import { Link, usePathname } from '#/i18n/navigation';
-import { Github, Star, BookOpen, Code2 } from 'lucide-react';
+import { Github, Star, BookOpen, Code2, Sparkles, Film } from 'lucide-react';
 import { ThemeToggle } from '#/components/theme/ThemeToggle';
 
 export function TopNav() {
   const pathname = usePathname();
-  const isInfo = pathname?.includes('/info');
+  const isWizard = pathname?.includes('/wizard');
   const isDev = pathname?.includes('/developer');
+  const isAnimator = pathname?.includes('/animator');
+  const isInfo = pathname?.includes('/info');
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-neutral-950/80 backdrop-blur-xl shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
@@ -33,7 +35,36 @@ export function TopNav() {
         </Link>
 
         {/* Action Navigation */}
-        <nav aria-label="Main Navigation" className="flex items-center gap-2 sm:gap-3">
+        <nav aria-label="Main Navigation" className="flex items-center gap-1.5 sm:gap-2.5">
+          {/* Visual Studio / Wizard */}
+          <Link
+            href="/wizard"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 shadow-sm active:scale-95 ${
+              isWizard
+                ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white border-violet-500 shadow-violet-900/40 shadow-md'
+                : 'border-cyan-500/30 bg-cyan-950/20 hover:bg-cyan-950/40 hover:border-cyan-400/60 text-cyan-200'
+            }`}
+          >
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="hidden sm:inline">Studio</span>
+            <span className="sm:hidden text-[11px]">Studio</span>
+          </Link>
+
+          {/* Animator */}
+          <Link
+            href="/animator"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 shadow-sm active:scale-95 ${
+              isAnimator
+                ? 'bg-fuchsia-600 text-white border-fuchsia-500 shadow-fuchsia-900/40 shadow-md'
+                : 'border-fuchsia-500/30 bg-fuchsia-950/20 hover:bg-fuchsia-950/40 hover:border-fuchsia-400/60 text-fuchsia-200'
+            }`}
+          >
+            <Film className="w-3.5 h-3.5 text-fuchsia-400" />
+            <span className="hidden sm:inline">Animator</span>
+            <span className="sm:hidden text-[11px]">Anim</span>
+          </Link>
+
+          {/* Raw /developer Editor */}
           <Link
             href="/developer"
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 shadow-sm active:scale-95 ${
@@ -47,6 +78,7 @@ export function TopNav() {
             <span className="sm:hidden text-[11px]">IDE</span>
           </Link>
 
+          {/* Info & Guide */}
           <Link
             href="/info"
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 shadow-sm active:scale-95 ${

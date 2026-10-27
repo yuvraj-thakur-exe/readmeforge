@@ -26,7 +26,7 @@ export const ARCHETYPES = [
       const name = u.name || 'Alex Rivers';
       const role = u.role || 'Frontend & Full-Stack Systems Engineer';
       return `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/peeking-cat-header.svg" width="100%" alt="Peeking Cat Header" />
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/wow-profile-full.svg" width="100%" alt="#1 Wow Profile 3D City & Peeking Cat" />
 </div>
 
 <br/>
@@ -73,7 +73,7 @@ export const ARCHETYPES = [
     generator: (u) => {
       const user = u.username || 'octocat';
       return `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/bento-dashboard-header.svg" width="100%" alt="Bento Dashboard Header" />
+  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/readmeforge/main/public/assets/bento-dashboard-full.svg" width="100%" alt="#5 Signal Dashboard Bento Grid" />
 </div>
 
 <br/>

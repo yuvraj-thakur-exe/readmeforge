@@ -1,0 +1,433 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 760" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="wowWindowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#070A10"/>
+    </linearGradient>
+    <linearGradient id="wowCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+    <linearGradient id="wowCatEars" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="wowBadgeKotlin" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7F52FF"/>
+      <stop offset="100%" stop-color="#C711E1"/>
+    </linearGradient>
+    <linearGradient id="wowBadgeRust" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DEA584"/>
+      <stop offset="100%" stop-color="#CE412B"/>
+    </linearGradient>
+    <linearGradient id="wowCityGlow" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#064E3B"/>
+      <stop offset="50%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="wowCityTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6EE7B7"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <linearGradient id="wowBarKotlin" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#A855F7"/>
+    </linearGradient>
+    <linearGradient id="wowBarRust" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F97316"/>
+      <stop offset="100%" stop-color="#FB923C"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      *, .cat-wiggle, .cat-blink, .sparkle-mote, .city-pulse {
+        animation: none !important;
+      }
+    }
+    .cat-wiggle {
+      transform-box: fill-box;
+      transform-origin: bottom center;
+      animation: wowCatPeeking 3.5s ease-in-out infinite alternate;
+    }
+    @keyframes wowCatPeeking {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
+    .cat-blink {
+      animation: wowCatBlink 4s step-end infinite;
+    }
+    @keyframes wowCatBlink {
+      0%, 96%, 100% { transform: scaleY(1); }
+      98% { transform: scaleY(0.1); }
+    }
+    .sparkle-mote {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: wowMoteTwinkle 2.5s ease-in-out infinite alternate;
+    }
+    @keyframes wowMoteTwinkle {
+      0% { opacity: 0.3; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1.2); }
+    }
+    .city-pulse {
+      animation: wowCityGleam 3s ease-in-out infinite alternate;
+    }
+    @keyframes wowCityGleam {
+      0% { filter: drop-shadow(0 0 2px rgba(52, 211, 153, 0.3)); }
+      100% { filter: drop-shadow(0 0 10px rgba(52, 211, 153, 0.8)); }
+    }
+  </style>
+
+  <!-- PEEKING BLACK CAT MASCOT (Peering over top of window) -->
+  <g class="cat-wiggle" transform="translate(420, 10)">
+    <!-- Cat Ears with glowing emerald inner triangles -->
+    <polygon points="-46,35 -56,5 -20,22" fill="#070A10"/>
+    <polygon points="-44,30 -52,10 -24,22" fill="url(#wowCatEars)"/>
+    <polygon points="46,35 56,5 20,22" fill="#070A10"/>
+    <polygon points="44,30 52,10 24,22" fill="url(#wowCatEars)"/>
+
+    <!-- Head -->
+    <ellipse cx="0" cy="38" rx="55" ry="32" fill="#070A10"/>
+
+    <!-- Glowing Green Eyes -->
+    <g class="cat-blink">
+      <ellipse cx="-22" cy="34" rx="11" ry="14" fill="#34D399"/>
+      <ellipse cx="22" cy="34" rx="11" ry="14" fill="#34D399"/>
+      <!-- Pupils -->
+      <ellipse cx="-22" cy="34" rx="5" ry="11" fill="#070A10"/>
+      <ellipse cx="22" cy="34" rx="5" ry="11" fill="#070A10"/>
+      <!-- Highlights -->
+      <circle cx="-25" cy="28" r="3.5" fill="#FFFFFF"/>
+      <circle cx="19" cy="28" r="3.5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Whiskers -->
+    <line x1="-38" y1="42" x2="-64" y2="38" stroke="#34D399" stroke-width="1.5" stroke-opacity="0.7"/>
+    <line x1="-38" y1="46" x2="-62" y2="48" stroke="#34D399" stroke-width="1.5" stroke-opacity="0.7"/>
+    <line x1="38" y1="42" x2="64" y2="38" stroke="#34D399" stroke-width="1.5" stroke-opacity="0.7"/>
+    <line x1="38" y1="46" x2="62" y2="48" stroke="#34D399" stroke-width="1.5" stroke-opacity="0.7"/>
+
+    <!-- Paws resting on window edge -->
+    <ellipse cx="-34" cy="54" rx="12" ry="7" fill="#070A10" stroke="#1F2937" stroke-width="1"/>
+    <ellipse cx="34" cy="54" rx="12" ry="7" fill="#070A10" stroke="#1F2937" stroke-width="1"/>
+  </g>
+
+  <!-- MACOS WINDOW CONTAINER -->
+  <g transform="translate(20, 48)">
+    <!-- Main Window Background -->
+    <rect x="0" y="0" width="800" height="700" rx="14" fill="url(#wowWindowGrad)" stroke="#1F2937" stroke-width="1.5"/>
+
+    <!-- Top Window Titlebar -->
+    <rect x="0" y="0" width="800" height="34" rx="14" fill="#141B29"/>
+    <rect x="0" y="20" width="800" height="14" fill="#141B29"/>
+    <line x1="0" y1="34" x2="800" y2="34" stroke="#1F2937" stroke-width="1"/>
+
+    <!-- RGB macOS Control Dots -->
+    <circle cx="20" cy="17" r="5" fill="#EF4444"/>
+    <circle cx="36" cy="17" r="5" fill="#F59E0B"/>
+    <circle cx="52" cy="17" r="5" fill="#10B981"/>
+
+    <!-- README.md Tab -->
+    <g transform="translate(74, 8)">
+      <rect x="0" y="0" width="120" height="20" rx="4" fill="#0B0F19" stroke="#1F2937" stroke-width="1"/>
+      <circle cx="12" cy="10" r="5" fill="#94A3B8"/>
+      <text x="24" y="14" fill="#E2E8F0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600">README.md</text>
+    </g>
+
+    <!-- Preview Badge Button -->
+    <rect x="715" y="8" width="65" height="18" rx="4" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+    <text x="747" y="21" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="10" font-weight="600" text-anchor="middle">Preview</text>
+
+    <!-- 1. PROFILE HEADER CARD -->
+    <g transform="translate(16, 46)">
+      <rect x="0" y="0" width="768" height="150" rx="10" fill="url(#wowCardGrad)" stroke="#1E293B" stroke-width="1"/>
+
+      <!-- User Handle & Title -->
+      <text x="24" y="30" fill="#38BDF8" font-family="monospace" font-size="12" font-weight="600">@syf2211</text>
+      <text x="24" y="60" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="24" font-weight="800">Yuefeng Shi</text>
+      <text x="24" y="82" fill="#94A3B8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">Frontend or full-stack engineer</text>
+
+      <!-- Tech Badges -->
+      <g transform="translate(24, 102)">
+        <!-- Kotlin -->
+        <rect x="0" y="0" width="68" height="22" rx="11" fill="url(#wowBadgeKotlin)"/>
+        <text x="34" y="15" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Kotlin</text>
+        <!-- Rust -->
+        <rect x="76" y="0" width="58" height="22" rx="11" fill="url(#wowBadgeRust)"/>
+        <text x="105" y="15" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Rust</text>
+        <!-- JavaScript -->
+        <rect x="142" y="0" width="80" height="22" rx="11" fill="#F7DF1E"/>
+        <text x="182" y="15" fill="#000000" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" text-anchor="middle">JavaScript</text>
+        <!-- Python -->
+        <rect x="230" y="0" width="68" height="22" rx="11" fill="#3776AB"/>
+        <text x="264" y="15" fill="#FFFFFF" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" text-anchor="middle">Python</text>
+      </g>
+
+      <!-- Live GitHub Stats Mid Column -->
+      <g transform="translate(370, 20)">
+        <g transform="translate(0, 10)">
+          <rect x="0" y="0" width="14" height="10" rx="2" fill="#38BDF8"/>
+          <text x="22" y="10" fill="#F8FAFC" font-family="monospace" font-size="11" font-weight="700">7</text>
+          <text x="38" y="10" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="11">Repositories</text>
+        </g>
+        <g transform="translate(0, 34)">
+          <polygon points="6,0 8,5 13,5 9,8 11,13 6,10 2,13 3,8 0,5 5,5" fill="#FBBF24"/>
+          <text x="22" y="10" fill="#F8FAFC" font-family="monospace" font-size="11" font-weight="700">5</text>
+          <text x="38" y="10" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="11">Stars</text>
+        </g>
+        <g transform="translate(0, 58)">
+          <circle cx="6" cy="6" r="5" fill="#34D399"/>
+          <text x="22" y="10" fill="#F8FAFC" font-family="monospace" font-size="11" font-weight="700">672</text>
+          <text x="50" y="10" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="11">Contributions</text>
+        </g>
+        <g transform="translate(0, 82)">
+          <circle cx="6" cy="5" r="4" fill="#A855F7"/>
+          <text x="22" y="10" fill="#F8FAFC" font-family="monospace" font-size="11" font-weight="700">8</text>
+          <text x="38" y="10" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="11">Followers</text>
+        </g>
+      </g>
+
+      <!-- Retro Pixel Art Avatar -->
+      <g transform="translate(636, 15)">
+        <rect x="0" y="0" width="108" height="118" rx="6" fill="#0B0F19" stroke="#34D399" stroke-width="1.5"/>
+        <circle class="sparkle-mote" cx="16" cy="18" r="1.5" fill="#FFFFFF"/>
+        <circle class="sparkle-mote" cx="92" cy="22" r="1.5" fill="#34D399" style="animation-delay: 0.8s;"/>
+        <circle class="sparkle-mote" cx="24" cy="96" r="1.5" fill="#FBBF24" style="animation-delay: 1.4s;"/>
+
+        <g transform="translate(24, 20)">
+          <rect x="18" y="0" width="24" height="6" fill="#15803D"/>
+          <rect x="12" y="6" width="36" height="6" fill="#16A34A"/>
+          <rect x="6" y="12" width="48" height="6" fill="#22C55E"/>
+          <rect x="6" y="18" width="48" height="12" fill="#FBBF24"/>
+          <rect x="12" y="24" width="36" height="24" fill="#FDE68A"/>
+          <rect x="18" y="30" width="6" height="8" fill="#0284C7"/>
+          <rect x="36" y="30" width="6" height="8" fill="#0284C7"/>
+          <rect x="18" y="30" width="3" height="3" fill="#FFFFFF"/>
+          <rect x="36" y="30" width="3" height="3" fill="#FFFFFF"/>
+          <rect x="27" y="42" width="6" height="3" fill="#D97706"/>
+          <rect x="6" y="52" width="48" height="16" fill="#15803D"/>
+          <rect x="21" y="52" width="18" height="16" fill="#991B1B"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- 2. "THE CITY I BUILT THIS YEAR" 3D CONTRIBUTION GRAPH -->
+    <g transform="translate(16, 206)">
+      <rect x="0" y="0" width="768" height="236" rx="10" fill="url(#wowCardGrad)" stroke="#1E293B" stroke-width="1"/>
+
+      <!-- Header & Subtitle -->
+      <text x="24" y="28" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="14" font-weight="700">The city I built this year</text>
+      <text x="744" y="28" fill="#34D399" font-family="monospace" font-size="11" text-anchor="end">&gt; github-profile-3d_</text>
+
+      <!-- Stats Telemetry -->
+      <g transform="translate(24, 46)">
+        <text x="0" y="12" fill="#64748B" font-family="monospace" font-size="10" font-weight="700" letter-spacing="1">CONTRIBUTIONS</text>
+        <text x="0" y="42" fill="#FFFFFF" font-family="monospace" font-size="28" font-weight="800">672</text>
+        <text x="0" y="64" fill="#34D399" font-family="-apple-system, sans-serif" font-size="11">112 active days</text>
+        <text x="0" y="82" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="11">Busiest day: 62</text>
+      </g>
+
+      <!-- Isometric 3D Skyline City Grid Illustration -->
+      <g class="city-pulse" transform="translate(360, 60)">
+        <!-- Isometric Ground Grid -->
+        <g stroke="#10B981" stroke-opacity="0.25" stroke-width="1" fill="none">
+          <!-- Perspective lines -->
+          <path d="M0,80 L180,0 L360,80 L180,160 Z"/>
+          <path d="M30,93 L210,13 L330,67 L150,147 Z"/>
+          <path d="M60,107 L240,27 L300,53 L120,133 Z"/>
+          <path d="M90,120 L270,40"/>
+          <path d="M45,60 L225,140"/>
+          <path d="M90,40 L270,120"/>
+          <path d="M135,20 L315,100"/>
+        </g>
+
+        <!-- 3D Isometric Buildings (Back to front) -->
+        <!-- Building Col 1 -->
+        <g transform="translate(140, 20)">
+          <!-- Left face -->
+          <polygon points="0,30 20,40 20,0 0,-10" fill="#047857"/>
+          <!-- Right face -->
+          <polygon points="20,40 40,30 40,-10 20,0" fill="#059669"/>
+          <!-- Top face -->
+          <polygon points="0,-10 20,0 40,-10 20,-20" fill="url(#wowCityTop)"/>
+        </g>
+
+        <!-- Building Col 2 -->
+        <g transform="translate(170, 35)">
+          <polygon points="0,50 20,60 20,0 0,-10" fill="#047857"/>
+          <polygon points="20,60 40,50 40,-10 20,0" fill="#059669"/>
+          <polygon points="0,-10 20,0 40,-10 20,-20" fill="url(#wowCityTop)"/>
+        </g>
+
+        <!-- Building Col 3 (Tall Skyscraper) -->
+        <g transform="translate(200, 25)">
+          <polygon points="0,85 22,96 22,0 0,-11" fill="#047857"/>
+          <polygon points="22,96 44,85 44,-11 22,0" fill="#059669"/>
+          <polygon points="0,-11 22,0 44,-11 22,-22" fill="url(#wowCityTop)"/>
+        </g>
+
+        <!-- Building Col 4 -->
+        <g transform="translate(230, 45)">
+          <polygon points="0,65 20,75 20,0 0,-10" fill="#047857"/>
+          <polygon points="20,75 40,65 40,-10 20,0" fill="#059669"/>
+          <polygon points="0,-10 20,0 40,-10 20,-20" fill="url(#wowCityTop)"/>
+        </g>
+
+        <!-- Building Col 5 (Forefront Cluster) -->
+        <g transform="translate(110, 50)">
+          <polygon points="0,40 18,49 18,0 0,-9" fill="#047857"/>
+          <polygon points="18,49 36,40 36,-9 18,0" fill="#059669"/>
+          <polygon points="0,-9 18,0 36,-9 18,-18" fill="url(#wowCityTop)"/>
+        </g>
+
+        <g transform="translate(145, 68)">
+          <polygon points="0,60 20,70 20,0 0,-10" fill="#047857"/>
+          <polygon points="20,70 40,60 40,-10 20,0" fill="#059669"/>
+          <polygon points="0,-10 20,0 40,-10 20,-20" fill="url(#wowCityTop)"/>
+        </g>
+
+        <g transform="translate(175, 78)">
+          <polygon points="0,75 22,86 22,0 0,-11" fill="#047857"/>
+          <polygon points="22,86 44,75 44,-11 22,0" fill="#059669"/>
+          <polygon points="0,-11 22,0 44,-11 22,-22" fill="url(#wowCityTop)"/>
+        </g>
+
+        <g transform="translate(210, 88)">
+          <polygon points="0,45 18,54 18,0 0,-9" fill="#047857"/>
+          <polygon points="18,54 36,45 36,-9 18,0" fill="#059669"/>
+          <polygon points="0,-9 18,0 36,-9 18,-18" fill="url(#wowCityTop)"/>
+        </g>
+
+        <!-- Small low blocks -->
+        <g transform="translate(85, 75)">
+          <polygon points="0,20 16,28 16,0 0,-8" fill="#047857"/>
+          <polygon points="16,28 32,20 32,-8 16,0" fill="#059669"/>
+          <polygon points="0,-8 16,0 32,-8 16,-16" fill="url(#wowCityTop)"/>
+        </g>
+        <g transform="translate(250, 80)">
+          <polygon points="0,30 18,39 18,0 0,-9" fill="#047857"/>
+          <polygon points="18,39 36,30 36,-9 18,0" fill="#059669"/>
+          <polygon points="0,-9 18,0 36,-9 18,-18" fill="url(#wowCityTop)"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- 3. BOTTOM SECTION: 2 COLUMNS (LANGUAGE STACK & PROJECTS LIST) -->
+    <g transform="translate(16, 452)">
+      <!-- LEFT COLUMN: LANGUAGE STACK -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="374" height="230" rx="10" fill="url(#wowCardGrad)" stroke="#1E293B" stroke-width="1"/>
+        <text x="20" y="28" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="13" font-weight="700">Language Stack</text>
+        <text x="354" y="28" fill="#38BDF8" font-family="monospace" font-size="10" text-anchor="end">&gt; stack.scan_</text>
+        <text x="20" y="44" fill="#64748B" font-family="-apple-system, sans-serif" font-size="10">Repository-weighted technologies</text>
+
+        <!-- Bars -->
+        <g transform="translate(20, 60)">
+          <!-- Kotlin 56% -->
+          <g transform="translate(0, 0)">
+            <circle cx="5" cy="5" r="4" fill="#8B5CF6"/>
+            <text x="16" y="8" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">Kotlin</text>
+            <text x="90" y="8" fill="#94A3B8" font-family="monospace" font-size="10">56%</text>
+            <rect x="120" y="1" width="214" height="8" rx="4" fill="#1F2937"/>
+            <rect x="120" y="1" width="120" height="8" rx="4" fill="url(#wowBarKotlin)"/>
+          </g>
+
+          <!-- Rust 38% -->
+          <g transform="translate(0, 32)">
+            <circle cx="5" cy="5" r="4" fill="#F97316"/>
+            <text x="16" y="8" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">Rust</text>
+            <text x="90" y="8" fill="#94A3B8" font-family="monospace" font-size="10">38%</text>
+            <rect x="120" y="1" width="214" height="8" rx="4" fill="#1F2937"/>
+            <rect x="120" y="1" width="81" height="8" rx="4" fill="url(#wowBarRust)"/>
+          </g>
+
+          <!-- JavaScript 4% -->
+          <g transform="translate(0, 64)">
+            <circle cx="5" cy="5" r="4" fill="#FBBF24"/>
+            <text x="16" y="8" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">JavaScript</text>
+            <text x="90" y="8" fill="#94A3B8" font-family="monospace" font-size="10">4%</text>
+            <rect x="120" y="1" width="214" height="8" rx="4" fill="#1F2937"/>
+            <rect x="120" y="1" width="20" height="8" rx="4" fill="#FBBF24"/>
+          </g>
+
+          <!-- Python 2% -->
+          <g transform="translate(0, 96)">
+            <circle cx="5" cy="5" r="4" fill="#38BDF8"/>
+            <text x="16" y="8" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">Python</text>
+            <text x="90" y="8" fill="#94A3B8" font-family="monospace" font-size="10">2%</text>
+            <rect x="120" y="1" width="214" height="8" rx="4" fill="#1F2937"/>
+            <rect x="120" y="1" width="12" height="8" rx="4" fill="#38BDF8"/>
+          </g>
+
+          <!-- TypeScript 2% -->
+          <g transform="translate(0, 128)">
+            <circle cx="5" cy="5" r="4" fill="#3B82F6"/>
+            <text x="16" y="8" fill="#E2E8F0" font-family="-apple-system, sans-serif" font-size="11" font-weight="600">TypeScript</text>
+            <text x="90" y="8" fill="#94A3B8" font-family="monospace" font-size="10">2%</text>
+            <rect x="120" y="1" width="214" height="8" rx="4" fill="#1F2937"/>
+            <rect x="120" y="1" width="12" height="8" rx="4" fill="#3B82F6"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- RIGHT COLUMN: FEATURED PROJECTS -->
+      <g transform="translate(394, 0)">
+        <rect x="0" y="0" width="374" height="230" rx="10" fill="url(#wowCardGrad)" stroke="#1E293B" stroke-width="1"/>
+        <text x="20" y="28" fill="#F8FAFC" font-family="-apple-system, sans-serif" font-size="13" font-weight="700">Projects List</text>
+        <text x="354" y="28" fill="#64748B" font-family="monospace" font-size="10" text-anchor="end">/projects.sh --all</text>
+
+        <!-- Project 1 Card -->
+        <g transform="translate(16, 44)">
+          <rect x="0" y="0" width="166" height="166" rx="8" fill="#0A0E17" stroke="#1E293B" stroke-width="1"/>
+          <!-- Title & Subtitle -->
+          <text x="12" y="22" fill="#38BDF8" font-family="monospace" font-size="11" font-weight="700">awesome-project</text>
+          <text x="12" y="38" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="9.5">4 standout open-project</text>
+
+          <!-- Completion Ring 76% -->
+          <g transform="translate(83, 78)">
+            <circle cx="0" cy="0" r="22" fill="none" stroke="#1F2937" stroke-width="4"/>
+            <circle cx="0" cy="0" r="22" fill="none" stroke="#38BDF8" stroke-width="4" stroke-dasharray="105 138" stroke-linecap="round" transform="rotate(-90)"/>
+            <text x="0" y="4" fill="#FFFFFF" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">76%</text>
+          </g>
+
+          <!-- Tags -->
+          <g transform="translate(12, 114)">
+            <rect x="0" y="0" width="64" height="16" rx="3" fill="#111827" stroke="#1F2937" stroke-width="1"/>
+            <text x="32" y="11" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="8.5" text-anchor="middle">open-source</text>
+            <rect x="70" y="0" width="28" height="16" rx="3" fill="#111827" stroke="#1F2937" stroke-width="1"/>
+            <text x="84" y="11" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="8.5" text-anchor="middle">cli</text>
+          </g>
+          <!-- Stars & Timestamp -->
+          <text x="12" y="148" fill="#64748B" font-family="-apple-system, sans-serif" font-size="9">★ 8  updated just now</text>
+        </g>
+
+        <!-- Project 2 Card -->
+        <g transform="translate(192, 44)">
+          <rect x="0" y="0" width="166" height="166" rx="8" fill="#0A0E17" stroke="#1E293B" stroke-width="1"/>
+          <text x="12" y="22" fill="#F472B6" font-family="monospace" font-size="11" font-weight="700">rulelector</text>
+          <text x="12" y="38" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="9.5">Agent skill for coding</text>
+
+          <!-- Completion Ring 92% -->
+          <g transform="translate(83, 78)">
+            <circle cx="0" cy="0" r="22" fill="none" stroke="#1F2937" stroke-width="4"/>
+            <circle cx="0" cy="0" r="22" fill="none" stroke="#F472B6" stroke-width="4" stroke-dasharray="127 138" stroke-linecap="round" transform="rotate(-90)"/>
+            <text x="0" y="4" fill="#FFFFFF" font-family="monospace" font-size="11" font-weight="700" text-anchor="middle">92%</text>
+          </g>
+
+          <!-- Tags -->
+          <g transform="translate(12, 114)">
+            <rect x="0" y="0" width="56" height="16" rx="3" fill="#111827" stroke="#1F2937" stroke-width="1"/>
+            <text x="28" y="11" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="8.5" text-anchor="middle">ai-coding</text>
+            <rect x="62" y="0" width="68" height="16" rx="3" fill="#111827" stroke="#1F2937" stroke-width="1"/>
+            <text x="96" y="11" fill="#94A3B8" font-family="-apple-system, sans-serif" font-size="8.5" text-anchor="middle">claude-code</text>
+          </g>
+          <!-- Stars & Timestamp -->
+          <text x="12" y="148" fill="#64748B" font-family="-apple-system, sans-serif" font-size="9">★ 3  updated 2d ago</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

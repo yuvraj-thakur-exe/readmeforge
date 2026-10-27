@@ -376,12 +376,20 @@ export const HeroSection: React.FC = () => {
 
       {/* Main Action Call-to-Actions (Download & Launch) */}
       <div className="flex flex-wrap items-center justify-center gap-3.5 pt-1">
+        <Link
+          href="/wizard"
+          className="group flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-violet-900/40 transition-all hover:scale-105 hover:-translate-y-0.5 active:scale-95 select-none"
+        >
+          <Sparkles className="w-4 h-4 text-cyan-200 group-hover:rotate-12 transition-transform duration-300" />
+          <span>Launch Studio</span>
+        </Link>
+
         <a
           href="#templates-shelf"
-          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-violet-900/40 transition-all hover:scale-105 hover:-translate-y-0.5 active:scale-95 select-none"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700/80 hover:border-cyan-500/50 text-neutral-100 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
         >
-          <Sparkle className="w-4 h-4 text-cyan-200 group-hover:rotate-12 transition-transform duration-300" />
-          <span>Explore Curated Archetypes</span>
+          <Sparkle className="w-4 h-4 text-cyan-400" />
+          <span>Curated Archetypes</span>
         </a>
 
         <Link

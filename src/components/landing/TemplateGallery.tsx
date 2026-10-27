@@ -34,6 +34,20 @@ const KEYWORDS = [
   'impress open-source peers',
 ];
 
+const TEMPLATE_PREVIEWS: Record<string, string> = {
+  'wow-3d-city-cat': '/assets/wow-profile-full.svg',
+  'bento-signal-dashboard': '/assets/bento-dashboard-full.svg',
+  'isometric-terminal-connect': '/assets/isometric-terminal.svg',
+  'minimal-light-unicorn': '/assets/coding-unicorn.svg',
+  'neon-craftsman-owl': '/assets/owl-confetti.svg',
+  'constellation-devops-desk': '/assets/developer-desk.svg',
+  'terminal-matrix-digital-rain': '/assets/terminal_animated.svg',
+  'cyberpunk': '/assets/snake.svg',
+  'gaming-retro-arcade': '/assets/pacman.svg',
+  'demon-slayer-dark': '/assets/profile/slayer-night-coder-header.svg',
+  'metrics-telemetry-dashboard': '/assets/about-me-telemetry.svg',
+};
+
 export const TemplateGallery: React.FC = () => {
   const setEntireConfig = useReadmeStore(state => state.setEntireConfig);
 
@@ -390,7 +404,7 @@ export const TemplateGallery: React.FC = () => {
                 {/* Visual Preview Window (Above) */}
                 <div
                   onClick={() => handleOpenPreview(tmpl)}
-                  className="my-3 rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-3 hover:border-violet-500/40 cursor-pointer transition-all group/preview relative overflow-hidden"
+                  className="my-3 rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-2.5 hover:border-violet-500/50 cursor-pointer transition-all group/preview relative overflow-hidden shadow-inner"
                 >
                   {/* macOS Window Controls */}
                   <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-800/60">
@@ -398,55 +412,81 @@ export const TemplateGallery: React.FC = () => {
                       <span className="w-2 h-2 rounded-full bg-rose-500/80" />
                       <span className="w-2 h-2 rounded-full bg-amber-500/80" />
                       <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-                      <span className="ml-1 text-[10px] font-mono text-neutral-500">README.md</span>
+                      <span className="ml-1 text-[10px] font-mono text-neutral-500">
+                        {tmpl.config.settings.user.github || 'developer'} / README.md
+                      </span>
                     </div>
-                    <span className="text-[10px] font-mono text-violet-400 opacity-0 group-hover/preview:opacity-100 transition-opacity flex items-center gap-1">
-                      <Eye className="w-3 h-3" /> Preview
+                    <span className="text-[10px] font-mono text-violet-400 opacity-80 group-hover/preview:opacity-100 transition-opacity flex items-center gap-1 bg-violet-950/40 px-1.5 py-0.5 rounded border border-violet-500/30">
+                      <Eye className="w-3 h-3 text-cyan-400" /> Preview
                     </span>
                   </div>
 
-                  {/* Profile Snapshot Header */}
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs"
-                        style={{ backgroundColor: `${tmpl.accent}20`, color: tmpl.accent, border: `1px solid ${tmpl.accent}50` }}
-                      >
-                        {tmpl.config.settings.user.name?.[0] || 'A'}
-                      </div>
-                      <div className="overflow-hidden">
-                        <p className="text-xs font-semibold text-neutral-200 truncate">
-                          {tmpl.config.settings.user.name || 'Developer'}
-                        </p>
-                        <p className="text-[10px] text-neutral-500 truncate">
-                          {tmpl.config.settings.user.role || 'Software Engineer'}
-                        </p>
+                  {TEMPLATE_PREVIEWS[tmpl.id] ? (
+                    <div className="relative rounded-lg overflow-hidden bg-neutral-950/90 border border-neutral-800/60 max-h-48 group-hover/preview:border-violet-500/30 transition-all">
+                      <img
+                        src={TEMPLATE_PREVIEWS[tmpl.id]}
+                        alt={`${tmpl.name} Visual Preview`}
+                        className="w-full h-44 object-cover object-top transition-transform duration-500 group-hover/preview:scale-[1.02]"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-transparent to-transparent opacity-60 pointer-events-none" />
+                      <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] font-mono text-neutral-300 pointer-events-none">
+                        <span className="bg-neutral-900/90 backdrop-blur-sm px-2 py-0.5 rounded border border-neutral-700/60 text-cyan-300">
+                          {tmpl.category} Archetype
+                        </span>
+                        <span className="bg-neutral-900/90 backdrop-blur-sm px-2 py-0.5 rounded border border-neutral-700/60 text-neutral-400">
+                          Click to inspect
+                        </span>
                       </div>
                     </div>
-
-                    {/* Mini badges simulation */}
-                    <div className="flex flex-wrap gap-1 pt-1">
-                      {tmpl.config.sections.slice(0, 3).map(sec => (
-                        <span
-                          key={sec.id}
-                          className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-400"
+                  ) : (
+                    /* High-Fidelity Simulated Profile Header */
+                    <div className="space-y-2 p-2 rounded-lg bg-neutral-900/50 border border-neutral-800/60">
+                      <div className="flex items-center gap-2.5">
+                        <div
+                          className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm"
+                          style={{
+                            backgroundColor: `${tmpl.accent}25`,
+                            color: tmpl.accent,
+                            border: `1px solid ${tmpl.accent}60`,
+                          }}
                         >
-                          {sec.type}
-                        </span>
-                      ))}
-                      {tmpl.config.sections.length > 3 && (
-                        <span className="text-[9px] font-mono px-1 py-0.5 text-neutral-600">
-                          +{tmpl.config.sections.length - 3} more
-                        </span>
-                      )}
+                          {tmpl.config.settings.user.name?.[0] || 'D'}
+                        </div>
+                        <div className="overflow-hidden flex-1">
+                          <p className="text-xs font-bold text-neutral-100 truncate">
+                            {tmpl.config.settings.user.name || 'Developer'}
+                          </p>
+                          <p className="text-[10px] font-mono text-neutral-400 truncate">
+                            {tmpl.config.settings.user.role || 'Software Engineer'}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Mini badges simulation */}
+                      <div className="flex flex-wrap gap-1 pt-0.5">
+                        {tmpl.config.sections.slice(0, 3).map(sec => (
+                          <span
+                            key={sec.id}
+                            className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-neutral-950 border border-neutral-800 text-neutral-400"
+                          >
+                            {sec.type}
+                          </span>
+                        ))}
+                        {tmpl.config.sections.length > 3 && (
+                          <span className="text-[9px] font-mono px-1 py-0.5 text-neutral-500">
+                            +{tmpl.config.sections.length - 3} more
+                          </span>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
 
                 {/* AI Prompt Drawer (Prompt Below to Make It) */}
-                <div className="mt-2.5 p-2.5 rounded-xl bg-neutral-950/90 border border-neutral-800/80">
+                <div className="mt-2.5 p-2.5 rounded-xl bg-neutral-950/90 border border-neutral-800/80 hover:border-amber-500/30 transition-colors">
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold flex items-center gap-1">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-1">
                       <Sparkles className="w-3 h-3 text-amber-400" /> Prompt to Make It
                     </span>
                     <button
@@ -455,13 +495,13 @@ export const TemplateGallery: React.FC = () => {
                         e.stopPropagation();
                         handleCopyPrompt(tmpl);
                       }}
-                      className="text-[10px] font-mono text-neutral-400 hover:text-amber-300 transition-colors flex items-center gap-1 px-1.5 py-0.5 rounded bg-neutral-900 border border-neutral-800"
+                      className="text-[10px] font-mono text-neutral-400 hover:text-amber-300 transition-colors flex items-center gap-1 px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800 hover:border-amber-500/40"
                     >
                       {isCopied ? <CheckCheck className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
                       <span>{isCopied ? 'Copied' : 'Copy'}</span>
                     </button>
                   </div>
-                  <p className="text-[11px] text-neutral-400/90 font-mono line-clamp-2 leading-relaxed bg-neutral-900/50 p-1.5 rounded border border-neutral-800/40">
+                  <p className="text-[11px] text-neutral-300 font-mono line-clamp-3 leading-relaxed bg-neutral-900/60 p-2 rounded-lg border border-neutral-800/60 select-all">
                     {tmpl.prompt}
                   </p>
                 </div>
@@ -678,6 +718,25 @@ export const TemplateGallery: React.FC = () => {
               {/* TAB 1: Visual Simulated GitHub Profile */}
               {previewTab === 'visual' && (
                 <div className="space-y-4">
+                  {/* Dedicated Masterpiece Graphic Preview if Available */}
+                  {TEMPLATE_PREVIEWS[previewTemplate.id] && (
+                    <div className="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 p-2 shadow-2xl space-y-2">
+                      <div className="flex items-center justify-between px-2 pt-1 pb-2 border-b border-neutral-800/80">
+                        <span className="text-xs font-mono text-cyan-400 font-semibold flex items-center gap-1.5">
+                          <Eye className="w-3.5 h-3.5" /> High-Fidelity Archetype Showcase
+                        </span>
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                          Camo-Compliant 60fps
+                        </span>
+                      </div>
+                      <img
+                        src={TEMPLATE_PREVIEWS[previewTemplate.id]}
+                        alt={`${previewTemplate.name} Masterpiece`}
+                        className="w-full h-auto object-contain rounded-lg max-h-[550px] mx-auto"
+                      />
+                    </div>
+                  )}
+
                   {/* macOS Profile Header Box */}
                   <div className="rounded-xl border border-neutral-800 bg-neutral-950 p-5 space-y-3 shadow-inner">
                     <div className="flex items-center justify-between pb-3 border-b border-neutral-800/80">
@@ -759,22 +818,25 @@ export const TemplateGallery: React.FC = () => {
                   </div>
 
                   {/* AI Prompt to Make It (Directly below preview) */}
-                  <div className="rounded-xl border border-neutral-800 bg-neutral-950/90 p-4 space-y-2">
+                  <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-4 space-y-2.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5" /> AI Prompt to Make It
+                      <span className="text-xs font-mono uppercase tracking-wider text-amber-300 font-semibold flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Prompt to Make It
                       </span>
                       <button
                         type="button"
                         onClick={() => handleCopyPrompt(previewTemplate)}
-                        className="text-xs font-mono text-neutral-300 hover:text-amber-300 transition-colors flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-900 border border-neutral-800"
+                        className="text-xs font-mono text-amber-200 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-900/60 border border-amber-600/50 hover:bg-amber-800/80"
                       >
                         <Copy className="w-3.5 h-3.5" />
                         <span>Copy Prompt</span>
                       </button>
                     </div>
-                    <p className="text-xs text-neutral-300 font-mono leading-relaxed bg-neutral-900/60 p-3 rounded-lg border border-neutral-800/60 select-all">
+                    <p className="text-xs text-neutral-200 font-mono leading-relaxed bg-neutral-950/90 p-3 rounded-lg border border-neutral-800 select-all">
                       {previewTemplate.prompt}
+                    </p>
+                    <p className="text-[11px] text-neutral-400">
+                      💡 Tip: Copy and paste this prompt directly into Google Antigravity, Claude Code, Cursor, or ChatGPT to generate your customized GitHub README.
                     </p>
                   </div>
                 </div>
