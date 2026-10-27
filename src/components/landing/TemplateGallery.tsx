@@ -876,6 +876,144 @@ export const TEMPLATES: TemplateItem[] = [
       ],
     },
   },
+  {
+    id: 'wow-3d-city-cat',
+    name: '#1 Wow Profile (3D City & Peeking Cat)',
+    description: 'Turn your GitHub profile into a work of art with a peeking black cat mascot, retro pixel-art avatar header, 3D isometric contribution city, glowing language stack, and featured projects.',
+    category: 'Popular',
+    accent: '#10b981',
+    prompt:
+      'Act as a principal developer branding architect. Generate a stunning #1 Wow Profile GitHub README turning the profile into a work of art. Include a peeking black cat mascot header, animated dark macOS window frame, developer headline with skill badges (Kotlin, Rust, JavaScript, Python), retro pixel-art avatar, 3D isometric contribution city graph ("The city I built this year" with 672 contributions, 112 active days), glowing horizontal repository-weighted language stack bars, and a dual-card featured projects showcase with ring completion charts.',
+    config: {
+      version: '1.0.0',
+      title: '#1 Wow Profile',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Alex Rivers',
+          role: 'Frontend or full-stack engineer',
+          bio: 'Turning code into interactive digital art, craft architectures, and playful user experiences.',
+          location: 'San Francisco / Remote',
+          pronouns: 'he/him',
+          status: 'Crafting WebGL shaders & Rust runtimes',
+        },
+        theme: 'dark',
+        accentColor: '#10b981',
+        badgeStyle: 'for-the-badge',
+        align: 'left',
+      },
+      sections: [
+        {
+          id: 'peeking-cat-hero',
+          type: 'custom',
+          props: {
+            content: {
+              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/ReadmeForge/main/public/assets/peeking-cat-header.svg" width="100%" alt="Peeking Cat Header" />\n</div>`,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'city-contrib-3d',
+          type: 'portfolio-contributions',
+          props: { content: { username: 'octocat' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'language-stack-skills',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'kotlin,rust,javascript,python,typescript,react,docker,git',
+              theme: 'dark',
+              perLine: 12,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'activity-city',
+          type: 'activity-graph',
+          props: { content: { color: '10B981', title: 'Commit Velocity & Habits' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'stats-city',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'tokyonight', showIcons: true }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
+  {
+    id: 'bento-signal-dashboard',
+    name: '#5 Signal Dashboard (Bento Grid & Anime Cat)',
+    description: 'Data-driven GitHub stats bento grid with anime cinematic banner, live profile signal metrics (Stars, Commits, Repos, Followers), emerald contribution activity graph, and featured repo showcase.',
+    category: 'Popular',
+    accent: '#38bdf8',
+    prompt:
+      'Generate a dark, modern #5 Signal Dashboard GitHub profile README turning GitHub stats into a data-driven story. Feature a sleek macOS bento header with moody anime silhouette banner art, "A developer who builds in public" bio with tag pills (Developer, Open-Source, Building, Learning, Shipping), live profile signal metric widgets (Stars, Contributions, Repositories, Followers with icons), annual contribution heatmap activity graph in emerald green, repository-weighted language stack, and featured repositories showcase cards with star counts.',
+    config: {
+      version: '1.0.0',
+      title: '#5 Signal Dashboard',
+      settings: {
+        user: {
+          github: 'octocat',
+          name: 'Casey Vance',
+          role: 'A developer who builds in public',
+          bio: 'I like turning ideas into useful software, learning in public, and collaborating with great people.',
+          location: 'Global / Remote',
+          pronouns: 'they/them',
+          status: 'Shipping open source & learning in public',
+        },
+        theme: 'dark',
+        accentColor: '#38bdf8',
+        badgeStyle: 'for-the-badge',
+        align: 'left',
+      },
+      sections: [
+        {
+          id: 'bento-hero-banner',
+          type: 'custom',
+          props: {
+            content: {
+              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvrajlaptop2008-byte/ReadmeForge/main/public/assets/bento-dashboard-header.svg" width="100%" alt="Bento Dashboard Header" />\n</div>`,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'activity-bento',
+          type: 'activity-graph',
+          props: { content: { color: '10B981', title: 'Annual Contribution Activity' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'languages-bento',
+          type: 'skill-icons',
+          props: {
+            content: {
+              icons: 'c,rust,python,bash,linux,docker,git,react,typescript',
+              theme: 'dark',
+              perLine: 12,
+            },
+            styles: {},
+            state: 'default',
+          },
+        },
+        {
+          id: 'trophy-bento',
+          type: 'github-profile-trophy',
+          props: { content: { username: 'octocat', theme: 'tokyonight' }, styles: {}, state: 'default' },
+        },
+        {
+          id: 'stats-bento',
+          type: 'github-readme-stats',
+          props: { content: { username: 'octocat', theme: 'tokyonight', showIcons: true }, styles: {}, state: 'default' },
+        },
+      ],
+    },
+  },
 ];
 
 const KEYWORDS = [
@@ -1245,22 +1383,83 @@ export const TemplateGallery: React.FC = () => {
                   {tmpl.description}
                 </p>
 
-                {/* Plugin Badges on Card */}
-                <div className="flex flex-wrap gap-1.5 mt-3 pt-2">
-                  {tmpl.config.sections.length === 0 ? (
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-800/60 text-neutral-500 border border-neutral-700/40">
-                      clean-zero-widget
+                {/* Visual Preview Window (Above) */}
+                <div
+                  onClick={() => handleOpenPreview(tmpl)}
+                  className="my-3 rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-3 hover:border-violet-500/40 cursor-pointer transition-all group/preview relative overflow-hidden"
+                >
+                  {/* macOS Window Controls */}
+                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-800/60">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-rose-500/80" />
+                      <span className="w-2 h-2 rounded-full bg-amber-500/80" />
+                      <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
+                      <span className="ml-1 text-[10px] font-mono text-neutral-500">README.md</span>
+                    </div>
+                    <span className="text-[10px] font-mono text-violet-400 opacity-0 group-hover/preview:opacity-100 transition-opacity flex items-center gap-1">
+                      <Eye className="w-3 h-3" /> Preview
                     </span>
-                  ) : (
-                    tmpl.config.sections.map(sec => (
-                      <span
-                        key={sec.id}
-                        className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-800/80 text-violet-300/80 border border-neutral-700/50"
+                  </div>
+
+                  {/* Profile Snapshot Header */}
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs"
+                        style={{ backgroundColor: `${tmpl.accent}20`, color: tmpl.accent, border: `1px solid ${tmpl.accent}50` }}
                       >
-                        {sec.type}
-                      </span>
-                    ))
-                  )}
+                        {tmpl.config.settings.user.name?.[0] || 'A'}
+                      </div>
+                      <div className="overflow-hidden">
+                        <p className="text-xs font-semibold text-neutral-200 truncate">
+                          {tmpl.config.settings.user.name || 'Developer'}
+                        </p>
+                        <p className="text-[10px] text-neutral-500 truncate">
+                          {tmpl.config.settings.user.role || 'Software Engineer'}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Mini badges simulation */}
+                    <div className="flex flex-wrap gap-1 pt-1">
+                      {tmpl.config.sections.slice(0, 3).map(sec => (
+                        <span
+                          key={sec.id}
+                          className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-400"
+                        >
+                          {sec.type}
+                        </span>
+                      ))}
+                      {tmpl.config.sections.length > 3 && (
+                        <span className="text-[9px] font-mono px-1 py-0.5 text-neutral-600">
+                          +{tmpl.config.sections.length - 3} more
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* AI Prompt Drawer (Prompt Below to Make It) */}
+                <div className="mt-2.5 p-2.5 rounded-xl bg-neutral-950/90 border border-neutral-800/80">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-amber-400" /> Prompt to Make It
+                    </span>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleCopyPrompt(tmpl);
+                      }}
+                      className="text-[10px] font-mono text-neutral-400 hover:text-amber-300 transition-colors flex items-center gap-1 px-1.5 py-0.5 rounded bg-neutral-900 border border-neutral-800"
+                    >
+                      {isCopied ? <CheckCheck className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
+                      <span>{isCopied ? 'Copied' : 'Copy'}</span>
+                    </button>
+                  </div>
+                  <p className="text-[11px] text-neutral-400/90 font-mono line-clamp-2 leading-relaxed bg-neutral-900/50 p-1.5 rounded border border-neutral-800/40">
+                    {tmpl.prompt}
+                  </p>
                 </div>
               </div>
 
@@ -1553,6 +1752,26 @@ export const TemplateGallery: React.FC = () => {
                         ))}
                       </div>
                     )}
+                  </div>
+
+                  {/* AI Prompt to Make It (Directly below preview) */}
+                  <div className="rounded-xl border border-neutral-800 bg-neutral-950/90 p-4 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5" /> AI Prompt to Make It
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleCopyPrompt(previewTemplate)}
+                        className="text-xs font-mono text-neutral-300 hover:text-amber-300 transition-colors flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-neutral-900 border border-neutral-800"
+                      >
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>Copy Prompt</span>
+                      </button>
+                    </div>
+                    <p className="text-xs text-neutral-300 font-mono leading-relaxed bg-neutral-900/60 p-3 rounded-lg border border-neutral-800/60 select-all">
+                      {previewTemplate.prompt}
+                    </p>
                   </div>
                 </div>
               )}
