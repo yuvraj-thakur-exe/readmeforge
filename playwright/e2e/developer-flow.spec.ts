@@ -9,7 +9,7 @@ test.describe('ReadmeForge /developer Route Flow', () => {
     await expect(page.getByText('/developer')).toBeVisible();
 
     // Verify action buttons
-    await expect(page.getByRole('button', { name: /Plugins/i })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Plugins & Presets' })).toBeVisible();
     await expect(page.getByRole('button', { name: /Copy README/i })).toBeVisible();
     await expect(page.getByRole('button', { name: /README\.md/i })).toBeVisible();
   });
@@ -18,12 +18,12 @@ test.describe('ReadmeForge /developer Route Flow', () => {
     await page.goto('/developer');
 
     // Toggle plugin panel
-    const pluginsBtn = page.getByRole('button', { name: /Plugins/i });
+    const pluginsBtn = page.getByRole('button', { name: 'Plugins & Presets' });
     if (await pluginsBtn.isVisible()) {
       await pluginsBtn.click();
-      await expect(page.getByText(/Plugins \(\d+\)/)).toBeHidden();
+      await expect(page.getByRole('button', { name: /Plugins \(\d+\)/ })).toBeHidden();
       await pluginsBtn.click();
-      await expect(page.getByText(/Plugins \(\d+\)/)).toBeVisible();
+      await expect(page.getByRole('button', { name: /Plugins \(\d+\)/ })).toBeVisible();
     }
   });
 });
