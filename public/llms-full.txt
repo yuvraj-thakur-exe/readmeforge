@@ -1,5 +1,5 @@
 # ReadmeForge — Complete AI Agent Technical Reference (llms-full.txt)
-> https://readmeforge.dev | Comprehensive schema, types, plugins, and integration instructions.
+> https://readmeforge-black.vercel.app | Comprehensive schema, types, plugins, official social platforms, and integration instructions.
 
 ## 1. Zod Schema Specification (TypeScript)
 
@@ -44,7 +44,21 @@ export const ReadmeConfigSchema = z.object({
 export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
 ```
 
-## 2. All 11 Plugins Reference
+## 2. 47 Official Verified Social Platforms
+
+ReadmeForge features 47 verified official brand SVG assets in `public/assets/icons/social/<platform>/default.svg`:
+- **Development & Code**: `github`, `gitlab`, `codesandbox`, `codepen`, `devto`, `stackoverflow`, `visualstudio`, `leetcode`, `codeforces`, `codechef`, `tryhackme`, `kaggle`, `hashnode`
+- **Design & Portfolio**: `behance`, `dribbble`, `unsplash`, `itch`
+- **Networking & Socials**: `linkedin`, `twitter`, `x`, `bluesky`, `threads`, `mastodon`, `facebook`, `instagram`, `reddit`, `tiktok`, `linktree`, `medium`
+- **Messaging & Community**: `discord`, `telegram`, `slack`, `signal`, `wechat`, `whatsapp`, `matrix`
+- **Email & Productivity**: `gmail`, `outlook`, `microsoft-outlook`, `tutanota`
+- **Media & Streaming**: `youtube`, `twitch`, `spotify`
+- **Monetization & Funding**: `patreon`, `paypal`, `ko-fi`
+- **Competitive & Assessments**: `hackerrank`
+
+Each badge supports both icon mode (`format: "icon"`) and badge mode (`format: "badge"` with `for-the-badge`, `flat`, `flat-square`, or `plastic`).
+
+## 3. Plugins Reference
 
 ### `header-bio`
 - **Category**: `header`
@@ -54,6 +68,14 @@ export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
   - `status`: string (current active status)
   - `showAvatar`: boolean
   - `avatarUrl`: string (optional custom image)
+
+### `capsule-render`
+- **Category**: `header`
+- **Props**:
+  - `type`: `'wave'` | `'waving'` | `'slice'` | `'rect'` | `'soft'` | `'cylinder'`
+  - `color`: string (gradient name or hex)
+  - `text`: string
+  - `height`: number
 
 ### `readme-typing-svg`
 - **Category**: `animation`
@@ -67,7 +89,7 @@ export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
 - **Category**: `badges`
 - **Props**:
   - `badges`: Array<{ name: string; logo: string; color: string; category?: string }>
-  - `style`: `'for-the-badge'` | `'flat'` | `'flat-square'`
+  - `style`: `'for-the-badge'` | `'flat'` | `'flat-square'` | `'plastic'`
 
 ### `github-readme-stats`
 - **Category**: `stats`
@@ -105,13 +127,26 @@ export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
   - `layout`: `'compact'` | `'donut'` | `'pie'`
   - `hideProgress`: boolean
 
+### `figma-showcase`
+- **Category**: `design`
+- **Props**:
+  - `fileKey`: string
+  - `title`: string
+  - `previewUrl`: string
+
+### `pinterest-showcase`
+- **Category**: `showcase`
+- **Props**:
+  - `boardUrl`: string
+  - `columns`: number
+
 ### `visitor-counter`
 - **Category**: `metrics`
 - **Props**:
   - `style`: string
   - `color`: string
 
-### `snk`
+### `snk` (Snake Contribution Game)
 - **Category**: `animation`
 - **Props**:
   - `username`: string
@@ -120,14 +155,13 @@ export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
 ### `social-links`
 - **Category**: `social`
 - **Props**:
-  - `links`: Array<{ platform: string; url: string; label?: string }>
+  - `links`: Array<{ platform: string; url: string; label?: string; style?: string }>
 
-## 3. URL Hydration & Deep-linking
+## 4. URL Hydration & Deep-linking
 Any full profile configuration can be encoded into a shareable URL:
 ```javascript
 const jsonString = JSON.stringify(config);
 const encoded = btoa(unescape(encodeURIComponent(jsonString)));
-const url = `https://readmeforge.dev/en/developer?config=${encoded}`;
+const url = `https://readmeforge-black.vercel.app/en/developer?config=${encoded}`;
 ```
 Navigating to this URL automatically hydrates the store, populates the Monaco editor, and renders the markdown preview.
-

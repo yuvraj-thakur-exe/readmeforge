@@ -33,7 +33,7 @@ export const Editing = observer(function Editing() {
   const selectedIcons = object.deep.get<Icons>(
     canvasStore.$currentSection,
     'props.content.icons'
-  )!;
+  ) || {};
 
   const icons = Object.entries(selectedIcons);
   const icon_names = icons.map(icon => icon[0]);
@@ -42,8 +42,10 @@ export const Editing = observer(function Editing() {
     const path = 'content.icons';
 
     const value = order.reduce((obj, name) => {
-      const found = icons.find(icon => icon[0] === name)!;
-      obj[found[0]] = found[1];
+      const found = icons.find(icon => icon[0] === name);
+      if (found) {
+        obj[found[0]] = found[1];
+      }
       return obj;
     }, {} as Icons);
 
@@ -62,22 +64,29 @@ export const Editing = observer(function Editing() {
           {icons.map(([name, props], index) => {
             const {
               currentProvider,
-              providers,
-              available_providers,
-              config,
+              providers = {},
+              available_providers = [],
+              config = {},
               shortname,
             } = props;
 
-            const provider = providers[currentProvider]!;
+            const provider = providers[currentProvider] || Object.values(providers)[0];
+            if (!provider) return null;
 
             const providerVariants = provider.variants || [];
             const hasVariants = !!providerVariants.length;
 
-            const logo = hasVariants
+            const logo = (hasVariants
               ? providerVariants[
                   (config[currentProvider]?.variant ?? 0) as number
                 ]
-              : provider!.path;
+              : provider.path) || '';
+
+            const sanitizedUrl = logo
+              ? logo
+                  .replace(/ /g, '')
+                  .replace(/(?<=badge\/)(.+)(?=-\w+\?)/, '')
+              : '';
 
             return (
               <IconEditor
@@ -87,9 +96,7 @@ export const Editing = observer(function Editing() {
                 baseEditPath="content.icons"
                 img={{
                   alt: `${name} logo`,
-                  url: logo
-                    .replace(/ /g, '')
-                    .replace(/(?<=badge\/)(.+)(?=-\w+\?)/, ''),
+                  url: sanitizedUrl,
                 }}
                 slots={{
                   supportingContent: () => (
@@ -104,7 +111,7 @@ export const Editing = observer(function Editing() {
                         <Variants
                           icon={name}
                           provider={currentProvider}
-                          variants={providers[currentProvider]?.variants}
+                          variants={providerVariants}
                         />
                       )
                     : undefined,

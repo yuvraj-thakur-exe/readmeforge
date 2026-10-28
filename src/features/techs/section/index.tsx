@@ -30,26 +30,32 @@ export const TechsSection = observer(function TechsSection(
   const { content, styles: containerStyles } = props;
   const t = useTranslations('ui.alts');
 
-  const { icons, styles } = content;
-  const { height } = styles;
+  const { icons = {}, styles = { height: 40 } } = content || {};
+  const { height = 40 } = styles;
 
   return (
     <div
       className="flex flex-wrap"
       style={{
-        justifyContent: containerStyles.align,
-        gap: `${containerStyles.spacing}px`,
+        justifyContent: containerStyles?.align || 'left',
+        gap: `${containerStyles?.spacing ?? 10}px`,
       }}
     >
       {Object.entries(icons).map(
-        ([name, { currentProvider, providers, config }]) => {
-          const provider = providers[currentProvider]!;
+        ([name, { currentProvider, providers = {}, config = {} }]) => {
+          const provider = providers[currentProvider] || Object.values(providers)[0];
+          if (!provider) return null;
 
-          const path = provider?.variants
-            ? provider?.variants[
+          const providerVariants = provider.variants || [];
+          const hasVariants = !!providerVariants.length;
+
+          const path = (hasVariants
+            ? providerVariants[
                 (config[currentProvider]?.variant ?? 0) as number
               ]
-            : provider.path;
+            : provider.path) || '';
+
+          if (!path) return null;
 
           return (
             <img

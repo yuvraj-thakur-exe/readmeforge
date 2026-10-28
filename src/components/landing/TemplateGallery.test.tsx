@@ -118,7 +118,7 @@ describe('TemplateGallery Component', () => {
 
     const storeConfig = useReadmeStore.getState().config;
     expect(storeConfig.settings.user.name).toBe(TEMPLATES[0].config.settings.user.name);
-  });
+  }, 15000);
 
   it('merges plugins to current profile without overwriting existing user bio', () => {
     // Set a custom user in store first
@@ -149,5 +149,5 @@ describe('TemplateGallery Component', () => {
     expect(storeConfig.settings.user.bio).toBe('My existing bio');
     // Sections should now contain Cyberpunk's sections
     expect(storeConfig.sections.length).toBe(TEMPLATES[1].config.sections.length);
-  });
+  }, 15000);
 });

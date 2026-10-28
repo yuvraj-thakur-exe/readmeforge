@@ -33,12 +33,12 @@ const _handleMediumPosts = (
 ) => {
   const baseUrl = url.getActivities(type);
   const count = (rest.limit as number) || 3;
-  const username = rest.username as string;
+  const username = (rest.username as string) || '';
 
   let result = `<div data-importer="${Sections.ACTIVITIES}" align="${align}" style="width: 100%">`;
 
   for (let i = 0; i < count; i++) {
-    const srcUrl = `${baseUrl}/@${username}/${i}`;
+    const srcUrl = `${baseUrl}/@${username || 'medium'}/${i}`;
     const alt = `Medium post ${i + 1}`;
 
     result += `

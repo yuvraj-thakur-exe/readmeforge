@@ -113,7 +113,7 @@ export const Adding = observer(function Adding() {
         />
 
         <Fields.Compound.Combobox
-          value={IconProviders.DEVICONS}
+          value={provider}
           label={t('techs.provider-label')}
           onChange={option => setProvider(option.value as Providers)}
           options={[
@@ -157,7 +157,8 @@ export const Adding = observer(function Adding() {
 
                   {icons.map(icon => {
                     const { name, shortname, providers } = icon;
-                    const url = providers[providerName]!.path;
+                    const url = providers[providerName]?.path;
+                    if (!url) return null;
 
                     const isUsed = usedIcons.includes(icon.name);
 

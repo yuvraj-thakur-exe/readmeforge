@@ -107,17 +107,28 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
   const handleCopyAiPrompt = async () => {
     try {
-      const prompt = `Act as an expert GitHub Profile README engineer.
+      const prompt = `Act as an expert GitHub Profile README engineer and personal branding architect.
 I am configuring my profile README via ReadmeForge (https://readmeforge-black.vercel.app).
-Schema Documentation: https://readmeforge-black.vercel.app/api/schema
-AI Guidance: https://readmeforge-black.vercel.app/llms.txt
+
+API & Schema Documentation: https://readmeforge-black.vercel.app/api/schema
+AI Guidance & Full Specification: https://readmeforge-black.vercel.app/llms-full.txt
+Agent Skill Rules: https://readmeforge-black.vercel.app/.agents/skills/readmeforge/SKILL.md
+
+Capabilities & Available Arsenal:
+- 47 Official Verified Social Badges: behance, bluesky, codesandbox, codepen, devto, discord, dribbble, facebook, gitlab, gmail, hackerrank, instagram, itch, linkedin, linktree, medium, microsoft-outlook, outlook, patreon, paypal, spotify, stackoverflow, telegram, twitch, twitter, x, unsplash, visualstudio, wechat, whatsapp, youtube, tutanota, matrix, ko-fi, signal, slack, tryhackme, leetcode, github, codeforces, codechef, kaggle, hashnode, reddit, threads, tiktok, mastodon.
+- Studio Sections: My activities, Social Media, Texts, Techs (supporting devicons, skill_icons, shields, simple_icons).
+- 26+ Dynamic Plugins: header-bio, capsule-render, animated-mascot, readme-typing-svg, markdown-badges, github-readme-stats, streak-stats, activity-graph, github-profile-trophy, pie-chart, figma-showcase, pinterest-showcase, visitor-counter, snk, etc.
+- GitHub Camo Compliance: 100% SVG/Markdown standard compliant (zero <script>, zero <foreignObject>, GPU-accelerated 60fps CSS transforms).
 
 Here is my current profile JSON configuration:
 \`\`\`json
 ${JSON.stringify(config, null, 2)}
 \`\`\`
 
-Please update or enhance this ReadmeConfig JSON. Return only the valid JSON.`;
+Instructions:
+1. Enhance the profile configuration with high-impact aesthetics, relevant tech stacks, and badges.
+2. Ensure strict schema validity matching ReadmeConfig.
+3. Return ONLY valid, parseable JSON representing the updated ReadmeConfig object.`;
       await navigator.clipboard.writeText(prompt);
       setCopiedAiPrompt(true);
       setTimeout(() => setCopiedAiPrompt(false), 2000);

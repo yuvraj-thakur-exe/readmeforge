@@ -99,11 +99,18 @@ export const PluginPanel: React.FC<PluginPanelProps> = ({
   };
 
   const handleCopyAiPrompt = async () => {
-    const prompt = `Act as a senior developer personal branding expert.
+    const prompt = `Act as a senior developer personal branding expert and GitHub README specialist.
 I am configuring my GitHub Profile README using ReadmeForge (https://readmeforge-black.vercel.app).
 
-Machine-readable JSON schema is at: https://readmeforge-black.vercel.app/api/schema
-Developer documentation: https://readmeforge-black.vercel.app/llms.txt
+API & Schema: https://readmeforge-black.vercel.app/api/schema
+Developer & LLM Spec: https://readmeforge-black.vercel.app/llms-full.txt
+Agent Skill Guidance: https://readmeforge-black.vercel.app/.agents/skills/readmeforge/SKILL.md
+
+Available Features:
+- 47 Official Social Media Badges (behance, bluesky, codesandbox, codepen, devto, discord, dribbble, facebook, gitlab, gmail, hackerrank, instagram, itch, linkedin, linktree, medium, microsoft-outlook, outlook, patreon, paypal, spotify, stackoverflow, telegram, twitch, twitter, x, unsplash, visualstudio, wechat, whatsapp, youtube, tutanota, matrix, ko-fi, signal, slack, tryhackme, leetcode, github, codeforces, codechef, kaggle, hashnode, reddit, threads, tiktok, mastodon).
+- 26+ Rich Plugins: header-bio, capsule-render, animated-mascot, readme-typing-svg, markdown-badges, github-readme-stats, streak-stats, activity-graph, github-profile-trophy, pie-chart, figma-showcase, pinterest-showcase, visitor-counter, snk, etc.
+- 50 Visual Archetypes & Templates.
+- GitHub Camo sanitizer safe vector animations.
 
 Here is my current profile configuration in ReadmeForge JSON format:
 \`\`\`json

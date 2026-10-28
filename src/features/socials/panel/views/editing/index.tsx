@@ -1,7 +1,6 @@
 'use client';
 
 import { object } from '#/utils/object';
-import { url } from '#/utils/url';
 import { observer } from 'mobx-react-lite';
 
 import { useMemo, useRef } from 'react';
@@ -50,7 +49,7 @@ const MemoizedIconEditor = React.memo(
         baseEditPath="content.socials"
         img={{
           alt: `${social} ${icon} logo`,
-          url: url.getSocialImg('icon', social, { icon }),
+          url: `/assets/icons/social/${social}/${icon || 'default'}.svg`,
         }}
         slots={{
           expansibleContent: () => (
@@ -87,7 +86,7 @@ export const Editing = observer(function Editing() {
   const selectedSocials = object.deep.get<Socials>(
     canvasStore.$currentSection,
     'props.content.socials'
-  )!;
+  ) || {};
 
   const socialsLength = Object.keys(selectedSocials).length;
 
@@ -103,10 +102,10 @@ export const Editing = observer(function Editing() {
     const path = 'content.socials';
 
     const value = order.reduce((obj, name) => {
-      const finded = socials.find(social => social[0] === name)!;
-
-      obj[finded[0]] = finded[1];
-
+      const finded = socials.find(social => social[0] === name);
+      if (finded) {
+        obj[finded[0]] = finded[1];
+      }
       return obj;
     }, {} as Socials);
 

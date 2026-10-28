@@ -43,10 +43,10 @@ const socialsSectionParser = ({
   content,
   styles: sectionStyles,
 }: SocialsSectionParserArgs) => {
-  const { socials, styles } = content;
+  const { socials = {}, styles = { type: 'icon', style: 'for-the-badge', height: 40 } as SocialStyles } = content || {};
 
-  const { align, spacing } = sectionStyles;
-  const { height = 40, type, style } = styles;
+  const { align = 'left', spacing = 12 } = sectionStyles || {};
+  const { height = 40, type = 'icon', style = 'for-the-badge' } = styles;
 
   const imgsHtml = Object.entries(socials)
     .reduce((html, [social, { link, ...rest }]) => {

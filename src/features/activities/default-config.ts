@@ -2,6 +2,7 @@ const defaultActivitiesSectionConfig = {
   props: {
     content: {
       type: 'medium',
+      username: '',
       limit: 3,
     },
 

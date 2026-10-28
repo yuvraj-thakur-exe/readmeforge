@@ -23,23 +23,34 @@ const techsSectionParser = ({
   content,
   styles: sectionStyles,
 }: TechsSectionParserArgs) => {
-  const { icons, styles } = content;
+  const { icons = {}, styles = { height: 40 } } = content || {};
 
-  const { align, spacing } = sectionStyles;
+  const { align = 'left', spacing = 10 } = sectionStyles || {};
   const { height = 40 } = styles;
 
-  const imgsHtml = Object.entries(icons)
+  const validEntries = Object.entries(icons).filter(
+    ([, data]) => {
+      if (!data?.providers) return false;
+      const provider = data.providers[data.currentProvider] || Object.values(data.providers)[0];
+      return !!provider;
+    }
+  );
+
+  const imgsHtml = validEntries
     .reduce(
-      (html, [icon, { providers, currentProvider, config }], index, arr) => {
+      (html, [icon, { providers = {}, currentProvider, config = {} }], index, arr) => {
         const isLast = index === arr.length - 1;
-        const provider = providers[currentProvider]!;
+        const provider = providers[currentProvider] || Object.values(providers)[0];
+        if (!provider) return html;
 
         const providerVariants = provider.variants || [];
         const hasVariants = !!providerVariants.length;
 
-        const logo = hasVariants
+        const logo = (hasVariants
           ? providerVariants[(config[currentProvider]?.variant ?? 0) as number]
-          : provider!.path;
+          : provider.path) || '';
+
+        if (!logo) return html;
 
         const space = `<img width="${spacing}"/>`;
         const img = `<img src="${logo}" height="${height}" alt="${icon} logo" />`;

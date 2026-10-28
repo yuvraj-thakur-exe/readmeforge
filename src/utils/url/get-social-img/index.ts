@@ -10,7 +10,7 @@ export function getSocialImg(
 ) {
   const { icon, ...badgeProps } = props;
 
-  if (type === 'icon') return `${iconBaseUrl}/${social}/${icon}.svg`;
+  if (type === 'icon') return `${iconBaseUrl}/${social}/${icon || 'default'}.svg`;
 
   const capitalizedSocial = social.charAt(0).toUpperCase() + social.slice(1); // Capitalize
 

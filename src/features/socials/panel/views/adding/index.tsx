@@ -89,7 +89,10 @@ export const Adding = observer(function Adding() {
                         width: '40%',
                         height: '40%',
                       }}
-                      src={url.getSocialImg('icon', name, { icon })}
+                      src={`/assets/icons/social/${name}/${icon || 'default'}.svg`}
+                      onError={e => {
+                        e.currentTarget.src = url.getSocialImg('icon', name, { icon });
+                      }}
                     />
                     <DisplayBlock.Label className="text-xs">
                       {short_name ?? name}

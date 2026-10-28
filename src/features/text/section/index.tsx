@@ -22,13 +22,14 @@ export const TextSection = observer(function TextSection(
 ) {
   const { content, styles } = props;
 
-  const { text, as: Text } = content;
+  const text = content?.text || '';
+  const Text = (content?.as || 'p') as keyof JSX.IntrinsicElements;
 
   return (
     <div className="flex text-section">
       <Text
         className="w-full whitespace-pre-line"
-        style={{ textAlign: styles.align }}
+        style={{ textAlign: styles?.align || 'left' }}
       >
         {text.trim()}
       </Text>
