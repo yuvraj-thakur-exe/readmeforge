@@ -15,8 +15,10 @@ import { mascotBioPlugin } from './wrappers/mascot-bio';
 import { skillIconsPlugin } from './wrappers/skill-icons';
 import { pinterestImagePlugin } from './wrappers/pinterest-image';
 import { figmaDesignPlugin } from './wrappers/figma-design';
+import { socialsPlugin } from './wrappers/socials';
 
 export const pluginRegistry: Plugin[] = [
+  socialsPlugin,
   capsuleBannerPlugin,
   mascotBioPlugin,
   pinterestImagePlugin,

@@ -397,6 +397,116 @@ const social_icons = [
       logoColor: 'white',
     },
   },
+  {
+    name: 'leetcode',
+    icons: ['default'],
+    badge: {
+      message: 'LeetCode',
+      color: 'FFA116',
+      label: '',
+      logo: 'leetcode',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'github',
+    icons: ['default'],
+    badge: {
+      message: 'GitHub',
+      color: '181717',
+      label: '',
+      logo: 'github',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'codeforces',
+    icons: ['default'],
+    badge: {
+      message: 'Codeforces',
+      color: '1F8ACB',
+      label: '',
+      logo: 'codeforces',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'codechef',
+    icons: ['default'],
+    badge: {
+      message: 'CodeChef',
+      color: '5B4638',
+      label: '',
+      logo: 'codechef',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'kaggle',
+    icons: ['default'],
+    badge: {
+      message: 'Kaggle',
+      color: '20BEFF',
+      label: '',
+      logo: 'kaggle',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'hashnode',
+    icons: ['default'],
+    badge: {
+      message: 'Hashnode',
+      color: '2962FF',
+      label: '',
+      logo: 'hashnode',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'reddit',
+    icons: ['default'],
+    badge: {
+      message: 'Reddit',
+      color: 'FF4500',
+      label: '',
+      logo: 'reddit',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'threads',
+    icons: ['default'],
+    badge: {
+      message: 'Threads',
+      color: '000000',
+      label: '',
+      logo: 'threads',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'tiktok',
+    icons: ['default'],
+    badge: {
+      message: 'TikTok',
+      color: '000000',
+      label: '',
+      logo: 'tiktok',
+      logoColor: 'white',
+    },
+  },
+  {
+    name: 'mastodon',
+    icons: ['default'],
+    badge: {
+      message: 'Mastodon',
+      color: '6364FF',
+      label: '',
+      logo: 'mastodon',
+      logoColor: 'white',
+    },
+  },
 ];
 
 export { social_icons };

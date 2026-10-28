@@ -1,13 +1,12 @@
 'use client';
 
 import { Link, usePathname } from '#/i18n/navigation';
-import { Github, Star, BookOpen, Sparkles, Film } from 'lucide-react';
+import { Github, Star, BookOpen, Sparkles } from 'lucide-react';
 import { ThemeToggle } from '#/components/theme/ThemeToggle';
 
 export function TopNav() {
   const pathname = usePathname();
   const isWizard = pathname?.includes('/wizard') || pathname?.includes('/canvas');
-  const isAnimator = pathname?.includes('/animator');
   const isInfo = pathname?.includes('/info');
 
   return (
@@ -49,20 +48,6 @@ export function TopNav() {
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             <span className="hidden sm:inline">Studio</span>
             <span className="sm:hidden text-[11px]">Studio</span>
-          </Link>
-
-          {/* Animator */}
-          <Link
-            href="/animator"
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 shadow-sm active:scale-95 ${
-              isAnimator
-                ? 'bg-fuchsia-600 text-white border-fuchsia-500 shadow-fuchsia-900/40 shadow-md'
-                : 'border-fuchsia-500/30 bg-fuchsia-950/20 hover:bg-fuchsia-950/40 hover:border-fuchsia-400/60 text-fuchsia-200'
-            }`}
-          >
-            <Film className="w-3.5 h-3.5 text-fuchsia-400" />
-            <span className="hidden sm:inline">Animator</span>
-            <span className="sm:hidden text-[11px]">Anim</span>
           </Link>
 
           {/* Info & Guide */}

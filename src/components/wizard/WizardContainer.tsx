@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { pluginRegistry } from '#/lib/plugins/registry';
 import { generatePersonalizedProfile, DeveloperPersonaRole } from '#/lib/personalization/profile-generator';
+import { social_icons } from '#/resources/social_icons';
 import { LivePreviewPane } from './LivePreviewPane';
 import { FadeIn } from '#/components/motion/FadeIn';
 import {
@@ -17,6 +18,7 @@ import {
   ChevronLeft,
   CheckCircle2,
   Sparkles,
+  Search,
 } from 'lucide-react';
 
 const STEPS = [
@@ -30,6 +32,7 @@ const STEPS = [
 
 export function WizardContainer() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [socialSearch, setSocialSearch] = useState('');
   const { config, setGithub, updateSettings, addSection, removeSection, updateSection, setEntireConfig } = useReadmeStore();
 
   const user = config.settings.user;
@@ -38,6 +41,63 @@ export function WizardContainer() {
   // Helper to check if a plugin is active in sections
   const isPluginActive = (pluginId: string) =>
     config.sections.some(s => s.type === pluginId);
+
+  const socialsSection = config.sections.find(s => s.type === 'socials');
+  const activeSocials: Record<string, any> = (socialsSection?.props?.content?.socials as Record<string, any>) || {};
+
+  const handleUpdateSocial = (name: string, link: string) => {
+    let section = config.sections.find(s => s.type === 'socials');
+    const meta = social_icons.find(item => item.name.toLowerCase() === name.toLowerCase() || item.short_name?.toLowerCase() === name.toLowerCase());
+
+    if (!section) {
+      if (!link.trim()) return;
+      addSection('socials', {
+        content: {
+          socials: {
+            [name]: {
+              link: link.trim(),
+              message: meta?.badge?.message || name,
+              color: meta?.badge?.color || '000000',
+              logo: meta?.badge?.logo || name,
+              logoColor: meta?.badge?.logoColor || 'white',
+            },
+          },
+          styles: {
+            style: config.settings.badgeStyle || 'for-the-badge',
+            type: 'badge',
+            height: 35,
+          },
+        },
+        styles: {
+          align: config.settings.align || 'center',
+          spacing: 10,
+        },
+      });
+      return;
+    }
+
+    const currentMap = { ...((section.props?.content?.socials as Record<string, any>) || {}) };
+
+    if (!link.trim()) {
+      delete currentMap[name];
+    } else {
+      currentMap[name] = {
+        ...currentMap[name],
+        link: link.trim(),
+        message: meta?.badge?.message || name,
+        color: meta?.badge?.color || '000000',
+        logo: meta?.badge?.logo || name,
+        logoColor: meta?.badge?.logoColor || 'white',
+      };
+    }
+
+    updateSection(section.id, {
+      content: {
+        ...section.props.content,
+        socials: currentMap,
+      },
+    });
+  };
 
   const togglePlugin = (pluginId: string) => {
     const existing = config.sections.find(s => s.type === pluginId);
@@ -493,31 +553,163 @@ export function WizardContainer() {
             {/* Step 5: Social & Links */}
             {currentStep.id === 'socials' && (
               <div className="space-y-4">
-                <div>
-                  <h3 className="text-base font-semibold text-palette-contrast">Social Media & Contact Links</h3>
-                  <p className="text-xs text-palette-contrast/60">
-                    Add direct badges linking to your socials and online presence.
-                  </p>
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div>
+                    <h3 className="text-base font-semibold text-palette-contrast">Social Media & Developer Badges</h3>
+                    <p className="text-xs text-palette-contrast/60">
+                      Add clickable shields.io badges with official branded logos for LinkedIn, X/Twitter, Discord, YouTube, Gmail, HackerRank, and 35+ dev platforms.
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/30">
+                      {Object.keys(activeSocials).length} active badge{Object.keys(activeSocials).length === 1 ? '' : 's'}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  {[
-                    { label: 'LinkedIn URL / Handle', placeholder: 'https://linkedin.com/in/username' },
-                    { label: 'X / Twitter Handle', placeholder: '@username' },
-                    { label: 'Personal Website / Portfolio', placeholder: 'https://yourportfolio.dev' },
-                    { label: 'Contact Email', placeholder: 'you@domain.com' },
-                    { label: 'Discord Server / Tag', placeholder: 'username#0000' },
-                    { label: 'YouTube Channel', placeholder: 'https://youtube.com/@channel' },
-                  ].map((item, i) => (
-                    <div key={i} className="space-y-1.5">
-                      <label className="text-xs font-medium text-palette-contrast/80">{item.label}</label>
-                      <input
-                        type="text"
-                        placeholder={item.placeholder}
-                        className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
-                      />
+                {/* Active Badges Live Preview Row */}
+                {Object.keys(activeSocials).length > 0 && (
+                  <div className="p-3.5 rounded-xl bg-palette-soft/70 border border-violet-500/30 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-violet-400 font-semibold flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-cyan-400" /> Active Profile Badges (Live Preview)
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const section = config.sections.find(s => s.type === 'socials');
+                          if (section) removeSection(section.id);
+                        }}
+                        className="text-[10px] text-rose-400 hover:text-rose-300 transition-colors"
+                      >
+                        Clear All
+                      </button>
                     </div>
-                  ))}
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      {Object.entries(activeSocials).map(([key, val]) => {
+                        const iconMeta = social_icons.find(
+                          item => item.name.toLowerCase() === key.toLowerCase() || item.short_name?.toLowerCase() === key.toLowerCase()
+                        );
+                        const msg = (val?.message || iconMeta?.badge?.message || key).replace(/-/g, '--');
+                        const col = (val?.color || iconMeta?.badge?.color || '000000').replace('#', '');
+                        const lgo = val?.logo || iconMeta?.badge?.logo || key;
+                        const badgeUrl = `https://img.shields.io/badge/${encodeURIComponent(msg)}-${col}?style=${config.settings.badgeStyle || 'for-the-badge'}&logo=${encodeURIComponent(lgo)}&logoColor=white`;
+
+                        return (
+                          <div key={key} className="relative group/badge">
+                            <img src={badgeUrl} alt={msg} className="h-6 rounded shadow-sm" />
+                            <button
+                              type="button"
+                              onClick={() => handleUpdateSocial(key, '')}
+                              title="Remove badge"
+                              className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-rose-600 text-white text-[9px] flex items-center justify-center opacity-0 group-hover/badge:opacity-100 transition-opacity shadow-sm"
+                            >
+                              &times;
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Search Bar */}
+                <div className="relative">
+                  <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-palette-contrast/40" />
+                  <input
+                    type="text"
+                    value={socialSearch}
+                    onChange={e => setSocialSearch(e.target.value)}
+                    placeholder="Search apps (LinkedIn, X, Discord, YouTube, Gmail, HackerRank, LeetCode...)"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none placeholder:text-palette-contrast/40"
+                  />
+                  {socialSearch && (
+                    <button
+                      type="button"
+                      onClick={() => setSocialSearch('')}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-palette-contrast/40 hover:text-palette-contrast"
+                    >
+                      &times;
+                    </button>
+                  )}
+                </div>
+
+                {/* Platforms Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[460px] overflow-y-auto scrollbar p-1">
+                  {social_icons
+                    .filter(item => {
+                      if (!socialSearch.trim()) return true;
+                      const q = socialSearch.toLowerCase();
+                      return (
+                        item.name.toLowerCase().includes(q) ||
+                        item.short_name?.toLowerCase().includes(q) ||
+                        item.badge.message.toLowerCase().includes(q)
+                      );
+                    })
+                    .map(item => {
+                      const isActive = Boolean(activeSocials[item.name]?.link);
+                      const currentLink = activeSocials[item.name]?.link || '';
+                      const badgeUrl = `https://img.shields.io/badge/${encodeURIComponent(item.badge.message.replace(/-/g, '--'))}-${item.badge.color}?style=for-the-badge&logo=${encodeURIComponent(item.badge.logo)}&logoColor=white`;
+
+                      return (
+                        <div
+                          key={item.name}
+                          className={`p-3 rounded-xl border transition-all flex flex-col justify-between space-y-2.5 ${
+                            isActive
+                              ? 'border-violet-500 bg-violet-500/10 shadow-sm'
+                              : 'border-palette-line bg-palette-soft/40 hover:border-palette-line/80'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between gap-2">
+                            <div className="flex items-center gap-2 overflow-hidden">
+                              <img
+                                src={badgeUrl}
+                                alt={item.badge.message}
+                                className="h-6 rounded shadow-sm shrink-0"
+                              />
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (isActive) {
+                                  handleUpdateSocial(item.name, '');
+                                } else {
+                                  const defaultUrl = item.name === 'gmail'
+                                    ? 'mailto:developer@gmail.com'
+                                    : `https://${item.name}.com/username`;
+                                  handleUpdateSocial(item.name, defaultUrl);
+                                }
+                              }}
+                              className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-all shrink-0 ${
+                                isActive
+                                  ? 'bg-rose-500/15 border-rose-500/40 text-rose-300 hover:bg-rose-500/25'
+                                  : 'bg-violet-600 hover:bg-violet-500 text-white border-violet-500 shadow-sm'
+                              }`}
+                            >
+                              {isActive ? 'Remove' : '+ Add'}
+                            </button>
+                          </div>
+
+                          <div className="space-y-1">
+                            <input
+                              type="text"
+                              value={currentLink}
+                              onChange={e => handleUpdateSocial(item.name, e.target.value)}
+                              placeholder={
+                                item.name === 'gmail'
+                                  ? 'mailto:yourname@gmail.com'
+                                  : `https://${item.name}.com/your-username`
+                              }
+                              className={`w-full px-2.5 py-1.5 text-xs rounded-lg border font-mono transition-colors focus:outline-none ${
+                                isActive
+                                  ? 'border-violet-500/60 bg-palette-base text-palette-contrast focus:border-violet-400'
+                                  : 'border-palette-line bg-palette-base/60 text-palette-contrast/60 focus:border-palette-line'
+                              }`}
+                            />
+                          </div>
+                        </div>
+                      );
+                    })}
                 </div>
               </div>
             )}
