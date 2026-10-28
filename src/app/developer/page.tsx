@@ -62,7 +62,7 @@ function DeveloperContent() {
             <div className="p-1 rounded-md bg-gradient-to-tr from-violet-600 to-cyan-400 group-hover:scale-105 transition-transform">
               <Flame className="w-4 h-4 text-white" />
             </div>
-            <span className="font-bold text-sm bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent hidden xs:inline">
+            <span className="font-bold text-sm bg-gradient-to-r from-violet-400 to-cyan-300 bg-clip-text text-transparent">
               ReadmeForge
             </span>
             <span className="text-[11px] font-mono px-1.5 py-0.5 rounded bg-violet-950/80 border border-violet-800 text-violet-300">
@@ -159,7 +159,7 @@ function DeveloperContent() {
             title="Switch to Visual Wizard"
           >
             <Sparkles className="w-3.5 h-3.5 text-violet-400" />
-            <span className="hidden xs:inline">Visual Wizard</span>
+            <span className="hidden sm:inline">Visual Wizard</span>
           </Link>
         </div>
       </header>

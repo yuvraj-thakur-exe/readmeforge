@@ -21,9 +21,9 @@ test.describe('ReadmeForge /developer Route Flow', () => {
     const pluginsBtn = page.getByRole('button', { name: /Plugins/i });
     if (await pluginsBtn.isVisible()) {
       await pluginsBtn.click();
-      await expect(page.getByText('Plugin Registry')).toBeHidden();
+      await expect(page.getByText(/Plugins \(\d+\)/)).toBeHidden();
       await pluginsBtn.click();
-      await expect(page.getByText('Plugin Registry')).toBeVisible();
+      await expect(page.getByText(/Plugins \(\d+\)/)).toBeVisible();
     }
   });
 });
