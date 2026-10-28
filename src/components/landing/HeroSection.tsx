@@ -20,7 +20,7 @@ import {
   Terminal,
   Activity,
   Sparkles,
-  Code2,
+  Film,
 } from 'lucide-react';
 import { IdeIntegrationShelf } from '#/components/landing/IdeIntegrationShelf';
 import { CopyButton } from '#/components/common/CopyButton';
@@ -393,11 +393,11 @@ export const HeroSection: React.FC = () => {
         </a>
 
         <Link
-          href="/developer"
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-violet-950/40 hover:bg-violet-900/60 border border-violet-500/40 hover:border-violet-400 text-violet-200 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
+          href="/animator"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-fuchsia-950/40 hover:bg-fuchsia-900/60 border border-fuchsia-500/40 hover:border-fuchsia-400 text-fuchsia-200 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
         >
-          <Code2 className="w-4 h-4 text-violet-400" />
-          <span>Launch /developer IDE</span>
+          <Film className="w-4 h-4 text-fuchsia-400" />
+          <span>Vector Animator</span>
         </Link>
 
         <Link

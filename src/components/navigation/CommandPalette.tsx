@@ -6,7 +6,6 @@ import { Command } from 'cmdk';
 import { useReadmeStore } from '#/store/useReadmeStore';
 import { useTheme } from 'next-themes';
 import {
-  Terminal,
   Sun,
   Moon,
   Laptop,
@@ -122,16 +121,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
               >
                 <BookOpen className="w-4 h-4 text-emerald-400" />
                 <span>Go to Info, Install &amp; Templates Guide</span>
-              </Command.Item>
-              <Command.Item
-                onSelect={() => {
-                  router.push('/developer');
-                  setOpen(false);
-                }}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
-              >
-                <Terminal className="w-4 h-4 text-cyan-400" />
-                <span>Go to /developer Raw Mode</span>
               </Command.Item>
               <Command.Item
                 onSelect={() => {

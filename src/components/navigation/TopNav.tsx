@@ -1,13 +1,12 @@
 'use client';
 
 import { Link, usePathname } from '#/i18n/navigation';
-import { Github, Star, BookOpen, Code2, Sparkles, Film } from 'lucide-react';
+import { Github, Star, BookOpen, Sparkles, Film } from 'lucide-react';
 import { ThemeToggle } from '#/components/theme/ThemeToggle';
 
 export function TopNav() {
   const pathname = usePathname();
   const isWizard = pathname?.includes('/wizard') || pathname?.includes('/canvas');
-  const isDev = pathname?.includes('/developer');
   const isAnimator = pathname?.includes('/animator');
   const isInfo = pathname?.includes('/info');
 
@@ -64,20 +63,6 @@ export function TopNav() {
             <Film className="w-3.5 h-3.5 text-fuchsia-400" />
             <span className="hidden sm:inline">Animator</span>
             <span className="sm:hidden text-[11px]">Anim</span>
-          </Link>
-
-          {/* Raw /developer Editor */}
-          <Link
-            href="/developer"
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 shadow-sm active:scale-95 ${
-              isDev
-                ? 'bg-violet-600 text-white border-violet-500 shadow-violet-900/40 shadow-md'
-                : 'border-violet-500/30 bg-violet-950/20 hover:bg-violet-950/40 hover:border-violet-400/60 text-violet-200'
-            }`}
-          >
-            <Code2 className="w-3.5 h-3.5 text-violet-400" />
-            <span className="hidden sm:inline">/developer</span>
-            <span className="sm:hidden text-[11px]">IDE</span>
           </Link>
 
           {/* Info & Guide */}

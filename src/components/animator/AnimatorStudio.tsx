@@ -1283,13 +1283,6 @@ export function AnimatorStudio() {
                 <Film className="w-3.5 h-3.5 text-amber-400" />
                 <span>GIF / WebP</span>
               </button>
-
-              <Link
-                href="/developer"
-                className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-palette-line bg-palette-base hover:border-violet-500/50 text-xs font-medium text-neutral-200 transition-colors"
-              >
-                <span>/developer &rarr;</span>
-              </Link>
             </div>
 
             {/* Headless GIF & WebP Export Drawer */}

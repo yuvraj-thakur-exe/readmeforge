@@ -22,8 +22,8 @@ const contents = [
   },
 
   {
-    icon: 'zap',
-    name: 'Level Up',
+    icon: 'link-2',
+    name: 'Add by Link',
 
     onClick: () => actions.panel.right.show(PanelsEnum.RECOMMENDED_RESOURCES),
     className: 'palette-surface-green',

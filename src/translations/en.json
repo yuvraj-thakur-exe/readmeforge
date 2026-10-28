@@ -112,11 +112,11 @@
       "copied-tooltip": "Copied"
     },
     "recommended-resources": {
-      "heading": "Level Up Your README",
-      "description1": "Anyone can use templates — but when you know what you’re doing, it shows.",
-      "description2": "👉 Explore resources that will upgrade your skills — and your README. Start now."
+      "heading": "Add Assets & Media by Link",
+      "description1": "Embed Figma designs, external images, animated SVGs, and custom shields badges into your GitHub profile.",
+      "description2": "Paste any link or choose a curated preset below to instantly add it to your README."
     },
-    "affiliate-warning": "💡 This panel contains affiliate links. If you find something useful and make a purchase, I may earn a small commission ☕. Thanks for the support ❤",
+    "affiliate-warning": "Custom media and live assets are formatted for GitHub Camo sanitizer compliance.",
     "alts": {
       "image": "Image",
       "profile-views": "Profile views count",

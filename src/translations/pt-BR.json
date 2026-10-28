@@ -113,11 +113,11 @@
       "copied-tooltip": "Copiado"
     },
     "recommended-resources": {
-      "heading": "Aprimore seu README",
-      "description1": "Qualquer pessoa pode usar modelos — mas quando você sabe o que está fazendo, isso fica evidente.",
-      "description2": "👉 Explore recursos que vão aprimorar suas habilidades — e seu README. Comece agora."
+      "heading": "Adicionar Midia e Recursos por Link",
+      "description1": "Incorpore designs do Figma, imagens externas, SVGs animados e badges personalizados no seu perfil.",
+      "description2": "Cole qualquer link ou escolha um preset abaixo para adicionar ao seu perfil."
     },
-    "affiliate-warning": "💡 Este painel contém links de afiliados. Se você encontrar algo útil e fizer uma compra, posso receber uma pequena comissão ☕. Obrigado pelo apoio ❤",
+    "affiliate-warning": "Recursos externos sao compativeis com o GitHub Camo.",
     "alts": {
       "image": "Imagem",
       "profile-views": "Contagem de visualizações do perfil",
