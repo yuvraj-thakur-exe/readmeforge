@@ -4,6 +4,7 @@ import { TopNav } from '#/components/navigation/TopNav';
 import { StudioCursor } from '#/components/studio/StudioCursor';
 import { StudioAudioToggle } from '#/components/studio/StudioAudioToggle';
 import { NomokeyHero } from '#/components/studio/NomokeyHero';
+import { LivePlaygroundBar } from '#/components/studio/LivePlaygroundBar';
 import { NomokeyMarquee } from '#/components/studio/NomokeyMarquee';
 import { StudioBento } from '#/components/studio/StudioBento';
 import { TransformationShowcase } from '#/components/studio/TransformationShowcase';
@@ -16,7 +17,7 @@ import { Github, BarChart3, Code2, Sparkles, BookOpen } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-[#faf8f5] text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-amber-400 selection:text-neutral-950 overflow-x-hidden font-sans transition-colors duration-200">
+    <div className="relative flex flex-col min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-[#ffe600] selection:text-neutral-950 overflow-x-hidden font-sans transition-colors duration-200">
       {/* Magnetic Cursor Follower */}
       <StudioCursor />
 
@@ -31,6 +32,9 @@ export default function HomePage() {
 
       {/* Flagship Centerpiece: Nomokey Hero with Geometric Monkey Companion */}
       <NomokeyHero />
+
+      {/* Interactive Handle Live Sandbox */}
+      <LivePlaygroundBar />
 
       {/* Studio Bento Grid: Telemetry, Monaco IDE, Vector Camo Engines */}
       <StudioBento />

@@ -93,33 +93,33 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
   const isPlaceholder = !rawUser || rawUser === 'username' || rawUser === 'zusername' || rawUser === 'your-username';
 
   return (
-    <div className={`flex flex-col h-full bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden shadow-sm dark:shadow-2xl ${className}`}>
+    <div className={`flex flex-col h-full bg-white dark:bg-neutral-900 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 overflow-hidden shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] ${className}`}>
       {/* Header Bar */}
-      <div className="flex flex-wrap items-center justify-between px-4 py-2.5 bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800 text-xs gap-2">
+      <div className="flex flex-wrap items-center justify-between px-4 py-2.5 bg-white dark:bg-neutral-950 border-b-2 border-neutral-900 dark:border-neutral-800 text-xs gap-2">
         <div className="flex items-center gap-2">
           {/* Rendered vs Raw Markdown */}
-          <div className="flex items-center bg-white dark:bg-neutral-900 rounded-lg p-0.5 border border-neutral-200 dark:border-neutral-800 shadow-sm">
+          <div className="flex items-center bg-neutral-100 dark:bg-neutral-900 rounded-lg p-0.5 border border-neutral-300 dark:border-neutral-800">
             <button
               type="button"
               onClick={() => setTab('preview')}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono font-bold transition-all ${
                 tab === 'preview'
-                  ? 'bg-amber-400 text-neutral-950 font-bold shadow-sm'
+                  ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-2xs'
                   : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
               }`}
             >
-              <Eye className="w-3.5 h-3.5" /> Rendered
+              <Eye className="w-3.5 h-3.5" /> RENDERED
             </button>
             <button
               type="button"
               onClick={() => setTab('raw')}
-              className={`flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium transition-colors ${
+              className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-mono font-bold transition-all ${
                 tab === 'raw'
-                  ? 'bg-cyan-500 text-neutral-950 font-bold shadow-sm'
+                  ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-2xs'
                   : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
               }`}
             >
-              <Code className="w-3.5 h-3.5" /> Raw Markdown
+              <Code className="w-3.5 h-3.5" /> RAW MD
             </button>
           </div>
 

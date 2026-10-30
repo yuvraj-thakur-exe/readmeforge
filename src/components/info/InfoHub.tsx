@@ -273,7 +273,7 @@ export function InfoHub() {
   }, [badgeCategory]);
 
   return (
-    <div className="min-h-screen bg-[#060813] text-neutral-100 selection:bg-violet-500 selection:text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#fafafa] dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-[#ffe600] selection:text-neutral-950 relative overflow-x-hidden">
       {/* Dynamic Cyber-Grid & Ambient Aurora Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Subtle Cyber Grid */}
@@ -473,7 +473,7 @@ export function InfoHub() {
             onClick={() => setActiveTab('install')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'install'
-                ? 'bg-emerald-500/25 text-emerald-200 border border-emerald-500/60 shadow-lg shadow-emerald-950/60 font-bold scale-[1.02]'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
                 : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
             }`}
           >
@@ -486,7 +486,7 @@ export function InfoHub() {
             onClick={() => setActiveTab('templates')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'templates'
-                ? 'bg-violet-500/25 text-violet-200 border border-violet-500/60 shadow-lg shadow-violet-950/60 font-bold scale-[1.02]'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
                 : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
             }`}
           >
@@ -502,7 +502,7 @@ export function InfoHub() {
             onClick={() => setActiveTab('playground')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'playground'
-                ? 'bg-cyan-500/25 text-cyan-200 border border-cyan-500/60 shadow-lg shadow-cyan-950/60 font-bold scale-[1.02]'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
                 : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
             }`}
           >
@@ -518,7 +518,7 @@ export function InfoHub() {
             onClick={() => setActiveTab('badges')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'badges'
-                ? 'bg-amber-500/25 text-amber-200 border border-amber-500/60 shadow-lg shadow-amber-950/60 font-bold scale-[1.02]'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
                 : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
             }`}
           >
@@ -531,7 +531,7 @@ export function InfoHub() {
             onClick={() => setActiveTab('guide')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'guide'
-                ? 'bg-indigo-500/25 text-indigo-200 border border-indigo-500/60 shadow-lg shadow-indigo-950/60 font-bold scale-[1.02]'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
                 : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
             }`}
           >

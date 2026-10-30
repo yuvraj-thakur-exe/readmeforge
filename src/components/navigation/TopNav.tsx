@@ -1,7 +1,8 @@
 'use client';
 
 import { Link, usePathname } from '#/i18n/navigation';
-import { Github, Star, BookOpen, Sparkles, BarChart3, Code2 } from 'lucide-react';
+import { Github, Star, BookOpen, Sparkles, BarChart3, Code2, Volume2, VolumeX } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { ThemeToggle } from '#/components/theme/ThemeToggle';
 import { MonoForgeMonkeyIcon } from '#/components/common/MonoForgeLogo';
 
@@ -12,96 +13,131 @@ export function TopNav() {
   const isTelemetry = pathname?.includes('/telemetry');
   const isInfo = pathname?.includes('/info');
 
+  const [isMuted, setIsMuted] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMuted(localStorage.getItem('monoforge-audio-mute') === 'true');
+    }
+  }, []);
+
+  const toggleMute = () => {
+    const next = !isMuted;
+    setIsMuted(next);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('monoforge-audio-mute', next ? 'true' : 'false');
+      if (!next) {
+        (window as unknown as { __monoforge_playClick?: (freq?: number) => void }).__monoforge_playClick?.(1200);
+      }
+    }
+  };
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-neutral-200/90 dark:border-neutral-800 bg-white/90 dark:bg-neutral-950/90 backdrop-blur-xl shadow-[0_1px_4px_rgba(0,0,0,0.04)]">
-      <div className="max-w-[1720px] mx-auto flex items-center justify-between h-14 px-4 md:px-6">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-neutral-900 dark:border-neutral-800 bg-white dark:bg-neutral-950 backdrop-blur-xl shadow-xs">
+      <div className="max-w-[1720px] mx-auto flex items-center justify-between h-14 px-3 sm:px-6">
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="relative p-1 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 group-hover:border-amber-500 transition-colors">
-            <MonoForgeMonkeyIcon className="w-6 h-6 text-amber-500 dark:text-amber-400 group-hover:scale-105 transition-transform duration-200" />
-            <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-neutral-950" />
+        <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group" data-cursor-label="HOME">
+          <div className="relative p-1.5 rounded-xl bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] group-hover:scale-105 transition-transform duration-200">
+            <MonoForgeMonkeyIcon className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-950" />
+            <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-neutral-950 animate-pulse" />
           </div>
           <div className="flex flex-col">
-            <span className="font-extrabold text-sm tracking-tight text-neutral-900 dark:text-neutral-100 group-hover:text-amber-500 transition-colors">
-              Mono<span className="text-amber-500 dark:text-amber-400">Forge</span>
+            <span className="font-black text-sm tracking-tight text-neutral-950 dark:text-neutral-100 uppercase">
+              MONO<span className="text-[#ffe600] dark:text-[#ffe600] bg-neutral-950 dark:bg-neutral-900 px-1 rounded ml-0.5 border border-neutral-900">FORGE</span>
             </span>
-            <span className="text-[10px] text-neutral-500 font-mono hidden sm:inline -mt-0.5">
-              Profile &amp; Telemetry Studio
+            <span className="text-[9px] text-neutral-500 font-mono font-bold hidden sm:inline uppercase">
+              ICONIC README STUDIO
             </span>
           </div>
         </Link>
 
         {/* Action Navigation */}
         <nav aria-label="Main Navigation" className="flex items-center gap-1.5 sm:gap-2">
-          {/* Visual Studio / Wizard */}
+          {/* Visual Studio */}
           <Link
             href="/wizard"
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 active:scale-95 ${
+            data-cursor-label="STUDIO"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isWizard
-                ? 'bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950 border-neutral-900 dark:border-neutral-100 shadow-sm font-bold'
-                : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 text-neutral-700 dark:text-neutral-300'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
+                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-neutral-400" />
-            <span className="hidden sm:inline">Studio</span>
-            <span className="sm:hidden text-[11px]">Studio</span>
+            <Sparkles className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">VISUAL STUDIO</span>
+            <span className="md:hidden">STUDIO</span>
           </Link>
 
           {/* Developer Raw Mode */}
           <Link
             href="/developer"
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 active:scale-95 ${
+            data-cursor-label="DEV IDE"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isDeveloper
-                ? 'bg-cyan-500 text-neutral-950 border-cyan-500 shadow-sm font-bold'
-                : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 text-neutral-700 dark:text-neutral-300'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
+                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
-            <Code2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-            <span className="hidden sm:inline">Developer</span>
-            <span className="sm:hidden text-[11px]">Dev</span>
+            <Code2 className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">&lt;/&gt; DEVELOPER IDE</span>
+            <span className="md:hidden">DEV</span>
           </Link>
 
           {/* Telemetry Studio */}
           <Link
             href="/telemetry"
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 active:scale-95 ${
+            data-cursor-label="STATS"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isTelemetry
-                ? 'bg-amber-400 text-neutral-950 border-amber-400 shadow-sm font-bold'
-                : 'border-amber-400/40 bg-amber-50 dark:bg-amber-500/10 hover:bg-amber-100 dark:hover:bg-amber-500/20 hover:border-amber-500/60 text-amber-700 dark:text-amber-300'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
+                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Telemetry</span>
-            <span className="sm:hidden text-[11px]">Telemetry</span>
+            <span className="hidden md:inline">47+ TELEMETRY</span>
+            <span className="md:hidden">STATS</span>
           </Link>
 
-          {/* Info & Guide */}
+          {/* Info & Guide Hub */}
           <Link
             href="/info"
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 active:scale-95 ${
+            data-cursor-label="GUIDE"
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isInfo
-                ? 'bg-emerald-500 text-neutral-950 border-emerald-500 shadow-sm font-bold'
-                : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:border-neutral-300 dark:hover:border-neutral-700 text-neutral-700 dark:text-neutral-300'
+                ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
+                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
-            <BookOpen className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span className="hidden sm:inline">Guide</span>
-            <span className="sm:hidden text-[11px]">Guide</span>
+            <BookOpen className="w-3.5 h-3.5" />
+            <span className="hidden md:inline">GUIDE HUB</span>
+            <span className="md:hidden">GUIDE</span>
           </Link>
 
-          <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-800 mx-1 hidden sm:block" />
+          <div className="h-4 w-px bg-neutral-300 dark:bg-neutral-800 mx-1 hidden sm:block" />
+
+          {/* Audio Synthesizer Toggle */}
+          <button
+            type="button"
+            onClick={toggleMute}
+            className="p-1.5 rounded-lg border-2 border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 hover:bg-[#ffe600] hover:text-neutral-950 transition-colors shadow-[2px_2px_0px_#18181b] btn-tactile"
+            title={isMuted ? 'Unmute Audio & Tactile Sound FX' : 'Mute Audio & Tactile Sound FX'}
+          >
+            {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-amber-500" />}
+          </button>
 
           <ThemeToggle />
 
+          {/* GitHub Star Pill */}
           <a
             href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 dark:hover:border-neutral-700 dark:hover:bg-neutral-800 text-neutral-800 dark:text-neutral-200 transition-all duration-200 active:scale-95 shadow-sm"
+            data-cursor-label="STAR"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:bg-[#ffe600] hover:text-neutral-950 transition-all btn-tactile"
           >
-            <Github className="w-3.5 h-3.5 text-neutral-700 dark:text-neutral-300" />
-            <Star className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 fill-amber-500 dark:fill-amber-400" />
-            <span className="hidden lg:inline">Star</span>
+            <Github className="w-3.5 h-3.5" />
+            <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+            <span className="hidden lg:inline">STAR</span>
           </a>
         </nav>
       </div>

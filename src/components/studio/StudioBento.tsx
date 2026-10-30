@@ -51,15 +51,15 @@ export function StudioBento() {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Bento Card 1: 47+ Telemetry Engine (7 cols) */}
-          <div className="md:col-span-7 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#faf8f5] dark:bg-neutral-950 p-6 sm:p-8 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
+          <div className="md:col-span-7 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 p-6 sm:p-8 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
-                  <div className="p-2 rounded-lg bg-amber-400 text-neutral-950 border border-neutral-900 font-bold">
+                  <div className="p-2 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-bold shadow-[2px_2px_0px_#18181b]">
                     <BarChart3 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-lg text-neutral-950 dark:text-white">
+                    <h3 className="font-black text-lg text-neutral-950 dark:text-white uppercase font-sans">
                       MonoForge Native Telemetry
                     </h3>
                     <p className="text-xs font-mono text-neutral-500">
@@ -70,7 +70,7 @@ export function StudioBento() {
 
                 <Link
                   href="/telemetry"
-                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 text-xs font-mono font-bold text-neutral-800 dark:text-neutral-200 hover:border-amber-500 transition-colors"
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 text-xs font-mono font-black shadow-[2px_2px_0px_#18181b] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
                 >
                   <span>Explore All 47</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -89,10 +89,10 @@ export function StudioBento() {
                     key={tab.id}
                     type="button"
                     onClick={() => setTelemetryTab(tab.id as TelemetryTab)}
-                    className={`px-3 py-1 rounded-md text-xs font-mono font-bold transition-all ${
+                    className={`px-3 py-1 rounded-lg text-xs font-mono font-bold transition-all ${
                       telemetryTab === tab.id
-                        ? 'bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 shadow-xs'
-                        : 'bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                        ? 'bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-black shadow-[2px_2px_0px_#18181b]'
+                        : 'bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-400 hover:text-neutral-950'
                     }`}
                   >
                     {tab.label}
@@ -213,23 +213,23 @@ export function StudioBento() {
               <button
                 type="button"
                 onClick={() => copySnippet(`<img src="https://monoforge-studio.vercel.app/api/telemetry/svg?plugin=${telemetryTab}&user=octocat" />`, telemetryTab)}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950 font-mono text-xs font-bold hover:bg-amber-400 hover:text-neutral-950 transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
               >
-                {copiedCode === telemetryTab ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>Copy SVG Markdown</span>
+                {copiedCode === telemetryTab ? <Check className="w-3.5 h-3.5 text-neutral-950" /> : <Copy className="w-3.5 h-3.5 text-neutral-950" />}
+                <span>COPY SVG MARKDOWN</span>
               </button>
             </div>
           </div>
 
           {/* Bento Card 2: Monaco IDE Raw Mode (5 cols) */}
-          <div className="md:col-span-5 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#faf8f5] dark:bg-neutral-950 p-6 sm:p-8 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
+          <div className="md:col-span-5 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 p-6 sm:p-8 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center gap-2.5">
-                <div className="p-2 rounded-lg bg-cyan-400 text-neutral-950 border border-neutral-900 font-bold">
+                <div className="p-2 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-bold shadow-[2px_2px_0px_#18181b]">
                   <Code2 className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-extrabold text-lg text-neutral-950 dark:text-white">
+                  <h3 className="font-black text-lg text-neutral-950 dark:text-white uppercase font-sans">
                     /developer Monaco IDE
                   </h3>
                   <p className="text-xs font-mono text-neutral-500">
@@ -265,7 +265,7 @@ export function StudioBento() {
             <div className="pt-6">
               <Link
                 href="/developer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-neutral-950 dark:bg-neutral-100 text-white dark:text-neutral-950 font-bold text-xs tracking-wider uppercase border border-neutral-900 dark:border-neutral-100 shadow-[3px_3px_0px_#06b6d4] hover:shadow-[1px_1px_0px_#06b6d4] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-black text-xs font-mono tracking-wider uppercase border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all"
               >
                 <span>Launch /developer Raw Mode</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -274,22 +274,22 @@ export function StudioBento() {
           </div>
 
           {/* Bento Card 3: 60fps Kinetic Vector Animator (4 cols) */}
-          <div className="md:col-span-4 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#faf8f5] dark:bg-neutral-950 p-6 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
+          <div className="md:col-span-4 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 p-6 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="p-2 rounded-lg bg-amber-400 text-neutral-950 border border-neutral-900 font-bold w-fit">
+              <div className="p-2 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-bold w-fit shadow-[2px_2px_0px_#18181b]">
                 <Zap className="w-5 h-5" />
               </div>
-              <h3 className="font-extrabold text-base text-neutral-950 dark:text-white">
+              <h3 className="font-black text-base text-neutral-950 dark:text-white uppercase font-sans">
                 60fps Vector Characters
               </h3>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-mono">
                 Handcrafted animated SVGs: Cyber Bot, Pixel Dev at dual-monitor desk with coffee steam, and Ninja Coder. Pure GPU keyframes, 0% JS.
               </p>
             </div>
 
             <Link
               href="/animator"
-              className="mt-6 inline-flex items-center justify-between text-xs font-mono font-bold text-neutral-900 dark:text-neutral-100 hover:text-amber-500 transition-colors pt-3 border-t border-neutral-200 dark:border-neutral-800"
+              className="mt-6 inline-flex items-center justify-between text-xs font-mono font-black text-neutral-900 dark:text-neutral-100 hover:text-amber-500 transition-colors pt-3 border-t border-neutral-200 dark:border-neutral-800"
             >
               <span>Open Vector Animator</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -297,15 +297,15 @@ export function StudioBento() {
           </div>
 
           {/* Bento Card 4: GitHub Camo CDN Guarantee (4 cols) */}
-          <div className="md:col-span-4 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#faf8f5] dark:bg-neutral-950 p-6 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
+          <div className="md:col-span-4 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 p-6 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="p-2 rounded-lg bg-emerald-400 text-neutral-950 border border-neutral-900 font-bold w-fit">
+              <div className="p-2 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-bold w-fit shadow-[2px_2px_0px_#18181b]">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-extrabold text-base text-neutral-950 dark:text-white">
+              <h3 className="font-black text-base text-neutral-950 dark:text-white uppercase font-sans">
                 100% Camo CDN Safe
               </h3>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-mono">
                 Zero external tracking. GitHub sanitizes SVGs through its Camo proxy. MonoForge assets strictly follow Camo specs so images never break.
               </p>
             </div>
@@ -317,15 +317,15 @@ export function StudioBento() {
           </div>
 
           {/* Bento Card 5: 1-Click Authenticated GitHub Sync (4 cols) */}
-          <div className="md:col-span-4 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#faf8f5] dark:bg-neutral-950 p-6 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
+          <div className="md:col-span-4 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 p-6 shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] flex flex-col justify-between">
             <div className="space-y-3">
-              <div className="p-2 rounded-lg bg-cyan-400 text-neutral-950 border border-neutral-900 font-bold w-fit">
+              <div className="p-2 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-bold w-fit shadow-[2px_2px_0px_#18181b]">
                 <Terminal className="w-5 h-5" />
               </div>
-              <h3 className="font-extrabold text-base text-neutral-950 dark:text-white">
+              <h3 className="font-black text-base text-neutral-950 dark:text-white uppercase font-sans">
                 Confirmed GitHub Push
               </h3>
-              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <p className="text-xs text-neutral-600 dark:text-neutral-400 leading-relaxed font-mono">
                 Never silent. Remote README is fetched, side-by-side git diff is previewed, and explicit user confirmation triggers the commit.
               </p>
             </div>

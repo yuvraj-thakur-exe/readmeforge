@@ -14,7 +14,9 @@ import {
   Sparkles,
   Github,
   Bot,
+  Zap,
 } from 'lucide-react';
+import { OptimizeModal } from './OptimizeModal';
 
 interface ExportBarProps {
   onOpenSync?: () => void;
@@ -32,6 +34,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
   const [copied, setCopied] = useState<boolean>(false);
   const [copiedUrl, setCopiedUrl] = useState<boolean>(false);
   const [copiedAiPrompt, setCopiedAiPrompt] = useState<boolean>(false);
+  const [isOptimizeOpen, setIsOptimizeOpen] = useState<boolean>(false);
 
   const triggerCelebration = () => {
     try {
@@ -102,7 +105,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
   return (
     <div
-      className={`flex items-center justify-between px-4 py-2.5 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 text-xs shadow-sm ${className}`}
+      className={`flex items-center justify-between px-4 py-2 bg-white dark:bg-neutral-900 border-t-2 border-neutral-900 dark:border-neutral-800 text-xs shadow-sm ${className}`}
     >
       {/* History and Reset Controls */}
       <div className="flex items-center gap-1.5">
@@ -110,22 +113,22 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           type="button"
           onClick={() => undo()}
           disabled={history.length === 0}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
           title="Undo"
         >
           <Undo2 className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Undo</span>
+          <span className="hidden sm:inline">UNDO</span>
         </button>
 
         <button
           type="button"
           onClick={() => redo()}
           disabled={future.length === 0}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
           title="Redo"
         >
           <Redo2 className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Redo</span>
+          <span className="hidden sm:inline">REDO</span>
         </button>
 
         <button
@@ -135,18 +138,18 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
               resetConfig();
             }
           }}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-500 hover:text-red-600 dark:hover:text-red-400 transition-colors ml-1"
+          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-red-50 dark:bg-neutral-800 dark:hover:bg-red-950/30 border border-neutral-300 dark:border-neutral-700 text-neutral-600 hover:text-red-600 transition-colors font-mono text-xs font-bold ml-1"
           title="Reset configuration to empty profile"
         >
           <RotateCcw className="w-3.5 h-3.5" />
-          <span className="hidden md:inline">Reset</span>
+          <span className="hidden md:inline">RESET</span>
         </button>
       </div>
 
       {/* Center status message */}
-      <div className="hidden lg:flex items-center gap-2 text-neutral-500 font-mono text-[11px]">
+      <div className="hidden lg:flex items-center gap-2 text-neutral-500 font-mono text-[11px] font-bold">
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        <span>Turbopack Sync Active</span>
+        <span>MONOFORGE AST LINT ENGINE ACTIVE</span>
       </div>
 
       {/* Export & Push Actions */}
@@ -154,63 +157,75 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         <button
           type="button"
           onClick={handleCopyAiPrompt}
-          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-colors"
+          className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold transition-all"
           title="Copy config wrapped in AI assistant prompt"
         >
           {copiedAiPrompt ? (
-            <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <Check className="w-3.5 h-3.5 text-emerald-600" />
           ) : (
             <Bot className="w-3.5 h-3.5 text-amber-500" />
           )}
-          <span>{copiedAiPrompt ? 'Prompt Copied!' : 'AI Prompt'}</span>
+          <span>{copiedAiPrompt ? 'PROMPT COPIED' : 'AI PROMPT'}</span>
         </button>
 
         <button
           type="button"
           onClick={handleShareUrl}
-          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-colors"
+          className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold transition-all"
           title="Copy shareable URL containing base64 configuration"
         >
           {copiedUrl ? (
-            <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+            <Check className="w-3.5 h-3.5 text-emerald-600" />
           ) : (
             <Share2 className="w-3.5 h-3.5 text-cyan-500" />
           )}
-          <span>{copiedUrl ? 'Link Copied' : 'Share URL'}</span>
+          <span>{copiedUrl ? 'LINK COPIED' : 'SHARE'}</span>
         </button>
 
         {onOpenSync && (
           <button
             type="button"
             onClick={onOpenSync}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 text-neutral-800 dark:text-neutral-200 hover:text-neutral-950 dark:hover:text-white font-medium transition-all shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             title="Push directly to GitHub repository"
           >
-            <Github className="w-3.5 h-3.5 text-neutral-900 dark:text-neutral-100" />
-            <span className="hidden xs:inline">Push to GitHub</span>
+            <Github className="w-3.5 h-3.5" />
+            <span className="hidden xs:inline">PUSH GITHUB</span>
           </button>
         )}
 
         <button
           type="button"
           onClick={handleDownloadMarkdown}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-medium transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 border-2 border-neutral-900 dark:border-neutral-100 text-neutral-900 dark:text-neutral-100 font-mono text-xs font-bold shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:bg-neutral-100 transition-all btn-tactile"
           title="Download README.md file"
         >
           <Download className="w-3.5 h-3.5" />
-          <span>README.md</span>
+          <span>README.MD</span>
+        </button>
+
+        <button
+          type="button"
+          onClick={() => setIsOptimizeOpen(true)}
+          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-400 hover:bg-emerald-300 text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] hover:translate-x-[1px] hover:translate-y-[1px] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all btn-tactile"
+          title="Optimize Markdown output for GitHub Camo CDN caching and size reduction"
+        >
+          <Zap className="w-3.5 h-3.5 fill-current" />
+          <span>OPTIMIZE</span>
         </button>
 
         <button
           type="button"
           onClick={handleCopyMarkdown}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold shadow-sm transition-all active:scale-95"
+          className="flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all btn-tactile"
           title="Copy markdown with celebratory confetti"
         >
           {copied ? <Check className="w-3.5 h-3.5 text-neutral-950" /> : <Sparkles className="w-3.5 h-3.5 text-neutral-950" />}
-          <span>{copied ? 'Copied!' : 'Copy README'}</span>
+          <span>{copied ? 'COPIED!' : 'COPY README'}</span>
         </button>
       </div>
+
+      <OptimizeModal isOpen={isOptimizeOpen} onClose={() => setIsOptimizeOpen(false)} />
     </div>
   );
 };

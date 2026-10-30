@@ -51,7 +51,7 @@ describe('ExportBar Developer Component', () => {
 
     expect(screen.getByRole('button', { name: /copy readme/i })).toBeDefined();
     expect(screen.getByRole('button', { name: /readme\.md/i })).toBeDefined();
-    expect(screen.getByRole('button', { name: /share url/i })).toBeDefined();
+    expect(screen.getByRole('button', { name: /share/i })).toBeDefined();
 
     const undoBtn = screen.getByTitle('Undo');
     expect(undoBtn.hasAttribute('disabled')).toBe(true);
@@ -65,7 +65,7 @@ describe('ExportBar Developer Component', () => {
 
     await waitFor(() => {
       expect(navigator.clipboard.writeText).toHaveBeenCalled();
-      expect(screen.getByText('Copied!')).toBeDefined();
+      expect(screen.getByText(/copied/i)).toBeDefined();
     });
   });
 
@@ -87,8 +87,7 @@ describe('ExportBar Developer Component', () => {
 
     await waitFor(() => {
       expect(navigator.clipboard.writeText).toHaveBeenCalled();
-      expect(screen.getByText('Prompt Copied!')).toBeDefined();
+      expect(screen.getByText(/prompt copied/i)).toBeDefined();
     });
   });
 });
-

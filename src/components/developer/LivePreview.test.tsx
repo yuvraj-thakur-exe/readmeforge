@@ -49,14 +49,14 @@ describe('LivePreview Developer Component', () => {
     render(<LivePreview />);
 
     expect(screen.getByText(/rendered/i)).toBeDefined();
-    expect(screen.getByText(/raw markdown/i)).toBeDefined();
+    expect(screen.getByText(/raw/i)).toBeDefined();
     expect(screen.getByText(/lines ·/i)).toBeDefined();
   });
 
   it('switches between Rendered and Raw Markdown tabs', () => {
     render(<LivePreview />);
 
-    const rawTab = screen.getByRole('button', { name: /raw markdown/i });
+    const rawTab = screen.getByRole('button', { name: /raw/i });
     fireEvent.click(rawTab);
 
     expect(screen.getByText(/Alex Developer/i)).toBeDefined();
@@ -70,7 +70,7 @@ describe('LivePreview Developer Component', () => {
 
     await waitFor(() => {
       expect(navigator.clipboard.writeText).toHaveBeenCalled();
-      expect(screen.getByText('Copied')).toBeDefined();
+      expect(screen.getByText(/copied/i)).toBeDefined();
     });
   });
 });

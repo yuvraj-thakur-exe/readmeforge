@@ -49,24 +49,25 @@ const ARCHETYPES: ArchetypeItem[] = [
 
 export function CuratedArchetypes() {
   return (
-    <section className="relative bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative bg-[#fafafa] dark:bg-neutral-950 border-b-2 border-neutral-900 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 dark:border-neutral-100 pb-6">
           <div>
-            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2">
-              <span>[ 04 // SIGNATURE ARCHETYPES ]</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              <span className="text-neutral-500">INSPIRED BY MARCO MADONNA &amp; POULO</span>
+            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-neutral-100 mb-2">
+              <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900">
+                [ 06 // SIGNATURE ARCHETYPES ]
+              </span>
+              <span>MARCO MADONNA &amp; POULO INSPIRED</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 dark:text-white uppercase">
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 dark:text-white uppercase font-sans">
               CURATED PROFILE STARTERS.
             </h2>
           </div>
 
           <Link
             href="/wizard"
-            className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-neutral-900 dark:text-neutral-100 hover:text-amber-500 transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-neutral-800 text-neutral-950 dark:text-neutral-100 text-xs font-mono font-black border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:bg-[#ffe600] hover:text-neutral-950 transition-all"
           >
             <span>View All 18+ Archetypes in Wizard</span>
             <ArrowRight className="w-4 h-4" />

@@ -113,23 +113,23 @@ ${JSON.stringify(config, null, 2)}`;
   };
 
   return (
-    <div className={`flex flex-col h-full bg-white dark:bg-neutral-900 rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden shadow-sm dark:shadow-2xl ${className}`}>
+    <div className={`flex flex-col h-full bg-white dark:bg-neutral-900 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 overflow-hidden shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] ${className}`}>
       {/* Tab Switcher */}
-      <div className="flex items-center border-b border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 px-2 pt-2 gap-1 text-xs font-medium">
+      <div className="flex items-center border-b-2 border-neutral-900 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950 p-1.5 gap-1 text-xs font-mono">
         <button
           type="button"
           onClick={() => {
             setPanelTab('plugins');
             setSelectedCategory('all');
           }}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md transition-colors ${
+          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all ${
             panelTab === 'plugins'
-              ? 'bg-white dark:bg-neutral-900 text-amber-600 dark:text-amber-400 border-t-2 border-amber-500 font-semibold'
-              : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200'
+              ? 'bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-black shadow-[2px_2px_0px_#18181b]'
+              : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
           }`}
         >
           <Sparkles className="w-3.5 h-3.5" />
-          <span>Plugins ({pluginRegistry.length})</span>
+          <span>PLUGINS ({pluginRegistry.length})</span>
         </button>
 
         <button
@@ -138,26 +138,26 @@ ${JSON.stringify(config, null, 2)}`;
             setPanelTab('templates');
             setSelectedCategory('all');
           }}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md transition-colors ${
+          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all ${
             panelTab === 'templates'
-              ? 'bg-white dark:bg-neutral-900 text-cyan-600 dark:text-cyan-400 border-t-2 border-cyan-500 font-semibold'
-              : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200'
+              ? 'bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-black shadow-[2px_2px_0px_#18181b]'
+              : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
           }`}
         >
           <LayoutTemplate className="w-3.5 h-3.5" />
-          <span>Templates ({TEMPLATES.length})</span>
+          <span>TEMPLATES ({TEMPLATES.length})</span>
         </button>
 
         <button
           type="button"
           onClick={() => setPanelTab('schema')}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md transition-colors ${
+          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all ${
             panelTab === 'schema'
-              ? 'bg-white dark:bg-neutral-900 text-emerald-600 dark:text-emerald-400 border-t-2 border-emerald-500 font-semibold'
-              : 'text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200'
+              ? 'bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-black shadow-[2px_2px_0px_#18181b]'
+              : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
           }`}
         >
-          <Bot className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+          <Bot className="w-3.5 h-3.5" />
           <span>AI &amp; Schema</span>
         </button>
       </div>

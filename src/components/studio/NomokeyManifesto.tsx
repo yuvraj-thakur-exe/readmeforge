@@ -35,14 +35,15 @@ export function NomokeyManifesto() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="relative bg-[#faf8f5] dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative bg-white dark:bg-neutral-900 border-b-2 border-neutral-900 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-5xl mx-auto space-y-16">
         {/* Manifesto Block */}
-        <div className="p-8 sm:p-12 rounded-3xl border-2 border-neutral-900 dark:border-neutral-100 bg-white dark:bg-neutral-900 shadow-[6px_6px_0px_#18181b] dark:shadow-[6px_6px_0px_#f4f4f5] space-y-6">
-          <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400">
-            <span>[ 05 // THE MONOFORGE MANIFESTO ]</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-            <span className="text-neutral-500">NO MONKEY BUSINESS</span>
+        <div className="p-8 sm:p-12 rounded-3xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 shadow-[6px_6px_0px_#18181b] dark:shadow-[6px_6px_0px_#f4f4f5] space-y-6">
+          <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-neutral-100">
+            <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900">
+              [ 07 // THE MONOFORGE MANIFESTO ]
+            </span>
+            <span>NO MONKEY BUSINESS</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 dark:text-white uppercase leading-[1.05]">

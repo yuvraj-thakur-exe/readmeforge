@@ -59,32 +59,32 @@ function LocalizedDeveloperContent() {
   }, [searchParams, setEntireConfig]);
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-neutral-100 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-sans selection:bg-amber-500/20 selection:text-amber-900 dark:selection:text-amber-200">
+    <div className="flex flex-col h-screen overflow-hidden bg-[#fafafa] dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-sans selection:bg-[#ffe600] selection:text-neutral-950">
       {/* Top Studio Header */}
-      <header className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 z-10 shrink-0 gap-2 shadow-sm">
+      <header className="flex items-center justify-between px-3 sm:px-4 py-2 bg-white dark:bg-neutral-900 border-b-2 border-neutral-900 dark:border-neutral-800 z-10 shrink-0 gap-2 shadow-sm">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link href="/" className="flex items-center gap-1.5 sm:gap-2 group">
-            <div className="p-1 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 group-hover:border-amber-500 transition-colors shadow-sm">
-              <MonoForgeMonkeyIcon className="w-5 h-5 text-amber-500 dark:text-amber-400" />
+            <div className="p-1 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 group-hover:scale-105 transition-transform shadow-[2px_2px_0px_#18181b]">
+              <MonoForgeMonkeyIcon className="w-5 h-5 text-neutral-950" />
             </div>
-            <span className="font-extrabold text-sm tracking-tight text-neutral-900 dark:text-neutral-100">
-              Mono<span className="text-amber-500 dark:text-amber-400">Forge</span>
+            <span className="font-black text-sm tracking-tight text-neutral-950 dark:text-neutral-100">
+              MONO<span className="text-amber-500">FORGE</span>
             </span>
-            <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-300">
-              /developer
+            <span className="text-[10px] font-mono font-black px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 border border-neutral-900">
+              /DEVELOPER
             </span>
           </Link>
 
-          <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-800 mx-1 hidden sm:block" />
+          <div className="h-4 w-px bg-neutral-300 dark:bg-neutral-800 mx-1 hidden sm:block" />
 
           {/* Desktop Plugin Drawer Toggle */}
           <button
             type="button"
             onClick={() => setShowPluginPanel(prev => !prev)}
-            className={`hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs transition-colors shadow-sm ${
+            className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] ${
               showPluginPanel
-                ? 'bg-neutral-100 dark:bg-neutral-800 text-amber-700 dark:text-amber-300 border border-amber-500/40'
-                : 'bg-white dark:bg-neutral-800/60 border border-neutral-200 dark:border-transparent text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+                ? 'bg-[#ffe600] text-neutral-950 font-black'
+                : 'bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100'
             }`}
             title="Toggle Arsenal & Templates Drawer"
           >
@@ -101,10 +101,10 @@ function LocalizedDeveloperContent() {
           <button
             type="button"
             onClick={() => setShowCopilot(prev => !prev)}
-            className={`hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono transition-colors shadow-sm ${
+            className={`hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] ${
               showCopilot
-                ? 'bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/50'
-                : 'bg-white dark:bg-neutral-800/60 border border-neutral-200 dark:border-transparent text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-300'
+                ? 'bg-[#ffe600] text-neutral-950 font-black'
+                : 'bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100'
             }`}
             title="Toggle Cyber Monkey Co-Pilot Assistant"
           >
@@ -209,38 +209,38 @@ function LocalizedDeveloperContent() {
         {/* Global Navigation Shortcuts */}
         <div className="flex items-center gap-1.5 sm:gap-2">
           <Link
-            href="/telemetry"
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-amber-700 dark:text-amber-300 text-xs font-semibold transition-colors border border-neutral-200 dark:border-neutral-700/60 shadow-sm"
-            title="Telemetry Arsenal Studio"
+            href="/wizard"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
+            title="Visual Canvas Studio"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-            <span>Telemetry</span>
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+            <span>VISUAL STUDIO</span>
           </Link>
 
           <Link
-            href="/animator"
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-xs transition-colors border border-neutral-200 dark:border-transparent shadow-sm"
-            title="Animated SVG & Characters Studio"
+            href="/telemetry"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
+            title="47+ Telemetry Arsenal"
           >
-            <Wand2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-            <span>Animator</span>
+            <Wand2 className="w-3.5 h-3.5 text-cyan-600" />
+            <span>47+ TELEMETRY</span>
           </Link>
 
           <Link
             href="/info"
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-xs transition-colors border border-neutral-200 dark:border-transparent shadow-sm"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
             title="Documentation & Archetypes Hub"
           >
-            <BookOpen className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span>Guide</span>
+            <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+            <span>GUIDE HUB</span>
           </Link>
 
           <Link
             href="/"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-amber-400 hover:bg-amber-300 text-neutral-950 text-xs font-bold transition-all shadow-sm active:scale-95"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 text-xs font-black font-mono transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none btn-tactile"
             title="Switch to Visual Showcase"
           >
-            <span>Home Showcase</span>
+            <span>HOME STUDIO</span>
           </Link>
         </div>
       </header>

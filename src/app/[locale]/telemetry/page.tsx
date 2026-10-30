@@ -254,7 +254,7 @@ export default function TelemetryStudioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-amber-500/30 selection:text-amber-200">
+    <div className="min-h-screen bg-[#fafafa] text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-[#ffe600] selection:text-neutral-950">
       <TopNav />
 
       {/* Main Container */}

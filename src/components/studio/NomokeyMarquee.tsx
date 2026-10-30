@@ -22,10 +22,10 @@ const ITEMS = [
 export function NomokeyMarquee({ reverse = false, speed = 'normal', theme = 'light' }: NomokeyMarqueeProps) {
   const themeClasses =
     theme === 'amber'
-      ? 'bg-amber-400 text-neutral-950 border-neutral-950'
+      ? 'bg-[#ffe600] text-neutral-950 border-y-2 border-neutral-900 font-black'
       : theme === 'dark'
-      ? 'bg-neutral-900 text-neutral-100 border-neutral-800'
-      : 'bg-[#faf8f5] dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 border-neutral-200 dark:border-neutral-800';
+      ? 'bg-neutral-900 text-neutral-100 border-y-2 border-neutral-800'
+      : 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-neutral-100 border-y-2 border-neutral-900 dark:border-neutral-800';
 
   return (
     <div className={`relative w-full overflow-hidden border-y py-3 select-none ${themeClasses}`}>

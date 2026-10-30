@@ -12,17 +12,18 @@ export function TransformationShowcase() {
   const [viewMode, setViewMode] = useState<'after' | 'before'>('after');
 
   return (
-    <section className="relative bg-[#faf8f5] dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative bg-[#fafafa] dark:bg-neutral-950 border-b-2 border-neutral-900 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-6xl mx-auto space-y-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 dark:border-neutral-100 pb-6">
           <div>
-            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-amber-600 dark:text-amber-400 mb-2">
-              <span>[ 03 // VISUAL TRANSFORMATION ]</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              <span className="text-neutral-500">INSPIRED BY POULO.SITE</span>
+            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-neutral-100 mb-2">
+              <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900">
+                [ 03 // VISUAL TRANSFORMATION ]
+              </span>
+              <span>POULO STYLE DUAL STATE</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 dark:text-white uppercase">
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 dark:text-white uppercase font-sans">
               THE NIGHT &amp; DAY DIFFERENCE.
             </h2>
           </div>
@@ -34,8 +35,8 @@ export function TransformationShowcase() {
               onClick={() => setViewMode('before')}
               className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition-all ${
                 viewMode === 'before'
-                  ? 'bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950 shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
+                  ? 'bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 shadow-xs'
+                  : 'text-neutral-600 hover:text-neutral-900 dark:hover:text-white'
               }`}
             >
               BORING DEFAULT README
@@ -45,8 +46,8 @@ export function TransformationShowcase() {
               onClick={() => setViewMode('after')}
               className={`px-4 py-2 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-all ${
                 viewMode === 'after'
-                  ? 'bg-amber-400 text-neutral-950 font-black shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
+                  ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-xs'
+                  : 'text-neutral-600 hover:text-neutral-900 dark:hover:text-white'
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
