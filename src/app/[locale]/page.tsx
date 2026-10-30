@@ -4,6 +4,10 @@ import { Link } from '#/i18n/navigation';
 import { TopNav } from '#/components/navigation/TopNav';
 import { HeroSection } from '#/components/landing/HeroSection';
 import { ParticleBackground } from '#/components/landing/ParticleBackground';
+import { CyberMonkeyMascot } from '#/components/mascot/CyberMonkeyMascot';
+import { DeviceShowcase } from '#/components/showcase/DeviceShowcase';
+import { DesignTokensPlayground } from '#/components/showcase/DesignTokensPlayground';
+import { TelemetryArsenalGrid } from '#/components/showcase/TelemetryArsenalGrid';
 import { TemplateGallery } from '#/components/landing/TemplateGallery';
 import { LandingDetails } from '#/components/landing/LandingDetails';
 import { Flame, Github, BookOpen, BarChart3, ArrowRight } from 'lucide-react';
@@ -15,7 +19,8 @@ export default function HomePage() {
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[450px] bg-gradient-to-b from-neutral-800/20 via-neutral-900/10 to-transparent blur-3xl opacity-60" />
         <div className="absolute top-[25%] -left-60 w-[500px] h-[500px] bg-amber-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
-        <div className="absolute top-[60%] -right-60 w-[500px] h-[500px] bg-neutral-800/10 blur-[140px] rounded-full pointer-events-none" />
+        <div className="absolute top-[50%] -right-60 w-[500px] h-[500px] bg-cyan-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
+        <div className="absolute top-[75%] -left-60 w-[500px] h-[500px] bg-emerald-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
       </div>
 
       <TopNav />
@@ -26,7 +31,56 @@ export default function HomePage() {
         <HeroSection />
       </div>
 
-      {/* Metrics Studio Showcase Strip */}
+      {/* 1. Cyber Monkey Mascot Spotlight (NoMonkey inspiration) */}
+      <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/70 backdrop-blur-md py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-amber-400 font-semibold uppercase tracking-wider">
+                <span>[01 // SIGNATURE MASCOT ENGINE]</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                <span className="text-neutral-500">INSPIRED BY NOMONKEY.WORK</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-100">
+                Zero Monkey Business. Pure Precision Craft.
+              </h2>
+              <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl mt-1">
+                Meet our interactive Cyber Monkey companion. Eyes track your cursor in real time, with toggleable cyber visor, studio beats, and 1-click Camo SVG embedding.
+              </p>
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>INTERACTIVE // 60FPS KEYFRAMES</span>
+            </div>
+          </div>
+
+          <CyberMonkeyMascot />
+        </div>
+      </section>
+
+      {/* 2. Device Prototype Matrix (NoMonkey & Poulo inspiration) */}
+      <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-900/30 backdrop-blur-md py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <DeviceShowcase />
+        </div>
+      </section>
+
+      {/* 3. Design Tokens Playground (Marco Madonna inspiration) */}
+      <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/70 backdrop-blur-md py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <DesignTokensPlayground />
+        </div>
+      </section>
+
+      {/* 4. Telemetry Arsenal Encyclopedia (Scraped 40+ Plugins) */}
+      <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-900/30 backdrop-blur-md py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <TelemetryArsenalGrid />
+        </div>
+      </section>
+
+      {/* 5. Telemetry Studio Showcase Banner Strip */}
       <div className="relative z-10 border-b border-neutral-800 bg-neutral-900/80 backdrop-blur-md py-6 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 p-4 rounded-xl border border-neutral-800 bg-neutral-950/70 shadow-sm">
           <div className="flex items-center gap-3.5">
@@ -39,7 +93,7 @@ export default function HomePage() {
                   Developer Telemetry Studio
                 </span>
                 <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                  47+ Plugins
+                  47+ Plugins Loaded
                 </span>
               </div>
               <p className="text-xs text-neutral-400">
@@ -58,12 +112,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Curated Star Archetype Starters */}
+      {/* 6. Curated Star Archetype Starters */}
       <div className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/60 backdrop-blur-md">
         <TemplateGallery />
       </div>
 
-      {/* Extended Product Story, Capabilities, Safeguards & FAQ */}
+      {/* 7. Extended Product Story, Capabilities, Safeguards & FAQ */}
       <div className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/80 backdrop-blur-md">
         <LandingDetails />
       </div>

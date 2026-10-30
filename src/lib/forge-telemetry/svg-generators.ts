@@ -975,3 +975,4 @@ export function generateLeetCodeStatsSvg(options: LeetCodeOptions = {}): string 
   </g>
 </svg>`;
 }
+

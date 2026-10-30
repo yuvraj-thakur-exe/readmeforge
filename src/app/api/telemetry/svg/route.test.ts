@@ -34,3 +34,4 @@ describe('API Route: /api/telemetry/svg', () => {
     expect(text).toContain('readmeforge@neo');
   });
 });
+

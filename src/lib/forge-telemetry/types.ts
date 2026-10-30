@@ -100,3 +100,4 @@ export interface TelemetryPluginEntry {
   iconName?: string;
   inputs: TelemetryPluginOption[];
 }
+

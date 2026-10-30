@@ -79,3 +79,4 @@ describe('ReadmeForge Telemetry SVG Generator Suite', () => {
     expect(svg).not.toContain('<foreignObject>');
   });
 });
+

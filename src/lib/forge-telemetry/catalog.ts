@@ -216,3 +216,4 @@ export const TELEMETRY_PLUGINS_CATALOG: TelemetryPluginEntry[] = [
     ],
   },
 ];
+

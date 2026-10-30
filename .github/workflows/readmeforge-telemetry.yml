@@ -33,3 +33,4 @@ jobs:
           plugin_habits_days: 14
           plugin_achievements: yes
           plugin_achievements_threshold: B
+

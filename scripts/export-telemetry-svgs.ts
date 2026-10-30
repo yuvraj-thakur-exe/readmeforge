@@ -51,3 +51,4 @@ for (const oldFile of oldFiles) {
 }
 
 console.log('All standalone telemetry SVGs successfully updated in public/assets!');
+

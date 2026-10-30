@@ -25,7 +25,7 @@ export default defineConfig({
       'src/**/*.{test,spec}.{ts,tsx}',
     ],
     coverage: {
-      enabled: true,
+      enabled: false,
       provider: 'v8',
       include: ['src/**/*.{ts,tsx}'],
       exclude: [

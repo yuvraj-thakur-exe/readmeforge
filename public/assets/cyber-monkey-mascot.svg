@@ -1,0 +1,363 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16" />
+      <stop offset="50%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <!-- Monkey Fur Gradient -->
+    <linearGradient id="fur-main" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3a3028" />
+      <stop offset="50%" stop-color="#2a221b" />
+      <stop offset="100%" stop-color="#191410" />
+    </linearGradient>
+
+    <linearGradient id="fur-light" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8be9b" />
+      <stop offset="50%" stop-color="#d49f76" />
+      <stop offset="100%" stop-color="#ba825a" />
+    </linearGradient>
+
+    <!-- Neon Accents -->
+    <linearGradient id="amber-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+
+    <linearGradient id="cyan-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+
+    <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <!-- Headphone Cushion -->
+    <linearGradient id="hp-cushion" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+
+    <!-- Card Glow Filter -->
+    <filter id="neon-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes floatHero {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes pulseVisor {
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px #06b6d4); }
+      50% { opacity: 1; filter: drop-shadow(0 0 12px #38bdf8); }
+    }
+    @keyframes eqBar1 {
+      0%, 100% { height: 10px; }
+      50% { height: 26px; }
+    }
+    @keyframes eqBar2 {
+      0%, 100% { height: 22px; }
+      50% { height: 8px; }
+    }
+    @keyframes eqBar3 {
+      0%, 100% { height: 14px; }
+      50% { height: 28px; }
+    }
+    @keyframes codeBlink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes beamSweep {
+      0% { stroke-dashoffset: 1600; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes bananaGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .hero-container {
+      animation: floatHero 6s ease-in-out infinite;
+      transform-origin: center center;
+    }
+    .visor-hud {
+      animation: pulseVisor 3s ease-in-out infinite;
+    }
+    .eq-1 { animation: eqBar1 1.2s ease-in-out infinite; }
+    .eq-2 { animation: eqBar2 0.9s ease-in-out infinite; }
+    .eq-3 { animation: eqBar3 1.4s ease-in-out infinite; }
+    .cursor-blink { animation: codeBlink 1s infinite; }
+    .laser-border {
+      stroke-dasharray: 80 320;
+      animation: beamSweep 10s linear infinite;
+    }
+    .banana-pulse {
+      animation: bananaGlow 4s ease-in-out infinite;
+      transform-origin: 670px 140px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-container, .visor-hud, .eq-1, .eq-2, .eq-3, .cursor-blink, .laser-border, .banana-pulse {
+        animation: none !important;
+      }
+    }
+  </style>
+
+  <!-- Background Base Container -->
+  <rect width="800" height="600" rx="24" fill="url(#bg-grad)" />
+
+  <!-- Subtle Cyber Tech Grid Matrix -->
+  <g opacity="0.08" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="400" x2="800" y2="400" />
+    <line x1="0" y1="500" x2="800" y2="500" />
+    <line x1="160" y1="0" x2="160" y2="600" />
+    <line x1="320" y1="0" x2="320" y2="600" />
+    <line x1="480" y1="0" x2="480" y2="600" />
+    <line x1="640" y1="0" x2="640" y2="600" />
+  </g>
+
+  <!-- Laser Border Beam Perimeter -->
+  <rect x="2" y="2" width="796" height="596" rx="22" fill="none" stroke="#1e293b" stroke-width="1.5" />
+  <rect x="2" y="2" width="796" height="596" rx="22" fill="none" stroke="#f59e0b" stroke-width="2.5" class="laser-border" opacity="0.8" />
+
+  <!-- Top Header Telemetry HUD Bar -->
+  <g transform="translate(36, 36)">
+    <!-- Brand / System Title -->
+    <rect x="0" y="0" width="220" height="32" rx="8" fill="#111827" stroke="#1f2937" stroke-width="1" />
+    <circle cx="16" cy="16" r="4" fill="#10b981" />
+    <text x="28" y="21" fill="#f3f4f6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1">READMEFORGE</text>
+    <text x="135" y="21" fill="#f59e0b" font-family="'SF Mono', 'Fira Code', monospace" font-size="11" font-weight="600">v2.5</text>
+
+    <!-- Status Beacon -->
+    <g transform="translate(236, 0)">
+      <rect x="0" y="0" width="280" height="32" rx="8" fill="#111827" stroke="#1f2937" stroke-width="1" />
+      <text x="14" y="20" fill="#9ca3af" font-family="'SF Mono', 'Fira Code', monospace" font-size="11">
+        MODE: <tspan fill="#34d399" font-weight="bold">ZERO_MONKEY_BUSINESS</tspan>
+      </text>
+    </g>
+
+    <!-- Latency / Proxy Status -->
+    <g transform="translate(532, 0)">
+      <rect x="0" y="0" width="196" height="32" rx="8" fill="#111827" stroke="#1f2937" stroke-width="1" />
+      <circle cx="16" cy="16" r="3" fill="#38bdf8" />
+      <text x="28" y="20" fill="#38bdf8" font-family="'SF Mono', 'Fira Code', monospace" font-size="11">CAMO SAFE // 60FPS</text>
+    </g>
+  </g>
+
+  <!-- Interactive Cyber Banana Power Gauge (Floating Widget) -->
+  <g class="banana-pulse" transform="translate(630, 100)">
+    <rect x="0" y="0" width="134" height="64" rx="14" fill="#111827" stroke="#1f2937" stroke-width="1" filter="url(#neon-filter)" />
+    <!-- Banana Icon SVG Graphic -->
+    <path d="M 22 44 C 18 36, 20 22, 34 16 C 36 24, 40 32, 46 38 C 38 42, 28 46, 22 44 Z" fill="url(#amber-glow)" />
+    <path d="M 18 45 L 14 47" stroke="#78350f" stroke-width="2.5" stroke-linecap="round" />
+    <!-- Battery Level Cells -->
+    <text x="56" y="25" fill="#9ca3af" font-family="'SF Mono', 'Fira Code', monospace" font-size="9" font-weight="700">BANANA FUEL</text>
+    <g transform="translate(56, 32)">
+      <rect x="0" y="0" width="14" height="18" rx="3" fill="#10b981" />
+      <rect x="17" y="0" width="14" height="18" rx="3" fill="#10b981" />
+      <rect x="34" y="0" width="14" height="18" rx="3" fill="#10b981" />
+      <rect x="51" y="0" width="14" height="18" rx="3" fill="#10b981" />
+    </g>
+  </g>
+
+  <!-- Terminal Speech Pill (Left Side) -->
+  <g transform="translate(36, 170)">
+    <rect x="0" y="0" width="190" height="96" rx="14" fill="#0d1117" stroke="#1f2937" stroke-width="1" />
+    <rect x="12" y="12" width="6" height="6" rx="3" fill="#ef4444" />
+    <rect x="24" y="12" width="6" height="6" rx="3" fill="#f59e0b" />
+    <rect x="36" y="12" width="6" height="6" rx="3" fill="#10b981" />
+    <text x="14" y="38" fill="#38bdf8" font-family="'SF Mono', 'Fira Code', monospace" font-size="10" font-weight="bold">> nomonkey --verify</text>
+    <text x="14" y="56" fill="#10b981" font-family="'SF Mono', 'Fira Code', monospace" font-size="10">✓ 0% slop</text>
+    <text x="14" y="74" fill="#10b981" font-family="'SF Mono', 'Fira Code', monospace" font-size="10">✓ 100% precision</text>
+    <text x="14" y="88" fill="#f59e0b" font-family="'SF Mono', 'Fira Code', monospace" font-size="9">Ready for production<tspan class="cursor-blink">_</tspan></text>
+  </g>
+
+  <!-- MAIN CHARACTER: CYBER MONKEY (Floating Group) -->
+  <g class="hero-container" id="cyber-monkey">
+    <!-- Character Shadow Base -->
+    <ellipse cx="400" cy="520" rx="160" ry="16" fill="#000000" opacity="0.45" />
+
+    <!-- Torso / Cyber Hoodie -->
+    <g id="torso">
+      <!-- Outer Dark Jacket -->
+      <path d="M 290 440 C 270 480, 250 540, 240 560 L 560 560 C 550 540, 530 480, 510 440 Z" fill="#111827" stroke="#1f2937" stroke-width="2" />
+      <!-- Cyber Neon Stitching & Zipper -->
+      <line x1="400" y1="440" x2="400" y2="560" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 4" />
+      <!-- Chest Badge -->
+      <rect x="375" y="475" width="50" height="24" rx="6" fill="#0d1117" stroke="#38bdf8" stroke-width="1" />
+      <text x="382" y="491" fill="#38bdf8" font-family="'SF Mono', 'Fira Code', monospace" font-size="9" font-weight="bold">FORGE</text>
+      <!-- Neon Trim Lines -->
+      <path d="M 310 460 L 270 560" stroke="#06b6d4" stroke-width="1.5" opacity="0.7" />
+      <path d="M 490 460 L 530 560" stroke="#06b6d4" stroke-width="1.5" opacity="0.7" />
+    </g>
+
+    <!-- Monkey Neck & Collar -->
+    <ellipse cx="400" cy="430" rx="72" ry="24" fill="#191410" />
+
+    <!-- Big Cyber Ears (Behind Head) -->
+    <!-- Left Ear -->
+    <g id="left-ear">
+      <ellipse cx="270" cy="310" rx="55" ry="60" fill="url(#fur-main)" />
+      <ellipse cx="275" cy="310" rx="38" ry="42" fill="url(#fur-light)" />
+      <!-- Cyber Piercings / Audio Port -->
+      <circle cx="230" cy="285" r="4" fill="#38bdf8" />
+      <circle cx="225" cy="305" r="4" fill="#f59e0b" />
+    </g>
+    <!-- Right Ear -->
+    <g id="right-ear">
+      <ellipse cx="530" cy="310" rx="55" ry="60" fill="url(#fur-main)" />
+      <ellipse cx="525" cy="310" rx="38" ry="42" fill="url(#fur-light)" />
+      <!-- Cyber Piercings -->
+      <circle cx="570" cy="285" r="4" fill="#38bdf8" />
+      <circle cx="575" cy="305" r="4" fill="#f59e0b" />
+    </g>
+
+    <!-- Head Base (Fur Silhouette) -->
+    <g id="head-fur">
+      <ellipse cx="400" cy="300" rx="135" ry="130" fill="url(#fur-main)" stroke="#111827" stroke-width="2" />
+      <!-- Crown / Tuft of Hair on Top -->
+      <path d="M 380 175 C 390 145, 410 145, 420 175 C 410 160, 395 160, 380 175 Z" fill="#3a3028" />
+      <path d="M 365 180 C 375 155, 395 155, 405 180 Z" fill="#2a221b" />
+      <path d="M 395 180 C 405 155, 425 155, 435 180 Z" fill="#2a221b" />
+    </g>
+
+    <!-- Face Plate (Light Snout & Brow) -->
+    <g id="face-skin">
+      <!-- Upper Heart-Shaped Brow Area -->
+      <path d="M 400 240 C 350 200, 290 240, 305 310 C 315 360, 350 380, 400 380 C 450 380, 485 360, 495 310 C 510 240, 450 200, 400 240 Z" fill="url(#fur-light)" />
+
+      <!-- Lower Muzzle / Snout Projection -->
+      <ellipse cx="400" cy="375" rx="85" ry="58" fill="url(#fur-light)" />
+      <!-- Snout Depth Shading -->
+      <ellipse cx="400" cy="385" rx="72" ry="42" fill="#ba825a" opacity="0.3" />
+
+      <!-- Cute Monkey Nostrils -->
+      <ellipse cx="388" cy="355" rx="6" ry="8" fill="#451a03" transform="rotate(-12 388 355)" />
+      <ellipse cx="412" cy="355" rx="6" ry="8" fill="#451a03" transform="rotate(12 412 355)" />
+
+      <!-- Confident Smirk / Smile -->
+      <path d="M 360 395 Q 400 420 440 395" fill="none" stroke="#451a03" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M 356 392 Q 360 398 364 394" fill="none" stroke="#451a03" stroke-width="3" stroke-linecap="round" />
+      <path d="M 444 392 Q 440 398 436 394" fill="none" stroke="#451a03" stroke-width="3" stroke-linecap="round" />
+    </g>
+
+    <!-- Eyes (Big, Expressive, Intellect) -->
+    <g id="eyes">
+      <!-- Left Eye -->
+      <g transform="translate(345, 275)">
+        <ellipse cx="0" cy="0" rx="28" ry="32" fill="#ffffff" stroke="#1f2937" stroke-width="2" />
+        <!-- Iris: Emerald Matrix -->
+        <ellipse cx="2" cy="0" rx="17" ry="19" fill="url(#emerald-glow)" />
+        <!-- Pupil -->
+        <circle cx="3" cy="0" r="10" fill="#0f172a" />
+        <!-- Specular Highlights -->
+        <circle cx="-2" cy="-6" r="5" fill="#ffffff" />
+        <circle cx="7" cy="4" r="2.5" fill="#ffffff" />
+        <!-- Upper Eyelid / Shading -->
+        <path d="M -26 -12 Q 0 -26 26 -12" fill="none" stroke="#78350f" stroke-width="3.5" stroke-linecap="round" />
+      </g>
+
+      <!-- Right Eye (Behind Holographic Visor Monocle) -->
+      <g transform="translate(455, 275)">
+        <ellipse cx="0" cy="0" rx="28" ry="32" fill="#ffffff" stroke="#1f2937" stroke-width="2" />
+        <!-- Iris: Emerald Matrix -->
+        <ellipse cx="2" cy="0" rx="17" ry="19" fill="url(#emerald-glow)" />
+        <!-- Pupil -->
+        <circle cx="3" cy="0" r="10" fill="#0f172a" />
+        <!-- Specular Highlights -->
+        <circle cx="-2" cy="-6" r="5" fill="#ffffff" />
+        <circle cx="7" cy="4" r="2.5" fill="#ffffff" />
+        <!-- Upper Eyelid / Shading -->
+        <path d="M -26 -12 Q 0 -26 26 -12" fill="none" stroke="#78350f" stroke-width="3.5" stroke-linecap="round" />
+      </g>
+    </g>
+
+    <!-- Cyberpunk Visor Monocle over Right Eye -->
+    <g class="visor-hud" transform="translate(455, 275)">
+      <!-- Visor Lens Glass -->
+      <polygon points="-36,-30 42,-26 38,34 -34,36" fill="#06b6d4" opacity="0.35" />
+      <polygon points="-36,-30 42,-26 38,34 -34,36" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <!-- Targeting Crosshairs -->
+      <line x1="-34" y1="2" x2="-22" y2="2" stroke="#38bdf8" stroke-width="1.5" />
+      <line x1="26" y1="2" x2="38" y2="2" stroke="#38bdf8" stroke-width="1.5" />
+      <line x1="2" y1="-26" x2="2" y2="-16" stroke="#38bdf8" stroke-width="1.5" />
+      <line x1="2" y1="22" x2="2" y2="34" stroke="#38bdf8" stroke-width="1.5" />
+      <!-- Corner Markers -->
+      <path d="M -30 -22 L -34 -22 L -34 -14" fill="none" stroke="#f59e0b" stroke-width="1.5" />
+      <path d="M 36 26 L 36 32 L 28 32" fill="none" stroke="#f59e0b" stroke-width="1.5" />
+      <!-- HUD Data Stream -->
+      <text x="-24" y="-12" fill="#38bdf8" font-family="'SF Mono', 'Fira Code', monospace" font-size="6" font-weight="bold">TARGET: 100%</text>
+      <text x="-24" y="22" fill="#10b981" font-family="'SF Mono', 'Fira Code', monospace" font-size="6">SRE // OPT</text>
+      <!-- Visor Headband Mount Strap -->
+      <path d="M 42 -10 L 105 -2" stroke="#1f2937" stroke-width="4" stroke-linecap="round" />
+    </g>
+
+    <!-- Studio Pro DJ Headphones (NoMonkey Signature Audio Vibe) -->
+    <g id="headphones">
+      <!-- Headband Arc Across Top -->
+      <path d="M 230 260 C 230 130, 570 130, 570 260" fill="none" stroke="#111827" stroke-width="22" stroke-linecap="round" />
+      <path d="M 245 240 C 255 145, 545 145, 555 240" fill="none" stroke="#374151" stroke-width="6" stroke-linecap="round" />
+      <path d="M 260 220 C 275 160, 525 160, 540 220" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8 6" opacity="0.8" />
+
+      <!-- Left Ear Cup -->
+      <g transform="translate(230, 300)">
+        <rect x="-24" y="-55" width="48" height="110" rx="20" fill="url(#hp-cushion)" stroke="#374151" stroke-width="2" />
+        <rect x="-18" y="-45" width="36" height="90" rx="14" fill="#0d1117" />
+        <!-- Neon Equalizer Waveform Bars -->
+        <g transform="translate(-10, 0)">
+          <rect x="0" y="-10" width="4" height="20" rx="2" fill="#06b6d4" class="eq-1" />
+          <rect x="8" y="-8" width="4" height="16" rx="2" fill="#f59e0b" class="eq-2" />
+          <rect x="16" y="-12" width="4" height="24" rx="2" fill="#10b981" class="eq-3" />
+        </g>
+      </g>
+
+      <!-- Right Ear Cup -->
+      <g transform="translate(570, 300)">
+        <rect x="-24" y="-55" width="48" height="110" rx="20" fill="url(#hp-cushion)" stroke="#374151" stroke-width="2" />
+        <rect x="-18" y="-45" width="36" height="90" rx="14" fill="#0d1117" />
+        <!-- Neon Equalizer Waveform Bars -->
+        <g transform="translate(-10, 0)">
+          <rect x="0" y="-12" width="4" height="24" rx="2" fill="#10b981" class="eq-3" />
+          <rect x="8" y="-8" width="4" height="16" rx="2" fill="#f59e0b" class="eq-2" />
+          <rect x="16" y="-10" width="4" height="20" rx="2" fill="#06b6d4" class="eq-1" />
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Interactive Badge Banner -->
+  <g transform="translate(36, 520)">
+    <rect x="0" y="0" width="728" height="52" rx="14" fill="#0b0f19" stroke="#1e293b" stroke-width="1" />
+    <circle cx="28" cy="26" r="6" fill="#f59e0b" />
+    <text x="44" y="27" fill="#f3f4f6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700">
+      CYBER MONKEY MASCOT
+    </text>
+    <text x="44" y="42" fill="#94a3b8" font-family="'SF Mono', 'Fira Code', monospace" font-size="10">
+      Inspired by NoMonkey • Poulo • Marco Madonna &bull; 100% Camo Compliant SVG
+    </text>
+
+    <!-- Pill Badges on Right -->
+    <g transform="translate(440, 12)">
+      <rect x="0" y="0" width="90" height="28" rx="6" fill="#1e293b" />
+      <text x="14" y="18" fill="#38bdf8" font-family="'SF Mono', monospace" font-size="11" font-weight="600">60 FPS GPU</text>
+
+      <rect x="100" y="0" width="90" height="28" rx="6" fill="#1e293b" />
+      <text x="110" y="18" fill="#10b981" font-family="'SF Mono', monospace" font-size="11" font-weight="600">ZERO SLOP</text>
+
+      <rect x="200" y="0" width="80" height="28" rx="6" fill="#f59e0b" />
+      <text x="214" y="18" fill="#090d16" font-family="'SF Mono', monospace" font-size="11" font-weight="700">CAMO OK</text>
+    </g>
+  </g>
+</svg>
+
