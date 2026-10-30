@@ -68,7 +68,7 @@ export const CyberMonkeyCopilot: React.FC<CyberMonkeyCopilotProps> = ({
   };
 
   const handleCopyPrompt = async () => {
-    const prompt = `Act as an elite developer relations engineer. Help me craft a modern GitHub profile README with clean architectural badges, 3D telemetry widgets, and Camo-safe vector avatars using ReadmeForge. My username is "${config.settings.user.github || 'octocat'}".`;
+    const prompt = `Act as an elite developer relations engineer. Help me craft a modern GitHub profile README with clean architectural badges, 3D telemetry widgets, and Camo-safe vector avatars using MonoForge. My username is "${config.settings.user.github || 'octocat'}".`;
     if (typeof navigator !== 'undefined' && navigator.clipboard) {
       await navigator.clipboard.writeText(prompt);
       setIsCopiedPrompt(true);

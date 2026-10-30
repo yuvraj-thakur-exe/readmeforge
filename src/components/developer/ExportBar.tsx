@@ -91,7 +91,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
   const handleCopyAiPrompt = async () => {
     try {
       const json = JSON.stringify(config, null, 2);
-      const prompt = `I am using ReadmeForge to craft my GitHub profile README. Below is my current configuration JSON conforming to the official schema. Please help me review, optimize, and suggest additional visual telemetry sections for it. Output only valid ReadmeForge config JSON:\n\n${json}`;
+      const prompt = `I am using MonoForge to craft my GitHub profile README. Below is my current configuration JSON conforming to the official schema. Please help me review, optimize, and suggest additional visual telemetry sections for it. Output only valid MonoForge config JSON:\n\n${json}`;
       await navigator.clipboard.writeText(prompt);
       setCopiedAiPrompt(true);
       setTimeout(() => setCopiedAiPrompt(false), 2000);

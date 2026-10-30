@@ -10,12 +10,12 @@ import { PluginPanel } from '#/components/developer/PluginPanel';
 import { ExportBar } from '#/components/developer/ExportBar';
 import { GitHubSyncModal } from '#/components/sync/GitHubSyncModal';
 import { CyberMonkeyCopilot } from '#/components/mascot/CyberMonkeyCopilot';
+import { MonoForgeMonkeyIcon } from '#/components/common/MonoForgeLogo';
 import {
   Sparkles,
   Layers,
   ChevronLeft,
   ChevronRight,
-  Flame,
   Wand2,
   BookOpen,
   Eye,
@@ -64,11 +64,11 @@ function LocalizedDeveloperContent() {
       <header className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-neutral-900 border-b border-neutral-800 z-10 shrink-0 gap-2">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link href="/" className="flex items-center gap-1.5 sm:gap-2 group">
-            <div className="p-1.5 rounded-lg bg-neutral-800 border border-neutral-700 group-hover:border-amber-400 transition-colors">
-              <Flame className="w-4 h-4 text-amber-400" />
+            <div className="p-1 rounded-lg bg-neutral-800 border border-neutral-700 group-hover:border-amber-400 transition-colors">
+              <MonoForgeMonkeyIcon className="w-5 h-5 text-amber-400" />
             </div>
             <span className="font-extrabold text-sm tracking-tight text-neutral-100">
-              ReadmeForge
+              Mono<span className="text-amber-400">Forge</span>
             </span>
             <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300">
               /developer

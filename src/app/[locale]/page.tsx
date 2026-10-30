@@ -13,7 +13,8 @@ import { DesignTokensPlayground } from '#/components/showcase/DesignTokensPlaygr
 import { TelemetryArsenalGrid } from '#/components/showcase/TelemetryArsenalGrid';
 import { TemplateGallery } from '#/components/landing/TemplateGallery';
 import { LandingDetails } from '#/components/landing/LandingDetails';
-import { Flame, Github, BookOpen, BarChart3, ArrowRight } from 'lucide-react';
+import { MonoForgeMonkeyIcon } from '#/components/common/MonoForgeLogo';
+import { Github, BookOpen, BarChart3, ArrowRight } from 'lucide-react';
 
 export default function HomePage() {
   return (
@@ -149,11 +150,11 @@ export default function HomePage() {
       <footer className="relative z-10 border-t border-neutral-800 bg-neutral-950 py-10 px-4 text-xs text-neutral-400">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <div className="p-1.5 rounded-lg bg-neutral-900 border border-neutral-800">
-              <Flame className="w-3.5 h-3.5 text-amber-400" />
+            <div className="p-1 rounded-lg bg-neutral-900 border border-neutral-800 text-amber-400">
+              <MonoForgeMonkeyIcon className="w-4 h-4" />
             </div>
-            <span className="font-bold text-neutral-200">ReadmeForge</span>
-            <span className="text-neutral-500 hidden md:inline">— Forge a GitHub profile that gets noticed.</span>
+            <span className="font-extrabold text-neutral-200">Mono<span className="text-amber-400">Forge</span></span>
+            <span className="text-neutral-500 hidden md:inline">— Forge an elite GitHub profile that demands attention.</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-5">

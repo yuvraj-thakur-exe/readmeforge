@@ -69,9 +69,9 @@ export function CyberMonkeyMascot() {
   };
 
   const handleCopyMarkdown = () => {
-    const markdown = `<!-- ReadmeForge Cyber Monkey Mascot (100% Camo Safe) -->
+    const markdown = `<!-- MonoForge Cyber Monkey Mascot (100% Camo Safe) -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/cyber-monkey-mascot.svg" alt="ReadmeForge Cyber Monkey Mascot" width="460" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/cyber-monkey-mascot.svg" alt="MonoForge Cyber Monkey Mascot" width="460" />
 </p>`;
     navigator.clipboard.writeText(markdown);
     setCopied(true);

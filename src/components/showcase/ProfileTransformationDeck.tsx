@@ -47,7 +47,7 @@ export const ProfileTransformationDeck: React.FC = () => {
             <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                  ReadmeForge Enhanced
+                  MonoForge Enhanced
                 </span>
                 <span className="text-xs font-mono text-neutral-400">README.md</span>
               </div>
@@ -156,7 +156,7 @@ export const ProfileTransformationDeck: React.FC = () => {
         </div>
         <div className="absolute bottom-3 right-4 pointer-events-none">
           <span className="px-2 py-1 rounded bg-neutral-950/80 border border-amber-500/40 text-[10px] font-mono text-amber-300 backdrop-blur-sm">
-            AFTER (ReadmeForge)
+            AFTER (MonoForge)
           </span>
         </div>
       </div>

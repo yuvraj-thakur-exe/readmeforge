@@ -1,40 +1,27 @@
-<svg width="520" height="140" viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg">
+<svg width="520" height="130" viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" fill="none">
   <defs>
-    <linearGradient id="rf-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8b5cf6"/>
-      <stop offset="100%" stop-color="#22d3ee"/>
+    <linearGradient id="monoGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
     </linearGradient>
   </defs>
 
-  <style>
-    .rf-wordmark {
-      fill: #0b0b12;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
-      font-size: 42px;
-      font-weight: 700;
-    }
-    .rf-tagline {
-      fill: #4b5563;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, Helvetica, Arial, sans-serif;
-      font-size: 15px;
-    }
-  </style>
+  <!-- Left Icon: Hexagonal MonoForge Monkey in Crisp Light Badge -->
+  <rect x="10" y="10" width="110" height="110" rx="24" fill="#f4f4f5" stroke="#e4e4e7" stroke-width="2"/>
 
-  <!-- icon badge -->
-  <rect x="10" y="10" width="120" height="120" rx="28" fill="url(#rf-grad)"/>
+  <g transform="translate(15, 15) scale(0.1)" stroke="#18181b" stroke-width="48" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 230 400 C 130 400 90 470 90 540 C 90 610 130 680 230 680" />
+    <path d="M 770 400 C 870 400 910 470 910 540 C 910 610 870 680 770 680" />
+    <polygon points="340,160 660,160 840,380 840,680 660,880 340,880 160,680 160,380" fill="none" />
+    <path d="M 500 370 L 380 290 L 270 420 L 360 540 L 360 720 L 500 810 L 640 720 L 640 540 L 730 420 L 620 290 Z" fill="none" />
+    <circle cx="400" cy="480" r="46" fill="#18181b" stroke="none" />
+    <circle cx="600" cy="480" r="46" fill="#18181b" stroke="none" />
+    <path d="M 430 525 L 500 585 L 570 525" />
+    <line x1="500" y1="585" x2="500" y2="700" />
+    <path d="M 410 730 L 500 700 L 590 730" />
+  </g>
 
-  <!-- anvil -->
-  <path d="M40 92 h50 l8 -10 h-66 z" fill="#0b0b12"/>
-  <rect x="58" y="72" width="14" height="20" fill="#0b0b12"/>
-  <rect x="48" y="66" width="34" height="10" rx="2" fill="#0b0b12"/>
-
-  <!-- spark / flame above anvil -->
-  <path d="M65 28 c6 10 10 16 10 24 c0 7 -5 12 -10 12 s-10 -5 -10 -12 c0 -8 4 -14 10 -24z"
-        fill="#ffffff"/>
-  <path d="M65 40 c3 6 5 9 5 13 c0 4 -2.5 7 -5 7 s-5 -3 -5 -7 c0 -4 2 -7 5 -13z"
-        fill="#0b0b12" opacity="0.15"/>
-
-  <!-- wordmark -->
-  <text x="150" y="80" class="rf-wordmark" fill="#0b0b12">Readme<tspan fill="url(#rf-grad)">Forge</tspan></text>
-  <text x="150" y="104" class="rf-tagline" fill="#4b5563">Forge a GitHub profile that gets noticed.</text>
+  <!-- Wordmark -->
+  <text x="145" y="72" fill="#09090b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">Mono<tspan fill="url(#monoGoldLight)">Forge</tspan></text>
+  <text x="148" y="100" fill="#71717a" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="11" font-weight="600" letter-spacing="2">GITHUB PROFILE &amp; TELEMETRY STUDIO</text>
 </svg>

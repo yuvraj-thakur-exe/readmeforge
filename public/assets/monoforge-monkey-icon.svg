@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="100%" height="100%" fill="none">
+  <defs>
+    <style>
+      .mono-stroke {
+        stroke: currentColor;
+        stroke-width: 48;
+        stroke-linecap: round;
+        stroke-linejoin: miter;
+        stroke-miterlimit: 4;
+      }
+      .mono-eye {
+        fill: currentColor;
+      }
+    </style>
+  </defs>
+
+  <!-- Left Ear -->
+  <path d="M 230 400 C 130 400 90 470 90 540 C 90 610 130 680 230 680" class="mono-stroke" />
+
+  <!-- Right Ear -->
+  <path d="M 770 400 C 870 400 910 470 910 540 C 910 610 870 680 770 680" class="mono-stroke" />
+
+  <!-- Outer Hexagonal Head -->
+  <polygon points="340,160 660,160 840,380 840,680 660,880 340,880 160,680 160,380" class="mono-stroke" fill="none" />
+
+  <!-- Inner Facial Mask / Brow Outline -->
+  <path d="M 500 370 
+           L 380 290 
+           L 270 420 
+           L 360 540 
+           L 360 720 
+           L 500 810 
+           L 640 720 
+           L 640 540 
+           L 730 420 
+           L 620 290 Z" 
+        class="mono-stroke" fill="none" stroke-linejoin="round" />
+
+  <!-- Left Eye -->
+  <circle cx="400" cy="480" r="46" class="mono-eye" />
+
+  <!-- Right Eye -->
+  <circle cx="600" cy="480" r="46" class="mono-eye" />
+
+  <!-- Nose (Inverted chevron) -->
+  <path d="M 430 525 L 500 585 L 570 525" class="mono-stroke" stroke-linejoin="round" />
+
+  <!-- Vertical Nose-to-Mouth Stem -->
+  <line x1="500" y1="585" x2="500" y2="700" class="mono-stroke" />
+
+  <!-- Mouth Line (Slight downward angle) -->
+  <path d="M 410 730 L 500 700 L 590 730" class="mono-stroke" stroke-linejoin="round" />
+</svg>
+

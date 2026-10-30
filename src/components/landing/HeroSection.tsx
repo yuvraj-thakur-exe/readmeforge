@@ -285,19 +285,19 @@ export const HeroSection: React.FC = () => {
 
   return (
     <section className="relative pt-12 pb-16 px-4 max-w-6xl mx-auto text-center space-y-9 z-10">
-      {/* Top Pill with Glow */}
-      <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-violet-950/70 border border-violet-700/60 text-violet-200 text-xs font-semibold shadow-lg shadow-violet-950/40 backdrop-blur-md transition-all hover:border-violet-500 hover:scale-105 active:scale-95 cursor-default select-none">
-        <Flame className="w-4 h-4 text-orange-400 animate-pulse" />
-        <span className="tracking-wide">NEXT-GEN PROFILE README STUDIO</span>
-        <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-400 animate-ping" />
+      {/* Top Pill with Subtle Amber Glow */}
+      <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-neutral-900/90 border border-amber-500/30 text-amber-300 text-xs font-semibold shadow-lg backdrop-blur-md transition-all hover:border-amber-500/60 hover:scale-105 active:scale-95 cursor-default select-none">
+        <Flame className="w-4 h-4 text-amber-400 animate-pulse" />
+        <span className="tracking-wide">ZERO MONKEY BUSINESS &bull; MONOFORGE STUDIO</span>
+        <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-sm animate-ping" />
       </div>
 
       {/* Main Title */}
       <div className="space-y-4 max-w-4xl mx-auto">
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-neutral-100 leading-tight">
           Forge a GitHub profile that{' '}
-          <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-fuchsia-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(56,189,248,0.35)] animate-text-shimmer">
-            gets noticed.
+          <span className="bg-gradient-to-r from-neutral-100 via-amber-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(245,158,11,0.25)]">
+            demands attention.
           </span>
         </h1>
 

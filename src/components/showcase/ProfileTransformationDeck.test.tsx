@@ -11,7 +11,7 @@ describe('ProfileTransformationDeck Component', () => {
     render(<ProfileTransformationDeck />);
     expect(screen.getByText(/From Generic Monospace to High-Impact Engineering Showcase/i)).toBeDefined();
     expect(screen.getByText(/BEFORE \(Default\)/i)).toBeDefined();
-    expect(screen.getByText(/AFTER \(ReadmeForge\)/i)).toBeDefined();
+    expect(screen.getByText(/AFTER \(MonoForge\)/i)).toBeDefined();
   });
 
   it('renders feature comparison checklist', () => {

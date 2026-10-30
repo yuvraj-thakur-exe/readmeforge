@@ -87,13 +87,13 @@ const STICKERS: StickerItem[] = [
   {
     id: 'cyber-monkey',
     name: 'Cyber Monkey',
-    subtitle: 'Official ReadmeForge Mascot',
-    badgeText: 'NOMONKEY',
+    subtitle: 'Official MonoForge Mascot',
+    badgeText: 'MONOFORGE',
     category: 'mascot',
     color: 'from-amber-950/50 to-neutral-900',
     borderColor: 'border-amber-600/60 hover:border-amber-400',
     textColor: 'text-amber-300',
-    markdownSnippet: '<p align="center"><img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/cyber-monkey-mascot.svg" width="480" alt="ReadmeForge Cyber Monkey Mascot" /></p>',
+    markdownSnippet: '<p align="center"><img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/cyber-monkey-mascot.svg" width="480" alt="MonoForge Cyber Monkey Mascot" /></p>',
   },
 ];
 

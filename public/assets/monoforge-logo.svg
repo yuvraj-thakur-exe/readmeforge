@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 120" width="100%" height="120" fill="none">
+  <defs>
+    <linearGradient id="mfAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Icon: Hexagonal MonoForge Monkey (viewBox 0 0 100 100 scale) -->
+  <g transform="translate(15, 10) scale(0.1)" stroke="#f59e0b" stroke-width="48" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left Ear -->
+    <path d="M 230 400 C 130 400 90 470 90 540 C 90 610 130 680 230 680" />
+    <!-- Right Ear -->
+    <path d="M 770 400 C 870 400 910 470 910 540 C 910 610 870 680 770 680" />
+    <!-- Outer Hexagon -->
+    <polygon points="340,160 660,160 840,380 840,680 660,880 340,880 160,680 160,380" fill="none" />
+    <!-- Inner Facial Mask -->
+    <path d="M 500 370 L 380 290 L 270 420 L 360 540 L 360 720 L 500 810 L 640 720 L 640 540 L 730 420 L 620 290 Z" fill="none" />
+    <!-- Eyes -->
+    <circle cx="400" cy="480" r="46" fill="#f59e0b" stroke="none" />
+    <circle cx="600" cy="480" r="46" fill="#f59e0b" stroke="none" />
+    <!-- Nose & Mouth -->
+    <path d="M 430 525 L 500 585 L 570 525" />
+    <line x1="500" y1="585" x2="500" y2="700" />
+    <path d="M 410 730 L 500 700 L 590 730" />
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="135" y="68" fill="#f4f4f5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-1">
+    Mono<tspan fill="url(#mfAmber)">Forge</tspan>
+  </text>
+
+  <!-- Subtitle Tagline -->
+  <text x="138" y="96" fill="#a1a1aa" font-family="'JetBrains Mono', 'Fira Code', monospace" font-size="11" font-weight="600" letter-spacing="2">
+    GITHUB PROFILE &amp; TELEMETRY STUDIO
+  </text>
+</svg>
+

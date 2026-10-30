@@ -99,7 +99,7 @@ export const PluginPanel: React.FC<PluginPanelProps> = ({
   };
 
   const handleCopyAiPrompt = async () => {
-    const prompt = `You are an expert GitHub profile README architect. Below is a ReadmeForge configuration JSON object conforming to the official schema. Modify or enrich it according to the user request. Output ONLY valid JSON with zero conversational filler or markdown code blocks:
+    const prompt = `You are an expert GitHub profile README architect. Below is a MonoForge configuration JSON object conforming to the official schema. Modify or enrich it according to the user request. Output ONLY valid JSON with zero conversational filler or markdown code blocks:
 
 ${JSON.stringify(config, null, 2)}`;
 
