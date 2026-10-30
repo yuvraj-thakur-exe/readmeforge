@@ -79,18 +79,18 @@ export const Editor: React.FC<EditorProps> = ({ theme = 'vs-dark', className = '
   };
 
   return (
-    <div className={`flex flex-col h-full bg-[#1e1e1e] rounded-lg border border-neutral-800 overflow-hidden ${className}`}>
+    <div className={`flex flex-col h-full bg-[#18181b] rounded-xl border border-neutral-800 overflow-hidden shadow-2xl ${className}`}>
       {/* Editor Header Bar */}
-      <div className="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-neutral-800 text-xs font-mono">
+      <div className="flex items-center justify-between px-4 py-2.5 bg-neutral-900 border-b border-neutral-800 text-xs font-mono">
         <div className="flex items-center gap-2">
-          <span className="text-violet-400 font-semibold">config.json</span>
+          <span className="text-cyan-400 font-bold tracking-wider">config.json</span>
           {isValid ? (
-            <span className="flex items-center gap-1 text-emerald-400">
+            <span className="flex items-center gap-1 text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
               <CheckCircle2 className="w-3.5 h-3.5" /> Valid Schema
             </span>
           ) : (
-            <span className="flex items-center gap-1 text-amber-400" title={validationError || ''}>
-              <AlertTriangle className="w-3.5 h-3.5" /> Syntax/Schema Error
+            <span className="flex items-center gap-1 text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20" title={validationError || ''}>
+              <AlertTriangle className="w-3.5 h-3.5" /> Syntax Error
             </span>
           )}
         </div>
@@ -101,7 +101,7 @@ export const Editor: React.FC<EditorProps> = ({ theme = 'vs-dark', className = '
           <button
             onClick={handleCopyJson}
             type="button"
-            className="flex items-center gap-1 px-2 py-0.5 rounded bg-neutral-700/60 hover:bg-neutral-700 text-neutral-300 transition-colors"
+            className="flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors"
             title="Copy JSON to clipboard"
           >
             {copiedJson ? <Check className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
@@ -110,16 +110,16 @@ export const Editor: React.FC<EditorProps> = ({ theme = 'vs-dark', className = '
           <button
             onClick={handleFormat}
             type="button"
-            className="flex items-center gap-1 px-2 py-0.5 rounded bg-neutral-700/60 hover:bg-neutral-700 text-neutral-300 transition-colors"
+            className="flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 transition-colors"
             title="Prettify JSON"
           >
-            <RefreshCw className="w-3 h-3" /> Prettify
+            <RefreshCw className="w-3 h-3 text-amber-400" /> Prettify
           </button>
         </div>
       </div>
 
       {/* Monaco Container */}
-      <div className="flex-1 min-h-0">
+      <div className="flex-1 min-h-0 bg-[#0d1117]">
         <MonacoEditor
           height="100%"
           defaultLanguage="json"
@@ -135,18 +135,24 @@ export const Editor: React.FC<EditorProps> = ({ theme = 'vs-dark', className = '
             tabSize: 2,
             wordWrap: 'on',
             formatOnPaste: true,
+            fontFamily: 'var(--font-mono, "JetBrains Mono", monospace)',
           }}
         />
       </div>
 
-      {/* Diagnostics Footer Bar */}
+      {/* Error Footer Bar */}
       {validationError && (
-        <div className="px-3 py-1.5 bg-amber-950/70 border-t border-amber-800 text-amber-300 text-xs font-mono truncate">
-          ⚠️ {validationError}
+        <div className="px-4 py-2 bg-amber-950/80 border-t border-amber-800/80 text-amber-300 text-xs font-mono flex items-center justify-between">
+          <span className="truncate">{validationError}</span>
+          <button
+            type="button"
+            onClick={handleFormat}
+            className="text-[11px] underline hover:text-amber-100 ml-2 shrink-0"
+          >
+            Auto-Format
+          </button>
         </div>
       )}
     </div>
   );
 };
-
-export default Editor;

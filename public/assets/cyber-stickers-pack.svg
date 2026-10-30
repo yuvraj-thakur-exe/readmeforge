@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 160" width="100%" height="160" fill="none">
+  <defs>
+    <linearGradient id="stkBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0c" />
+      <stop offset="100%" stop-color="#141418" />
+    </linearGradient>
+    <linearGradient id="amberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="reactCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="rustOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316" />
+      <stop offset="100%" stop-color="#c2410c" />
+    </linearGradient>
+    <linearGradient id="tsBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="nextWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#a1a1aa" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    @keyframes stickerWiggle {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-3px) rotate(-1deg); }
+    }
+    @keyframes stickerPulse {
+      0%, 100% { opacity: 0.9; }
+      50% { opacity: 1; filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.4)); }
+    }
+    .stk-1 { transform-box: fill-box; transform-origin: center; animation: stickerWiggle 3.2s ease-in-out infinite 0.1s; }
+    .stk-2 { transform-box: fill-box; transform-origin: center; animation: stickerWiggle 2.8s ease-in-out infinite 0.4s; }
+    .stk-3 { transform-box: fill-box; transform-origin: center; animation: stickerWiggle 3.5s ease-in-out infinite 0.2s; }
+    .stk-4 { transform-box: fill-box; transform-origin: center; animation: stickerWiggle 3.0s ease-in-out infinite 0.6s; }
+    .stk-5 { transform-box: fill-box; transform-origin: center; animation: stickerWiggle 3.3s ease-in-out infinite 0.3s; }
+    .stk-6 { transform-box: fill-box; transform-origin: center; animation: stickerWiggle 2.9s ease-in-out infinite 0.5s; }
+    .badge-glow { animation: stickerPulse 2.5s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .stk-1, .stk-2, .stk-3, .stk-4, .stk-5, .stk-6, .badge-glow { animation: none !important; }
+    }
+  </style>
+
+  <!-- Base Tray -->
+  <rect x="2" y="2" width="856" height="156" rx="14" fill="url(#stkBg)" stroke="#27272a" stroke-width="1.5" />
+  
+  <!-- Sticker 1: Next.js 16 (App Router) -->
+  <g class="stk-1" transform="translate(24, 25)">
+    <rect width="124" height="110" rx="16" fill="#18181b" stroke="#3f3f46" stroke-width="1.5" />
+    <circle cx="62" cy="46" r="26" fill="#09090b" stroke="#fff" stroke-width="1.5" />
+    <path d="M 52 62 L 52 32 L 72 60 L 72 32" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="62" y="94" fill="#fafafa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Next.js 16</text>
+    <text x="62" y="106" fill="#71717a" font-family="monospace" font-size="8" text-anchor="middle">TURBOPACK</text>
+  </g>
+
+  <!-- Sticker 2: React 19 -->
+  <g class="stk-2" transform="translate(162, 25)">
+    <rect width="124" height="110" rx="16" fill="#18181b" stroke="#0284c7" stroke-width="1.5" />
+    <ellipse cx="62" cy="46" rx="28" ry="11" fill="none" stroke="url(#reactCyan)" stroke-width="2" transform="rotate(30 62 46)" />
+    <ellipse cx="62" cy="46" rx="28" ry="11" fill="none" stroke="url(#reactCyan)" stroke-width="2" transform="rotate(90 62 46)" />
+    <ellipse cx="62" cy="46" rx="28" ry="11" fill="none" stroke="url(#reactCyan)" stroke-width="2" transform="rotate(150 62 46)" />
+    <circle cx="62" cy="46" r="4.5" fill="#38bdf8" />
+    <text x="62" y="94" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">React 19</text>
+    <text x="62" y="106" fill="#71717a" font-family="monospace" font-size="8" text-anchor="middle">SERVER ACTIONS</text>
+  </g>
+
+  <!-- Sticker 3: TypeScript -->
+  <g class="stk-3" transform="translate(300, 25)">
+    <rect width="124" height="110" rx="16" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" />
+    <rect x="36" y="22" width="52" height="48" rx="8" fill="#3178c6" />
+    <text x="62" y="55" fill="#ffffff" font-family="monospace" font-size="24" font-weight="900" text-anchor="middle">TS</text>
+    <text x="62" y="94" fill="#93c5fd" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">TypeScript</text>
+    <text x="62" y="106" fill="#64748b" font-family="monospace" font-size="8" text-anchor="middle">STRICT ZERO-ANY</text>
+  </g>
+
+  <!-- Sticker 4: Rust Engine -->
+  <g class="stk-4" transform="translate(438, 25)">
+    <rect width="124" height="110" rx="16" fill="#18181b" stroke="#ea580c" stroke-width="1.5" />
+    <!-- Gear icon -->
+    <circle cx="62" cy="46" r="22" fill="#09090b" stroke="url(#rustOrange)" stroke-width="2.5" />
+    <circle cx="62" cy="46" r="10" fill="url(#rustOrange)" />
+    <text x="62" y="51" fill="#fff" font-family="monospace" font-size="13" font-weight="900" text-anchor="middle">R</text>
+    <text x="62" y="94" fill="#fb923c" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Rust Lang</text>
+    <text x="62" y="106" fill="#71717a" font-family="monospace" font-size="8" text-anchor="middle">MEMORY SAFE</text>
+  </g>
+
+  <!-- Sticker 5: Tailwind CSS -->
+  <g class="stk-5" transform="translate(576, 25)">
+    <rect width="124" height="110" rx="16" fill="#18181b" stroke="#06b6d4" stroke-width="1.5" />
+    <path d="M 44 48 C 47 40 52 36 59 36 C 68 36 71 42 75 42 C 78 42 81 39 83 37 C 80 45 75 49 68 49 C 59 49 56 43 52 43 C 49 43 46 46 44 48 Z M 37 56 C 40 48 45 44 52 44 C 61 44 64 50 68 50 C 71 50 74 47 76 45 C 73 53 68 57 61 57 C 52 57 49 51 45 51 C 42 51 39 54 37 56 Z" fill="#22d3ee" />
+    <text x="62" y="94" fill="#22d3ee" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" text-anchor="middle">Tailwind CSS</text>
+    <text x="62" y="106" fill="#71717a" font-family="monospace" font-size="8" text-anchor="middle">UTILITY FIRST</text>
+  </g>
+
+  <!-- Sticker 6: Cyber Monkey Mascot Special -->
+  <g class="stk-6 badge-glow" transform="translate(714, 25)">
+    <rect width="124" height="110" rx="16" fill="#27272a" stroke="url(#amberGlow)" stroke-width="2" />
+    <circle cx="62" cy="44" r="22" fill="#18181b" stroke="#f59e0b" stroke-width="2" />
+    <!-- Visor -->
+    <rect x="48" y="38" width="28" height="12" rx="4" fill="#09090b" stroke="#22d3ee" stroke-width="1" />
+    <circle cx="55" cy="44" r="2" fill="#22d3ee" />
+    <circle cx="69" cy="44" r="2" fill="#22d3ee" />
+    <path d="M 58 56 Q 62 60 66 56" stroke="#f59e0b" stroke-width="1.5" fill="none" />
+    <text x="62" y="94" fill="#f59e0b" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="800" text-anchor="middle">NO MONKEY</text>
+    <text x="62" y="106" fill="#fbbf24" font-family="monospace" font-size="8" font-weight="700" text-anchor="middle">READMETOOLS</text>
+  </g>
+</svg>
+

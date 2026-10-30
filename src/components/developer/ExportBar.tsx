@@ -39,7 +39,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         particleCount: 50,
         spread: 60,
         origin: { y: 0.8 },
-        colors: ['#8b5cf6', '#06b6d4', '#ec4899', '#10b981'],
+        colors: ['#f59e0b', '#06b6d4', '#10b981', '#fbbf24'],
       });
     } catch {
       // Ignored if canvas not available
@@ -70,24 +70,6 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
       link.click();
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
-      triggerCelebration();
-    } catch {
-      // Fallback
-    }
-  };
-
-  const handleDownloadJson = () => {
-    try {
-      const json = JSON.stringify(config, null, 2);
-      const blob = new Blob([json], { type: 'application/json;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'readmeforge-config.json';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
     } catch {
       // Fallback
     }
@@ -95,9 +77,10 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
   const handleShareUrl = async () => {
     try {
-      const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(config))));
-      const shareUrl = `${window.location.origin}/developer?config=${encoded}`;
-      await navigator.clipboard.writeText(shareUrl);
+      const json = JSON.stringify(config);
+      const base64 = btoa(unescape(encodeURIComponent(json)));
+      const url = `${window.location.origin}${window.location.pathname}?config=${base64}`;
+      await navigator.clipboard.writeText(url);
       setCopiedUrl(true);
       setTimeout(() => setCopiedUrl(false), 2000);
     } catch {
@@ -107,28 +90,8 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
   const handleCopyAiPrompt = async () => {
     try {
-      const prompt = `Act as an expert GitHub Profile README engineer and personal branding architect.
-I am configuring my profile README via ReadmeForge (https://readmeforge-black.vercel.app).
-
-API & Schema Documentation: https://readmeforge-black.vercel.app/api/schema
-AI Guidance & Full Specification: https://readmeforge-black.vercel.app/llms-full.txt
-Agent Skill Rules: https://readmeforge-black.vercel.app/.agents/skills/readmeforge/SKILL.md
-
-Capabilities & Available Arsenal:
-- 47 Official Verified Social Badges: behance, bluesky, codesandbox, codepen, devto, discord, dribbble, facebook, gitlab, gmail, hackerrank, instagram, itch, linkedin, linktree, medium, microsoft-outlook, outlook, patreon, paypal, spotify, stackoverflow, telegram, twitch, twitter, x, unsplash, visualstudio, wechat, whatsapp, youtube, tutanota, matrix, ko-fi, signal, slack, tryhackme, leetcode, github, codeforces, codechef, kaggle, hashnode, reddit, threads, tiktok, mastodon.
-- Studio Sections: My activities, Social Media, Texts, Techs (supporting devicons, skill_icons, shields, simple_icons).
-- 26+ Dynamic Plugins: header-bio, capsule-render, animated-mascot, readme-typing-svg, markdown-badges, github-readme-stats, streak-stats, activity-graph, github-profile-trophy, pie-chart, figma-showcase, pinterest-showcase, visitor-counter, snk, etc.
-- GitHub Camo Compliance: 100% SVG/Markdown standard compliant (zero <script>, zero <foreignObject>, GPU-accelerated 60fps CSS transforms).
-
-Here is my current profile JSON configuration:
-\`\`\`json
-${JSON.stringify(config, null, 2)}
-\`\`\`
-
-Instructions:
-1. Enhance the profile configuration with high-impact aesthetics, relevant tech stacks, and badges.
-2. Ensure strict schema validity matching ReadmeConfig.
-3. Return ONLY valid, parseable JSON representing the updated ReadmeConfig object.`;
+      const json = JSON.stringify(config, null, 2);
+      const prompt = `I am using ReadmeForge to craft my GitHub profile README. Below is my current configuration JSON conforming to the official schema. Please help me review, optimize, and suggest additional visual telemetry sections for it. Output only valid ReadmeForge config JSON:\n\n${json}`;
       await navigator.clipboard.writeText(prompt);
       setCopiedAiPrompt(true);
       setTimeout(() => setCopiedAiPrompt(false), 2000);
@@ -138,14 +101,16 @@ Instructions:
   };
 
   return (
-    <div className={`flex flex-wrap items-center justify-between gap-3 px-4 py-2.5 bg-neutral-900 border-t border-neutral-800 text-xs ${className}`}>
-      {/* Undo / Redo / Reset */}
+    <div
+      className={`flex items-center justify-between px-4 py-2.5 bg-neutral-950 border-t border-neutral-800 text-xs ${className}`}
+    >
+      {/* History and Reset Controls */}
       <div className="flex items-center gap-1.5">
         <button
           type="button"
-          onClick={undo}
+          onClick={() => undo()}
           disabled={history.length === 0}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 disabled:hover:bg-neutral-800 text-neutral-300 transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           title="Undo"
         >
           <Undo2 className="w-3.5 h-3.5" />
@@ -154,9 +119,9 @@ Instructions:
 
         <button
           type="button"
-          onClick={redo}
+          onClick={() => redo()}
           disabled={future.length === 0}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 disabled:opacity-40 disabled:hover:bg-neutral-800 text-neutral-300 transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           title="Redo"
         >
           <Redo2 className="w-3.5 h-3.5" />
@@ -165,56 +130,64 @@ Instructions:
 
         <button
           type="button"
-          onClick={resetConfig}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-400 hover:text-neutral-200 transition-colors"
-          title="Reset to default config"
+          onClick={() => {
+            if (confirm('Reset entire configuration to default? All changes will be cleared.')) {
+              resetConfig();
+            }
+          }}
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-red-400 transition-colors ml-1"
+          title="Reset configuration to empty profile"
         >
           <RotateCcw className="w-3.5 h-3.5" />
-          <span className="hidden sm:inline">Reset</span>
+          <span className="hidden md:inline">Reset</span>
         </button>
       </div>
 
-      {/* Export Actions */}
+      {/* Center status message */}
+      <div className="hidden lg:flex items-center gap-2 text-neutral-500 font-mono text-[11px]">
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span>Turbopack Sync Active</span>
+      </div>
+
+      {/* Export & Push Actions */}
       <div className="flex items-center gap-2">
         <button
           type="button"
           onClick={handleCopyAiPrompt}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-cyan-300 border border-cyan-800/40 hover:border-cyan-700 transition-colors"
-          title="Copy pre-engineered prompt and config for AI coding agents"
+          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white transition-colors"
+          title="Copy config wrapped in AI assistant prompt"
         >
-          {copiedAiPrompt ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Bot className="w-3.5 h-3.5 text-cyan-400" />}
+          {copiedAiPrompt ? (
+            <Check className="w-3.5 h-3.5 text-emerald-400" />
+          ) : (
+            <Bot className="w-3.5 h-3.5 text-amber-400" />
+          )}
           <span>{copiedAiPrompt ? 'Prompt Copied!' : 'AI Prompt'}</span>
         </button>
 
         <button
           type="button"
           onClick={handleShareUrl}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors"
-          title="Copy shareable configuration URL"
+          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white transition-colors"
+          title="Copy shareable URL containing base64 configuration"
         >
-          {copiedUrl ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5" />}
-          <span>{copiedUrl ? 'URL Copied!' : 'Share URL'}</span>
-        </button>
-
-        <button
-          type="button"
-          onClick={handleDownloadJson}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors"
-          title="Download JSON config"
-        >
-          <Download className="w-3.5 h-3.5" />
-          <span className="hidden md:inline">JSON</span>
+          {copiedUrl ? (
+            <Check className="w-3.5 h-3.5 text-emerald-400" />
+          ) : (
+            <Share2 className="w-3.5 h-3.5 text-cyan-400" />
+          )}
+          <span>{copiedUrl ? 'Link Copied' : 'Share URL'}</span>
         </button>
 
         {onOpenSync && (
           <button
             type="button"
             onClick={onOpenSync}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-900 border border-neutral-700 hover:border-neutral-500 text-neutral-200 hover:text-white font-medium transition-all shadow-sm"
             title="Push directly to GitHub repository"
           >
-            <Github className="w-3.5 h-3.5" />
-            <span className="hidden md:inline">Sync</span>
+            <Github className="w-3.5 h-3.5 text-neutral-100" />
+            <span className="hidden xs:inline">Push to GitHub</span>
           </button>
         )}
 
@@ -231,10 +204,10 @@ Instructions:
         <button
           type="button"
           onClick={handleCopyMarkdown}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-medium shadow-sm transition-all"
+          className="flex items-center gap-1.5 px-3.5 py-1.5 rounded bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold shadow-sm transition-all active:scale-95"
           title="Copy markdown with celebratory confetti"
         >
-          {copied ? <Check className="w-3.5 h-3.5 text-white" /> : <Sparkles className="w-3.5 h-3.5" />}
+          {copied ? <Check className="w-3.5 h-3.5 text-neutral-950" /> : <Sparkles className="w-3.5 h-3.5 text-neutral-950" />}
           <span>{copied ? 'Copied!' : 'Copy README'}</span>
         </button>
       </div>

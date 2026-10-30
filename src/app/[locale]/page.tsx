@@ -4,8 +4,11 @@ import { Link } from '#/i18n/navigation';
 import { TopNav } from '#/components/navigation/TopNav';
 import { HeroSection } from '#/components/landing/HeroSection';
 import { ParticleBackground } from '#/components/landing/ParticleBackground';
+import { KineticMarquee } from '#/components/landing/KineticMarquee';
 import { CyberMonkeyMascot } from '#/components/mascot/CyberMonkeyMascot';
+import { KineticStickerDock } from '#/components/mascot/KineticStickerDock';
 import { DeviceShowcase } from '#/components/showcase/DeviceShowcase';
+import { ProfileTransformationDeck } from '#/components/showcase/ProfileTransformationDeck';
 import { DesignTokensPlayground } from '#/components/showcase/DesignTokensPlayground';
 import { TelemetryArsenalGrid } from '#/components/showcase/TelemetryArsenalGrid';
 import { TemplateGallery } from '#/components/landing/TemplateGallery';
@@ -14,8 +17,8 @@ import { Flame, Github, BookOpen, BarChart3, ArrowRight } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-neutral-950 text-neutral-100 selection:bg-amber-500/20 selection:text-amber-200 overflow-x-hidden">
-      {/* Refined subtle ambient background lighting - UI/UX Pro carbon aesthetic */}
+    <div className="relative flex flex-col min-h-screen bg-neutral-950 text-neutral-100 selection:bg-amber-500/20 selection:text-amber-200 overflow-x-hidden font-sans">
+      {/* Subtle ambient lighting - Carbon / Obsidian with amber & cyan highlights */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[450px] bg-gradient-to-b from-neutral-800/20 via-neutral-900/10 to-transparent blur-3xl opacity-60" />
         <div className="absolute top-[25%] -left-60 w-[500px] h-[500px] bg-amber-500/[0.03] blur-[140px] rounded-full pointer-events-none" />
@@ -24,6 +27,9 @@ export default function HomePage() {
       </div>
 
       <TopNav />
+
+      {/* High-Impact Kinetic Marquee (NoMonkey inspiration) */}
+      <KineticMarquee speed="fast" />
 
       {/* Hero with interactive particles */}
       <div className="relative overflow-hidden border-b border-neutral-800/80">
@@ -59,28 +65,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 2. Device Prototype Matrix (NoMonkey & Poulo inspiration) */}
+      {/* 2. Tactile Sticker Vault (NoMonkey inspiration) */}
       <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-900/30 backdrop-blur-md py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <KineticStickerDock />
+        </div>
+      </section>
+
+      {/* 3. Device Prototype Matrix (NoMonkey & Poulo inspiration) */}
+      <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/70 backdrop-blur-md py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <DeviceShowcase />
         </div>
       </section>
 
-      {/* 3. Design Tokens Playground (Marco Madonna inspiration) */}
+      {/* 4. Transformation Deck Before & After (Poulo inspiration) */}
+      <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-900/30 backdrop-blur-md py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <ProfileTransformationDeck />
+        </div>
+      </section>
+
+      {/* 5. Design Tokens Playground (Marco Madonna inspiration) */}
       <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/70 backdrop-blur-md py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <DesignTokensPlayground />
         </div>
       </section>
 
-      {/* 4. Telemetry Arsenal Encyclopedia (Scraped 40+ Plugins) */}
+      {/* 6. Telemetry Arsenal Encyclopedia (Scraped 40+ Plugins) */}
       <section className="relative z-10 border-b border-neutral-800/80 bg-neutral-900/30 backdrop-blur-md py-12 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto">
           <TelemetryArsenalGrid />
         </div>
       </section>
 
-      {/* 5. Telemetry Studio Showcase Banner Strip */}
+      {/* 7. Telemetry Studio Showcase Banner Strip */}
       <div className="relative z-10 border-b border-neutral-800 bg-neutral-900/80 backdrop-blur-md py-6 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 p-4 rounded-xl border border-neutral-800 bg-neutral-950/70 shadow-sm">
           <div className="flex items-center gap-3.5">
@@ -104,7 +124,7 @@ export default function HomePage() {
 
           <Link
             href="/telemetry"
-            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-neutral-950 font-semibold text-xs transition-colors shrink-0 active:scale-95 shadow-sm"
+            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-neutral-950 font-bold text-xs transition-colors shrink-0 active:scale-95 shadow-sm"
           >
             <span>Open Telemetry Studio</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -112,15 +132,18 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 6. Curated Star Archetype Starters */}
+      {/* 8. Curated Star Archetype Starters */}
       <div className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/60 backdrop-blur-md">
         <TemplateGallery />
       </div>
 
-      {/* 7. Extended Product Story, Capabilities, Safeguards & FAQ */}
+      {/* 9. Extended Product Story, Capabilities, Safeguards & FAQ */}
       <div className="relative z-10 border-b border-neutral-800/80 bg-neutral-950/80 backdrop-blur-md">
         <LandingDetails />
       </div>
+
+      {/* Bottom Kinetic Marquee (Reverse Direction) */}
+      <KineticMarquee speed="normal" reverse={true} />
 
       {/* Footer */}
       <footer className="relative z-10 border-t border-neutral-800 bg-neutral-950 py-10 px-4 text-xs text-neutral-400">

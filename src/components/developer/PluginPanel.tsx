@@ -99,28 +99,9 @@ export const PluginPanel: React.FC<PluginPanelProps> = ({
   };
 
   const handleCopyAiPrompt = async () => {
-    const prompt = `Act as a senior developer personal branding expert and GitHub README specialist.
-I am configuring my GitHub Profile README using ReadmeForge (https://readmeforge-black.vercel.app).
+    const prompt = `You are an expert GitHub profile README architect. Below is a ReadmeForge configuration JSON object conforming to the official schema. Modify or enrich it according to the user request. Output ONLY valid JSON with zero conversational filler or markdown code blocks:
 
-API & Schema: https://readmeforge-black.vercel.app/api/schema
-Developer & LLM Spec: https://readmeforge-black.vercel.app/llms-full.txt
-Agent Skill Guidance: https://readmeforge-black.vercel.app/.agents/skills/readmeforge/SKILL.md
-
-Available Features:
-- 47 Official Social Media Badges (behance, bluesky, codesandbox, codepen, devto, discord, dribbble, facebook, gitlab, gmail, hackerrank, instagram, itch, linkedin, linktree, medium, microsoft-outlook, outlook, patreon, paypal, spotify, stackoverflow, telegram, twitch, twitter, x, unsplash, visualstudio, wechat, whatsapp, youtube, tutanota, matrix, ko-fi, signal, slack, tryhackme, leetcode, github, codeforces, codechef, kaggle, hashnode, reddit, threads, tiktok, mastodon).
-- 26+ Rich Plugins: header-bio, capsule-render, animated-mascot, readme-typing-svg, markdown-badges, github-readme-stats, streak-stats, activity-graph, github-profile-trophy, pie-chart, figma-showcase, pinterest-showcase, visitor-counter, snk, etc.
-- 50 Visual Archetypes & Templates.
-- GitHub Camo sanitizer safe vector animations.
-
-Here is my current profile configuration in ReadmeForge JSON format:
-\`\`\`json
-${JSON.stringify(config, null, 2)}
-\`\`\`
-
-Please update or enhance this JSON configuration:
-1. Ensure all settings and sections follow the ReadmeForge JSON schema.
-2. Incorporate modern developer badges, clean stat cards, and relevant skill tags.
-3. Return ONLY valid, parseable JSON representing the complete ReadmeConfig object.`;
+${JSON.stringify(config, null, 2)}`;
 
     try {
       await navigator.clipboard.writeText(prompt);
@@ -132,7 +113,7 @@ Please update or enhance this JSON configuration:
   };
 
   return (
-    <div className={`flex flex-col h-full bg-neutral-900 rounded-lg border border-neutral-800 overflow-hidden ${className}`}>
+    <div className={`flex flex-col h-full bg-neutral-900 rounded-xl border border-neutral-800 overflow-hidden shadow-2xl ${className}`}>
       {/* Tab Switcher */}
       <div className="flex items-center border-b border-neutral-800 bg-neutral-950 px-2 pt-2 gap-1 text-xs font-medium">
         <button
@@ -143,7 +124,7 @@ Please update or enhance this JSON configuration:
           }}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md transition-colors ${
             panelTab === 'plugins'
-              ? 'bg-neutral-900 text-violet-400 border-t-2 border-violet-500 font-semibold'
+              ? 'bg-neutral-900 text-amber-400 border-t-2 border-amber-500 font-semibold'
               : 'text-neutral-400 hover:text-neutral-200'
           }`}
         >
@@ -159,7 +140,7 @@ Please update or enhance this JSON configuration:
           }}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md transition-colors ${
             panelTab === 'templates'
-              ? 'bg-neutral-900 text-violet-400 border-t-2 border-violet-500 font-semibold'
+              ? 'bg-neutral-900 text-cyan-400 border-t-2 border-cyan-500 font-semibold'
               : 'text-neutral-400 hover:text-neutral-200'
           }`}
         >
@@ -172,12 +153,12 @@ Please update or enhance this JSON configuration:
           onClick={() => setPanelTab('schema')}
           className={`flex items-center gap-1.5 px-3 py-1.5 rounded-t-md transition-colors ${
             panelTab === 'schema'
-              ? 'bg-neutral-900 text-violet-400 border-t-2 border-violet-500 font-semibold'
+              ? 'bg-neutral-900 text-emerald-400 border-t-2 border-emerald-500 font-semibold'
               : 'text-neutral-400 hover:text-neutral-200'
           }`}
         >
-          <Bot className="w-3.5 h-3.5 text-cyan-400" />
-          <span>AI & Schema</span>
+          <Bot className="w-3.5 h-3.5 text-emerald-400" />
+          <span>AI &amp; Schema</span>
         </button>
       </div>
 
@@ -189,7 +170,7 @@ Please update or enhance this JSON configuration:
               <span className="text-[11px] text-neutral-400 font-mono">
                 {filteredPlugins.length} plugins matching
               </span>
-              <span className="text-[10px] text-neutral-500">1-click insert</span>
+              <span className="text-[10px] text-amber-400 font-mono">1-click insert</span>
             </div>
 
             {/* Search Input */}
@@ -200,7 +181,7 @@ Please update or enhance this JSON configuration:
                 placeholder="Search badges, stats, widgets..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-1 bg-neutral-900 border border-neutral-800 rounded text-xs text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-violet-500 transition-colors"
+                className="w-full pl-8 pr-3 py-1 bg-neutral-900 border border-neutral-800 rounded text-xs text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-amber-500 transition-colors"
               />
             </div>
 
@@ -213,7 +194,7 @@ Please update or enhance this JSON configuration:
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-2 py-0.5 rounded capitalize whitespace-nowrap transition-colors ${
                     selectedCategory === cat
-                      ? 'bg-violet-600 text-white font-medium'
+                      ? 'bg-amber-500 text-neutral-950 font-bold'
                       : 'bg-neutral-800/80 text-neutral-400 hover:text-neutral-200'
                   }`}
                 >
@@ -259,7 +240,7 @@ Please update or enhance this JSON configuration:
                           {plugin.tags.slice(0, 3).map(tag => (
                             <span
                               key={tag}
-                              className="text-[10px] px-1.5 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded"
+                              className="text-[10px] px-1.5 py-0.5 bg-neutral-900 border border-neutral-800 text-neutral-400 rounded font-mono"
                             >
                               #{tag}
                             </span>
@@ -277,8 +258,8 @@ Please update or enhance this JSON configuration:
                         onClick={() => handleInsert(plugin)}
                         className={`flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium transition-all ${
                           isJustInserted
-                            ? 'bg-emerald-600 text-white'
-                            : 'bg-violet-600 hover:bg-violet-500 text-white'
+                            ? 'bg-emerald-600 text-white font-bold'
+                            : 'bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 text-neutral-200 font-semibold'
                         }`}
                       >
                         {isJustInserted ? (
@@ -287,7 +268,7 @@ Please update or enhance this JSON configuration:
                           </>
                         ) : (
                           <>
-                            <Plus className="w-3 h-3" /> Insert
+                            <Plus className="w-3 h-3 text-amber-400 group-hover:text-neutral-950" /> Insert
                           </>
                         )}
                       </button>
@@ -308,7 +289,7 @@ Please update or enhance this JSON configuration:
               <span className="text-[11px] text-neutral-400 font-mono">
                 {filteredTemplates.length} archetypes
               </span>
-              <span className="text-[10px] text-violet-400">Production Ready</span>
+              <span className="text-[10px] text-cyan-400 font-mono">Production Ready</span>
             </div>
 
             {/* Search Input */}
@@ -319,7 +300,7 @@ Please update or enhance this JSON configuration:
                 placeholder="Search templates (e.g. minimalist, cyberpunk)..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-1 bg-neutral-900 border border-neutral-800 rounded text-xs text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-violet-500 transition-colors"
+                className="w-full pl-8 pr-3 py-1 bg-neutral-900 border border-neutral-800 rounded text-xs text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-cyan-500 transition-colors"
               />
             </div>
 
@@ -332,7 +313,7 @@ Please update or enhance this JSON configuration:
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-2 py-0.5 rounded capitalize whitespace-nowrap transition-colors ${
                     selectedCategory.toLowerCase() === cat.toLowerCase()
-                      ? 'bg-violet-600 text-white font-medium'
+                      ? 'bg-cyan-500 text-neutral-950 font-bold'
                       : 'bg-neutral-800/80 text-neutral-400 hover:text-neutral-200'
                   }`}
                 >
@@ -383,8 +364,8 @@ Please update or enhance this JSON configuration:
                         onClick={() => handleApplyTemplate(tmpl)}
                         className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs font-medium transition-all ${
                           isApplied
-                            ? 'bg-emerald-600 text-white'
-                            : 'bg-violet-600/80 hover:bg-violet-600 text-white'
+                            ? 'bg-emerald-600 text-white font-bold'
+                            : 'bg-neutral-800 hover:bg-cyan-500 hover:text-neutral-950 text-neutral-200 font-semibold'
                         }`}
                       >
                         {isApplied ? (
@@ -393,7 +374,7 @@ Please update or enhance this JSON configuration:
                           </>
                         ) : (
                           <>
-                            <Sliders className="w-3 h-3" /> Load Preset
+                            <Sliders className="w-3 h-3 text-cyan-400 group-hover:text-neutral-950" /> Load Preset
                           </>
                         )}
                       </button>
@@ -410,18 +391,18 @@ Please update or enhance this JSON configuration:
       {panelTab === 'schema' && (
         <div className="flex-1 overflow-y-auto p-3 space-y-4 text-xs">
           {/* AI Context Card */}
-          <div className="p-3 bg-neutral-950 border border-violet-900/40 rounded-lg space-y-2.5">
-            <div className="flex items-center gap-2 text-violet-300 font-semibold">
-              <Bot className="w-4 h-4 text-violet-400" />
+          <div className="p-3 bg-neutral-950 border border-neutral-800 rounded-lg space-y-2.5">
+            <div className="flex items-center gap-2 text-amber-400 font-semibold">
+              <Bot className="w-4 h-4 text-amber-400" />
               <span>AI Agent Pairing</span>
             </div>
             <p className="text-[11px] text-neutral-400 leading-relaxed">
-              Use this pre-engineered prompt with Claude 3.7, Cursor, ChatGPT, or Antigravity to generate custom sections or rewrite your profile safely.
+              Use this pre-engineered prompt with Claude Code, Cursor, ChatGPT, or Antigravity to generate custom sections or rewrite your profile safely.
             </p>
             <button
               type="button"
               onClick={handleCopyAiPrompt}
-              className="w-full flex items-center justify-center gap-1.5 py-1.5 px-3 rounded bg-violet-600 hover:bg-violet-500 text-white font-medium transition-colors text-xs"
+              className="w-full flex items-center justify-center gap-1.5 py-1.5 px-3 rounded bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold transition-colors text-xs"
             >
               {copiedPrompt ? (
                 <>
@@ -437,7 +418,7 @@ Please update or enhance this JSON configuration:
 
           {/* Machine Links */}
           <div className="space-y-1.5">
-            <h4 className="text-[11px] font-semibold text-neutral-300 uppercase tracking-wider">
+            <h4 className="text-[11px] font-semibold text-neutral-300 uppercase tracking-wider font-mono">
               Machine Endpoints
             </h4>
             <div className="grid grid-cols-1 gap-1.5">
@@ -473,15 +454,15 @@ Please update or enhance this JSON configuration:
 
           {/* Schema Structure Overview */}
           <div className="space-y-2">
-            <h4 className="text-[11px] font-semibold text-neutral-300 uppercase tracking-wider flex items-center gap-1.5">
-              <FileCode2 className="w-3.5 h-3.5 text-violet-400" />
+            <h4 className="text-[11px] font-semibold text-neutral-300 uppercase tracking-wider flex items-center gap-1.5 font-mono">
+              <FileCode2 className="w-3.5 h-3.5 text-cyan-400" />
               <span>Config Schema Shape</span>
             </h4>
             <div className="bg-neutral-950 p-2.5 rounded border border-neutral-800 font-mono text-[10px] text-neutral-400 leading-relaxed space-y-1">
-              <div><span className="text-violet-400">version</span>: string (&quot;1.0.0&quot;)</div>
-              <div><span className="text-violet-400">title</span>: string</div>
-              <div><span className="text-violet-400">settings</span>: &#123; user, theme, accentColor, badgeStyle, align &#125;</div>
-              <div><span className="text-violet-400">sections</span>: Array&lt;&#123; id, type, props &#125;&gt;</div>
+              <div><span className="text-amber-400">version</span>: string (&quot;1.0.0&quot;)</div>
+              <div><span className="text-amber-400">title</span>: string</div>
+              <div><span className="text-amber-400">settings</span>: &#123; user, theme, accentColor, badgeStyle, align &#125;</div>
+              <div><span className="text-amber-400">sections</span>: Array&lt;&#123; id, type, props &#125;&gt;</div>
             </div>
           </div>
         </div>
