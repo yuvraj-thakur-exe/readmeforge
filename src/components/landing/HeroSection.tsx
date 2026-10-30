@@ -286,17 +286,17 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="relative pt-12 pb-16 px-4 max-w-6xl mx-auto text-center space-y-9 z-10">
       {/* Top Pill with Subtle Amber Glow */}
-      <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-neutral-900/90 border border-amber-500/30 text-amber-300 text-xs font-semibold shadow-lg backdrop-blur-md transition-all hover:border-amber-500/60 hover:scale-105 active:scale-95 cursor-default select-none">
-        <Flame className="w-4 h-4 text-amber-400 animate-pulse" />
+      <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-neutral-900/90 border border-amber-500/40 text-amber-700 dark:text-amber-300 text-xs font-semibold shadow-sm backdrop-blur-md transition-all hover:border-amber-500 hover:scale-105 active:scale-95 cursor-default select-none">
+        <Flame className="w-4 h-4 text-amber-500 animate-pulse" />
         <span className="tracking-wide">ZERO MONKEY BUSINESS &bull; MONOFORGE STUDIO</span>
-        <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-sm animate-ping" />
+        <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-sm animate-ping" />
       </div>
 
       {/* Main Title */}
       <div className="space-y-4 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-neutral-100 leading-tight">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-neutral-900 dark:text-neutral-100 leading-tight">
           Forge a GitHub profile that{' '}
-          <span className="bg-gradient-to-r from-neutral-100 via-amber-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(245,158,11,0.25)]">
+          <span className="bg-gradient-to-r from-neutral-900 via-amber-600 to-cyan-600 dark:from-neutral-100 dark:via-amber-300 dark:to-cyan-400 bg-clip-text text-transparent drop-shadow-sm">
             demands attention.
           </span>
         </h1>
@@ -308,12 +308,12 @@ export const HeroSection: React.FC = () => {
 
       {/* High-Tech 1-Line Install Command Console with Official IDE Logos */}
       <div id="install-console-anchor" className="max-w-3xl mx-auto scroll-mt-24">
-        <div className="rounded-2xl bg-neutral-950/90 border border-cyan-500/30 p-4 sm:p-5 shadow-2xl shadow-cyan-950/30 backdrop-blur-xl relative overflow-hidden transition-all hover:border-cyan-500/50">
-          <div className="absolute -top-24 -left-24 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-fuchsia-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="rounded-2xl bg-white dark:bg-neutral-950/90 border border-neutral-200/90 dark:border-cyan-500/30 p-4 sm:p-5 shadow-xl shadow-neutral-200/40 dark:shadow-cyan-950/30 backdrop-blur-xl relative overflow-hidden transition-all hover:border-amber-400 dark:hover:border-cyan-500/50">
+          <div className="absolute -top-24 -left-24 w-48 h-48 bg-amber-500/10 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-cyan-500/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Console Header Tabs */}
-          <div className="flex items-center justify-between gap-2 border-b border-neutral-800/80 pb-3 mb-3.5">
+          <div className="flex items-center justify-between gap-2 border-b border-neutral-200 dark:border-neutral-800/80 pb-3 mb-3.5">
             <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
               {INSTALL_OPTIONS.map(opt => {
                 const isActive = opt.id === selectedTab;
@@ -326,14 +326,14 @@ export const HeroSection: React.FC = () => {
                     }}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 select-none ${
                       isActive
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/50 shadow-sm shadow-cyan-500/20 scale-100'
-                        : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 border border-transparent'
+                        ? 'bg-amber-500/15 text-amber-800 dark:text-cyan-300 border border-amber-500/50 dark:border-cyan-500/50 shadow-sm scale-100 font-bold'
+                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-900 border border-transparent'
                     } active:scale-95`}
                   >
                     <span className="shrink-0">{opt.icon}</span>
                     <span>{opt.label}</span>
                     {isActive && (
-                      <span className="hidden sm:inline-block px-1.5 py-0.2 rounded text-[9px] bg-cyan-950 border border-cyan-700/60 text-cyan-300 font-mono">
+                      <span className="hidden sm:inline-block px-1.5 py-0.2 rounded text-[9px] bg-amber-100 dark:bg-cyan-950 border border-amber-300 dark:border-cyan-700/60 text-amber-800 dark:text-cyan-300 font-mono">
                         {opt.badge}
                       </span>
                     )}
@@ -342,14 +342,14 @@ export const HeroSection: React.FC = () => {
               })}
             </div>
 
-            <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] text-neutral-400 font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="hidden md:inline-flex items-center gap-1.5 text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               1-Line Ready
             </span>
           </div>
 
           {/* Command Terminal Bar */}
-          <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-neutral-900/90 border border-neutral-800 focus-within:border-cyan-500/60 transition-colors">
+          <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-neutral-950 border border-neutral-800 focus-within:border-cyan-500/60 transition-colors">
             <div className="flex items-center gap-2.5 overflow-x-auto font-mono text-xs sm:text-sm text-left scrollbar-none">
               <span className="text-emerald-400 font-extrabold select-none">❯</span>
               <code className="text-cyan-300 font-semibold tracking-wide whitespace-nowrap select-all">
@@ -367,9 +367,9 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Description line below command */}
-          <div className="flex items-center justify-between mt-2.5 px-1 text-[11px] text-neutral-400 text-left">
+          <div className="flex items-center justify-between mt-2.5 px-1 text-[11px] text-neutral-500 dark:text-neutral-400 text-left">
             <span>{activeOption.description}</span>
-            <span className="hidden sm:inline text-neutral-500 font-mono">Press ↵ in terminal</span>
+            <span className="hidden sm:inline text-neutral-400 dark:text-neutral-500 font-mono">Press ↵ in terminal</span>
           </div>
         </div>
       </div>
@@ -378,54 +378,54 @@ export const HeroSection: React.FC = () => {
       <div className="flex flex-wrap items-center justify-center gap-3.5 pt-1">
         <Link
           href="/wizard"
-          className="group flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-bold text-sm shadow-xl shadow-violet-900/40 transition-all hover:scale-105 hover:-translate-y-0.5 active:scale-95 select-none"
+          className="group flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-neutral-950 font-extrabold text-sm shadow-md transition-all hover:scale-105 hover:-translate-y-0.5 active:scale-95 select-none"
         >
-          <Sparkles className="w-4 h-4 text-cyan-200 group-hover:rotate-12 transition-transform duration-300" />
+          <Sparkles className="w-4 h-4 text-neutral-950 group-hover:rotate-12 transition-transform duration-300" />
           <span>Launch Studio</span>
         </Link>
 
         <a
           href="#templates-shelf"
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700/80 hover:border-cyan-500/50 text-neutral-100 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white dark:bg-neutral-900 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-700/80 hover:border-amber-400 dark:hover:border-cyan-500/50 text-neutral-900 dark:text-neutral-100 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-sm"
         >
-          <Sparkle className="w-4 h-4 text-cyan-400" />
+          <Sparkle className="w-4 h-4 text-amber-500 dark:text-cyan-400" />
           <span>Curated Archetypes</span>
         </a>
 
         <Link
           href="/animator"
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-fuchsia-950/40 hover:bg-fuchsia-900/60 border border-fuchsia-500/40 hover:border-fuchsia-400 text-fuchsia-200 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 hover:bg-amber-100 dark:hover:bg-amber-900/60 border border-amber-300 dark:border-amber-500/40 hover:border-amber-500 text-amber-900 dark:text-amber-200 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-sm"
         >
-          <Film className="w-4 h-4 text-fuchsia-400" />
+          <Film className="w-4 h-4 text-amber-600 dark:text-amber-400" />
           <span>Vector Animator</span>
         </Link>
 
         <Link
           href="/info"
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700/80 hover:border-emerald-500/50 text-neutral-100 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-md"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-emerald-50 dark:bg-neutral-900 hover:bg-emerald-100 dark:hover:bg-neutral-800 border border-emerald-300 dark:border-neutral-700/80 hover:border-emerald-500 text-emerald-900 dark:text-neutral-100 font-semibold text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-sm"
         >
-          <BookOpen className="w-4 h-4 text-emerald-400" />
+          <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
           <span>Guide &amp; Archetypes</span>
         </Link>
 
         <a
-          href="https://github.com/yuvraj-thakur-exe/readmeforge/archive/refs/heads/main.zip"
+          href="https://github.com/yuvraj-thakur-exe/MONOFORGE/archive/refs/heads/main.zip"
           download
-          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-neutral-800 hover:border-neutral-700 text-neutral-300 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none"
+          className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white dark:bg-neutral-900/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 text-neutral-700 dark:text-neutral-300 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-sm"
         >
-          <Download className="w-4 h-4 text-neutral-400" />
+          <Download className="w-4 h-4 text-neutral-500 dark:text-neutral-400" />
           <span>Download (.ZIP)</span>
         </a>
       </div>
 
       {/* DYNAMIC ANIMATED SHOWCASE & INTERACTIVE FRAME STUDIO */}
       <div className="max-w-5xl mx-auto text-left pt-4">
-        <div className="rounded-3xl border border-white/[0.1] bg-neutral-950/85 p-5 sm:p-6 shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-2xl space-y-4 relative overflow-hidden transition-all hover:border-white/[0.15]">
-          <div className="absolute -top-32 -right-32 w-72 h-72 bg-violet-600/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-32 -left-32 w-72 h-72 bg-cyan-600/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="rounded-3xl border border-neutral-200/90 dark:border-white/[0.1] bg-white dark:bg-neutral-950/85 p-5 sm:p-6 shadow-xl dark:shadow-[0_25px_60px_rgba(0,0,0,0.6)] backdrop-blur-2xl space-y-4 relative overflow-hidden transition-all hover:border-neutral-300 dark:hover:border-white/[0.15]">
+          <div className="absolute -top-32 -right-32 w-72 h-72 bg-amber-500/10 dark:bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-32 -left-32 w-72 h-72 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none" />
 
           {/* Top Showcase Navigation Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] pb-3">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-200 dark:border-white/[0.08] pb-3">
             <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-none py-0.5">
               <button
                 type="button"
@@ -480,11 +480,11 @@ export const HeroSection: React.FC = () => {
                 onClick={() => setShowcaseTab('customizer')}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 duration-200 select-none ${
                   showcaseTab === 'customizer'
-                    ? 'bg-violet-500/20 text-violet-300 border border-violet-500/50 shadow-md shadow-violet-950/50 scale-100'
+                    ? 'bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/50 shadow-md shadow-amber-950/20 scale-100'
                     : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 border border-transparent'
                 } active:scale-95`}
               >
-                <Sliders className="w-3.5 h-3.5 text-violet-400" />
+                <Sliders className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                 <span>Interactive Customizer</span>
               </button>
             </div>
@@ -715,7 +715,7 @@ export const HeroSection: React.FC = () => {
                   }
                   className={`px-2.5 py-1 rounded-lg font-mono text-[11px] transition-all flex items-center gap-1 border ${
                     playgroundConfig.backgroundEffect === 'grids'
-                      ? 'border-violet-500 bg-violet-950/50 text-violet-300 shadow-sm'
+                      ? 'border-amber-500 bg-amber-500/15 text-amber-700 dark:text-amber-300 shadow-sm'
                       : 'border-neutral-800 bg-neutral-900 text-neutral-400 hover:text-white'
                   }`}
                 >

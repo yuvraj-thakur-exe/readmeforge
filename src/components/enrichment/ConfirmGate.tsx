@@ -94,10 +94,10 @@ export const ConfirmGate: React.FC<ConfirmGateProps> = ({
   return (
     <div className="p-5 bg-neutral-900 border border-neutral-800 rounded-xl space-y-5 max-w-2xl mx-auto shadow-xl">
       {/* Header Guard Banner */}
-      <div className="flex items-start gap-3 p-3.5 bg-violet-950/40 border border-violet-800/60 rounded-lg">
-        <ShieldCheck className="w-5 h-5 text-violet-400 shrink-0 mt-0.5" />
+      <div className="flex items-start gap-3 p-3.5 bg-amber-500/10 border border-amber-500/20 rounded-lg">
+        <ShieldCheck className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
         <div>
-          <h3 className="text-sm font-semibold text-violet-200">
+          <h3 className="text-sm font-semibold text-amber-800 dark:text-amber-200">
             Explicit Confirmation Gate
           </h3>
           <p className="text-xs text-neutral-300 mt-0.5">
@@ -150,8 +150,8 @@ export const ConfirmGate: React.FC<ConfirmGateProps> = ({
                   </span>
                 </div>
 
-                <div className="p-2 bg-violet-950/20 rounded border border-violet-800/40">
-                  <span className="text-[10px] font-semibold uppercase text-violet-400 block mb-1 flex items-center gap-1">
+                <div className="p-2 bg-amber-500/10 rounded border border-amber-500/20">
+                  <span className="text-[10px] font-semibold uppercase text-amber-500 block mb-1 flex items-center gap-1">
                     <Sparkles className="w-3 h-3" /> Proposed Value (Editable)
                   </span>
                   <input
@@ -164,7 +164,7 @@ export const ConfirmGate: React.FC<ConfirmGateProps> = ({
                         [item.id]: e.target.value,
                       }))
                     }
-                    className="w-full bg-neutral-900 border border-neutral-700 rounded px-2 py-1 text-xs text-neutral-200 focus:outline-none focus:border-violet-500"
+                    className="w-full bg-neutral-900 border border-neutral-700 rounded px-2 py-1 text-xs text-neutral-200 focus:outline-none focus:border-amber-500"
                   />
                 </div>
               </div>
@@ -195,7 +195,7 @@ export const ConfirmGate: React.FC<ConfirmGateProps> = ({
             type="button"
             onClick={handleApply}
             disabled={selectedIds.size === 0}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-medium disabled:opacity-40 shadow-sm transition-all"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold disabled:opacity-40 shadow-sm transition-all"
           >
             <Check className="w-4 h-4" /> Apply {selectedIds.size} Selected Changes
           </button>

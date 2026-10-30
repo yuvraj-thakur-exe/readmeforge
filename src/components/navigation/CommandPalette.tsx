@@ -74,7 +74,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
         className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg border border-palette-line bg-palette-soft/50 hover:bg-palette-soft text-palette-contrast/70 text-xs transition-colors"
         title="Open Command Palette (Cmd+K)"
       >
-        <Sparkles className="w-3.5 h-3.5 text-violet-400" />
+        <Sparkles className="w-3.5 h-3.5 text-amber-500" />
         <span>Quick actions...</span>
         <kbd className="px-1.5 py-0.5 rounded bg-neutral-800 text-[10px] font-mono text-neutral-400 border border-neutral-700">
           ⌘K
@@ -107,7 +107,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                   router.push('/');
                   setOpen(false);
                 }}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-amber-500 text-neutral-950/30 hover:text-violet-200 cursor-pointer transition-colors"
               >
                 <Globe className="w-4 h-4 text-cyan-400" />
                 <span>Go to Home &amp; Archetypes</span>
@@ -137,7 +137,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
             <Command.Group heading="Export Actions" className="text-neutral-500 font-semibold px-2 py-1 uppercase text-[10px]">
               <Command.Item
                 onSelect={handleCopyMarkdown}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-amber-500 text-neutral-950/30 hover:text-violet-200 cursor-pointer transition-colors"
               >
                 <Copy className="w-4 h-4 text-emerald-400" />
                 <span>Copy README Markdown</span>
@@ -148,7 +148,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                     onOpenImport();
                     setOpen(false);
                   }}
-                  className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-amber-500 text-neutral-950/30 hover:text-violet-200 cursor-pointer transition-colors"
                 >
                   <FileUp className="w-4 h-4 text-emerald-400" />
                   <span>Import Existing README</span>
@@ -156,7 +156,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
               )}
               <Command.Item
                 onSelect={handleDownloadMarkdown}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-amber-500 text-neutral-950/30 hover:text-violet-200 cursor-pointer transition-colors"
               >
                 <Download className="w-4 h-4 text-blue-400" />
                 <span>Download README.md</span>
@@ -169,9 +169,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                   setTheme('dark');
                   setOpen(false);
                 }}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-amber-500 text-neutral-950/30 hover:text-violet-200 cursor-pointer transition-colors"
               >
-                <Moon className="w-4 h-4 text-violet-400" />
+                <Moon className="w-4 h-4 text-amber-500" />
                 <span>Set Theme to Dark</span>
               </Command.Item>
               <Command.Item
@@ -179,7 +179,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                   setTheme('light');
                   setOpen(false);
                 }}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-amber-500 text-neutral-950/30 hover:text-violet-200 cursor-pointer transition-colors"
               >
                 <Sun className="w-4 h-4 text-amber-400" />
                 <span>Set Theme to Light</span>
@@ -189,7 +189,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({ onOpenImport }) 
                   setTheme('system');
                   setOpen(false);
                 }}
-                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-violet-600/30 hover:text-violet-200 cursor-pointer transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-md text-neutral-200 hover:bg-amber-500 text-neutral-950/30 hover:text-violet-200 cursor-pointer transition-colors"
               >
                 <Laptop className="w-4 h-4 text-neutral-400" />
                 <span>Set Theme to System</span>

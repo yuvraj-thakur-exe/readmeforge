@@ -31,7 +31,7 @@ describe('API Route: /api/telemetry/svg', () => {
 
     expect(res.status).toBe(200);
     const text = await res.text();
-    expect(text).toContain('readmeforge@neo');
+    expect(text).toContain('monoforge@neo');
   });
 });
 

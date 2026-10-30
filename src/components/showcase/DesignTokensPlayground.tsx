@@ -22,7 +22,7 @@ const COLOR_TOKENS: ColorToken[] = [
   { id: 'amber', name: 'Solar Amber', hex: '#f59e0b', accentClass: 'from-amber-500/20 to-amber-600/10' },
   { id: 'emerald', name: 'Matrix Emerald', hex: '#10b981', accentClass: 'from-emerald-500/20 to-emerald-600/10' },
   { id: 'cyan', name: 'Cyber Cyan', hex: '#06b6d4', accentClass: 'from-cyan-500/20 to-cyan-600/10' },
-  { id: 'purple', name: 'Neon Violet', hex: '#8b5cf6', accentClass: 'from-purple-500/20 to-purple-600/10' },
+  { id: 'orange', name: 'Tangerine Neon', hex: '#f97316', accentClass: 'from-orange-500/20 to-orange-600/10' },
   { id: 'slate', name: 'Obsidian Carbon', hex: '#38bdf8', accentClass: 'from-sky-500/20 to-sky-600/10' },
 ];
 
@@ -51,15 +51,15 @@ export function DesignTokensPlayground() {
   // Derived Markdown for token preview
   const previewMarkdown = useMemo(() => {
     const hexClean = selectedColor.hex.replace('#', '');
-    return `<!-- ReadmeForge Profile Tokens: ${selectedColor.name} &bull; ${badgeStyle} -->
+    return `<!-- MonoForge Profile Tokens: ${selectedColor.name} &bull; ${badgeStyle} -->
 <div align="center">
   <img src="https://img.shields.io/badge/Architecture-Clean-10B981?style=${badgeStyle}&logo=github" alt="Clean Arch" />
   <img src="https://img.shields.io/badge/Telemetry-47+_Plugins-${hexClean}?style=${badgeStyle}&logo=githubactions&logoColor=white" alt="Telemetry" />
-  <img src="https://img.shields.io/badge/Engine-ReadmeForge-090d16?style=${badgeStyle}&logo=typescript&logoColor=white" alt="Engine" />
+  <img src="https://img.shields.io/badge/Engine-MonoForge-090d16?style=${badgeStyle}&logo=typescript&logoColor=white" alt="Engine" />
 </div>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main${selectedMascot.asset}" alt="${selectedMascot.label}" width="100%" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main${selectedMascot.asset}" alt="${selectedMascot.label}" width="100%" />
 </p>`;
   }, [selectedColor, badgeStyle, selectedMascot]);
 
@@ -83,15 +83,15 @@ export function DesignTokensPlayground() {
       {/* Editorial Header (Marco Madonna craft) */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-amber-400 font-semibold uppercase tracking-wider">
+          <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-amber-600 dark:text-amber-400 font-semibold uppercase tracking-wider">
             <span>[03 // DESIGN TOKENS PLAYGROUND]</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400" />
             <span className="text-neutral-500">INSPIRED BY MARCO MADONNA</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-100">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
             Interactive Tokens &amp; Theme Engine
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl mt-1">
+          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 max-w-2xl mt-1">
             Fine-tune your personal brand tokens in real time. Switch color accents, badge archetypes, mascots, and laser perimeter borders.
           </p>
         </div>
@@ -100,9 +100,9 @@ export function DesignTokensPlayground() {
         <button
           type="button"
           onClick={handleApplyToStore}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl border border-neutral-700 bg-neutral-900 text-neutral-200 text-xs font-semibold hover:border-neutral-600 transition-colors self-start md:self-auto"
+          className="flex items-center gap-2 px-4 py-2 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 text-xs font-semibold hover:bg-neutral-200 dark:hover:border-neutral-600 transition-colors self-start md:self-auto shadow-sm"
         >
-          <Layers className="w-3.5 h-3.5 text-amber-400" />
+          <Layers className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
           <span>Apply to Active Profile</span>
         </button>
       </div>
@@ -112,13 +112,13 @@ export function DesignTokensPlayground() {
         {/* LEFT: Token Controls (5 cols) */}
         <div className="lg:col-span-5 space-y-4">
           {/* 1. Primary Accent Color Swatches */}
-          <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 space-y-2.5">
-            <div className="flex items-center justify-between text-xs font-mono font-semibold text-neutral-300">
+          <div className="p-4 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 space-y-2.5 shadow-sm">
+            <div className="flex items-center justify-between text-xs font-mono font-semibold text-neutral-700 dark:text-neutral-300">
               <span className="flex items-center gap-1.5">
-                <Palette className="w-3.5 h-3.5 text-amber-400" />
+                <Palette className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                 ACCENT COLOR TOKEN
               </span>
-              <span className="text-neutral-400">{selectedColor.hex}</span>
+              <span className="text-neutral-500 dark:text-neutral-400">{selectedColor.hex}</span>
             </div>
             <div className="grid grid-cols-5 gap-2">
               {COLOR_TOKENS.map(col => {

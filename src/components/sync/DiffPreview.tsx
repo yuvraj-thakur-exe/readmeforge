@@ -26,7 +26,7 @@ export const DiffPreview: React.FC<DiffPreviewProps> = ({
   const [isPushing, setIsPushing] = useState<boolean>(false);
   const [selectedFile, setSelectedFile] = useState<string>('README.md');
   const [commitMessage, setCommitMessage] = useState<string>(
-    'docs: update profile README via ReadmeForge'
+    'docs: update profile README via MonoForge'
   );
 
   const workflowEntries = useMemo(() => Object.entries(workflows || {}), [workflows]);

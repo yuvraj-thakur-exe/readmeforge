@@ -44,7 +44,7 @@ export const LandingDetails: React.FC = () => {
 
   const featureCards = [
     {
-      icon: <Layers className="w-5 h-5 text-violet-400" />,
+      icon: <Layers className="w-5 h-5 text-amber-500 dark:text-amber-400" />,
       title: t('features.wizardTitle'),
       description: t('features.wizardDesc'),
       badge: 'Visual Builder',
@@ -104,7 +104,7 @@ export const LandingDetails: React.FC = () => {
 
   const safeguards = [
     {
-      icon: <Lock className="w-5 h-5 text-violet-400" />,
+      icon: <Lock className="w-5 h-5 text-amber-500 dark:text-amber-400" />,
       title: t('safeguards.confirmGateTitle'),
       description: t('safeguards.confirmGateDesc'),
     },
@@ -139,7 +139,7 @@ export const LandingDetails: React.FC = () => {
       <section className="space-y-6">
         <FadeIn direction="up">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-950/60 border border-violet-800/80 text-violet-300 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-300 text-xs font-semibold">
               <Eye className="w-3.5 h-3.5 text-cyan-400" />
               <span>{t('preview.badge')}</span>
             </div>
@@ -172,7 +172,7 @@ export const LandingDetails: React.FC = () => {
                   onClick={() => setPreviewTab('preview')}
                   className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
                     previewTab === 'preview'
-                      ? 'bg-violet-600 text-white shadow-sm'
+                      ? 'bg-amber-500 text-neutral-950 text-white shadow-sm'
                       : 'text-neutral-400 hover:text-neutral-200'
                   }`}
                 >
@@ -183,7 +183,7 @@ export const LandingDetails: React.FC = () => {
                   onClick={() => setPreviewTab('markdown')}
                   className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
                     previewTab === 'markdown'
-                      ? 'bg-violet-600 text-white shadow-sm'
+                      ? 'bg-amber-500 text-neutral-950 text-white shadow-sm'
                       : 'text-neutral-400 hover:text-neutral-200'
                   }`}
                 >
@@ -196,10 +196,10 @@ export const LandingDetails: React.FC = () => {
             {previewTab === 'preview' ? (
               <div className="p-6 md:p-8 space-y-6 bg-gradient-to-b from-neutral-950 via-neutral-900/50 to-neutral-950">
                 {/* Simulated Header Banner with Animated Cyber-Grid Overlay */}
-                <div className="relative rounded-xl overflow-hidden h-36 sm:h-44 border border-violet-500/30 flex items-center justify-between px-6 bg-gradient-to-r from-violet-950/40 via-neutral-950 to-cyan-950/30">
+                <div className="relative rounded-xl overflow-hidden h-36 sm:h-44 border border-amber-500/20 flex items-center justify-between px-6 bg-gradient-to-r from-violet-950/40 via-neutral-950 to-cyan-950/30">
                   <img
                     src="/assets/hero-animated.webp"
-                    alt="ReadmeForge Animated Showcase"
+                    alt="MonoForge Animated Showcase"
                     className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-neutral-950/95 via-neutral-950/70 to-transparent pointer-events-none" />
@@ -208,7 +208,7 @@ export const LandingDetails: React.FC = () => {
                       Full-Stack &bull; AI Agent Architect
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                      Demo Developer <span className="text-violet-400 font-mono">(@developer-preview)</span>
+                      Demo Developer <span className="text-amber-500 dark:text-amber-400 font-mono">(@developer-preview)</span>
                     </h3>
                     <p className="text-xs text-neutral-300 max-w-[480px]">
                       Building next-generation intelligent developer tools and distributed web platforms.
@@ -226,7 +226,7 @@ export const LandingDetails: React.FC = () => {
                   {/* Left Column Profile Card */}
                   <div className="p-4 rounded-xl bg-neutral-900/70 border border-neutral-800/80 space-y-4">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-violet-500 to-cyan-400 p-0.5">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-amber-500 to-amber-400 p-0.5">
                         <div className="w-full h-full rounded-full bg-neutral-950 flex items-center justify-center font-bold text-white text-sm">
                           DV
                         </div>
@@ -238,14 +238,14 @@ export const LandingDetails: React.FC = () => {
                     </div>
 
                     <div className="space-y-2 pt-2 border-t border-neutral-800 text-neutral-300">
-                      <div><span className="text-violet-400 font-semibold">Working on:</span> Autonomous dev agents</div>
+                      <div><span className="text-amber-500 dark:text-amber-400 font-semibold">Working on:</span> Autonomous dev agents</div>
                       <div><span className="text-emerald-400 font-semibold">Mastering:</span> Distributed web &amp; WebAssembly</div>
                       <div><span className="text-cyan-400 font-semibold">Ask me about:</span> React, TypeScript, Cloud</div>
                       <div><span className="text-amber-400 font-semibold">Philosophy:</span> The best code is the code never written</div>
                     </div>
 
                     <div className="pt-2 border-t border-neutral-800 flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-violet-950 text-violet-300 border border-violet-800 text-[10px]">
+                      <span className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/20 text-[10px]">
                         TypeScript
                       </span>
                       <span className="px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 text-[10px]">
@@ -285,7 +285,7 @@ export const LandingDetails: React.FC = () => {
                       </div>
                       <div className="p-3.5 rounded-xl bg-neutral-900/70 border border-neutral-800/80 space-y-1.5">
                         <span className="text-[11px] text-neutral-400 font-mono block">Contribution Streak</span>
-                        <div className="text-xl font-extrabold text-violet-400">42 Days Active</div>
+                        <div className="text-xl font-extrabold text-amber-500 dark:text-amber-400">42 Days Active</div>
                         <div className="text-[10px] text-neutral-500">Longest: 118 Days &bull; Steady Rhythm</div>
                       </div>
                     </div>
@@ -365,7 +365,7 @@ export const LandingDetails: React.FC = () => {
                         {[
                           { title: 'Commits', rank: 'SSS', icon: <Award className="w-4 h-4 mx-auto text-amber-300" />, color: 'from-amber-500/20 to-yellow-600/10 border-amber-500/40 text-amber-300' },
                           { title: 'Stars', rank: 'S', icon: <Star className="w-4 h-4 mx-auto text-cyan-300" />, color: 'from-cyan-500/20 to-blue-600/10 border-cyan-500/40 text-cyan-300' },
-                          { title: 'Repos', rank: 'A+', icon: <GitFork className="w-4 h-4 mx-auto text-violet-300" />, color: 'from-violet-500/20 to-purple-600/10 border-violet-500/40 text-violet-300' },
+                          { title: 'Repos', rank: 'A+', icon: <GitFork className="w-4 h-4 mx-auto text-amber-600 dark:text-amber-300" />, color: 'from-amber-500/15 to-amber-600/5 border-amber-500/30 text-amber-600 dark:text-amber-300' },
                           { title: 'Followers', rank: 'S', icon: <Users className="w-4 h-4 mx-auto text-emerald-300" />, color: 'from-emerald-500/20 to-teal-600/10 border-emerald-500/40 text-emerald-300' },
                           { title: 'PRs', rank: 'SSS', icon: <GitPullRequest className="w-4 h-4 mx-auto text-fuchsia-300" />, color: 'from-fuchsia-500/20 to-pink-600/10 border-fuchsia-500/40 text-fuchsia-300' },
                           { title: 'Issues', rank: 'A', icon: <Target className="w-4 h-4 mx-auto text-rose-300" />, color: 'from-rose-500/20 to-red-600/10 border-rose-500/40 text-rose-300' },
@@ -485,7 +485,7 @@ export const LandingDetails: React.FC = () => {
         <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {featureCards.map((card, idx) => (
             <StaggerItem key={idx}>
-              <div className="h-full p-6 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800/80 hover:border-violet-500/50 transition-all flex flex-col justify-between group shadow-sm hover:shadow-xl">
+              <div className="h-full p-6 rounded-2xl bg-neutral-900/60 hover:bg-neutral-900 border border-neutral-800/80 hover:border-amber-500/40 transition-all flex flex-col justify-between group shadow-sm hover:shadow-xl">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="p-2.5 rounded-xl bg-neutral-950 border border-neutral-800/80 group-hover:scale-110 transition-transform">
@@ -495,7 +495,7 @@ export const LandingDetails: React.FC = () => {
                       {card.badge}
                     </span>
                   </div>
-                  <h3 className="text-base font-bold text-neutral-100 group-hover:text-violet-300 transition-colors">
+                  <h3 className="text-base font-bold text-neutral-100 group-hover:text-amber-600 dark:text-amber-300 transition-colors">
                     {card.title}
                   </h3>
                   <p className="text-xs text-neutral-400 leading-relaxed">
@@ -512,7 +512,7 @@ export const LandingDetails: React.FC = () => {
       <section className="space-y-8">
         <FadeIn direction="up">
           <div className="text-center space-y-2 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-950/60 border border-violet-800/80 text-violet-300 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-300 text-xs font-semibold">
               <Code2 className="w-3.5 h-3.5 text-cyan-400" />
               <span>{t('workflow.badge')}</span>
             </div>
@@ -530,7 +530,7 @@ export const LandingDetails: React.FC = () => {
             <FadeIn key={idx} delay={idx * 0.1} direction="up">
               <div className="relative p-6 rounded-2xl bg-neutral-900/70 border border-neutral-800 space-y-4 h-full flex flex-col justify-between">
                 <div className="space-y-3">
-                  <span className="text-4xl font-extrabold font-mono bg-gradient-to-r from-violet-500 to-cyan-400 bg-clip-text text-transparent">
+                  <span className="text-4xl font-extrabold font-mono bg-gradient-to-r from-amber-500 to-amber-400 bg-clip-text text-transparent">
                     {step.number}
                   </span>
                   <h3 className="text-lg font-bold text-neutral-100">
@@ -587,9 +587,9 @@ export const LandingDetails: React.FC = () => {
       </section>
 
       {/* 5. Profile Wizard Callout */}
-      <section className="relative overflow-hidden p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-violet-950/50 via-neutral-900 to-cyan-950/40 border border-violet-800/50 flex flex-col md:flex-row items-center justify-between gap-6">
+      <section className="relative overflow-hidden p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-violet-950/50 via-neutral-900 to-cyan-950/40 border border-amber-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-3 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-900/50 border border-violet-700/60 text-violet-300 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-300 text-xs font-semibold">
             <Layers className="w-3.5 h-3.5 text-cyan-400" />
             <span>Interactive Profile Studio</span>
           </div>
@@ -604,7 +604,7 @@ export const LandingDetails: React.FC = () => {
         <div className="flex-shrink-0">
           <Link
             href="/info"
-            className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-semibold shadow-lg shadow-violet-900/30 transition-all hover:scale-105 active:scale-95"
+            className="flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-white font-semibold shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95"
           >
             <BookOpen className="w-4 h-4 text-emerald-300" />
             <span>Explore Developer Guide</span>
@@ -642,7 +642,7 @@ export const LandingDetails: React.FC = () => {
                   <span>{faq.q}</span>
                   <ChevronDown
                     className={`w-4 h-4 text-neutral-400 transition-transform ${
-                      isOpen ? 'rotate-180 text-violet-400' : ''
+                      isOpen ? 'rotate-180 text-amber-500 dark:text-amber-400' : ''
                     }`}
                   />
                 </button>

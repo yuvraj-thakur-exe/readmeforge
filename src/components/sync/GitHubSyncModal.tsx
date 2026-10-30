@@ -172,7 +172,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-xs font-medium transition-colors"
+                  className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs font-medium transition-colors"
                 >
                   Done
                 </button>
@@ -192,7 +192,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
                     value={repoInput}
                     onChange={e => setRepoInput(e.target.value)}
                     placeholder="username/username"
-                    className="w-full px-2.5 py-1.5 bg-neutral-900 border border-neutral-700 rounded text-xs text-neutral-200 focus:outline-none focus:border-violet-500"
+                    className="w-full px-2.5 py-1.5 bg-neutral-900 border border-neutral-700 rounded text-xs text-neutral-200 focus:outline-none focus:border-amber-500"
                   />
                 </div>
                 <div>
@@ -204,7 +204,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
                       href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=ReadmeForge%20Sync"
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[10px] text-violet-400 hover:underline"
+                      className="text-[10px] text-amber-500 hover:underline"
                     >
                       Generate token
                     </a>
@@ -215,7 +215,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
                     value={token}
                     onChange={handleTokenChange}
                     placeholder="ghp_••••••••••••••••••••"
-                    className="w-full px-2.5 py-1.5 bg-neutral-900 border border-neutral-700 rounded text-xs text-neutral-200 focus:outline-none focus:border-violet-500 font-mono"
+                    className="w-full px-2.5 py-1.5 bg-neutral-900 border border-neutral-700 rounded text-xs text-neutral-200 focus:outline-none focus:border-amber-500 font-mono"
                   />
                   <p className="mt-1 text-[10px] text-neutral-500 leading-tight">
                     In-memory only. Never written to storage, URLs, or external servers.
@@ -226,7 +226,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
               {/* Status and Errors */}
               {isLoadingRemote && (
                 <div className="flex items-center gap-2 p-2.5 bg-neutral-950 border border-neutral-800 rounded text-neutral-400 text-xs">
-                  <Loader2 className="w-3.5 h-3.5 animate-spin text-violet-400" />
+                  <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-500" />
                   <span>Fetching latest README from remote GitHub repository...</span>
                 </div>
               )}
@@ -250,7 +250,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
                   type="button"
                   onClick={() => fetchRemote(repoInput, token)}
                   disabled={isLoadingRemote}
-                  className="flex items-center gap-1 text-violet-400 hover:text-violet-300 text-xs"
+                  className="flex items-center gap-1 text-amber-500 hover:text-amber-400 text-xs"
                 >
                   <RefreshCw className={`w-3 h-3 ${isLoadingRemote ? 'animate-spin' : ''}`} /> Refresh remote
                 </button>
@@ -267,7 +267,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
               />
 
               {isPushing && (
-                <div className="flex items-center justify-center gap-2 py-2 text-violet-400 text-xs font-medium">
+                <div className="flex items-center justify-center gap-2 py-2 text-amber-500 text-xs font-medium">
                   <Loader2 className="w-4 h-4 animate-spin" />
                   <span>Authenticating and committing to GitHub...</span>
                 </div>

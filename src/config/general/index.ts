@@ -43,7 +43,7 @@ const general = {
 
       socials: {
         iconBaseUrl:
-          'https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/icons/social',
+          'https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/icons/social',
         badgeBaseUrl: 'https://img.shields.io/static/v1',
       },
 

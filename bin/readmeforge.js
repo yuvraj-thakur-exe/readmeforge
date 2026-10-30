@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * ReadmeForge CLI & AI Agent Skill Tool
+ * MonoForge CLI & AI Agent Skill Tool
  * Autonomous GitHub profile README generator, archetype renderer, and MCP server.
  * Zero external dependencies — runs anywhere with Node.js 18+.
  */
@@ -26,7 +26,7 @@ export const ARCHETYPES = [
       const name = u.name || 'Alex Rivers';
       const role = u.role || 'Frontend & Full-Stack Systems Engineer';
       return `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/wow-profile-full.svg" width="100%" alt="#1 Wow Profile 3D City & Peeking Cat" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/wow-profile-full.svg" width="100%" alt="#1 Wow Profile 3D City & Peeking Cat" />
 </div>
 
 <br/>
@@ -73,7 +73,7 @@ export const ARCHETYPES = [
     generator: (u) => {
       const user = u.username || 'octocat';
       return `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/bento-dashboard-full.svg" width="100%" alt="#5 Signal Dashboard Bento Grid" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/bento-dashboard-full.svg" width="100%" alt="#5 Signal Dashboard Bento Grid" />
 </div>
 
 <br/>
@@ -100,7 +100,7 @@ export const ARCHETYPES = [
   },
   {
     id: 'forge-telemetry-dashboard',
-    name: 'ReadmeForge Telemetry Dashboard',
+    name: 'MonoForge Telemetry Dashboard',
     category: 'Popular',
     accent: '#10b981',
     description: 'Native telemetry dashboard with PageSpeed scores, 3D contribution calendar, commit activity graphs, and tech icons.',
@@ -178,7 +178,7 @@ export const ARCHETYPES = [
       </a>
     </td>
     <td valign="top" width="35%" align="center">
-      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/owl-confetti.svg" alt="Owl Mascot" width="260" />
+      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/owl-confetti.svg" alt="Owl Mascot" width="260" />
     </td>
   </tr>
 </table>
@@ -236,7 +236,7 @@ export const ARCHETYPES = [
       </a>
     </td>
     <td valign="top" width="35%" align="center">
-      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/coding-unicorn.svg" alt="Coding Unicorn" width="260" />
+      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/coding-unicorn.svg" alt="Coding Unicorn" width="260" />
     </td>
   </tr>
 </table>
@@ -288,7 +288,7 @@ export const ARCHETYPES = [
       </a>
     </td>
     <td valign="top" width="35%" align="center">
-      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/developer-desk.svg" alt="Dev at Desk" width="260" />
+      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/developer-desk.svg" alt="Dev at Desk" width="260" />
     </td>
   </tr>
 </table>
@@ -1467,7 +1467,7 @@ export function generateProfile(options) {
     ARCHETYPES.find((a) => a.id === archetypeId || (archetypeId === 'metrics-telemetry-dashboard' && a.id === 'forge-telemetry-dashboard')) ||
     ARCHETYPES[0];
   const body = archetype.generator(options);
-  const footer = `\n---\n<p align="center">\n  <sub>⚡ Powered by <a href="https://readmeforge.dev"><b>ReadmeForge</b></a> — Forge a GitHub profile that gets noticed.</sub>\n</p>`;
+  const footer = `\n---\n<p align="center">\n  <sub>⚡ Powered by <a href="https://monoforge.dev"><b>MonoForge</b></a> — Forge a GitHub profile that gets noticed.</sub>\n</p>`;
   return body + footer;
 }
 
@@ -1504,19 +1504,19 @@ function parseArgs(args) {
 // Help message
 function showHelp() {
   console.log(`
-ReadmeForge — Forge a GitHub profile that gets noticed.
+MonoForge — Forge a GitHub profile that gets noticed.
 Autonomous Profile Generator, AI Agent Skill, and MCP Server.
 
 USAGE:
-  npx readmeforge generate --username <handle> [options]
-  npx readmeforge list
-  npx readmeforge skill-install [--target <dir>]
-  npx readmeforge mcp
+  npx monoforge generate --username <handle> [options]
+  npx monoforge list
+  npx monoforge skill-install [--target <dir>]
+  npx monoforge mcp
 
 COMMANDS:
   generate          Forge a complete GitHub profile README.md
   list              List all available visual archetypes
-  skill-install     Install ReadmeForge as an AI Agent Skill (.agents/skills/readmeforge/)
+  skill-install     Install MonoForge as an AI Agent Skill (.agents/skills/monoforge/)
   mcp               Start Model Context Protocol (MCP) stdio server for AI agents
 
 OPTIONS:
@@ -1529,27 +1529,27 @@ OPTIONS:
 
 EXAMPLES:
   # 1-Liner: Generate #1 Wow Profile for your GitHub username
-  npx readmeforge generate --username octocat --archetype wow-3d-city-cat
+  npx monoforge generate --username octocat --archetype wow-3d-city-cat
 
   # Generate Bento Signal Dashboard
-  npx readmeforge generate --username octocat --archetype bento-signal-dashboard
+  npx monoforge generate --username octocat --archetype bento-signal-dashboard
 
   # Install AI Agent Skill into current workspace
-  npx readmeforge skill-install
+  npx monoforge skill-install
 `);
 }
 
 // Install agent skill files into target project
 function installAgentSkill(targetDir = '.') {
-  const destDir = path.resolve(targetDir, '.agents/skills/readmeforge');
+  const destDir = path.resolve(targetDir, '.agents/skills/monoforge');
   fs.mkdirSync(destDir, { recursive: true });
 
   const skillContent = `---
-name: readmeforge
+name: monoforge
 description: AI Agent skill for generating, customizing, and validating high-impact, Camo-compliant GitHub profile READMEs with 18+ visual archetypes, animated vector SVGs, 3D contribution cities, and telemetry bento widgets.
 ---
 
-# ReadmeForge Agent Skill
+# MonoForge Agent Skill
 
 Use this skill whenever asked to create, revamp, or forge a developer's GitHub profile README.md.
 
@@ -1565,12 +1565,12 @@ Use this skill whenever asked to create, revamp, or forge a developer's GitHub p
 
 ## CLI Execution
 \`\`\`bash
-npx readmeforge generate --username <github-username> --archetype <archetype-id>
+npx monoforge generate --username <github-username> --archetype <archetype-id>
 \`\`\`
 `;
 
   fs.writeFileSync(path.join(destDir, 'SKILL.md'), skillContent, 'utf8');
-  console.log(`✅ ReadmeForge AI Agent Skill installed to ${destDir}/SKILL.md`);
+  console.log(`✅ MonoForge AI Agent Skill installed to ${destDir}/SKILL.md`);
 }
 
 // Model Context Protocol (MCP) stdio JSON-RPC 2.0 Server
@@ -1608,7 +1608,7 @@ function startMcpServer() {
         result: {
           protocolVersion: '2024-11-05',
           capabilities: { tools: {} },
-          serverInfo: { name: 'readmeforge-mcp', version: '1.0.0' },
+          serverInfo: { name: 'monoforge-mcp', version: '1.0.0' },
         },
       });
       return;
@@ -1639,7 +1639,7 @@ function startMcpServer() {
             },
             {
               name: 'list_archetypes',
-              description: 'List all available ReadmeForge visual archetypes with descriptions and styles.',
+              description: 'List all available MonoForge visual archetypes with descriptions and styles.',
               inputSchema: { type: 'object', properties: {} },
             },
           ],
@@ -1697,7 +1697,7 @@ async function main() {
   }
 
   if (command === 'list') {
-    console.log('\n📦 ReadmeForge Visual Archetypes Catalog:\n');
+    console.log('\n📦 MonoForge Visual Archetypes Catalog:\n');
     console.log(
       'ID'.padEnd(30) +
         'CATEGORY'.padEnd(14) +
@@ -1713,7 +1713,7 @@ async function main() {
           a.name
       );
     }
-    console.log('\nRun "npx readmeforge generate --archetype <id>" to forge any archetype!\n');
+    console.log('\nRun "npx monoforge generate --archetype <id>" to forge any archetype!\n');
     return;
   }
 
@@ -1750,6 +1750,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error('ReadmeForge CLI Error:', err);
+  console.error('MonoForge CLI Error:', err);
   process.exit(1);
 });

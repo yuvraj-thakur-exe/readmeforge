@@ -1,13 +1,13 @@
 {
-  "name": "readmeforge",
+  "name": "monoforge",
   "displayName": "MonoForge",
   "description": "Zero Monkey Business. Pure Precision Engineering. Forge an elite GitHub profile.",
   "version": "1.0.0",
   "license": "MIT",
-  "author": "ReadmeForge Contributors",
+  "author": "MonoForge Contributors",
   "type": "module",
   "keywords": [
-    "readmeforge",
+    "monoforge",
     "profile-readme",
     "profile-readme-generator",
     "github-readme-generator",
@@ -26,8 +26,9 @@
   "bugs": {
     "url": "https://github.com/yuvraj-thakur-exe/MONOFORGE/issues"
   },
-  "homepage": "https://readmeforge.dev",
+  "homepage": "https://github.com/yuvraj-thakur-exe/MONOFORGE",
   "bin": {
+    "monoforge": "./bin/monoforge.js",
     "readmeforge": "./bin/readmeforge.js"
   },
   "private": true,

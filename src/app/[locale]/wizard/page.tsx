@@ -25,7 +25,7 @@ function WizardContent() {
               onClick={() => setStudioMode('canvas')}
               className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 studioMode === 'canvas'
-                  ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-md'
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-bold shadow-md'
                   : 'text-neutral-400 hover:text-neutral-200'
               }`}
             >
@@ -37,7 +37,7 @@ function WizardContent() {
               onClick={() => setStudioMode('guided')}
               className={`flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold transition-all ${
                 studioMode === 'guided'
-                  ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-md'
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-bold shadow-md'
                   : 'text-neutral-400 hover:text-neutral-200'
               }`}
             >

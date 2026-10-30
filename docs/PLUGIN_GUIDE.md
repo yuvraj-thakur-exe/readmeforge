@@ -1,6 +1,6 @@
-# Plugin Authoring Guide — ReadmeForge
+# Plugin Authoring Guide — MonoForge
 
-Welcome! ReadmeForge features a modular, zero-friction plugin ecosystem. Adding a new widget or community badge integration never requires touching the core builder or `/developer` IDE.
+Welcome! MonoForge features a modular, zero-friction plugin ecosystem. Adding a new widget or community badge integration never requires touching the core builder or `/developer` IDE.
 
 ---
 

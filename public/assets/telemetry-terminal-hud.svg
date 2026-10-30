@@ -27,19 +27,19 @@
   <circle cx="64" cy="20" r="6" fill="#2ea043" />
 
   <text x="400" y="24" fill="#8b949e" font-size="12" font-weight="600" text-anchor="middle" class="font-mono">
-    readmeforge@octocat: ~ (telemetry-hud)
+    monoforge@octocat: ~ (telemetry-hud)
   </text>
 
   <rect x="2" y="40" width="796" height="316" fill="url(#scanlines)" pointer-events="none" />
 
   <g transform="translate(28, 72)" class="font-mono">
     <text x="0" y="0" font-size="13">
-      <tspan fill="#34d399">developer@readmeforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ readmeforge telemetry --user octocat --deep</tspan>
+      <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ monoforge telemetry --user octocat --deep</tspan>
     </text>
 
     <g transform="translate(0, 24)">
       <text x="0" y="0" fill="#fbbf24" font-size="12">[SYSTEM DIAGNOSTICS &amp; ENGINE STATS]</text>
-      <text x="0" y="20" fill="#8b949e" font-size="12">Kernel ........ ReadmeForge Telemetry Engine v3.35.0 (x86_64-linux)</text>
+      <text x="0" y="20" fill="#8b949e" font-size="12">Kernel ........ MonoForge Telemetry Engine v3.35.0 (x86_64-linux)</text>
       <text x="0" y="40" fill="#8b949e" font-size="12">Repository .... octocat/octocat</text>
       <text x="0" y="60" fill="#8b949e" font-size="12">Active Streak . 42 consecutive solar days [STATUS: GREEN]</text>
       <text x="0" y="80" fill="#8b949e" font-size="12">Velocity ...... 94.2 commits / month</text>
@@ -66,7 +66,7 @@
 
     <g transform="translate(0, 240)">
       <text x="0" y="0" font-size="13">
-        <tspan fill="#34d399">developer@readmeforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ </tspan>
+        <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ </tspan>
       </text>
       <rect x="235" y="-12" width="8" height="15" fill="#34d399" class="cursor-blink" />
     </g>

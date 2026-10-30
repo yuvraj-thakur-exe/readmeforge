@@ -1,6 +1,17 @@
 <div align="center" id="top">
 
-  <!-- MonoForge Official Geometric Monkey Logo -->
+  <!-- MonoForge Official Geometric Monkey Emblem (Uploaded Identity) -->
+  <a href="https://github.com/yuvraj-thakur-exe/MONOFORGE">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monoforge-monkey-icon.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monoforge-monkey-icon.svg">
+      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monoforge-monkey-icon.svg" width="130" height="130" alt="MonoForge Geometric Monkey Emblem" />
+    </picture>
+  </a>
+
+  <br />
+
+  <!-- MonoForge Official Brandmark -->
   <a href="https://github.com/yuvraj-thakur-exe/MONOFORGE">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/logo-dark.svg">
@@ -241,7 +252,7 @@ jobs:
       - name: Generate MonoForge Telemetry
         uses: yuvraj-thakur-exe/MONOFORGE@main
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
+          token: ${{ secrets.TELEMETRY_TOKEN }}
           user: ${{ github.repository_owner }}
           template: classic
           base: header, activity, community, repositories, metadata
@@ -345,7 +356,7 @@ For power users who prefer raw code over drag-and-drop:
 ```bash
 # 1. Clone repository
 git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git
-cd readmeforge
+cd MONOFORGE
 
 # 2. Install dependencies
 pnpm install

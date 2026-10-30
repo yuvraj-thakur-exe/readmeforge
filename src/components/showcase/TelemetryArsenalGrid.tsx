@@ -57,15 +57,15 @@ export function TelemetryArsenalGrid() {
       {/* Editorial Header (Poulo style) */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-amber-400 font-semibold uppercase tracking-wider">
+          <div className="flex items-center gap-2 mb-1.5 font-mono text-xs text-amber-600 dark:text-amber-400 font-semibold uppercase tracking-wider">
             <span>[04 // TELEMETRY ARSENAL ENCYCLOPEDIA]</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 dark:bg-amber-400" />
             <span className="text-neutral-500">47+ SELF-HOSTED PLUGINS</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-100">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
             Scraped &amp; Native Plugin Catalog
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl mt-1">
+          <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 max-w-2xl mt-1">
             Every infographic module extracted, typed, and rendered natively. Zero external proxies or servers.
           </p>
         </div>
@@ -81,21 +81,21 @@ export function TelemetryArsenalGrid() {
 
       {/* Standalone Vector Asset Showcase Carousel */}
       <div className="space-y-2">
-        <span className="text-xs font-mono font-semibold text-neutral-400 flex items-center gap-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+        <span className="text-xs font-mono font-semibold text-neutral-600 dark:text-neutral-400 flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
           Featured Standalone Vector Infographics (Zero Actions &bull; 100% Camo Safe)
         </span>
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
           {STANDALONE_PREVIEWS.map(item => (
             <div
               key={item.id}
-              className="group p-2.5 rounded-xl border border-neutral-800 bg-neutral-900/60 hover:border-amber-500/50 hover:bg-neutral-900 transition-all flex flex-col justify-between"
+              className="group p-2.5 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 hover:border-amber-400 dark:hover:border-amber-500/50 hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-all flex flex-col justify-between shadow-sm"
             >
               <div className="flex items-center justify-between text-[9px] font-mono mb-2">
-                <span className="text-neutral-400 font-bold line-clamp-1">{item.title}</span>
-                <span className="px-1 py-0.2 rounded bg-neutral-800 text-amber-400 font-bold">{item.tag}</span>
+                <span className="text-neutral-800 dark:text-neutral-400 font-bold line-clamp-1">{item.title}</span>
+                <span className="px-1 py-0.2 rounded bg-neutral-100 dark:bg-neutral-800 text-amber-700 dark:text-amber-400 font-bold">{item.tag}</span>
               </div>
-              <div className="p-1 rounded bg-neutral-950 border border-neutral-800/80 flex items-center justify-center aspect-[4/3] overflow-hidden my-1">
+              <div className="p-1 rounded bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800/80 flex items-center justify-center aspect-[4/3] overflow-hidden my-1 shadow-inner">
                 <img
                   src={item.svg}
                   alt={item.title}
@@ -105,7 +105,7 @@ export function TelemetryArsenalGrid() {
               <a
                 href={item.svg}
                 download
-                className="mt-1 text-[10px] text-center text-neutral-500 group-hover:text-amber-300 font-mono transition-colors"
+                className="mt-1 text-[10px] text-center text-neutral-500 dark:text-neutral-500 group-hover:text-amber-600 dark:group-hover:text-amber-300 font-mono transition-colors"
               >
                 Download .svg &darr;
               </a>
@@ -115,7 +115,7 @@ export function TelemetryArsenalGrid() {
       </div>
 
       {/* Search & Filter Controls Bar */}
-      <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div className="p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/50 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
         {/* Category Pills */}
         <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 scrollbar-thin">
           {TELEMETRY_CATEGORIES.map(cat => (
@@ -125,8 +125,8 @@ export function TelemetryArsenalGrid() {
               onClick={() => setSelectedCat(cat.id)}
               className={`flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                 selectedCat === cat.id
-                  ? 'bg-amber-400 text-neutral-950 shadow-sm'
-                  : 'bg-neutral-950 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+                  ? 'bg-amber-400 text-neutral-950 shadow-sm font-bold'
+                  : 'bg-neutral-100 dark:bg-neutral-950 text-neutral-700 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200 border border-neutral-200 dark:border-neutral-800'
               }`}
             >
               {cat.label}
@@ -136,13 +136,13 @@ export function TelemetryArsenalGrid() {
 
         {/* Search Bar */}
         <div className="relative w-full sm:w-72">
-          <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-neutral-500" />
+          <Search className="w-3.5 h-3.5 absolute left-3 top-2.5 text-neutral-400" />
           <input
             type="text"
             value={searchQuery}
             onChange={e => setSearchQuery(e.target.value)}
             placeholder="Search 47+ plugins..."
-            className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-neutral-950 border border-neutral-800 text-xs text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-amber-500/60 transition-colors"
+            className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-xs text-neutral-900 dark:text-neutral-200 placeholder:text-neutral-400 focus:outline-none focus:border-amber-500 transition-colors"
           />
         </div>
       </div>
@@ -154,7 +154,7 @@ export function TelemetryArsenalGrid() {
           return (
             <div
               key={plugin.id}
-              className="p-4 rounded-xl border border-neutral-800 bg-neutral-950/70 hover:border-neutral-700 hover:bg-neutral-900/40 transition-all flex flex-col justify-between space-y-3"
+              className="p-4 rounded-xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-950/70 hover:border-amber-400 dark:hover:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-900/40 transition-all flex flex-col justify-between space-y-3 shadow-sm"
             >
               <div>
                 <div className="flex items-center justify-between mb-1.5">

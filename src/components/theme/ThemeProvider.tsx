@@ -28,5 +28,5 @@ export function ThemeProvider({
     }
   }, []);
 
-  return <NextThemesProvider attribute="data-theme" defaultTheme="dark" enableSystem {...props}>{children}</NextThemesProvider>;
+  return <NextThemesProvider attribute="data-theme" defaultTheme="light" enableSystem {...props}>{children}</NextThemesProvider>;
 }

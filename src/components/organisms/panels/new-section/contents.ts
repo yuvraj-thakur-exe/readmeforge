@@ -6,7 +6,7 @@ const contents = [
     icon: 'star',
     name: 'Star This Project',
 
-    href: 'https://github.com/yuvraj-thakur-exe/readmeforge',
+    href: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
     target: '_blank',
     rel: 'noreferrer',
     className: 'text-inherit! palette-surface-orange',
@@ -15,7 +15,7 @@ const contents = [
     icon: 'git-fork',
     name: 'Fork on Github',
 
-    href: 'https://github.com/yuvraj-thakur-exe/readmeforge/fork',
+    href: 'https://github.com/yuvraj-thakur-exe/MONOFORGE/fork',
     target: '_blank',
     rel: 'noreferrer',
     className: 'text-inherit! palette-surface-orange',

@@ -28,12 +28,12 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={cycleTheme}
-      className="flex items-center justify-center w-8 h-8 rounded-lg border border-palette-line bg-palette-soft hover:border-violet-500/50 text-palette-contrast transition-all shadow-sm"
+      className="flex items-center justify-center w-8 h-8 rounded-lg border border-palette-line bg-palette-soft hover:border-amber-500/50 text-palette-contrast transition-all shadow-sm"
       title={`Current theme: ${theme}. Click to switch.`}
       aria-label="Toggle theme"
     >
-      {theme === 'dark' && <Moon className="w-4 h-4 text-violet-400" />}
-      {theme === 'light' && <Sun className="w-4 h-4 text-amber-400" />}
+      {theme === 'dark' && <Moon className="w-4 h-4 text-amber-400" />}
+      {theme === 'light' && <Sun className="w-4 h-4 text-amber-500" />}
       {theme === 'system' && <Laptop className="w-4 h-4 text-cyan-400" />}
     </button>
   );

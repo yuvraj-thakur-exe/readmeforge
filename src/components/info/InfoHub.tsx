@@ -67,7 +67,7 @@ export function InfoHub() {
 
   // Interactive CLI Terminal State
   const [cliOutput, setCliOutput] = useState<string[]>([
-    '🔥 ReadmeForge Interactive CLI ready.',
+    '🔥 MonoForge Interactive CLI ready.',
     '💡 Click any quick command chip below or review the installation instructions.',
   ]);
 
@@ -177,7 +177,7 @@ export function InfoHub() {
   const handleRunCliCommand = (cmd: string) => {
     const newLogs = [...cliOutput, `> ${cmd}`];
     if (cmd.includes('install')) {
-      newLogs.push('⚡ Executing 1-line bootstrap for ReadmeForge...');
+      newLogs.push('⚡ Executing 1-line bootstrap for MonoForge...');
       newLogs.push('✔ Node.js runtime detected (v20.x+)');
       newLogs.push('✔ Corepack enabled & pnpm locked dependencies verified');
       newLogs.push('🚀 Server booted at http://localhost:3000');
@@ -190,10 +190,10 @@ export function InfoHub() {
       newLogs.push('  • Zero persistent token telemetry');
       newLogs.push('  • Mandatory diff review before GitHub writes');
     } else if (cmd.includes('clear')) {
-      setCliOutput(['🔥 ReadmeForge Interactive CLI ready.']);
+      setCliOutput(['🔥 MonoForge Interactive CLI ready.']);
       return;
     } else {
-      newLogs.push(`✨ ReadmeForge: Command '${cmd}' processed successfully.`);
+      newLogs.push(`✨ MonoForge: Command '${cmd}' processed successfully.`);
     }
     setCliOutput(newLogs.slice(-14));
   };
@@ -223,11 +223,11 @@ export function InfoHub() {
   }, [templateFilter, searchQuery]);
 
   // Commands for installer
-  const linuxInstallCmd = 'curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.sh | bash';
-  const windowsInstallCmd = 'iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.ps1 | iex';
-  const gitCloneCmd = 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git\ncd readmeforge\ncorepack enable\npnpm install\npnpm dev';
-  const npmCmd = 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git\ncd readmeforge\nnpm install\nnpm run dev';
-  const dockerCmd = 'docker build -t readmeforge .\ndocker run -p 3000:3000 readmeforge';
+  const linuxInstallCmd = 'curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/install.sh | bash';
+  const windowsInstallCmd = 'iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/install.ps1 | iex';
+  const gitCloneCmd = 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git\ncd monoforge\ncorepack enable\npnpm install\npnpm dev';
+  const npmCmd = 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git\ncd monoforge\nnpm install\nnpm run dev';
+  const dockerCmd = 'docker build -t monoforge .\ndocker run -p 3000:3000 monoforge';
 
   const currentInstallCmd = useMemo(() => {
     switch (activeOs) {
@@ -293,7 +293,7 @@ export function InfoHub() {
           <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
             <Link href="/" className="hover:text-violet-400 transition-colors flex items-center gap-1.5">
               <Globe className="w-3.5 h-3.5 text-neutral-400" />
-              <span>ReadmeForge</span>
+              <span>MonoForge</span>
             </Link>
             <span>/</span>
             <span className="text-emerald-400 font-semibold">Developer Hub &amp; Documentation Portal</span>
@@ -317,7 +317,7 @@ export function InfoHub() {
             <div className="lg:col-span-7 space-y-6 text-center sm:text-left">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-medium shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 animate-pulse text-emerald-400" />
-                <span>ReadmeForge Developer Portal • 100% Client-Side Private</span>
+                <span>MonoForge Developer Portal • 100% Client-Side Private</span>
               </div>
 
               <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.1]">
@@ -699,10 +699,10 @@ export function InfoHub() {
                 <div className="flex flex-wrap items-center gap-2 mt-4 pt-3 border-t border-neutral-900">
                   <span className="text-[10px] text-neutral-500 font-sans">Run command:</span>
                   {[
-                    'readmeforge --install',
-                    'readmeforge --templates',
-                    'readmeforge --privacy',
-                    'readmeforge --help',
+                    'monoforge --install',
+                    'monoforge --templates',
+                    'monoforge --privacy',
+                    'monoforge --help',
                   ].map(cmd => (
                     <button
                       key={cmd}
@@ -724,7 +724,7 @@ export function InfoHub() {
                 <span>Manual Environment Configuration</span>
               </h3>
               <p className="text-sm text-neutral-400 mb-8">
-                Follow these four sequential steps to set up ReadmeForge from scratch in any developer environment.
+                Follow these four sequential steps to set up MonoForge from scratch in any developer environment.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
@@ -773,7 +773,7 @@ export function InfoHub() {
                   <div className="flex items-center justify-between p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
                     <span className="truncate mr-2">git clone https://...</span>
                     <CopyButton
-                      textToCopy="git clone https://github.com/yuvraj-thakur-exe/readmeforge.git"
+                      textToCopy="git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git"
                       variant="ghost"
                       size="xs"
                       iconOnly
@@ -911,13 +911,13 @@ export function InfoHub() {
 
                 <div className="space-y-3 text-xs">
                   <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800">
-                    <div className="font-bold text-neutral-200 mb-1">Q: Does ReadmeForge require an account or GitHub token?</div>
-                    <div className="text-neutral-400 leading-relaxed">No. ReadmeForge is completely free and works client-side. A token is only needed if you want to push commits directly to your GitHub repository.</div>
+                    <div className="font-bold text-neutral-200 mb-1">Q: Does MonoForge require an account or GitHub token?</div>
+                    <div className="text-neutral-400 leading-relaxed">No. MonoForge is completely free and works client-side. A token is only needed if you want to push commits directly to your GitHub repository.</div>
                   </div>
 
                   <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800">
                     <div className="font-bold text-neutral-200 mb-1">Q: Can I use Docker instead of local Node?</div>
-                    <div className="text-neutral-400 leading-relaxed">Yes! Simply run <code className="text-amber-300 font-mono">docker build -t readmeforge .</code> and <code className="text-amber-300 font-mono">docker run -p 3000:3000 readmeforge</code>.</div>
+                    <div className="text-neutral-400 leading-relaxed">Yes! Simply run <code className="text-amber-300 font-mono">docker build -t monoforge .</code> and <code className="text-amber-300 font-mono">docker run -p 3000:3000 monoforge</code>.</div>
                   </div>
                 </div>
               </div>
@@ -1464,7 +1464,7 @@ export function InfoHub() {
                 </h2>
               </div>
               <p className="text-sm text-neutral-300 max-w-3xl leading-relaxed">
-                ReadmeForge bridges visual drag-and-drop design with professional Monaco IDE tooling. Follow these six steps to build a profile that gets you hired or noticed.
+                MonoForge bridges visual drag-and-drop design with professional Monaco IDE tooling. Follow these six steps to build a profile that gets you hired or noticed.
               </p>
             </div>
 
@@ -1505,12 +1505,12 @@ export function InfoHub() {
                   <Flame className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">About ReadmeForge</h2>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">About MonoForge</h2>
                   <div className="text-xs text-neutral-400 font-mono">Open-Source Profile Studio • 100% Client-Side</div>
                 </div>
               </div>
               <p className="text-sm text-neutral-300 max-w-3xl leading-relaxed mt-4">
-                ReadmeForge was born to eliminate the frustration of manual profile markdown formatting. Built on Next.js 16 and Monaco, it guarantees 100% client-side privacy, live keystroke markdown rendering, and confirmation-gated GitHub commits.
+                MonoForge was born to eliminate the frustration of manual profile markdown formatting. Built on Next.js 16 and Monaco, it guarantees 100% client-side privacy, live keystroke markdown rendering, and confirmation-gated GitHub commits.
               </p>
             </div>
 
@@ -1553,7 +1553,7 @@ export function InfoHub() {
                 <div>
                   <h4 className="text-base font-bold text-white">Yuvraj Thakur</h4>
                   <p className="text-xs text-neutral-400 font-mono">
-                    Maintainer &amp; Creator of ReadmeForge • @yuvraj-thakur-exe
+                    Maintainer &amp; Creator of MonoForge • @yuvraj-thakur-exe
                   </p>
                   <div className="flex items-center gap-3 mt-1.5 text-xs">
                     <span className="text-emerald-400 font-semibold">MIT License</span>
@@ -1565,7 +1565,7 @@ export function InfoHub() {
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <a
-                  href="https://github.com/yuvraj-thakur-exe/readmeforge"
+                  href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs border border-neutral-700 transition-colors shadow-sm"

@@ -59,32 +59,32 @@ function LocalizedDeveloperContent() {
   }, [searchParams, setEntireConfig]);
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-neutral-950 text-neutral-100 font-sans selection:bg-amber-500/20 selection:text-amber-200">
+    <div className="flex flex-col h-screen overflow-hidden bg-neutral-100 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-sans selection:bg-amber-500/20 selection:text-amber-900 dark:selection:text-amber-200">
       {/* Top Studio Header */}
-      <header className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-neutral-900 border-b border-neutral-800 z-10 shrink-0 gap-2">
+      <header className="flex items-center justify-between px-3 sm:px-4 py-2.5 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 z-10 shrink-0 gap-2 shadow-sm">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link href="/" className="flex items-center gap-1.5 sm:gap-2 group">
-            <div className="p-1 rounded-lg bg-neutral-800 border border-neutral-700 group-hover:border-amber-400 transition-colors">
-              <MonoForgeMonkeyIcon className="w-5 h-5 text-amber-400" />
+            <div className="p-1 rounded-lg bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 group-hover:border-amber-500 transition-colors shadow-sm">
+              <MonoForgeMonkeyIcon className="w-5 h-5 text-amber-500 dark:text-amber-400" />
             </div>
-            <span className="font-extrabold text-sm tracking-tight text-neutral-100">
-              Mono<span className="text-amber-400">Forge</span>
+            <span className="font-extrabold text-sm tracking-tight text-neutral-900 dark:text-neutral-100">
+              Mono<span className="text-amber-500 dark:text-amber-400">Forge</span>
             </span>
-            <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-300">
+            <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/30 text-amber-700 dark:text-amber-300">
               /developer
             </span>
           </Link>
 
-          <div className="h-4 w-px bg-neutral-800 mx-1 hidden sm:block" />
+          <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-800 mx-1 hidden sm:block" />
 
           {/* Desktop Plugin Drawer Toggle */}
           <button
             type="button"
             onClick={() => setShowPluginPanel(prev => !prev)}
-            className={`hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs transition-colors ${
+            className={`hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs transition-colors shadow-sm ${
               showPluginPanel
-                ? 'bg-neutral-800 text-amber-300 border border-amber-500/40'
-                : 'bg-neutral-800/60 text-neutral-400 hover:text-neutral-200'
+                ? 'bg-neutral-100 dark:bg-neutral-800 text-amber-700 dark:text-amber-300 border border-amber-500/40'
+                : 'bg-white dark:bg-neutral-800/60 border border-neutral-200 dark:border-transparent text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
             }`}
             title="Toggle Arsenal & Templates Drawer"
           >
@@ -101,10 +101,10 @@ function LocalizedDeveloperContent() {
           <button
             type="button"
             onClick={() => setShowCopilot(prev => !prev)}
-            className={`hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono transition-colors ${
+            className={`hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-mono transition-colors shadow-sm ${
               showCopilot
-                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/50'
-                : 'bg-neutral-800/60 text-neutral-400 hover:text-amber-300'
+                ? 'bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-500/50'
+                : 'bg-white dark:bg-neutral-800/60 border border-neutral-200 dark:border-transparent text-neutral-600 dark:text-neutral-400 hover:text-amber-600 dark:hover:text-amber-300'
             }`}
             title="Toggle Cyber Monkey Co-Pilot Assistant"
           >
@@ -165,8 +165,8 @@ function LocalizedDeveloperContent() {
         </div>
 
         {/* Quick Design Token Pickers (Marco Madonna style) */}
-        <div className="hidden xl:flex items-center gap-2 bg-neutral-950/80 px-2.5 py-1 rounded-lg border border-neutral-800 text-xs">
-          <span className="text-[10px] font-mono text-neutral-400 font-semibold uppercase">Style:</span>
+        <div className="hidden xl:flex items-center gap-2 bg-neutral-100 dark:bg-neutral-950/80 px-2.5 py-1 rounded-lg border border-neutral-200 dark:border-neutral-800 text-xs shadow-sm">
+          <span className="text-[10px] font-mono text-neutral-600 dark:text-neutral-400 font-semibold uppercase">Style:</span>
           {/* Badge Style Switcher */}
           <div className="flex items-center gap-1">
             {(['for-the-badge', 'flat', 'flat-square'] as const).map(style => (
@@ -176,8 +176,8 @@ function LocalizedDeveloperContent() {
                 onClick={() => updateSettings({ badgeStyle: style })}
                 className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition-colors ${
                   config.settings?.badgeStyle === style
-                    ? 'bg-amber-500 text-neutral-950 font-bold'
-                    : 'text-neutral-400 hover:text-neutral-200'
+                    ? 'bg-amber-400 text-neutral-950 font-bold shadow-sm'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
                 }`}
               >
                 {style.replace('for-the-', '')}
@@ -185,7 +185,7 @@ function LocalizedDeveloperContent() {
             ))}
           </div>
 
-          <div className="h-3 w-px bg-neutral-800" />
+          <div className="h-3 w-px bg-neutral-300 dark:bg-neutral-800" />
 
           {/* Alignment */}
           <div className="flex items-center gap-1">
@@ -196,8 +196,8 @@ function LocalizedDeveloperContent() {
                 onClick={() => updateSettings({ align })}
                 className={`px-1.5 py-0.5 rounded text-[10px] font-mono capitalize transition-colors ${
                   config.settings?.align === align
-                    ? 'bg-cyan-500 text-neutral-950 font-bold'
-                    : 'text-neutral-400 hover:text-neutral-200'
+                    ? 'bg-cyan-500 text-neutral-950 font-bold shadow-sm'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
                 }`}
               >
                 {align}
@@ -210,34 +210,34 @@ function LocalizedDeveloperContent() {
         <div className="flex items-center gap-1.5 sm:gap-2">
           <Link
             href="/telemetry"
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-800/80 hover:bg-neutral-800 text-amber-300 text-xs font-semibold transition-colors border border-neutral-700/60"
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-amber-700 dark:text-amber-300 text-xs font-semibold transition-colors border border-neutral-200 dark:border-neutral-700/60 shadow-sm"
             title="Telemetry Arsenal Studio"
           >
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+            <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
             <span>Telemetry</span>
           </Link>
 
           <Link
             href="/animator"
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-800/80 hover:bg-neutral-800 text-neutral-300 text-xs transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-xs transition-colors border border-neutral-200 dark:border-transparent shadow-sm"
             title="Animated SVG & Characters Studio"
           >
-            <Wand2 className="w-3.5 h-3.5 text-cyan-400" />
+            <Wand2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
             <span>Animator</span>
           </Link>
 
           <Link
             href="/info"
-            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-800/80 hover:bg-neutral-800 text-neutral-300 text-xs transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-neutral-100 dark:bg-neutral-800/80 hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-xs transition-colors border border-neutral-200 dark:border-transparent shadow-sm"
             title="Documentation & Archetypes Hub"
           >
-            <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+            <BookOpen className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
             <span>Guide</span>
           </Link>
 
           <Link
             href="/"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-amber-500 hover:bg-amber-400 text-neutral-950 text-xs font-bold transition-all shadow-sm active:scale-95"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-amber-400 hover:bg-amber-300 text-neutral-950 text-xs font-bold transition-all shadow-sm active:scale-95"
             title="Switch to Visual Showcase"
           >
             <span>Home Showcase</span>
@@ -246,7 +246,7 @@ function LocalizedDeveloperContent() {
       </header>
 
       {/* Main Split Workspace */}
-      <main className="flex-1 flex min-h-0 overflow-hidden p-2 sm:p-2.5 gap-2 sm:gap-2.5 bg-neutral-950">
+      <main className="flex-1 flex min-h-0 overflow-hidden p-2 sm:p-2.5 gap-2 sm:gap-2.5 bg-neutral-100 dark:bg-neutral-950">
         {/* Left: Plugin & Template Drawer */}
         <aside
           className={`shrink-0 h-full ${

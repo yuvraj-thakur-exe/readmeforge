@@ -1,5 +1,5 @@
 /**
- * ReadmeForge - Standalone Telemetry SVG Generation Engine
+ * MonoForge - Standalone Telemetry SVG Generation Engine
  * Generates standalone, 100% GitHub Camo-compliant animated SVGs.
  * Zero foreignObject, zero external scripts, GPU-accelerated keyframe animations, UI/UX Pro carbon/obsidian styling.
  */
@@ -224,7 +224,7 @@ export function generateIsocalendarSvg(options: IsocalendarOptions = {}): string
 
   <!-- Footer Legend -->
   <g transform="translate(28, 345)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">ReadmeForge Isometric Telemetry</text>
+    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge Isometric Telemetry</text>
     <g transform="translate(620, -10)">
       <text x="-40" y="9" fill="#8b949e" font-size="10" class="font-mono">Less</text>
       <rect x="0" y="0" width="10" height="10" rx="2" fill="#161b22" stroke="#30363d" />
@@ -342,7 +342,7 @@ export function generateLanguagesDonutSvg(options: LanguagesOptions = {}): strin
   </g>
 
   <g transform="translate(28, 335)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">ReadmeForge • Depth Code Telemetry &amp; Byte Distribution</text>
+    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Depth Code Telemetry &amp; Byte Distribution</text>
   </g>
 </svg>`;
 }
@@ -477,7 +477,7 @@ export function generateHabitsRadarSvg(options: HabitsOptions = {}): string {
   </g>
 
   <g transform="translate(28, 335)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">ReadmeForge • Most active day: ${mostActiveDay} • Activity Telemetry</text>
+    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Most active day: ${mostActiveDay} • Activity Telemetry</text>
   </g>
 </svg>`;
 }
@@ -614,7 +614,7 @@ export function generateAchievementsRackSvg(options: AchievementsOptions = {}): 
   </g>
 
   <g transform="translate(28, 342)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">ReadmeForge • Gamified Repository Milestones &amp; Secret Badges</text>
+    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Gamified Repository Milestones &amp; Secret Badges</text>
   </g>
 </svg>`;
 }
@@ -660,19 +660,19 @@ export function generateTerminalHudSvg(options: TerminalOptions = {}): string {
   <circle cx="64" cy="20" r="6" fill="#2ea043" />
 
   <text x="400" y="24" fill="#8b949e" font-size="12" font-weight="600" text-anchor="middle" class="font-mono">
-    readmeforge@${user}: ~ (telemetry-hud)
+    monoforge@${user}: ~ (telemetry-hud)
   </text>
 
   <rect x="2" y="40" width="796" height="316" fill="url(#scanlines)" pointer-events="none" />
 
   <g transform="translate(28, 72)" class="font-mono">
     <text x="0" y="0" font-size="13">
-      <tspan fill="#34d399">developer@readmeforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ readmeforge telemetry --user ${user} --deep</tspan>
+      <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ monoforge telemetry --user ${user} --deep</tspan>
     </text>
 
     <g transform="translate(0, 24)">
       <text x="0" y="0" fill="#fbbf24" font-size="12">[SYSTEM DIAGNOSTICS &amp; ENGINE STATS]</text>
-      <text x="0" y="20" fill="#8b949e" font-size="12">Kernel ........ ReadmeForge Telemetry Engine v3.35.0 (x86_64-linux)</text>
+      <text x="0" y="20" fill="#8b949e" font-size="12">Kernel ........ MonoForge Telemetry Engine v3.35.0 (x86_64-linux)</text>
       <text x="0" y="40" fill="#8b949e" font-size="12">Repository .... ${user}/${user}</text>
       <text x="0" y="60" fill="#8b949e" font-size="12">Active Streak . 42 consecutive solar days [STATUS: GREEN]</text>
       <text x="0" y="80" fill="#8b949e" font-size="12">Velocity ...... ${velocity}</text>
@@ -699,7 +699,7 @@ export function generateTerminalHudSvg(options: TerminalOptions = {}): string {
 
     <g transform="translate(0, 240)">
       <text x="0" y="0" font-size="13">
-        <tspan fill="#34d399">developer@readmeforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ </tspan>
+        <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ </tspan>
       </text>
       <rect x="235" y="-12" width="8" height="15" fill="#34d399" class="cursor-blink" />
     </g>
@@ -711,7 +711,7 @@ export function generateTerminalHudSvg(options: TerminalOptions = {}): string {
 // 6. LIGHTHOUSE PAGESPEED AUDIT GAUGES
 // ==========================================
 export function generatePageSpeedAuditSvg(options: PageSpeedOptions = {}): string {
-  const url = esc(options.url || 'readmeforge.dev');
+  const url = esc(options.url || 'monoforge.dev');
   const perf = options.perf ?? 100;
   const a11y = options.a11y ?? 100;
   const best = options.best ?? 100;
@@ -971,7 +971,7 @@ export function generateLeetCodeStatsSvg(options: LeetCodeOptions = {}): string 
   </g>
 
   <g transform="translate(28, 295)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">ReadmeForge • Continuous LeetCode Problem Telemetry</text>
+    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Continuous LeetCode Problem Telemetry</text>
   </g>
 </svg>`;
 }

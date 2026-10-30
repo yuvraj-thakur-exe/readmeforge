@@ -175,13 +175,13 @@ export default function TelemetryStudioPage() {
   const activeMarkdownSnippet = useMemo(() => {
     if (selectedPluginPreset === 'full') return markdownSnippet;
     const cleanUser = username.trim() || 'octocat';
-    return `<!-- ReadmeForge Standalone Telemetry: ${selectedPluginPreset.toUpperCase()} -->
+    return `<!-- MonoForge Standalone Telemetry: ${selectedPluginPreset.toUpperCase()} -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/${cleanUser}/${cleanUser}/main/public/assets/telemetry-${selectedPluginPreset}.svg" alt="${cleanUser}'s ReadmeForge Telemetry" width="100%" />
+  <img src="https://raw.githubusercontent.com/${cleanUser}/${cleanUser}/main/public/assets/telemetry-${selectedPluginPreset}.svg" alt="${cleanUser}'s MonoForge Telemetry" width="100%" />
 </p>
 
 <!-- Native dynamic API route: -->
-<!-- <img src="https://readmeforge.dev/api/telemetry/svg?plugin=${selectedPluginPreset}&user=${cleanUser}" alt="${cleanUser}'s ReadmeForge Telemetry" /> -->`;
+<!-- <img src="https://github.com/yuvraj-thakur-exe/MONOFORGE/api/telemetry/svg?plugin=${selectedPluginPreset}&user=${cleanUser}" alt="${cleanUser}'s MonoForge Telemetry" /> -->`;
   }, [selectedPluginPreset, username, markdownSnippet]);
 
   const handleCopy = (text: string, key: string, label: string) => {
@@ -199,7 +199,7 @@ export default function TelemetryStudioPage() {
       const blobUrl = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = blobUrl;
-      a.download = `readmeforge-telemetry-${selectedPluginPreset}-${username || 'octocat'}.svg`;
+      a.download = `monoforge-telemetry-${selectedPluginPreset}-${username || 'octocat'}.svg`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -254,7 +254,7 @@ export default function TelemetryStudioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 selection:bg-amber-500/30 selection:text-amber-200">
+    <div className="min-h-screen bg-[#faf9f6] text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-amber-500/30 selection:text-amber-200">
       <TopNav />
 
       {/* Main Container */}
@@ -267,7 +267,7 @@ export default function TelemetryStudioPage() {
                 <BarChart3 className="w-5 h-5" />
               </div>
               <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-100">
-                ReadmeForge Telemetry
+                MonoForge Telemetry
               </h1>
               <span className="px-2 py-0.5 text-[11px] font-mono font-medium rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                 47+ Plugins &bull; 100% Native
@@ -628,7 +628,7 @@ export default function TelemetryStudioPage() {
                       <img
                         key={activeSvgUrl}
                         src={activeSvgUrl}
-                        alt={`${username}'s ReadmeForge Telemetry`}
+                        alt={`${username}'s MonoForge Telemetry`}
                         className="max-w-full h-auto rounded shadow-md border border-neutral-800/50"
                         onError={(e) => {
                           const target = e.currentTarget;
@@ -642,7 +642,7 @@ export default function TelemetryStudioPage() {
                     {/* Badge footer info */}
                     <div className="w-full pt-3 mt-2 border-t border-neutral-800/60 flex items-center justify-between text-[11px] text-neutral-400 font-mono">
                       <span>✓ GitHub Camo safe (0 &lt;foreignObject&gt;)</span>
-                      <span className="text-amber-400/90 font-bold">ReadmeForge Native Engine</span>
+                      <span className="text-amber-400/90 font-bold">MonoForge Native Engine</span>
                     </div>
                   </div>
                 </div>
@@ -672,7 +672,7 @@ export default function TelemetryStudioPage() {
               {activeTab === 'action' && (
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
                   <div className="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs text-neutral-400 font-mono">
-                    <span>File: .github/workflows/readmeforge-telemetry.yml</span>
+                    <span>File: .github/workflows/monoforge-telemetry.yml</span>
                     <button
                       type="button"
                       onClick={() => handleCopy(actionWorkflow, 'action', 'Workflow YAML')}
@@ -718,7 +718,7 @@ export default function TelemetryStudioPage() {
                       cURL Command
                     </label>
                     <pre className="p-3 rounded-lg bg-neutral-950 border border-neutral-800 font-mono text-xs text-amber-300/90 overflow-x-auto">
-                      curl -s "https://readmeforge.dev{activeSvgUrl}" -o telemetry-{selectedPluginPreset}.svg
+                      curl -s "https://github.com/yuvraj-thakur-exe/MONOFORGE{activeSvgUrl}" -o telemetry-{selectedPluginPreset}.svg
                     </pre>
                   </div>
                 </div>
@@ -727,7 +727,7 @@ export default function TelemetryStudioPage() {
               {/* Bottom Quick-Action Bar */}
               <div className="p-3 sm:p-4 border-t border-neutral-800 bg-neutral-950/80 flex flex-wrap items-center justify-between gap-3 text-xs">
                 <span className="text-neutral-500 font-mono">
-                  Engine: <span className="text-neutral-300">@readmeforge/telemetry</span> &bull; Module: <span className="text-amber-400 font-bold">{selectedPluginPreset}</span>
+                  Engine: <span className="text-neutral-300">@monoforge/telemetry</span> &bull; Module: <span className="text-amber-400 font-bold">{selectedPluginPreset}</span>
                 </span>
                 <div className="flex items-center gap-2">
                   {selectedPluginPreset !== 'full' && (

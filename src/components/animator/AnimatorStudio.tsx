@@ -436,7 +436,7 @@ export function AnimatorStudio() {
             <button
               type="button"
               onClick={() => downloadSvgFile(config)}
-              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white font-semibold text-xs transition-all shadow-md shadow-violet-950/50"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-semibold text-xs transition-all shadow-md shadow-amber-950/20"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download SVG</span>
@@ -456,7 +456,7 @@ export function AnimatorStudio() {
               onClick={() => setActiveTab('layers')}
               className={`flex-1 py-1.5 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
                 activeTab === 'layers'
-                  ? 'bg-violet-600 text-white shadow-sm'
+                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-sm'
                   : 'text-neutral-400 hover:text-white'
               }`}
             >
@@ -468,7 +468,7 @@ export function AnimatorStudio() {
               onClick={() => setActiveTab('presets')}
               className={`flex-1 py-1.5 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
                 activeTab === 'presets'
-                  ? 'bg-violet-600 text-white shadow-sm'
+                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-sm'
                   : 'text-neutral-400 hover:text-white'
               }`}
             >
@@ -480,7 +480,7 @@ export function AnimatorStudio() {
               onClick={() => setActiveTab('uiMotion')}
               className={`flex-1 py-1.5 rounded-lg font-semibold flex items-center justify-center gap-1.5 transition-all ${
                 activeTab === 'uiMotion'
-                  ? 'bg-violet-600 text-white shadow-sm'
+                  ? 'bg-amber-500 text-neutral-950 font-bold shadow-sm'
                   : 'text-neutral-400 hover:text-white'
               }`}
             >
@@ -522,7 +522,7 @@ export function AnimatorStudio() {
                 <div>
                   <label className="block text-[11px] font-bold text-neutral-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                     <span className="flex items-center gap-1">
-                      <Layers className="w-3.5 h-3.5 text-violet-400" />
+                      <Layers className="w-3.5 h-3.5 text-amber-500" />
                       Background Style
                     </span>
                     <span className="text-[10px] font-mono text-cyan-400 capitalize">{config.backgroundEffect.replace('-', ' ')}</span>
@@ -539,7 +539,7 @@ export function AnimatorStudio() {
                               ? 'border-orange-500 bg-orange-950/40 text-orange-300 font-bold'
                               : bg === 'water'
                               ? 'border-cyan-500 bg-cyan-950/40 text-cyan-300 font-bold'
-                              : 'border-violet-500 bg-violet-950/40 text-violet-300 font-bold'
+                              : 'border-amber-500 bg-amber-500/15 text-amber-400 font-bold'
                             : 'border-palette-line bg-palette-base/60 text-neutral-400 hover:text-white'
                         }`}
                       >
@@ -746,7 +746,7 @@ export function AnimatorStudio() {
                         onClick={() => setConfig(prev => ({ ...prev, alignment: align }))}
                         className={`py-1 rounded capitalize font-medium text-[11px] ${
                           config.alignment === align
-                            ? 'bg-violet-600 text-white shadow-sm'
+                            ? 'bg-amber-500 text-neutral-950 font-bold shadow-sm'
                             : 'text-neutral-400 hover:text-white'
                         }`}
                       >
@@ -890,7 +890,7 @@ export function AnimatorStudio() {
           {activeTab === 'uiMotion' && (
             <div className="p-4 rounded-xl border border-palette-line bg-palette-soft/40 space-y-4 text-xs">
               <span className="text-xs font-bold uppercase tracking-wider text-palette-contrast/80 flex items-center gap-1.5">
-                <Boxes className="w-3.5 h-3.5 text-violet-400" />
+                <Boxes className="w-3.5 h-3.5 text-amber-500" />
                 UI Motion &amp; Scroll Effects Laboratory
               </span>
 
@@ -899,7 +899,7 @@ export function AnimatorStudio() {
                 <span className="font-semibold text-neutral-200 block text-[11px]">
                   1. Damped Spring Physics &bull; Hover Card
                 </span>
-                <div className="p-4 rounded-lg bg-gradient-to-r from-violet-950/40 to-cyan-950/40 border border-violet-500/30 hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300 ease-out cursor-pointer text-center">
+                <div className="p-4 rounded-lg bg-gradient-to-r from-amber-500/10 to-cyan-950/40 border border-amber-500/30 hover:scale-[1.02] hover:-translate-y-1 transition-transform duration-300 ease-out cursor-pointer text-center">
                   <span className="font-bold text-white text-xs">Hover Me for Spring Lift</span>
                   <div className="text-[10px] text-cyan-300 font-mono mt-0.5">scale(1.02) translateY(-4px)</div>
                 </div>
@@ -956,13 +956,13 @@ export function AnimatorStudio() {
                   4. Reorderable Widget Drag &bull; Drop
                 </span>
                 <div className="grid grid-cols-3 gap-1.5 text-center font-mono text-[10px]">
-                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-violet-500 transition-colors">
+                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-amber-500 transition-colors">
                     :: 📊 Stats
                   </div>
-                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-violet-500 transition-colors">
+                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-amber-500 transition-colors">
                     :: 🐍 Snake
                   </div>
-                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-violet-500 transition-colors">
+                  <div className="p-2 rounded bg-neutral-950 border border-neutral-800 text-neutral-400 cursor-grab active:cursor-grabbing hover:border-amber-500 transition-colors">
                     :: 🏆 Trophy
                   </div>
                 </div>
@@ -990,9 +990,9 @@ export function AnimatorStudio() {
                 {/* Interactive Simulated Scroll Canvas */}
                 <div className="relative h-28 rounded-lg bg-neutral-950 border border-neutral-800 overflow-hidden p-2 text-[10px]">
                   {/* Sticky / Pinned Section Anchor */}
-                  <div className="sticky top-0 z-10 px-2 py-1 bg-violet-950/80 backdrop-blur border border-violet-500/40 rounded flex items-center justify-between">
-                    <span className="font-bold text-violet-200">Pinned Section Anchor</span>
-                    <span className="font-mono text-[9px] text-violet-300">sticky-top</span>
+                  <div className="sticky top-0 z-10 px-2 py-1 bg-amber-500/10 backdrop-blur border border-amber-500/40 rounded flex items-center justify-between">
+                    <span className="font-bold text-amber-200">Pinned Section Anchor</span>
+                    <span className="font-mono text-[9px] text-amber-400">sticky-top</span>
                   </div>
 
                   {/* Parallax Background Grid (moves slowly: -0.2x) */}
@@ -1024,7 +1024,7 @@ export function AnimatorStudio() {
                   {/* Scroll-Linked Progress Bar Sequence */}
                   <div className="mt-2 w-full h-1.5 bg-neutral-900 rounded-full overflow-hidden border border-neutral-800">
                     <div
-                      className="h-full bg-gradient-to-r from-cyan-500 via-indigo-500 to-violet-500 transition-all duration-75"
+                      className="h-full bg-gradient-to-r from-cyan-500 via-amber-500 to-cyan-500 transition-all duration-75"
                       style={{ width: `${scrollProgress}%` }}
                     />
                   </div>
@@ -1174,7 +1174,7 @@ export function AnimatorStudio() {
           <div className="p-5 rounded-xl border border-palette-line bg-palette-soft/40 space-y-4">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-palette-contrast/80 flex items-center gap-1.5">
-                <FileCode className="w-3.5 h-3.5 text-violet-400" />
+                <FileCode className="w-3.5 h-3.5 text-amber-500" />
                 Asset Export &amp; Markdown Snippets
               </span>
 
@@ -1185,7 +1185,7 @@ export function AnimatorStudio() {
                   onClick={() => setMarkdownTab('relative')}
                   className={`px-2.5 py-1 rounded font-medium ${
                     markdownTab === 'relative'
-                      ? 'bg-violet-600 text-white'
+                      ? 'bg-amber-500 text-neutral-950 font-bold'
                       : 'text-neutral-400 hover:text-white'
                   }`}
                 >
@@ -1196,7 +1196,7 @@ export function AnimatorStudio() {
                   onClick={() => setMarkdownTab('githubRaw')}
                   className={`px-2.5 py-1 rounded font-medium ${
                     markdownTab === 'githubRaw'
-                      ? 'bg-violet-600 text-white'
+                      ? 'bg-amber-500 text-neutral-950 font-bold'
                       : 'text-neutral-400 hover:text-white'
                   }`}
                 >
@@ -1207,7 +1207,7 @@ export function AnimatorStudio() {
                   onClick={() => setMarkdownTab('dataUri')}
                   className={`px-2.5 py-1 rounded font-medium ${
                     markdownTab === 'dataUri'
-                      ? 'bg-violet-600 text-white'
+                      ? 'bg-amber-500 text-neutral-950 font-bold'
                       : 'text-neutral-400 hover:text-white'
                   }`}
                 >
@@ -1218,7 +1218,7 @@ export function AnimatorStudio() {
                   onClick={() => setMarkdownTab('hostedDemo')}
                   className={`px-2.5 py-1 rounded font-medium ${
                     markdownTab === 'hostedDemo'
-                      ? 'bg-violet-600 text-white'
+                      ? 'bg-amber-500 text-neutral-950 font-bold'
                       : 'text-neutral-400 hover:text-white'
                   }`}
                 >

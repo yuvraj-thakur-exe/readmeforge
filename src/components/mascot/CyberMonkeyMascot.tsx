@@ -71,7 +71,7 @@ export function CyberMonkeyMascot() {
   const handleCopyMarkdown = () => {
     const markdown = `<!-- MonoForge Cyber Monkey Mascot (100% Camo Safe) -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/cyber-monkey-mascot.svg" alt="MonoForge Cyber Monkey Mascot" width="460" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/cyber-monkey-mascot.svg" alt="MonoForge Cyber Monkey Mascot" width="460" />
 </p>`;
     navigator.clipboard.writeText(markdown);
     setCopied(true);
@@ -92,28 +92,28 @@ export function CyberMonkeyMascot() {
   return (
     <div
       ref={containerRef}
-      className="relative rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4 sm:p-6 shadow-2xl backdrop-blur-md overflow-hidden"
+      className="relative rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 p-4 sm:p-6 shadow-xl dark:shadow-2xl backdrop-blur-md overflow-hidden"
     >
       {/* Background Ambient Glow */}
-      <div className="absolute -top-24 -left-24 w-72 h-72 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -top-24 -left-24 w-72 h-72 bg-amber-400/[0.06] dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-400/[0.06] dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Top Header Controls Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-neutral-800/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-neutral-200 dark:border-neutral-800/80">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-lg bg-neutral-950 border border-neutral-800 text-amber-400">
+          <div className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-amber-500 dark:text-amber-400 shadow-sm">
             <Zap className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <h3 className="font-bold text-sm text-neutral-100 font-mono tracking-wide">
+              <h3 className="font-bold text-sm text-neutral-900 dark:text-neutral-100 font-mono tracking-wide">
                 CYBER MONKEY MASCOT
               </h3>
-              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+              <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30">
                 Awwwards Nominee Vibe
               </span>
             </div>
-            <p className="text-[11px] text-neutral-400 font-mono">
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
               Interactive cursor-following chimp inspired by NoMonkey.work &bull; 60fps GPU Vector
             </p>
           </div>
@@ -124,17 +124,17 @@ export function CyberMonkeyMascot() {
           <button
             type="button"
             onClick={handleDownloadSvg}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-800 bg-neutral-950 text-xs font-semibold text-neutral-300 hover:text-neutral-100 hover:border-neutral-700 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-950 text-xs font-semibold text-neutral-800 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-neutral-100 transition-colors shadow-sm"
           >
-            <Download className="w-3.5 h-3.5 text-neutral-400" />
+            <Download className="w-3.5 h-3.5 text-neutral-500 dark:text-neutral-400" />
             <span>SVG Asset</span>
           </button>
           <button
             type="button"
             onClick={handleCopyMarkdown}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-500/40 bg-amber-500/10 text-xs font-semibold text-amber-300 hover:bg-amber-500/20 transition-colors shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-amber-400/60 bg-amber-50 dark:bg-amber-500/10 text-xs font-semibold text-amber-800 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-500/20 transition-colors shadow-sm"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
             <span>{copied ? 'Copied!' : 'Copy to README'}</span>
           </button>
         </div>
@@ -143,15 +143,15 @@ export function CyberMonkeyMascot() {
       {/* Interactive Stage & Customization Drawer Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
         {/* LEFT / CENTER: Interactive Vector Mascot (7 cols) */}
-        <div className="lg:col-span-7 flex flex-col items-center justify-center p-4 rounded-xl border border-neutral-800/80 bg-neutral-950/80 relative min-h-[380px]">
+        <div className="lg:col-span-7 flex flex-col items-center justify-center p-4 rounded-xl border border-neutral-200 dark:border-neutral-800/80 bg-neutral-50/70 dark:bg-neutral-950/80 relative min-h-[380px]">
           {/* Reaction Speech Bubble */}
           <div
             onClick={triggerQuote}
-            className={`cursor-pointer transition-all duration-300 transform mb-2 px-4 py-2 rounded-xl border border-neutral-800 bg-neutral-900/90 text-xs font-mono text-neutral-200 shadow-lg flex items-center gap-2 max-w-sm text-center ${
-              reactionSpark ? 'scale-105 border-amber-500 ring-2 ring-amber-500/30' : 'hover:border-neutral-700'
+            className={`cursor-pointer transition-all duration-300 transform mb-2 px-4 py-2 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/90 text-xs font-mono text-neutral-800 dark:text-neutral-200 shadow-sm flex items-center gap-2 max-w-sm text-center ${
+              reactionSpark ? 'scale-105 border-amber-500 ring-2 ring-amber-500/30' : 'hover:border-neutral-400 dark:hover:border-neutral-700'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
             <span>&ldquo;{MONKEY_QUOTES[currentQuoteIndex]}&rdquo;</span>
           </div>
 
@@ -314,8 +314,8 @@ export function CyberMonkeyMascot() {
           </div>
 
           {/* Gear Toggles */}
-          <div className="p-3.5 rounded-xl border border-neutral-800 bg-neutral-950/60 space-y-2.5">
-            <span className="block text-xs font-semibold text-neutral-300 font-mono">
+          <div className="p-3.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/60 space-y-2.5">
+            <span className="block text-xs font-semibold text-neutral-700 dark:text-neutral-300 font-mono">
               GEAR &amp; WEARABLES
             </span>
             <div className="grid grid-cols-2 gap-2 text-xs">
@@ -324,12 +324,12 @@ export function CyberMonkeyMascot() {
                 onClick={() => setShowVisor(v => !v)}
                 className={`p-2.5 rounded-lg border text-left transition-colors flex items-center justify-between ${
                   showVisor
-                    ? 'border-cyan-500/60 bg-cyan-500/10 text-cyan-200'
-                    : 'border-neutral-800 bg-neutral-900/60 text-neutral-500'
+                    ? 'border-cyan-500/60 bg-cyan-50 dark:bg-cyan-500/10 text-cyan-800 dark:text-cyan-200 shadow-sm'
+                    : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 text-neutral-500'
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <Eye className="w-3.5 h-3.5 text-cyan-400" />
+                  <Eye className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                   <span className="font-mono text-xs">Cyber Visor</span>
                 </div>
                 <span>{showVisor ? 'ON' : 'OFF'}</span>
@@ -340,12 +340,12 @@ export function CyberMonkeyMascot() {
                 onClick={() => setShowHeadphones(h => !h)}
                 className={`p-2.5 rounded-lg border text-left transition-colors flex items-center justify-between ${
                   showHeadphones
-                    ? 'border-amber-500/60 bg-amber-500/10 text-amber-200'
-                    : 'border-neutral-800 bg-neutral-900/60 text-neutral-500'
+                    ? 'border-amber-500/60 bg-amber-50 dark:bg-amber-500/10 text-amber-800 dark:text-amber-200 shadow-sm'
+                    : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 text-neutral-500'
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <Headphones className="w-3.5 h-3.5 text-amber-400" />
+                  <Headphones className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                   <span className="font-mono text-xs">Studio Beats</span>
                 </div>
                 <span>{showHeadphones ? 'ON' : 'OFF'}</span>
@@ -354,22 +354,22 @@ export function CyberMonkeyMascot() {
           </div>
 
           {/* Technical Specs List (Poulo / NoMonkey style) */}
-          <div className="p-3.5 rounded-xl border border-neutral-800 bg-neutral-950/60 space-y-2 font-mono text-[11px]">
-            <div className="flex items-center justify-between text-neutral-400 border-b border-neutral-800/80 pb-1.5">
+          <div className="p-3.5 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/60 space-y-2 font-mono text-[11px]">
+            <div className="flex items-center justify-between text-neutral-500 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-800/80 pb-1.5">
               <span>ENGINE:</span>
-              <span className="text-neutral-200">Pure Camo Vector</span>
+              <span className="text-neutral-800 dark:text-neutral-200 font-bold">Pure Camo Vector</span>
             </div>
-            <div className="flex items-center justify-between text-neutral-400 border-b border-neutral-800/80 pb-1.5">
+            <div className="flex items-center justify-between text-neutral-500 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-800/80 pb-1.5">
               <span>JAVASCRIPT IN SVG:</span>
-              <span className="text-emerald-400 font-bold">0.00% (Pure CSS Keyframes)</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold">0.00% (Pure CSS Keyframes)</span>
             </div>
-            <div className="flex items-center justify-between text-neutral-400 border-b border-neutral-800/80 pb-1.5">
+            <div className="flex items-center justify-between text-neutral-500 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-800/80 pb-1.5">
               <span>FOREIGN OBJECTS:</span>
-              <span className="text-emerald-400 font-bold">0 (Zero Sanitize Stripping)</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-bold">0 (Zero Sanitize Stripping)</span>
             </div>
-            <div className="flex items-center justify-between text-neutral-400">
+            <div className="flex items-center justify-between text-neutral-500 dark:text-neutral-400">
               <span>FRAME RATE:</span>
-              <span className="text-amber-400 font-bold">60 FPS Hardware Composited</span>
+              <span className="text-amber-600 dark:text-amber-400 font-bold">60 FPS Hardware Composited</span>
             </div>
           </div>
         </div>

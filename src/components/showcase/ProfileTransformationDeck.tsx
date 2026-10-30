@@ -7,32 +7,32 @@ export const ProfileTransformationDeck: React.FC = () => {
   const [sliderPos, setSliderPos] = useState<number>(50);
 
   return (
-    <div className="w-full rounded-2xl border border-neutral-800 bg-neutral-950/80 p-5 sm:p-7 shadow-2xl backdrop-blur-md">
+    <div className="w-full rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-950/80 p-5 sm:p-7 shadow-xl dark:shadow-2xl backdrop-blur-md">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-neutral-800/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-neutral-200 dark:border-neutral-800/80">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold text-cyan-400 uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-xs font-mono font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-1">
             <span>[POULO INSPIRATION // TRANSFORMATION DECK]</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400" />
             <span className="text-neutral-500">BEFORE &amp; AFTER MATRIX</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-neutral-100">
+          <h3 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-100">
             From Generic Monospace to High-Impact Engineering Showcase
           </h3>
-          <p className="text-xs text-neutral-400 mt-1 max-w-2xl">
-            Drag the comparison slider or inspect the telemetry improvements. See how ReadmeForge replaces static bullet points with Camo-safe 60fps vector telemetry.
+          <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-1 max-w-2xl">
+            Drag the comparison slider or inspect the telemetry improvements. See how MonoForge replaces static bullet points with Camo-safe 60fps vector telemetry.
           </p>
         </div>
 
-        <div className="flex items-center gap-2 self-start sm:self-auto text-xs font-mono text-neutral-400 bg-neutral-900 px-3 py-1.5 rounded-lg border border-neutral-800">
-          <Zap className="w-3.5 h-3.5 text-amber-400" />
+        <div className="flex items-center gap-2 self-start sm:self-auto text-xs font-mono text-neutral-700 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 shadow-sm">
+          <Zap className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
           <span>RECRUITER RETENTION +420%</span>
         </div>
       </div>
 
       {/* Interactive Split Deck */}
       <div
-        className="relative w-full h-[400px] sm:h-[460px] rounded-xl overflow-hidden border border-neutral-800 bg-neutral-900 select-none cursor-ew-resize group"
+        className="relative w-full h-[400px] sm:h-[460px] rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 bg-neutral-900 select-none cursor-ew-resize group shadow-md"
         onMouseMove={e => {
           const rect = e.currentTarget.getBoundingClientRect();
           const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
@@ -40,9 +40,9 @@ export const ProfileTransformationDeck: React.FC = () => {
           setSliderPos(pct);
         }}
       >
-        {/* AFTER (Full Width Layer: ReadmeForge High-Impact Engine) */}
+        {/* AFTER (Full Width Layer: MonoForge High-Impact Engine) */}
         <div className="absolute inset-0 bg-[#09090b] flex flex-col p-6 sm:p-8 overflow-y-auto">
-          {/* ReadmeForge Header Mockup */}
+          {/* MonoForge Header Mockup */}
           <div className="space-y-4 max-w-3xl">
             <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
               <div className="flex items-center gap-2">

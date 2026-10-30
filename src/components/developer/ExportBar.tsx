@@ -102,7 +102,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
   return (
     <div
-      className={`flex items-center justify-between px-4 py-2.5 bg-neutral-950 border-t border-neutral-800 text-xs ${className}`}
+      className={`flex items-center justify-between px-4 py-2.5 bg-white dark:bg-neutral-950 border-t border-neutral-200 dark:border-neutral-800 text-xs shadow-sm ${className}`}
     >
       {/* History and Reset Controls */}
       <div className="flex items-center gap-1.5">
@@ -110,7 +110,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           type="button"
           onClick={() => undo()}
           disabled={history.length === 0}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           title="Undo"
         >
           <Undo2 className="w-3.5 h-3.5" />
@@ -121,7 +121,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           type="button"
           onClick={() => redo()}
           disabled={future.length === 0}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           title="Redo"
         >
           <Redo2 className="w-3.5 h-3.5" />
@@ -135,7 +135,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
               resetConfig();
             }
           }}
-          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-red-400 transition-colors ml-1"
+          className="flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-500 hover:text-red-600 dark:hover:text-red-400 transition-colors ml-1"
           title="Reset configuration to empty profile"
         >
           <RotateCcw className="w-3.5 h-3.5" />
@@ -145,7 +145,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
       {/* Center status message */}
       <div className="hidden lg:flex items-center gap-2 text-neutral-500 font-mono text-[11px]">
-        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
         <span>Turbopack Sync Active</span>
       </div>
 
@@ -154,13 +154,13 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         <button
           type="button"
           onClick={handleCopyAiPrompt}
-          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white transition-colors"
+          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-colors"
           title="Copy config wrapped in AI assistant prompt"
         >
           {copiedAiPrompt ? (
-            <Check className="w-3.5 h-3.5 text-emerald-400" />
+            <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           ) : (
-            <Bot className="w-3.5 h-3.5 text-amber-400" />
+            <Bot className="w-3.5 h-3.5 text-amber-500" />
           )}
           <span>{copiedAiPrompt ? 'Prompt Copied!' : 'AI Prompt'}</span>
         </button>
@@ -168,13 +168,13 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         <button
           type="button"
           onClick={handleShareUrl}
-          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-300 hover:text-white transition-colors"
+          className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white transition-colors"
           title="Copy shareable URL containing base64 configuration"
         >
           {copiedUrl ? (
-            <Check className="w-3.5 h-3.5 text-emerald-400" />
+            <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
           ) : (
-            <Share2 className="w-3.5 h-3.5 text-cyan-400" />
+            <Share2 className="w-3.5 h-3.5 text-cyan-500" />
           )}
           <span>{copiedUrl ? 'Link Copied' : 'Share URL'}</span>
         </button>
@@ -183,10 +183,10 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           <button
             type="button"
             onClick={onOpenSync}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-900 border border-neutral-700 hover:border-neutral-500 text-neutral-200 hover:text-white font-medium transition-all shadow-sm"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 text-neutral-800 dark:text-neutral-200 hover:text-neutral-950 dark:hover:text-white font-medium transition-all shadow-sm"
             title="Push directly to GitHub repository"
           >
-            <Github className="w-3.5 h-3.5 text-neutral-100" />
+            <Github className="w-3.5 h-3.5 text-neutral-900 dark:text-neutral-100" />
             <span className="hidden xs:inline">Push to GitHub</span>
           </button>
         )}
@@ -194,7 +194,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         <button
           type="button"
           onClick={handleDownloadMarkdown}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-800 dark:hover:bg-neutral-700 text-neutral-800 dark:text-neutral-200 font-medium transition-colors"
           title="Download README.md file"
         >
           <Download className="w-3.5 h-3.5" />

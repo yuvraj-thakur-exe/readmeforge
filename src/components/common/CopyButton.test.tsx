@@ -22,7 +22,7 @@ describe('CopyButton Component', () => {
   });
 
   it('renders with label and copies text to clipboard on click', async () => {
-    render(<CopyButton textToCopy="npx readmeforge@latest" label="Copy Command" />);
+    render(<CopyButton textToCopy="npx monoforge@latest" label="Copy Command" />);
 
     const button = screen.getByRole('button', { name: /Copy Command/i });
     expect(button).toBeDefined();
@@ -30,7 +30,7 @@ describe('CopyButton Component', () => {
     fireEvent.click(button);
 
     await waitFor(() => {
-      expect(navigator.clipboard.writeText).toHaveBeenCalledWith('npx readmeforge@latest');
+      expect(navigator.clipboard.writeText).toHaveBeenCalledWith('npx monoforge@latest');
       expect(screen.getByText('Copied!')).toBeDefined();
     });
   });

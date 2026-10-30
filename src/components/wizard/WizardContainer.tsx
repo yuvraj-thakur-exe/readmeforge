@@ -127,7 +127,7 @@ export function WizardContainer() {
                 onClick={() => setCurrentStepIndex(idx)}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all shrink-0 ${
                   isActive
-                    ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-sm'
+                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-sm'
                     : isCompleted
                     ? 'text-cyan-400 hover:bg-palette-soft'
                     : 'text-palette-contrast/70 hover:bg-palette-soft'
@@ -157,11 +157,11 @@ export function WizardContainer() {
                 </div>
 
                 {/* Quick Domain Personalization Presets */}
-                <div className="p-3.5 rounded-xl border border-violet-500/30 bg-violet-500/5 space-y-2.5">
+                <div className="p-3.5 rounded-xl border border-amber-500/30 bg-amber-500/10 space-y-2.5">
                   <div className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4 text-violet-400 shrink-0" />
+                    <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
                     <div>
-                      <h4 className="text-xs font-semibold text-violet-300">Generate Personalized Profile</h4>
+                      <h4 className="text-xs font-semibold text-amber-600 dark:text-amber-300">Generate Personalized Profile</h4>
                       <p className="text-[11px] text-palette-contrast/60">
                         Select your engineering domain to auto-tailor headlines, typing lines, charts, and tech badges:
                       </p>
@@ -189,7 +189,7 @@ export function WizardContainer() {
                           });
                           setEntireConfig(personalized);
                         }}
-                        className="px-2.5 py-1 text-xs rounded-lg border border-violet-500/40 bg-palette-base/80 hover:bg-violet-500/15 hover:border-violet-400 text-palette-contrast transition-all"
+                        className="px-2.5 py-1 text-xs rounded-lg border border-amber-500/40 bg-palette-base/80 hover:bg-amber-500/15 hover:border-amber-400 text-palette-contrast transition-all"
                       >
                         {persona.label}
                       </button>
@@ -205,7 +205,7 @@ export function WizardContainer() {
                       value={user.github || ''}
                       onChange={e => setGithub(e.target.value)}
                       placeholder="e.g. torvalds"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
 
@@ -216,7 +216,7 @@ export function WizardContainer() {
                       value={user.name || ''}
                       onChange={e => updateSettings({ user: { ...user, name: e.target.value } })}
                       placeholder="e.g. Linus Torvalds"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
 
@@ -227,7 +227,7 @@ export function WizardContainer() {
                       value={user.role || ''}
                       onChange={e => updateSettings({ user: { ...user, role: e.target.value } })}
                       placeholder="e.g. Full-Stack Engineer & Open Source Enthusiast"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
 
@@ -238,7 +238,7 @@ export function WizardContainer() {
                       value={user.bio || ''}
                       onChange={e => updateSettings({ user: { ...user, bio: e.target.value } })}
                       placeholder="Building high-performance software and developer tooling."
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
 
@@ -249,7 +249,7 @@ export function WizardContainer() {
                       value={user.location || ''}
                       onChange={e => updateSettings({ user: { ...user, location: e.target.value } })}
                       placeholder="e.g. San Francisco, CA"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
 
@@ -260,7 +260,7 @@ export function WizardContainer() {
                       value={user.pronouns || ''}
                       onChange={e => updateSettings({ user: { ...user, pronouns: e.target.value } })}
                       placeholder="e.g. they/them"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
 
@@ -271,7 +271,7 @@ export function WizardContainer() {
                       value={user.status || ''}
                       onChange={e => updateSettings({ user: { ...user, status: e.target.value } })}
                       placeholder="e.g. Building Next.js apps and studying Rust"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -299,7 +299,7 @@ export function WizardContainer() {
                           onClick={() => updateSettings({ align })}
                           className={`px-3 py-2 text-xs font-medium rounded-lg border capitalize ${
                             config.settings.align === align
-                              ? 'border-violet-500 bg-violet-500/10 text-violet-400 font-semibold'
+                              ? 'border-amber-500 bg-amber-500/10 text-amber-500 font-semibold'
                               : 'border-palette-line bg-palette-soft text-palette-contrast hover:border-palette-line/80'
                           }`}
                         >
@@ -314,7 +314,7 @@ export function WizardContainer() {
                     <select
                       value={config.settings.badgeStyle}
                       onChange={e => updateSettings({ badgeStyle: e.target.value as any })}
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     >
                       <option value="for-the-badge">For-The-Badge (Bold & High Contrast)</option>
                       <option value="flat">Flat Standard</option>
@@ -360,7 +360,7 @@ export function WizardContainer() {
                     className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-all ${
                       isPluginActive('markdown-badges')
                         ? 'border-emerald-500 bg-emerald-500/10 text-emerald-400'
-                        : 'border-palette-line bg-palette-soft text-palette-contrast hover:border-violet-500'
+                        : 'border-palette-line bg-palette-soft text-palette-contrast hover:border-amber-500'
                     }`}
                   >
                     {isPluginActive('markdown-badges') ? 'Active on Canvas' : '+ Enable Badges'}
@@ -447,7 +447,7 @@ export function WizardContainer() {
                         key={plugin.id}
                         className={`p-4 rounded-xl border transition-all flex flex-col justify-between space-y-3 ${
                           active
-                            ? 'border-violet-500 bg-violet-500/5 shadow-sm'
+                            ? 'border-amber-500 bg-amber-500/10 shadow-sm'
                             : 'border-palette-line bg-palette-soft/40 hover:border-palette-line/80'
                         }`}
                       >
@@ -483,7 +483,7 @@ export function WizardContainer() {
                                     }}
                                     className={`px-2 py-1 text-[11px] rounded border text-center transition-all ${
                                       currentMode === opt.id
-                                        ? 'border-violet-500 bg-violet-500/20 text-violet-300 font-semibold'
+                                        ? 'border-amber-500 bg-amber-500/20 text-amber-600 dark:text-amber-300 font-semibold'
                                         : 'border-palette-line bg-palette-soft text-palette-contrast/70 hover:bg-palette-soft/80'
                                     }`}
                                   >
@@ -538,7 +538,7 @@ export function WizardContainer() {
                           className={`w-full py-1.5 text-xs font-medium rounded-lg border transition-all ${
                             active
                               ? 'border-rose-500/40 bg-rose-500/10 text-rose-400 hover:bg-rose-500/20'
-                              : 'border-violet-500/40 bg-violet-500/10 text-violet-300 hover:bg-violet-500/20'
+                              : 'border-amber-500/40 bg-amber-500/10 text-amber-600 dark:text-amber-300 hover:bg-amber-500/20'
                           }`}
                         >
                           {active ? 'Remove Widget' : '+ Add Widget'}
@@ -561,7 +561,7 @@ export function WizardContainer() {
                     </p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/30">
+                    <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/30">
                       {Object.keys(activeSocials).length} active badge{Object.keys(activeSocials).length === 1 ? '' : 's'}
                     </span>
                   </div>
@@ -569,9 +569,9 @@ export function WizardContainer() {
 
                 {/* Active Badges Live Preview Row */}
                 {Object.keys(activeSocials).length > 0 && (
-                  <div className="p-3.5 rounded-xl bg-palette-soft/70 border border-violet-500/30 space-y-2">
+                  <div className="p-3.5 rounded-xl bg-palette-soft/70 border border-amber-500/30 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-violet-400 font-semibold flex items-center gap-1.5">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-amber-500 font-semibold flex items-center gap-1.5">
                         <Sparkles className="w-3 h-3 text-cyan-400" /> Active Profile Badges (Live Preview)
                       </span>
                       <button
@@ -621,7 +621,7 @@ export function WizardContainer() {
                     value={socialSearch}
                     onChange={e => setSocialSearch(e.target.value)}
                     placeholder="Search apps (LinkedIn, X, Discord, YouTube, Gmail, HackerRank, LeetCode...)"
-                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none placeholder:text-palette-contrast/40"
+                    className="w-full pl-9 pr-3 py-2 text-xs rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none placeholder:text-palette-contrast/40"
                   />
                   {socialSearch && (
                     <button
@@ -656,7 +656,7 @@ export function WizardContainer() {
                           key={item.name}
                           className={`p-3 rounded-xl border transition-all flex flex-col justify-between space-y-2.5 ${
                             isActive
-                              ? 'border-violet-500 bg-violet-500/10 shadow-sm'
+                              ? 'border-amber-500 bg-amber-500/10 shadow-sm'
                               : 'border-palette-line bg-palette-soft/40 hover:border-palette-line/80'
                           }`}
                         >
@@ -683,7 +683,7 @@ export function WizardContainer() {
                               className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-all shrink-0 ${
                                 isActive
                                   ? 'bg-rose-500/15 border-rose-500/40 text-rose-300 hover:bg-rose-500/25'
-                                  : 'bg-violet-600 hover:bg-violet-500 text-white border-violet-500 shadow-sm'
+                                  : 'bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-white border-amber-500 shadow-sm'
                               }`}
                             >
                               {isActive ? 'Remove' : '+ Add'}
@@ -702,7 +702,7 @@ export function WizardContainer() {
                               }
                               className={`w-full px-2.5 py-1.5 text-xs rounded-lg border font-mono transition-colors focus:outline-none ${
                                 isActive
-                                  ? 'border-violet-500/60 bg-palette-base text-palette-contrast focus:border-violet-400'
+                                  ? 'border-amber-500/60 bg-palette-base text-palette-contrast focus:border-amber-400'
                                   : 'border-palette-line bg-palette-base/60 text-palette-contrast/60 focus:border-palette-line'
                               }`}
                             />
@@ -730,7 +730,7 @@ export function WizardContainer() {
                     <input
                       type="text"
                       placeholder="e.g. An AI-powered profile README generator"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
 
@@ -739,7 +739,7 @@ export function WizardContainer() {
                     <input
                       type="text"
                       placeholder="e.g. I run on coffee and open-source contributions ☕"
-                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-violet-500 focus:outline-none"
+                      className="w-full px-3 py-2 text-sm rounded-lg border border-palette-line bg-palette-soft text-palette-contrast focus:border-amber-500 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -768,7 +768,7 @@ export function WizardContainer() {
             type="button"
             disabled={currentStepIndex === STEPS.length - 1}
             onClick={() => setCurrentStepIndex(prev => Math.min(STEPS.length - 1, prev + 1))}
-            className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-violet-600 to-cyan-600 text-white disabled:opacity-40 disabled:cursor-not-allowed shadow-sm hover:opacity-95 transition-all"
+            className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 text-white disabled:opacity-40 disabled:cursor-not-allowed shadow-sm hover:opacity-95 transition-all"
           >
             <span>Next</span>
             <ChevronRight className="w-4 h-4" />

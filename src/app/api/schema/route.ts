@@ -5,8 +5,8 @@ export const runtime = 'nodejs';
 export async function GET() {
   const schema = {
     $schema: 'http://json-schema.org/draft-07/schema#',
-    title: 'ReadmeForgeConfig',
-    description: 'JSON Configuration schema for ReadmeForge GitHub profile generator',
+    title: 'MonoForgeConfig',
+    description: 'JSON Configuration schema for MonoForge GitHub profile generator',
     type: 'object',
     required: ['version', 'title', 'settings', 'sections'],
     properties: {
@@ -17,7 +17,7 @@ export async function GET() {
       },
       title: {
         type: 'string',
-        default: 'ReadmeForge Profile',
+        default: 'MonoForge Profile',
         description: 'Profile title or headline',
       },
       settings: {

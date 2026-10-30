@@ -84,7 +84,7 @@ export async function generateMetadata({
       'ai:ready': 'true',
       'ai:model-context': `${appUrl}/llms.txt`,
       'ai:agent-skill': `${appUrl}/.agents/skills/readmeforge/SKILL.md`,
-      'ai:mcp': 'npx readmeforge mcp',
+      'ai:mcp': 'npx monoforge mcp',
     },
     manifest: '/manifest.json',
     icons: {
@@ -96,7 +96,7 @@ export async function generateMetadata({
       type: 'website',
       title,
       description,
-      siteName: 'ReadmeForge',
+      siteName: 'MONOFORGE',
       images: '/api/og',
     },
     twitter: {
@@ -104,7 +104,7 @@ export async function generateMetadata({
       title,
       description,
       images: '/api/og',
-      creator: 'https://github.com/yuvraj-thakur-exe/readmeforge',
+      creator: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
     },
     alternates: {
       canonical: `${appUrl}/${locale}`,
@@ -117,7 +117,7 @@ export async function generateMetadata({
 }
 
 export const viewport: Viewport = {
-  themeColor: '#8b5cf6',
+  themeColor: '#f59e0b',
 };
 
 export default async function RootLayout({
@@ -161,22 +161,20 @@ export default async function RootLayout({
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': ['WebApplication', 'SoftwareApplication'],
-              name: 'ReadmeForge',
-              softwareVersion: '1.0.0',
+              name: 'MONOFORGE',
+              softwareVersion: '2.0.0',
               applicationCategory: 'DeveloperApplication',
               operatingSystem: 'All',
               url: config.general.urls.app,
               description:
-                'AI-native GitHub profile README generator and visual studio featuring visual wizard, raw JSON /developer IDE, dynamic vector animator, agent skills, and zero-drift plugin registry.',
+                'AI-native GitHub profile README studio and precision telemetry engine featuring visual studio, raw Monaco /developer IDE, Camo-safe SVG animations, and zero-drift plugin registry.',
               featureList: [
                 'GitHub Profile README Generator',
-                'Visual Wizard with Real-time Preview',
+                'Visual Studio with Real-time Preview',
                 'Developer Raw Mode Monaco IDE',
-                'Autonomous Agent Skill & MCP Server',
-                '8 Curated Visual Archetypes',
-                'Pinterest Aesthetic Moodboard Support',
-                'Zero-script Camo-safe SVG Animations',
-                'Resume Import & Web Enrichment Confirmation Gate',
+                '47+ Scraped Telemetry Engines',
+                'Camo-safe 60fps Vector Animations',
+                'Interactive Cyber Monkey Companion',
                 'Direct Authenticated GitHub Push with Diff Preview',
               ],
               offers: {
@@ -190,7 +188,7 @@ export default async function RootLayout({
                 url: 'https://github.com/yuvraj-thakur-exe',
               },
               sameAs: [
-                'https://github.com/yuvraj-thakur-exe/readmeforge',
+                'https://github.com/yuvraj-thakur-exe/MONOFORGE',
               ],
             }),
           }}

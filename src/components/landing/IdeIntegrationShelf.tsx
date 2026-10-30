@@ -44,7 +44,7 @@ export const IDE_ITEMS: IdeItem[] = [
     activeBorder: 'border-orange-500 ring-2 ring-orange-500/20 bg-orange-950/20',
     glowColor: 'rgba(217,119,87,0.18)',
     accentText: 'text-orange-400',
-    command: 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git && cd readmeforge && claude',
+    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && claude',
     description: 'Clone and launch immediately with Anthropic Claude Code agentic CLI.',
     logo: <ClaudeLogo className="w-4 h-4 shrink-0" />,
   },
@@ -58,7 +58,7 @@ export const IDE_ITEMS: IdeItem[] = [
     activeBorder: 'border-emerald-500 ring-2 ring-emerald-500/20 bg-emerald-950/20',
     glowColor: 'rgba(16,185,129,0.18)',
     accentText: 'text-emerald-400',
-    command: 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git && cd readmeforge && agy',
+    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && agy',
     description: 'Clone and launch with Google DeepMind Antigravity autonomous agent studio.',
     logo: <AntigravityLogo className="w-4 h-4 shrink-0" />,
   },
@@ -72,7 +72,7 @@ export const IDE_ITEMS: IdeItem[] = [
     activeBorder: 'border-sky-500 ring-2 ring-sky-500/20 bg-sky-950/20',
     glowColor: 'rgba(56,189,248,0.18)',
     accentText: 'text-sky-400',
-    command: 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git && code readmeforge',
+    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && code MONOFORGE',
     description: 'Clone and open workspace in Visual Studio Code with split-pane live preview.',
     logo: <VsCodeLogo className="w-4 h-4 shrink-0" />,
   },
@@ -86,7 +86,7 @@ export const IDE_ITEMS: IdeItem[] = [
     activeBorder: 'border-cyan-500 ring-2 ring-cyan-500/20 bg-cyan-950/20',
     glowColor: 'rgba(6,182,212,0.18)',
     accentText: 'text-cyan-400',
-    command: 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git && cursor readmeforge',
+    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cursor MONOFORGE',
     description: 'Clone and open workspace in Cursor AI-first editor.',
     logo: <CursorLogo className="w-4 h-4 shrink-0" />,
   },
@@ -100,7 +100,7 @@ export const IDE_ITEMS: IdeItem[] = [
     activeBorder: 'border-teal-500 ring-2 ring-teal-500/20 bg-teal-950/20',
     glowColor: 'rgba(0,229,153,0.18)',
     accentText: 'text-teal-400',
-    command: 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git && windsurf readmeforge',
+    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && windsurf MONOFORGE',
     description: 'Clone and open workspace in Codeium Windsurf IDE cascade agent workflow.',
     logo: <WindsurfLogo className="w-4 h-4 shrink-0" />,
   },
@@ -114,7 +114,7 @@ export const IDE_ITEMS: IdeItem[] = [
     activeBorder: 'border-green-500 ring-2 ring-green-500/20 bg-green-950/20',
     glowColor: 'rgba(34,197,94,0.18)',
     accentText: 'text-green-400',
-    command: 'git clone https://github.com/yuvraj-thakur-exe/readmeforge.git && cd readmeforge && nvim .',
+    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && nvim .',
     description: 'Clone and launch inside Neovim modal terminal editor.',
     logo: <NeovimLogo className="w-4 h-4 shrink-0" />,
   },
@@ -309,7 +309,7 @@ export const IdeIntegrationShelf: React.FC<IdeIntegrationShelfProps> = ({
               </p>
             </div>
             <CopyButton
-              textToCopy="claude mcp add readmeforge -- npx -y readmeforge"
+              textToCopy="claude mcp add monoforge -- npx -y monoforge"
               label="Copy MCP Config"
               copiedLabel="Copied Config"
               variant="pill"
@@ -338,7 +338,7 @@ export const IdeIntegrationShelf: React.FC<IdeIntegrationShelfProps> = ({
               </p>
             </div>
             <CopyButton
-              textToCopy="agy add plugin readmeforge"
+              textToCopy="agy add plugin monoforge"
               label="Copy AGY Plugin"
               copiedLabel="Copied Command"
               variant="pill"
@@ -368,7 +368,7 @@ export const IdeIntegrationShelf: React.FC<IdeIntegrationShelfProps> = ({
               </p>
             </div>
             <CopyButton
-              textToCopy="code --install-extension readmeforge"
+              textToCopy="code --install-extension monoforge"
               label="Install Extension"
               copiedLabel="Copied Extension"
               variant="pill"

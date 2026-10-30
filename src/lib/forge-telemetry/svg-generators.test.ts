@@ -50,13 +50,13 @@ describe('ReadmeForge Telemetry SVG Generator Suite', () => {
   it('generates valid Terminal HUD SVG', () => {
     const svg = generateTerminalHudSvg({ username: 'sysadmin', repos: 99 });
     expect(svg).toContain('<svg');
-    expect(svg).toContain('readmeforge@sysadmin');
+    expect(svg).toContain('monoforge@sysadmin');
     expect(svg).toContain('99');
     expect(svg).not.toContain('<foreignObject>');
   });
 
   it('generates valid PageSpeed Audit SVG', () => {
-    const svg = generatePageSpeedAuditSvg({ url: 'readmeforge.dev' });
+    const svg = generatePageSpeedAuditSvg({ url: 'monoforge.dev' });
     expect(svg).toContain('<svg');
     expect(svg).toContain('PageSpeed &amp; Web Vitals Audit');
     expect(svg).toContain('Performance');

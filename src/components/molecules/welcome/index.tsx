@@ -63,7 +63,7 @@ export function Welcome() {
       <Text.Paragraph className="max-w-96 mt-auto">
         {t('welcome.footer-before-repo')}{' '}
         <Text.Link
-          href="https://github.com/yuvraj-thakur-exe/readmeforge"
+          href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
           target="_blank"
           rel="noreferrer"
         >

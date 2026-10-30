@@ -15,14 +15,14 @@ vi.mock('sonner', () => ({
   },
 }));
 
-describe('ReadmeForge Telemetry Studio Page', () => {
+describe('MonoForge Telemetry Studio Page', () => {
   afterEach(() => {
     cleanup();
   });
 
   it('renders the studio title and sample profile presets', () => {
     render(<TelemetryStudioPage />);
-    expect(screen.getByText('ReadmeForge Telemetry')).toBeDefined();
+    expect(screen.getByText('MonoForge Telemetry')).toBeDefined();
     expect(screen.getByText('@octocat')).toBeDefined();
     expect(screen.getByText('@torvalds')).toBeDefined();
   });
@@ -44,7 +44,7 @@ describe('ReadmeForge Telemetry Studio Page', () => {
     // Switch to Action tab
     const actionTab = screen.getByTestId('tab-action');
     fireEvent.click(actionTab);
-    expect(screen.getByText('File: .github/workflows/readmeforge-telemetry.yml')).toBeDefined();
+    expect(screen.getByText('File: .github/workflows/monoforge-telemetry.yml')).toBeDefined();
 
     // Switch to Markdown tab
     const mdTab = screen.getByTestId('tab-markdown');

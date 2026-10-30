@@ -150,7 +150,7 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
         {/* Modal Header */}
         <div className="flex items-center justify-between px-5 py-3.5 bg-neutral-950 border-b border-neutral-800">
           <div className="flex items-center gap-2">
-            <ImageIcon className="w-4 h-4 text-violet-400" />
+            <ImageIcon className="w-4 h-4 text-amber-500" />
             <h3 className="text-sm font-semibold text-neutral-100">
               Profile Avatar / Image Optimizer
             </h3>
@@ -168,8 +168,8 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
         <div className="p-5 space-y-4">
           {!imageSrc ? (
             <div className="space-y-4">
-              <label className="flex flex-col items-center justify-center border-2 border-dashed border-neutral-700 hover:border-violet-500 rounded-xl p-8 cursor-pointer transition-colors text-center group">
-                <Upload className="w-8 h-8 text-neutral-400 group-hover:text-violet-400 mb-2 transition-colors" />
+              <label className="flex flex-col items-center justify-center border-2 border-dashed border-neutral-700 hover:border-amber-500 rounded-xl p-8 cursor-pointer transition-colors text-center group">
+                <Upload className="w-8 h-8 text-neutral-400 group-hover:text-amber-500 mb-2 transition-colors" />
                 <span className="text-sm font-medium text-neutral-200">
                   Upload an image (PNG, JPG, WebP)
                 </span>
@@ -221,7 +221,7 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
                     step={0.1}
                     value={zoom}
                     onChange={e => setZoom(Number(e.target.value))}
-                    className="w-full accent-violet-500"
+                    className="w-full accent-amber-500"
                   />
                   <span className="text-neutral-400 font-mono w-10 text-right">
                     {zoom.toFixed(1)}x
@@ -238,7 +238,7 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
                       value={altText}
                       onChange={e => setAltText(e.target.value)}
                       placeholder="Profile avatar"
-                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-2.5 py-1 text-xs text-neutral-200 focus:outline-none focus:border-violet-500"
+                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-2.5 py-1 text-xs text-neutral-200 focus:outline-none focus:border-amber-500"
                     />
                   </div>
 
@@ -249,7 +249,7 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
                     <select
                       value={format}
                       onChange={e => setFormat(e.target.value as any)}
-                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-2.5 py-1 text-xs text-neutral-200 focus:outline-none focus:border-violet-500"
+                      className="w-full bg-neutral-900 border border-neutral-700 rounded px-2.5 py-1 text-xs text-neutral-200 focus:outline-none focus:border-amber-500"
                     >
                       <option value="image/png">PNG (Lossless, Recommended)</option>
                       <option value="image/webp">WebP (Smallest Size)</option>
@@ -272,7 +272,7 @@ export const ProfileImageUploader: React.FC<ProfileImageUploaderProps> = ({
                   type="button"
                   onClick={handleSave}
                   disabled={isProcessing}
-                  className="flex items-center gap-1.5 px-5 py-2 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold shadow transition-all"
+                  className="flex items-center gap-1.5 px-5 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs font-semibold shadow transition-all"
                 >
                   {isProcessing ? (
                     <>

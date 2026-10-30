@@ -54,12 +54,12 @@ export async function GET(req: NextRequest) {
                 fontSize: '44px',
                 fontWeight: 800,
                 letterSpacing: '-1px',
-                background: 'linear-gradient(to right, #a78bfa, #38bdf8)',
+                background: 'linear-gradient(to right, #f59e0b, #06b6d4)',
                 backgroundClip: 'text',
                 color: 'transparent',
               }}
             >
-              ReadmeForge
+              MonoForge
             </span>
           </div>
 
@@ -87,7 +87,7 @@ export async function GET(req: NextRequest) {
               maxWidth: '750px',
             }}
           >
-            Visual 6-Step Wizard · Monaco /developer Mode · 8+ OSS Plugins · Direct GitHub Sync
+            Zero Monkey Business · Monaco /developer Mode · 47+ Telemetry Plugins · Camo Vector SVGs
           </div>
 
           {/* Footer handle */}
@@ -103,9 +103,9 @@ export async function GET(req: NextRequest) {
               fontWeight: 600,
             }}
           >
-            <span>readmeforge.dev</span>
+            <span>github.com/yuvraj-thakur-exe/MONOFORGE</span>
             <span>·</span>
-            <span>github.com/{username}</span>
+            <span>@{username}</span>
           </div>
         </div>
       ),

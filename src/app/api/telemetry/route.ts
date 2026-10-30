@@ -32,8 +32,8 @@ export async function GET(request: NextRequest) {
   const markdown = buildTelemetryMarkdownSnippet(config);
 
   return NextResponse.json({
-    engine: 'ReadmeForge Telemetry Engine',
-    version: '3.35.0-readmeforge',
+    engine: 'MonoForge Telemetry Engine',
+    version: '3.35.0-monoforge',
     user,
     template,
     embedUrl,

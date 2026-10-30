@@ -982,7 +982,7 @@ const RAW_TEMPLATES: TemplateItem[] = [
           type: 'custom',
           props: {
             content: {
-              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/wow-profile-full.svg" width="100%" alt="#1 Wow Profile 3D City & Peeking Cat" />\n</div>`,
+              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/wow-profile-full.svg" width="100%" alt="#1 Wow Profile 3D City & Peeking Cat" />\n</div>`,
             },
             styles: {},
             state: 'default',
@@ -1051,7 +1051,7 @@ const RAW_TEMPLATES: TemplateItem[] = [
           type: 'custom',
           props: {
             content: {
-              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/bento-dashboard-full.svg" width="100%" alt="#5 Signal Dashboard Bento Grid" />\n</div>`,
+              markdown: `<div align="center">\n  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/bento-dashboard-full.svg" width="100%" alt="#5 Signal Dashboard Bento Grid" />\n</div>`,
             },
             styles: {},
             state: 'default',

@@ -1,7 +1,7 @@
 {
   "schema_version": "v1",
-  "name_for_model": "readmeforge",
-  "name_for_human": "ReadmeForge",
+  "name_for_model": "monoforge",
+  "name_for_human": "MonoForge",
   "description_for_model": "Forge GitHub profile READMEs with animated SVGs, live stats, badges, and templates. Allows generation of profile markdown via CLI, MCP server, or web studio.",
   "description_for_human": "AI-native GitHub profile README generator and visual studio.",
   "auth": {
@@ -12,6 +12,6 @@
     "url": "https://readmeforge-black.vercel.app/api/schema"
   },
   "logo_url": "https://readmeforge-black.vercel.app/logo-icon.svg",
-  "contact_email": "support@readmeforge.dev",
+  "contact_email": "https://github.com/yuvraj-thakur-exe/MONOFORGE/issues",
   "legal_info_url": "https://readmeforge-black.vercel.app/en/privacy-policy"
 }

@@ -9,15 +9,15 @@ export function FooterOwner() {
       <img
         className="size-8 self-center"
         src="/logo.svg"
-        alt="ReadmeForge"
+        alt="MonoForge"
       />
 
       <div className="flex flex-col h-full justify-center">
-        <Text.Strong>ReadmeForge</Text.Strong>
+        <Text.Strong>MonoForge</Text.Strong>
         <Text.Small className="not-italic">
           Forge a GitHub profile that gets noticed.{' '}
           <Text.Link
-            href="https://github.com/yuvraj-thakur-exe/readmeforge"
+            href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
             target="_blank"
             rel="noreferrer"
             className="text-xs"

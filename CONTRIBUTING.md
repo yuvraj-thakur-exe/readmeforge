@@ -1,13 +1,13 @@
-# Contributing to ReadmeForge
+# Contributing to MonoForge
 
-ReadmeForge is 100% open-source software built by and for the global developer community with zero barriers or restrictions. Whether you're adding an animated SVG character, expanding the 47+ telemetry plugins, improving UI/UX ergonomics, or submitting a fix, your contributions are warmly welcomed!
+MonoForge is 100% open-source software built by and for the global developer community with zero barriers or restrictions. Whether you're adding an animated SVG character, expanding the 47+ telemetry plugins, improving UI/UX ergonomics, or submitting a fix, your contributions are warmly welcomed!
 
 ---
 
 ## 🏗️ Architecture Overview
 
 - **Web Studio & UI**: Next.js 16 (App Router), TypeScript, Tailwind CSS, Shadcn/ui, Radix, Zustand, react-hook-form.
-- **ReadmeForge Telemetry (`/telemetry`)**: Infographics & developer telemetry engine with 47+ plugins, templates (`classic`, `terminal`, `repository`, `markdown`, `community`), and native SVG infographic generation.
+- **MonoForge Telemetry (`/telemetry`)**: Infographics & developer telemetry engine with 47+ plugins, templates (`classic`, `terminal`, `repository`, `markdown`, `community`), and native SVG infographic generation.
 - **Plugins (`src/lib/plugins/`)**: Registry-driven modular wrappers validated against a unified Zod schema.
 - **Animated Vector Engine**: Standalone, Camo-compliant SVG animations with CSS keyframes and zero external JavaScript.
 
@@ -21,8 +21,8 @@ ReadmeForge is 100% open-source software built by and for the global developer c
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/yuvraj-thakur-exe/readmeforge.git
-cd readmeforge
+git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git
+cd MONOFORGE
 pnpm install
 ```
 

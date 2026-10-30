@@ -255,16 +255,16 @@ export const TemplateGallery: React.FC = () => {
     <section className="py-14 px-4 max-w-7xl mx-auto space-y-8 relative">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900/95 border border-violet-500/50 text-white text-xs font-medium shadow-2xl backdrop-blur-md animate-fade-in">
-          <Sparkles className="w-4 h-4 text-violet-400 animate-pulse" />
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900/95 border border-amber-500/40 text-white text-xs font-medium shadow-2xl backdrop-blur-md animate-fade-in">
+          <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400 animate-pulse" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Header with Dynamic Text Animation */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-violet-300 text-xs font-semibold backdrop-blur-md shadow-sm">
-          <LayoutTemplate className="w-3.5 h-3.5 text-violet-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-amber-600 dark:text-amber-300 text-xs font-semibold backdrop-blur-md shadow-sm">
+          <LayoutTemplate className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
           <span>Curated Starters & Archetypes</span>
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           <span className="text-[10px] text-emerald-400 font-mono">{TEMPLATES.length} Ready-to-Ship</span>
@@ -278,7 +278,7 @@ export const TemplateGallery: React.FC = () => {
         <p className="text-sm text-neutral-400 max-w-2xl mx-auto leading-relaxed">
           One-click apply clean, structured templates designed to{' '}
           <span
-            className={`font-semibold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-pink-400 to-cyan-400 transition-opacity duration-300 ${
+            className={`font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-400 to-cyan-400 transition-opacity duration-300 ${
               fadeKeyword ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -296,7 +296,7 @@ export const TemplateGallery: React.FC = () => {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="Search by archetype, tech stack, or keyword..."
-              className="w-full pl-10 pr-4 py-2 rounded-xl bg-neutral-900/80 border border-neutral-800 text-xs text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-violet-500/60 focus:ring-1 focus:ring-violet-500/40 transition-all"
+              className="w-full pl-10 pr-4 py-2 rounded-xl bg-neutral-900/80 border border-neutral-800 text-xs text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-amber-500/60 focus:ring-1 focus:ring-amber-500/40 transition-all"
             />
             {searchQuery && (
               <button
@@ -324,7 +324,7 @@ export const TemplateGallery: React.FC = () => {
               onClick={() => setActiveCategory(cat)}
               className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
                 isActive
-                  ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-900/30 scale-100'
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-500/20 scale-100'
                   : 'bg-neutral-900/80 border border-neutral-800 text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800'
               } active:scale-95`}
             >
@@ -349,7 +349,7 @@ export const TemplateGallery: React.FC = () => {
           return (
             <div
               key={tmpl.id}
-              className="hover-lift relative p-6 rounded-2xl bg-neutral-900/70 hover:bg-neutral-900/95 border border-white/[0.08] hover:border-violet-500/50 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-[0_12px_40px_rgba(139,92,246,0.18)] overflow-hidden"
+              className="hover-lift relative p-6 rounded-2xl bg-neutral-900/70 hover:bg-neutral-900/95 border border-white/[0.08] hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-[0_12px_40px_rgba(245,158,11,0.18)] overflow-hidden"
             >
               {/* Dynamic Accent Top Line */}
               <div
@@ -373,7 +373,7 @@ export const TemplateGallery: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-neutral-100 group-hover:text-violet-300 transition-colors">
+                <h3 className="text-lg font-bold text-neutral-100 group-hover:text-amber-600 dark:text-amber-300 transition-colors">
                   {tmpl.name}
                 </h3>
 
@@ -384,7 +384,7 @@ export const TemplateGallery: React.FC = () => {
                 {/* Visual Preview Window (Above) */}
                 <div
                   onClick={() => handleOpenPreview(tmpl)}
-                  className="my-3 rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-2.5 hover:border-violet-500/50 cursor-pointer transition-all group/preview relative overflow-hidden shadow-inner"
+                  className="my-3 rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-2.5 hover:border-amber-500/40 cursor-pointer transition-all group/preview relative overflow-hidden shadow-inner"
                 >
                   {/* macOS Window Controls */}
                   <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-800/60">
@@ -396,13 +396,13 @@ export const TemplateGallery: React.FC = () => {
                         {tmpl.config.settings.user.github || 'developer'} / README.md
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-violet-400 opacity-80 group-hover/preview:opacity-100 transition-opacity flex items-center gap-1 bg-violet-950/40 px-1.5 py-0.5 rounded border border-violet-500/30">
+                    <span className="text-[10px] font-mono text-amber-500 dark:text-amber-400 opacity-80 group-hover/preview:opacity-100 transition-opacity flex items-center gap-1 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/30">
                       <Eye className="w-3 h-3 text-cyan-400" /> Preview
                     </span>
                   </div>
 
                   {TEMPLATE_PREVIEWS[tmpl.id] ? (
-                    <div className="relative rounded-lg overflow-hidden bg-neutral-950/90 border border-neutral-800/60 max-h-48 group-hover/preview:border-violet-500/30 transition-all">
+                    <div className="relative rounded-lg overflow-hidden bg-neutral-950/90 border border-neutral-800/60 max-h-48 group-hover/preview:border-amber-500/30 transition-all">
                       <img
                         src={TEMPLATE_PREVIEWS[tmpl.id]}
                         alt={`${tmpl.name} Visual Preview`}
@@ -507,7 +507,7 @@ export const TemplateGallery: React.FC = () => {
                     className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 duration-200 ${
                       isCopied
                         ? 'bg-emerald-600 text-white shadow-emerald-900/40 ring-1 ring-emerald-400'
-                        : 'bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 hover:brightness-110 text-white shadow-violet-900/30'
+                        : 'bg-gradient-to-r from-amber-500 to-amber-600 hover:brightness-110 text-white shadow-amber-500/20'
                     }`}
                   >
                     {isCopied ? (
@@ -605,7 +605,7 @@ export const TemplateGallery: React.FC = () => {
                 onClick={() => setPreviewTab('visual')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
                   previewTab === 'visual'
-                    ? 'bg-violet-600 text-white shadow-sm'
+                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
                     : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
                 }`}
               >
@@ -618,7 +618,7 @@ export const TemplateGallery: React.FC = () => {
                 onClick={() => setPreviewTab('markdown')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
                   previewTab === 'markdown'
-                    ? 'bg-violet-600 text-white shadow-sm'
+                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
                     : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
                 }`}
               >
@@ -631,7 +631,7 @@ export const TemplateGallery: React.FC = () => {
                 onClick={() => setPreviewTab('prompt')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
                   previewTab === 'prompt'
-                    ? 'bg-violet-600 text-white shadow-sm'
+                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
                     : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
                 }`}
               >
@@ -644,7 +644,7 @@ export const TemplateGallery: React.FC = () => {
                 onClick={() => setPreviewTab('plugins')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
                   previewTab === 'plugins'
-                    ? 'bg-violet-600 text-white shadow-sm'
+                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
                     : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
                 }`}
               >
@@ -697,7 +697,7 @@ export const TemplateGallery: React.FC = () => {
                       <h4 className="text-xl font-bold text-neutral-100">
                         Hi there, I'm {previewConfig.settings.user.name} 👋
                       </h4>
-                      <p className="text-sm font-semibold text-violet-400 font-mono">
+                      <p className="text-sm font-semibold text-amber-500 dark:text-amber-400 font-mono">
                         {previewConfig.settings.user.role}
                       </p>
                       <p className="text-xs text-neutral-300 pt-1 leading-relaxed">
@@ -736,7 +736,7 @@ export const TemplateGallery: React.FC = () => {
                             className="p-3.5 rounded-xl bg-neutral-950/80 border border-neutral-800 flex items-center justify-between"
                           >
                             <div className="space-y-0.5">
-                              <span className="font-mono text-xs font-bold text-violet-300">
+                              <span className="font-mono text-xs font-bold text-amber-600 dark:text-amber-300">
                                 {sec.type}
                               </span>
                               <p className="text-[10px] text-neutral-500 font-mono">
@@ -835,7 +835,7 @@ export const TemplateGallery: React.FC = () => {
               {/* TAB 3: AI Prompt */}
               {previewTab === 'prompt' && (
                 <div className="space-y-4">
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-violet-950/30 via-neutral-950 to-neutral-950 border border-violet-500/30 space-y-3">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-amber-500/10 via-neutral-950 to-neutral-950 border border-amber-500/30 space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Sparkles className="w-4 h-4 text-amber-400" />
@@ -910,7 +910,7 @@ export const TemplateGallery: React.FC = () => {
                       <button
                         type="button"
                         onClick={handleResetPreviewPlugins}
-                        className="px-3 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white text-xs font-semibold"
+                        className="px-3 py-1.5 rounded-lg bg-amber-500 text-neutral-950 font-bold hover:bg-amber-400 text-white text-xs font-semibold"
                       >
                         Restore Plugins
                       </button>
@@ -927,7 +927,7 @@ export const TemplateGallery: React.FC = () => {
                               {idx + 1}
                             </span>
                             <div>
-                              <span className="text-xs font-bold text-violet-300 font-mono">
+                              <span className="text-xs font-bold text-amber-600 dark:text-amber-300 font-mono">
                                 {sec.type}
                               </span>
                               <p className="text-[10px] text-neutral-500 font-mono">
@@ -1038,7 +1038,7 @@ export const TemplateGallery: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleApplyFromPreview}
-                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-violet-900/40 transition-all active:scale-95"
+                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-amber-500/20 transition-all active:scale-95"
                 >
                   <Check className="w-3.5 h-3.5" />
                   <span>Apply Template</span>

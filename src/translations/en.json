@@ -1,12 +1,12 @@
 {
   "metadata": {
-    "title": "ReadmeForge — Forge a GitHub profile that gets noticed",
+    "title": "MonoForge — Forge a GitHub profile that gets noticed",
     "description": "Forge a GitHub profile that gets noticed with dynamic stats, trophy cards, contribution snake, tech badges, and AI-powered enrichment.",
-    "author": "ReadmeForge Contributors",
+    "author": "MonoForge Contributors",
     "keywords": [
-      "readmeforge",
+      "monoforge",
       "profile-readme",
-      "readmeforge-generator",
+      "monoforge-generator",
       "github-readme-generator",
       "github-profile-readme",
       "github",
@@ -18,11 +18,11 @@
     ]
   },
   "privacy-policy": {
-    "content": "<h1>Privacy Policy</h1>\n<p>Last updated: 2026</p>\n<p>\nThis Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the ReadmeForge Service.\n</p>\n<p>\nReadmeForge operates as a client-side open-source application and respects your privacy. For inquiries, contact support@readmeforge.dev.\n</p>"
+    "content": "<h1>Privacy Policy</h1>\n<p>Last updated: 2026</p>\n<p>\nThis Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the MonoForge Service.\n</p>\n<p>\nMonoForge operates as a client-side open-source application and respects your privacy. For inquiries, contact support@monoforge.dev.\n</p>"
   },
   "ui": {
     "welcome": {
-      "heading": "Welcome To ReadmeForge",
+      "heading": "Welcome To MonoForge",
       "subheading": "Forge a GitHub profile that gets noticed.",
       "description": "You can create you readme manually by clicking on the options on the left or using one of the templates with some structure already made!",
       "template-hint": "*Click to preview one of the templates options",
@@ -95,10 +95,10 @@
       "provider-label": "Provider"
     },
     "footer": {
-      "alt": "ReadmeForge flame anvil logo",
-      "title": "ReadmeForge",
+      "alt": "MonoForge flame anvil logo",
+      "title": "MonoForge",
       "maintained-by": "Developed and maintained by",
-      "author": "ReadmeForge Contributors"
+      "author": "MonoForge Contributors"
     },
     "guard-section": {
       "description1": "To use this section, please tell us your",
@@ -493,7 +493,7 @@
     "trophy": "Trophy",
     "activity-graph": "Activity Graph",
     "dot-github-workflows": ".github/workflows",
-    "readmeforge": "ReadmeForge",
+    "monoforge": "MonoForge",
     "boost-your-english": "Boost Your English",
     "real-devs-debug-in-english-dot": "Real devs debug in English.",
     "get-70-off-your-first-trial-lesson-and-start-to-boost-your-english-with-top-tutors-worldwide-on-preply": "💰 Get 70% OFF your first trial lesson and start to boost your english with top tutors worldwide on Preply 🚀",
@@ -565,13 +565,13 @@
     },
     "faq": {
       "title": "Frequently Asked Questions",
-      "subtitle": "Everything you need to know about ReadmeForge and GitHub profile READMEs.",
-      "q1": "How does ReadmeForge update my GitHub profile?",
-      "a1": "ReadmeForge generates clean, GitHub-compatible Markdown. You can copy the code, download the README.md file, or connect via GitHub to commit directly to your username/username repository after reviewing a side-by-side diff.",
+      "subtitle": "Everything you need to know about MonoForge and GitHub profile READMEs.",
+      "q1": "How does MonoForge update my GitHub profile?",
+      "a1": "MonoForge generates clean, GitHub-compatible Markdown. You can copy the code, download the README.md file, or connect via GitHub to commit directly to your username/username repository after reviewing a side-by-side diff.",
       "q2": "Can I import an existing GitHub profile README?",
       "a2": "Yes. Our AST-based reverse parser extracts your existing headings, skills, badges, and text blocks into editable wizard fields so you never have to start from scratch.",
       "q3": "Is my personal data or GitHub token stored on any server?",
-      "a3": "No. ReadmeForge is client-first. All profile configuration is stored locally in your browser session. GitHub authentication tokens are handled securely without persistent database storage.",
+      "a3": "No. MonoForge is client-first. All profile configuration is stored locally in your browser session. GitHub authentication tokens are handled securely without persistent database storage.",
       "q4": "Do the dynamic plugins work automatically on GitHub?",
       "a4": "Yes. Bundled plugins generate standard Markdown image links or GitHub Actions workflows (such as the contribution snake) that run natively on GitHub.",
       "q5": "What happens if a resume parser suggests incorrect information?",

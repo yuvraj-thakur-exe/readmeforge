@@ -38,7 +38,7 @@ describe('InfoHub Component', () => {
   it('renders the Information & Guide portal with key metrics and tabs', () => {
     render(<InfoHub />);
 
-    expect(screen.getAllByText(/ReadmeForge/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/MonoForge/i).length).toBeGreaterThan(0);
     expect(screen.getByRole('button', { name: /Install & Quickstart/i })).toBeDefined();
     expect(screen.getByRole('button', { name: /README Archetypes/i })).toBeDefined();
     expect(screen.getByRole('button', { name: /Live Mini-Studio/i })).toBeDefined();
@@ -100,7 +100,7 @@ describe('InfoHub Component', () => {
     const aboutTab = screen.getByRole('button', { name: /Architecture & Security/i });
     fireEvent.click(aboutTab);
 
-    expect(screen.getAllByText(/About ReadmeForge/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/About MonoForge/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/100% Client-Side Privacy/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Confirmation-Gated Operations/i)).toBeDefined();
     expect(screen.getByText(/Yuvraj Thakur/i)).toBeDefined();

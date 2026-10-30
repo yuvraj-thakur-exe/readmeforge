@@ -34,7 +34,7 @@ describe('DeviceShowcase Component', () => {
     // Switch to Terminal
     const terminalBtn = screen.getByText('Cyber Terminal');
     fireEvent.click(terminalBtn);
-    expect(screen.getByText(/readmeforge inspect --profile/)).toBeDefined();
+    expect(screen.getByText(/monoforge inspect --profile/)).toBeDefined();
 
     // Switch to Mobile
     const mobileBtn = screen.getByText('iPhone Mobile');

@@ -68,12 +68,12 @@ export const KineticMarquee: React.FC<KineticMarqueeProps> = ({
 
   return (
     <div
-      className={`relative w-full overflow-hidden py-3 bg-neutral-950 border-y border-neutral-800/80 select-none ${className}`}
+      className={`relative w-full overflow-hidden py-3 bg-neutral-100/70 dark:bg-neutral-950 border-y border-neutral-200/90 dark:border-neutral-800/80 select-none ${className}`}
       aria-label="Product Highlights Marquee"
     >
       {/* Edge gradient masks for smooth fade */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-neutral-950 to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-neutral-950 to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-neutral-100 dark:from-neutral-950 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-neutral-100 dark:from-neutral-950 to-transparent z-10 pointer-events-none" />
 
       <div
         className={`flex w-max items-center gap-6 ${animClass} hover:[animation-play-state:paused]`}
@@ -83,18 +83,18 @@ export const KineticMarquee: React.FC<KineticMarqueeProps> = ({
         {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, idx) => (
           <div
             key={`${item.label}-${idx}`}
-            className="flex items-center gap-3 shrink-0 px-4 py-1.5 rounded-full bg-neutral-900/80 border border-neutral-800 backdrop-blur-sm transition-transform hover:scale-105 cursor-default"
+            className="flex items-center gap-3 shrink-0 px-4 py-1.5 rounded-full bg-white dark:bg-neutral-900/80 border border-neutral-200/90 dark:border-neutral-800 shadow-[0_1px_3px_rgba(0,0,0,0.04)] backdrop-blur-sm transition-transform hover:scale-105 cursor-default"
           >
             <div className={`p-1 rounded-full ${item.accent}`}>
               {item.icon}
             </div>
-            <span className="text-xs font-mono font-bold tracking-wider text-neutral-200">
+            <span className="text-xs font-mono font-bold tracking-wider text-neutral-800 dark:text-neutral-200">
               {item.label}
             </span>
             <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${item.accent}`}>
               {item.tag}
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-neutral-700 mx-1" />
+            <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700 mx-1" />
           </div>
         ))}
       </div>

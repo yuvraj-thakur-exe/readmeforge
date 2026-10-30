@@ -1,6 +1,6 @@
 # Security Policy — 100% Open Source & Zero Boundaries
 
-ReadmeForge is 100% free, community-driven, and open-source software licensed under the MIT License. There are zero corporate gates, zero private silos, and zero boundaries.
+MonoForge is 100% free, community-driven, and open-source software licensed under the MIT License. There are zero corporate gates, zero private silos, and zero boundaries.
 
 ## Open & Transparent Security
 
@@ -12,14 +12,14 @@ We believe in open collaboration and transparent, community-first security pract
 
 ## Invariant Safeguards
 
-Even with complete open-source transparency, ReadmeForge enforces strict architectural security invariants:
+Even with complete open-source transparency, MonoForge enforces strict architectural security invariants:
 
 1. **Client-Side Token Privacy**:
    - All Personal Access Tokens (PATs) and GitHub credentials exist exclusively in your local browser session memory.
    - Tokens are **never** sent to any external server, remote database, or third-party telemetry logger.
 
 2. **Strictly Scoped Permissions**:
-   - Automated metrics workflows and profile syncs require only fine-grained permissions restricted strictly to your own profile repository (`<username>/<username>`).
+   - Automated telemetry workflows and profile syncs require only fine-grained permissions restricted strictly to your own profile repository (`<username>/<username>`).
    - Never grant account-wide `admin:*` privileges.
 
 3. **GitHub Camo Proxy Compliance**:
@@ -30,4 +30,4 @@ Even with complete open-source transparency, ReadmeForge enforces strict archite
      - Clean SVG vector path sanitization
 
 4. **Confirmation-Gated Remote Actions**:
-   - ReadmeForge never pushes silently or automatically to remote repositories. All synchronization operations require explicit side-by-side diff review and user confirmation.
+   - MonoForge never pushes silently or automatically to remote repositories. All synchronization operations require explicit side-by-side diff review and user confirmation.

@@ -1,6 +1,6 @@
-# ReadmeForge Config Schema Specification
+# MonoForge Config Schema Specification
 
-The ReadmeForge configuration schema is a standardized, declarative JSON format that defines the complete state of a GitHub Profile README.
+The MonoForge configuration schema is a standardized, declarative JSON format that defines the complete state of a GitHub Profile README.
 
 Both the visual wizard and the `/developer` Monaco editor synchronize against this single source of truth (`useReadmeStore`). AI agents and CLI tools can generate or modify a README profile by outputting valid JSON conforming to this specification.
 
@@ -11,7 +11,7 @@ Both the visual wizard and the `/developer` Monaco editor synchronize against th
 ```json
 {
   "version": "1.0.0",
-  "title": "ReadmeForge Profile",
+  "title": "MonoForge Profile",
   "settings": {
     "user": {
       "github": "your-github-username",
@@ -20,7 +20,7 @@ Both the visual wizard and the `/developer` Monaco editor synchronize against th
       "bio": "Building high-performance developer tools.",
       "location": "San Francisco, CA",
       "pronouns": "they/them",
-      "status": "Building ReadmeForge"
+      "status": "Building MonoForge"
     },
     "theme": "dark",
     "accentColor": "#8b5cf6",

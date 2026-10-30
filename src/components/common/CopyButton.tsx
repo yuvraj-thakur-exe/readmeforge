@@ -83,7 +83,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
   const variantStyles = {
     primary: copied
       ? 'bg-gradient-to-r from-emerald-600 to-teal-500 border-emerald-400 text-white shadow-[0_0_25px_rgba(52,211,153,0.55)]'
-      : 'bg-violet-600 hover:bg-violet-500 border-violet-500/60 text-white shadow-md shadow-violet-950/40 hover:shadow-violet-600/30',
+      : 'bg-amber-500 hover:bg-amber-400 border-amber-500/60 text-neutral-950 font-bold shadow-md shadow-amber-950/20 hover:shadow-amber-500/30',
     secondary: copied
       ? 'bg-emerald-950/90 border-emerald-400/80 text-emerald-200 shadow-[0_0_20px_rgba(52,211,153,0.4)]'
       : 'bg-neutral-900/90 hover:bg-neutral-800 border-neutral-700/70 hover:border-neutral-600 text-neutral-200 hover:text-white shadow-sm',
@@ -92,7 +92,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({
       : 'bg-transparent hover:bg-neutral-800/60 border-transparent text-neutral-400 hover:text-neutral-200',
     pill: copied
       ? 'bg-emerald-950/80 border-emerald-400/80 text-emerald-200 shadow-[0_0_15px_rgba(52,211,153,0.35)]'
-      : 'bg-neutral-900/80 hover:bg-neutral-800/90 border-neutral-800 hover:border-violet-500/50 text-neutral-300 hover:text-white',
+      : 'bg-neutral-900/80 hover:bg-neutral-800/90 border-neutral-800 hover:border-amber-500/50 text-neutral-300 hover:text-white',
     badge: copied
       ? 'bg-emerald-950/95 border-emerald-400 text-emerald-200 shadow-[0_0_18px_rgba(52,211,153,0.4)]'
       : 'bg-neutral-950/80 hover:bg-neutral-900 border-neutral-800 hover:border-neutral-700 text-neutral-300 hover:text-white',
