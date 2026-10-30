@@ -10,7 +10,11 @@ export type AnimationPresetId =
   | 'minimal'
   | 'fire'
   | 'water'
-  | 'custom';
+  | 'custom'
+  | 'metrics-isocalendar'
+  | 'metrics-languages'
+  | 'metrics-habits'
+  | 'metrics-achievements';
 
 export type TextEffect =
   | 'typing'
@@ -247,5 +251,33 @@ export const PRESET_METADATA: PresetMetadata[] = [
     description: 'Clean typographic layout with subtle fade-in, refined borders, and airy spacing.',
     category: 'typography',
     icon: 'layers',
+  },
+  {
+    id: 'metrics-isocalendar',
+    name: '3D Isometric Voxel Calendar',
+    description: 'Extruded 3D commit voxel matrix with wave elevation and streak HUD.',
+    category: 'modern',
+    icon: 'box',
+  },
+  {
+    id: 'metrics-languages',
+    name: 'Polyglot Languages Donut',
+    description: 'Multi-ring circular donut chart with byte breakdown and telemetry pills.',
+    category: 'modern',
+    icon: 'code',
+  },
+  {
+    id: 'metrics-habits',
+    name: '24h Habits Radar',
+    description: 'Circular 24-hour activity clock dial and weekday commitment histogram.',
+    category: 'cyber',
+    icon: 'activity',
+  },
+  {
+    id: 'metrics-achievements',
+    name: 'S-Rank Achievements Rack',
+    description: 'Gamified medal showcase with metallic gold frames and unlock progress.',
+    category: 'cyber',
+    icon: 'sparkles',
   },
 ];

@@ -174,6 +174,28 @@ Then embed into your profile:
 </div>
 ```
 
+### ⚡ Standalone Vector Infographics (Zero Actions • 100% GitHub Camo Safe)
+
+Don't want to set up GitHub Actions? Use our pure SVG standalone visualizers that work out of the box with zero `<foreignObject>`, zero external scripts, and 60fps GPU compositor acceleration:
+
+| Visualizer | Preview Asset | Description & Telemetry |
+| :--- | :--- | :--- |
+| **3D Isometric Calendar** | [`metrics-isocalendar-3d.svg`](public/assets/metrics-isocalendar-3d.svg) | 3D extruded voxel commit terrain, streaks, and peak elevation |
+| **Languages Donut** | [`metrics-languages-donut.svg`](public/assets/metrics-languages-donut.svg) | Multi-ring circular donut chart, byte sizes, and language pills |
+| **Coding Habits Radar** | [`metrics-habits-radar.svg`](public/assets/metrics-habits-radar.svg) | 24-hour circular activity clock dial &amp; weekday commit histogram |
+| **Achievements Rack** | [`metrics-achievements-rack.svg`](public/assets/metrics-achievements-rack.svg) | Gamified Rank S/A/B medals with golden glowing halos |
+| **Cyber Terminal HUD** | [`metrics-terminal-hud.svg`](public/assets/metrics-terminal-hud.svg) | CRT scanline console card outputting real-time GitHub diagnostics |
+| **PageSpeed Audit** | [`metrics-pagespeed-audit.svg`](public/assets/metrics-pagespeed-audit.svg) | Google Lighthouse 4-pillar animated audit meters &amp; Web Vitals |
+| **Music Equalizer** | [`metrics-music-player.svg`](public/assets/metrics-music-player.svg) | Spotify / Last.fm now-playing card with 18-band animated EQ |
+| **LeetCode Mastery** | [`metrics-leetcode-stats.svg`](public/assets/metrics-leetcode-stats.svg) | Radial problem completion gauge &amp; contest Guardian rating |
+
+**Instant Markdown Embed:**
+```markdown
+<p align="center">
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/metrics-isocalendar-3d.svg" alt="ReadmeForge 3D Isometric Calendar" width="100%" />
+</p>
+```
+
 ---
 
 ## 🧩 Plugin Encyclopedia &amp; Capabilities

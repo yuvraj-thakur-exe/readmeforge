@@ -282,6 +282,42 @@ export function AnimatorStudio() {
             accentColor: '#e2e8f0',
             backgroundColor: '#0f172a',
           };
+        case 'metrics-isocalendar':
+          return {
+            ...prev,
+            preset,
+            primaryColor: '#10b981',
+            secondaryColor: '#34d399',
+            accentColor: '#fbbf24',
+            backgroundColor: '#0d1117',
+          };
+        case 'metrics-languages':
+          return {
+            ...prev,
+            preset,
+            primaryColor: '#3178c6',
+            secondaryColor: '#dea584',
+            accentColor: '#38bdf8',
+            backgroundColor: '#0d1117',
+          };
+        case 'metrics-habits':
+          return {
+            ...prev,
+            preset,
+            primaryColor: '#f59e0b',
+            secondaryColor: '#34d399',
+            accentColor: '#38bdf8',
+            backgroundColor: '#0d1117',
+          };
+        case 'metrics-achievements':
+          return {
+            ...prev,
+            preset,
+            primaryColor: '#f59e0b',
+            secondaryColor: '#10b981',
+            accentColor: '#ec4899',
+            backgroundColor: '#0d1117',
+          };
         case 'neon':
         default:
           return {

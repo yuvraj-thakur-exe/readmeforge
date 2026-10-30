@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { TopNav } from '#/components/navigation/TopNav';
 import {
   buildMetricsActionWorkflow,
@@ -29,6 +29,9 @@ import {
   Eye,
   Sliders,
   CheckCircle2,
+  Download,
+  FileText as FileTextIcon,
+  Music,
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -38,6 +41,9 @@ export default function MetricsStudioPage() {
   const [template, setTemplate] = useState<MetricsTemplate>('classic');
   const [outputMode, setOutputMode] = useState<MetricsOutputMode>('direct_svg');
   const [activeTab, setActiveTab] = useState<'preview' | 'markdown' | 'action' | 'url'>('preview');
+  const [selectedSvgPlugin, setSelectedSvgPlugin] = useState<
+    'isocalendar' | 'languages' | 'habits' | 'achievements' | 'terminal' | 'pagespeed' | 'music' | 'leetcode' | 'full'
+  >('isocalendar');
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
 
   // Plugin Toggles & Config
@@ -149,12 +155,61 @@ export default function MetricsStudioPage() {
   const actionWorkflow = useMemo(() => buildMetricsActionWorkflow(metricsConfig), [metricsConfig]);
   const markdownSnippet = useMemo(() => buildMetricsMarkdownSnippet(metricsConfig, 'center'), [metricsConfig]);
 
+  const activeSvgUrl = useMemo(() => {
+    if (selectedSvgPlugin === 'full') return embedUrl;
+    const cleanUser = encodeURIComponent(username.trim() || 'octocat');
+    return `/api/metrics/svg?plugin=${selectedSvgPlugin}&user=${cleanUser}`;
+  }, [selectedSvgPlugin, username, embedUrl]);
+
+  const activeMarkdownSnippet = useMemo(() => {
+    if (selectedSvgPlugin === 'full') return markdownSnippet;
+    const cleanUser = username.trim() || 'octocat';
+    return `<!-- ReadmeForge Standalone Telemetry: ${selectedSvgPlugin.toUpperCase()} -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/${cleanUser}/${cleanUser}/main/public/assets/metrics-${selectedSvgPlugin}.svg" alt="${cleanUser}'s ReadmeForge Metrics" width="100%" />
+</p>
+
+<!-- Or embed via dynamic API route: -->
+<!-- <img src="https://readmeforge.dev/api/metrics/svg?plugin=${selectedSvgPlugin}&user=${cleanUser}" alt="${cleanUser}'s ReadmeForge Metrics" /> -->`;
+  }, [selectedSvgPlugin, username, markdownSnippet]);
+
   const handleCopy = (text: string, key: string, label: string) => {
     navigator.clipboard.writeText(text);
     setCopiedKey(key);
     toast.success(`Copied ${label} to clipboard!`);
     setTimeout(() => setCopiedKey(null), 2000);
   };
+
+  const handleDownloadSvg = async () => {
+    try {
+      const res = await fetch(activeSvgUrl);
+      const text = await res.text();
+      const blob = new Blob([text], { type: 'image/svg+xml;charset=utf-8' });
+      const blobUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = `readmeforge-${selectedSvgPlugin}-${username || 'octocat'}.svg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(blobUrl);
+      toast.success(`Downloaded readmeforge-${selectedSvgPlugin}.svg!`);
+    } catch {
+      toast.error('Failed to download SVG');
+    }
+  };
+
+  const svgPresets = [
+    { id: 'isocalendar' as const, label: '3D Isometric', desc: 'Voxel activity landscape', icon: Calendar, tag: '3D' },
+    { id: 'languages' as const, label: 'Languages Donut', desc: 'Multi-ring polyglot breakdown', icon: Code2, tag: 'DONUT' },
+    { id: 'habits' as const, label: '24h Habits Radar', desc: 'Activity clock & weekdays', icon: Clock, tag: 'RADAR' },
+    { id: 'achievements' as const, label: 'Achievements Rack', desc: 'S-Rank trophy badges', icon: Trophy, tag: 'S-TIER' },
+    { id: 'terminal' as const, label: 'Terminal HUD', desc: 'Cyberpunk CRT scanline console', icon: Terminal, tag: 'HUD' },
+    { id: 'pagespeed' as const, label: 'PageSpeed Audit', desc: 'Lighthouse 4-pillar web vitals', icon: Sparkles, tag: '100%' },
+    { id: 'music' as const, label: 'Music Equalizer', desc: 'Spotify now-playing visualizer', icon: Music, tag: 'AUDIO' },
+    { id: 'leetcode' as const, label: 'LeetCode Mastery', desc: 'Problem solving radar gauge', icon: BarChart3, tag: 'ALGO' },
+    { id: 'full' as const, label: 'Full Action Suite', desc: 'All-in-one GitHub Action', icon: Globe, tag: 'ACTION' },
+  ];
 
   const templates: Array<{ id: MetricsTemplate; label: string; desc: string }> = [
     { id: 'classic', label: 'Classic', desc: 'Standard balanced card format' },
@@ -582,6 +637,43 @@ export default function MetricsStudioPage() {
 
           {/* RIGHT: Live Preview Stage & Export Panel (7 cols) */}
           <div className="lg:col-span-7 space-y-4">
+            {/* Visualizer Preset Switcher Row */}
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between text-xs text-neutral-400 font-mono px-1">
+                <span className="flex items-center gap-1.5 text-neutral-300 font-semibold">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  Standalone Vector Visualizers (lowlighter/metrics &bull; pure SVG)
+                </span>
+                <span className="text-[11px] text-emerald-400/90 font-mono">
+                  GitHub Camo Proxy Safe
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
+                {svgPresets.map(preset => {
+                  const Icon = preset.icon;
+                  const isSelected = selectedSvgPlugin === preset.id;
+                  return (
+                    <button
+                      key={preset.id}
+                      type="button"
+                      onClick={() => setSelectedSvgPlugin(preset.id)}
+                      className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
+                        isSelected
+                          ? 'border-amber-500/70 bg-amber-500/15 text-amber-200 shadow-sm ring-1 ring-amber-500/30'
+                          : 'border-neutral-800 bg-neutral-900/60 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700'
+                      }`}
+                    >
+                      <Icon className="w-3.5 h-3.5 text-amber-400/90" />
+                      <span>{preset.label}</span>
+                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-neutral-800/80 text-neutral-400 font-mono">
+                        {preset.tag}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
             {/* Output View Tabs */}
             <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
               <div className="flex items-center gap-1.5">
@@ -614,7 +706,7 @@ export default function MetricsStudioPage() {
               {/* Status Badge */}
               <div className="flex items-center gap-1.5 text-xs text-emerald-400/90 font-mono">
                 <CheckCircle2 className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Ready to embed</span>
+                <span className="hidden sm:inline">60fps Keyframes Ready</span>
               </div>
             </div>
 
@@ -623,35 +715,55 @@ export default function MetricsStudioPage() {
               {/* TAB 1: Live Interactive SVG Preview */}
               {activeTab === 'preview' && (
                 <div className="p-4 sm:p-6 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-full max-w-xl mx-auto rounded-lg border border-neutral-800/80 bg-neutral-950 p-3 sm:p-4 shadow-inner flex flex-col items-center">
+                  <div className="w-full max-w-2xl mx-auto rounded-lg border border-neutral-800/80 bg-neutral-950 p-3 sm:p-4 shadow-inner flex flex-col items-center">
                     <div className="w-full flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-[11px] font-mono text-neutral-400">
                       <span className="flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                        github-metrics.svg ({template})
+                        metrics-{selectedSvgPlugin}.svg ({selectedSvgPlugin === 'full' ? template : 'Vector SVG'})
                       </span>
-                      <a
-                        href={embedUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:text-amber-300 flex items-center gap-1"
-                      >
-                        Open Raw <ExternalLink className="w-3 h-3" />
-                      </a>
+                      <div className="flex items-center gap-3">
+                        {selectedSvgPlugin !== 'full' && (
+                          <button
+                            type="button"
+                            onClick={handleDownloadSvg}
+                            className="hover:text-amber-300 flex items-center gap-1 transition-colors"
+                          >
+                            <Download className="w-3 h-3 text-neutral-400" />
+                            Download
+                          </button>
+                        )}
+                        <a
+                          href={activeSvgUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="hover:text-amber-300 flex items-center gap-1 transition-colors"
+                        >
+                          Open Raw <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </div>
                     </div>
 
                     {/* Rendered SVG Preview */}
                     <div className="relative w-full flex justify-center py-2 overflow-x-auto">
                       <img
-                        key={embedUrl}
-                        src={embedUrl}
+                        key={activeSvgUrl}
+                        src={activeSvgUrl}
                         alt={`${username}'s ReadmeForge Metrics`}
                         className="max-w-full h-auto rounded shadow-md border border-neutral-800/50"
                         onError={(e) => {
-                          // Fallback placeholder if offline or rate-limited
+                          // Fallback to local static asset if API endpoint or remote proxy has latency
                           const target = e.currentTarget;
-                          target.onerror = null;
+                          if (selectedSvgPlugin !== 'full' && !target.src.includes(`/assets/`)) {
+                            target.src = `/assets/metrics-${selectedSvgPlugin}.svg`;
+                          }
                         }}
                       />
+                    </div>
+
+                    {/* Badge footer info */}
+                    <div className="w-full pt-3 mt-2 border-t border-neutral-800/60 flex items-center justify-between text-[11px] text-neutral-400 font-mono">
+                      <span>✓ GitHub Camo safe (0 &lt;foreignObject&gt;)</span>
+                      <span className="text-amber-400/90 font-bold">ReadmeForge Engine</span>
                     </div>
                   </div>
                 </div>
@@ -664,7 +776,7 @@ export default function MetricsStudioPage() {
                     <span>Copy-paste this directly into your GitHub profile README.md</span>
                     <button
                       type="button"
-                      onClick={() => handleCopy(markdownSnippet, 'markdown', 'Markdown Snippet')}
+                      onClick={() => handleCopy(activeMarkdownSnippet, 'markdown', 'Markdown Snippet')}
                       className="flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs transition-colors"
                     >
                       {copiedKey === 'markdown' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -672,7 +784,7 @@ export default function MetricsStudioPage() {
                     </button>
                   </div>
                   <pre className="p-4 rounded-lg bg-neutral-950 border border-neutral-800/80 font-mono text-xs text-amber-200/90 overflow-x-auto leading-relaxed">
-                    {markdownSnippet}
+                    {activeMarkdownSnippet}
                   </pre>
                 </div>
               )}
@@ -708,12 +820,12 @@ export default function MetricsStudioPage() {
                       <input
                         type="text"
                         readOnly
-                        value={embedUrl}
+                        value={activeSvgUrl}
                         className="w-full px-3 py-2 rounded-lg bg-neutral-950 border border-neutral-800 font-mono text-xs text-neutral-300"
                       />
                       <button
                         type="button"
-                        onClick={() => handleCopy(embedUrl, 'url', 'Embed URL')}
+                        onClick={() => handleCopy(activeSvgUrl, 'url', 'Embed URL')}
                         className="px-3 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-medium flex items-center gap-1"
                       >
                         {copiedKey === 'url' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
@@ -727,7 +839,7 @@ export default function MetricsStudioPage() {
                       cURL Command
                     </label>
                     <pre className="p-3 rounded-lg bg-neutral-950 border border-neutral-800 font-mono text-xs text-amber-300/90 overflow-x-auto">
-                      curl -s "{embedUrl}" -o github-metrics.svg
+                      curl -s "{activeSvgUrl}" -o metrics-{selectedSvgPlugin}.svg
                     </pre>
                   </div>
                 </div>
@@ -736,12 +848,22 @@ export default function MetricsStudioPage() {
               {/* Bottom Quick-Action Bar */}
               <div className="p-3 sm:p-4 border-t border-neutral-800 bg-neutral-950/80 flex flex-wrap items-center justify-between gap-3 text-xs">
                 <span className="text-neutral-500 font-mono">
-                  Engine: <span className="text-neutral-300">@readmeforge/metrics</span>
+                  Engine: <span className="text-neutral-300">@readmeforge/metrics</span> &bull; Preset: <span className="text-amber-400 font-bold">{selectedSvgPlugin}</span>
                 </span>
                 <div className="flex items-center gap-2">
+                  {selectedSvgPlugin !== 'full' && (
+                    <button
+                      type="button"
+                      onClick={handleDownloadSvg}
+                      className="px-3 py-1.5 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-200 font-semibold hover:bg-neutral-700 transition-colors flex items-center gap-1.5"
+                    >
+                      <Download className="w-3.5 h-3.5 text-neutral-400" />
+                      <span>Download .svg</span>
+                    </button>
+                  )}
                   <button
                     type="button"
-                    onClick={() => handleCopy(markdownSnippet, 'bottom_md', 'Markdown Snippet')}
+                    onClick={() => handleCopy(activeMarkdownSnippet, 'bottom_md', 'Markdown Snippet')}
                     className="px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 font-semibold hover:bg-amber-500/20 transition-colors flex items-center gap-1.5"
                   >
                     <Copy className="w-3.5 h-3.5" />
@@ -765,26 +887,4 @@ export default function MetricsStudioPage() {
   );
 }
 
-function FileTextIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-3.5 h-3.5"
-      {...props}
-    >
-      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-      <path d="M10 9H8" />
-      <path d="M16 13H8" />
-      <path d="M16 17H8" />
-    </svg>
-  );
-}
+

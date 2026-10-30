@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" fill="none">
+  <defs>
+    <linearGradient id="lang-card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#161b22" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .font-base { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
+    .donut-segment {
+      transform-origin: 145px 180px;
+      transform: rotate(-90deg);
+      transition: stroke-dasharray 0.8s ease;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+
+  <!-- Container -->
+  <rect x="1" y="1" width="798" height="358" rx="14" fill="url(#lang-card-bg)" stroke="#30363d" stroke-width="1.5" />
+
+  <!-- Header -->
+  <g transform="translate(28, 36)">
+    <text x="0" y="13" fill="#f0f6fc" font-size="16" font-weight="700" class="font-base">
+      Polyglot Language Telemetry
+    </text>
+    <text x="240" y="13" fill="#8b949e" font-size="13" class="font-mono">
+      @octocat
+    </text>
+    <rect x="670" y="-3" width="102" height="22" rx="6" fill="#21262d" stroke="#30363d" />
+    <text x="721" y="12" fill="#58a6ff" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">
+      28 LANGUAGES
+    </text>
+  </g>
+
+  <!-- Donut Chart & Center Legend -->
+  <g>
+    <!-- Background track -->
+    <circle cx="145" cy="180" r="70" fill="none" stroke="#161b22" stroke-width="22" />
+    <!-- Segment rings -->
+    
+      <circle
+        cx="145" cy="180" r="70"
+        fill="transparent"
+        stroke="#3178c6"
+        stroke-width="22"
+        stroke-dasharray="187.4 439.8"
+        stroke-dashoffset="0.0"
+        class="donut-segment"
+      />
+    
+      <circle
+        cx="145" cy="180" r="70"
+        fill="transparent"
+        stroke="#dea584"
+        stroke-width="22"
+        stroke-dasharray="109.1 439.8"
+        stroke-dashoffset="-187.4"
+        class="donut-segment"
+      />
+    
+      <circle
+        cx="145" cy="180" r="70"
+        fill="transparent"
+        stroke="#3572A5"
+        stroke-width="22"
+        stroke-dasharray="72.1 439.8"
+        stroke-dashoffset="-296.4"
+        class="donut-segment"
+      />
+    
+      <circle
+        cx="145" cy="180" r="70"
+        fill="transparent"
+        stroke="#00ADD8"
+        stroke-width="22"
+        stroke-dasharray="44.9 439.8"
+        stroke-dashoffset="-368.6"
+        class="donut-segment"
+      />
+    
+      <circle
+        cx="145" cy="180" r="70"
+        fill="transparent"
+        stroke="#38bdf8"
+        stroke-width="22"
+        stroke-dasharray="26.4 439.8"
+        stroke-dashoffset="-413.4"
+        class="donut-segment"
+      />
+    
+
+    <!-- Center stats -->
+    <text x="145" y="172" fill="#f0f6fc" font-size="18" font-weight="800" text-anchor="middle" class="font-mono">
+      5.03 MB
+    </text>
+    <text x="145" y="194" fill="#8b949e" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">
+      CODE ANALYZED
+    </text>
+  </g>
+
+  <!-- Language Details List -->
+  <g>
+    
+      <g transform="translate(300, 80)">
+        <circle cx="6" cy="6" r="5" fill="#3178c6" />
+        <text x="20" y="10" fill="#f0f6fc" font-size="14" font-weight="600" class="font-base">TypeScript</text>
+        <text x="320" y="10" fill="#8b949e" font-size="12" class="font-mono">2.14 MB</text>
+        <text x="430" y="10" fill="#3178c6" font-size="13" font-weight="700" text-anchor="end" class="font-mono">42.6%</text>
+
+        <!-- Progress Bar Background & Fill -->
+        <rect x="20" y="20" width="410" height="6" rx="3" fill="#21262d" />
+        <rect x="20" y="20" width="174.7" height="6" rx="3" fill="#3178c6" />
+      </g>
+    
+      <g transform="translate(300, 128)">
+        <circle cx="6" cy="6" r="5" fill="#dea584" />
+        <text x="20" y="10" fill="#f0f6fc" font-size="14" font-weight="600" class="font-base">Rust</text>
+        <text x="320" y="10" fill="#8b949e" font-size="12" class="font-mono">1.25 MB</text>
+        <text x="430" y="10" fill="#dea584" font-size="13" font-weight="700" text-anchor="end" class="font-mono">24.8%</text>
+
+        <!-- Progress Bar Background & Fill -->
+        <rect x="20" y="20" width="410" height="6" rx="3" fill="#21262d" />
+        <rect x="20" y="20" width="101.7" height="6" rx="3" fill="#dea584" />
+      </g>
+    
+      <g transform="translate(300, 176)">
+        <circle cx="6" cy="6" r="5" fill="#3572A5" />
+        <text x="20" y="10" fill="#f0f6fc" font-size="14" font-weight="600" class="font-base">Python</text>
+        <text x="320" y="10" fill="#8b949e" font-size="12" class="font-mono">824 KB</text>
+        <text x="430" y="10" fill="#3572A5" font-size="13" font-weight="700" text-anchor="end" class="font-mono">16.4%</text>
+
+        <!-- Progress Bar Background & Fill -->
+        <rect x="20" y="20" width="410" height="6" rx="3" fill="#21262d" />
+        <rect x="20" y="20" width="67.2" height="6" rx="3" fill="#3572A5" />
+      </g>
+    
+      <g transform="translate(300, 224)">
+        <circle cx="6" cy="6" r="5" fill="#00ADD8" />
+        <text x="20" y="10" fill="#f0f6fc" font-size="14" font-weight="600" class="font-base">Go</text>
+        <text x="320" y="10" fill="#8b949e" font-size="12" class="font-mono">512 KB</text>
+        <text x="430" y="10" fill="#00ADD8" font-size="13" font-weight="700" text-anchor="end" class="font-mono">10.2%</text>
+
+        <!-- Progress Bar Background & Fill -->
+        <rect x="20" y="20" width="410" height="6" rx="3" fill="#21262d" />
+        <rect x="20" y="20" width="41.8" height="6" rx="3" fill="#00ADD8" />
+      </g>
+    
+      <g transform="translate(300, 272)">
+        <circle cx="6" cy="6" r="5" fill="#38bdf8" />
+        <text x="20" y="10" fill="#f0f6fc" font-size="14" font-weight="600" class="font-base">Tailwind CSS</text>
+        <text x="320" y="10" fill="#8b949e" font-size="12" class="font-mono">302 KB</text>
+        <text x="430" y="10" fill="#38bdf8" font-size="13" font-weight="700" text-anchor="end" class="font-mono">6.0%</text>
+
+        <!-- Progress Bar Background & Fill -->
+        <rect x="20" y="20" width="410" height="6" rx="3" fill="#21262d" />
+        <rect x="20" y="20" width="24.6" height="6" rx="3" fill="#38bdf8" />
+      </g>
+    
+  </g>
+
+  <!-- Footer Tag -->
+  <g transform="translate(28, 335)">
+    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">ReadmeForge • Depth Code Statistics &amp; Byte Distribution</text>
+  </g>
+</svg>

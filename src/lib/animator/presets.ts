@@ -8,6 +8,12 @@ import {
   CharacterType,
   CharacterAction,
 } from './types';
+import {
+  generateIsocalendarSvg,
+  generateLanguagesDonutSvg,
+  generateHabitsRadarSvg,
+  generateAchievementsRackSvg,
+} from '#/lib/forge-metrics/svg-generators';
 
 /**
  * Escapes characters for safe inclusion in SVG XML text nodes and attributes.
@@ -1665,6 +1671,19 @@ function renderCharacterLayer(
  * Generates standalone, GitHub-sanitizer-compliant animated SVG code.
  */
 export function generateAnimatedSvg(config: AnimationConfig): string {
+  if (config.preset === 'metrics-isocalendar') {
+    return generateIsocalendarSvg({ username: config.headline || 'octocat' });
+  }
+  if (config.preset === 'metrics-languages') {
+    return generateLanguagesDonutSvg({ username: config.headline || 'octocat' });
+  }
+  if (config.preset === 'metrics-habits') {
+    return generateHabitsRadarSvg({ username: config.headline || 'octocat' });
+  }
+  if (config.preset === 'metrics-achievements') {
+    return generateAchievementsRackSvg({ username: config.headline || 'octocat' });
+  }
+
   const {
     headline,
     subtitle,

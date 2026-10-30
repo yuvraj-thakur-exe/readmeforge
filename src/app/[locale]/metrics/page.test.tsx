@@ -51,4 +51,19 @@ describe('ReadmeForge Metrics Studio Page', () => {
     fireEvent.click(mdTab);
     expect(screen.getByText('Copy-paste this directly into your GitHub profile README.md')).toBeDefined();
   });
+
+  it('allows selecting standalone SVG visualizers such as Languages Donut and Terminal HUD', () => {
+    render(<MetricsStudioPage />);
+    const langsBtn = screen.getByText('Languages Donut');
+    fireEvent.click(langsBtn);
+
+    const previewTab = screen.getByTestId('tab-preview');
+    fireEvent.click(previewTab);
+
+    expect(screen.getByText(/metrics-languages\.svg/)).toBeDefined();
+
+    const terminalBtn = screen.getAllByText('Terminal HUD')[0];
+    fireEvent.click(terminalBtn);
+    expect(screen.getByText(/metrics-terminal\.svg/)).toBeDefined();
+  });
 });

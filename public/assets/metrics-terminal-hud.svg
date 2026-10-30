@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" fill="none">
+  <defs>
+    <linearGradient id="term-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0e14" />
+      <stop offset="100%" stop-color="#040608" />
+    </linearGradient>
+    <pattern id="scanlines" width="100" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="100" y2="0" stroke="#000000" stroke-width="1.2" opacity="0.3" />
+    </pattern>
+  </defs>
+
+  <style>
+    .font-mono { font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace; }
+    .cursor-blink { animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+    }
+  </style>
+
+  <!-- Terminal Window Shell -->
+  <rect x="1" y="1" width="798" height="358" rx="12" fill="url(#term-bg)" stroke="#30363d" stroke-width="1.5" />
+  <rect x="1" y="1" width="798" height="38" rx="12" fill="#161b22" />
+  <rect x="1" y="26" width="798" height="13" fill="#161b22" />
+
+  <!-- Window Buttons -->
+  <circle cx="24" cy="20" r="6" fill="#f85149" />
+  <circle cx="44" cy="20" r="6" fill="#d29922" />
+  <circle cx="64" cy="20" r="6" fill="#2ea043" />
+
+  <text x="400" y="24" fill="#8b949e" font-size="12" font-weight="600" text-anchor="middle" class="font-mono">
+    readmeforge@octocat: ~ (telemetry-hud)
+  </text>
+
+  <!-- Scanlines overlay -->
+  <rect x="2" y="40" width="796" height="316" fill="url(#scanlines)" pointer-events="none" />
+
+  <!-- Terminal Content -->
+  <g transform="translate(28, 72)" class="font-mono">
+    <!-- Prompt Line 1 -->
+    <text x="0" y="0" font-size="13">
+      <tspan fill="#34d399">developer@readmeforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ readmeforge telemetry --user octocat --deep</tspan>
+    </text>
+
+    <!-- Output Box -->
+    <g transform="translate(0, 24)">
+      <text x="0" y="0" fill="#fbbf24" font-size="12">[SYSTEM DIAGNOSTICS &amp; ENGINE STATS]</text>
+      <text x="0" y="20" fill="#8b949e" font-size="12">Kernel ........ ReadmeForge Telemetry Engine v3.35.0 (x86_64-linux)</text>
+      <text x="0" y="40" fill="#8b949e" font-size="12">Repository .... octocat/octocat</text>
+      <text x="0" y="60" fill="#8b949e" font-size="12">Active Streak . 42 consecutive solar days [STATUS: GREEN]</text>
+      <text x="0" y="80" fill="#8b949e" font-size="12">Velocity ...... 94.2 commits / month</text>
+      <text x="0" y="100" fill="#8b949e" font-size="12">Service Uptime. 99.8% (Continuous Deployment)</text>
+    </g>
+
+    <!-- Telemetry Bento Grid inside Terminal -->
+    <g transform="translate(0, 150)">
+      <rect x="0" y="0" width="170" height="58" rx="6" fill="#161b22" stroke="#30363d" />
+      <text x="14" y="22" fill="#8b949e" font-size="10">TOTAL REPOSITORIES</text>
+      <text x="14" y="46" fill="#f0f6fc" font-size="18" font-weight="700">84</text>
+
+      <rect x="185" y="0" width="170" height="58" rx="6" fill="#161b22" stroke="#30363d" />
+      <text x="199" y="22" fill="#8b949e" font-size="10">STARS EARNED</text>
+      <text x="199" y="46" fill="#f59e0b" font-size="18" font-weight="700">★ 1,482</text>
+
+      <rect x="370" y="0" width="170" height="58" rx="6" fill="#161b22" stroke="#30363d" />
+      <text x="384" y="22" fill="#8b949e" font-size="10">FORKS FORGED</text>
+      <text x="384" y="46" fill="#58a6ff" font-size="18" font-weight="700">⑂ 320</text>
+
+      <rect x="555" y="0" width="185" height="58" rx="6" fill="#161b22" stroke="#30363d" />
+      <text x="569" y="22" fill="#8b949e" font-size="10">TOTAL COMMITS</text>
+      <text x="569" y="46" fill="#34d399" font-size="18" font-weight="700">2,847</text>
+    </g>
+
+    <!-- Active Prompt with Blinking Cursor -->
+    <g transform="translate(0, 240)">
+      <text x="0" y="0" font-size="13">
+        <tspan fill="#34d399">developer@readmeforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ </tspan>
+      </text>
+      <rect x="235" y="-12" width="8" height="15" fill="#34d399" class="cursor-blink" />
+    </g>
+  </g>
+</svg>
