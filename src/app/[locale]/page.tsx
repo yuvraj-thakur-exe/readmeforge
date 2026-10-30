@@ -173,7 +173,7 @@ export default function HomePage() {
               <span>Info, Install &amp; Templates</span>
             </Link>
             <a
-              href="https://github.com/yuvraj-thakur-exe/readmeforge"
+              href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
               target="_blank"
               rel="noreferrer"
               className="hover:text-neutral-200 flex items-center gap-1.5 transition-colors font-medium"
