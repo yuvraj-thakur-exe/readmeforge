@@ -16,6 +16,8 @@ import { skillIconsPlugin } from './wrappers/skill-icons';
 import { pinterestImagePlugin } from './wrappers/pinterest-image';
 import { figmaDesignPlugin } from './wrappers/figma-design';
 import { socialsPlugin } from './wrappers/socials';
+import { metricsEnginePlugin } from './wrappers/metrics-engine';
+import { metricsIsocalendarPlugin } from './wrappers/metrics-isocalendar';
 
 export const pluginRegistry: Plugin[] = [
   socialsPlugin,
@@ -23,6 +25,8 @@ export const pluginRegistry: Plugin[] = [
   mascotBioPlugin,
   pinterestImagePlugin,
   figmaDesignPlugin,
+  metricsEnginePlugin,
+  metricsIsocalendarPlugin,
   readmeTypingSvgPlugin,
   githubReadmeStatsPlugin,
   pieChartPlugin,

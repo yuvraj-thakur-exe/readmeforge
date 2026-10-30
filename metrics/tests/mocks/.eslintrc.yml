@@ -1,0 +1,4 @@
+# Overrides enforced rules for mocks
+rules:
+  max-params: off
+  no-unused-vars: off

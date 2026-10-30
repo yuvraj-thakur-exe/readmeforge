@@ -1,0 +1,25 @@
+query SponsorsAll {
+  $account(login: "$login") {
+    sponsorsActivities($after first: 100, period: ALL) {
+      edges {
+        cursor
+      }
+      nodes {
+        sponsor {
+          ... on User {
+            avatarUrl(size: $size)
+            login
+          }
+          ... on Organization {
+            login
+            avatarUrl(size: $size)
+            url
+          }
+        }
+        sponsorsTier {
+          monthlyPriceInDollars
+        }
+      }
+    }
+  }
+}

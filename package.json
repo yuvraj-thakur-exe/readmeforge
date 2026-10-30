@@ -44,7 +44,9 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
-    "analyze": "ANALYZE=true pnpm build"
+    "analyze": "ANALYZE=true pnpm build",
+    "metrics:start": "node metrics/source/app/web/index.mjs",
+    "metrics:build": "node metrics/.github/scripts/build.mjs"
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.10.0",

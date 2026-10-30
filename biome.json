@@ -8,6 +8,7 @@
       "!public/**",
       "!coverage/**",
       "!node_modules/**",
+      "!metrics/**",
       "!src/assets/**/*.svg"
     ]
   },

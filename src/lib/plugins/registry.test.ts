@@ -20,6 +20,8 @@ describe('Plugin Registry', () => {
     expect(ids).toContain('skill-icons');
     expect(ids).toContain('pinterest-image');
     expect(ids).toContain('figma-design');
+    expect(ids).toContain('metrics-engine');
+    expect(ids).toContain('metrics-isocalendar');
   });
 
   it('validates that every plugin has valid fields and renderMarkdown output', () => {

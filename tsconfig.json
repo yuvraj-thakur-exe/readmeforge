@@ -30,7 +30,7 @@
       }
     ]
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "metrics"],
   "include": [
     "**/*.ts",
     "**/*.tsx",
