@@ -13,7 +13,7 @@ import {
   generateLanguagesDonutSvg,
   generateHabitsRadarSvg,
   generateAchievementsRackSvg,
-} from '#/lib/forge-metrics/svg-generators';
+} from '#/lib/forge-telemetry/svg-generators';
 
 /**
  * Escapes characters for safe inclusion in SVG XML text nodes and attributes.
@@ -1671,16 +1671,16 @@ function renderCharacterLayer(
  * Generates standalone, GitHub-sanitizer-compliant animated SVG code.
  */
 export function generateAnimatedSvg(config: AnimationConfig): string {
-  if (config.preset === 'metrics-isocalendar') {
+  if (config.preset === 'telemetry-isocalendar') {
     return generateIsocalendarSvg({ username: config.headline || 'octocat' });
   }
-  if (config.preset === 'metrics-languages') {
+  if (config.preset === 'telemetry-languages') {
     return generateLanguagesDonutSvg({ username: config.headline || 'octocat' });
   }
-  if (config.preset === 'metrics-habits') {
+  if (config.preset === 'telemetry-habits') {
     return generateHabitsRadarSvg({ username: config.headline || 'octocat' });
   }
-  if (config.preset === 'metrics-achievements') {
+  if (config.preset === 'telemetry-achievements') {
     return generateAchievementsRackSvg({ username: config.headline || 'octocat' });
   }
 

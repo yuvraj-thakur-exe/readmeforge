@@ -141,7 +141,7 @@ Each badge supports both icon mode (`format: "icon"`) and badge mode (`format: "
   - `columns`: number
 
 ### `visitor-counter`
-- **Category**: `metrics`
+- **Category**: `stats`
 - **Props**:
   - `style`: string
   - `color`: string

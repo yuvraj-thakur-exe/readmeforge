@@ -11,10 +11,10 @@ export type AnimationPresetId =
   | 'fire'
   | 'water'
   | 'custom'
-  | 'metrics-isocalendar'
-  | 'metrics-languages'
-  | 'metrics-habits'
-  | 'metrics-achievements';
+  | 'telemetry-isocalendar'
+  | 'telemetry-languages'
+  | 'telemetry-habits'
+  | 'telemetry-achievements';
 
 export type TextEffect =
   | 'typing'
@@ -253,28 +253,28 @@ export const PRESET_METADATA: PresetMetadata[] = [
     icon: 'layers',
   },
   {
-    id: 'metrics-isocalendar',
+    id: 'telemetry-isocalendar',
     name: '3D Isometric Voxel Calendar',
     description: 'Extruded 3D commit voxel matrix with wave elevation and streak HUD.',
     category: 'modern',
     icon: 'box',
   },
   {
-    id: 'metrics-languages',
+    id: 'telemetry-languages',
     name: 'Polyglot Languages Donut',
     description: 'Multi-ring circular donut chart with byte breakdown and telemetry pills.',
     category: 'modern',
     icon: 'code',
   },
   {
-    id: 'metrics-habits',
+    id: 'telemetry-habits',
     name: '24h Habits Radar',
     description: 'Circular 24-hour activity clock dial and weekday commitment histogram.',
     category: 'cyber',
     icon: 'activity',
   },
   {
-    id: 'metrics-achievements',
+    id: 'telemetry-achievements',
     name: 'S-Rank Achievements Rack',
     description: 'Gamified medal showcase with metallic gold frames and unlock progress.',
     category: 'cyber',

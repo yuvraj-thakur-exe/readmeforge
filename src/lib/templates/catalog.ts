@@ -547,16 +547,16 @@ const RAW_TEMPLATES: TemplateItem[] = [
     },
   },
   {
-    id: 'metrics-telemetry-dashboard',
-    name: 'Metrics & Telemetry Dashboard',
-    description: 'Telemetry dashboard inspired by lowlighter/metrics with PageSpeed scores, 3D contribution calendar, commit activity graphs, and tech icons.',
+    id: 'forge-telemetry-dashboard',
+    name: 'Developer Telemetry Dashboard',
+    description: 'High-impact telemetry dashboard with PageSpeed scores, 3D isometric calendar, commit activity graphs, and tech icons.',
     category: 'Popular',
     accent: '#10b981',
     prompt:
-      'Generate a dark-mode GitHub profile README in the style of lowlighter/metrics with a telemetry dashboard, PageSpeed insights scores, 3D isometric contributions calendar, coding habits hourly/daily activity graphs, top languages breakdown, and mastered technologies icon grid.',
+      'Generate a dark-mode GitHub profile README featuring a developer telemetry dashboard with PageSpeed insights scores, 3D isometric contributions calendar, coding habits hourly/daily activity graphs, top languages breakdown, and mastered technologies icon grid.',
     config: {
       version: '1.0.0',
-      title: 'Metrics Telemetry Profile',
+      title: 'Developer Telemetry Profile',
       settings: {
         user: {
           github: 'octocat',

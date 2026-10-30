@@ -99,11 +99,11 @@ export const ARCHETYPES = [
     },
   },
   {
-    id: 'metrics-telemetry-dashboard',
-    name: 'Metrics & Telemetry Dashboard',
+    id: 'forge-telemetry-dashboard',
+    name: 'ReadmeForge Telemetry Dashboard',
     category: 'Popular',
     accent: '#10b981',
-    description: 'Telemetry dashboard inspired by lowlighter/metrics with PageSpeed scores, 3D contribution calendar, commit activity graphs, and tech icons.',
+    description: 'Native telemetry dashboard with PageSpeed scores, 3D contribution calendar, commit activity graphs, and tech icons.',
     generator: (u) => {
       const user = u.username || 'octocat';
       const name = u.name || 'Alex Rivers';
@@ -1463,7 +1463,9 @@ export const ARCHETYPES = [
 // Helper to generate profile markdown with footer attribution
 export function generateProfile(options) {
   const archetypeId = options.archetype || 'wow-3d-city-cat';
-  const archetype = ARCHETYPES.find((a) => a.id === archetypeId) || ARCHETYPES[0];
+  const archetype =
+    ARCHETYPES.find((a) => a.id === archetypeId || (archetypeId === 'metrics-telemetry-dashboard' && a.id === 'forge-telemetry-dashboard')) ||
+    ARCHETYPES[0];
   const body = archetype.generator(options);
   const footer = `\n---\n<p align="center">\n  <sub>⚡ Powered by <a href="https://readmeforge.dev"><b>ReadmeForge</b></a> — Forge a GitHub profile that gets noticed.</sub>\n</p>`;
   return body + footer;
@@ -1554,7 +1556,7 @@ Use this skill whenever asked to create, revamp, or forge a developer's GitHub p
 ## Available Archetypes
 - \`wow-3d-city-cat\`: #1 Wow Profile with peeking black cat mascot, retro pixel-art avatar, 3D contribution city, and glowing language stack.
 - \`bento-signal-dashboard\`: #5 Signal Dashboard with anime silhouette bento header, live signal metrics widgets, and contribution heatmap.
-- \`metrics-telemetry-dashboard\`: Dark telemetry dashboard with PageSpeed scores, 3D calendar, and coding habits graphs.
+- \`forge-telemetry-dashboard\`: Dark telemetry dashboard with PageSpeed scores, 3D calendar, and coding habits graphs.
 - \`neon-craftsman-owl\`: Curved waving purple neon header banner with celebratory owl mascot holding party popper cannon.
 - \`minimal-light-unicorn\`: Clean light-mode layout with checkmarked achievements and cute pastel coding unicorn at laptop sticker.
 - \`constellation-devops-desk\`: Deep space constellation header with DevOps engineer at workstation desk illustration.
@@ -1627,7 +1629,7 @@ function startMcpServer() {
                   username: { type: 'string', description: 'Target GitHub username' },
                   archetype: {
                     type: 'string',
-                    description: 'Archetype ID (e.g. wow-3d-city-cat, bento-signal-dashboard, metrics-telemetry-dashboard, neon-craftsman-owl, minimal-light-unicorn, constellation-devops-desk, isometric-terminal-connect, pinterest-lofi-aesthetic)',
+                    description: 'Archetype ID (e.g. wow-3d-city-cat, bento-signal-dashboard, forge-telemetry-dashboard, neon-craftsman-owl, minimal-light-unicorn, constellation-devops-desk, isometric-terminal-connect, pinterest-lofi-aesthetic)',
                   },
                   name: { type: 'string', description: 'Developer display name' },
                   role: { type: 'string', description: 'Developer headline or title' },

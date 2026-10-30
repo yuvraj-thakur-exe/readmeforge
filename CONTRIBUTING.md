@@ -1,13 +1,13 @@
 # Contributing to ReadmeForge
 
-ReadmeForge is 100% open-source software built by and for the global developer community with zero barriers or restrictions. Whether you're adding an animated SVG character, expanding the 47+ metrics plugins, improving UI/UX ergonomics, or submitting a fix, your contributions are warmly welcomed!
+ReadmeForge is 100% open-source software built by and for the global developer community with zero barriers or restrictions. Whether you're adding an animated SVG character, expanding the 47+ telemetry plugins, improving UI/UX ergonomics, or submitting a fix, your contributions are warmly welcomed!
 
 ---
 
 ## 🏗️ Architecture Overview
 
 - **Web Studio & UI**: Next.js 16 (App Router), TypeScript, Tailwind CSS, Shadcn/ui, Radix, Zustand, react-hook-form.
-- **ReadmeForge Metrics (`/metrics`)**: Infographics engine with 47+ plugins, templates (`classic`, `terminal`, `repository`, `markdown`, `community`), and SVG infographic generation.
+- **ReadmeForge Telemetry (`/telemetry`)**: Infographics & developer telemetry engine with 47+ plugins, templates (`classic`, `terminal`, `repository`, `markdown`, `community`), and native SVG infographic generation.
 - **Plugins (`src/lib/plugins/`)**: Registry-driven modular wrappers validated against a unified Zod schema.
 - **Animated Vector Engine**: Standalone, Camo-compliant SVG animations with CSS keyframes and zero external JavaScript.
 
@@ -30,13 +30,13 @@ pnpm install
 ```bash
 pnpm dev
 # Web Studio runs on http://localhost:3000/en
-# Metrics Studio runs on http://localhost:3000/en/metrics
+# Telemetry Studio runs on http://localhost:3000/en/telemetry
 ```
 
-### 3. Run Standalone Metrics Engine
+### 3. Export Standalone Telemetry SVGs
 ```bash
-pnpm metrics:start
-# Runs local metrics infographic instance on http://localhost:3000
+npx tsx scripts/export-telemetry-svgs.ts
+# Generates all standalone SVGs into public/assets/
 ```
 
 ---
@@ -72,7 +72,7 @@ pnpm format:check
 ## 📐 Git Commit Guidelines
 
 We follow [Conventional Commits](https://www.conventionalcommits.org/):
-- `feat: add leetcode topic badges to metrics studio`
+- `feat: add leetcode topic badges to telemetry studio`
 - `fix: resolve isometric calendar date calculation`
 - `docs: update configuration schema documentation`
-- `test: add coverage for metrics action generator`
+- `test: add coverage for telemetry action generator`

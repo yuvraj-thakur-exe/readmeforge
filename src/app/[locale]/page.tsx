@@ -36,7 +36,7 @@ export default function HomePage() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-bold text-sm text-neutral-100">
-                  ReadmeForge Metrics Studio
+                  Developer Telemetry Studio
                 </span>
                 <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-medium bg-amber-500/10 text-amber-400 border border-amber-500/20">
                   47+ Plugins
@@ -49,10 +49,10 @@ export default function HomePage() {
           </div>
 
           <Link
-            href="/metrics"
+            href="/telemetry"
             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-400 hover:bg-amber-300 text-neutral-950 font-semibold text-xs transition-colors shrink-0 active:scale-95 shadow-sm"
           >
-            <span>Open Metrics Studio</span>
+            <span>Open Telemetry Studio</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
@@ -81,11 +81,11 @@ export default function HomePage() {
 
           <div className="flex flex-wrap items-center gap-5">
             <Link
-              href="/metrics"
+              href="/telemetry"
               className="hover:text-amber-300 flex items-center gap-1.5 transition-colors font-medium text-amber-400"
             >
               <BarChart3 className="w-3.5 h-3.5" />
-              <span>Metrics Studio</span>
+              <span>Telemetry Studio</span>
             </Link>
             <Link
               href="/info"

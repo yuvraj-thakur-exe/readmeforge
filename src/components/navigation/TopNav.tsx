@@ -7,7 +7,7 @@ import { ThemeToggle } from '#/components/theme/ThemeToggle';
 export function TopNav() {
   const pathname = usePathname();
   const isWizard = pathname?.includes('/wizard') || pathname?.includes('/canvas');
-  const isMetrics = pathname?.includes('/metrics');
+  const isTelemetry = pathname?.includes('/telemetry');
   const isInfo = pathname?.includes('/info');
 
   return (
@@ -30,7 +30,7 @@ export function TopNav() {
               ReadmeForge
             </span>
             <span className="text-[10px] text-neutral-400 hidden sm:inline -mt-0.5">
-              Profile &amp; Metrics Studio
+              Profile &amp; Telemetry Studio
             </span>
           </div>
         </Link>
@@ -51,18 +51,18 @@ export function TopNav() {
             <span className="sm:hidden text-[11px]">Studio</span>
           </Link>
 
-          {/* Metrics Studio (lecoq parity) */}
+          {/* Telemetry Studio */}
           <Link
-            href="/metrics"
+            href="/telemetry"
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg border transition-all duration-200 active:scale-95 ${
-              isMetrics
+              isTelemetry
                 ? 'bg-amber-400 text-neutral-950 border-amber-400 shadow-sm font-bold'
                 : 'border-amber-500/30 bg-amber-500/10 hover:bg-amber-500/20 hover:border-amber-500/50 text-amber-300'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Metrics</span>
-            <span className="sm:hidden text-[11px]">Metrics</span>
+            <span className="hidden sm:inline">Telemetry</span>
+            <span className="sm:hidden text-[11px]">Telemetry</span>
           </Link>
 
           {/* Info & Guide */}

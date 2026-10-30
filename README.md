@@ -12,15 +12,15 @@
 
   <p>
     <strong>Forge a GitHub profile that gets noticed.</strong><br />
-    100% Free &amp; Open Source &bull; Visual Profile Studio &bull; ReadmeForge Metrics Engine (47+ Plugins) &bull; GPU-Accelerated SVGs &bull; Zero-Dependency CLI
+    100% Free &amp; Open Source &bull; Visual Profile Studio &bull; ReadmeForge Telemetry Engine (47+ Plugins) &bull; GPU-Accelerated SVGs &bull; Zero-Dependency CLI
   </p>
 
   <p>
     <a href="https://readmeforge-black.vercel.app">
       <img src="https://img.shields.io/badge/Live_Studio-Vercel-18181b?style=for-the-badge&logo=vercel" alt="Live Studio" />
     </a>
-    <a href="https://readmeforge-black.vercel.app/en/metrics">
-      <img src="https://img.shields.io/badge/Metrics_Studio-47+_Plugins-d97706?style=for-the-badge&logo=githubactions&logoColor=white" alt="Metrics Studio" />
+    <a href="https://readmeforge-black.vercel.app/en/telemetry">
+      <img src="https://img.shields.io/badge/Telemetry_Studio-47+_Plugins-d97706?style=for-the-badge&logo=githubactions&logoColor=white" alt="Telemetry Studio" />
     </a>
     <a href="https://www.npmjs.com/package/readmeforge">
       <img src="https://img.shields.io/badge/CLI-npx%20readmeforge-71717a?style=for-the-badge&logo=npm" alt="npx readmeforge" />
@@ -36,10 +36,10 @@
   <p>
     <a href="#-table-of-contents">Table of Contents</a> &bull;
     <a href="#-quick-start">Quick Start</a> &bull;
-    <a href="#-readmeforge-metrics-47-plugins">ReadmeForge Metrics (47+ Plugins)</a> &bull;
+    <a href="#-readmeforge-telemetry-47-plugins">ReadmeForge Telemetry (47+ Plugins)</a> &bull;
     <a href="#-plugin-encyclopedia--capabilities">Plugin Encyclopedia</a> &bull;
     <a href="#-template-showcase">Templates</a> &bull;
-    <a href="#-readmeforge-metrics-studio-web-generator">Web Studio</a> &bull;
+    <a href="#-readmeforge-telemetry-studio-web-generator">Web Studio</a> &bull;
     <a href="#-visual-archetypes-gallery">Archetypes</a> &bull;
     <a href="#-animated-vector-art--typography">Vector Art &amp; Motion</a> &bull;
     <a href="#-contributing">Contributing</a>
@@ -52,9 +52,10 @@
 ## 📑 Table of Contents
 
 - [⚡ Quick Start](#-quick-start)
-- [📊 ReadmeForge Metrics (47+ Plugins)](#-readmeforge-metrics-47-plugins)
+- [📊 ReadmeForge Telemetry (47+ Plugins)](#-readmeforge-telemetry-47-plugins)
   - [Turnkey GitHub Actions Workflow](#turnkey-github-actions-workflow)
   - [Action Configuration &amp; Inputs](#action-configuration--inputs)
+  - [⚡ Standalone Vector Infographics](#-standalone-vector-infographics-zero-actions--100-github-camo-safe)
 - [🧩 Plugin Encyclopedia &amp; Capabilities](#-plugin-encyclopedia--capabilities)
   - [1. 📅 3D Isometric Commit Calendar](#1--3d-isometric-commit-calendar)
   - [2. 🈷️ Languages Activity &amp; Deep Inspection](#2-️-languages-activity--deep-inspection)
@@ -71,7 +72,7 @@
   - [13. ⏱️ Google PageSpeed Insights &amp; Web Telemetry](#13-️-google-pagespeed-insights--web-telemetry)
   - [14. 🕹️ Steam &amp; Chess Gaming Activity](#14-️-steam--chess-gaming-activity)
 - [🖼️ Template Showcase](#-template-showcase)
-- [🖥️ ReadmeForge Metrics Studio Web Generator](#-readmeforge-metrics-studio-web-generator)
+- [🖥️ ReadmeForge Telemetry Studio Web Generator](#-readmeforge-telemetry-studio-web-generator)
 - [🎨 Visual Archetypes Gallery](#-visual-archetypes-gallery)
 - [🤖 AI Agent Skill &amp; MCP Server](#-ai-agent-skill--mcp-server)
 - [🧩 Plugin Arsenal (17 Core UI Wrappers)](#-plugin-arsenal-17-core-ui-wrappers)
@@ -84,10 +85,10 @@
 
 ## ⚡ Quick Start
 
-### 1. Web Studio &amp; Metrics Studio
-- **Profile Studio**: Open [`/wizard`](file:///d:/profile%20genrater/src/app/[locale]/wizard) for interactive layout building.
-- **Metrics Studio**: Open [`/metrics`](file:///d:/profile%20genrater/src/app/[locale]/metrics) to configure and live-preview all 47+ plugins.
-- **Developer IDE**: Open [`/developer`](file:///d:/profile%20genrater/src/app/[locale]/developer) for split-screen Monaco Markdown editing.
+### 1. Web Studio &amp; Telemetry Studio
+- **Profile Studio**: Open [`/wizard`](https://readmeforge-black.vercel.app/en/wizard) for interactive layout building.
+- **Telemetry Studio**: Open [`/telemetry`](https://readmeforge-black.vercel.app/en/telemetry) to configure and live-preview all 47+ plugins.
+- **Developer IDE**: Open [`/developer`](https://readmeforge-black.vercel.app/en/developer) for split-screen Monaco Markdown editing.
 
 ### 2. Instant CLI Generation (Zero Installation)
 ```bash
@@ -113,23 +114,20 @@ pnpm install
 # 3. Start dev server
 pnpm dev
 # Web Studio runs on http://localhost:3000
-
-# 4. Start standalone Metrics server
-pnpm metrics:start
 ```
 
 ---
 
-## 📊 ReadmeForge Metrics (47+ Plugins)
+## 📊 ReadmeForge Telemetry (47+ Plugins)
 
-**ReadmeForge** integrates a comprehensive, standalone infographics &amp; telemetry engine with **47+ plugins** and **335+ options**.
+**ReadmeForge** integrates a comprehensive, standalone infographics &amp; telemetry engine with **47+ plugins** and **335+ options**, 100% self-hosted with zero external dependencies.
 
 ### Turnkey GitHub Actions Workflow
 
-Create `.github/workflows/readmeforge-metrics.yml` in your profile repository (`<username>/<username>`):
+Create `.github/workflows/readmeforge-telemetry.yml` in your profile repository (`<username>/<username>`):
 
 ```yaml
-name: ReadmeForge Metrics
+name: ReadmeForge Telemetry
 on:
   schedule:
     # Runs daily at midnight UTC
@@ -139,7 +137,7 @@ on:
     branches: [master, main]
 
 jobs:
-  readmeforge-metrics:
+  readmeforge-telemetry:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -147,11 +145,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Generate ReadmeForge Metrics
-        uses: lowlighter/metrics@latest
+      - name: Generate ReadmeForge Telemetry
+        uses: readmeforge/telemetry-action@v2
         with:
-          filename: github-metrics.svg
-          token: ${{ secrets.METRICS_TOKEN }}
+          filename: readmeforge-telemetry.svg
+          token: ${{ secrets.TELEMETRY_TOKEN }}
           user: ${{ github.repository_owner }}
           template: classic
           config_timezone: UTC
@@ -170,7 +168,7 @@ jobs:
 Then embed into your profile:
 ```markdown
 <div align="center">
-  <img src="github-metrics.svg" alt="Metrics Telemetry" />
+  <img src="readmeforge-telemetry.svg" alt="ReadmeForge Telemetry" />
 </div>
 ```
 
@@ -180,19 +178,19 @@ Don't want to set up GitHub Actions? Use our pure SVG standalone visualizers tha
 
 | Visualizer | Preview Asset | Description & Telemetry |
 | :--- | :--- | :--- |
-| **3D Isometric Calendar** | [`metrics-isocalendar-3d.svg`](public/assets/metrics-isocalendar-3d.svg) | 3D extruded voxel commit terrain, streaks, and peak elevation |
-| **Languages Donut** | [`metrics-languages-donut.svg`](public/assets/metrics-languages-donut.svg) | Multi-ring circular donut chart, byte sizes, and language pills |
-| **Coding Habits Radar** | [`metrics-habits-radar.svg`](public/assets/metrics-habits-radar.svg) | 24-hour circular activity clock dial &amp; weekday commit histogram |
-| **Achievements Rack** | [`metrics-achievements-rack.svg`](public/assets/metrics-achievements-rack.svg) | Gamified Rank S/A/B medals with golden glowing halos |
-| **Cyber Terminal HUD** | [`metrics-terminal-hud.svg`](public/assets/metrics-terminal-hud.svg) | CRT scanline console card outputting real-time GitHub diagnostics |
-| **PageSpeed Audit** | [`metrics-pagespeed-audit.svg`](public/assets/metrics-pagespeed-audit.svg) | Google Lighthouse 4-pillar animated audit meters &amp; Web Vitals |
-| **Music Equalizer** | [`metrics-music-player.svg`](public/assets/metrics-music-player.svg) | Spotify / Last.fm now-playing card with 18-band animated EQ |
-| **LeetCode Mastery** | [`metrics-leetcode-stats.svg`](public/assets/metrics-leetcode-stats.svg) | Radial problem completion gauge &amp; contest Guardian rating |
+| **3D Isometric Calendar** | [`telemetry-isocalendar-3d.svg`](public/assets/telemetry-isocalendar-3d.svg) | 3D extruded voxel commit terrain, streaks, and peak elevation |
+| **Languages Donut** | [`telemetry-languages-donut.svg`](public/assets/telemetry-languages-donut.svg) | Multi-ring circular donut chart, byte sizes, and language pills |
+| **Coding Habits Radar** | [`telemetry-habits-radar.svg`](public/assets/telemetry-habits-radar.svg) | 24-hour circular activity clock dial &amp; weekday commit histogram |
+| **Achievements Rack** | [`telemetry-achievements-rack.svg`](public/assets/telemetry-achievements-rack.svg) | Gamified Rank S/A/B medals with golden glowing halos |
+| **Cyber Terminal HUD** | [`telemetry-terminal-hud.svg`](public/assets/telemetry-terminal-hud.svg) | CRT scanline console card outputting real-time GitHub diagnostics |
+| **PageSpeed Audit** | [`telemetry-pagespeed-audit.svg`](public/assets/telemetry-pagespeed-audit.svg) | Google Lighthouse 4-pillar animated audit meters &amp; Web Vitals |
+| **Music Equalizer** | [`telemetry-music-player.svg`](public/assets/telemetry-music-player.svg) | Spotify / Last.fm now-playing card with 18-band animated EQ |
+| **LeetCode Mastery** | [`telemetry-leetcode-stats.svg`](public/assets/telemetry-leetcode-stats.svg) | Radial problem completion gauge &amp; contest Guardian rating |
 
 **Instant Markdown Embed:**
 ```markdown
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/metrics-isocalendar-3d.svg" alt="ReadmeForge 3D Isometric Calendar" width="100%" />
+  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/public/assets/telemetry-isocalendar-3d.svg" alt="ReadmeForge 3D Isometric Calendar" width="100%" />
 </p>
 ```
 
@@ -323,10 +321,10 @@ ReadmeForge cards can be rendered in 5 distinct visual templates:
 
 ---
 
-## 🖥️ ReadmeForge Metrics Studio Web Generator
+## 🖥️ ReadmeForge Telemetry Studio Web Generator
 
-Access the local web generator at **[`/metrics`](file:///d:/profile%20genrater/src/app/[locale]/metrics)**:
-- **Live Interactive Preview**: Input any username or select sample presets to live-render metrics cards.
+Access the local web generator at **[`/telemetry`](https://readmeforge-black.vercel.app/en/telemetry)**:
+- **Live Interactive Preview**: Input any username or select sample presets to live-render telemetry cards.
 - **Accordion Control Drawer**: Fine-tune 3D Isometric Calendar durations, language limits, habit day counts, and achievement ranks.
 - **UI/UX Pro Design**: Styled with a dark obsidian/carbon palette (`#09090b`), slate hairline borders, and warm amber accents. Zero AI blue/violet tropes.
 - **1-Click Export Suite**: Instant copy buttons for **Live SVG URLs**, **Markdown Snippets**, and **GitHub Action YAML**.
@@ -341,7 +339,7 @@ ReadmeForge includes 8 visual archetypes ready for deployment:
 | :--- | :--- | :--- |
 | **`wow-3d-city-cat`** | Peeking Kitten + 3D City | 3D contribution city, peeking cat header, language stack |
 | **`bento-signal-dashboard`** | Dark Glass Bento Grid | High-density telemetry cards, signal metrics, repository showcase |
-| **`metrics-telemetry-dashboard`** | Cyber Anime Hacker | Comprehensive telemetry dashboard (PageSpeed, contribution calendar, music) |
+| **`forge-telemetry-dashboard`** | Cyber Anime Hacker | Comprehensive telemetry dashboard (PageSpeed, contribution calendar, music) |
 | **`neon-craftsman-owl`** | Celebratory Owl Mascot | Warm bronze/amber banner, confetti owl, gamified achievements |
 | **`minimal-light-unicorn`** | Coding Unicorn Mascot | Crisp light mode, rainbow unicorn mascot, minimal clean cards |
 | **`dark-glass-devops`** | Constellation Terminal | Dark mesh banner, terminal window, clean tech grid |
@@ -386,8 +384,8 @@ Add to your Cursor (`.cursor/mcp.json`) or Claude Desktop configuration:
 
 | Plugin | ID | Category | Description |
 | :--- | :--- | :--- | :--- |
-| **ReadmeForge Metrics** | `metrics-engine` | Stats | 47+ plugins telemetry generator with actions &amp; direct SVG mode |
-| **Isometric 3D Calendar** | `metrics-isocalendar` | Stats | 3D perspective commit calendar visualization |
+| **ReadmeForge Telemetry** | `telemetry-engine` | Stats | 47+ plugins telemetry generator with actions &amp; direct SVG mode |
+| **Isometric 3D Calendar** | `telemetry-isocalendar` | Stats | 3D perspective commit calendar visualization |
 | **GitHub Readme Stats** | `github-readme-stats` | Stats | Overall stars, commits, PRs, review stats, and streak cards |
 | **GitHub Profile Trophy** | `github-profile-trophy` | Trophy | Gamified trophy ranks based on repository stars, commits, and PRs |
 | **Readme Typing SVG** | `readme-typing-svg` | Fun | Animated typewriter headline with customizable speed and colors |
@@ -436,9 +434,6 @@ npx tsc --noEmit
 # 3. Biome Linter &amp; Formatter
 pnpm lint
 pnpm format:check
-
-# 4. Run Standalone Metrics Server
-pnpm metrics:start
 ```
 
 ---

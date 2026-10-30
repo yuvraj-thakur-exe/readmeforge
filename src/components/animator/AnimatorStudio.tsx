@@ -282,7 +282,7 @@ export function AnimatorStudio() {
             accentColor: '#e2e8f0',
             backgroundColor: '#0f172a',
           };
-        case 'metrics-isocalendar':
+        case 'telemetry-isocalendar':
           return {
             ...prev,
             preset,
@@ -291,7 +291,7 @@ export function AnimatorStudio() {
             accentColor: '#fbbf24',
             backgroundColor: '#0d1117',
           };
-        case 'metrics-languages':
+        case 'telemetry-languages':
           return {
             ...prev,
             preset,
@@ -300,7 +300,7 @@ export function AnimatorStudio() {
             accentColor: '#38bdf8',
             backgroundColor: '#0d1117',
           };
-        case 'metrics-habits':
+        case 'telemetry-habits':
           return {
             ...prev,
             preset,
@@ -309,7 +309,7 @@ export function AnimatorStudio() {
             accentColor: '#38bdf8',
             backgroundColor: '#0d1117',
           };
-        case 'metrics-achievements':
+        case 'telemetry-achievements':
           return {
             ...prev,
             preset,

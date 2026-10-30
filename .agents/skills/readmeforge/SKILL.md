@@ -21,7 +21,7 @@ node ./bin/readmeforge.js generate --username <github-username> --archetype wow-
 node ./bin/readmeforge.js generate --username <github-username> --archetype bento-signal-dashboard
 
 # 3. Output to stdout without overwriting local files
-node ./bin/readmeforge.js generate --username <github-username> --archetype metrics-telemetry-dashboard --output -
+node ./bin/readmeforge.js generate --username <github-username> --archetype forge-telemetry-dashboard --output -
 
 # 4. List all available archetypes
 node ./bin/readmeforge.js list
@@ -37,7 +37,7 @@ When a user asks: *"Build me a great GitHub profile"* or provides their resume/b
 | :--- | :--- | :--- |
 | **Full-Stack / Creative** | `wow-3d-city-cat` | Peeking black cat mascot header, retro pixel-art sprite avatar, 3D contribution city (`github-profile-3d-contrib`), glowing language stack, commit heatmap. |
 | **Modern Dev / Public Builder** | `bento-signal-dashboard` | Sleek dark bento grid, anime night sky silhouette banner, live Profile Signal cards (Stars, Contributions, Repos, Followers with sparklines), annual activity graph. |
-| **Principal / Systems Engineer** | `metrics-telemetry-dashboard` | Lowlighter/metrics style telemetry dashboard, PageSpeed Insights scores (Performance, Accessibility, SEO), 3D calendar, language activity, skill icons. |
+| **Principal / Systems Engineer** | `forge-telemetry-dashboard` | Native telemetry dashboard, PageSpeed Insights scores (Performance, Accessibility, SEO), 3D calendar, language activity, skill icons. |
 | **Craftsman / Open Source** | `neon-craftsman-owl` | Curved purple waving neon header banner (`HELLO WORLD`), 2-column layout with status emojis on left, celebratory owl party popper mascot sticker on right, profile views badge. |
 | **Minimalist / Tech Writer** | `minimal-light-unicorn` | Clean light-mode layout (`theme: 'light'`), monochromatic social badges row, checkmarked achievements bullet list paired with cute pastel coding unicorn at laptop sticker. |
 | **DevOps / SRE / Cloud** | `constellation-devops-desk` | Dark constellation deep-space banner with Octocat holding coffee, DevOps bullet points, developer with beanie and glasses at dual-monitor workstation desk illustration. |

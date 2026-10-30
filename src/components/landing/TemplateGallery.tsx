@@ -44,7 +44,7 @@ const TEMPLATE_PREVIEWS: Record<string, string> = {
   'cyberpunk': '/assets/snake.svg',
   'gaming-retro-arcade': '/assets/pacman.svg',
   'demon-slayer-dark': '/assets/profile/slayer-night-coder-header.svg',
-  'metrics-telemetry-dashboard': '/assets/about-me-telemetry.svg',
+  'forge-telemetry-dashboard': '/assets/about-me-telemetry.svg',
   'minimalist': '/assets/text-effects.svg',
   'fullstack': '/assets/bento-dashboard-header.svg',
   'cloud-architect': '/assets/roaming-bot.svg',
