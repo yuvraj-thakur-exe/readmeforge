@@ -1,13 +1,13 @@
-# ReadmeForge 1-Line Installer for Windows PowerShell
-# Usage: iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.ps1 | iex
+# MonoForge 1-Line Installer for Windows PowerShell
+# Usage: iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
 Write-Host "🔥 =======================================" -ForegroundColor Magenta
-Write-Host "⚡ ReadmeForge — Fast One-Line Installer" -ForegroundColor Cyan
+Write-Host "⚡ MonoForge — Fast One-Line Installer" -ForegroundColor Cyan
 Write-Host "🔥 =======================================" -ForegroundColor Magenta
 
-$targetDir = "readmeforge"
+$targetDir = "monoforge"
 
 # Check Node.js
 if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
@@ -15,15 +15,15 @@ if (-not (Get-Command node -ErrorAction SilentlyContinue)) {
 }
 
 # Enter or clone
-if ((Test-Path "package.json") -and (Select-String -Path "package.json" -Pattern '"name": "readmeforge"' -Quiet)) {
-    Write-Host "📁 Already inside ReadmeForge workspace." -ForegroundColor Green
+if ((Test-Path "package.json") -and (Select-String -Path "package.json" -Pattern '"name": "monoforge"' -Quiet)) {
+    Write-Host "📁 Already inside MonoForge workspace." -ForegroundColor Green
 } else {
     if (Test-Path $targetDir) {
         Write-Host "📁 Directory $targetDir already exists, entering..." -ForegroundColor Yellow
         Set-Location $targetDir
     } else {
-        Write-Host "📥 Cloning ReadmeForge..." -ForegroundColor Cyan
-        git clone https://github.com/yuvraj-thakur-exe/readmeforge.git $targetDir
+        Write-Host "📥 Cloning MonoForge..." -ForegroundColor Cyan
+        git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git $targetDir
         Set-Location $targetDir
     }
 }
@@ -39,5 +39,5 @@ try {
 Write-Host "🚀 Installing dependencies..." -ForegroundColor Cyan
 corepack pnpm install
 
-Write-Host "✨ ReadmeForge is ready! Launching dev server on http://localhost:3000..." -ForegroundColor Green
+Write-Host "✨ MonoForge is ready! Launching dev server on http://localhost:3000..." -ForegroundColor Green
 corepack pnpm dev

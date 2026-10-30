@@ -1,20 +1,20 @@
-# ReadmeForge — Claude & AI Agent Guide
+# MonoForge — Claude & AI Agent Guide
 
 ## Quick Start for Agents
-ReadmeForge is an open-source GitHub profile README generator and agent skill capability.
+MonoForge is an open-source GitHub profile README generator and agent skill capability.
 
 ### Generate Profile via CLI
 ```bash
 # Generate markdown profile directly to file or stdout
-node bin/readmeforge.js generate --username <username> --archetype wow-3d-city-cat --output README.md
+node bin/monoforge.js generate --username <username> --archetype wow-3d-city-cat --output README.md
 
 # List available archetypes
-node bin/readmeforge.js list
+node bin/monoforge.js list
 ```
 
 ### Run as Model Context Protocol (MCP) Server
 ```bash
-node bin/readmeforge.js mcp
+node bin/monoforge.js mcp
 ```
 Provides two stdio MCP tools:
 - `generate_profile_readme`: Generates GitHub-safe profile README markdown.
@@ -22,7 +22,7 @@ Provides two stdio MCP tools:
 
 ### Autonomous Agent Skill Spec
 The official Open Agent Skills specification is located at:
-[`.agents/skills/readmeforge/SKILL.md`](.agents/skills/readmeforge/SKILL.md)
+[`.agents/skills/monoforge/SKILL.md`](.agents/skills/monoforge/SKILL.md)
 
 ---
 

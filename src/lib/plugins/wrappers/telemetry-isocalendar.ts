@@ -4,7 +4,7 @@ export const telemetryIsocalendarPlugin: Plugin = {
   id: 'telemetry-isocalendar',
   name: '3D Isometric Calendar',
   description: 'Axonometric 3D projection of commit history, streak counters, and elevation terrain.',
-  author: 'ReadmeForge',
+  author: 'MonoForge',
   repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
   category: 'stats',
   icon: 'calendar',
@@ -36,7 +36,7 @@ export const telemetryIsocalendarPlugin: Plugin = {
     const effectiveUser = resolveEffectiveUsername(props, settings);
     const user = effectiveUser || 'octocat';
     const duration = props.duration === 'full-year' ? 'full-year' : 'half-year';
-    const url = `https://readmeforge.dev/api/telemetry/svg?plugin=isocalendar&user=${encodeURIComponent(user)}&duration=${duration}`;
+    const url = `https://monoforge-studio.vercel.app/api/telemetry/svg?plugin=isocalendar&user=${encodeURIComponent(user)}&duration=${duration}`;
 
     return {
       markdown: `<div align="${settings.align || 'center'}">\n  <img src="${url}" alt="${user}'s 3D Isometric Calendar" />\n</div>`,

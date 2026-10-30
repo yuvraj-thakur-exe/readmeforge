@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# ReadmeForge 1-Line Installer & Quickstart
-# Usage: curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/readmeforge/main/install.sh | bash
+# MonoForge 1-Line Installer & Quickstart
+# Usage: curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/install.sh | bash
 
 set -e
 
 echo "🔥 ======================================="
-echo "⚡ ReadmeForge — Fast One-Line Installer"
+echo "⚡ MonoForge — Fast One-Line Installer"
 echo "🔥 ======================================="
 
-TARGET_DIR="readmeforge"
+TARGET_DIR="monoforge"
 
 # Check Node.js
 if ! command -v node >/dev/null 2>&1; then
@@ -22,15 +22,15 @@ if [ "$NODE_MAJOR" -lt 20 ]; then
 fi
 
 # Clone or enter directory
-if [ -f "package.json" ] && grep -q '"name": "readmeforge"' "package.json" 2>/dev/null; then
-  echo "📁 Already inside ReadmeForge workspace."
+if [ -f "package.json" ] && grep -q '"name": "monoforge"' "package.json" 2>/dev/null; then
+  echo "📁 Already inside MonoForge workspace."
 else
   if [ -d "$TARGET_DIR" ]; then
     echo "📁 Directory $TARGET_DIR already exists, entering..."
     cd "$TARGET_DIR"
   else
-    echo "📥 Cloning ReadmeForge..."
-    git clone https://github.com/yuvraj-thakur-exe/readmeforge.git "$TARGET_DIR"
+    echo "📥 Cloning MonoForge..."
+    git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git "$TARGET_DIR"
     cd "$TARGET_DIR"
   fi
 fi
@@ -48,6 +48,6 @@ fi
 echo "🚀 Installing dependencies with $PKG_MGR..."
 $PKG_MGR install
 
-echo "✨ ReadmeForge is ready! Launching local development server..."
+echo "✨ MonoForge is ready! Launching local development server..."
 echo "🌐 Open http://localhost:3000 in your browser."
 $PKG_MGR dev

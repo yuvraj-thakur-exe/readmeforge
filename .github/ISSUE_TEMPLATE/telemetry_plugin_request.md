@@ -1,6 +1,6 @@
 ---
 name: Telemetry Plugin Request
-about: Suggest a new plugin or visualization for the ReadmeForge Telemetry Engine
+about: Suggest a new plugin or visualization for the MonoForge Telemetry Engine
 title: '[PLUGIN]: '
 labels: ['enhancement', 'telemetry-engine']
 assignees: ''

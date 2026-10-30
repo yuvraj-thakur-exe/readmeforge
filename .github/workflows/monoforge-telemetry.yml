@@ -1,4 +1,4 @@
-name: ReadmeForge Telemetry
+name: MonoForge Telemetry
 on:
   schedule:
     # Runs at midnight every day
@@ -10,15 +10,15 @@ on:
       - main
 
 jobs:
-  readmeforge-telemetry:
+  monoforge-telemetry:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Generate ReadmeForge Telemetry
-        uses: readmeforge/telemetry-action@v2
+      - name: Generate MonoForge Telemetry
+        uses: monoforge/telemetry-action@v2
         with:
-          filename: readmeforge-telemetry.svg
+          filename: monoforge-telemetry.svg
           token: ${{ secrets.TELEMETRY_TOKEN }}
           user: ${{ github.repository_owner }}
           template: classic

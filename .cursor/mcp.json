@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "readmeforge": {
+    "monoforge": {
       "command": "node",
-      "args": ["bin/readmeforge.js", "mcp"]
+      "args": ["bin/monoforge.js", "mcp"]
     }
   }
 }

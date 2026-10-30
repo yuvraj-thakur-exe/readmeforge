@@ -131,7 +131,7 @@
     <circle cx="16" cy="14" r="4" fill="#ef4444" />
     <circle cx="28" cy="14" r="4" fill="#f59e0b" />
     <circle cx="40" cy="14" r="4" fill="#10b981" />
-    <text x="60" y="18" fill="#94a3b8" font-family="'SF Mono', monospace" font-size="10">bash - ReadmeForge Telemetry Shell</text>
+    <text x="60" y="18" fill="#94a3b8" font-family="'SF Mono', monospace" font-size="10">bash - MonoForge Telemetry Shell</text>
 
     <!-- Scanline Glow Overlay -->
     <rect x="1" y="29" width="372" height="195" fill="none" stroke="#06b6d4" stroke-width="0.5" opacity="0.2" />
@@ -139,7 +139,7 @@
 
     <!-- Code Output Stream -->
     <g transform="translate(16, 50)" font-family="'SF Mono', 'Fira Code', monospace" font-size="11">
-      <text x="0" y="0" fill="#94a3b8">$ readmeforge generate --profile</text>
+      <text x="0" y="0" fill="#94a3b8">$ monoforge generate --profile</text>
       <text x="0" y="18" fill="#38bdf8">[INFO] Architecture: Poulo &bull; Marco Madonna &bull; NoMonkey</text>
       <text x="0" y="36" fill="#10b981">✓ Telemetry engine loaded: 47+ plugins</text>
       <text x="0" y="54" fill="#10b981">✓ 3D isometric commit landscape ready</text>

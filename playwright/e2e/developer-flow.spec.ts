@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('ReadmeForge /developer Route Flow', () => {
+test.describe('MonoForge /developer Route Flow', () => {
   test('navigates to /developer and displays Monaco workspace', async ({ page }) => {
     await page.goto('/developer');
 
     // Verify developer page loaded with header
-    await expect(page.locator('header').getByText('ReadmeForge')).toBeVisible();
+    await expect(page.locator('header').getByText('MonoForge')).toBeVisible();
     await expect(page.getByText('/developer')).toBeVisible();
 
     // Verify action buttons

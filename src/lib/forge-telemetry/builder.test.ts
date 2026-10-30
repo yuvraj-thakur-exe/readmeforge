@@ -6,13 +6,13 @@ import {
 } from './builder';
 import { ForgeTelemetryConfig } from './types';
 
-describe('ReadmeForge Telemetry Engine - Builder', () => {
+describe('MonoForge Telemetry Engine - Builder', () => {
   it('generates a valid GitHub Actions workflow YAML without metrics naming in jobs', () => {
     const config: ForgeTelemetryConfig = {
       username: 'yuvraj-thakur-exe',
       template: 'classic',
       timezone: 'Asia/Kolkata',
-      commitMessage: 'Auto-update ReadmeForge profile telemetry',
+      commitMessage: 'Auto-update MonoForge profile telemetry',
       base: { header: true, activity: true, community: true },
       isocalendar: { enabled: true, duration: 'full-year' },
       languages: { enabled: true, limit: 10, sections: ['most-used'] },
@@ -23,8 +23,8 @@ describe('ReadmeForge Telemetry Engine - Builder', () => {
 
     const workflow = buildTelemetryActionWorkflow(config);
 
-    expect(workflow).toContain('name: ReadmeForge Telemetry');
-    expect(workflow).toContain('filename: readmeforge-telemetry.svg');
+    expect(workflow).toContain('name: MonoForge Telemetry');
+    expect(workflow).toContain('filename: monoforge-telemetry.svg');
     expect(workflow).toContain('user: yuvraj-thakur-exe');
     expect(workflow).toContain('config_timezone: Asia/Kolkata');
     expect(workflow).toContain('plugin_isocalendar: yes');
@@ -59,14 +59,14 @@ describe('ReadmeForge Telemetry Engine - Builder', () => {
       outputMode: 'action',
     };
     const actionMd = buildTelemetryMarkdownSnippet(actionConfig, 'center');
-    expect(actionMd).toContain('<img src="readmeforge-telemetry.svg" alt="octocat\'s ReadmeForge Telemetry" />');
+    expect(actionMd).toContain('<img src="monoforge-telemetry.svg" alt="octocat\'s MonoForge Telemetry" />');
 
     const svgConfig: ForgeTelemetryConfig = {
       username: 'octocat',
       outputMode: 'direct_svg',
     };
     const svgMd = buildTelemetryMarkdownSnippet(svgConfig, 'left');
-    expect(svgMd).toContain('https://readmeforge.dev/api/telemetry/svg?plugin=isocalendar&user=octocat');
+    expect(svgMd).toContain('https://monoforge-studio.vercel.app/api/telemetry/svg?plugin=isocalendar&user=octocat');
     expect(svgMd).not.toContain('metrics.lecoq.io');
   });
 });

@@ -1,14 +1,14 @@
-# Contributing to ReadmeForge
+# Contributing to MonoForge
 
-Thank you for your interest in contributing to **ReadmeForge**! ReadmeForge is designed with an extensible, plugin-driven architecture that makes adding new badges, stats widgets, and profile sections seamless.
+Thank you for your interest in contributing to **MonoForge**! MonoForge is designed with an extensible, plugin-driven architecture that makes adding new badges, stats widgets, and profile sections seamless.
 
 ---
 
 ## Quickstart
 
 ```bash
-git clone https://github.com/readmeforge/readmeforge.git
-cd readmeforge
+git clone https://github.com/monoforge/monoforge.git
+cd monoforge
 corepack enable pnpm
 pnpm install
 pnpm dev
@@ -23,7 +23,7 @@ pnpm test
 
 ## How to Author a Plugin
 
-ReadmeForge uses a typed plugin registry. Contributors can add any widget or badge integration by creating a single file without modifying core wizard or editor logic:
+MonoForge uses a typed plugin registry. Contributors can add any widget or badge integration by creating a single file without modifying core wizard or editor logic:
 
 1. **Create a plugin file** in `src/lib/plugins/wrappers/<your-plugin-id>.ts`:
 ```ts

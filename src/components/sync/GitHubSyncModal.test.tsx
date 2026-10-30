@@ -41,10 +41,10 @@ describe('GitHubSyncModal', () => {
   });
 
   it('proactively purges any legacy token from localStorage on mount', () => {
-    localStorage.setItem('readmeforge_gh_token', 'ghp_legacyToken123');
+    localStorage.setItem('monoforge_gh_token', 'ghp_legacyToken123');
     render(<GitHubSyncModal isOpen={true} onClose={vi.fn()} />);
 
-    expect(localStorage.getItem('readmeforge_gh_token')).toBeNull();
+    expect(localStorage.getItem('monoforge_gh_token')).toBeNull();
   });
 
   it('does NOT write token to localStorage when typed', () => {
@@ -53,7 +53,7 @@ describe('GitHubSyncModal', () => {
     const tokenInput = screen.getByLabelText(/personal access token/i);
     fireEvent.change(tokenInput, { target: { value: 'ghp_ephemeralToken456' } });
 
-    expect(localStorage.getItem('readmeforge_gh_token')).toBeNull();
+    expect(localStorage.getItem('monoforge_gh_token')).toBeNull();
   });
 
   it('shows clear in-memory security notice to user', () => {

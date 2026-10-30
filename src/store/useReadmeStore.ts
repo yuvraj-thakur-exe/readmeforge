@@ -32,7 +32,7 @@ export interface ReadmeStoreState {
 
 const DEFAULT_CONFIG: ReadmeConfig = {
   version: '1.0.0',
-  title: 'ReadmeForge Profile',
+  title: 'MonoForge Profile',
   settings: {
     user: {
       github: '',
@@ -254,7 +254,7 @@ export const useReadmeStore = create<ReadmeStoreState>()(
       },
     }),
     {
-      name: '@readmeforge-store',
+      name: '@monoforge-store',
       storage: createJSONStorage(() => (typeof window !== 'undefined' ? localStorage : {
         getItem: () => null,
         setItem: () => {},

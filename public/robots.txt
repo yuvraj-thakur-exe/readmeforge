@@ -1,5 +1,5 @@
-# ReadmeForge - Robots & AI Agent Crawl Configuration
-# https://readmeforge-black.vercel.app
+# MonoForge - Robots & AI Agent Crawl Configuration
+# https://monoforge-studio.vercel.app
 
 User-agent: *
 Allow: /
@@ -53,9 +53,9 @@ User-agent: FacebookBot
 Allow: /
 
 # Sitemaps
-Sitemap: https://readmeforge-black.vercel.app/sitemap.xml
+Sitemap: https://monoforge-studio.vercel.app/sitemap.xml
 
 # AI Agent Context & API Schemas
-# llms.txt: https://readmeforge-black.vercel.app/llms.txt
-# AI Skill manifest: https://readmeforge-black.vercel.app/api/agent/skill
-# Config schema: https://readmeforge-black.vercel.app/api/schema
+# llms.txt: https://monoforge-studio.vercel.app/llms.txt
+# AI Skill manifest: https://monoforge-studio.vercel.app/api/agent/skill
+# Config schema: https://monoforge-studio.vercel.app/api/schema

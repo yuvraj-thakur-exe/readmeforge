@@ -248,7 +248,7 @@ export function DesignTokensPlayground() {
                 className="h-6"
               />
               <img
-                src={`https://img.shields.io/badge/Engine-ReadmeForge-090d16?style=${badgeStyle}&logo=typescript&logoColor=white`}
+                src={`https://img.shields.io/badge/Engine-MonoForge-090d16?style=${badgeStyle}&logo=typescript&logoColor=white`}
                 alt="Engine"
                 className="h-6"
               />

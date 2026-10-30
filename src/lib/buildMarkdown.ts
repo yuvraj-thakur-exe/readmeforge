@@ -114,7 +114,7 @@ export function buildMarkdownWithWorkflows(config: ReadmeConfig): BuildMarkdownR
   }
 
   // Footer attribution
-  const footer = `\n---\n<p align="center">\n  <sub>⚡ Powered by <a href="https://readmeforge.dev"><b>ReadmeForge</b></a> — Forge a GitHub profile that gets noticed.</sub>\n</p>`;
+  const footer = `\n---\n<p align="center">\n  <sub>⚡ Powered by <a href="https://monoforge-studio.vercel.app"><b>MonoForge</b></a> — Forge a GitHub profile that gets noticed.</sub>\n</p>`;
   markdownParts.push(footer);
 
   const fullMarkdown = markdownParts.join('\n\n<br/>\n\n');

@@ -1,6 +1,6 @@
 # Third-Party Notices and Licenses
 
-ReadmeForge incorporates architectural ideas and integrates plugins wrapping open-source developer tools. Below are the notices for relevant upstream references and integrations:
+MonoForge incorporates architectural ideas and integrates plugins wrapping open-source developer tools. Below are the notices for relevant upstream references and integrations:
 
 ---
 

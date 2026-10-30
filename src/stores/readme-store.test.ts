@@ -8,7 +8,7 @@ describe('useReadmeStore', () => {
 
   it('initializes with default config and empty sections', () => {
     const state = useReadmeStore.getState();
-    expect(state.config.title).toBe('ReadmeForge Profile');
+    expect(state.config.title).toBe('MonoForge Profile');
     expect(state.config.sections).toEqual([]);
     expect(state.activeSectionId).toBeNull();
   });

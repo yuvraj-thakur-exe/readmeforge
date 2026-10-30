@@ -259,7 +259,7 @@ export async function pushReadmeToGitHub(params: PushReadmeParams): Promise<Push
     // 1. Commit README.md
     const base64Content = toBase64Utf8(content);
     const body: Record<string, unknown> = {
-      message: message || 'docs(profile): update profile README via ReadmeForge',
+      message: message || 'docs(profile): update profile README via MonoForge',
       content: base64Content,
     };
     if (existingSha) {
@@ -343,7 +343,7 @@ export async function pushReadmeToGitHub(params: PushReadmeParams): Promise<Push
           }
 
           const wfBody: Record<string, unknown> = {
-            message: `ci(workflow): update ${filePath} via ReadmeForge`,
+            message: `ci(workflow): update ${filePath} via MonoForge`,
             content: toBase64Utf8(workflowContent),
           };
           if (wfSha) {

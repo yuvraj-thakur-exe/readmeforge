@@ -15,7 +15,7 @@ export const activityGraphPlugin: Plugin = {
       type: 'select',
       defaultValue: '6366F1',
       options: [
-        { label: 'ReadmeForge Violet (6366F1)', value: '6366F1' },
+        { label: 'MonoForge Amber (6366F1)', value: '6366F1' },
         { label: 'Cyan Cyberpunk (22D3EE)', value: '22D3EE' },
         { label: 'Emerald Matrix (10B981)', value: '10B981' },
         { label: 'Amber Solar (F59E0B)', value: 'F59E0B' },

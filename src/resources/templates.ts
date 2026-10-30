@@ -1,6 +1,6 @@
 const templates = [
   {
-    inspired: 'https://github.com/readmeforge',
+    inspired: 'https://github.com/monoforge',
     template: [
       {
         type: 'text',

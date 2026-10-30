@@ -10,7 +10,7 @@ import {
   generateLeetCodeStatsSvg,
 } from './svg-generators';
 
-describe('ReadmeForge Telemetry SVG Generator Suite', () => {
+describe('MonoForge Telemetry SVG Generator Suite', () => {
   it('generates valid 3D Isometric Calendar SVG without metrics naming', () => {
     const svg = generateIsocalendarSvg({ username: 'test-user', streak: 45 });
     expect(svg).toContain('<svg');

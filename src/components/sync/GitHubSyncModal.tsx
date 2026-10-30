@@ -38,7 +38,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
   useEffect(() => {
     if (typeof window !== 'undefined') {
       try {
-        localStorage.removeItem('readmeforge_gh_token');
+        localStorage.removeItem('monoforge_gh_token');
       } catch {
         // Ignore errors in storage-restricted environments
       }
@@ -201,7 +201,7 @@ export const GitHubSyncModal: React.FC<GitHubSyncModalProps> = ({ isOpen, onClos
                       <Key className="w-3 h-3 text-amber-400" /> Personal Access Token
                     </span>
                     <a
-                      href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=ReadmeForge%20Sync"
+                      href="https://github.com/settings/tokens/new?scopes=repo,workflow&description=MonoForge%20Sync"
                       target="_blank"
                       rel="noreferrer"
                       className="text-[10px] text-amber-500 hover:underline"

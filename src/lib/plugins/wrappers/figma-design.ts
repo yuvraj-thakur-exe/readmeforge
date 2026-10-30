@@ -13,7 +13,7 @@ export const figmaDesignPlugin: Plugin = {
   id: 'figma-design',
   name: 'Figma UI/UX & Design Showcase',
   description: 'Showcase your Figma design systems, UI/UX prototypes, and design badges directly in your GitHub profile README.',
-  author: 'ReadmeForge',
+  author: 'MonoForge',
   repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
   category: 'widgets',
   icon: 'figma',

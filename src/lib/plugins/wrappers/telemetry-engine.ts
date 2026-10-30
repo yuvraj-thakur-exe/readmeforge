@@ -4,9 +4,9 @@ import { ForgeTelemetryConfig, TelemetryTemplate, TelemetryOutputMode } from '..
 
 export const telemetryEnginePlugin: Plugin = {
   id: 'telemetry-engine',
-  name: 'ReadmeForge Telemetry',
+  name: 'MonoForge Telemetry',
   description: 'Infographics generator with 47+ plugins (isometric calendar, languages, habits, achievements, leetcode, wakatime) rendered via GitHub Actions or native SVG.',
-  author: 'ReadmeForge',
+  author: 'MonoForge',
   repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
   category: 'stats',
   icon: 'bar-chart-2',
@@ -189,23 +189,23 @@ export const telemetryEnginePlugin: Plugin = {
 
     if (outputMode === 'action') {
       const workflowYaml = buildTelemetryActionWorkflow(config);
-      const markdown = `<!-- ReadmeForge Telemetry (GitHub Action Generated) -->
+      const markdown = `<!-- MonoForge Telemetry (GitHub Action Generated) -->
 <div align="${settings.align || 'center'}">
-  <img src="readmeforge-telemetry.svg" alt="${user}'s ReadmeForge Telemetry" />
+  <img src="monoforge-telemetry.svg" alt="${user}'s MonoForge Telemetry" />
 </div>
 
-<!-- Workflow file: .github/workflows/readmeforge-telemetry.yml -->`;
+<!-- Workflow file: .github/workflows/monoforge-telemetry.yml -->`;
       return {
         markdown,
         workflows: {
-          'readmeforge-telemetry.yml': workflowYaml,
+          'monoforge-telemetry.yml': workflowYaml,
         },
       };
     }
 
     const embedUrl = buildTelemetryEmbedUrl(config);
     return {
-      markdown: `<div align="${settings.align || 'center'}">\n  <a href="https://github.com/${user}">\n    <img src="${embedUrl}" alt="${user}'s ReadmeForge Telemetry" width="100%" />\n  </a>\n</div>`,
+      markdown: `<div align="${settings.align || 'center'}">\n  <a href="https://github.com/${user}">\n    <img src="${embedUrl}" alt="${user}'s MonoForge Telemetry" width="100%" />\n  </a>\n</div>`,
     };
   },
 };

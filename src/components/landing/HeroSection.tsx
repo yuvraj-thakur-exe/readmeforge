@@ -569,7 +569,7 @@ export const HeroSection: React.FC = () => {
 
                 <div className="flex items-center gap-1.5">
                   <CopyButton
-                    textToCopy="[![Kinetic Typography](https://raw.githubusercontent.com/username/username/main/typography.svg)](https://readmeforge.dev)"
+                    textToCopy="[![Kinetic Typography](https://raw.githubusercontent.com/username/username/main/typography.svg)](https://monoforge-studio.vercel.app)"
                     label="Copy SVG Snippet"
                     copiedLabel="Copied Markdown!"
                     variant="primary"
@@ -910,7 +910,7 @@ export const HeroSection: React.FC = () => {
 
                 <div className="flex items-center gap-2">
                   <CopyButton
-                    textToCopy="[![Dynamic Header](https://raw.githubusercontent.com/username/username/main/header.svg)](https://readmeforge.dev)"
+                    textToCopy="[![Dynamic Header](https://raw.githubusercontent.com/username/username/main/header.svg)](https://monoforge-studio.vercel.app)"
                     label="Copy Snippet"
                     copiedLabel="Copied Markdown!"
                     variant="primary"

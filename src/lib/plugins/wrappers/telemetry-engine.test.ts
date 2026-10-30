@@ -13,7 +13,7 @@ const defaultSettings: UserSettings = {
 describe('Plugin: telemetry-engine', () => {
   it('has valid metadata and fields', () => {
     expect(telemetryEnginePlugin.id).toBe('telemetry-engine');
-    expect(telemetryEnginePlugin.name).toBe('ReadmeForge Telemetry');
+    expect(telemetryEnginePlugin.name).toBe('MonoForge Telemetry');
     expect(telemetryEnginePlugin.category).toBe('stats');
     expect(telemetryEnginePlugin.fields.length).toBeGreaterThan(5);
   });
@@ -44,8 +44,8 @@ describe('Plugin: telemetry-engine', () => {
       defaultSettings
     ) as { markdown: string; workflows?: Record<string, string> };
 
-    expect(res.markdown).toContain('readmeforge-telemetry.svg');
-    expect(res.workflows?.['readmeforge-telemetry.yml']).toContain('name: ReadmeForge Telemetry');
-    expect(res.workflows?.['readmeforge-telemetry.yml']).toContain('filename: readmeforge-telemetry.svg');
+    expect(res.markdown).toContain('monoforge-telemetry.svg');
+    expect(res.workflows?.['monoforge-telemetry.yml']).toContain('name: MonoForge Telemetry');
+    expect(res.workflows?.['monoforge-telemetry.yml']).toContain('filename: monoforge-telemetry.svg');
   });
 });

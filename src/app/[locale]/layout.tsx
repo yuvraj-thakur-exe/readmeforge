@@ -83,7 +83,7 @@ export async function generateMetadata({
     other: {
       'ai:ready': 'true',
       'ai:model-context': `${appUrl}/llms.txt`,
-      'ai:agent-skill': `${appUrl}/.agents/skills/readmeforge/SKILL.md`,
+      'ai:agent-skill': `${appUrl}/.agents/skills/monoforge/SKILL.md`,
       'ai:mcp': 'npx monoforge mcp',
     },
     manifest: '/manifest.json',
@@ -153,7 +153,7 @@ export default async function RootLayout({
         <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Context" />
         <link rel="describedby" href="/api/schema" />
         <meta name="ai:ready" content="true" />
-        <meta name="ai:agent-skill" content="/.agents/skills/readmeforge/SKILL.md" />
+        <meta name="ai:agent-skill" content="/.agents/skills/monoforge/SKILL.md" />
         <meta name="google-site-verification" content="google6fe900e7443f16a1" />
         <script
           type="application/ld+json"

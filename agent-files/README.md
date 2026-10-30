@@ -1,12 +1,12 @@
 # Agent Files, Personalization Architecture & Milestone Tracking
 
-This directory maintains agent memory, autonomous execution plans, architectural specifications, and development history separated from the core ReadmeForge application code.
+This directory maintains agent memory, autonomous execution plans, architectural specifications, and development history separated from the core MonoForge application code.
 
 ## Directory Overview
 
 - **`memory.md`**: Authoritative system memory, architectural invariants, verified external endpoints, and milestone history.
 - **`REBRAND_CHECKLIST.md`**: Complete rebrand checklist and verification records.
-- **`plans/`**: Detailed technical execution plans, including the comprehensive 2026-10-25 ReadmeForge architectural roadmap.
+- **`plans/`**: Detailed technical execution plans, including the comprehensive 2026-10-25 MonoForge architectural roadmap.
 - **`devin/`**: Autonomous workspace rules, lint requirements, and defensive engineering invariants.
 
 ## Key Architectures Documented

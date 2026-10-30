@@ -1,13 +1,13 @@
-# REBRAND_CHECKLIST.md — strip original, ship as ReadmeForge
+# REBRAND_CHECKLIST.md — strip original, ship as MonoForge
 
 Run this after cloning the reference repo and before first commit to the new repo. Check legal/attribution requirements for each merged OSS repo (§3 of AGENT_PROMPT_FULL.md) individually — MIT requires keeping that specific repo's license notice if its code is vendored in (not needed if only consumed via API/embed, as planned).
 
 ## 1. Remove original branding
-- [x] Delete original `README.md` content entirely — replace with new ReadmeForge README (built in step 11/§6)
+- [x] Delete original `README.md` content entirely — replace with new MonoForge README (built in step 11/§6)
 - [x] Replace all logo/favicon assets in `public/` (`logo.svg`, `logo-icon.svg`, `favicon.svg`)
 - [x] Search repo-wide for "profile-readme-generator", "maurodesouza", "Mauro de Souza" → replace/remove
-- [x] Remove original demo video/gif references (`profile-readme-generator.mp4`) — record/generate new ReadmeForge demo
-- [x] Replace `meta-og:title`, `meta-og:description`, `meta-twitter:*`, page `<title>` with ReadmeForge branding
+- [x] Remove original demo video/gif references (`profile-readme-generator.mp4`) — record/generate new MonoForge demo
+- [x] Replace `meta-og:title`, `meta-og:description`, `meta-twitter:*`, page `<title>` with MonoForge branding
 - [x] Remove original Trendshift/donation badges, stargazer badges pointing to old repo — regenerate shields.io badges pointing to new repo
 - [x] Remove original `.github/CONTRIBUTING.md`, issue templates, PR templates → write new ones for your repo
 - [x] Remove original Code of Conduct attribution footer if it names the old project/maintainer
@@ -20,8 +20,8 @@ Run this after cloning the reference repo and before first commit to the new rep
 - [x] Update `package.json`: `license` field, `author`, `name`, `repository.url`, `bugs.url`, `homepage`
 
 ## 3. Rename everything
-- [x] `package.json` → `name: "readmeforge"`
-- [x] Repo name on GitHub → `readmeforge` (or your chosen handle)
+- [x] `package.json` → `name: "monoforge"`
+- [x] Repo name on GitHub → `monoforge` (or your chosen handle)
 - [x] `next.config.js` / env vars referencing old domain (`profile-readme-generator.com`) → your new domain
 - [x] Docker image name in `Dockerfile` / `docker-compose.yml` if present
 - [x] CI workflow names in `.github/workflows/*.yml`
@@ -29,7 +29,7 @@ Run this after cloning the reference repo and before first commit to the new rep
 - [x] Any hardcoded GitHub API paths pointing to old repo (star count badges, release links)
 
 ## 4. New files to create
-- [x] `README.md` — ReadmeForge branding, demo gif, badges (pointing to YOUR repo), feature list, built-with, quickstart, contributing link, license badge
+- [x] `README.md` — MonoForge branding, demo gif, badges (pointing to YOUR repo), feature list, built-with, quickstart, contributing link, license badge
 - [x] `LICENSE.md` — fresh MIT (or chosen) license, your name, current year
 - [x] `THIRD_PARTY_LICENSES.md` — only if any §3 repo code is vendored, not just API-called
 - [x] `AGENTS.md` — already drafted (repo-root agent instructions)
@@ -39,7 +39,7 @@ Run this after cloning the reference repo and before first commit to the new rep
 - [x] `.github/PULL_REQUEST_TEMPLATE.md`
 - [x] `docs/config-schema.md` — JSON config schema doc (per AGENT_PROMPT_FULL §6)
 - [x] `.env.example` — document required keys (GitHub OAuth client id/secret, WakaTime key if used)
-- [x] `public/favicon.svg`, `public/logo-icon.svg`, `public/logo.svg` — new ReadmeForge assets (anvil/flame mark, violet→cyan gradient per branding spec)
+- [x] `public/favicon.svg`, `public/logo-icon.svg`, `public/logo.svg` — new MonoForge assets (anvil/flame mark, violet→cyan gradient per branding spec)
 
 ## 5. Final sweep
 - [x] Grep entire repo for: `maurodesouza`, `profile-readme-generator`, `Mauro de Souza`, old domain string — zero matches remaining except inside `THIRD_PARTY_LICENSES.md` if applicable

@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('ReadmeForge Visual Wizard Flow', () => {
+test.describe('MonoForge Visual Wizard Flow', () => {
   test('navigates through the wizard steps, fills profile details, and validates real-time preview', async ({
     page,
   }) => {
     await page.goto('/wizard?mode=guided');
 
     // 1. Verify Header & Guided Studio
-    await expect(page.locator('header').getByText('ReadmeForge')).toBeVisible();
+    await expect(page.locator('header').getByText('MonoForge')).toBeVisible();
     await expect(page.getByText('Step-by-Step Wizard')).toBeVisible();
 
     // 2. Identity Step: fill inputs

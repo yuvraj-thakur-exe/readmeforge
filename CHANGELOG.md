@@ -1,11 +1,11 @@
-# Changelog — ReadmeForge
+# Changelog — MonoForge
 
-All notable changes to ReadmeForge will be documented in this file.
+All notable changes to MonoForge will be documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [0.1.0] - 2026-10-25
 ### Added
-- Complete rebuild as **ReadmeForge** ("Forge a GitHub profile that gets noticed.").
+- Complete rebuild as **MonoForge** ("Forge a GitHub profile that gets noticed.").
 - Unified Zustand state management (`useReadmeStore`) powering both wizard and `/developer`.
 - Pure, unit-tested markdown generator (`buildMarkdown`).
 - Typed plugin system wrapping top OSS tools:

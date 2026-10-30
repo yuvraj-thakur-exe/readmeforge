@@ -8,11 +8,11 @@ const getAppUrl = (): string => {
   if (process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`.replace(/\/+$/, '');
   }
-  return 'https://readmeforge-black.vercel.app';
+  return 'https://monoforge-studio.vercel.app';
 };
 
 const general = {
-  name: 'ReadmeForge',
+  name: 'MonoForge',
   tagline: 'Forge a GitHub profile that gets noticed.',
   urls: {
     app: getAppUrl(),
@@ -60,7 +60,7 @@ const general = {
   },
 
   storage: {
-    prefix: '@readmeforge',
+    prefix: '@monoforge',
   },
 
   settings: {

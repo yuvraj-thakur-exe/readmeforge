@@ -7,7 +7,7 @@ export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
     const title = searchParams.get('title') || 'Forge a GitHub profile that gets noticed.';
-    const username = searchParams.get('username') || 'readmeforge';
+    const username = searchParams.get('username') || 'monoforge';
 
     return new ImageResponse(
       (

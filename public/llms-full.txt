@@ -1,5 +1,5 @@
-# ReadmeForge — Complete AI Agent Technical Reference (llms-full.txt)
-> https://readmeforge-black.vercel.app | Comprehensive schema, types, plugins, official social platforms, and integration instructions.
+# MonoForge — Complete AI Agent Technical Reference (llms-full.txt)
+> https://monoforge-studio.vercel.app | Comprehensive schema, types, plugins, official social platforms, and integration instructions.
 
 ## 1. Zod Schema Specification (TypeScript)
 
@@ -36,7 +36,7 @@ export const SectionConfigSchema = z.object({
 
 export const ReadmeConfigSchema = z.object({
   version: z.string().default('1.0.0'),
-  title: z.string().default('ReadmeForge Profile'),
+  title: z.string().default('MonoForge Profile'),
   settings: SettingsSchema,
   sections: z.array(SectionConfigSchema).default([]),
 });
@@ -46,7 +46,7 @@ export type ReadmeConfig = z.infer<typeof ReadmeConfigSchema>;
 
 ## 2. 47 Official Verified Social Platforms
 
-ReadmeForge features 47 verified official brand SVG assets in `public/assets/icons/social/<platform>/default.svg`:
+MonoForge features 47 verified official brand SVG assets in `public/assets/icons/social/<platform>/default.svg`:
 - **Development & Code**: `github`, `gitlab`, `codesandbox`, `codepen`, `devto`, `stackoverflow`, `visualstudio`, `leetcode`, `codeforces`, `codechef`, `tryhackme`, `kaggle`, `hashnode`
 - **Design & Portfolio**: `behance`, `dribbble`, `unsplash`, `itch`
 - **Networking & Socials**: `linkedin`, `twitter`, `x`, `bluesky`, `threads`, `mastodon`, `facebook`, `instagram`, `reddit`, `tiktok`, `linktree`, `medium`
@@ -162,6 +162,6 @@ Any full profile configuration can be encoded into a shareable URL:
 ```javascript
 const jsonString = JSON.stringify(config);
 const encoded = btoa(unescape(encodeURIComponent(jsonString)));
-const url = `https://readmeforge-black.vercel.app/en/developer?config=${encoded}`;
+const url = `https://monoforge-studio.vercel.app/en/developer?config=${encoded}`;
 ```
 Navigating to this URL automatically hydrates the store, populates the Monaco editor, and renders the markdown preview.

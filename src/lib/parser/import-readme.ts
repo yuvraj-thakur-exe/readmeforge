@@ -41,7 +41,7 @@ export function importReadmeFromMarkdown(markdown: string): ImportResult {
   // 1. Detect GitHub username from stats / trophy cards
   const githubMatch = markdown.match(/(?:github-readme-stats|github-profile-trophy|github-readme-streak-stats)[^/]*\/api\?username=([a-zA-Z0-9_-]+)/i) ||
                       markdown.match(/github\.com\/([a-zA-Z0-9_-]+)(?:\/|\))/i);
-  if (githubMatch && githubMatch[1] && githubMatch[1] !== 'readmeforge') {
+  if (githubMatch && githubMatch[1] && githubMatch[1] !== 'monoforge') {
     config.settings.user.github = githubMatch[1];
     detectedFeatures.push('GitHub Username');
   }

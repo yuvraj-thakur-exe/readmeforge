@@ -90,7 +90,7 @@ export type SectionConfig = z.infer<typeof SectionConfigSchema>;
 
 export const ReadmeConfigSchema = z.object({
   version: z.string().default('1.0.0'),
-  title: z.string().default('ReadmeForge Profile'),
+  title: z.string().default('MonoForge Profile'),
   settings: UserSettingsSchema.default({
     user: { github: '' },
     theme: 'dark',

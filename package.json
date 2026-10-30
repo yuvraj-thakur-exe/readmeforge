@@ -1,7 +1,7 @@
 {
   "name": "monoforge",
   "displayName": "MonoForge",
-  "description": "Zero Monkey Business. Pure Precision Engineering. Forge an elite GitHub profile.",
+  "description": "⚔️ MonoForge: Forge iconic GitHub profile READMEs with Monaco IDE split-preview, 60fps animated SVG characters, 47+ modular telemetry plugins, and 1-click GitHub sync.",
   "version": "1.0.0",
   "license": "MIT",
   "author": "MonoForge Contributors",
@@ -28,8 +28,7 @@
   },
   "homepage": "https://github.com/yuvraj-thakur-exe/MONOFORGE",
   "bin": {
-    "monoforge": "./bin/monoforge.js",
-    "readmeforge": "./bin/readmeforge.js"
+    "monoforge": "./bin/monoforge.js"
   },
   "private": true,
   "packageManager": "pnpm@10.12.4",

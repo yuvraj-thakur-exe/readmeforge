@@ -18,7 +18,7 @@ describe('buildMarkdown', () => {
     };
 
     const output = buildMarkdown(config);
-    expect(output).toContain('ReadmeForge');
+    expect(output).toContain('MonoForge');
     expect(output).toContain('Forge a GitHub profile that gets noticed');
   });
 
@@ -104,11 +104,11 @@ describe('buildMarkdown', () => {
     it('handles null, undefined, or empty config properties without crashing', () => {
       // @ts-expect-error Testing edge case with empty config
       const res1 = buildMarkdown({});
-      expect(res1).toContain('ReadmeForge');
+      expect(res1).toContain('MonoForge');
 
       // @ts-expect-error Testing edge case with null
       const res2 = buildMarkdown(null);
-      expect(res2).toContain('ReadmeForge');
+      expect(res2).toContain('MonoForge');
     });
 
     it('sanitizes executable script and iframe injection in profile fields', () => {
@@ -222,7 +222,7 @@ console.log(greeting);
       } as unknown as ReadmeConfig;
 
       const output = buildMarkdown(config);
-      expect(output).toContain('ReadmeForge');
+      expect(output).toContain('MonoForge');
     });
   });
 });

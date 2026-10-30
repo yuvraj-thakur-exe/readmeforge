@@ -1,5 +1,5 @@
 /**
- * ReadmeForge Telemetry Engine Types
+ * MonoForge Telemetry Engine Types
  * Provides comprehensive typing for developer telemetry plugins and rendering options.
  */
 

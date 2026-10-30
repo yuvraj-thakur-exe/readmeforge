@@ -9,9 +9,9 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://readmeforge-black.vercel.app/api/schema"
+    "url": "https://monoforge-studio.vercel.app/api/schema"
   },
-  "logo_url": "https://readmeforge-black.vercel.app/logo-icon.svg",
+  "logo_url": "https://monoforge-studio.vercel.app/logo-icon.svg",
   "contact_email": "https://github.com/yuvraj-thakur-exe/MONOFORGE/issues",
-  "legal_info_url": "https://readmeforge-black.vercel.app/en/privacy-policy"
+  "legal_info_url": "https://monoforge-studio.vercel.app/en/privacy-policy"
 }

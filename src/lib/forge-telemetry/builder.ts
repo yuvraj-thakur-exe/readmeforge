@@ -1,13 +1,13 @@
 import { ForgeTelemetryConfig } from './types';
 
 /**
- * Builds the GitHub Action workflow YAML for ReadmeForge Telemetry engine.
+ * Builds the GitHub Action workflow YAML for MonoForge Telemetry engine.
  */
 export function buildTelemetryActionWorkflow(config: ForgeTelemetryConfig): string {
   const username = config.username || '${{ github.repository_owner }}';
   const template = config.template || 'classic';
   const timezone = config.timezone || 'UTC';
-  const commitMsg = config.commitMessage || 'Update ReadmeForge profile telemetry';
+  const commitMsg = config.commitMessage || 'Update MonoForge profile telemetry';
 
   const inputs: string[] = [
     `          user: ${username === '${{ github.repository_owner }}' ? '${{ github.repository_owner }}' : username}`,
@@ -104,7 +104,7 @@ export function buildTelemetryActionWorkflow(config: ForgeTelemetryConfig): stri
     }
   }
 
-  return `name: ReadmeForge Telemetry
+  return `name: MonoForge Telemetry
 on:
   schedule:
     - cron: "0 0 * * *"
@@ -115,7 +115,7 @@ on:
       - main
 
 jobs:
-  readmeforge-telemetry:
+  monoforge-telemetry:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -123,17 +123,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Generate ReadmeForge Telemetry
-        uses: readmeforge/telemetry-action@v2
+      - name: Generate MonoForge Telemetry
+        uses: monoforge/telemetry-action@v2
         with:
-          filename: readmeforge-telemetry.svg
+          filename: monoforge-telemetry.svg
           token: \${{ secrets.TELEMETRY_TOKEN }}
 ${inputs.join('\n')}
 `;
 }
 
 /**
- * Builds the direct image URL for ReadmeForge native telemetry (zero external dependencies).
+ * Builds the direct image URL for MonoForge native telemetry (zero external dependencies).
  */
 export function buildTelemetryEmbedUrl(config: ForgeTelemetryConfig, baseUrl = ''): string {
   const username = encodeURIComponent(config.username || 'octocat');
@@ -171,10 +171,10 @@ export function buildTelemetryMarkdownSnippet(config: ForgeTelemetryConfig, alig
   const isAction = config.outputMode === 'action';
 
   const src = isAction
-    ? `readmeforge-telemetry.svg`
-    : `https://readmeforge.dev/api/telemetry/svg?plugin=isocalendar&user=${encodeURIComponent(user)}`;
+    ? `monoforge-telemetry.svg`
+    : `https://monoforge-studio.vercel.app/api/telemetry/svg?plugin=isocalendar&user=${encodeURIComponent(user)}`;
 
   return `<div align="${align}">
-  <img src="${src}" alt="${user}'s ReadmeForge Telemetry" />
+  <img src="${src}" alt="${user}'s MonoForge Telemetry" />
 </div>`;
 }

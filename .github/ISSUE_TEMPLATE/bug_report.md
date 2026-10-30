@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Create a report to help us improve ReadmeForge
+about: Create a report to help us improve MonoForge
 title: '[BUG] '
 labels: bug
 assignees: ''

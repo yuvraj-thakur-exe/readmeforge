@@ -296,15 +296,15 @@ describe('Animator Engine - Export Snippets & Hosted Demos', () => {
       headline: 'HOSTED DEMO BANNER',
     };
 
-    const demoUrl = generateHostedDemoUrl(config, 'https://readmeforge.dev');
-    expect(demoUrl).toContain('https://readmeforge.dev/animator?c=');
+    const demoUrl = generateHostedDemoUrl(config, 'https://monoforge-studio.vercel.app');
+    expect(demoUrl).toContain('https://monoforge-studio.vercel.app/animator?c=');
 
-    const snippets = generateMarkdownSnippet(config, 'my-banner.svg', 'https://readmeforge.dev');
+    const snippets = generateMarkdownSnippet(config, 'my-banner.svg', 'https://monoforge-studio.vercel.app');
 
     expect(snippets.relative).toContain('<img src="my-banner.svg"');
     expect(snippets.relative).toContain('alt="HOSTED DEMO BANNER"');
     expect(snippets.githubRaw).toContain('https://raw.githubusercontent.com/<username>/<repo>/main/my-banner.svg');
     expect(snippets.dataUri).toContain('data:image/svg+xml;utf8,%3Csvg');
-    expect(snippets.hostedDemo).toContain('https://readmeforge.dev/animator?c=');
+    expect(snippets.hostedDemo).toContain('https://monoforge-studio.vercel.app/animator?c=');
   });
 });

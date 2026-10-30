@@ -254,7 +254,7 @@
     <rect x="12" y="12" width="6" height="6" rx="1" fill="#818cf8" />
     <text x="26" y="18" fill="#a5b4fc" font-size="10" font-weight="700" class="font-mono">EFFECT 06 // TERMINAL TYPEWRITER</text>
     <g transform="translate(32, 58)">
-      <text x="0" y="0" fill="#e2e8f0" font-size="14.5" font-weight="700" class="font-mono">$ readmeforge dev</text>
+      <text x="0" y="0" fill="#e2e8f0" font-size="14.5" font-weight="700" class="font-mono">$ monoforge dev</text>
       <rect x="172" y="-13" width="9" height="16" fill="#38bdf8" class="cursor-blink" />
     </g>
     <text x="140" y="84" text-anchor="middle" fill="#64748b" font-size="10.5" class="font-mono">Typewriter cadence with square cursor</text>

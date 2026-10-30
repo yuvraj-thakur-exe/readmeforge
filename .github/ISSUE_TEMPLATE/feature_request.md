@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea or plugin for ReadmeForge
+about: Suggest an idea or plugin for MonoForge
 title: '[FEAT] '
 labels: enhancement
 assignees: ''

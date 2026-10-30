@@ -1,12 +1,8 @@
 <div align="center" id="top">
 
-  <!-- MonoForge Official Geometric Monkey Emblem (Uploaded Identity) -->
+  <!-- MonoForge Official Geometric Monkey Logo (Exact Uploaded Identity) -->
   <a href="https://github.com/yuvraj-thakur-exe/MONOFORGE">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monoforge-monkey-icon.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monoforge-monkey-icon.svg">
-      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monoforge-monkey-icon.svg" width="130" height="130" alt="MonoForge Geometric Monkey Emblem" />
-    </picture>
+    <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monoforge-monkey-logo.jpg" width="160" height="160" alt="MonoForge Official Logo" style="border-radius: 24px;" />
   </a>
 
   <br />
@@ -23,21 +19,21 @@
   <br />
 
   <p align="center">
-    <strong>Zero Monkey Business. Pure Precision Engineering.</strong><br />
-    100% Free &amp; Open Source &bull; Visual Profile Studio &bull; MonoForge Telemetry Engine (47+ Plugins &amp; 335 Options) &bull; 60fps Camo Vector SVGs &bull; Zero-Dependency CLI
+    <strong>⚔️ MonoForge: Forge iconic GitHub profile READMEs with Monaco IDE split-preview, 60fps animated SVG characters, 47+ modular telemetry plugins, and 1-click GitHub sync.</strong><br />
+    <em>Zero Monkey Business. Pure Precision Engineering. 100% Free &amp; Open Source.</em>
   </p>
 
   <p align="center">
     <a href="https://github.com/yuvraj-thakur-exe/MONOFORGE/actions/workflows/ci.yml">
       <img src="https://img.shields.io/badge/CI-Passing-10b981?style=for-the-badge&logo=githubactions&logoColor=white" alt="CI Status" />
     </a>
-    <a href="https://readmeforge-black.vercel.app">
-      <img src="https://img.shields.io/badge/Live_Studio-Vercel-18181b?style=for-the-badge&logo=vercel" alt="Live Studio" />
+    <a href="https://monoforge-studio.vercel.app">
+      <img src="https://img.shields.io/badge/Live_Studio-monoforge--studio.vercel.app-18181b?style=for-the-badge&logo=vercel" alt="Live Studio" />
     </a>
-    <a href="https://readmeforge-black.vercel.app/en/developer">
+    <a href="https://monoforge-studio.vercel.app/en/developer">
       <img src="https://img.shields.io/badge/Developer_IDE-Monaco_Raw-06b6d4?style=for-the-badge&logo=codeforces" alt="Developer IDE" />
     </a>
-    <a href="https://readmeforge-black.vercel.app/en/telemetry">
+    <a href="https://monoforge-studio.vercel.app/en/telemetry">
       <img src="https://img.shields.io/badge/Telemetry_Arsenal-47+_Plugins-f59e0b?style=for-the-badge&logo=prometheus&logoColor=white" alt="Telemetry Arsenal" />
     </a>
     <a href="https://github.com/yuvraj-thakur-exe/MONOFORGE/blob/main/LICENSE.md">
@@ -225,10 +221,10 @@ MonoForge features official interactive animated vector characters engineered wi
 ## ⚡ Quick Start
 
 ### 1. Interactive Web Studio
-- **Profile Studio Wizard**: Launch [`/wizard`](https://readmeforge-black.vercel.app/en/wizard) for visual drag-and-drop authoring.
-- **Developer Raw Mode**: Open [`/developer`](https://readmeforge-black.vercel.app/en/developer) for real-time Monaco JSON editing with integrated Cyber Monkey Co-Pilot.
-- **Telemetry Arsenal**: Access [`/telemetry`](https://readmeforge-black.vercel.app/en/telemetry) to explore all 47+ telemetry engines.
-- **Vector Animator**: Visit [`/animator`](https://readmeforge-black.vercel.app/en/animator) for custom animated vector banners and kinetic typography.
+- **Profile Studio Wizard**: Launch [`/wizard`](https://monoforge-studio.vercel.app/en/wizard) for visual drag-and-drop authoring.
+- **Developer Raw Mode**: Open [`/developer`](https://monoforge-studio.vercel.app/en/developer) for real-time Monaco JSON editing with integrated Cyber Monkey Co-Pilot.
+- **Telemetry Arsenal**: Access [`/telemetry`](https://monoforge-studio.vercel.app/en/telemetry) to explore all 47+ telemetry engines.
+- **Vector Animator**: Visit [`/animator`](https://monoforge-studio.vercel.app/en/animator) for custom animated vector banners and kinetic typography.
 
 ### 2. Standalone GitHub Actions Workflow (Zero External Dependencies)
 

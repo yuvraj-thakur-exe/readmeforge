@@ -320,7 +320,7 @@
     <rect x="-240" y="0" width="225" height="26" rx="13" fill="#1e293b" stroke="#475569" stroke-width="1" opacity="0.9" />
     <circle cx="-224" cy="13" r="4" fill="#22c55e" filter="url(#coreGlow)" />
     <text x="-212" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="600" fill="#f1f5f9">
-      ReadmeForge Live Studio Active
+      MonoForge Live Studio Active
     </text>
   </g>
 </svg>

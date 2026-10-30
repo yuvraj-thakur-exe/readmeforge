@@ -85,7 +85,7 @@ export function buildRichPrompt(item: {
     `### 🧩 Section Breakdown & Registered Plugins`,
     sectionsList,
     ``,
-    `### 🛠️ Complete ReadmeForge Machine-Readable Configuration (JSON)`,
+    `### 🛠️ Complete MonoForge Machine-Readable Configuration (JSON)`,
     `\`\`\`json`,
     JSON.stringify(item.config, null, 2),
     `\`\`\``,

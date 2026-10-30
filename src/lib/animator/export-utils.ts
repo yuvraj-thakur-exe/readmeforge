@@ -34,7 +34,7 @@ export function decodeConfigFromBase64(base64: string): AnimationConfig | null {
  */
 export function generateHostedDemoUrl(
   config: AnimationConfig,
-  baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://readmeforge.dev'
+  baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://monoforge-studio.vercel.app'
 ): string {
   const encoded = encodeConfigToBase64(config);
   return `${baseUrl}/animator?c=${encoded}`;
@@ -45,8 +45,8 @@ export function generateHostedDemoUrl(
  */
 export function generateMarkdownSnippet(
   config: AnimationConfig,
-  filename = 'readmeforge-banner.svg',
-  baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://readmeforge.dev'
+  filename = 'monoforge-banner.svg',
+  baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://monoforge-studio.vercel.app'
 ): { relative: string; dataUri: string; githubRaw: string; hostedDemo: string } {
   const svg = generateAnimatedSvg(config);
   const encoded = encodeURIComponent(svg)
@@ -99,7 +99,7 @@ export function downloadFile(content: string, filename: string, mimeType: string
 /**
  * Downloads the animated SVG.
  */
-export function downloadSvgFile(config: AnimationConfig, filename = 'readmeforge-banner.svg') {
+export function downloadSvgFile(config: AnimationConfig, filename = 'monoforge-banner.svg') {
   const svg = generateAnimatedSvg(config);
   downloadFile(svg, filename, 'image/svg+xml;charset=utf-8');
 }
@@ -107,7 +107,7 @@ export function downloadSvgFile(config: AnimationConfig, filename = 'readmeforge
 /**
  * Downloads the JSON configuration.
  */
-export function downloadAnimationConfigJson(config: AnimationConfig, filename = 'readmeforge-animation.json') {
+export function downloadAnimationConfigJson(config: AnimationConfig, filename = 'monoforge-animation.json') {
   const json = JSON.stringify(config, null, 2);
   downloadFile(json, filename, 'application/json;charset=utf-8');
 }

@@ -7,7 +7,7 @@ export const socialsPlugin: Plugin = {
   version: '1.0.0',
   tags: ['socials', 'badges', 'links', 'shields'],
   description: 'Official shields.io badges and logos for LinkedIn, X/Twitter, Discord, YouTube, Gmail, HackerRank, GitHub, and 30+ dev platforms.',
-  author: 'ReadmeForge',
+  author: 'MonoForge',
   repository: 'https://github.com/badges/shields',
   category: 'socials',
   icon: 'Share2',
