@@ -55,8 +55,8 @@ const STICKERS: StickerItem[] = [
     id: 'zero-js',
     name: 'ZERO RUNTIME JS',
     emoji: '🛡️',
-    bgColor: 'bg-white bg-white',
-    textColor: 'text-neutral-950 text-neutral-950',
+    bgColor: 'bg-white',
+    textColor: 'text-neutral-950',
     rotation: '-rotate-1',
     markdown: '[![Zero Runtime JS](https://img.shields.io/badge/Performance-Zero_Runtime_JS-18181b?style=for-the-badge&logo=html5)](https://monoforge-studio.vercel.app)',
   },
@@ -77,6 +77,7 @@ export function NomokeyStickerBoard() {
   const handleCopySticker = (sticker: StickerItem) => {
     navigator.clipboard.writeText(sticker.markdown);
     setCopiedId(sticker.id);
+    (window as unknown as { __monoforge_playClick?: (freq?: number) => void }).__monoforge_playClick?.(1100);
     toast.success(`Copied "${sticker.name}" markdown sticker!`, {
       description: 'Paste directly into your GitHub README.md profile',
     });
@@ -84,21 +85,21 @@ export function NomokeyStickerBoard() {
   };
 
   return (
-    <section className="relative bg-white bg-white border-b-2 border-neutral-900 border-neutral-900 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative bg-white border-b-2 border-neutral-900 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 border-neutral-900 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 pb-6">
           <div>
-            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 text-neutral-950 mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-950 mb-2">
               <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900">
                 [ 05 // TACTILE STICKER DECK ]
               </span>
               <span>CLICK TO COPY BADGE MARKDOWN</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 text-neutral-950 uppercase font-sans">
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 uppercase font-sans">
               THE MONKEY STICKER VAULT.
             </h2>
           </div>
-          <p className="text-xs sm:text-sm font-mono text-neutral-600 text-neutral-600 max-w-sm">
+          <p className="text-xs sm:text-sm font-mono text-neutral-700 max-w-sm">
             Collect, click, and drop these tactile developer stamps straight into your GitHub profile. 100% Camo CDN ready.
           </p>
         </div>
@@ -106,10 +107,11 @@ export function NomokeyStickerBoard() {
         {/* Sticker Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
           {STICKERS.map((sticker) => (
-            <div
+            <button
+              type="button"
               key={sticker.id}
               onClick={() => handleCopySticker(sticker)}
-              className={`cursor-pointer p-6 rounded-2xl border-2 border-neutral-900 border-neutral-900 ${sticker.bgColor} ${sticker.textColor} ${sticker.rotation} shadow-[4px_4px_0px_#18181b]  hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[3px] hover:translate-y-[3px] transition-all select-none group relative overflow-hidden`}
+              className={`text-left w-full cursor-pointer p-6 rounded-2xl border-2 border-neutral-900 ${sticker.bgColor} ${sticker.textColor} ${sticker.rotation} shadow-[4px_4px_0px_#18181b] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[3px] hover:translate-y-[3px] transition-all select-none group relative overflow-hidden focus:outline-hidden focus:ring-4 focus:ring-[#ffe600] btn-tactile`}
             >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-3xl filter drop-shadow-sm">{sticker.emoji}</span>
@@ -136,7 +138,7 @@ export function NomokeyStickerBoard() {
                 <span>SHIELDS.IO // CAMO COMPLIANT</span>
                 <span className="font-bold underline decoration-1">1-CLICK</span>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>

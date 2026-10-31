@@ -32,6 +32,7 @@ export function NomokeyHero() {
   const [pupilOffset, setPupilOffset] = useState({ x: 0, y: 0 });
   const [headTilt, setHeadTilt] = useState({ rotate: 0, translateY: 0 });
   const [activeMode, setActiveMode] = useState<StudioMode>('cyber');
+  const [cardView, setCardView] = useState<'monkey' | 'preview'>('monkey');
   const [quoteIdx, setQuoteIdx] = useState(0);
   const [copiedCli, setCopiedCli] = useState(false);
   const [sparkEffect, setSparkEffect] = useState(false);
@@ -106,7 +107,7 @@ export function NomokeyHero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white bg-white text-neutral-900 text-neutral-950 pt-8 pb-16 md:pt-14 md:pb-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative overflow-hidden bg-white text-neutral-950 pt-8 pb-16 md:pt-14 md:pb-24 px-4 sm:px-6 transition-colors duration-300">
       {/* Subtle fine technical grid background */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.06]"
@@ -122,14 +123,14 @@ export function NomokeyHero() {
       <div className="relative max-w-7xl mx-auto">
         {/* Pre-header Studio Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border-2 border-neutral-900 border-neutral-900 bg-white bg-white shadow-[2px_2px_0px_#18181b]  text-xs font-mono font-bold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border-2 border-neutral-900 bg-white shadow-[2px_2px_0px_#18181b]  text-xs font-mono font-bold tracking-wider uppercase">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>EST. 2026 // MONOFORGE STUDIO</span>
+            <span>OPEN-SOURCE GITHUB PROFILE STUDIO</span>
             <span className="text-[#ffe600] font-black">✦</span>
-            <span className="text-neutral-500 text-neutral-600 hidden sm:inline">ZERO MONKEY BUSINESS</span>
+            <span className="text-neutral-600 hidden sm:inline">ZERO MONKEY BUSINESS</span>
           </div>
 
-          <div className="flex items-center gap-3 text-xs font-mono text-neutral-500 text-neutral-600">
+          <div className="flex items-center gap-3 text-xs font-mono text-neutral-600">
             <span className="inline-flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
               <span>100% Camo Compliant</span>
@@ -146,62 +147,66 @@ export function NomokeyHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Bold Typographic Statement (Nomokey + Poulo style) */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="space-y-2">
+            <div className="space-y-3">
               <div className="inline-block px-3 py-1 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-mono text-xs font-black tracking-widest uppercase shadow-[2px_2px_0px_#18181b]">
                 ⚔️ THE NEXT-GEN GITHUB PROFILE ENGINE
               </div>
 
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[0.98] uppercase font-sans text-neutral-950 text-neutral-950">
-                WE DON&apos;T <br className="hidden sm:inline" />
-                <span className="relative inline-block text-neutral-950 text-neutral-950 bg-[#ffe600] px-2 rounded-lg border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] rotate-[-1deg]">
-                  MONKEY
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[0.98] uppercase font-sans text-neutral-950">
+                YOUR GITHUB PROFILE.<br className="hidden sm:inline" />
+                <span className="relative inline-block text-neutral-950 bg-[#ffe600] px-2 rounded-lg border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] rotate-[-1deg] my-1">
+                  FORGED
                 </span>{' '}
-                AROUND.
-                <br />
-                <span className="text-neutral-900 text-neutral-950">
-                  WE FORGE ICONS.
-                </span>
+                TO STAND OUT.
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-neutral-700 text-neutral-800 max-w-xl font-normal leading-relaxed">
-              Ditch the generic bullet points. Craft high-impact GitHub profile READMEs with 60fps Camo SVGs, 47+ telemetry engines, and a split-screen Monaco IDE. Built for developers who take their craft seriously.
+            <p className="text-base sm:text-lg text-neutral-800 max-w-xl font-normal leading-relaxed">
+              Create a professional GitHub profile README with a visual editor, live previews, developer statistics, animated SVGs, and customizable templates. Build your developer identity without manually wrestling with Markdown.
             </p>
+
+            <div className="flex items-center gap-2 text-xs font-mono font-black text-amber-700 uppercase tracking-wider">
+              <span className="text-neutral-950 font-black">✦</span>
+              <span>Zero Monkey Business. Pure Precision Engineering.</span>
+            </div>
 
             {/* Action Buttons: Tactile Neo-Brutalist Style */}
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              {/* Primary Studio Action */}
+              {/* Primary Action */}
               <Link
                 href="/wizard"
-                className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-black text-sm tracking-wide border-2 border-neutral-900 shadow-[4px_4px_0px_#18181b] hover:shadow-[2px_2px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-150"
+                data-cursor-label="STUDIO"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-black text-sm tracking-wide border-2 border-neutral-900 shadow-[4px_4px_0px_#18181b] hover:shadow-[2px_2px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-150 btn-tactile"
               >
                 <Sparkles className="w-4 h-4 text-neutral-950 group-hover:rotate-12 transition-transform" />
-                <span>Launch Visual Studio</span>
+                <span>BUILD MY PROFILE</span>
                 <ArrowRight className="w-4 h-4 text-neutral-950 group-hover:translate-x-1 transition-transform" />
               </Link>
 
               {/* Raw Mode Monaco Action */}
               <Link
                 href="/developer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white bg-white text-neutral-900 text-neutral-950 font-bold text-sm tracking-wide border-2 border-neutral-900 border-neutral-900 shadow-[3px_3px_0px_#18181b] dark:shadow-[3px_3px_0px_#f4f4f5] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all duration-150"
+                data-cursor-label="DEV IDE"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white text-neutral-950 font-bold text-sm tracking-wide border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all duration-150 btn-tactile"
               >
-                <Code2 className="w-4 h-4 text-neutral-900 text-neutral-950" />
-                <span>/developer Raw Mode</span>
+                <Code2 className="w-4 h-4 text-neutral-950" />
+                <span>OPEN DEVELOPER IDE</span>
               </Link>
 
               {/* Telemetry Hub */}
               <Link
                 href="/telemetry"
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-xl bg-amber-400/10 hover:bg-amber-400/20 text-amber-900 dark:text-amber-300 font-mono text-xs font-bold border border-amber-500/40 transition-colors"
+                data-cursor-label="STATS"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-xl bg-white hover:bg-[#ffe600] text-neutral-950 font-mono text-xs font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] transition-colors btn-tactile"
               >
-                <BarChart3 className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
-                <span>47+ Telemetry</span>
+                <BarChart3 className="w-3.5 h-3.5 text-amber-600" />
+                <span>EXPLORE 47+ TELEMETRY</span>
               </Link>
             </div>
 
             {/* Quick Terminal Copy Bar */}
             <div className="pt-2">
-              <div className="inline-flex items-center gap-2 p-1.5 pl-3 rounded-lg bg-neutral-100 bg-white border border-neutral-300 border-neutral-900 text-xs font-mono text-neutral-700 text-neutral-800 max-w-full overflow-hidden">
+              <div className="inline-flex items-center gap-2 p-1.5 pl-3 rounded-lg bg-neutral-100 bg-white border border-neutral-300 border-neutral-900 text-xs font-mono text-neutral-800 max-w-full overflow-hidden">
                 <Terminal className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                 <span className="text-neutral-400 select-none">$</span>
                 <span className="truncate font-semibold">npx monoforge generate --username &lt;you&gt;</span>
@@ -233,14 +238,121 @@ export function NomokeyHero() {
             </div>
 
             {/* Interactive Workstation Card */}
-            <div className="relative rounded-2xl border-2 border-neutral-900 border-neutral-900 bg-white bg-white p-6 sm:p-7 shadow-[6px_6px_0px_#18181b]  overflow-hidden transition-all duration-200">
+            {/* View Switcher: Interactive Companion vs Generated README Preview */}
+            <div className="flex items-center gap-2 mb-3">
+              <button
+                type="button"
+                onClick={() => setCardView('monkey')}
+                className={`px-3 py-1.5 rounded-lg font-mono text-xs font-black border-2 border-neutral-900 transition-all cursor-pointer ${
+                  cardView === 'monkey'
+                    ? 'bg-[#ffe600] text-neutral-950 shadow-[2px_2px_0px_#18181b]'
+                    : 'bg-white text-neutral-700 hover:bg-neutral-100'
+                }`}
+              >
+                🐵 MONKEY CORE
+              </button>
+              <button
+                type="button"
+                onClick={() => setCardView('preview')}
+                className={`px-3 py-1.5 rounded-lg font-mono text-xs font-black border-2 border-neutral-900 transition-all cursor-pointer ${
+                  cardView === 'preview'
+                    ? 'bg-[#ffe600] text-neutral-950 shadow-[2px_2px_0px_#18181b]'
+                    : 'bg-white text-neutral-700 hover:bg-neutral-100'
+                }`}
+              >
+                ⚡ GENERATED PROFILE
+              </button>
+            </div>
+
+            <div className="relative rounded-2xl border-2 border-neutral-900 bg-white p-6 sm:p-7 shadow-[6px_6px_0px_#18181b] overflow-hidden transition-all duration-200">
+              {cardView === 'preview' ? (
+                /* Generated Profile Preview Mode (Mac Window Style) */
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between pb-3 border-b-2 border-neutral-900">
+                    <div className="flex items-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-red-500 border border-neutral-900" />
+                      <span className="w-3 h-3 rounded-full bg-[#ffe600] border border-neutral-900" />
+                      <span className="w-3 h-3 rounded-full bg-emerald-500 border border-neutral-900" />
+                      <span className="text-[11px] font-mono font-bold text-neutral-600 ml-1">
+                        github.com/developer/developer/README.md
+                      </span>
+                    </div>
+                    <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 text-[10px] font-mono font-black border border-neutral-900">
+                      LIVE PREVIEW
+                    </span>
+                  </div>
+
+                  {/* Profile Header Card */}
+                  <div className="p-4 sm:p-5 rounded-xl border-2 border-neutral-900 bg-white text-neutral-950 relative overflow-hidden shadow-[3px_3px_0px_#18181b]">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="space-y-2">
+                        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#ffe600] text-neutral-950 font-mono text-[10px] font-black border border-neutral-900">
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          <span>FULL-STACK ARCHITECT // SYSTEMS</span>
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-black font-sans tracking-tight text-neutral-950 uppercase">
+                          ALEXANDER FORGE
+                        </h3>
+                        <p className="text-xs font-mono text-neutral-700 leading-relaxed max-w-sm">
+                          Architecting distributed systems, zero-dependency CLIs, and 60fps GPU web applications.
+                        </p>
+                      </div>
+                      <img
+                        src="/assets/monoforge-monkey-logo.jpg"
+                        alt="Avatar"
+                        className="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-xl border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] shrink-0"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Voxel & Telemetry Strip */}
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="p-2.5 rounded-lg border-2 border-neutral-900 bg-neutral-50 text-center font-mono">
+                      <span className="text-[9px] text-neutral-500 uppercase block font-bold">COMMITS</span>
+                      <span className="text-base font-black text-neutral-950">2,847</span>
+                    </div>
+                    <div className="p-2.5 rounded-lg border-2 border-neutral-900 bg-neutral-50 text-center font-mono">
+                      <span className="text-[9px] text-neutral-500 uppercase block font-bold">STREAK</span>
+                      <span className="text-base font-black text-amber-600">42 days 🔥</span>
+                    </div>
+                    <div className="p-2.5 rounded-lg border-2 border-neutral-900 bg-neutral-50 text-center font-mono">
+                      <span className="text-[9px] text-neutral-500 uppercase block font-bold">PERCENTILE</span>
+                      <span className="text-base font-black text-emerald-600">TOP 2%</span>
+                    </div>
+                  </div>
+
+                  {/* Stack Badges */}
+                  <div className="p-3 rounded-lg border-2 border-neutral-900 bg-white space-y-1.5 font-mono">
+                    <span className="text-[10px] font-bold text-neutral-500 uppercase block">CORE TECH STACK</span>
+                    <div className="flex flex-wrap gap-1">
+                      {['TypeScript', 'Rust', 'Go', 'Next.js', 'Docker', 'GraphQL'].map((tech) => (
+                        <span key={tech} className="px-2 py-0.5 rounded bg-white text-neutral-950 text-[10px] font-bold border border-neutral-900 shadow-2xs">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-2 border-t-2 border-neutral-900 text-[11px] font-mono">
+                    <span className="text-neutral-500 font-bold">100% CAMO CDN SAFE</span>
+                    <Link
+                      href="/wizard"
+                      className="inline-flex items-center gap-1 font-black text-amber-700 hover:text-amber-600 underline"
+                    >
+                      <span>CUSTOMIZE THIS &rarr;</span>
+                    </Link>
+                  </div>
+                </div>
+              ) : (
+                /* Interactive Cyber Monkey Workstation View */
+                <>
               {/* Studio Card Header: Mode Switcher */}
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200 border-neutral-900">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-red-500 border border-neutral-900" />
                   <span className="w-3 h-3 rounded-full bg-[#ffe600] border border-neutral-900" />
                   <span className="w-3 h-3 rounded-full bg-emerald-500 border border-neutral-900" />
-                  <span className="text-[11px] font-mono font-black text-neutral-900 text-neutral-950 ml-1">
+                  <span className="text-[11px] font-mono font-black text-neutral-950 ml-1">
                     MONKEY_CORE.v2
                   </span>
                 </div>
@@ -379,15 +491,17 @@ export function NomokeyHero() {
               </div>
 
               {/* Studio Bottom Bar */}
-              <div className="flex items-center justify-between pt-4 mt-4 border-t border-neutral-200 border-neutral-900 text-[11px] font-mono text-neutral-500 text-neutral-600">
+              <div className="flex items-center justify-between pt-4 mt-4 border-t border-neutral-200 border-neutral-900 text-[11px] font-mono text-neutral-600">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-amber-500" />
                   <span>INTERACTIVE COMPANION</span>
                 </span>
-                <span className="font-bold text-neutral-900 text-neutral-950">
+                <span className="font-bold text-neutral-950">
                   {activeMode.toUpperCase()} MODE ACTIVE
                 </span>
               </div>
+                </>
+              )}
             </div>
           </div>
         </div>

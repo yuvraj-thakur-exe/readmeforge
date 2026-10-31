@@ -33,6 +33,7 @@ import { routing } from '#/i18n/routing';
 import { ThemeProvider } from '#/components/theme/ThemeProvider';
 import { ClickEffect } from '#/components/studio/ClickEffect';
 import { NomokeyCompanionWidget } from '#/components/studio/NomokeyCompanionWidget';
+import { StudioCursor } from '#/components/studio/StudioCursor';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -200,6 +201,7 @@ export default async function RootLayout({
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <ClickEffect />
+            <StudioCursor />
             <NomokeyCompanionWidget />
             <Handles />
 

@@ -26,7 +26,7 @@ export const ARCHETYPES = [
       const name = u.name || 'Alex Rivers';
       const role = u.role || 'Frontend & Full-Stack Systems Engineer';
       return `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/wow-profile-full.svg" width="100%" alt="#1 Wow Profile 3D City & Peeking Cat" />
+  <img src="https://raw.githubusercontent.com/monoforge/MONOFORGE/main/public/assets/wow-profile-full.svg" width="100%" alt="#1 Wow Profile 3D City & Peeking Cat" />
 </div>
 
 <br/>
@@ -73,7 +73,7 @@ export const ARCHETYPES = [
     generator: (u) => {
       const user = u.username || 'octocat';
       return `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/bento-dashboard-full.svg" width="100%" alt="#5 Signal Dashboard Bento Grid" />
+  <img src="https://raw.githubusercontent.com/monoforge/MONOFORGE/main/public/assets/bento-dashboard-full.svg" width="100%" alt="#5 Signal Dashboard Bento Grid" />
 </div>
 
 <br/>
@@ -178,7 +178,7 @@ export const ARCHETYPES = [
       </a>
     </td>
     <td valign="top" width="35%" align="center">
-      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/owl-confetti.svg" alt="Owl Mascot" width="260" />
+      <img src="https://raw.githubusercontent.com/monoforge/MONOFORGE/main/public/assets/owl-confetti.svg" alt="Owl Mascot" width="260" />
     </td>
   </tr>
 </table>
@@ -236,7 +236,7 @@ export const ARCHETYPES = [
       </a>
     </td>
     <td valign="top" width="35%" align="center">
-      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/coding-unicorn.svg" alt="Coding Unicorn" width="260" />
+      <img src="https://raw.githubusercontent.com/monoforge/MONOFORGE/main/public/assets/coding-unicorn.svg" alt="Coding Unicorn" width="260" />
     </td>
   </tr>
 </table>
@@ -288,7 +288,7 @@ export const ARCHETYPES = [
       </a>
     </td>
     <td valign="top" width="35%" align="center">
-      <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/developer-desk.svg" alt="Dev at Desk" width="260" />
+      <img src="https://raw.githubusercontent.com/monoforge/MONOFORGE/main/public/assets/developer-desk.svg" alt="Dev at Desk" width="260" />
     </td>
   </tr>
 </table>

@@ -19,7 +19,7 @@ MonoForge generates production-grade, GitHub-safe markdown profiles with zero re
 - [JSON Schema API](https://monoforge-studio.vercel.app/api/schema): Machine-readable ReadmeConfig Zod/JSON schema.
 - [Full LLM Specification](https://monoforge-studio.vercel.app/llms-full.txt): Comprehensive AI prompt instructions and schema models.
 - [Agent Skill Spec](https://monoforge-studio.vercel.app/.agents/skills/monoforge/SKILL.md): Declarative AI agent skill for automated execution.
-- [GitHub Repository](https://github.com/yuvraj-thakur-exe/monoforge): Open-source repository and issue tracker.
+- [GitHub Repository](https://github.com/monoforge/monoforge): Open-source repository and issue tracker.
 - [Sitemap XML](https://monoforge-studio.vercel.app/sitemap.xml): Multi-language sitemap with hreflang alternate links.
 - [Robots Policy](https://monoforge-studio.vercel.app/robots.txt): Search engine crawl policy and sitemap reference.
 

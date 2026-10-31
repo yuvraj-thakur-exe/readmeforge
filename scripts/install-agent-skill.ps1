@@ -13,7 +13,7 @@ if (-not (Test-Path $TargetDir)) {
   New-Item -ItemType Directory -Path $TargetDir -Force | Out-Null
 }
 
-$url = "https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/.agents/skills/monoforge/SKILL.md"
+$url = "https://raw.githubusercontent.com/monoforge/MONOFORGE/main/.agents/skills/monoforge/SKILL.md"
 $dest = Join-Path $TargetDir "SKILL.md"
 
 Invoke-WebRequest -Uri $url -OutFile $dest

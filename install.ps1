@@ -1,5 +1,5 @@
 # MonoForge 1-Line Installer for Windows PowerShell
-# Usage: iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/install.ps1 | iex
+# Usage: iwr -useb https://raw.githubusercontent.com/monoforge/MONOFORGE/main/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
@@ -23,7 +23,7 @@ if ((Test-Path "package.json") -and (Select-String -Path "package.json" -Pattern
         Set-Location $targetDir
     } else {
         Write-Host "📥 Cloning MonoForge..." -ForegroundColor Cyan
-        git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git $targetDir
+        git clone https://github.com/monoforge/MONOFORGE.git $targetDir
         Set-Location $targetDir
     }
 }

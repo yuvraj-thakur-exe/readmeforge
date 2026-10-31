@@ -21,7 +21,7 @@ MonoForge is 100% open-source software built by and for the global developer com
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git
+git clone https://github.com/monoforge/MONOFORGE.git
 cd MONOFORGE
 pnpm install
 ```
