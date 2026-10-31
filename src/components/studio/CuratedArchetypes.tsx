@@ -1,7 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { Link } from '#/i18n/navigation';
 import { Code2, ArrowRight } from 'lucide-react';
+import { TemplateGallery } from '#/components/landing/TemplateGallery';
 
 interface ArchetypeItem {
   id: string;
@@ -48,6 +50,7 @@ const ARCHETYPES: ArchetypeItem[] = [
 ];
 
 export function CuratedArchetypes() {
+  const [showAllTemplates, setShowAllTemplates] = useState(false);
   return (
     <section className="relative bg-white border-b-2 border-neutral-900 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-12">
@@ -134,6 +137,24 @@ export function CuratedArchetypes() {
             </div>
           ))}
         </div>
+
+        {/* Toggle Full Interactive Template Gallery */}
+        <div className="pt-4 text-center">
+          <button
+            type="button"
+            onClick={() => setShowAllTemplates(!showAllTemplates)}
+            className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl bg-white hover:bg-[#ffe600] text-neutral-950 font-mono text-xs sm:text-sm font-black border-2 border-neutral-900 shadow-[4px_4px_0px_#18181b] hover:shadow-[2px_2px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-pointer btn-tactile"
+          >
+            <span>{showAllTemplates ? '▲ COLLAPSE ARCHETYPE VAULT' : '▼ EXPLORE ALL 50+ ARCHETYPES WITH LIVE SEARCH & PREVIEW'}</span>
+          </button>
+        </div>
+
+        {/* Embedded Full Template Gallery */}
+        {showAllTemplates && (
+          <div className="pt-10 border-t-2 border-neutral-900 animate-in fade-in duration-300">
+            <TemplateGallery />
+          </div>
+        )}
       </div>
     </section>
   );

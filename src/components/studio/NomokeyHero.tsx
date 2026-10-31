@@ -27,6 +27,14 @@ const MONKEY_QUOTES = [
 
 type StudioMode = 'clean' | 'cyber' | 'lofi' | 'hyperspeed';
 
+const ROTATING_HIGHLIGHTS = [
+  '60fps Camo Safe SVG vectors & animated characters',
+  '47+ native telemetry engines with zero external tracking calls',
+  'Split-screen Monaco IDE with AST Zod validation & copilot',
+  'Tactile developer badges & stickers ready for GitHub CDN',
+  '18+ signature design archetypes ready for 1-click apply',
+];
+
 export function NomokeyHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [pupilOffset, setPupilOffset] = useState({ x: 0, y: 0 });
@@ -37,6 +45,14 @@ export function NomokeyHero() {
   const [copiedCli, setCopiedCli] = useState(false);
   const [sparkEffect, setSparkEffect] = useState(false);
   const [bananaFuel, setBananaFuel] = useState<number>(75);
+  const [highlightIdx, setHighlightIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHighlightIdx((prev) => (prev + 1) % ROTATING_HIGHLIGHTS.length);
+    }, 3200);
+    return () => clearInterval(timer);
+  }, []);
 
   const clickBanana = () => {
     setBananaFuel((prev) => {
@@ -164,6 +180,18 @@ export function NomokeyHero() {
             <p className="text-base sm:text-lg text-neutral-900 max-w-2xl font-medium leading-relaxed">
               Create a professional GitHub profile README with a visual editor, live previews, developer statistics, animated SVGs, and customizable templates. Build your developer identity without manually wrestling with Markdown.
             </p>
+
+            {/* Kinetic Typewriter / Dynamic Engine Status Banner */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-neutral-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs font-mono font-bold text-neutral-950 overflow-hidden max-w-full">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+              <span className="text-[10px] uppercase font-black px-1.5 py-0.5 rounded bg-[#ffe600] border border-neutral-900 shrink-0">
+                LIVE STATUS
+              </span>
+              <span className="truncate transition-all duration-300">
+                {ROTATING_HIGHLIGHTS[highlightIdx]}
+              </span>
+              <span className="w-1.5 h-3.5 bg-neutral-900 animate-pulse shrink-0" />
+            </div>
 
             <div className="flex items-center gap-2 text-xs font-mono font-black text-amber-700 uppercase tracking-wider">
               <span className="text-neutral-950 font-black">✦</span>
