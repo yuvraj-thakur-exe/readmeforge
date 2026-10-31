@@ -13,7 +13,6 @@ import {
   Copy,
   Eye,
   X,
-  Plus,
   Search,
   Code,
   CheckCheck,
@@ -58,35 +57,138 @@ const TEMPLATE_PREVIEWS: Record<string, string> = {
   'data-engineer-streaming': '/assets/breakout.svg',
   'game-dev-3d-graphics': '/assets/galaga.svg',
   'web3-solidity-defi': '/assets/characters/red-dragon.svg',
-  'embedded-iot-firmware': '/assets/developer-mode.svg',
-  'creative-technologist-motion': '/assets/agent-suite.svg',
-  'quantum-algorithms-physicist': '/assets/characters/pink-wyvern.svg',
-  'site-reliability-sre-chaos': '/assets/bomberman.svg',
-  'competitive-programmer-grandmaster': '/assets/puzzle-bobble.svg',
-  'indie-hacker-solopreneur': '/assets/resources/uncle-sam.webp',
-  'bioinformatics-genomics-core': '/assets/resources/fragiola.svg',
-  'audio-dsp-audio-engineer': '/assets/resources/toffugy.svg',
-  'backend-systems-rust-tokio': '/assets/mock-github-stats.svg',
-  'enterprise-java-spring-boot': '/assets/mock-streak-stats.svg',
-  'flutter-crossplatform-specialist': '/assets/animated-heroes-squad.svg',
-  'red-team-ethical-hacker': '/assets/characters/insectoid-warrior.svg',
-  'synthwave-outrun-coder': '/assets/profile/night-coder-hoodie.png',
-  'frontend-design-system-lead': '/assets/animated-characters.svg',
-  'deep-learning-computer-vision': '/assets/peeking-cat-header.svg',
-  'platform-engineer-kubernetes': '/assets/roaming-bot.svg',
-  'graphql-api-architect': '/assets/isometric-terminal.svg',
-  'database-tuner-dba': '/assets/bento-dashboard-header.svg',
-  'blue-team-soc-analyst': '/assets/characters/ninja-turtle.svg',
-  'robotics-ros2-navigation': '/assets/characters/blue-bot.svg',
-  'spatial-computing-visionos': '/assets/characters/purple-monster.svg',
-  'tech-educator-content-creator': '/assets/coding-unicorn.svg',
-  'kernel-driver-lowlevel-dev': '/assets/terminal_animated.svg',
-  'fintech-hft-low-latency': '/assets/about-me-telemetry.svg',
-  'edtech-simulation-developer': '/assets/pacman.svg',
-  'pixel-art-indie-gamedev': '/assets/profile/pixel-retro-pc.png',
-  'cloud-serverless-specialist': '/assets/developer-desk.svg',
-  'developer-experience-dx-lead': '/assets/bento-dashboard-full.svg',
 };
+
+function renderModuleVisual(sec: { id: string; type: string; props?: Record<string, any> }) {
+  const content = sec.props?.content || {};
+  switch (sec.type) {
+    case 'snk':
+      return (
+        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
+          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span>GITHUB CONTRIBUTION GRID SNAKE</span>
+            </span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-[#ffe600] border border-neutral-900 font-black">
+              ANIMATED SVG
+            </span>
+          </div>
+          <div className="h-16 rounded-lg bg-neutral-50 border border-neutral-900/20 p-2 flex items-center justify-between overflow-hidden">
+            <div className="flex gap-1">
+              {[...Array(14)].map((_, i) => (
+                <div key={i} className="flex flex-col gap-1">
+                  {[...Array(4)].map((_, j) => (
+                    <div
+                      key={j}
+                      className={`w-2.5 h-2.5 rounded-xs ${
+                        (i + j) % 3 === 0 ? 'bg-emerald-500' : (i + j) % 5 === 0 ? 'bg-emerald-300' : 'bg-neutral-200'
+                      }`}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+            <span className="text-xs font-mono font-black text-emerald-600 pr-2">🐍 eating dots...</span>
+          </div>
+        </div>
+      );
+    case 'pie-chart':
+      return (
+        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
+          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
+            <span>{content.title || 'Top Languages Breakdown'}</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-100 text-cyan-950 border border-neutral-900 font-bold">
+              DONUT CHART
+            </span>
+          </div>
+          <div className="flex items-center gap-3 pt-1">
+            <div className="w-10 h-10 rounded-full border-4 border-amber-400 border-t-cyan-500 border-r-emerald-500 shrink-0" />
+            <div className="flex flex-wrap gap-1.5 text-[11px] font-mono">
+              <span className="px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-300 text-neutral-800 font-bold">TypeScript 58%</span>
+              <span className="px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-300 text-neutral-800 font-bold">Rust 24%</span>
+              <span className="px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-300 text-neutral-800 font-bold">WebGL 18%</span>
+            </div>
+          </div>
+        </div>
+      );
+    case 'activity-graph':
+      return (
+        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
+          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
+            <span>{content.title || 'Annual Contribution Activity Graph'}</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-950 border border-neutral-900 font-bold">
+              ACTIVITY METRICS
+            </span>
+          </div>
+          <div className="h-12 flex items-end gap-1.5 pt-1 px-1">
+            {[40, 65, 30, 85, 95, 60, 45, 80, 100, 70, 90, 50, 75, 88].map((h, i) => (
+              <div
+                key={i}
+                className="flex-1 bg-[#ffe600] border border-neutral-900 rounded-t-xs"
+                style={{ height: `${h}%` }}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    case 'github-profile-trophy':
+      return (
+        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
+          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
+            <span>🏆 GitHub Achievements &amp; Trophies</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-950 border border-neutral-900 font-bold">
+              RANK AAA
+            </span>
+          </div>
+          <div className="flex items-center gap-2 pt-1 overflow-x-auto">
+            {['🥇 Multi-Language', '⚡ Fast PR Master', '⭐ 1K Stars', '🔥 365 Streak'].map((trophy, i) => (
+              <span key={i} className="px-2 py-1 rounded-lg bg-neutral-50 border border-neutral-900 text-[10px] font-mono font-bold whitespace-nowrap">
+                {trophy}
+              </span>
+            ))}
+          </div>
+        </div>
+      );
+    case 'github-readme-stats':
+      return (
+        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
+          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
+            <span>📊 Verified GitHub Statistics</span>
+            <span className="text-[10px] px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 border border-neutral-900 font-black">
+              LIVE METRICS
+            </span>
+          </div>
+          <div className="grid grid-cols-3 gap-2 text-center pt-1 font-mono text-xs">
+            <div className="p-1.5 rounded bg-neutral-50 border border-neutral-300">
+              <span className="text-[9px] text-neutral-500 block">TOTAL COMMITS</span>
+              <span className="font-black text-neutral-950">2,847</span>
+            </div>
+            <div className="p-1.5 rounded bg-neutral-50 border border-neutral-300">
+              <span className="text-[9px] text-neutral-500 block">PULL REQUESTS</span>
+              <span className="font-black text-amber-600">142</span>
+            </div>
+            <div className="p-1.5 rounded bg-neutral-50 border border-neutral-300">
+              <span className="text-[9px] text-neutral-500 block">STARS EARNED</span>
+              <span className="font-black text-emerald-600">890</span>
+            </div>
+          </div>
+        </div>
+      );
+    default:
+      return (
+        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] flex items-center justify-between">
+          <div className="space-y-0.5">
+            <span className="font-mono text-xs font-black text-neutral-950 uppercase">{sec.type}</span>
+            <p className="text-[10px] text-neutral-600 font-mono">Module ID: {sec.id}</p>
+          </div>
+          <span className="text-[10px] px-2 py-0.5 rounded bg-neutral-100 text-neutral-800 border border-neutral-300 font-mono font-bold">
+            Configured
+          </span>
+        </div>
+      );
+  }
+}
 
 export const TemplateGallery: React.FC = () => {
   const setEntireConfig = useReadmeStore(state => state.setEntireConfig);
@@ -166,7 +268,7 @@ export const TemplateGallery: React.FC = () => {
           particleCount: 22,
           spread: 55,
           origin: { y: 0.8 },
-          colors: ['#fbbf24', '#34d399', '#38bdf8', '#818cf8'],
+          colors: ['#ffe600', '#f59e0b', '#06b6d4', '#10b981'],
         });
       } catch {
         // Ignored
@@ -181,7 +283,6 @@ export const TemplateGallery: React.FC = () => {
   // Open Preview Modal
   const handleOpenPreview = (template: TemplateItem) => {
     setPreviewTemplate(template);
-    // Deep clone to allow removing plugins in preview without mutating constant
     setPreviewConfig(JSON.parse(JSON.stringify(template.config)));
     setPreviewTab('visual');
   };
@@ -252,33 +353,33 @@ export const TemplateGallery: React.FC = () => {
   }, [previewConfig]);
 
   return (
-    <section className="py-14 px-4 max-w-7xl mx-auto space-y-8 relative">
+    <section className="py-12 px-4 max-w-7xl mx-auto space-y-8 relative font-sans text-neutral-950">
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-neutral-900/95 border border-amber-500/40 text-white text-xs font-medium shadow-2xl backdrop-blur-md animate-fade-in">
-          <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400 animate-pulse" />
+        <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-white border-2 border-neutral-900 text-neutral-950 text-xs font-bold shadow-[4px_4px_0px_#18181b] animate-in fade-in slide-in-from-bottom-2">
+          <Sparkles className="w-4 h-4 text-amber-500 animate-pulse" />
           <span>{toastMessage}</span>
         </div>
       )}
 
       {/* Header with Dynamic Text Animation */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/10 text-amber-600 dark:text-amber-300 text-xs font-semibold backdrop-blur-md shadow-sm">
-          <LayoutTemplate className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-          <span>Curated Starters & Archetypes</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[10px] text-emerald-400 font-mono">{TEMPLATES.length} Ready-to-Ship</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border-2 border-neutral-900 text-neutral-950 text-xs font-mono font-bold shadow-[2px_2px_0px_#18181b]">
+          <LayoutTemplate className="w-3.5 h-3.5 text-amber-500" />
+          <span>CURATED STARTERS &amp; ARCHETYPES</span>
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="text-[10px] text-neutral-600 font-mono font-black">{TEMPLATES.length} READY-TO-SHIP</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-neutral-100 tracking-tight">
-          Curated Starter Archetypes
+        <h2 className="text-3xl sm:text-5xl font-black text-neutral-950 tracking-tight uppercase font-sans">
+          CURATED STARTER ARCHETYPES
         </h2>
 
         {/* Animated Subtitle */}
-        <p className="text-sm text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-sm font-mono text-neutral-700 max-w-2xl mx-auto leading-relaxed">
           One-click apply clean, structured templates designed to{' '}
           <span
-            className={`font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-400 to-cyan-400 transition-opacity duration-300 ${
+            className={`font-black text-neutral-950 bg-[#ffe600] px-2 py-0.5 rounded border border-neutral-900 shadow-2xs transition-opacity duration-300 ${
               fadeKeyword ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -287,7 +388,7 @@ export const TemplateGallery: React.FC = () => {
           .
         </p>
 
-        {/* Search & Filter Bar */}
+        {/* Search Bar */}
         <div className="pt-3 max-w-md mx-auto">
           <div className="relative flex items-center">
             <Search className="w-4 h-4 text-neutral-500 absolute left-3.5 pointer-events-none" />
@@ -295,14 +396,14 @@ export const TemplateGallery: React.FC = () => {
               type="text"
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
-              placeholder="Search by archetype, tech stack, or keyword..."
-              className="w-full pl-10 pr-4 py-2 rounded-xl bg-neutral-900/80 border border-neutral-800 text-xs text-neutral-200 placeholder:text-neutral-500 focus:outline-none focus:border-amber-500/60 focus:ring-1 focus:ring-amber-500/40 transition-all"
+              placeholder="Search by archetype, stack, or keyword..."
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border-2 border-neutral-900 text-xs font-mono font-bold text-neutral-950 placeholder:text-neutral-400 focus:outline-hidden focus:border-[#ffe600] shadow-[2px_2px_0px_#18181b] transition-all"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="absolute right-3 text-neutral-500 hover:text-neutral-300"
+                className="absolute right-3 text-neutral-500 hover:text-neutral-900 p-1"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -322,16 +423,16 @@ export const TemplateGallery: React.FC = () => {
               key={cat}
               type="button"
               onClick={() => setActiveCategory(cat)}
-              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-mono font-black border-2 transition-all cursor-pointer ${
                 isActive
-                  ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md shadow-amber-500/20 scale-100'
-                  : 'bg-neutral-900/80 border border-neutral-800 text-neutral-400 hover:text-neutral-100 hover:bg-neutral-800'
-              } active:scale-95`}
+                  ? 'bg-[#ffe600] text-neutral-950 border-neutral-900 shadow-[2px_2px_0px_#18181b]'
+                  : 'bg-white text-neutral-700 border-neutral-300 hover:border-neutral-900 hover:text-neutral-950'
+              }`}
             >
-              <span>{cat}</span>
+              <span className="capitalize">{cat}</span>
               <span
-                className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
-                  isActive ? 'bg-white/20 text-white' : 'bg-neutral-800 text-neutral-500'
+                className={`text-[10px] px-1.5 py-0.2 rounded font-mono ${
+                  isActive ? 'bg-neutral-950 text-white' : 'bg-neutral-100 text-neutral-700'
                 }`}
               >
                 {count}
@@ -342,198 +443,125 @@ export const TemplateGallery: React.FC = () => {
       </div>
 
       {/* Grid of Templates */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
         {filtered.map(tmpl => {
           const isCopied = copiedPromptId === tmpl.id;
 
           return (
             <div
               key={tmpl.id}
-              className="hover-lift relative p-6 rounded-2xl bg-neutral-900/70 hover:bg-neutral-900/95 border border-white/[0.08] hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-[0_12px_40px_rgba(245,158,11,0.18)] overflow-hidden"
+              className="p-6 rounded-2xl bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_#18181b] hover:shadow-[2px_2px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] transition-all flex flex-col justify-between group"
             >
-              {/* Dynamic Accent Top Line */}
-              <div
-                className="absolute top-0 left-0 right-0 h-1 transition-opacity duration-300 opacity-60 group-hover:opacity-100"
-                style={{
-                  background: `linear-gradient(90deg, transparent, ${tmpl.accent}, transparent)`,
-                }}
-              />
-
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-neutral-800/90 text-neutral-300 border border-neutral-700/60 font-semibold">
+                  <span className="text-[10px] font-mono uppercase px-2.5 py-0.5 rounded-lg bg-neutral-100 text-neutral-900 border border-neutral-900 font-bold">
                     {tmpl.category}
                   </span>
                   <div className="flex items-center gap-1.5">
                     <span
-                      className="w-2.5 h-2.5 rounded-full shadow-sm animate-pulse"
+                      className="w-2.5 h-2.5 rounded-full border border-neutral-900"
                       style={{ backgroundColor: tmpl.accent }}
                     />
-                    <span className="text-[10px] font-mono text-neutral-500 uppercase">{tmpl.accent}</span>
+                    <span className="text-[10px] font-mono text-neutral-500 uppercase font-bold">{tmpl.accent}</span>
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-neutral-100 group-hover:text-amber-600 dark:text-amber-300 transition-colors">
+                <h3 className="text-lg font-black text-neutral-950 group-hover:text-amber-600 transition-colors uppercase font-sans">
                   {tmpl.name}
                 </h3>
 
-                <p className="text-xs text-neutral-400 mt-2 line-clamp-2 leading-relaxed">
+                <p className="text-xs text-neutral-700 mt-2 line-clamp-2 leading-relaxed font-mono">
                   {tmpl.description}
                 </p>
 
-                {/* Visual Preview Window (Above) */}
+                {/* Visual Preview Window Box */}
                 <div
                   onClick={() => handleOpenPreview(tmpl)}
-                  className="my-3 rounded-xl border border-neutral-800/80 bg-neutral-950/80 p-2.5 hover:border-amber-500/40 cursor-pointer transition-all group/preview relative overflow-hidden shadow-inner"
+                  className="my-4 rounded-xl border-2 border-neutral-900 bg-neutral-50 p-3 hover:bg-[#fffde6] cursor-pointer transition-all group/preview relative overflow-hidden shadow-2xs"
                 >
-                  {/* macOS Window Controls */}
-                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-800/60">
+                  <div className="flex items-center justify-between pb-2 mb-2 border-b border-neutral-200">
                     <div className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-rose-500/80" />
-                      <span className="w-2 h-2 rounded-full bg-amber-500/80" />
-                      <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
-                      <span className="ml-1 text-[10px] font-mono text-neutral-500">
+                      <span className="w-2 h-2 rounded-full bg-red-400 border border-neutral-900" />
+                      <span className="w-2 h-2 rounded-full bg-[#ffe600] border border-neutral-900" />
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 border border-neutral-900" />
+                      <span className="ml-1 text-[10px] font-mono text-neutral-600 font-bold">
                         {tmpl.config.settings.user.github || 'developer'} / README.md
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono text-amber-500 dark:text-amber-400 opacity-80 group-hover/preview:opacity-100 transition-opacity flex items-center gap-1 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/30">
-                      <Eye className="w-3 h-3 text-cyan-400" /> Preview
+                    <span className="text-[10px] font-mono text-neutral-950 font-black flex items-center gap-1 bg-[#ffe600] px-1.5 py-0.5 rounded border border-neutral-900 shadow-2xs">
+                      <Eye className="w-3 h-3" /> Preview
                     </span>
                   </div>
 
                   {TEMPLATE_PREVIEWS[tmpl.id] ? (
-                    <div className="relative rounded-lg overflow-hidden bg-neutral-950/90 border border-neutral-800/60 max-h-48 group-hover/preview:border-amber-500/30 transition-all">
+                    <div className="relative rounded-lg overflow-hidden border border-neutral-900 bg-white max-h-48 group-hover/preview:scale-[1.01] transition-transform">
                       <img
                         src={TEMPLATE_PREVIEWS[tmpl.id]}
                         alt={`${tmpl.name} Visual Preview`}
-                        className="w-full h-44 object-cover object-top transition-transform duration-500 group-hover/preview:scale-[1.02]"
+                        className="w-full h-40 object-cover object-top"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-transparent to-transparent opacity-60 pointer-events-none" />
-                      <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] font-mono text-neutral-300 pointer-events-none">
-                        <span className="bg-neutral-900/90 backdrop-blur-sm px-2 py-0.5 rounded border border-neutral-700/60 text-cyan-300">
-                          {tmpl.category} Archetype
-                        </span>
-                        <span className="bg-neutral-900/90 backdrop-blur-sm px-2 py-0.5 rounded border border-neutral-700/60 text-neutral-400">
-                          Click to inspect
-                        </span>
-                      </div>
                     </div>
                   ) : (
-                    /* High-Fidelity Simulated Profile Header */
-                    <div className="space-y-2 p-2 rounded-lg bg-neutral-900/50 border border-neutral-800/60">
-                      <div className="flex items-center gap-2.5">
+                    <div className="space-y-2 p-2.5 rounded-lg bg-white border border-neutral-900 font-mono">
+                      <div className="flex items-center gap-2">
                         <div
-                          className="w-8 h-8 rounded-lg flex items-center justify-center font-bold text-xs shadow-sm"
+                          className="w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs border border-neutral-900 shadow-2xs"
                           style={{
-                            backgroundColor: `${tmpl.accent}25`,
-                            color: tmpl.accent,
-                            border: `1px solid ${tmpl.accent}60`,
+                            backgroundColor: tmpl.accent,
+                            color: '#ffffff',
                           }}
                         >
                           {tmpl.config.settings.user.name?.[0] || 'D'}
                         </div>
                         <div className="overflow-hidden flex-1">
-                          <p className="text-xs font-bold text-neutral-100 truncate">
+                          <p className="text-xs font-bold text-neutral-950 truncate">
                             {tmpl.config.settings.user.name || 'Developer'}
                           </p>
-                          <p className="text-[10px] font-mono text-neutral-400 truncate">
+                          <p className="text-[10px] text-neutral-600 truncate">
                             {tmpl.config.settings.user.role || 'Software Engineer'}
                           </p>
                         </div>
                       </div>
-
-                      {/* Mini badges simulation */}
-                      <div className="flex flex-wrap gap-1 pt-0.5">
-                        {tmpl.config.sections.slice(0, 3).map(sec => (
-                          <span
-                            key={sec.id}
-                            className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-neutral-950 border border-neutral-800 text-neutral-400"
-                          >
-                            {sec.type}
-                          </span>
-                        ))}
-                        {tmpl.config.sections.length > 3 && (
-                          <span className="text-[9px] font-mono px-1 py-0.5 text-neutral-500">
-                            +{tmpl.config.sections.length - 3} more
-                          </span>
-                        )}
-                      </div>
                     </div>
                   )}
                 </div>
-
-                {/* AI Prompt Drawer (Prompt Below to Make It) */}
-                <div className="mt-2.5 p-2.5 rounded-xl bg-neutral-950/90 border border-neutral-800/80 hover:border-amber-500/30 transition-colors">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-semibold flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-amber-400" /> Prompt to Make It
-                    </span>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleCopyPrompt(tmpl);
-                      }}
-                      className="text-[10px] font-mono text-neutral-400 hover:text-amber-300 transition-colors flex items-center gap-1 px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800 hover:border-amber-500/40"
-                    >
-                      {isCopied ? <CheckCheck className="w-3 h-3 text-emerald-400" /> : <Copy className="w-3 h-3" />}
-                      <span>{isCopied ? 'Copied' : 'Copy'}</span>
-                    </button>
-                  </div>
-                  <p className="text-[11px] text-neutral-300 font-mono line-clamp-3 leading-relaxed bg-neutral-900/60 p-2 rounded-lg border border-neutral-800/60 select-all">
-                    {tmpl.prompt}
-                  </p>
-                </div>
               </div>
 
-              {/* Action Buttons Toolbar */}
-              <div className="pt-3 mt-4 border-t border-neutral-800/80 space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-neutral-500 font-mono font-medium">
-                    {tmpl.config.sections.length} plugin{tmpl.config.sections.length === 1 ? '' : 's'} configured
-                  </span>
-                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-neutral-900 border border-neutral-800 text-neutral-400">
-                    {tmpl.category}
-                  </span>
-                </div>
+              {/* Action Buttons */}
+              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-neutral-200">
+                <button
+                  type="button"
+                  onClick={() => handleCopyPrompt(tmpl)}
+                  title="Copy AI Prompt"
+                  className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono font-black border-2 border-neutral-900 transition-all cursor-pointer ${
+                    isCopied
+                      ? 'bg-emerald-400 text-neutral-950 shadow-[2px_2px_0px_#18181b]'
+                      : 'bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 shadow-[2px_2px_0px_#18181b] active:translate-x-[1px] active:translate-y-[1px]'
+                  }`}
+                >
+                  {isCopied ? (
+                    <>
+                      <CheckCheck className="w-3.5 h-3.5 text-neutral-950" />
+                      <span>Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Sparkles className="w-3.5 h-3.5" />
+                      <span>Copy AI Prompt</span>
+                    </>
+                  )}
+                </button>
 
-                <div className="grid grid-cols-2 gap-2 pt-1">
-                  {/* Primary: Copy AI Prompt */}
-                  <button
-                    type="button"
-                    onClick={() => handleCopyPrompt(tmpl)}
-                    title="Copy AI Prompt"
-                    className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all shadow-md active:scale-95 duration-200 ${
-                      isCopied
-                        ? 'bg-emerald-600 text-white shadow-emerald-900/40 ring-1 ring-emerald-400'
-                        : 'bg-gradient-to-r from-amber-500 to-amber-600 hover:brightness-110 text-white shadow-amber-500/20'
-                    }`}
-                  >
-                    {isCopied ? (
-                      <>
-                        <CheckCheck className="w-3.5 h-3.5 text-white animate-check-spring drop-shadow-[0_0_6px_rgba(255,255,255,0.9)]" />
-                        <span>Copied Prompt!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
-                        <span>Copy AI Prompt</span>
-                      </>
-                    )}
-                  </button>
-
-                  {/* Secondary: Preview & Edit */}
-                  <button
-                    type="button"
-                    onClick={() => handleOpenPreview(tmpl)}
-                    title="Preview Template"
-                    className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-semibold bg-neutral-800 hover:bg-neutral-700 border border-neutral-700/60 text-neutral-200 hover:text-white transition-all active:scale-95"
-                  >
-                    <Eye className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Preview &amp; Edit</span>
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => handleOpenPreview(tmpl)}
+                  title="Preview Template"
+                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-mono font-bold bg-white hover:bg-neutral-100 border-2 border-neutral-900 text-neutral-950 shadow-[2px_2px_0px_#18181b] transition-all cursor-pointer"
+                >
+                  <Eye className="w-3.5 h-3.5" />
+                  <span>Preview</span>
+                </button>
               </div>
             </div>
           );
@@ -541,15 +569,15 @@ export const TemplateGallery: React.FC = () => {
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-center py-12 space-y-3">
-          <p className="text-sm text-neutral-400">No archetypes matched your search query "{searchQuery}".</p>
+        <div className="text-center py-12 space-y-3 bg-white border-2 border-neutral-900 rounded-2xl p-8">
+          <p className="text-sm font-mono text-neutral-600">No archetypes matched your search &quot;{searchQuery}&quot;.</p>
           <button
             type="button"
             onClick={() => {
               setActiveCategory('all');
               setSearchQuery('');
             }}
-            className="px-4 py-1.5 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs text-neutral-200"
+            className="px-4 py-2 rounded-xl bg-[#ffe600] text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 shadow-2xs hover:bg-[#ffdf00]"
           >
             Reset Filters
           </button>
@@ -563,24 +591,26 @@ export const TemplateGallery: React.FC = () => {
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200"
         >
-          <div className="relative w-full max-w-4xl max-h-[90vh] bg-neutral-900 border border-neutral-700/80 rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+          <div className="relative w-full max-w-4xl max-h-[90vh] bg-white border-2 border-neutral-900 rounded-3xl shadow-[8px_8px_0px_#18181b] flex flex-col overflow-hidden text-neutral-950">
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 bg-neutral-950 border-b border-neutral-800">
+            <div className="flex items-center justify-between px-6 py-4 bg-white border-b-2 border-neutral-900">
               <div className="flex items-center gap-3">
                 <span
-                  className="w-3 h-3 rounded-full shadow-sm animate-pulse"
+                  className="w-3.5 h-3.5 rounded-full border border-neutral-900"
                   style={{ backgroundColor: previewTemplate.accent }}
                 />
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-base font-bold text-neutral-100">{previewTemplate.name}</h3>
-                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-neutral-800 text-neutral-300 font-semibold border border-neutral-700">
+                    <h3 className="text-base font-black text-neutral-950 uppercase font-sans">
+                      {previewTemplate.name}
+                    </h3>
+                    <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-2xs">
                       {previewTemplate.category}
                     </span>
                   </div>
-                  <p className="text-xs text-neutral-400 line-clamp-1">{previewTemplate.description}</p>
+                  <p className="text-xs text-neutral-600 font-mono line-clamp-1">{previewTemplate.description}</p>
                 </div>
               </div>
 
@@ -591,7 +621,7 @@ export const TemplateGallery: React.FC = () => {
                   setPreviewTemplate(null);
                   setPreviewConfig(null);
                 }}
-                className="p-1.5 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors"
+                className="p-1.5 rounded-xl border-2 border-neutral-900 bg-white hover:bg-[#ffe600] text-neutral-950 transition-colors shadow-2xs cursor-pointer"
                 title="Close preview"
               >
                 <X className="w-5 h-5" />
@@ -599,14 +629,14 @@ export const TemplateGallery: React.FC = () => {
             </div>
 
             {/* Modal Tabs Bar */}
-            <div className="flex items-center gap-2 px-6 py-2.5 bg-neutral-950/60 border-b border-neutral-800 text-xs font-semibold">
+            <div className="flex items-center gap-2 px-6 py-2.5 bg-neutral-50 border-b-2 border-neutral-900 text-xs font-mono font-bold overflow-x-auto">
               <button
                 type="button"
                 onClick={() => setPreviewTab('visual')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 transition-all cursor-pointer ${
                   previewTab === 'visual'
-                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
-                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
+                    ? 'bg-[#ffe600] text-neutral-950 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-black'
+                    : 'bg-white text-neutral-700 border-neutral-300 hover:border-neutral-900'
                 }`}
               >
                 <Eye className="w-3.5 h-3.5" />
@@ -616,10 +646,10 @@ export const TemplateGallery: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setPreviewTab('markdown')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 transition-all cursor-pointer ${
                   previewTab === 'markdown'
-                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
-                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
+                    ? 'bg-[#ffe600] text-neutral-950 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-black'
+                    : 'bg-white text-neutral-700 border-neutral-300 hover:border-neutral-900'
                 }`}
               >
                 <Code className="w-3.5 h-3.5" />
@@ -629,124 +659,122 @@ export const TemplateGallery: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setPreviewTab('prompt')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 transition-all cursor-pointer ${
                   previewTab === 'prompt'
-                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
-                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
+                    ? 'bg-[#ffe600] text-neutral-950 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-black'
+                    : 'bg-white text-neutral-700 border-neutral-300 hover:border-neutral-900'
                 }`}
               >
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <Sparkles className="w-3.5 h-3.5" />
                 <span>AI Generator Prompt</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => setPreviewTab('plugins')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-colors ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 transition-all cursor-pointer ${
                   previewTab === 'plugins'
-                    ? 'bg-amber-500 text-neutral-950 font-bold text-white shadow-sm'
-                    : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800'
+                    ? 'bg-[#ffe600] text-neutral-950 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-black'
+                    : 'bg-white text-neutral-700 border-neutral-300 hover:border-neutral-900'
                 }`}
               >
-                <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                <Layers className="w-3.5 h-3.5" />
                 <span>Manage Plugins ({previewConfig.sections.length})</span>
               </button>
             </div>
 
             {/* Modal Content Scroll Area */}
-            <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            <div className="flex-1 overflow-y-auto p-6 space-y-5 bg-[#fafafa]">
               {/* TAB 1: Visual Simulated GitHub Profile */}
               {previewTab === 'visual' && (
                 <div className="space-y-4">
-                  {/* Dedicated Masterpiece Graphic Preview if Available */}
+                  {/* High-Fidelity Asset Banner if available */}
                   {TEMPLATE_PREVIEWS[previewTemplate.id] && (
-                    <div className="rounded-xl overflow-hidden border border-neutral-800 bg-neutral-950 p-2 shadow-2xl space-y-2">
-                      <div className="flex items-center justify-between px-2 pt-1 pb-2 border-b border-neutral-800/80">
-                        <span className="text-xs font-mono text-cyan-400 font-semibold flex items-center gap-1.5">
-                          <Eye className="w-3.5 h-3.5" /> High-Fidelity Archetype Showcase
+                    <div className="rounded-2xl overflow-hidden border-2 border-neutral-900 bg-white p-3 shadow-[3px_3px_0px_#18181b] space-y-2">
+                      <div className="flex items-center justify-between px-2 pt-1 pb-2 border-b border-neutral-200">
+                        <span className="text-xs font-mono text-neutral-950 font-black flex items-center gap-1.5">
+                          <Eye className="w-3.5 h-3.5 text-amber-500" /> High-Fidelity Showcase
                         </span>
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                          Camo-Compliant 60fps
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-100 text-emerald-950 border border-neutral-900 font-bold">
+                          100% Camo Compliant
                         </span>
                       </div>
                       <img
                         src={TEMPLATE_PREVIEWS[previewTemplate.id]}
-                        alt={`${previewTemplate.name} Masterpiece`}
-                        className="w-full h-auto object-contain rounded-lg max-h-[550px] mx-auto"
+                        alt={`${previewTemplate.name} Showcase`}
+                        className="w-full h-auto object-contain rounded-lg max-h-[380px] mx-auto"
                       />
                     </div>
                   )}
 
                   {/* macOS Profile Header Box */}
-                  <div className="rounded-xl border border-neutral-800 bg-neutral-950 p-5 space-y-3 shadow-inner">
-                    <div className="flex items-center justify-between pb-3 border-b border-neutral-800/80">
+                  <div className="rounded-2xl border-2 border-neutral-900 bg-white p-6 space-y-4 shadow-[4px_4px_0px_#18181b]">
+                    <div className="flex items-center justify-between pb-3 border-b-2 border-neutral-900">
                       <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-red-500/80" />
-                        <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                        <span className="w-3 h-3 rounded-full bg-green-500/80" />
-                        <span className="ml-2 font-mono text-xs text-neutral-400">
+                        <span className="w-3 h-3 rounded-full bg-red-400 border border-neutral-900" />
+                        <span className="w-3 h-3 rounded-full bg-[#ffe600] border border-neutral-900" />
+                        <span className="w-3 h-3 rounded-full bg-emerald-400 border border-neutral-900" />
+                        <span className="ml-2 font-mono text-xs font-bold text-neutral-600">
                           {previewConfig.settings.user.github || 'developer'} / README.md
                         </span>
                       </div>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-                        Live Preview
+                      <span className="text-[10px] font-mono font-black px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 border border-neutral-900 shadow-2xs">
+                        ● 60FPS CAMO SAFE
                       </span>
                     </div>
 
-                    <div className="space-y-1">
-                      <h4 className="text-xl font-bold text-neutral-100">
-                        Hi there, I'm {previewConfig.settings.user.name} 👋
+                    <div className="space-y-2">
+                      <h4 className="text-2xl font-black text-neutral-950 font-sans tracking-tight">
+                        Hi there, I&apos;m {previewConfig.settings.user.name} 👋
                       </h4>
-                      <p className="text-sm font-semibold text-amber-500 dark:text-amber-400 font-mono">
-                        {previewConfig.settings.user.role}
-                      </p>
-                      <p className="text-xs text-neutral-300 pt-1 leading-relaxed">
+                      <div>
+                        <span className="inline-block px-2.5 py-1 rounded-lg bg-[#ffe600] text-neutral-950 font-mono text-xs font-black border border-neutral-900 shadow-2xs">
+                          {previewConfig.settings.user.role}
+                        </span>
+                      </div>
+                      <p className="text-xs sm:text-sm text-neutral-800 font-mono pt-1 leading-relaxed max-w-2xl">
                         {previewConfig.settings.user.bio}
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-3 pt-2 text-xs text-neutral-400 font-mono">
+                    <div className="flex flex-wrap gap-2 pt-2 text-xs font-mono font-bold">
                       {previewConfig.settings.user.location && (
-                        <span>📍 Based in <b>{previewConfig.settings.user.location}</b></span>
+                        <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-900 border border-neutral-900 shadow-2xs">
+                          📍 Based in <b>{previewConfig.settings.user.location}</b>
+                        </span>
                       )}
                       {previewConfig.settings.user.status && (
-                        <span>🔭 <b>{previewConfig.settings.user.status}</b></span>
+                        <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-900 border border-neutral-900 shadow-2xs">
+                          🔭 Currently: <b>{previewConfig.settings.user.status}</b>
+                        </span>
                       )}
                       {previewConfig.settings.user.pronouns && (
-                        <span>💬 Pronouns: <b>{previewConfig.settings.user.pronouns}</b></span>
+                        <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-900 border border-neutral-900 shadow-2xs">
+                          💬 Pronouns: <b>{previewConfig.settings.user.pronouns}</b>
+                        </span>
                       )}
                     </div>
                   </div>
 
                   {/* Plugins Simulated Cards */}
                   <div className="space-y-3">
-                    <h5 className="text-xs font-mono uppercase tracking-wider text-neutral-400 font-semibold">
-                      Included Profile Modules ({previewConfig.sections.length})
+                    <h5 className="text-xs font-mono uppercase tracking-wider text-neutral-950 font-black">
+                      Active Telemetry Modules &amp; SVGs ({previewConfig.sections.length})
                     </h5>
 
                     {previewConfig.sections.length === 0 ? (
-                      <div className="p-4 rounded-xl border border-dashed border-neutral-800 text-center text-xs text-neutral-500">
+                      <div className="p-6 rounded-2xl border-2 border-dashed border-neutral-900 text-center text-xs font-mono text-neutral-600 bg-white">
                         This archetype is ultra-minimalist and relies purely on clean bio, markdown lists, and typography.
                       </div>
                     ) : (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div className="space-y-3">
                         {previewConfig.sections.map(sec => (
-                          <div
-                            key={sec.id}
-                            className="p-3.5 rounded-xl bg-neutral-950/80 border border-neutral-800 flex items-center justify-between"
-                          >
-                            <div className="space-y-0.5">
-                              <span className="font-mono text-xs font-bold text-amber-600 dark:text-amber-300">
-                                {sec.type}
-                              </span>
-                              <p className="text-[10px] text-neutral-500 font-mono">
-                                ID: {sec.id}
-                              </p>
-                            </div>
+                          <div key={sec.id} className="relative group/sec">
+                            {renderModuleVisual(sec)}
                             <button
                               type="button"
                               onClick={() => handleRemovePluginFromPreview(sec.id)}
-                              className="p-1 rounded text-neutral-500 hover:text-red-400 hover:bg-neutral-800 transition-colors"
+                              className="absolute top-3 right-3 p-1 rounded-lg bg-red-100 hover:bg-red-500 hover:text-white text-red-700 border border-neutral-900 text-xs font-mono transition-colors shadow-2xs"
                               title="Remove plugin from this preview"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -756,29 +784,6 @@ export const TemplateGallery: React.FC = () => {
                       </div>
                     )}
                   </div>
-
-                  {/* AI Prompt to Make It (Directly below preview) */}
-                  <div className="rounded-xl border border-amber-500/30 bg-amber-950/20 p-4 space-y-2.5">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono uppercase tracking-wider text-amber-300 font-semibold flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-amber-400" /> Prompt to Make It
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => handleCopyPrompt(previewTemplate)}
-                        className="text-xs font-mono text-amber-200 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-900/60 border border-amber-600/50 hover:bg-amber-800/80"
-                      >
-                        <Copy className="w-3.5 h-3.5" />
-                        <span>Copy Prompt</span>
-                      </button>
-                    </div>
-                    <p className="text-xs text-neutral-200 font-mono leading-relaxed bg-neutral-950/90 p-3 rounded-lg border border-neutral-800 select-all">
-                      {previewTemplate.prompt}
-                    </p>
-                    <p className="text-[11px] text-neutral-400">
-                      💡 Tip: Copy and paste this prompt directly into Google Antigravity, Claude Code, Cursor, or ChatGPT to generate your customized GitHub README.
-                    </p>
-                  </div>
                 </div>
               )}
 
@@ -786,7 +791,7 @@ export const TemplateGallery: React.FC = () => {
               {previewTab === 'markdown' && (
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs text-neutral-400 font-mono">Generated Markdown Output</span>
+                    <span className="text-xs font-mono font-bold text-neutral-700">Generated Markdown Output</span>
                     <button
                       type="button"
                       onClick={() => {
@@ -795,38 +800,29 @@ export const TemplateGallery: React.FC = () => {
                           setCopiedMarkdown(true);
                           showToast('Markdown copied to clipboard!');
                           try {
-                            confetti({ particleCount: 25, spread: 50, origin: { y: 0.8 }, colors: ['#34d399', '#38bdf8'] });
+                            confetti({ particleCount: 25, spread: 50, origin: { y: 0.8 }, colors: ['#ffe600', '#10b981'] });
                           } catch {
                             // Ignored
                           }
                           setTimeout(() => setCopiedMarkdown(false), 2200);
                         }
                       }}
-                      className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-all overflow-hidden ${
-                        copiedMarkdown
-                          ? 'animate-copy-pop bg-emerald-950/80 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.4)]'
-                          : 'bg-neutral-800 hover:bg-neutral-700 text-neutral-200 border-neutral-700'
-                      }`}
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border-2 border-neutral-900 bg-[#ffe600] text-neutral-950 font-mono text-xs font-black shadow-2xs hover:bg-[#ffdf00]"
                     >
-                      {copiedMarkdown && (
-                        <span className="absolute inset-0 overflow-hidden pointer-events-none">
-                          <span className="absolute inset-0 -translate-x-full animate-copy-gleam bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                        </span>
-                      )}
                       {copiedMarkdown ? (
                         <>
-                          <Check className="w-3.5 h-3.5 text-emerald-300 animate-check-spring" />
+                          <Check className="w-3.5 h-3.5" />
                           <span>Copied Markdown!</span>
                         </>
                       ) : (
                         <>
-                          <Copy className="w-3.5 h-3.5 text-cyan-400" />
+                          <Copy className="w-3.5 h-3.5" />
                           <span>Copy Markdown</span>
                         </>
                       )}
                     </button>
                   </div>
-                  <pre className="p-4 rounded-xl bg-neutral-950 border border-neutral-800 text-xs text-neutral-300 font-mono overflow-x-auto whitespace-pre-wrap max-h-80 select-all leading-relaxed">
+                  <pre className="p-5 rounded-2xl bg-white border-2 border-neutral-900 text-xs text-neutral-900 font-mono overflow-x-auto whitespace-pre-wrap max-h-96 select-all leading-relaxed shadow-[3px_3px_0px_#18181b]">
                     {previewMarkdown}
                   </pre>
                 </div>
@@ -835,47 +831,40 @@ export const TemplateGallery: React.FC = () => {
               {/* TAB 3: AI Prompt */}
               {previewTab === 'prompt' && (
                 <div className="space-y-4">
-                  <div className="p-4 rounded-xl bg-gradient-to-br from-amber-500/10 via-neutral-950 to-neutral-950 border border-amber-500/30 space-y-3">
+                  <div className="p-6 rounded-2xl bg-white border-2 border-neutral-900 shadow-[4px_4px_0px_#18181b] space-y-3">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <Sparkles className="w-4 h-4 text-amber-400" />
-                        <span className="text-xs font-bold text-neutral-100">AI Prompt for LLMs</span>
+                        <Sparkles className="w-4 h-4 text-amber-500" />
+                        <span className="text-xs font-black uppercase text-neutral-950 font-mono">
+                          AI Prompt for LLMs
+                        </span>
                       </div>
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/30">
-                        Claude • ChatGPT • Gemini • DeepSeek
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 border border-neutral-900 font-bold">
+                        Claude &bull; ChatGPT &bull; Gemini &bull; DeepSeek
                       </span>
                     </div>
 
-                    <p className="text-xs text-neutral-300 leading-relaxed font-sans bg-neutral-900/80 p-3 rounded-lg border border-neutral-800">
+                    <p className="text-xs text-neutral-800 leading-relaxed font-mono bg-neutral-50 p-4 rounded-xl border border-neutral-300 select-all">
                       {previewTemplate.prompt}
                     </p>
 
-                      <button
-                        type="button"
-                        onClick={() => handleCopyPrompt(previewTemplate)}
-                        className={`relative flex items-center gap-1.5 px-4 py-2 rounded-xl font-bold text-xs shadow-md transition-all active:scale-95 overflow-hidden ${
-                          copiedPromptId === previewTemplate.id
-                            ? 'animate-copy-pop bg-emerald-500 text-neutral-950 shadow-[0_0_20px_rgba(52,211,153,0.5)]'
-                            : 'bg-amber-500 hover:bg-amber-400 text-neutral-950'
-                        }`}
-                      >
-                        {copiedPromptId === previewTemplate.id && (
-                          <span className="absolute inset-0 overflow-hidden pointer-events-none">
-                            <span className="absolute inset-0 -translate-x-full animate-copy-gleam bg-gradient-to-r from-transparent via-white/35 to-transparent" />
-                          </span>
-                        )}
-                        {copiedPromptId === previewTemplate.id ? (
-                          <>
-                            <Check className="w-3.5 h-3.5 animate-check-spring" />
-                            <span>Prompt Copied!</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3.5 h-3.5" />
-                            <span>Copy Prompt for AI</span>
-                          </>
-                        )}
-                      </button>
+                    <button
+                      type="button"
+                      onClick={() => handleCopyPrompt(previewTemplate)}
+                      className="flex items-center gap-1.5 px-4 py-2 rounded-xl font-mono font-black text-xs bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] active:translate-x-[1px] active:translate-y-[1px]"
+                    >
+                      {copiedPromptId === previewTemplate.id ? (
+                        <>
+                          <Check className="w-3.5 h-3.5" />
+                          <span>Prompt Copied!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5" />
+                          <span>Copy Prompt for AI</span>
+                        </>
+                      )}
+                    </button>
                   </div>
                 </div>
               )}
@@ -885,32 +874,32 @@ export const TemplateGallery: React.FC = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="text-xs font-bold text-neutral-200">
+                      <h4 className="text-xs font-mono font-black text-neutral-950 uppercase">
                         Active Plugins in this Archetype ({previewConfig.sections.length})
                       </h4>
-                      <p className="text-[11px] text-neutral-400">
-                        Remove or toggle plugins to customize before applying to your profile.
+                      <p className="text-[11px] font-mono text-neutral-600">
+                        Remove plugins to customize before applying to your profile.
                       </p>
                     </div>
                     {previewConfig.sections.length < previewTemplate.config.sections.length && (
                       <button
                         type="button"
                         onClick={handleResetPreviewPlugins}
-                        className="flex items-center gap-1 px-3 py-1 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-xs text-neutral-300"
+                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#ffe600] text-neutral-950 font-mono text-xs font-black border border-neutral-900 shadow-2xs hover:bg-[#ffdf00]"
                       >
-                        <RefreshCw className="w-3 h-3 text-cyan-400" />
+                        <RefreshCw className="w-3 h-3" />
                         <span>Restore All Plugins</span>
                       </button>
                     )}
                   </div>
 
                   {previewConfig.sections.length === 0 ? (
-                    <div className="p-6 rounded-xl border border-dashed border-neutral-800 text-center space-y-2">
-                      <p className="text-xs text-neutral-400">All plugins have been removed from this preview.</p>
+                    <div className="p-8 rounded-2xl border-2 border-dashed border-neutral-900 text-center space-y-3 bg-white">
+                      <p className="text-xs font-mono text-neutral-600">All plugins have been removed from this preview.</p>
                       <button
                         type="button"
                         onClick={handleResetPreviewPlugins}
-                        className="px-3 py-1.5 rounded-lg bg-amber-500 text-neutral-950 font-bold hover:bg-amber-400 text-white text-xs font-semibold"
+                        className="px-4 py-2 rounded-xl bg-[#ffe600] text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 shadow-2xs hover:bg-[#ffdf00]"
                       >
                         Restore Plugins
                       </button>
@@ -920,18 +909,18 @@ export const TemplateGallery: React.FC = () => {
                       {previewConfig.sections.map((sec, idx) => (
                         <div
                           key={sec.id}
-                          className="flex items-center justify-between p-3 rounded-xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors"
+                          className="flex items-center justify-between p-3.5 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs"
                         >
                           <div className="flex items-center gap-3">
-                            <span className="w-6 h-6 rounded-lg bg-neutral-800 flex items-center justify-center font-mono text-[11px] text-neutral-400 font-bold">
+                            <span className="w-6 h-6 rounded-lg bg-neutral-100 border border-neutral-900 flex items-center justify-center font-mono text-[11px] text-neutral-950 font-black">
                               {idx + 1}
                             </span>
                             <div>
-                              <span className="text-xs font-bold text-amber-600 dark:text-amber-300 font-mono">
+                              <span className="text-xs font-black text-neutral-950 font-mono uppercase">
                                 {sec.type}
                               </span>
                               <p className="text-[10px] text-neutral-500 font-mono">
-                                {JSON.stringify(sec.props.content).slice(0, 70)}...
+                                ID: {sec.id}
                               </p>
                             </div>
                           </div>
@@ -939,7 +928,7 @@ export const TemplateGallery: React.FC = () => {
                           <button
                             type="button"
                             onClick={() => handleRemovePluginFromPreview(sec.id)}
-                            className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs transition-colors"
+                            className="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-100 hover:bg-red-500 hover:text-white text-red-700 border border-neutral-900 text-xs font-mono transition-colors shadow-2xs"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                             <span>Remove</span>
@@ -953,33 +942,15 @@ export const TemplateGallery: React.FC = () => {
             </div>
 
             {/* Modal Footer Actions */}
-            <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-neutral-950 border-t border-neutral-800">
+            <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-4 bg-white border-t-2 border-neutral-900">
               <div className="flex items-center gap-2">
                 <button
                   type="button"
                   onClick={() => handleCopyPrompt(previewTemplate)}
-                  className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border transition-all overflow-hidden ${
-                    copiedPromptId === previewTemplate.id
-                      ? 'animate-copy-pop bg-amber-500/20 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(251,191,36,0.35)]'
-                      : 'bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border-neutral-700/60'
-                  }`}
+                  className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-mono font-bold border-2 border-neutral-900 bg-white hover:bg-neutral-100 text-neutral-950 shadow-2xs"
                 >
-                  {copiedPromptId === previewTemplate.id && (
-                    <span className="absolute inset-0 overflow-hidden pointer-events-none">
-                      <span className="absolute inset-0 -translate-x-full animate-copy-gleam bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                    </span>
-                  )}
-                  {copiedPromptId === previewTemplate.id ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-amber-300 animate-check-spring" />
-                      <span>Prompt Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                      <span>Copy Prompt</span>
-                    </>
-                  )}
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Copy Prompt</span>
                 </button>
 
                 <button
@@ -989,58 +960,32 @@ export const TemplateGallery: React.FC = () => {
                       navigator.clipboard.writeText(previewMarkdown);
                       setCopiedMarkdown(true);
                       showToast('Markdown copied to clipboard!');
-                      try {
-                        confetti({ particleCount: 25, spread: 50, origin: { y: 0.8 }, colors: ['#34d399', '#38bdf8'] });
-                      } catch {
-                        // Ignored
-                      }
-                      setTimeout(() => setCopiedMarkdown(false), 2200);
+                      setTimeout(() => setCopiedMarkdown(false), 2000);
                     }
                   }}
-                  className={`relative flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium border transition-all overflow-hidden ${
-                    copiedMarkdown
-                      ? 'animate-copy-pop bg-emerald-950/80 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(52,211,153,0.4)]'
-                      : 'bg-neutral-800 hover:bg-neutral-700 text-neutral-300 border-neutral-700/60'
-                  }`}
+                  className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-mono font-bold border-2 border-neutral-900 bg-white hover:bg-neutral-100 text-neutral-950 shadow-2xs"
                 >
-                  {copiedMarkdown && (
-                    <span className="absolute inset-0 overflow-hidden pointer-events-none">
-                      <span className="absolute inset-0 -translate-x-full animate-copy-gleam bg-gradient-to-r from-transparent via-white/30 to-transparent" />
-                    </span>
-                  )}
-                  {copiedMarkdown ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-300 animate-check-spring" />
-                      <span>Copied Markdown!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>Copy Markdown</span>
-                    </>
-                  )}
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copy Markdown</span>
                 </button>
               </div>
 
               <div className="flex items-center gap-2">
-                {/* Append to existing profile */}
                 <button
                   type="button"
                   onClick={handleMergeFromPreview}
-                  title="Add sections from this template without overwriting your profile bio"
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 border border-neutral-700 text-neutral-200 text-xs font-bold transition-all active:scale-95"
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-neutral-100 text-neutral-950 font-mono text-xs font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b]"
                 >
-                  <Plus className="w-3.5 h-3.5 text-emerald-400" />
+                  <Layers className="w-3.5 h-3.5" />
                   <span>Add to My Profile</span>
                 </button>
 
-                {/* Apply entire template */}
                 <button
                   type="button"
                   onClick={handleApplyFromPreview}
-                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-violet-500 hover:to-indigo-500 text-white text-xs font-bold shadow-lg shadow-amber-500/20 transition-all active:scale-95"
+                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] active:translate-x-[1px] active:translate-y-[1px]"
                 >
-                  <Check className="w-3.5 h-3.5" />
+                  <Check className="w-4 h-4" />
                   <span>Apply Template</span>
                 </button>
               </div>
