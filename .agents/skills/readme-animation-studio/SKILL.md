@@ -1,9 +1,9 @@
 ---
 name: readme-animation-studio
-description: Comprehensive technical specification, architecture invariants, and generation rules for creating GitHub-compliant animated SVG banners, dynamic typography, backgrounds, 3D illusions, UI motion, scroll effects, and export tooling in ReadmeForge.
+description: Comprehensive technical specification, architecture invariants, and generation rules for creating GitHub-compliant animated SVG banners, dynamic typography, backgrounds, 3D illusions, UI motion, scroll effects, and export tooling in MonoForge.
 ---
 
-# ReadmeForge Animation Studio & Motion Skill
+# MonoForge Animation Studio & Motion Skill
 
 This skill provides complete guidelines for authoring, modifying, testing, and exporting dynamic animations and motion effects for GitHub profile READMEs, repository banners, and web application interfaces.
 
@@ -138,15 +138,15 @@ For documentation and portfolio landing pages:
 
 ## 8. Export Protocols
 
-ReadmeForge provides four standard export formats:
+MonoForge provides four standard export formats:
 
 1. **Markdown Relative Link** (Best for local repositories):
    ```markdown
-   ![Developer Profile Banner](./public/assets/readmeforge-banner.svg)
+   ![Developer Profile Banner](./public/assets/monoforge-banner.svg)
    ```
 2. **GitHub Raw URL** (Best for remote display across forks and web):
    ```markdown
-   ![Developer Profile Banner](https://raw.githubusercontent.com/<user>/<repo>/main/public/assets/readmeforge-banner.svg)
+   ![Developer Profile Banner](https://raw.githubusercontent.com/<user>/<repo>/main/public/assets/monoforge-banner.svg)
    ```
 3. **Data URI** (Zero external HTTP request dependency):
    ```markdown
@@ -154,7 +154,7 @@ ReadmeForge provides four standard export formats:
    ```
 4. **Hosted Demo Link** (Shareable studio state):
    ```markdown
-   [![Inspect in ReadmeForge Studio](https://img.shields.io/badge/ReadmeForge-Studio%20Demo-6366f1?style=for-the-badge&logo=sparkles)](https://readmeforge.dev/animator?c=<base64_config>)
+   [![Inspect in MonoForge Studio](https://img.shields.io/badge/MonoForge-Studio%20Demo-6366f1?style=for-the-badge&logo=sparkles)](https://monoforge-studio.vercel.app/en/developer)
    ```
 5. **WebP & GIF Export**:
    Run the headless render script:

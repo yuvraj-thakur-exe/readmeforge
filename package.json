@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/yuvraj-thakur-exe/MONOFORGE/issues"
   },
-  "homepage": "https://github.com/yuvraj-thakur-exe/MONOFORGE",
+  "homepage": "https://monoforge-studio.vercel.app",
   "bin": {
     "monoforge": "./bin/monoforge.js"
   },

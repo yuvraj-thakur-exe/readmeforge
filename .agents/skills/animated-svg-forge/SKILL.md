@@ -3,7 +3,7 @@ name: animated-svg-forge
 description: Use when creating, designing, generating, or customizing animated SVGs, dynamic banners, animated text effects, glowing frames, particle backgrounds, or profile graphics. Also use whenever the user says "create an animated [prompt]" or wants custom animated vector art for GitHub profiles or web applications.
 license: MIT
 metadata:
-  author: ReadmeForge
+  author: MonoForge
   version: "1.1.0"
 ---
 

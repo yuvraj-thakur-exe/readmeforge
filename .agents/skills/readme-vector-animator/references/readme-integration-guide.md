@@ -35,7 +35,7 @@ GitHub dynamically toggles between light and dark themes using standard CSS medi
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/header-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/header-light.svg">
-    <img src="assets/header-dark.svg" alt="ReadmeForge Profile Banner" width="100%">
+    <img src="assets/header-dark.svg" alt="MonoForge Profile Banner" width="100%">
   </picture>
 </p>
 ```

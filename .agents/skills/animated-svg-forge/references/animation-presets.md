@@ -114,7 +114,7 @@ Production-ready vector blueprints and motion patterns for GitHub profiles and d
   <circle cx="95" cy="55" r="4" fill="#10b981" />
 
   <text x="65" y="105" fill="#34d399" font-family="'Fira Code', monospace" font-size="20" font-weight="700">
-    $ readmeforge --mode=autonomous
+    $ monoforge --mode=autonomous
   </text>
   <text x="65" y="135" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="14">
     [OK] Profile synthesized with 100% verified vector art.

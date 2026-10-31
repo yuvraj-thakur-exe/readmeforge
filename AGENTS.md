@@ -1,9 +1,9 @@
-# AGENTS.md — ReadmeForge
+# AGENTS.md — MonoForge
 
 Instructions for any AI coding agent (Claude Code, Cursor, Devin, Copilot Workspace, etc.) working in this repo.
 
 ## What this is
-ReadmeForge — GitHub profile README generator. Visual wizard + `/developer` raw-mode editor, plugin-based stats/badges, resume import + web enrichment (confirmation-gated), direct GitHub push/sync.
+MonoForge — GitHub profile README generator. Visual wizard + `/developer` raw-mode editor, plugin-based stats/badges, resume import + web enrichment (confirmation-gated), direct GitHub push/sync.
 
 ## Stack
 Next.js 16 (App Router) · TypeScript · Tailwind · Shadcn/ui · Radix · zustand · zod · react-hook-form · Biome (lint/format) · Vitest (unit) · Playwright (e2e)

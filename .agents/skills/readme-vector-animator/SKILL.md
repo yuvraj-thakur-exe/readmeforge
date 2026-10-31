@@ -102,7 +102,7 @@ Always provide the user with clear, copy-pasteable Markdown snippets when genera
 ### Method 1: Centered Clean Embed (Recommended)
 ```markdown
 <p align="center">
-  <img src="assets/banner.svg" alt="ReadmeForge Profile Banner" width="100%" />
+  <img src="assets/banner.svg" alt="MonoForge Profile Banner" width="100%" />
 </p>
 ```
 
@@ -112,7 +112,7 @@ Always provide the user with clear, copy-pasteable Markdown snippets when genera
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-    <img src="assets/banner-dark.svg" alt="ReadmeForge Profile Banner" width="100%">
+    <img src="assets/banner-dark.svg" alt="MonoForge Profile Banner" width="100%">
   </picture>
 </p>
 ```
