@@ -181,7 +181,7 @@ export default function TelemetryStudioPage() {
 </p>
 
 <!-- Native dynamic API route: -->
-<!-- <img src="https://github.com/yuvraj-thakur-exe/MONOFORGE/api/telemetry/svg?plugin=${selectedPluginPreset}&user=${cleanUser}" alt="${cleanUser}'s MonoForge Telemetry" /> -->`;
+<!-- <img src="https://monoforge-studio.vercel.app/api/telemetry/svg?plugin=${selectedPluginPreset}&user=${cleanUser}" alt="${cleanUser}'s MonoForge Telemetry" /> -->`;
   }, [selectedPluginPreset, username, markdownSnippet]);
 
   const handleCopy = (text: string, key: string, label: string) => {
@@ -286,10 +286,10 @@ export default function TelemetryStudioPage() {
                 key={handle}
                 type="button"
                 onClick={() => setUsername(handle)}
-                className={`px-2.5 py-1 rounded-md border text-xs font-mono transition-colors ${
+                className={`px-2.5 py-1 rounded-lg border-2 border-neutral-900 text-xs font-mono font-bold transition-all btn-tactile cursor-pointer ${
                   username === handle
-                    ? 'border-amber-500 bg-amber-500/10 text-amber-300'
-                    : 'border-neutral-900 bg-white text-neutral-600 hover:text-neutral-900 hover:border-neutral-900'
+                    ? 'bg-[#ffe600] text-neutral-950 font-black shadow-[2px_2px_0px_#18181b]'
+                    : 'bg-white text-neutral-800 hover:bg-[#ffe600] shadow-[1px_1px_0px_#18181b]'
                 }`}
               >
                 @{handle}
@@ -718,7 +718,7 @@ export default function TelemetryStudioPage() {
                       cURL Command
                     </label>
                     <pre className="p-3 rounded-lg bg-white border border-neutral-900 font-mono text-xs text-amber-300/90 overflow-x-auto">
-                      curl -s "https://github.com/yuvraj-thakur-exe/MONOFORGE{activeSvgUrl}" -o telemetry-{selectedPluginPreset}.svg
+                      curl -s "https://monoforge-studio.vercel.app{activeSvgUrl}" -o telemetry-{selectedPluginPreset}.svg
                     </pre>
                   </div>
                 </div>
@@ -734,7 +734,7 @@ export default function TelemetryStudioPage() {
                     <button
                       type="button"
                       onClick={handleDownloadSvg}
-                      className="px-3 py-1.5 rounded-lg bg-neutral-800 border border-neutral-900 text-neutral-900 font-semibold hover:bg-neutral-700 transition-colors flex items-center gap-1.5"
+                      className="px-3 py-1.5 rounded-lg bg-white hover:bg-[#ffe600] text-neutral-950 font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile transition-all flex items-center gap-1.5 cursor-pointer"
                     >
                       <Download className="w-3.5 h-3.5 text-neutral-600" />
                       <span>Download .svg</span>
@@ -751,7 +751,7 @@ export default function TelemetryStudioPage() {
                   <button
                     type="button"
                     onClick={() => handleCopy(actionWorkflow, 'bottom_action', 'Workflow YAML')}
-                    className="px-3 py-1.5 rounded-lg bg-neutral-800 border border-neutral-900 text-neutral-900 font-semibold hover:bg-neutral-700 transition-colors flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-lg bg-white hover:bg-[#ffe600] text-neutral-950 font-bold border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile transition-all flex items-center gap-1.5 cursor-pointer"
                   >
                     <Terminal className="w-3.5 h-3.5 text-neutral-600" />
                     <span>Copy Action YAML</span>

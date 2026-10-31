@@ -6,7 +6,7 @@ export const pinterestImagePlugin: Plugin = {
   name: 'Pinterest Aesthetic Banner & Art',
   description: 'Embed high-resolution aesthetic Pinterest artworks, animated GIFs, anime banners, and visual media into your GitHub README.',
   author: 'MonoForge',
-  repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+  repository: 'https://github.com/monoforge/MONOFORGE',
   category: 'widgets',
   icon: 'image',
   fields: [

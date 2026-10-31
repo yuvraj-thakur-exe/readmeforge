@@ -13,20 +13,20 @@ function WizardContent() {
   const [studioMode, setStudioMode] = useState<'canvas' | 'guided'>(initialMode);
 
   return (
-    <div className="min-h-screen bg-[#fafafa] dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex flex-col font-sans selection:bg-[#ffe600] selection:text-neutral-950">
+    <div className="min-h-screen bg-white text-neutral-950 flex flex-col font-sans selection:bg-[#ffe600] selection:text-neutral-950">
       <TopNav />
 
       {/* Studio Mode Switcher Bar */}
-      <div className="bg-white dark:bg-neutral-900 border-b-2 border-neutral-900 dark:border-neutral-800 px-4 py-2 flex items-center justify-between z-20 shadow-xs">
+      <div className="bg-white border-b-2 border-neutral-900 px-4 py-2 flex items-center justify-between z-20 shadow-xs">
         <div className="flex items-center gap-2">
-          <div className="flex items-center bg-neutral-100 dark:bg-neutral-950 p-1 rounded-xl border-2 border-neutral-900 dark:border-neutral-700 gap-1.5 shadow-[2px_2px_0px_#18181b]">
+          <div className="flex items-center bg-white p-1 rounded-xl border-2 border-neutral-900 gap-1.5 shadow-[2px_2px_0px_#18181b]">
             <button
               type="button"
               onClick={() => setStudioMode('canvas')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all btn-tactile ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all btn-tactile cursor-pointer ${
                 studioMode === 'canvas'
                   ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-[1px_1px_0px_#18181b]'
-                  : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
+                  : 'bg-white text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100'
               }`}
             >
               <LayoutDashboard className="w-3.5 h-3.5" />
@@ -35,10 +35,10 @@ function WizardContent() {
             <button
               type="button"
               onClick={() => setStudioMode('guided')}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all btn-tactile ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all btn-tactile cursor-pointer ${
                 studioMode === 'guided'
                   ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-[1px_1px_0px_#18181b]'
-                  : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
+                  : 'bg-white text-neutral-700 hover:text-neutral-950 hover:bg-neutral-100'
               }`}
             >
               <ListOrdered className="w-3.5 h-3.5" />
@@ -47,7 +47,7 @@ function WizardContent() {
           </div>
         </div>
 
-        <div className="text-xs font-mono font-bold text-neutral-600 dark:text-neutral-400 hidden sm:flex items-center gap-1.5">
+        <div className="text-xs font-mono font-bold text-neutral-700 hidden sm:flex items-center gap-1.5">
           <Sparkles className="w-3.5 h-3.5 text-amber-500" />
           <span>
             {studioMode === 'canvas'
@@ -57,7 +57,7 @@ function WizardContent() {
         </div>
       </div>
 
-      <main className="flex-1 overflow-hidden">
+      <main className="flex-1 overflow-hidden bg-white">
         {studioMode === 'canvas' ? <CanvasTemplate /> : <WizardContainer />}
       </main>
     </div>
@@ -68,7 +68,7 @@ export default function WizardPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#fafafa] dark:bg-neutral-950 text-neutral-950 dark:text-neutral-100 flex items-center justify-center text-xs font-mono">
+        <div className="min-h-screen bg-white text-neutral-950 flex items-center justify-center text-xs font-mono">
           Loading Visual Studio...
         </div>
       }

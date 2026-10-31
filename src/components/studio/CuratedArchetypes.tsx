@@ -106,7 +106,7 @@ export function CuratedArchetypes() {
                   {arch.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-neutral-200/80 dark:bg-neutral-800 text-neutral-800 text-neutral-900"
+                      className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-neutral-100 text-neutral-900 border border-neutral-300 shadow-2xs"
                     >
                       {tag}
                     </span>

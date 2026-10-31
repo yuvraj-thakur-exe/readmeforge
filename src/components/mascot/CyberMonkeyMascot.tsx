@@ -71,7 +71,7 @@ export function CyberMonkeyMascot() {
   const handleCopyMarkdown = () => {
     const markdown = `<!-- MonoForge Cyber Monkey Mascot (100% Camo Safe) -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/cyber-monkey-mascot.svg" alt="MonoForge Cyber Monkey Mascot" width="460" />
+  <img src="/assets/cyber-monkey-mascot.svg" alt="MonoForge Cyber Monkey Mascot" width="460" />
 </p>`;
     navigator.clipboard.writeText(markdown);
     setCopied(true);

@@ -5,12 +5,11 @@ import { CanvasTemplate } from '#/components/templates/canvas';
 
 export default function CanvasPage() {
   return (
-    <div className="min-h-screen bg-palette-surface text-palette-contrast flex flex-col">
+    <div className="min-h-screen bg-white text-neutral-950 flex flex-col font-sans">
       <TopNav />
-      <main className="flex-1 overflow-hidden">
+      <main className="flex-1 overflow-hidden bg-white">
         <CanvasTemplate />
       </main>
     </div>
   );
 }
-

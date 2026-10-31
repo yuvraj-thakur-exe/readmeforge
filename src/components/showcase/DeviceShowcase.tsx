@@ -32,13 +32,13 @@ const DEMOS: ArchetypeDemo[] = [
     previewSvg: '/assets/wow-profile-full.svg',
     archetypeId: 'wow-3d-city-cat',
     markdownSnippet: `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/peeking-cat-header.svg" alt="Peeking Cat Header" width="100%" />
+  <img src="/assets/peeking-cat-header.svg" alt="Peeking Cat Header" width="100%" />
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/telemetry-isocalendar-3d.svg" alt="3D City Contributions" width="100%" />
+  <img src="/assets/telemetry-isocalendar-3d.svg" alt="3D City Contributions" width="100%" />
 </div>`,
   },
   {
@@ -49,7 +49,7 @@ const DEMOS: ArchetypeDemo[] = [
     previewSvg: '/assets/bento-dashboard-full.svg',
     archetypeId: 'bento-signal-dashboard',
     markdownSnippet: `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/bento-dashboard-full.svg" alt="Bento Signal Dashboard" width="100%" />
+  <img src="/assets/bento-dashboard-full.svg" alt="Bento Signal Dashboard" width="100%" />
 </div>`,
   },
   {
@@ -60,7 +60,7 @@ const DEMOS: ArchetypeDemo[] = [
     previewSvg: '/assets/about-me-telemetry.svg',
     archetypeId: 'forge-telemetry-dashboard',
     markdownSnippet: `<div align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/about-me-telemetry.svg" alt="Telemetry Suite" width="100%" />
+  <img src="/assets/about-me-telemetry.svg" alt="Telemetry Suite" width="100%" />
 </div>`,
   },
   {
@@ -71,7 +71,7 @@ const DEMOS: ArchetypeDemo[] = [
     previewSvg: '/assets/monkey-code-hud.svg',
     archetypeId: 'constellation-devops-desk',
     markdownSnippet: `<p align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/monkey-code-hud.svg" alt="NoMonkey Workstation HUD" width="100%" />
+  <img src="/assets/monkey-code-hud.svg" alt="NoMonkey Workstation HUD" width="100%" />
 </p>`,
   },
 ];

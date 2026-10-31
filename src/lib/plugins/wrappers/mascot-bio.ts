@@ -5,7 +5,7 @@ export const mascotBioPlugin: Plugin = {
   name: 'Mascot Companion Bio',
   description: 'Two-column GitHub profile layout pairing structured bulleted bio points with an animated vector mascot sticker.',
   author: 'MonoForge',
-  repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+  repository: 'https://github.com/monoforge/MONOFORGE',
   category: 'widgets',
   icon: 'user-check',
   fields: [
@@ -97,11 +97,11 @@ export const mascotBioPlugin: Plugin = {
       .join('\n            ');
 
     const MASCOT_URLS: Record<string, string> = {
-      'owl-confetti': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/owl-confetti.svg',
-      'coding-unicorn': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/coding-unicorn.svg',
-      'developer-desk': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/developer-desk.svg',
-      'octocat-coffee': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/octocat-coffee.svg',
-      'cyber-bot': 'https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/public/assets/characters/blue-bot.svg',
+      'owl-confetti': '/assets/owl-confetti.svg',
+      'coding-unicorn': '/assets/coding-unicorn.svg',
+      'developer-desk': '/assets/developer-desk.svg',
+      'octocat-coffee': '/assets/octocat-coffee.svg',
+      'cyber-bot': '/assets/characters/blue-bot.svg',
     };
 
     const mascotUrl = MASCOT_URLS[mascot] || MASCOT_URLS['owl-confetti'];

@@ -30,6 +30,45 @@ const STEPS = [
   { id: 'projects', label: 'Projects & Bio', icon: FolderGit2 },
 ];
 
+
+function resolveSocialUrl(name: string, input: string): string {
+  const trimmed = input.trim();
+  if (!trimmed) return '';
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://') || trimmed.startsWith('mailto:')) {
+    return trimmed;
+  }
+  const cleanHandle = trimmed.replace(/^@/, '');
+  switch (name.toLowerCase()) {
+    case 'gmail':
+      return cleanHandle.includes('@') ? `mailto:${cleanHandle}` : `mailto:${cleanHandle}@gmail.com`;
+    case 'github':
+      return `https://github.com/${cleanHandle}`;
+    case 'linkedin':
+      return `https://linkedin.com/in/${cleanHandle}`;
+    case 'twitter':
+    case 'x':
+      return `https://x.com/${cleanHandle}`;
+    case 'discord':
+      return cleanHandle.startsWith('http') ? cleanHandle : `https://discord.com/users/${cleanHandle}`;
+    case 'youtube':
+      return `https://youtube.com/@${cleanHandle}`;
+    case 'instagram':
+      return `https://instagram.com/${cleanHandle}`;
+    case 'twitch':
+      return `https://twitch.tv/${cleanHandle}`;
+    case 'leetcode':
+      return `https://leetcode.com/${cleanHandle}`;
+    case 'hackerrank':
+      return `https://hackerrank.com/${cleanHandle}`;
+    case 'devto':
+      return `https://dev.to/${cleanHandle}`;
+    case 'medium':
+      return `https://medium.com/@${cleanHandle}`;
+    default:
+      return `https://${name}.com/${cleanHandle}`;
+  }
+}
+
 export function WizardContainer() {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [socialSearch, setSocialSearch] = useState('');
@@ -78,12 +117,13 @@ export function WizardContainer() {
 
     const currentMap = { ...((section.props?.content?.socials as Record<string, any>) || {}) };
 
-    if (!link.trim()) {
+    const resolvedLink = resolveSocialUrl(name, link);
+    if (!resolvedLink) {
       delete currentMap[name];
     } else {
       currentMap[name] = {
         ...currentMap[name],
-        link: link.trim(),
+        link: resolvedLink,
         message: meta?.badge?.message || name,
         color: meta?.badge?.color || '000000',
         logo: meta?.badge?.logo || name,
@@ -674,10 +714,10 @@ export function WizardContainer() {
                                 if (isActive) {
                                   handleUpdateSocial(item.name, '');
                                 } else {
-                                  const defaultUrl = item.name === 'gmail'
-                                    ? 'mailto:developer@gmail.com'
-                                    : `https://${item.name}.com/username`;
-                                  handleUpdateSocial(item.name, defaultUrl);
+                                  const fallbackUrl = item.name === 'gmail'
+                                    ? 'mailto:yourname@gmail.com'
+                                    : `https://${item.name}.com/your-username`;
+                                  handleUpdateSocial(item.name, fallbackUrl);
                                 }
                               }}
                               className={`text-[11px] font-semibold px-2.5 py-1 rounded-lg border transition-all shrink-0 ${

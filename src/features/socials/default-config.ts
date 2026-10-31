@@ -31,7 +31,7 @@ const defaultSocialsSectionConfig = {
 
         youtube: {
           icon: 'default',
-          message: 'Youtube',
+          message: 'YouTube',
           color: 'FF0000',
           label: '',
           logo: 'youtube',
@@ -41,14 +41,14 @@ const defaultSocialsSectionConfig = {
 
       styles: {
         style: 'for-the-badge',
-        type: 'icon',
-        height: 40,
+        type: 'badge',
+        height: 35,
       },
     },
 
     styles: {
       align: 'left',
-      spacing: 12,
+      spacing: 10,
     },
   },
 };

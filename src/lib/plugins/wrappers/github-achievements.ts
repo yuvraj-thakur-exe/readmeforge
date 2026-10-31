@@ -56,7 +56,7 @@ export const githubAchievementsPlugin: Plugin = {
   name: 'GitHub Earned Achievements',
   description: 'Showcase your official earned GitHub achievement badges (Pull Shark, Quickdraw, Starstruck, Galaxy Brain, Arctic Vault, and more).',
   author: 'MonoForge',
-  repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+  repository: 'https://github.com/monoforge/MONOFORGE',
   category: 'badges',
   icon: 'award',
   fields: [

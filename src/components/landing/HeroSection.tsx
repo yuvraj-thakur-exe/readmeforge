@@ -58,7 +58,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
     id: 'pnpm',
     label: 'pnpm (Fastest)',
     icon: <PnpmLogo className="w-3.5 h-3.5" />,
-    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && pnpm install && pnpm dev',
+    command: 'git clone https://github.com/monoforge/MONOFORGE.git && cd MONOFORGE && pnpm install && pnpm dev',
     description: 'Clone and launch locally with pnpm and Turbopack',
     badge: 'Recommended',
   },
@@ -66,7 +66,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
     id: 'npm',
     label: 'npm / npx',
     icon: <NpmLogo className="w-3.5 h-3.5" />,
-    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && npm install && npm run dev',
+    command: 'git clone https://github.com/monoforge/MONOFORGE.git && cd MONOFORGE && npm install && npm run dev',
     description: 'Standard Node.js setup with zero prerequisite package managers',
     badge: 'Universal',
   },
@@ -74,7 +74,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
     id: 'claude',
     label: 'Claude Code',
     icon: <ClaudeLogo className="w-3.5 h-3.5" />,
-    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && claude',
+    command: 'git clone https://github.com/monoforge/MONOFORGE.git && cd MONOFORGE && claude',
     description: 'Clone and launch with Anthropic Claude Code agentic CLI',
     badge: 'AI Agent',
   },
@@ -82,7 +82,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
     id: 'antigravity',
     label: 'Antigravity IDE',
     icon: <AntigravityLogo className="w-3.5 h-3.5" />,
-    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && agy',
+    command: 'git clone https://github.com/monoforge/MONOFORGE.git && cd MONOFORGE && agy',
     description: 'Clone and launch with Google DeepMind Antigravity studio',
     badge: 'DeepMind',
   },
@@ -90,7 +90,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
     id: 'cursor',
     label: 'Cursor IDE',
     icon: <CursorLogo className="w-3.5 h-3.5" />,
-    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cursor MONOFORGE',
+    command: 'git clone https://github.com/monoforge/MONOFORGE.git && cursor MONOFORGE',
     description: 'Open workspace in Cursor AI-first editor',
     badge: 'Editor',
   },
@@ -98,7 +98,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
     id: 'vscode',
     label: 'VS Code',
     icon: <VsCodeLogo className="w-3.5 h-3.5" />,
-    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && code MONOFORGE',
+    command: 'git clone https://github.com/monoforge/MONOFORGE.git && code MONOFORGE',
     description: 'Visual Studio Code workspace with split-pane live preview',
     badge: 'Extension',
   },
@@ -106,7 +106,7 @@ const INSTALL_OPTIONS: InstallOption[] = [
     id: 'docker',
     label: 'Docker',
     icon: <BashLogo className="w-3.5 h-3.5" />,
-    command: 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git && cd MONOFORGE && docker build -t monoforge . && docker run -p 3000:3000 monoforge',
+    command: 'git clone https://github.com/monoforge/MONOFORGE.git && cd MONOFORGE && docker build -t monoforge . && docker run -p 3000:3000 monoforge',
     description: 'Isolated containerized build running at http://localhost:3000',
     badge: 'Container',
   },
@@ -409,7 +409,7 @@ export const HeroSection: React.FC = () => {
         </Link>
 
         <a
-          href="https://github.com/yuvraj-thakur-exe/MONOFORGE/archive/refs/heads/main.zip"
+          href="https://github.com/monoforge/MONOFORGE/archive/refs/heads/main.zip"
           download
           className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white dark:bg-neutral-900/80 hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 text-neutral-700 dark:text-neutral-300 font-medium text-sm transition-all hover:scale-105 active:scale-95 select-none shadow-sm"
         >

@@ -59,8 +59,8 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-neutral-200 ">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-neutral-950 text-white   border border-neutral-900">
-                <MonoForgeMonkeyIcon className="w-6 h-6" />
+              <div className="p-1 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] overflow-hidden">
+                <MonoForgeMonkeyIcon className="w-8 h-8" />
               </div>
               <div>
                 <span className="font-black text-lg tracking-tight text-neutral-950  uppercase font-sans">
@@ -102,7 +102,7 @@ export default function HomePage() {
                 <span>GUIDE HUB</span>
               </Link>
               <a
-                href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
+                href="https://github.com/monoforge/MONOFORGE"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-neutral-950 dark:hover:text-white transition-colors flex items-center gap-1.5"

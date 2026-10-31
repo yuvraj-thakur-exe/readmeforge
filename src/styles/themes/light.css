@@ -1,47 +1,59 @@
+:root,
 :root[data-theme='light'] {
+  --palette-base: oklch(1 0 0);
+  --palette-soft: oklch(0.96 0.005 248);
+  --palette-line: oklch(0.89 0.01 247.9);
+  --palette-contrast: oklch(0.2 0.012 248.2);
+  --palette-accent: oklch(0.3 0.016 248.2);
+  --palette-ring: #ffe600;
   --palette-state-shift: -0.1;
 }
 
 /* Surface — app floor (base, text, borders) */
-:root[data-theme='light'] .palette-surface {
+:root[data-theme='light'] .palette-surface,
+.palette-surface {
   --palette-base: oklch(1 0 0);
-  --palette-soft: oklch(0.917 0.013 196.9);
+  --palette-soft: oklch(0.96 0.005 248);
   --palette-line: oklch(0.89 0.01 247.9);
-  --palette-contrast: oklch(0.318 0.012 248.2);
-  --palette-accent: oklch(0.414 0.016 248.2);
-  --palette-ring: oklch(0.57 0.211 257.9);
+  --palette-contrast: oklch(0.2 0.012 248.2);
+  --palette-accent: oklch(0.3 0.016 248.2);
+  --palette-ring: #ffe600;
 }
 
-:root[data-theme='light'] .palette-surface-green {
+:root[data-theme='light'] .palette-surface-green,
+.palette-surface-green {
   --palette-base: oklch(1 0 0);
-  --palette-soft: oklch(0.917 0.013 196.9);
+  --palette-soft: oklch(0.96 0.005 248);
   --palette-line: oklch(0.89 0.01 247.9);
-  --palette-contrast: oklch(0.318 0.012 248.2);
-  --palette-accent: oklch(0.414 0.016 248.2);
+  --palette-contrast: oklch(0.2 0.012 248.2);
+  --palette-accent: oklch(0.3 0.016 248.2);
   --palette-ring: oklch(0.627 0.157 148.4);
 }
 
-:root[data-theme='light'] .palette-surface-orange {
+:root[data-theme='light'] .palette-surface-orange,
+.palette-surface-orange {
   --palette-base: oklch(1 0 0);
-  --palette-soft: oklch(0.917 0.013 196.9);
+  --palette-soft: oklch(0.96 0.005 248);
   --palette-line: oklch(0.89 0.01 247.9);
-  --palette-contrast: oklch(0.318 0.012 248.2);
-  --palette-accent: oklch(0.414 0.016 248.2);
-  --palette-ring: oklch(0.608 0.22 32.9);
+  --palette-contrast: oklch(0.2 0.012 248.2);
+  --palette-accent: oklch(0.3 0.016 248.2);
+  --palette-ring: #ffe600;
 }
 
 /* Raised — elevated surface (cards, popovers, dialogs) */
-:root[data-theme='light'] .palette-raised {
-  --palette-base: oklch(0.965 0.005 248);
-  --palette-soft: oklch(0.917 0.013 196.9);
+:root[data-theme='light'] .palette-raised,
+.palette-raised {
+  --palette-base: oklch(1 0 0);
+  --palette-soft: oklch(0.96 0.005 248);
   --palette-line: oklch(0.89 0.01 247.9);
-  --palette-contrast: oklch(0.318 0.012 248.2);
-  --palette-accent: oklch(0.414 0.016 248.2);
-  --palette-ring: oklch(0.759 0.022 248.1);
+  --palette-contrast: oklch(0.2 0.012 248.2);
+  --palette-accent: oklch(0.3 0.016 248.2);
+  --palette-ring: #ffe600;
 }
 
 /* Blue — primary brand (was palette-brand, hue 212) */
-:root[data-theme='light'] .palette-blue {
+:root[data-theme='light'] .palette-blue,
+.palette-blue {
   --palette-base: oklch(0.57 0.211 257.9);
   --palette-soft: oklch(0.882 0.059 251.9);
   --palette-line: oklch(0.713 0.153 253.4);
@@ -51,7 +63,8 @@
 }
 
 /* Green — success/positive (was palette-success, hue 136) */
-:root[data-theme='light'] .palette-green {
+:root[data-theme='light'] .palette-green,
+.palette-green {
   --palette-base: oklch(0.627 0.157 148.4);
   --palette-soft: oklch(0.887 0.075 152.9);
   --palette-line: oklch(0.778 0.15 150.3);
@@ -62,7 +75,8 @@
 
 /* Danger — error/destructive (hue 3), also applied to [data-invalid] */
 :root[data-theme='light'] .palette-danger,
-:root[data-theme='light'] [data-invalid] {
+:root[data-theme='light'] [data-invalid],
+.palette-danger {
   --palette-base: oklch(0.55 0.219 29.5);
   --palette-soft: oklch(0.827 0.091 22.6);
   --palette-line: oklch(0.666 0.204 27.2);
@@ -72,11 +86,12 @@
 }
 
 /* Warning — caution (hue 11) */
-:root[data-theme='light'] .palette-orange {
-  --palette-base: oklch(0.608 0.22 32.9);
-  --palette-soft: oklch(0.89 0.053 32.8);
+:root[data-theme='light'] .palette-orange,
+.palette-orange {
+  --palette-base: #ffe600;
+  --palette-soft: #fffde6;
   --palette-line: oklch(0.727 0.153 33.9);
-  --palette-contrast: oklch(0.318 0.012 248.2);
-  --palette-accent: oklch(0.512 0.183 33);
+  --palette-contrast: #18181b;
+  --palette-accent: #eab308;
   --palette-ring: var(--palette-accent);
 }

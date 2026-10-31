@@ -64,8 +64,8 @@ function LocalizedDeveloperContent() {
       <header className="flex items-center justify-between px-3 sm:px-4 py-2 bg-white  border-b-2 border-neutral-900  z-10 shrink-0 gap-2 shadow-sm">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link href="/" className="flex items-center gap-1.5 sm:gap-2 group">
-            <div className="p-1 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 group-hover:scale-105 transition-transform shadow-[2px_2px_0px_#18181b]">
-              <MonoForgeMonkeyIcon className="w-5 h-5 text-neutral-950" />
+            <div className="p-1 rounded-lg bg-white border-2 border-neutral-900 group-hover:scale-105 transition-transform shadow-[2px_2px_0px_#18181b] overflow-hidden">
+              <MonoForgeMonkeyIcon className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <span className="font-black text-sm tracking-tight text-neutral-950 ">
               MONO<span className="text-amber-500">FORGE</span>
@@ -81,10 +81,10 @@ function LocalizedDeveloperContent() {
           <button
             type="button"
             onClick={() => setShowPluginPanel(prev => !prev)}
-            className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] ${
+            className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] cursor-pointer ${
               showPluginPanel
                 ? 'bg-[#ffe600] text-neutral-950 font-black'
-                : 'bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100'
+                : 'bg-white text-neutral-950 hover:bg-[#ffe600]'
             }`}
             title="Toggle Arsenal & Templates Drawer"
           >
@@ -101,10 +101,10 @@ function LocalizedDeveloperContent() {
           <button
             type="button"
             onClick={() => setShowCopilot(prev => !prev)}
-            className={`hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] ${
+            className={`hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] cursor-pointer ${
               showCopilot
                 ? 'bg-[#ffe600] text-neutral-950 font-black'
-                : 'bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100'
+                : 'bg-white text-neutral-950 hover:bg-[#ffe600]'
             }`}
             title="Toggle Cyber Monkey Co-Pilot Assistant"
           >
@@ -210,7 +210,7 @@ function LocalizedDeveloperContent() {
         <div className="flex items-center gap-1.5 sm:gap-2">
           <Link
             href="/wizard"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-950 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
             title="Visual Canvas Studio"
           >
             <Sparkles className="w-3.5 h-3.5 text-amber-500" />
@@ -219,7 +219,7 @@ function LocalizedDeveloperContent() {
 
           <Link
             href="/telemetry"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-950 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
             title="47+ Telemetry Arsenal"
           >
             <Wand2 className="w-3.5 h-3.5 text-cyan-600" />
@@ -228,7 +228,7 @@ function LocalizedDeveloperContent() {
 
           <Link
             href="/info"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-800 dark:text-neutral-200 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-[#ffe600] hover:text-neutral-950 text-neutral-950 text-xs font-mono font-bold transition-all border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] btn-tactile"
             title="Documentation & Archetypes Hub"
           >
             <BookOpen className="w-3.5 h-3.5 text-emerald-600" />

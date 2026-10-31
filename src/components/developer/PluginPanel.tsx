@@ -68,31 +68,38 @@ export const PluginPanel: React.FC<PluginPanelProps> = ({
         tmpl.category.toLowerCase().includes(search.toLowerCase());
 
       const matchesCategory =
-        selectedCategory === 'all' || tmpl.category.toLowerCase() === selectedCategory.toLowerCase();
+        selectedCategory === 'all' ||
+        tmpl.category.toLowerCase() === selectedCategory.toLowerCase();
 
       return matchesSearch && matchesCategory;
     });
   }, [search, selectedCategory]);
 
   const handleInsert = (plugin: Plugin) => {
-    const initialProps = {
-      content: plugin.defaultConfig ?? {},
-      styles: {},
-      state: 'default',
-    };
+    const defaultProps: Record<string, unknown> = {};
+    const pluginAny = plugin as any;
+    if (pluginAny.schema && typeof pluginAny.schema.parse === 'function') {
+      try {
+        const parsed = pluginAny.schema.parse({});
+        Object.assign(defaultProps, parsed);
+      } catch {
+        // Fall back to empty props
+      }
+    }
 
-    addSection(plugin.id, initialProps);
+    addSection(plugin.id, defaultProps);
+
     setInsertedPluginId(plugin.id);
     onPluginInserted?.(plugin.id);
 
     setTimeout(() => {
       setInsertedPluginId(null);
-    }, 1500);
+    }, 1800);
   };
 
-  const handleApplyTemplate = (template: TemplateItem) => {
-    setEntireConfig(template.config);
-    setAppliedTemplateId(template.id);
+  const handleApplyTemplate = (tmpl: TemplateItem) => {
+    setEntireConfig(tmpl.config);
+    setAppliedTemplateId(tmpl.id);
     setTimeout(() => {
       setAppliedTemplateId(null);
     }, 2000);
@@ -113,19 +120,19 @@ ${JSON.stringify(config, null, 2)}`;
   };
 
   return (
-    <div className={`flex flex-col h-full bg-white dark:bg-neutral-900 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 overflow-hidden shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] ${className}`}>
+    <div className={`flex flex-col h-full bg-white rounded-2xl border-2 border-neutral-900 overflow-hidden shadow-[4px_4px_0px_#18181b] ${className}`}>
       {/* Tab Switcher */}
-      <div className="flex items-center border-b-2 border-neutral-900 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950 p-1.5 gap-1 text-xs font-mono">
+      <div className="flex items-center border-b-2 border-neutral-900 bg-white p-1.5 gap-1 text-xs font-mono">
         <button
           type="button"
           onClick={() => {
             setPanelTab('plugins');
             setSelectedCategory('all');
           }}
-          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all ${
+          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all cursor-pointer ${
             panelTab === 'plugins'
               ? 'bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-black shadow-[2px_2px_0px_#18181b]'
-              : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+              : 'text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950'
           }`}
         >
           <Sparkles className="w-3.5 h-3.5" />
@@ -138,10 +145,10 @@ ${JSON.stringify(config, null, 2)}`;
             setPanelTab('templates');
             setSelectedCategory('all');
           }}
-          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all ${
+          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all cursor-pointer ${
             panelTab === 'templates'
               ? 'bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-black shadow-[2px_2px_0px_#18181b]'
-              : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+              : 'text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950'
           }`}
         >
           <LayoutTemplate className="w-3.5 h-3.5" />
@@ -151,10 +158,10 @@ ${JSON.stringify(config, null, 2)}`;
         <button
           type="button"
           onClick={() => setPanelTab('schema')}
-          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all ${
+          className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg transition-all cursor-pointer ${
             panelTab === 'schema'
               ? 'bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 font-black shadow-[2px_2px_0px_#18181b]'
-              : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+              : 'text-neutral-700 hover:bg-neutral-100 hover:text-neutral-950'
           }`}
         >
           <Bot className="w-3.5 h-3.5" />
@@ -165,23 +172,23 @@ ${JSON.stringify(config, null, 2)}`;
       {/* PLUGINS TAB */}
       {panelTab === 'plugins' && (
         <>
-          <div className="p-3 bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800 space-y-2">
+          <div className="p-3 bg-neutral-50 border-b-2 border-neutral-900 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
+              <span className="text-[11px] text-neutral-700 font-mono font-bold">
                 {filteredPlugins.length} plugins matching
               </span>
-              <span className="text-[10px] text-amber-600 dark:text-amber-400 font-mono font-medium">1-click insert</span>
+              <span className="text-[10px] text-amber-700 font-mono font-black uppercase">1-click insert</span>
             </div>
 
             {/* Search Input */}
             <div className="relative">
-              <Search className="absolute left-2.5 top-2 w-3.5 h-3.5 text-neutral-400 dark:text-neutral-500" />
+              <Search className="absolute left-2.5 top-2.5 w-3.5 h-3.5 text-neutral-500 select-none" />
               <input
                 type="text"
                 placeholder="Search badges, stats, widgets..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded text-xs text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:border-amber-500 transition-colors"
+                className="w-full pl-8 pr-3 py-1.5 bg-white border-2 border-neutral-900 rounded-lg text-xs font-mono font-bold text-neutral-950 placeholder:text-neutral-400 focus:outline-hidden focus:border-[#ffe600] shadow-2xs"
               />
             </div>
 
@@ -192,10 +199,10 @@ ${JSON.stringify(config, null, 2)}`;
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-2 py-0.5 rounded capitalize whitespace-nowrap transition-colors ${
+                  className={`px-2 py-0.5 rounded capitalize whitespace-nowrap transition-colors border cursor-pointer ${
                     selectedCategory === cat
-                      ? 'bg-amber-500 text-neutral-950 font-bold'
-                      : 'bg-neutral-200/70 dark:bg-neutral-800/80 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+                      ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-2xs'
+                      : 'bg-white text-neutral-700 border-neutral-300 hover:bg-neutral-100'
                   }`}
                 >
                   {cat}
@@ -205,9 +212,9 @@ ${JSON.stringify(config, null, 2)}`;
           </div>
 
           {/* Plugin Cards List */}
-          <div className="flex-1 overflow-y-auto p-3 space-y-2.5">
+          <div className="flex-1 overflow-y-auto p-3 space-y-2.5 bg-[#fafafa]">
             {filteredPlugins.length === 0 ? (
-              <div className="text-center py-8 text-neutral-400 dark:text-neutral-500 text-xs">
+              <div className="text-center py-8 text-neutral-500 font-mono text-xs">
                 No plugins match &quot;{search}&quot;
               </div>
             ) : (
@@ -217,18 +224,18 @@ ${JSON.stringify(config, null, 2)}`;
                 return (
                   <div
                     key={plugin.id}
-                    className="p-3 bg-neutral-50/70 dark:bg-neutral-950/70 hover:bg-neutral-100/70 dark:hover:bg-neutral-950 border border-neutral-200/80 dark:border-neutral-800/80 hover:border-neutral-300 dark:hover:border-neutral-700 rounded-lg transition-all flex flex-col justify-between group"
+                    className="p-3.5 bg-white hover:bg-[#fffde6] border-2 border-neutral-900 rounded-xl transition-all flex flex-col justify-between shadow-[2px_2px_0px_#18181b] hover:shadow-[1px_1px_0px_#18181b] group"
                   >
                     <div>
                       <div className="flex items-start justify-between gap-2">
                         <div>
-                          <h4 className="text-xs font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
+                          <h4 className="text-xs font-black text-neutral-950 flex items-center gap-1.5 font-sans">
                             {plugin.name}
-                            <span className="text-[10px] font-mono px-1.5 py-0.2 bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded">
+                            <span className="text-[10px] font-mono px-1.5 py-0.2 bg-neutral-100 text-neutral-800 border border-neutral-300 rounded">
                               v{plugin.version}
                             </span>
                           </h4>
-                          <p className="text-[11px] text-neutral-600 dark:text-neutral-400 mt-1 line-clamp-2">
+                          <p className="text-[11px] text-neutral-700 mt-1 line-clamp-2 font-mono">
                             {plugin.description}
                           </p>
                         </div>
@@ -240,7 +247,7 @@ ${JSON.stringify(config, null, 2)}`;
                           {plugin.tags.slice(0, 3).map(tag => (
                             <span
                               key={tag}
-                              className="text-[10px] px-1.5 py-0.5 bg-neutral-200/80 dark:bg-neutral-900 border border-neutral-300/80 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 rounded font-mono"
+                              className="text-[10px] px-1.5 py-0.5 bg-neutral-100 border border-neutral-300 text-neutral-800 rounded font-mono font-bold"
                             >
                               #{tag}
                             </span>
@@ -249,26 +256,26 @@ ${JSON.stringify(config, null, 2)}`;
                       )}
                     </div>
 
-                    <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-neutral-200/60 dark:border-neutral-800/60">
-                      <span className="text-[10px] text-neutral-500 dark:text-neutral-500 font-mono">
+                    <div className="flex items-center justify-between mt-3 pt-2.5 border-t border-neutral-200">
+                      <span className="text-[10px] text-neutral-500 font-mono font-bold">
                         type: {plugin.id}
                       </span>
                       <button
                         type="button"
                         onClick={() => handleInsert(plugin)}
-                        className={`flex items-center gap-1 px-2.5 py-1 rounded text-xs font-medium transition-all ${
+                        className={`flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-bold border-2 border-neutral-900 shadow-2xs transition-all cursor-pointer ${
                           isJustInserted
-                            ? 'bg-emerald-600 text-white font-bold'
-                            : 'bg-neutral-200 dark:bg-neutral-800 hover:bg-amber-500 hover:text-neutral-950 text-neutral-700 dark:text-neutral-200 font-semibold'
+                            ? 'bg-emerald-500 text-neutral-950 font-black'
+                            : 'bg-white hover:bg-[#ffe600] text-neutral-950'
                         }`}
                       >
                         {isJustInserted ? (
                           <>
-                            <Check className="w-3 h-3" /> Added
+                            <Check className="w-3 h-3 text-neutral-950" /> Added
                           </>
                         ) : (
                           <>
-                            <Plus className="w-3 h-3 text-amber-500 group-hover:text-neutral-950" /> Insert
+                            <Plus className="w-3 h-3 text-neutral-950" /> Insert
                           </>
                         )}
                       </button>
@@ -284,23 +291,23 @@ ${JSON.stringify(config, null, 2)}`;
       {/* TEMPLATES TAB */}
       {panelTab === 'templates' && (
         <>
-          <div className="p-3 bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800 space-y-2">
+          <div className="p-3 bg-neutral-50 border-b-2 border-neutral-900 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
+              <span className="text-[11px] text-neutral-700 font-mono font-bold">
                 {filteredTemplates.length} archetypes
               </span>
-              <span className="text-[10px] text-cyan-600 dark:text-cyan-400 font-mono font-medium">Production Ready</span>
+              <span className="text-[10px] text-cyan-700 font-mono font-black uppercase">Production Ready</span>
             </div>
 
             {/* Search Input */}
             <div className="relative">
-              <Search className="absolute left-2.5 top-2 w-3.5 h-3.5 text-neutral-400 dark:text-neutral-500" />
+              <Search className="absolute left-2.5 top-2.5 w-3.5 h-3.5 text-neutral-500 select-none" />
               <input
                 type="text"
                 placeholder="Search templates (e.g. minimalist, cyberpunk)..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-1 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded text-xs text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:outline-none focus:border-cyan-500 transition-colors"
+                className="w-full pl-8 pr-3 py-1.5 bg-white border-2 border-neutral-900 rounded-lg text-xs font-mono font-bold text-neutral-950 placeholder:text-neutral-400 focus:outline-hidden focus:border-[#ffe600] shadow-2xs"
               />
             </div>
 
@@ -311,10 +318,10 @@ ${JSON.stringify(config, null, 2)}`;
                   key={cat}
                   type="button"
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-2 py-0.5 rounded capitalize whitespace-nowrap transition-colors ${
+                  className={`px-2 py-0.5 rounded capitalize whitespace-nowrap transition-colors border cursor-pointer ${
                     selectedCategory.toLowerCase() === cat.toLowerCase()
-                      ? 'bg-cyan-500 text-neutral-950 font-bold'
-                      : 'bg-neutral-200/70 dark:bg-neutral-800/80 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
+                      ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-2xs'
+                      : 'bg-white text-neutral-700 border-neutral-300 hover:bg-neutral-100'
                   }`}
                 >
                   {cat}
@@ -323,9 +330,9 @@ ${JSON.stringify(config, null, 2)}`;
             </div>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-3 space-y-2.5">
+          <div className="flex-1 overflow-y-auto p-3 space-y-2.5 bg-[#fafafa]">
             {filteredTemplates.length === 0 ? (
-              <div className="text-center py-8 text-neutral-400 dark:text-neutral-500 text-xs">
+              <div className="text-center py-8 text-neutral-500 font-mono text-xs">
                 No templates match &quot;{search}&quot;
               </div>
             ) : (
@@ -335,46 +342,46 @@ ${JSON.stringify(config, null, 2)}`;
                 return (
                   <div
                     key={tmpl.id}
-                    className="p-3 bg-neutral-50/70 dark:bg-neutral-950/70 hover:bg-neutral-100/70 dark:hover:bg-neutral-950 border border-neutral-200/80 dark:border-neutral-800/80 hover:border-neutral-300 dark:hover:border-neutral-700 rounded-lg transition-all flex flex-col justify-between group"
+                    className="p-3.5 bg-white hover:bg-[#fffde6] border-2 border-neutral-900 rounded-xl transition-all flex flex-col justify-between shadow-[2px_2px_0px_#18181b] hover:shadow-[1px_1px_0px_#18181b] group"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-2">
-                        <h4 className="text-xs font-semibold text-neutral-900 dark:text-neutral-100 flex items-center gap-1.5">
+                        <h4 className="text-xs font-black text-neutral-950 flex items-center gap-1.5 font-sans">
                           <span
-                            className="w-2 h-2 rounded-full inline-block"
+                            className="w-2.5 h-2.5 rounded-full inline-block border border-neutral-900"
                             style={{ backgroundColor: tmpl.accent }}
                           />
                           {tmpl.name}
                         </h4>
-                        <span className="text-[10px] font-mono px-1.5 py-0.5 bg-neutral-200 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded">
+                        <span className="text-[10px] font-mono px-1.5 py-0.5 bg-neutral-100 border border-neutral-300 text-neutral-800 rounded font-bold">
                           {tmpl.category}
                         </span>
                       </div>
-                      <p className="text-[11px] text-neutral-600 dark:text-neutral-400 mt-1 leading-relaxed">
+                      <p className="text-[11px] text-neutral-700 mt-1 leading-relaxed font-mono">
                         {tmpl.description}
                       </p>
-                      <div className="mt-2 text-[10px] font-mono text-neutral-500">
+                      <div className="mt-2 text-[10px] font-mono font-bold text-neutral-500">
                         {tmpl.config.sections.length} sections · {tmpl.config.settings.badgeStyle} badges
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-end mt-3 pt-2.5 border-t border-neutral-200/60 dark:border-neutral-800/60">
+                    <div className="flex items-center justify-end mt-3 pt-2.5 border-t border-neutral-200">
                       <button
                         type="button"
                         onClick={() => handleApplyTemplate(tmpl)}
-                        className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs font-medium transition-all ${
+                        className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold border-2 border-neutral-900 shadow-2xs transition-all cursor-pointer ${
                           isApplied
-                            ? 'bg-emerald-600 text-white font-bold'
-                            : 'bg-neutral-200 dark:bg-neutral-800 hover:bg-cyan-500 hover:text-neutral-950 text-neutral-700 dark:text-neutral-200 font-semibold'
+                            ? 'bg-emerald-500 text-neutral-950 font-black'
+                            : 'bg-white hover:bg-[#ffe600] text-neutral-950'
                         }`}
                       >
                         {isApplied ? (
                           <>
-                            <Check className="w-3 h-3" /> Archetype Applied!
+                            <Check className="w-3 h-3 text-neutral-950" /> Archetype Applied!
                           </>
                         ) : (
                           <>
-                            <Sliders className="w-3 h-3 text-cyan-500 group-hover:text-neutral-950" /> Load Preset
+                            <Sliders className="w-3 h-3 text-neutral-950" /> Load Preset
                           </>
                         )}
                       </button>
@@ -389,28 +396,28 @@ ${JSON.stringify(config, null, 2)}`;
 
       {/* SCHEMA & AI TAB */}
       {panelTab === 'schema' && (
-        <div className="flex-1 overflow-y-auto p-3 space-y-4 text-xs">
+        <div className="flex-1 overflow-y-auto p-3 space-y-4 text-xs bg-[#fafafa]">
           {/* AI Context Card */}
-          <div className="p-3 bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-lg space-y-2.5">
-            <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 font-semibold">
+          <div className="p-3.5 bg-white border-2 border-neutral-900 rounded-xl shadow-[2px_2px_0px_#18181b] space-y-2.5">
+            <div className="flex items-center gap-2 text-neutral-950 font-black">
               <Bot className="w-4 h-4 text-amber-500" />
               <span>AI Agent Pairing</span>
             </div>
-            <p className="text-[11px] text-neutral-600 dark:text-neutral-400 leading-relaxed">
+            <p className="text-[11px] text-neutral-700 leading-relaxed font-mono">
               Use this pre-engineered prompt with Claude Code, Cursor, ChatGPT, or Antigravity to generate custom sections or rewrite your profile safely.
             </p>
             <button
               type="button"
               onClick={handleCopyAiPrompt}
-              className="w-full flex items-center justify-center gap-1.5 py-1.5 px-3 rounded bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold transition-colors text-xs"
+              className="w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] transition-all text-xs cursor-pointer"
             >
               {copiedPrompt ? (
                 <>
-                  <Check className="w-3.5 h-3.5" /> Prompt Copied to Clipboard!
+                  <Check className="w-3.5 h-3.5 text-neutral-950" /> Prompt Copied to Clipboard!
                 </>
               ) : (
                 <>
-                  <Copy className="w-3.5 h-3.5" /> Copy Agent Prompt with Config
+                  <Copy className="w-3.5 h-3.5 text-neutral-950" /> Copy Agent Prompt with Config
                 </>
               )}
             </button>
@@ -418,51 +425,51 @@ ${JSON.stringify(config, null, 2)}`;
 
           {/* Machine Links */}
           <div className="space-y-1.5">
-            <h4 className="text-[11px] font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider font-mono">
+            <h4 className="text-[11px] font-black text-neutral-950 uppercase tracking-wider font-mono">
               Machine Endpoints
             </h4>
-            <div className="grid grid-cols-1 gap-1.5">
+            <div className="grid grid-cols-1 gap-2">
               <a
                 href="/llms.txt"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between p-2 rounded bg-neutral-50 hover:bg-neutral-100 dark:bg-neutral-950 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-white hover:bg-[#fffde6] border-2 border-neutral-900 text-neutral-950 font-mono text-[11px] font-bold shadow-2xs transition-colors"
               >
-                <span className="font-mono text-[11px]">/llms.txt</span>
-                <ExternalLink className="w-3 h-3 text-neutral-400 dark:text-neutral-500" />
+                <span>/llms.txt</span>
+                <ExternalLink className="w-3.5 h-3.5 text-neutral-700" />
               </a>
               <a
                 href="/llms-full.txt"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between p-2 rounded bg-neutral-50 hover:bg-neutral-100 dark:bg-neutral-950 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-white hover:bg-[#fffde6] border-2 border-neutral-900 text-neutral-950 font-mono text-[11px] font-bold shadow-2xs transition-colors"
               >
-                <span className="font-mono text-[11px]">/llms-full.txt</span>
-                <ExternalLink className="w-3 h-3 text-neutral-400 dark:text-neutral-500" />
+                <span>/llms-full.txt</span>
+                <ExternalLink className="w-3.5 h-3.5 text-neutral-700" />
               </a>
               <a
                 href="/api/schema"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-between p-2 rounded bg-neutral-50 hover:bg-neutral-100 dark:bg-neutral-950 dark:hover:bg-neutral-800 border border-neutral-200 dark:border-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                className="flex items-center justify-between p-2.5 rounded-xl bg-white hover:bg-[#fffde6] border-2 border-neutral-900 text-neutral-950 font-mono text-[11px] font-bold shadow-2xs transition-colors"
               >
-                <span className="font-mono text-[11px]">/api/schema (Draft-07)</span>
-                <ExternalLink className="w-3 h-3 text-neutral-400 dark:text-neutral-500" />
+                <span>/api/schema (Draft-07)</span>
+                <ExternalLink className="w-3.5 h-3.5 text-neutral-700" />
               </a>
             </div>
           </div>
 
           {/* Schema Structure Overview */}
           <div className="space-y-2">
-            <h4 className="text-[11px] font-semibold text-neutral-600 dark:text-neutral-300 uppercase tracking-wider flex items-center gap-1.5 font-mono">
-              <FileCode2 className="w-3.5 h-3.5 text-cyan-500" />
+            <h4 className="text-[11px] font-black text-neutral-950 uppercase tracking-wider flex items-center gap-1.5 font-mono">
+              <FileCode2 className="w-3.5 h-3.5 text-amber-500" />
               <span>Config Schema Shape</span>
             </h4>
-            <div className="bg-neutral-50 dark:bg-neutral-950 p-2.5 rounded border border-neutral-200 dark:border-neutral-800 font-mono text-[10px] text-neutral-600 dark:text-neutral-400 leading-relaxed space-y-1">
-              <div><span className="text-amber-600 dark:text-amber-400">version</span>: string (&quot;1.0.0&quot;)</div>
-              <div><span className="text-amber-600 dark:text-amber-400">title</span>: string</div>
-              <div><span className="text-amber-600 dark:text-amber-400">settings</span>: &#123; user, theme, accentColor, badgeStyle, align &#125;</div>
-              <div><span className="text-amber-600 dark:text-amber-400">sections</span>: Array&lt;&#123; id, type, props &#125;&gt;</div>
+            <div className="bg-white p-3 rounded-xl border-2 border-neutral-900 font-mono text-[10px] text-neutral-800 leading-relaxed space-y-1 shadow-2xs">
+              <div><span className="text-amber-600 font-bold">version</span>: string (&quot;1.0.0&quot;)</div>
+              <div><span className="text-amber-600 font-bold">title</span>: string</div>
+              <div><span className="text-amber-600 font-bold">settings</span>: &#123; user, theme, accentColor, badgeStyle, align &#125;</div>
+              <div><span className="text-amber-600 font-bold">sections</span>: Array&lt;&#123; id, type, props &#125;&gt;</div>
             </div>
           </div>
         </div>

@@ -113,7 +113,7 @@ export function generateIsocalendarSvg(options: IsocalendarOptions = {}): string
   const daySpacing = 10;
 
   const voxels: string[] = [];
-  const basePalette = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+  const basePalette = ['#ebedf0', '#9be9a8', '#40c463', '#30a14e', '#216e39'];
 
   for (let w = 0; w < weeks; w++) {
     for (let d = 0; d < daysPerWeek; d++) {
@@ -128,9 +128,9 @@ export function generateIsocalendarSvg(options: IsocalendarOptions = {}): string
 
       voxels.push(`
         <g class="voxel" transform="translate(${isoX.toFixed(1)}, ${isoY.toFixed(1)})">
-          <polygon points="0,0 8.5,-4.5 17,0 8.5,4.5" fill="${color}" stroke="#0d1117" stroke-width="0.5" />
-          <polygon points="0,0 8.5,4.5 8.5,${(4.5 + heightVal).toFixed(1)} 0,${heightVal.toFixed(1)}" fill="${color}" filter="url(#dim-left)" stroke="#0d1117" stroke-width="0.5" />
-          <polygon points="8.5,4.5 17,0 17,${heightVal.toFixed(1)} 8.5,${(4.5 + heightVal).toFixed(1)}" fill="${color}" filter="url(#dim-right)" stroke="#0d1117" stroke-width="0.5" />
+          <polygon points="0,0 8.5,-4.5 17,0 8.5,4.5" fill="${color}" stroke="#d4d4d8" stroke-width="0.5" />
+          <polygon points="0,0 8.5,4.5 8.5,${(4.5 + heightVal).toFixed(1)} 0,${heightVal.toFixed(1)}" fill="${color}" filter="url(#dim-left)" stroke="#d4d4d8" stroke-width="0.5" />
+          <polygon points="8.5,4.5 17,0 17,${heightVal.toFixed(1)} 8.5,${(4.5 + heightVal).toFixed(1)}" fill="${color}" filter="url(#dim-right)" stroke="#d4d4d8" stroke-width="0.5" />
         </g>
       `);
     }
@@ -139,8 +139,8 @@ export function generateIsocalendarSvg(options: IsocalendarOptions = {}): string
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 370" width="800" height="370" fill="none">
   <defs>
     <linearGradient id="iso-card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1117" />
-      <stop offset="100%" stop-color="#161b22" />
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#fcfcfc" />
     </linearGradient>
     <filter id="dim-left">
       <feComponentTransfer>
@@ -177,18 +177,18 @@ export function generateIsocalendarSvg(options: IsocalendarOptions = {}): string
   </style>
 
   <!-- Container Box -->
-  <rect x="1" y="1" width="798" height="368" rx="14" fill="url(#iso-card-bg)" stroke="#30363d" stroke-width="1.5" />
+  <rect x="1" y="1" width="798" height="368" rx="14" fill="#ffffff" stroke="#18181b" stroke-width="2" />
 
   <!-- Card Header -->
   <g transform="translate(28, 36)">
     <circle cx="8" cy="8" r="6" fill="#10b981" class="pulse-glow" />
-    <text x="24" y="13" fill="#f0f6fc" font-size="16" font-weight="700" class="font-base">
+    <text x="24" y="13" fill="#18181b" font-size="16" font-weight="700" class="font-base">
       Isometric Contribution Landscape
     </text>
-    <text x="315" y="13" fill="#8b949e" font-size="13" class="font-mono">
+    <text x="315" y="13" fill="#52525b" font-size="13" class="font-mono">
       @${user}
     </text>
-    <rect x="700" y="-3" width="72" height="22" rx="6" fill="#21262d" stroke="#30363d" />
+    <rect x="700" y="-3" width="72" height="22" rx="6" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
     <text x="736" y="12" fill="#58a6ff" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">
       26 WEEKS
     </text>
@@ -196,25 +196,25 @@ export function generateIsocalendarSvg(options: IsocalendarOptions = {}): string
 
   <!-- Top Telemetry Ribbon -->
   <g transform="translate(28, 70)">
-    <rect x="0" y="0" width="138" height="48" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="14" y="20" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">CURRENT STREAK</text>
-    <text x="14" y="40" fill="#34d399" font-size="18" font-weight="800" class="font-mono">${streak} <tspan font-size="11" font-weight="500" fill="#8b949e">days 🔥</tspan></text>
+    <rect x="0" y="0" width="138" height="48" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="14" y="20" fill="#52525b" font-size="10" font-weight="600" class="font-mono">CURRENT STREAK</text>
+    <text x="14" y="40" fill="#34d399" font-size="18" font-weight="800" class="font-mono">${streak} <tspan font-size="11" font-weight="500" fill="#52525b">days 🔥</tspan></text>
 
-    <rect x="148" y="0" width="138" height="48" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="162" y="20" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">BEST STREAK</text>
-    <text x="162" y="40" fill="#f0f6fc" font-size="18" font-weight="800" class="font-mono">${maxStreak} <tspan font-size="11" font-weight="500" fill="#8b949e">days</tspan></text>
+    <rect x="148" y="0" width="138" height="48" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="162" y="20" fill="#52525b" font-size="10" font-weight="600" class="font-mono">BEST STREAK</text>
+    <text x="162" y="40" fill="#18181b" font-size="18" font-weight="800" class="font-mono">${maxStreak} <tspan font-size="11" font-weight="500" fill="#52525b">days</tspan></text>
 
-    <rect x="296" y="0" width="138" height="48" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="310" y="20" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">TOTAL COMMITS</text>
+    <rect x="296" y="0" width="138" height="48" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="310" y="20" fill="#52525b" font-size="10" font-weight="600" class="font-mono">TOTAL COMMITS</text>
     <text x="310" y="40" fill="#fbbf24" font-size="18" font-weight="800" class="font-mono">${commits.toLocaleString()}</text>
 
-    <rect x="444" y="0" width="144" height="48" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="458" y="20" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">DAILY AVERAGE</text>
-    <text x="458" y="40" fill="#f0f6fc" font-size="18" font-weight="800" class="font-mono">~${average} <tspan font-size="11" font-weight="500" fill="#8b949e">/ day</tspan></text>
+    <rect x="444" y="0" width="144" height="48" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="458" y="20" fill="#52525b" font-size="10" font-weight="600" class="font-mono">DAILY AVERAGE</text>
+    <text x="458" y="40" fill="#18181b" font-size="18" font-weight="800" class="font-mono">~${average} <tspan font-size="11" font-weight="500" fill="#52525b">/ day</tspan></text>
 
-    <rect x="598" y="0" width="146" height="48" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="612" y="20" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">PEAK DAY</text>
-    <text x="612" y="40" fill="#58a6ff" font-size="18" font-weight="800" class="font-mono">${highestDay} <tspan font-size="11" font-weight="500" fill="#8b949e">commits</tspan></text>
+    <rect x="598" y="0" width="146" height="48" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="612" y="20" fill="#52525b" font-size="10" font-weight="600" class="font-mono">PEAK DAY</text>
+    <text x="612" y="40" fill="#58a6ff" font-size="18" font-weight="800" class="font-mono">${highestDay} <tspan font-size="11" font-weight="500" fill="#52525b">commits</tspan></text>
   </g>
 
   <!-- 3D Isometric Voxel Mesh -->
@@ -224,15 +224,15 @@ export function generateIsocalendarSvg(options: IsocalendarOptions = {}): string
 
   <!-- Footer Legend -->
   <g transform="translate(28, 345)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge Isometric Telemetry</text>
+    <text x="0" y="0" fill="#52525b" font-size="11" class="font-mono">MonoForge Isometric Telemetry</text>
     <g transform="translate(620, -10)">
-      <text x="-40" y="9" fill="#8b949e" font-size="10" class="font-mono">Less</text>
+      <text x="-40" y="9" fill="#52525b" font-size="10" class="font-mono">Less</text>
       <rect x="0" y="0" width="10" height="10" rx="2" fill="#161b22" stroke="#30363d" />
       <rect x="15" y="0" width="10" height="10" rx="2" fill="#0e4429" />
       <rect x="30" y="0" width="10" height="10" rx="2" fill="#006d32" />
       <rect x="45" y="0" width="10" height="10" rx="2" fill="#26a641" />
       <rect x="60" y="0" width="10" height="10" rx="2" fill="#39d353" />
-      <text x="76" y="9" fill="#8b949e" font-size="10" class="font-mono">More</text>
+      <text x="76" y="9" fill="#52525b" font-size="10" class="font-mono">More</text>
     </g>
   </g>
 </svg>`;
@@ -279,8 +279,8 @@ export function generateLanguagesDonutSvg(options: LanguagesOptions = {}): strin
     return `
       <g transform="translate(300, ${yPos})">
         <circle cx="6" cy="6" r="5" fill="${lang.color}" />
-        <text x="20" y="10" fill="#f0f6fc" font-size="14" font-weight="600" class="font-base">${esc(lang.name)}</text>
-        <text x="320" y="10" fill="#8b949e" font-size="12" class="font-mono">${lang.bytes}</text>
+        <text x="20" y="10" fill="#18181b" font-size="14" font-weight="600" class="font-base">${esc(lang.name)}</text>
+        <text x="320" y="10" fill="#52525b" font-size="12" class="font-mono">${lang.bytes}</text>
         <text x="430" y="10" fill="${lang.color}" font-size="13" font-weight="700" text-anchor="end" class="font-mono">${lang.percent.toFixed(1)}%</text>
 
         <rect x="20" y="20" width="410" height="6" rx="3" fill="#21262d" />
@@ -292,8 +292,8 @@ export function generateLanguagesDonutSvg(options: LanguagesOptions = {}): strin
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" fill="none">
   <defs>
     <linearGradient id="lang-card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1117" />
-      <stop offset="100%" stop-color="#161b22" />
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffffff" />
     </linearGradient>
   </defs>
 
@@ -310,16 +310,16 @@ export function generateLanguagesDonutSvg(options: LanguagesOptions = {}): strin
     }
   </style>
 
-  <rect x="1" y="1" width="798" height="358" rx="14" fill="url(#lang-card-bg)" stroke="#30363d" stroke-width="1.5" />
+  <rect x="1" y="1" width="798" height="358" rx="14" fill="#ffffff" stroke="#18181b" stroke-width="2" />
 
   <g transform="translate(28, 36)">
-    <text x="0" y="13" fill="#f0f6fc" font-size="16" font-weight="700" class="font-base">
+    <text x="0" y="13" fill="#18181b" font-size="16" font-weight="700" class="font-base">
       Polyglot Language Telemetry
     </text>
-    <text x="240" y="13" fill="#8b949e" font-size="13" class="font-mono">
+    <text x="240" y="13" fill="#52525b" font-size="13" class="font-mono">
       @${user}
     </text>
-    <rect x="670" y="-3" width="102" height="22" rx="6" fill="#21262d" stroke="#30363d" />
+    <rect x="670" y="-3" width="102" height="22" rx="6" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
     <text x="721" y="12" fill="#58a6ff" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">
       ${uniqueCount} LANGUAGES
     </text>
@@ -329,10 +329,10 @@ export function generateLanguagesDonutSvg(options: LanguagesOptions = {}): strin
     <circle cx="145" cy="180" r="${r}" fill="none" stroke="#161b22" stroke-width="22" />
     ${donutRings.join('')}
 
-    <text x="145" y="172" fill="#f0f6fc" font-size="18" font-weight="800" text-anchor="middle" class="font-mono">
+    <text x="145" y="172" fill="#18181b" font-size="18" font-weight="800" text-anchor="middle" class="font-mono">
       ${totalBytes}
     </text>
-    <text x="145" y="194" fill="#8b949e" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">
+    <text x="145" y="194" fill="#52525b" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">
       CODE ANALYZED
     </text>
   </g>
@@ -342,7 +342,7 @@ export function generateLanguagesDonutSvg(options: LanguagesOptions = {}): strin
   </g>
 
   <g transform="translate(28, 335)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Depth Code Telemetry &amp; Byte Distribution</text>
+    <text x="0" y="0" fill="#52525b" font-size="11" class="font-mono">MonoForge • Depth Code Telemetry &amp; Byte Distribution</text>
   </g>
 </svg>`;
 }
@@ -399,10 +399,10 @@ export function generateHabitsRadarSvg(options: HabitsOptions = {}): string {
     const y = 85 + idx * 32;
     return `
       <g transform="translate(320, ${y})">
-        <text x="0" y="12" fill="#8b949e" font-size="12" font-weight="600" class="font-mono">${item.day}</text>
+        <text x="0" y="12" fill="#52525b" font-size="12" font-weight="600" class="font-mono">${item.day}</text>
         <rect x="40" y="2" width="220" height="12" rx="4" fill="#21262d" />
         <rect x="40" y="2" width="${(item.pct * 2.2).toFixed(1)}" height="12" rx="4" fill="${item.pct === 100 ? '#f59e0b' : '#38bdf8'}" />
-        <text x="270" y="12" fill="#f0f6fc" font-size="11" font-weight="700" class="font-mono">${item.count}</text>
+        <text x="270" y="12" fill="#18181b" font-size="11" font-weight="700" class="font-mono">${item.count}</text>
       </g>
     `;
   });
@@ -410,8 +410,8 @@ export function generateHabitsRadarSvg(options: HabitsOptions = {}): string {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" fill="none">
   <defs>
     <linearGradient id="habits-card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1117" />
-      <stop offset="100%" stop-color="#161b22" />
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffffff" />
     </linearGradient>
   </defs>
 
@@ -431,16 +431,16 @@ export function generateHabitsRadarSvg(options: HabitsOptions = {}): string {
     }
   </style>
 
-  <rect x="1" y="1" width="798" height="358" rx="14" fill="url(#habits-card-bg)" stroke="#30363d" stroke-width="1.5" />
+  <rect x="1" y="1" width="798" height="358" rx="14" fill="#ffffff" stroke="#18181b" stroke-width="2" />
 
   <g transform="translate(28, 36)">
-    <text x="0" y="13" fill="#f0f6fc" font-size="16" font-weight="700" class="font-base">
+    <text x="0" y="13" fill="#18181b" font-size="16" font-weight="700" class="font-base">
       Coding Habits &amp; 24-Hour Rhythm
     </text>
-    <text x="280" y="13" fill="#8b949e" font-size="13" class="font-mono">
+    <text x="280" y="13" fill="#52525b" font-size="13" class="font-mono">
       @${user}
     </text>
-    <rect x="660" y="-3" width="112" height="22" rx="6" fill="#21262d" stroke="#30363d" />
+    <rect x="660" y="-3" width="112" height="22" rx="6" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
     <text x="716" y="12" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">
       NIGHT OWL 🦉
     </text>
@@ -454,8 +454,8 @@ export function generateHabitsRadarSvg(options: HabitsOptions = {}): string {
     <line x1="${cx}" y1="${cy}" x2="${cx}" y2="${cy - 90}" stroke="#f59e0b" stroke-width="1.5" opacity="0.6" class="radar-sweep" />
     ${radialSlices.join('')}
 
-    <text x="${cx}" y="${cy - 4}" fill="#f0f6fc" font-size="13" font-weight="700" text-anchor="middle" class="font-mono">${peakHour}:00</text>
-    <text x="${cx}" y="${cy + 10}" fill="#8b949e" font-size="9" text-anchor="middle" class="font-mono">PEAK HOUR</text>
+    <text x="${cx}" y="${cy - 4}" fill="#18181b" font-size="13" font-weight="700" text-anchor="middle" class="font-mono">${peakHour}:00</text>
+    <text x="${cx}" y="${cy + 10}" fill="#52525b" font-size="9" text-anchor="middle" class="font-mono">PEAK HOUR</text>
   </g>
 
   <g>
@@ -463,21 +463,21 @@ export function generateHabitsRadarSvg(options: HabitsOptions = {}): string {
   </g>
 
   <g transform="translate(620, 85)">
-    <rect x="0" y="0" width="152" height="66" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="12" y="20" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">INDENTATION</text>
+    <rect x="0" y="0" width="152" height="66" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="12" y="20" fill="#52525b" font-size="10" font-weight="600" class="font-mono">INDENTATION</text>
     <text x="12" y="44" fill="#34d399" font-size="13" font-weight="700" class="font-mono">${indentStyle}</text>
 
-    <rect x="0" y="78" width="152" height="66" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="12" y="98" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">LINE LENGTH</text>
+    <rect x="0" y="78" width="152" height="66" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="12" y="98" fill="#52525b" font-size="10" font-weight="600" class="font-mono">LINE LENGTH</text>
     <text x="12" y="122" fill="#58a6ff" font-size="13" font-weight="700" class="font-mono">~${charsPerLine} chars</text>
 
-    <rect x="0" y="156" width="152" height="66" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="12" y="176" fill="#8b949e" font-size="10" font-weight="600" class="font-mono">PEAK TIMING</text>
+    <rect x="0" y="156" width="152" height="66" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="12" y="176" fill="#52525b" font-size="10" font-weight="600" class="font-mono">PEAK TIMING</text>
     <text x="12" y="200" fill="#fbbf24" font-size="13" font-weight="700" class="font-mono">${eveningPct}% Evening</text>
   </g>
 
   <g transform="translate(28, 335)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Most active day: ${mostActiveDay} • Activity Telemetry</text>
+    <text x="0" y="0" fill="#52525b" font-size="11" class="font-mono">MonoForge • Most active day: ${mostActiveDay} • Activity Telemetry</text>
   </g>
 </svg>`;
 }
@@ -557,11 +557,11 @@ export function generateAchievementsRackSvg(options: AchievementsOptions = {}): 
         <text x="66" y="28" fill="${ach.accentColor}" font-size="9" font-weight="700" letter-spacing="0.5" class="font-mono">
           ${esc(ach.category)}
         </text>
-        <text x="66" y="46" fill="#f0f6fc" font-size="13" font-weight="700" class="font-base">
+        <text x="66" y="46" fill="#18181b" font-size="13" font-weight="700" class="font-base">
           ${esc(ach.title)}
         </text>
 
-        <text x="14" y="78" fill="#8b949e" font-size="10" class="font-base">
+        <text x="14" y="78" fill="#52525b" font-size="10" class="font-base">
           ${esc(ach.description.slice(0, 36))}...
         </text>
 
@@ -574,8 +574,8 @@ export function generateAchievementsRackSvg(options: AchievementsOptions = {}): 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360" fill="none">
   <defs>
     <linearGradient id="ach-card-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0d1117" />
-      <stop offset="100%" stop-color="#161b22" />
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffffff" />
     </linearGradient>
   </defs>
 
@@ -594,16 +594,16 @@ export function generateAchievementsRackSvg(options: AchievementsOptions = {}): 
     }
   </style>
 
-  <rect x="1" y="1" width="798" height="358" rx="14" fill="url(#ach-card-bg)" stroke="#30363d" stroke-width="1.5" />
+  <rect x="1" y="1" width="798" height="358" rx="14" fill="#ffffff" stroke="#18181b" stroke-width="2" />
 
   <g transform="translate(28, 36)">
-    <text x="0" y="13" fill="#f0f6fc" font-size="16" font-weight="700" class="font-base">
+    <text x="0" y="13" fill="#18181b" font-size="16" font-weight="700" class="font-base">
       Achievements Showcase &amp; Medals
     </text>
-    <text x="270" y="13" fill="#8b949e" font-size="13" class="font-mono">
+    <text x="270" y="13" fill="#52525b" font-size="13" class="font-mono">
       @${user}
     </text>
-    <rect x="670" y="-3" width="102" height="22" rx="6" fill="#21262d" stroke="#30363d" />
+    <rect x="670" y="-3" width="102" height="22" rx="6" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
     <text x="721" y="12" fill="#f59e0b" font-size="10" font-weight="700" text-anchor="middle" class="font-mono shimmer-gold">
       RANK S TIER 🏆
     </text>
@@ -614,7 +614,7 @@ export function generateAchievementsRackSvg(options: AchievementsOptions = {}): 
   </g>
 
   <g transform="translate(28, 342)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Gamified Repository Milestones &amp; Secret Badges</text>
+    <text x="0" y="0" fill="#52525b" font-size="11" class="font-mono">MonoForge • Gamified Repository Milestones &amp; Secret Badges</text>
   </g>
 </svg>`;
 }
@@ -659,7 +659,7 @@ export function generateTerminalHudSvg(options: TerminalOptions = {}): string {
   <circle cx="44" cy="20" r="6" fill="#d29922" />
   <circle cx="64" cy="20" r="6" fill="#2ea043" />
 
-  <text x="400" y="24" fill="#8b949e" font-size="12" font-weight="600" text-anchor="middle" class="font-mono">
+  <text x="400" y="24" fill="#52525b" font-size="12" font-weight="600" text-anchor="middle" class="font-mono">
     monoforge@${user}: ~ (telemetry-hud)
   </text>
 
@@ -667,39 +667,39 @@ export function generateTerminalHudSvg(options: TerminalOptions = {}): string {
 
   <g transform="translate(28, 72)" class="font-mono">
     <text x="0" y="0" font-size="13">
-      <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ monoforge telemetry --user ${user} --deep</tspan>
+      <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#52525b">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#18181b">$ monoforge telemetry --user ${user} --deep</tspan>
     </text>
 
     <g transform="translate(0, 24)">
       <text x="0" y="0" fill="#fbbf24" font-size="12">[SYSTEM DIAGNOSTICS &amp; ENGINE STATS]</text>
-      <text x="0" y="20" fill="#8b949e" font-size="12">Kernel ........ MonoForge Telemetry Engine v3.35.0 (x86_64-linux)</text>
-      <text x="0" y="40" fill="#8b949e" font-size="12">Repository .... ${user}/${user}</text>
-      <text x="0" y="60" fill="#8b949e" font-size="12">Active Streak . 42 consecutive solar days [STATUS: GREEN]</text>
-      <text x="0" y="80" fill="#8b949e" font-size="12">Velocity ...... ${velocity}</text>
-      <text x="0" y="100" fill="#8b949e" font-size="12">Service Uptime. ${uptime} (Continuous Deployment)</text>
+      <text x="0" y="20" fill="#52525b" font-size="12">Kernel ........ MonoForge Telemetry Engine v3.35.0 (x86_64-linux)</text>
+      <text x="0" y="40" fill="#52525b" font-size="12">Repository .... ${user}/${user}</text>
+      <text x="0" y="60" fill="#52525b" font-size="12">Active Streak . 42 consecutive solar days [STATUS: GREEN]</text>
+      <text x="0" y="80" fill="#52525b" font-size="12">Velocity ...... ${velocity}</text>
+      <text x="0" y="100" fill="#52525b" font-size="12">Service Uptime. ${uptime} (Continuous Deployment)</text>
     </g>
 
     <g transform="translate(0, 150)">
       <rect x="0" y="0" width="170" height="58" rx="6" fill="#161b22" stroke="#30363d" />
-      <text x="14" y="22" fill="#8b949e" font-size="10">TOTAL REPOSITORIES</text>
-      <text x="14" y="46" fill="#f0f6fc" font-size="18" font-weight="700">${repos}</text>
+      <text x="14" y="22" fill="#52525b" font-size="10">TOTAL REPOSITORIES</text>
+      <text x="14" y="46" fill="#18181b" font-size="18" font-weight="700">${repos}</text>
 
       <rect x="185" y="0" width="170" height="58" rx="6" fill="#161b22" stroke="#30363d" />
-      <text x="199" y="22" fill="#8b949e" font-size="10">STARS EARNED</text>
+      <text x="199" y="22" fill="#52525b" font-size="10">STARS EARNED</text>
       <text x="199" y="46" fill="#f59e0b" font-size="18" font-weight="700">★ ${stars.toLocaleString()}</text>
 
       <rect x="370" y="0" width="170" height="58" rx="6" fill="#161b22" stroke="#30363d" />
-      <text x="384" y="22" fill="#8b949e" font-size="10">FORKS FORGED</text>
+      <text x="384" y="22" fill="#52525b" font-size="10">FORKS FORGED</text>
       <text x="384" y="46" fill="#58a6ff" font-size="18" font-weight="700">⑂ ${forks.toLocaleString()}</text>
 
       <rect x="555" y="0" width="185" height="58" rx="6" fill="#161b22" stroke="#30363d" />
-      <text x="569" y="22" fill="#8b949e" font-size="10">TOTAL COMMITS</text>
+      <text x="569" y="22" fill="#52525b" font-size="10">TOTAL COMMITS</text>
       <text x="569" y="46" fill="#34d399" font-size="18" font-weight="700">${commits.toLocaleString()}</text>
     </g>
 
     <g transform="translate(0, 240)">
       <text x="0" y="0" font-size="13">
-        <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#8b949e">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#f0f6fc">$ </tspan>
+        <tspan fill="#34d399">developer@monoforge</tspan><tspan fill="#52525b">:</tspan><tspan fill="#58a6ff">~</tspan><tspan fill="#18181b">$ </tspan>
       </text>
       <rect x="235" y="-12" width="8" height="15" fill="#34d399" class="cursor-blink" />
     </g>
@@ -747,8 +747,8 @@ export function generatePageSpeedAuditSvg(options: PageSpeedOptions = {}): strin
           stroke-linecap="round"
           transform="rotate(-90 45 45)"
         />
-        <text x="45" y="52" fill="#f0f6fc" font-size="20" font-weight="800" text-anchor="middle" class="font-mono">${g.score}</text>
-        <text x="45" y="105" fill="#8b949e" font-size="12" font-weight="600" text-anchor="middle" class="font-base">${g.label}</text>
+        <text x="45" y="52" fill="#18181b" font-size="20" font-weight="800" text-anchor="middle" class="font-mono">${g.score}</text>
+        <text x="45" y="105" fill="#52525b" font-size="12" font-weight="600" text-anchor="middle" class="font-base">${g.label}</text>
       </g>
     `;
   });
@@ -769,10 +769,10 @@ export function generatePageSpeedAuditSvg(options: PageSpeedOptions = {}): strin
   <rect x="1" y="1" width="798" height="318" rx="14" fill="url(#speed-bg)" stroke="#30363d" stroke-width="1.5" />
 
   <g transform="translate(28, 36)">
-    <text x="0" y="13" fill="#f0f6fc" font-size="16" font-weight="700" class="font-base">
+    <text x="0" y="13" fill="#18181b" font-size="16" font-weight="700" class="font-base">
       PageSpeed &amp; Web Vitals Audit
     </text>
-    <text x="240" y="13" fill="#8b949e" font-size="13" class="font-mono">
+    <text x="240" y="13" fill="#52525b" font-size="13" class="font-mono">
       ${url}
     </text>
     <rect x="670" y="-3" width="102" height="22" rx="6" fill="#0e4429" stroke="#26a641" />
@@ -786,11 +786,11 @@ export function generatePageSpeedAuditSvg(options: PageSpeedOptions = {}): strin
   </g>
 
   <g transform="translate(28, 260)">
-    <rect x="0" y="0" width="744" height="36" rx="6" fill="#161b22" stroke="#21262d" />
-    <text x="20" y="23" fill="#8b949e" font-size="11" class="font-mono">FCP: <tspan fill="#34d399" font-weight="700">${fcp}</tspan></text>
-    <text x="180" y="23" fill="#8b949e" font-size="11" class="font-mono">LCP: <tspan fill="#34d399" font-weight="700">${lcp}</tspan></text>
-    <text x="340" y="23" fill="#8b949e" font-size="11" class="font-mono">CLS: <tspan fill="#34d399" font-weight="700">${cls}</tspan></text>
-    <text x="500" y="23" fill="#8b949e" font-size="11" class="font-mono">TBT: <tspan fill="#34d399" font-weight="700">${tbt}</tspan></text>
+    <rect x="0" y="0" width="744" height="36" rx="6" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="20" y="23" fill="#52525b" font-size="11" class="font-mono">FCP: <tspan fill="#34d399" font-weight="700">${fcp}</tspan></text>
+    <text x="180" y="23" fill="#52525b" font-size="11" class="font-mono">LCP: <tspan fill="#34d399" font-weight="700">${lcp}</tspan></text>
+    <text x="340" y="23" fill="#52525b" font-size="11" class="font-mono">CLS: <tspan fill="#34d399" font-weight="700">${cls}</tspan></text>
+    <text x="500" y="23" fill="#52525b" font-size="11" class="font-mono">TBT: <tspan fill="#34d399" font-weight="700">${tbt}</tspan></text>
     <text x="660" y="23" fill="#58a6ff" font-size="11" font-weight="700" class="font-mono">PASS ✓</text>
   </g>
 </svg>`;
@@ -859,8 +859,8 @@ export function generateMusicPlayerSvg(options: MusicOptions = {}): string {
 
   <g transform="translate(190, 72)">
     <text x="0" y="0" fill="#10b981" font-size="11" font-weight="700" letter-spacing="1" class="font-mono">NOW PLAYING • SPOTIFY / LAST.FM</text>
-    <text x="0" y="28" fill="#f0f6fc" font-size="20" font-weight="800" class="font-base">${track}</text>
-    <text x="0" y="52" fill="#8b949e" font-size="14" class="font-base">${artist}</text>
+    <text x="0" y="28" fill="#18181b" font-size="20" font-weight="800" class="font-base">${track}</text>
+    <text x="0" y="52" fill="#52525b" font-size="14" class="font-base">${artist}</text>
   </g>
 
   <g transform="translate(500, 110)">
@@ -870,8 +870,8 @@ export function generateMusicPlayerSvg(options: MusicOptions = {}): string {
   <g transform="translate(190, 160)">
     <rect x="0" y="0" width="560" height="4" rx="2" fill="#21262d" />
     <rect x="0" y="0" width="360" height="4" rx="2" fill="#10b981" />
-    <text x="0" y="24" fill="#8b949e" font-size="11" class="font-mono">2:18</text>
-    <text x="560" y="24" fill="#8b949e" font-size="11" text-anchor="end" class="font-mono">${duration}</text>
+    <text x="0" y="24" fill="#52525b" font-size="11" class="font-mono">2:18</text>
+    <text x="560" y="24" fill="#52525b" font-size="11" text-anchor="end" class="font-mono">${duration}</text>
   </g>
 </svg>`;
 }
@@ -909,13 +909,13 @@ export function generateLeetCodeStatsSvg(options: LeetCodeOptions = {}): string 
   <rect x="1" y="1" width="798" height="318" rx="14" fill="url(#leet-bg)" stroke="#30363d" stroke-width="1.5" />
 
   <g transform="translate(28, 36)">
-    <text x="0" y="13" fill="#f0f6fc" font-size="16" font-weight="700" class="font-base">
+    <text x="0" y="13" fill="#18181b" font-size="16" font-weight="700" class="font-base">
       LeetCode Algorithmic Mastery
     </text>
-    <text x="260" y="13" fill="#8b949e" font-size="13" class="font-mono">
+    <text x="260" y="13" fill="#52525b" font-size="13" class="font-mono">
       @${user}
     </text>
-    <rect x="650" y="-3" width="122" height="22" rx="6" fill="#21262d" stroke="#30363d" />
+    <rect x="650" y="-3" width="122" height="22" rx="6" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
     <text x="711" y="12" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle" class="font-mono">
       GUARDIAN (${rating})
     </text>
@@ -932,46 +932,46 @@ export function generateLeetCodeStatsSvg(options: LeetCodeOptions = {}): string 
       stroke-linecap="round"
       transform="rotate(-90)"
     />
-    <text x="0" y="4" fill="#f0f6fc" font-size="22" font-weight="800" text-anchor="middle" class="font-mono">${solved}</text>
-    <text x="0" y="24" fill="#8b949e" font-size="10" text-anchor="middle" class="font-mono">SOLVED / ${total}</text>
+    <text x="0" y="4" fill="#18181b" font-size="22" font-weight="800" text-anchor="middle" class="font-mono">${solved}</text>
+    <text x="0" y="24" fill="#52525b" font-size="10" text-anchor="middle" class="font-mono">SOLVED / ${total}</text>
   </g>
 
   <g transform="translate(260, 95)">
     <g transform="translate(0, 0)">
       <text x="0" y="14" fill="#34d399" font-size="13" font-weight="700" class="font-mono">Easy</text>
-      <text x="360" y="14" fill="#f0f6fc" font-size="13" font-weight="700" text-anchor="end" class="font-mono">${easy.solved} <tspan fill="#8b949e" font-size="11">/ ${easy.total}</tspan></text>
+      <text x="360" y="14" fill="#18181b" font-size="13" font-weight="700" text-anchor="end" class="font-mono">${easy.solved} <tspan fill="#52525b" font-size="11">/ ${easy.total}</tspan></text>
       <rect x="0" y="24" width="360" height="6" rx="3" fill="#21262d" />
       <rect x="0" y="24" width="${((easy.solved / easy.total) * 360).toFixed(1)}" height="6" rx="3" fill="#34d399" />
     </g>
 
     <g transform="translate(0, 50)">
       <text x="0" y="14" fill="#fbbf24" font-size="13" font-weight="700" class="font-mono">Medium</text>
-      <text x="360" y="14" fill="#f0f6fc" font-size="13" font-weight="700" text-anchor="end" class="font-mono">${medium.solved} <tspan fill="#8b949e" font-size="11">/ ${medium.total}</tspan></text>
+      <text x="360" y="14" fill="#18181b" font-size="13" font-weight="700" text-anchor="end" class="font-mono">${medium.solved} <tspan fill="#52525b" font-size="11">/ ${medium.total}</tspan></text>
       <rect x="0" y="24" width="360" height="6" rx="3" fill="#21262d" />
       <rect x="0" y="24" width="${((medium.solved / medium.total) * 360).toFixed(1)}" height="6" rx="3" fill="#fbbf24" />
     </g>
 
     <g transform="translate(0, 100)">
       <text x="0" y="14" fill="#f87171" font-size="13" font-weight="700" class="font-mono">Hard</text>
-      <text x="360" y="14" fill="#f0f6fc" font-size="13" font-weight="700" text-anchor="end" class="font-mono">${hard.solved} <tspan fill="#8b949e" font-size="11">/ ${hard.total}</tspan></text>
+      <text x="360" y="14" fill="#18181b" font-size="13" font-weight="700" text-anchor="end" class="font-mono">${hard.solved} <tspan fill="#52525b" font-size="11">/ ${hard.total}</tspan></text>
       <rect x="0" y="24" width="360" height="6" rx="3" fill="#21262d" />
       <rect x="0" y="24" width="${((hard.solved / hard.total) * 360).toFixed(1)}" height="6" rx="3" fill="#f87171" />
     </g>
   </g>
 
   <g transform="translate(650, 95)">
-    <rect x="0" y="0" width="122" height="135" rx="8" fill="#161b22" stroke="#21262d" />
-    <text x="61" y="32" fill="#8b949e" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">GLOBAL RANK</text>
-    <text x="61" y="60" fill="#f0f6fc" font-size="16" font-weight="800" text-anchor="middle" class="font-mono">${ranking}</text>
+    <rect x="0" y="0" width="122" height="135" rx="8" fill="#f4f4f5" stroke="#18181b" stroke-width="1.5" />
+    <text x="61" y="32" fill="#52525b" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">GLOBAL RANK</text>
+    <text x="61" y="60" fill="#18181b" font-size="16" font-weight="800" text-anchor="middle" class="font-mono">${ranking}</text>
 
     <line x1="16" y1="78" x2="106" y2="78" stroke="#30363d" />
 
-    <text x="61" y="98" fill="#8b949e" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">CONTEST TIER</text>
+    <text x="61" y="98" fill="#52525b" font-size="10" font-weight="600" text-anchor="middle" class="font-mono">CONTEST TIER</text>
     <text x="61" y="120" fill="#fbbf24" font-size="14" font-weight="800" text-anchor="middle" class="font-mono">Guardian</text>
   </g>
 
   <g transform="translate(28, 295)">
-    <text x="0" y="0" fill="#8b949e" font-size="11" class="font-mono">MonoForge • Continuous LeetCode Problem Telemetry</text>
+    <text x="0" y="0" fill="#52525b" font-size="11" class="font-mono">MonoForge • Continuous LeetCode Problem Telemetry</text>
   </g>
 </svg>`;
 }

@@ -506,3 +506,40 @@ a:hover {
   animation: yellowGlowPulse 2.5s ease-in-out infinite;
 }
 
+/* Tactile Neo-Brutalist Button Physics */
+.btn-tactile {
+  transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.12s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
+}
+
+.btn-tactile:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #18181b !important;
+}
+
+.btn-tactile:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #18181b !important;
+}
+
+/* Rubber pop on cards */
+.card-tactile {
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-tactile:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0px #18181b !important;
+}
+
+/* Monkey Wiggle Keyframe */
+@keyframes monkeyWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.hover-monkey-wiggle:hover {
+  animation: monkeyWiggle 0.4s ease-in-out infinite;
+}
+
+

@@ -223,10 +223,10 @@ export function InfoHub() {
   }, [templateFilter, searchQuery]);
 
   // Commands for installer
-  const linuxInstallCmd = 'curl -fsSL https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/install.sh | bash';
-  const windowsInstallCmd = 'iwr -useb https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main/install.ps1 | iex';
-  const gitCloneCmd = 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git\ncd monoforge\ncorepack enable\npnpm install\npnpm dev';
-  const npmCmd = 'git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git\ncd monoforge\nnpm install\nnpm run dev';
+  const linuxInstallCmd = 'curl -fsSL /install.sh | bash';
+  const windowsInstallCmd = 'iwr -useb /install.ps1 | iex';
+  const gitCloneCmd = 'git clone https://github.com/monoforge/MONOFORGE.git\ncd monoforge\ncorepack enable\npnpm install\npnpm dev';
+  const npmCmd = 'git clone https://github.com/monoforge/MONOFORGE.git\ncd monoforge\nnpm install\nnpm run dev';
   const dockerCmd = 'docker build -t monoforge .\ndocker run -p 3000:3000 monoforge';
 
   const currentInstallCmd = useMemo(() => {
@@ -773,7 +773,7 @@ export function InfoHub() {
                   <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-neutral-900 text-xs font-mono text-neutral-800">
                     <span className="truncate mr-2">git clone https://...</span>
                     <CopyButton
-                      textToCopy="git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git"
+                      textToCopy="git clone https://github.com/monoforge/MONOFORGE.git"
                       variant="ghost"
                       size="xs"
                       iconOnly
@@ -1547,13 +1547,13 @@ export function InfoHub() {
             {/* Author & Open Source */}
             <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-r from-neutral-900 via-neutral-900/80 to-neutral-950 border border-neutral-300 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-neutral-950 font-black text-xl shadow-lg shrink-0">
-                  Y
+                <div className="w-14 h-14 rounded-2xl bg-[#ffe600] border-2 border-neutral-900 flex items-center justify-center text-neutral-950 font-black text-xl shadow-[2px_2px_0px_#18181b] shrink-0">
+                  🐵
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-neutral-950">Yuvraj Thakur</h4>
+                  <h4 className="text-base font-black text-neutral-950">MonoForge Core Contributors</h4>
                   <p className="text-xs text-neutral-600 font-mono">
-                    Maintainer &amp; Creator of MonoForge • @yuvraj-thakur-exe
+                    Zero Monkey Business • Open Source Precision Engineering
                   </p>
                   <div className="flex items-center gap-3 mt-1.5 text-xs">
                     <span className="text-emerald-400 font-semibold">MIT License</span>
@@ -1565,7 +1565,7 @@ export function InfoHub() {
 
               <div className="flex items-center gap-3 w-full sm:w-auto">
                 <a
-                  href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
+                  href="https://github.com/monoforge/MONOFORGE"
                   target="_blank"
                   rel="noreferrer"
                   className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-700 text-neutral-950 font-semibold text-xs border border-neutral-900 transition-colors shadow-sm"

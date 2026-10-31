@@ -68,7 +68,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             <Clickable.ExternalLink
               className="palette-orange"
               variant="ghost"
-              href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
+              href="https://github.com/monoforge/MONOFORGE"
               target="_blank"
               rel="noreferrer"
             >
@@ -79,7 +79,7 @@ export const ResultTemplate = observer(function ResultTemplate() {
             <Clickable.ExternalLink
               className="palette-orange"
               variant="ghost"
-              href="https://github.com/yuvraj-thakur-exe/MONOFORGE/fork"
+              href="https://github.com/monoforge/MONOFORGE/fork"
               target="_blank"
               rel="noreferrer"
             >

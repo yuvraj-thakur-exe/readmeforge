@@ -7,7 +7,7 @@ export const telemetryEnginePlugin: Plugin = {
   name: 'MonoForge Telemetry',
   description: 'Infographics generator with 47+ plugins (isometric calendar, languages, habits, achievements, leetcode, wakatime) rendered via GitHub Actions or native SVG.',
   author: 'MonoForge',
-  repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+  repository: 'https://github.com/monoforge/MONOFORGE',
   category: 'stats',
   icon: 'bar-chart-2',
   fields: [

@@ -109,7 +109,7 @@ export function StudioCursor() {
       >
         <div
           className={`-translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-transform duration-100 ${
-            hoverLabel ? 'scale-0' : 'scale-100 bg-neutral-950 dark:bg-white'
+            hoverLabel ? 'scale-0' : 'scale-100 bg-neutral-950'
           }`}
         />
       </div>
@@ -126,8 +126,8 @@ export function StudioCursor() {
             hoverLabel
               ? 'w-14 h-14 bg-[#ffe600] border-neutral-950 text-neutral-950 shadow-[3px_3px_0px_#18181b] scale-110'
               : isClicking
-              ? 'w-6 h-6 bg-[#ffe600]/40 border-[#ffe600] scale-90'
-              : 'w-8 h-8 bg-transparent border-neutral-950/40 dark:border-white/40 scale-100'
+              ? 'w-7 h-7 bg-[#ffe600] border-neutral-950 scale-90'
+              : 'w-8 h-8 bg-transparent border-neutral-900 scale-100 shadow-2xs'
           }`}
         >
           {hoverLabel && (

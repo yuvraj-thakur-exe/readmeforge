@@ -5,7 +5,7 @@ export const telemetryIsocalendarPlugin: Plugin = {
   name: '3D Isometric Calendar',
   description: 'Axonometric 3D projection of commit history, streak counters, and elevation terrain.',
   author: 'MonoForge',
-  repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+  repository: 'https://github.com/monoforge/MONOFORGE',
   category: 'stats',
   icon: 'calendar',
   fields: [

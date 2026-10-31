@@ -103,7 +103,7 @@ export async function GET(req: NextRequest) {
               fontWeight: 600,
             }}
           >
-            <span>github.com/yuvraj-thakur-exe/MONOFORGE</span>
+            <span>github.com/monoforge/MONOFORGE</span>
             <span>·</span>
             <span>@{username}</span>
           </div>

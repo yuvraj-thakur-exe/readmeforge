@@ -105,7 +105,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
 
   return (
     <div
-      className={`flex items-center justify-between px-4 py-2 bg-white dark:bg-neutral-900 border-t-2 border-neutral-900 dark:border-neutral-800 text-xs shadow-sm ${className}`}
+      className={`flex items-center justify-between px-4 py-2.5 bg-white border-t-2 border-neutral-900 text-xs shadow-sm ${className}`}
     >
       {/* History and Reset Controls */}
       <div className="flex items-center gap-1.5">
@@ -113,7 +113,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           type="button"
           onClick={() => undo()}
           disabled={history.length === 0}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white hover:bg-neutral-100 border-2 border-neutral-900 text-neutral-950 shadow-[2px_2px_0px_#18181b] btn-tactile font-mono text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
           title="Undo"
         >
           <Undo2 className="w-3.5 h-3.5" />
@@ -124,7 +124,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           type="button"
           onClick={() => redo()}
           disabled={future.length === 0}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white hover:bg-neutral-100 border-2 border-neutral-900 text-neutral-950 shadow-[2px_2px_0px_#18181b] btn-tactile font-mono text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all"
           title="Redo"
         >
           <Redo2 className="w-3.5 h-3.5" />
@@ -138,7 +138,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
               resetConfig();
             }
           }}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-red-50 dark:bg-neutral-800 dark:hover:bg-red-950/30 border border-neutral-300 dark:border-neutral-700 text-neutral-600 hover:text-red-600 transition-colors font-mono text-xs font-bold ml-1"
+          className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white hover:bg-red-50 border-2 border-neutral-900 text-neutral-800 hover:text-red-600 shadow-[2px_2px_0px_#18181b] btn-tactile transition-colors font-mono text-xs font-bold ml-1"
           title="Reset configuration to empty profile"
         >
           <RotateCcw className="w-3.5 h-3.5" />
@@ -157,7 +157,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         <button
           type="button"
           onClick={handleCopyAiPrompt}
-          className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold transition-all"
+          className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white hover:bg-neutral-100 border-2 border-neutral-900 text-neutral-950 shadow-[2px_2px_0px_#18181b] btn-tactile font-mono text-xs font-bold transition-all"
           title="Copy config wrapped in AI assistant prompt"
         >
           {copiedAiPrompt ? (
@@ -171,7 +171,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         <button
           type="button"
           onClick={handleShareUrl}
-          className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-800 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-bold transition-all"
+          className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white hover:bg-neutral-100 border-2 border-neutral-900 text-neutral-950 shadow-[2px_2px_0px_#18181b] btn-tactile font-mono text-xs font-bold transition-all"
           title="Copy shareable URL containing base64 configuration"
         >
           {copiedUrl ? (
@@ -186,7 +186,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
           <button
             type="button"
             onClick={onOpenSync}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#ffe600] hover:bg-[#ffdf00] text-neutral-950 font-mono text-xs font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none btn-tactile hover:translate-x-[1px] hover:translate-y-[1px] transition-all"
             title="Push directly to GitHub repository"
           >
             <Github className="w-3.5 h-3.5" />
@@ -197,7 +197,7 @@ export const ExportBar: React.FC<ExportBarProps> = ({ onOpenSync, className = ''
         <button
           type="button"
           onClick={handleDownloadMarkdown}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-neutral-800 border-2 border-neutral-900 dark:border-neutral-100 text-neutral-900 dark:text-neutral-100 font-mono text-xs font-bold shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:bg-neutral-100 transition-all btn-tactile"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white hover:bg-neutral-100 border-2 border-neutral-900 text-neutral-950 font-mono text-xs font-bold shadow-[2px_2px_0px_#18181b] transition-all btn-tactile"
           title="Download README.md file"
         >
           <Download className="w-3.5 h-3.5" />

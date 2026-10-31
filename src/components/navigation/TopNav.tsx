@@ -37,9 +37,9 @@ export function TopNav() {
       <div className="max-w-[1720px] mx-auto flex items-center justify-between h-14 px-3 sm:px-6">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group" data-cursor-label="HOME">
-          <div className="relative p-1.5 rounded-xl bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] group-hover:scale-105 transition-transform duration-200">
-            <MonoForgeMonkeyIcon className="w-5 h-5 sm:w-6 sm:h-6 text-neutral-950" />
-            <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-neutral-950 animate-pulse" />
+          <div className="relative p-1 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] group-hover:scale-105 transition-transform duration-200 overflow-hidden">
+            <MonoForgeMonkeyIcon className="w-6 h-6 sm:w-7 sm:h-7" />
+            <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white animate-pulse" />
           </div>
           <div className="flex flex-col">
             <span className="font-black text-sm tracking-tight text-neutral-950  uppercase">
@@ -129,7 +129,7 @@ export function TopNav() {
 
           {/* GitHub Star Pill */}
           <a
-            href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
+            href="https://github.com/monoforge/MONOFORGE"
             target="_blank"
             rel="noreferrer"
             data-cursor-label="STAR"

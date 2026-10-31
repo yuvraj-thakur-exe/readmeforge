@@ -5,7 +5,7 @@ export const pieChartPlugin: Plugin = {
   name: 'Skills & Language Pie Chart',
   description: 'Generate dynamic visual pie charts and donut charts representing skill distributions or language metrics.',
   author: 'MonoForge',
-  repository: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+  repository: 'https://github.com/monoforge/MONOFORGE',
   category: 'stats',
   icon: 'pie-chart',
   fields: [

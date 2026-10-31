@@ -59,7 +59,7 @@ export function DesignTokensPlayground() {
 </div>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/yuvraj-thakur-exe/MONOFORGE/main${selectedMascot.asset}" alt="${selectedMascot.label}" width="100%" />
+  <img src="${selectedMascot.asset}" alt="${selectedMascot.label}" width="100%" />
 </p>`;
   }, [selectedColor, badgeStyle, selectedMascot]);
 

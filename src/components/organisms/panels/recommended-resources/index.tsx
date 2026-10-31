@@ -189,39 +189,39 @@ export const PanelRecommendedResources: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col gap-3 h-full text-neutral-100">
+    <div className="flex flex-col gap-3 h-full text-neutral-950">
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">
           <div className="p-1 rounded-md bg-gradient-to-tr from-violet-600 to-cyan-500 text-white">
             <Link2 className="w-4 h-4" />
           </div>
-          <Text.Heading as="h2" className="text-base font-bold text-neutral-100">
+          <Text.Heading as="h2" className="text-base font-bold text-neutral-950">
             {t('recommended-resources.heading')}
           </Text.Heading>
         </div>
-        <p className="text-xs text-neutral-400 leading-relaxed">
+        <p className="text-xs text-neutral-700 font-semibold leading-relaxed">
           {t('recommended-resources.description1')}
         </p>
       </div>
 
       {/* Success Notification Banner */}
       {successMessage && (
-        <div className="p-2.5 rounded-lg bg-emerald-950/80 border border-emerald-500/60 text-emerald-200 text-xs flex items-center gap-2 animate-fadeIn">
+        <div className="p-2.5 rounded-lg bg-emerald-100 border-2 border-emerald-600 text-emerald-950 font-bold text-xs flex items-center gap-2 animate-fadeIn">
           <CheckCheck className="w-4 h-4 text-emerald-400 shrink-0" />
           <span>{successMessage}</span>
         </div>
       )}
 
       {/* Mode Tabs */}
-      <div className="grid grid-cols-4 gap-1 p-1 rounded-xl bg-neutral-900 border border-neutral-800 shrink-0">
+      <div className="grid grid-cols-4 gap-1 p-1 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] shrink-0">
         <button
           type="button"
           onClick={() => setActiveTab('figma')}
           className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg text-[11px] font-semibold transition-all ${
             activeTab === 'figma'
               ? 'bg-violet-600 text-white shadow-sm'
-              : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+              : 'text-neutral-800 font-bold hover:bg-neutral-100'
           }`}
         >
           <Figma className="w-3.5 h-3.5 mb-1 text-purple-300" />
@@ -234,7 +234,7 @@ export const PanelRecommendedResources: React.FC = () => {
           className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg text-[11px] font-semibold transition-all ${
             activeTab === 'image'
               ? 'bg-cyan-600 text-white shadow-sm'
-              : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+              : 'text-neutral-800 font-bold hover:bg-neutral-100'
           }`}
         >
           <ImageIcon className="w-3.5 h-3.5 mb-1 text-cyan-300" />
@@ -247,7 +247,7 @@ export const PanelRecommendedResources: React.FC = () => {
           className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg text-[11px] font-semibold transition-all ${
             activeTab === 'svg'
               ? 'bg-amber-600 text-white shadow-sm'
-              : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+              : 'text-neutral-800 font-bold hover:bg-neutral-100'
           }`}
         >
           <Sparkles className="w-3.5 h-3.5 mb-1 text-amber-300" />
@@ -260,7 +260,7 @@ export const PanelRecommendedResources: React.FC = () => {
           className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg text-[11px] font-semibold transition-all ${
             activeTab === 'badge'
               ? 'bg-emerald-600 text-white shadow-sm'
-              : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60'
+              : 'text-neutral-800 font-bold hover:bg-neutral-100'
           }`}
         >
           <Shield className="w-3.5 h-3.5 mb-1 text-emerald-300" />
@@ -273,7 +273,7 @@ export const PanelRecommendedResources: React.FC = () => {
         {activeTab === 'figma' && (
           <div className="space-y-3">
             <div>
-              <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+              <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                 Figma File or Prototype URL
               </label>
               <input
@@ -281,12 +281,12 @@ export const PanelRecommendedResources: React.FC = () => {
                 value={figmaUrl}
                 onChange={e => setFigmaUrl(e.target.value)}
                 placeholder="https://www.figma.com/design/..."
-                className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-violet-500 font-mono"
+                className="w-full px-3 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-violet-500 font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+              <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                 Project Title
               </label>
               <input
@@ -294,19 +294,19 @@ export const PanelRecommendedResources: React.FC = () => {
                 value={figmaTitle}
                 onChange={e => setFigmaTitle(e.target.value)}
                 placeholder="Product Design System & Component Kit"
-                className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-violet-500"
+                className="w-full px-3 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-violet-500"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Display Style
                 </label>
                 <select
                   value={figmaStyle}
                   onChange={e => setFigmaStyle(e.target.value as any)}
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-violet-500"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-violet-500"
                 >
                   <option value="showcase-card">Showcase Card</option>
                   <option value="design-system">Design System</option>
@@ -315,7 +315,7 @@ export const PanelRecommendedResources: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Role / Description
                 </label>
                 <input
@@ -323,14 +323,14 @@ export const PanelRecommendedResources: React.FC = () => {
                   value={figmaRole}
                   onChange={e => setFigmaRole(e.target.value)}
                   placeholder="UI/UX Designer"
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-violet-500"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-violet-500"
                 />
               </div>
             </div>
 
             {/* Quick Presets */}
             <div>
-              <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-1.5">
+              <span className="text-[10px] font-mono text-neutral-700 font-bold uppercase tracking-wider block mb-1.5">
                 Quick Figma Presets
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -359,7 +359,7 @@ export const PanelRecommendedResources: React.FC = () => {
                       setFigmaTitle(p.name);
                       setFigmaRole(p.role);
                     }}
-                    className="text-[10px] px-2 py-1 rounded bg-neutral-900/90 hover:bg-violet-950/60 border border-neutral-800 hover:border-violet-500/40 text-neutral-300 transition-colors"
+                    className="text-[10px] px-2 py-1 rounded bg-neutral-100 hover:bg-[#ffe600] border-2 border-neutral-900 text-neutral-950 font-bold transition-colors"
                   >
                     {p.name}
                   </button>
@@ -368,19 +368,19 @@ export const PanelRecommendedResources: React.FC = () => {
             </div>
 
             {/* Live Preview Box */}
-            <div className="p-3 rounded-xl bg-neutral-950/80 border border-neutral-800/80 space-y-2">
+            <div className="p-3 rounded-xl bg-neutral-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
               <span className="text-[10px] font-mono uppercase tracking-wider text-purple-400 flex items-center gap-1 font-semibold">
                 <Eye className="w-3 h-3" /> Live Markdown Card Preview
               </span>
-              <div className="p-3 rounded-lg bg-neutral-900/60 border border-purple-500/30 flex items-center gap-3">
+              <div className="p-3 rounded-lg bg-white border-2 border-neutral-900 flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-purple-950/80 border border-purple-500/50 text-purple-300">
                   <Figma className="w-5 h-5" />
                 </div>
                 <div className="flex-1 overflow-hidden">
-                  <div className="text-xs font-bold text-neutral-100 truncate">
+                  <div className="text-xs font-bold text-neutral-950 truncate">
                     {figmaTitle || 'Figma Design Showcase'}
                   </div>
-                  <div className="text-[10px] text-neutral-400 truncate">
+                  <div className="text-[10px] text-neutral-700 font-semibold truncate">
                     {figmaRole} &bull; {figmaStyle}
                   </div>
                 </div>
@@ -402,7 +402,7 @@ export const PanelRecommendedResources: React.FC = () => {
         {activeTab === 'image' && (
           <div className="space-y-3">
             <div>
-              <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+              <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                 Image or GIF URL (.png, .jpg, .webp, .gif)
               </label>
               <input
@@ -410,13 +410,13 @@ export const PanelRecommendedResources: React.FC = () => {
                 value={imageUrl}
                 onChange={e => setImageUrl(e.target.value)}
                 placeholder="https://.../banner.png"
-                className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-cyan-500 font-mono"
+                className="w-full px-3 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-cyan-500 font-mono"
               />
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Alt Description
                 </label>
                 <input
@@ -424,18 +424,18 @@ export const PanelRecommendedResources: React.FC = () => {
                   value={imageAlt}
                   onChange={e => setImageAlt(e.target.value)}
                   placeholder="Developer Workspace"
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-cyan-500"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-cyan-500"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Alignment
                 </label>
                 <select
                   value={imageAlign}
                   onChange={e => setImageAlign(e.target.value as any)}
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-cyan-500"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-cyan-500"
                 >
                   <option value="center">Center</option>
                   <option value="left">Left</option>
@@ -445,7 +445,7 @@ export const PanelRecommendedResources: React.FC = () => {
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+              <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                 Clickable Target Link (Optional)
               </label>
               <input
@@ -453,13 +453,13 @@ export const PanelRecommendedResources: React.FC = () => {
                 value={imageLink}
                 onChange={e => setImageLink(e.target.value)}
                 placeholder="https://mywebsite.com"
-                className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-cyan-500 font-mono"
+                className="w-full px-3 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-cyan-500 font-mono"
               />
             </div>
 
             {/* Presets */}
             <div>
-              <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-1.5">
+              <span className="text-[10px] font-mono text-neutral-700 font-bold uppercase tracking-wider block mb-1.5">
                 Curated Visual Assets
               </span>
               <div className="grid grid-cols-2 gap-2">
@@ -488,14 +488,14 @@ export const PanelRecommendedResources: React.FC = () => {
                       setImageUrl(p.src);
                       setImageAlt(p.name);
                     }}
-                    className="flex items-center gap-2 p-1.5 rounded-lg bg-neutral-900/90 hover:bg-cyan-950/40 border border-neutral-800 hover:border-cyan-500/40 text-left transition-colors"
+                    className="flex items-center gap-2 p-1.5 rounded-lg bg-neutral-100 hover:bg-[#ffe600] border-2 border-neutral-900 text-neutral-950 font-bold text-left transition-colors"
                   >
                     <img
                       src={p.src}
                       alt={p.name}
                       className="w-7 h-7 rounded object-cover border border-neutral-700"
                     />
-                    <span className="text-[10px] text-neutral-300 truncate font-mono">
+                    <span className="text-[10px] text-neutral-800 truncate font-mono">
                       {p.name}
                     </span>
                   </button>
@@ -504,11 +504,11 @@ export const PanelRecommendedResources: React.FC = () => {
             </div>
 
             {/* Preview */}
-            <div className="p-3 rounded-xl bg-neutral-950/80 border border-neutral-800/80 space-y-2">
+            <div className="p-3 rounded-xl bg-neutral-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
               <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-400 flex items-center gap-1 font-semibold">
                 <Eye className="w-3 h-3" /> Live Image Preview
               </span>
-              <div className="rounded-lg overflow-hidden border border-neutral-800 bg-neutral-900/60 max-h-36 flex items-center justify-center p-2">
+              <div className="rounded-lg overflow-hidden border-2 border-neutral-900 bg-white max-h-36 flex items-center justify-center p-2">
                 <img
                   src={imageUrl}
                   alt={imageAlt}
@@ -535,7 +535,7 @@ export const PanelRecommendedResources: React.FC = () => {
         {activeTab === 'svg' && (
           <div className="space-y-3">
             <div>
-              <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+              <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                 SVG URL or Asset Path
               </label>
               <input
@@ -543,12 +543,12 @@ export const PanelRecommendedResources: React.FC = () => {
                 value={svgUrl}
                 onChange={e => setSvgUrl(e.target.value)}
                 placeholder="/assets/terminal_animated.svg"
-                className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-amber-500 font-mono"
+                className="w-full px-3 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-amber-500 font-mono"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+              <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                 SVG Banner Title
               </label>
               <input
@@ -556,13 +556,13 @@ export const PanelRecommendedResources: React.FC = () => {
                 value={svgTitle}
                 onChange={e => setSvgTitle(e.target.value)}
                 placeholder="Animated Vector Banner"
-                className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-amber-500"
+                className="w-full px-3 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-amber-500"
               />
             </div>
 
             {/* Presets */}
             <div>
-              <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-1.5">
+              <span className="text-[10px] font-mono text-neutral-700 font-bold uppercase tracking-wider block mb-1.5">
                 Curated 60fps Vector Animations
               </span>
               <div className="grid grid-cols-2 gap-1.5">
@@ -607,14 +607,14 @@ export const PanelRecommendedResources: React.FC = () => {
                       setSvgUrl(p.src);
                       setSvgTitle(p.name);
                     }}
-                    className="flex items-center gap-2 p-1.5 rounded-lg bg-neutral-900/90 hover:bg-amber-950/40 border border-neutral-800 hover:border-amber-500/40 text-left transition-colors"
+                    className="flex items-center gap-2 p-1.5 rounded-lg bg-neutral-100 hover:bg-[#ffe600] border-2 border-neutral-900 text-neutral-950 font-bold text-left transition-colors"
                   >
                     <img
                       src={p.src}
                       alt={p.name}
                       className="w-6 h-6 object-contain"
                     />
-                    <span className="text-[10px] text-neutral-300 truncate font-mono">
+                    <span className="text-[10px] text-neutral-800 truncate font-mono">
                       {p.name}
                     </span>
                   </button>
@@ -623,11 +623,11 @@ export const PanelRecommendedResources: React.FC = () => {
             </div>
 
             {/* Preview */}
-            <div className="p-3 rounded-xl bg-neutral-950/80 border border-neutral-800/80 space-y-2">
+            <div className="p-3 rounded-xl bg-neutral-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
               <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 flex items-center gap-1 font-semibold">
                 <Eye className="w-3 h-3" /> Live Animated SVG Preview
               </span>
-              <div className="rounded-lg overflow-hidden border border-neutral-800 bg-neutral-900/60 min-h-24 flex items-center justify-center p-2">
+              <div className="rounded-lg overflow-hidden border-2 border-neutral-900 bg-white min-h-24 flex items-center justify-center p-2">
                 <img
                   src={svgUrl}
                   alt={svgTitle}
@@ -652,7 +652,7 @@ export const PanelRecommendedResources: React.FC = () => {
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Label
                 </label>
                 <input
@@ -660,12 +660,12 @@ export const PanelRecommendedResources: React.FC = () => {
                   value={badgeLabel}
                   onChange={e => setBadgeLabel(e.target.value)}
                   placeholder="FIGMA"
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-emerald-500 font-mono"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-emerald-500 font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Message
                 </label>
                 <input
@@ -673,14 +673,14 @@ export const PanelRecommendedResources: React.FC = () => {
                   value={badgeMsg}
                   onChange={e => setBadgeMsg(e.target.value)}
                   placeholder="DESIGN SYSTEM"
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-emerald-500 font-mono"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-emerald-500 font-mono"
                 />
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Hex Color (No #)
                 </label>
                 <input
@@ -688,12 +688,12 @@ export const PanelRecommendedResources: React.FC = () => {
                   value={badgeColor}
                   onChange={e => setBadgeColor(e.target.value)}
                   placeholder="F24E1E"
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-emerald-500 font-mono"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-emerald-500 font-mono"
                 />
               </div>
 
               <div>
-                <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+                <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                   Logo Slug
                 </label>
                 <input
@@ -701,13 +701,13 @@ export const PanelRecommendedResources: React.FC = () => {
                   value={badgeLogo}
                   onChange={e => setBadgeLogo(e.target.value)}
                   placeholder="figma"
-                  className="w-full px-2.5 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-emerald-500 font-mono"
+                  className="w-full px-2.5 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-emerald-500 font-mono"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-[11px] font-mono text-neutral-400 mb-1">
+              <label className="block text-[11px] font-mono text-neutral-700 font-semibold mb-1">
                 Target URL
               </label>
               <input
@@ -715,13 +715,13 @@ export const PanelRecommendedResources: React.FC = () => {
                 value={badgeLink}
                 onChange={e => setBadgeLink(e.target.value)}
                 placeholder="https://figma.com/@myprofile"
-                className="w-full px-3 py-2 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-100 focus:outline-none focus:border-emerald-500 font-mono"
+                className="w-full px-3 py-2 rounded-lg bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] text-xs text-neutral-950 focus:outline-none focus:border-emerald-500 font-mono"
               />
             </div>
 
             {/* Presets */}
             <div>
-              <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-1.5">
+              <span className="text-[10px] font-mono text-neutral-700 font-bold uppercase tracking-wider block mb-1.5">
                 Popular Shield Presets
               </span>
               <div className="flex flex-wrap gap-1.5">
@@ -741,7 +741,7 @@ export const PanelRecommendedResources: React.FC = () => {
                       setBadgeColor(p.col);
                       setBadgeLogo(p.logo);
                     }}
-                    className="text-[10px] px-2 py-1 rounded bg-neutral-900/90 hover:bg-emerald-950/60 border border-neutral-800 hover:border-emerald-500/40 text-neutral-300 transition-colors"
+                    className="text-[10px] px-2 py-1 rounded bg-neutral-100 hover:bg-[#ffe600] border-2 border-neutral-900 text-neutral-950 font-bold transition-colors"
                   >
                     {p.label}
                   </button>
@@ -750,11 +750,11 @@ export const PanelRecommendedResources: React.FC = () => {
             </div>
 
             {/* Preview */}
-            <div className="p-3 rounded-xl bg-neutral-950/80 border border-neutral-800/80 space-y-2">
+            <div className="p-3 rounded-xl bg-neutral-50 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
               <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 flex items-center gap-1 font-semibold">
                 <Eye className="w-3 h-3" /> Live Badge Preview
               </span>
-              <div className="p-3 rounded-lg bg-neutral-900/60 border border-neutral-800 flex items-center justify-center">
+              <div className="p-3 rounded-lg bg-white border-2 border-neutral-900 flex items-center justify-center">
                 <img
                   src={generatedBadgeUrl}
                   alt={`${badgeLabel} ${badgeMsg}`}

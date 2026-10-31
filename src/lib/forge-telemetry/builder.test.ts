@@ -9,7 +9,7 @@ import { ForgeTelemetryConfig } from './types';
 describe('MonoForge Telemetry Engine - Builder', () => {
   it('generates a valid GitHub Actions workflow YAML without metrics naming in jobs', () => {
     const config: ForgeTelemetryConfig = {
-      username: 'yuvraj-thakur-exe',
+      username: 'octocat',
       template: 'classic',
       timezone: 'Asia/Kolkata',
       commitMessage: 'Auto-update MonoForge profile telemetry',
@@ -18,14 +18,14 @@ describe('MonoForge Telemetry Engine - Builder', () => {
       languages: { enabled: true, limit: 10, sections: ['most-used'] },
       habits: { enabled: true, facts: true, charts: true },
       achievements: { enabled: true, threshold: 'A', display: 'compact' },
-      leetcode: { enabled: true, user: 'yuvraj' },
+      leetcode: { enabled: true, user: 'octocat' },
     };
 
     const workflow = buildTelemetryActionWorkflow(config);
 
     expect(workflow).toContain('name: MonoForge Telemetry');
     expect(workflow).toContain('filename: monoforge-telemetry.svg');
-    expect(workflow).toContain('user: yuvraj-thakur-exe');
+    expect(workflow).toContain('user: octocat');
     expect(workflow).toContain('config_timezone: Asia/Kolkata');
     expect(workflow).toContain('plugin_isocalendar: yes');
     expect(workflow).toContain('plugin_isocalendar_duration: full-year');
@@ -35,7 +35,7 @@ describe('MonoForge Telemetry Engine - Builder', () => {
     expect(workflow).toContain('plugin_achievements: yes');
     expect(workflow).toContain('plugin_achievements_threshold: A');
     expect(workflow).toContain('plugin_leetcode: yes');
-    expect(workflow).toContain('plugin_leetcode_user: yuvraj');
+    expect(workflow).toContain('plugin_leetcode_user: octocat');
   });
 
   it('builds a direct SVG URL pointing to native endpoint and never metrics.lecoq.io', () => {

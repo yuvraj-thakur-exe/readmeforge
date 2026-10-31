@@ -246,12 +246,12 @@ export function NomokeyHero() {
                 </div>
 
                 {/* Mode Selector Pills */}
-                <div className="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-lg border border-neutral-200 border-neutral-900 text-[10px] font-mono font-bold">
+                <div className="flex items-center gap-1 bg-white p-1 rounded-lg border-2 border-neutral-900 text-[10px] font-mono font-bold shadow-2xs">
                   <button
                     type="button"
                     onClick={() => setActiveMode('clean')}
-                    className={`px-2 py-0.5 rounded transition-colors ${
-                      activeMode === 'clean' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900' : 'text-neutral-500'
+                    className={`px-2 py-0.5 rounded transition-all cursor-pointer ${
+                      activeMode === 'clean' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-xs' : 'bg-white text-neutral-700 hover:bg-neutral-100'
                     }`}
                   >
                     CLEAN
@@ -259,8 +259,8 @@ export function NomokeyHero() {
                   <button
                     type="button"
                     onClick={() => setActiveMode('cyber')}
-                    className={`px-2 py-0.5 rounded transition-colors ${
-                      activeMode === 'cyber' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900' : 'text-neutral-500'
+                    className={`px-2 py-0.5 rounded transition-all cursor-pointer ${
+                      activeMode === 'cyber' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-xs' : 'bg-white text-neutral-700 hover:bg-neutral-100'
                     }`}
                   >
                     CYBER
@@ -268,8 +268,8 @@ export function NomokeyHero() {
                   <button
                     type="button"
                     onClick={() => setActiveMode('lofi')}
-                    className={`px-2 py-0.5 rounded transition-colors ${
-                      activeMode === 'lofi' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900' : 'text-neutral-500'
+                    className={`px-2 py-0.5 rounded transition-all cursor-pointer ${
+                      activeMode === 'lofi' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-xs' : 'bg-white text-neutral-700 hover:bg-neutral-100'
                     }`}
                   >
                     LO-FI
@@ -277,8 +277,8 @@ export function NomokeyHero() {
                   <button
                     type="button"
                     onClick={() => setActiveMode('hyperspeed')}
-                    className={`px-2 py-0.5 rounded transition-colors ${
-                      activeMode === 'hyperspeed' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900' : 'text-neutral-500'
+                    className={`px-2 py-0.5 rounded transition-all cursor-pointer ${
+                      activeMode === 'hyperspeed' ? 'bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-xs' : 'bg-white text-neutral-700 hover:bg-neutral-100'
                     }`}
                   >
                     WARP
@@ -289,26 +289,26 @@ export function NomokeyHero() {
               {/* Interactive Banana Battery (Click to Feed & Celebrate!) */}
               <div
                 onClick={clickBanana}
-                className="cursor-pointer flex items-center justify-between p-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-900 border-neutral-900 text-xs font-mono font-bold hover:border-[#ffe600] transition-all mb-4 group select-none shadow-2xs"
+                className="cursor-pointer flex items-center justify-between p-2.5 rounded-xl bg-white border-2 border-neutral-900 text-xs font-mono font-bold hover:border-[#ffe600] transition-all mb-4 group select-none shadow-[2px_2px_0px_#18181b]"
                 title="Click to feed monkey & recharge battery!"
               >
                 <div className="flex items-center gap-2">
                   <span className="text-lg group-hover:scale-125 transition-transform">🍌</span>
-                  <span className="text-[11px] font-black uppercase text-neutral-900 text-neutral-950">
+                  <span className="text-[11px] font-black uppercase text-neutral-950">
                     BANANA BATTERY
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <div className="w-20 h-2.5 rounded-full bg-neutral-200 dark:bg-neutral-700 overflow-hidden border border-neutral-400 dark:border-neutral-600">
+                  <div className="w-20 h-2.5 rounded-full bg-neutral-100 overflow-hidden border-2 border-neutral-900">
                     <div
                       className="h-full bg-[#ffe600] transition-all duration-300"
                       style={{ width: `${bananaFuel}%` }}
                     />
                   </div>
-                  <span className="text-[10px] font-black text-amber-600 dark:text-amber-400">
+                  <span className="text-[10px] font-black text-amber-600">
                     {bananaFuel}%
                   </span>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-neutral-700 text-neutral-700 text-neutral-800 group-hover:bg-[#ffe600] group-hover:text-neutral-950 transition-colors">
+                  <span className="text-[9px] px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900 shadow-2xs group-hover:scale-105 transition-transform">
                     FEED ⚡
                   </span>
                 </div>
@@ -317,20 +317,20 @@ export function NomokeyHero() {
               {/* Speech Bubble: Click to cycle quotes */}
               <div
                 onClick={triggerQuote}
-                className="cursor-pointer mb-5 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 border-neutral-900/80 text-xs font-mono text-neutral-800 text-neutral-900 relative group transition-all hover:border-amber-500"
+                className="cursor-pointer mb-5 p-3.5 rounded-xl bg-[#fffde6] border-2 border-neutral-900 text-xs font-mono text-neutral-950 relative group transition-all hover:border-amber-500 shadow-[3px_3px_0px_#18181b]"
                 title="Click to hear more monkey wisdom"
               >
                 <div className="flex items-start gap-2">
                   <span className="text-amber-500 font-bold shrink-0">💬</span>
-                  <p className="flex-1 italic tracking-tight select-none">
+                  <p className="flex-1 italic tracking-tight select-none font-bold text-neutral-900">
                     &ldquo;{MONKEY_QUOTES[quoteIdx]}&rdquo;
                   </p>
-                  <span className="text-[10px] font-bold text-neutral-400 group-hover:text-amber-500 shrink-0">
+                  <span className="text-[10px] font-black px-1.5 py-0.5 rounded bg-white border border-neutral-900 text-neutral-950 group-hover:bg-[#ffe600] shrink-0">
                     CLICK ↻
                   </span>
                 </div>
                 {/* Speech Bubble Arrow pointing to the monkey */}
-                <div className="absolute -bottom-2 left-12 w-3 h-3 bg-neutral-50 dark:bg-neutral-800 border-b border-r border-neutral-200 border-neutral-900 rotate-45" />
+                <div className="absolute -bottom-2 left-12 w-3.5 h-3.5 bg-[#fffde6] border-b-2 border-r-2 border-neutral-900 rotate-45" />
               </div>
 
               {/* The Monkey Companion Canvas */}
@@ -364,156 +364,17 @@ export function NomokeyHero() {
                     transform: `rotate(${headTilt.rotate}deg) translateY(${headTilt.translateY}px) scale(${sparkEffect ? 1.06 : 1})`,
                   }}
                 >
-                  {/* The Vector SVG with Dynamic Eye Pupils */}
-                  <svg
-                    width="200"
-                    height="200"
-                    viewBox="0 0 1024 1024"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="drop-shadow-sm"
-                  >
-                    {/* Left Outer Ear */}
-                    <path
-                      d="M 270 370 C 130 370 130 540 270 540"
-                      stroke="currentColor"
-                      strokeWidth="38"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-neutral-900 text-neutral-950"
-                    />
-
-                    {/* Right Outer Ear */}
-                    <path
-                      d="M 754 370 C 894 370 894 540 754 540"
-                      stroke="currentColor"
-                      strokeWidth="38"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-neutral-900 text-neutral-950"
-                    />
-
-                    {/* Outer Hexagonal Head */}
-                    <polygon
-                      points="512,180 754,320 754,600 512,740 270,600 270,320"
-                      stroke="currentColor"
-                      strokeWidth="38"
-                      strokeLinejoin="miter"
-                      fill={activeMode === 'clean' ? 'transparent' : 'currentColor'}
-                      className={
-                        activeMode === 'clean'
-                          ? 'text-neutral-900 text-neutral-950'
-                          : 'text-neutral-900/5 text-neutral-950/5 stroke-neutral-900 dark:stroke-neutral-100'
-                      }
-                    />
-
-                    {/* Inner Facial Mask Polygon */}
-                    <polygon
-                      points="512,370 635,320 710,510 635,630 512,700 389,630 314,510 389,320"
-                      stroke="currentColor"
-                      strokeWidth="38"
-                      strokeLinejoin="miter"
-                      fill="none"
-                      className="text-neutral-900 text-neutral-950"
-                    />
-
-                    {/* Nose & Muzzle Geometry */}
-                    <path
-                      d="M 455 505 L 512 550 L 569 505"
-                      stroke="currentColor"
-                      strokeWidth="38"
-                      strokeLinecap="square"
-                      strokeLinejoin="miter"
-                      fill="none"
-                      className="text-neutral-900 text-neutral-950"
-                    />
-                    <line
-                      x1="512"
-                      y1="550"
-                      x2="512"
-                      y2="630"
-                      stroke="currentColor"
-                      strokeWidth="38"
-                      strokeLinecap="square"
-                      className="text-neutral-900 text-neutral-950"
-                    />
-
-                    {/* Mouth Line */}
-                    <line
-                      x1="432"
-                      y1="640"
-                      x2="592"
-                      y2="640"
-                      stroke="currentColor"
-                      strokeWidth="38"
-                      strokeLinecap="square"
-                      className="text-neutral-900 text-neutral-950"
-                    />
-
-                    {/* Left Eye Base & Pupil */}
-                    <circle
-                      cx={425 + pupilOffset.x}
-                      cy={445 + pupilOffset.y}
-                      r="32"
-                      fill={activeMode === 'cyber' ? '#f59e0b' : activeMode === 'hyperspeed' ? '#10b981' : 'currentColor'}
-                      className={
-                        activeMode === 'cyber'
-                          ? ''
-                          : activeMode === 'hyperspeed'
-                          ? ''
-                          : 'text-neutral-900 text-neutral-950'
-                      }
-                    />
-
-                    {/* Right Eye Base & Pupil */}
-                    <circle
-                      cx={599 + pupilOffset.x}
-                      cy={445 + pupilOffset.y}
-                      r="32"
-                      fill={activeMode === 'cyber' ? '#f59e0b' : activeMode === 'hyperspeed' ? '#10b981' : 'currentColor'}
-                      className={
-                        activeMode === 'cyber'
-                          ? ''
-                          : activeMode === 'hyperspeed'
-                          ? ''
-                          : 'text-neutral-900 text-neutral-950'
-                      }
-                    />
-
-                    {/* Mode Specific Overlays */}
-                    {activeMode === 'cyber' && (
-                      <>
-                        {/* Cyber Visor Line */}
-                        <line
-                          x1="350"
-                          y1="445"
-                          x2="674"
-                          y2="445"
-                          stroke="#06b6d4"
-                          strokeWidth="8"
-                          strokeDasharray="16 8"
-                          className="opacity-70 animate-pulse"
-                        />
-                        {/* Corner Target Crosshairs */}
-                        <circle cx="512" cy="512" r="260" stroke="#f59e0b" strokeWidth="4" strokeDasharray="30 20" className="opacity-40" />
-                      </>
-                    )}
-
-                    {activeMode === 'lofi' && (
-                      <>
-                        {/* Lo-Fi Headphone band over head */}
-                        <path
-                          d="M 250 400 C 250 120 774 120 774 400"
-                          stroke="#06b6d4"
-                          strokeWidth="28"
-                          strokeLinecap="round"
-                          fill="none"
-                        />
-                        <rect x="230" y="380" width="40" height="90" rx="16" fill="#06b6d4" />
-                        <rect x="754" y="380" width="40" height="90" rx="16" fill="#06b6d4" />
-                      </>
-                    )}
-                  </svg>
+                  {/* The Official Geometric Monkey Logo Image (Exact Identity As Uploaded) */}
+                  <img
+                    src="/assets/monoforge-monkey-logo.jpg"
+                    alt="MonoForge Official Logo"
+                    width={220}
+                    height={220}
+                    className="w-48 h-48 sm:w-56 sm:h-56 object-contain rounded-2xl border-2 border-neutral-900 shadow-[4px_4px_0px_#18181b] bg-white select-none pointer-events-none"
+                  />
+                  <span className="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-[#ffe600] text-neutral-950 text-[10px] font-mono font-black border border-neutral-900 shadow-xs">
+                    OFFICIAL
+                  </span>
                 </div>
               </div>
 

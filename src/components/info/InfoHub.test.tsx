@@ -103,6 +103,6 @@ describe('InfoHub Component', () => {
     expect(screen.getAllByText(/About MonoForge/i).length).toBeGreaterThan(0);
     expect(screen.getAllByText(/100% Client-Side Privacy/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Confirmation-Gated Operations/i)).toBeDefined();
-    expect(screen.getByText(/Yuvraj Thakur/i)).toBeDefined();
+    expect(screen.getByText(/MonoForge Core Contributors/i)).toBeDefined();
   });
 });

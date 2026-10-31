@@ -32,6 +32,7 @@ import { Features } from '#/features';
 import { routing } from '#/i18n/routing';
 import { ThemeProvider } from '#/components/theme/ThemeProvider';
 import { ClickEffect } from '#/components/studio/ClickEffect';
+import { NomokeyCompanionWidget } from '#/components/studio/NomokeyCompanionWidget';
 
 type LocaleLayoutProps = {
   children: React.ReactNode;
@@ -105,7 +106,7 @@ export async function generateMetadata({
       title,
       description,
       images: '/api/og',
-      creator: 'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+      creator: 'https://github.com/monoforge/MONOFORGE',
     },
     alternates: {
       canonical: `${appUrl}/${locale}`,
@@ -184,12 +185,12 @@ export default async function RootLayout({
                 priceCurrency: 'USD',
               },
               creator: {
-                '@type': 'Person',
-                name: 'Yuvraj Thakur',
-                url: 'https://github.com/yuvraj-thakur-exe',
+                '@type': 'Organization',
+                name: 'MonoForge Open Source Contributors',
+                url: 'https://github.com/monoforge/MONOFORGE',
               },
               sameAs: [
-                'https://github.com/yuvraj-thakur-exe/MONOFORGE',
+                'https://github.com/monoforge/MONOFORGE',
               ],
             }),
           }}
@@ -199,6 +200,7 @@ export default async function RootLayout({
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <ClickEffect />
+            <NomokeyCompanionWidget />
             <Handles />
 
             {children}

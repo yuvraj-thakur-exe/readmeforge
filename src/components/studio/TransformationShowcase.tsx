@@ -6,7 +6,6 @@ import {
   Sparkles,
   ArrowRight,
 } from 'lucide-react';
-import { MonoForgeMonkeyIcon } from '#/components/common/MonoForgeLogo';
 
 export function TransformationShowcase() {
   const [viewMode, setViewMode] = useState<'after' | 'before'>('after');
@@ -106,19 +105,19 @@ export function TransformationShowcase() {
               /* MONOFORGE ICONIC AFTER STATE */
               <div className="space-y-8">
                 {/* Hero HUD Banner */}
-                <div className="rounded-xl border-2 border-neutral-900 border-neutral-900 bg-neutral-950 text-white p-6 sm:p-8 relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-15">
-                    <MonoForgeMonkeyIcon className="w-32 h-32" />
+                <div className="rounded-xl border-2 border-neutral-900 bg-white text-neutral-950 p-6 sm:p-8 relative overflow-hidden shadow-[4px_4px_0px_#18181b]">
+                  <div className="absolute top-3 right-3 p-1">
+                    <img src="/assets/monoforge-monkey-logo.jpg" alt="Logo" className="w-20 h-20 sm:w-24 sm:h-24 object-contain rounded-xl border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b]" />
                   </div>
                   <div className="relative z-10 space-y-3">
-                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 font-mono text-xs font-bold">
-                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                    <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#ffe600] text-neutral-950 border border-neutral-900 font-mono text-xs font-black shadow-2xs">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                       <span>FULL-STACK ARCHITECT // SYSTEMS ENGINEER</span>
                     </div>
-                    <h2 className="text-2xl sm:text-4xl font-black font-sans tracking-tight">
+                    <h2 className="text-2xl sm:text-4xl font-black font-sans tracking-tight text-neutral-950">
                       ALEXANDER FORGE
                     </h2>
-                    <p className="text-xs sm:text-sm font-mono text-neutral-300 max-w-lg">
+                    <p className="text-xs sm:text-sm font-mono text-neutral-700 max-w-lg">
                       Architecting distributed systems, zero-dependency CLIs, and 60fps GPU web applications.
                     </p>
                   </div>
@@ -173,7 +172,7 @@ export function TransformationShowcase() {
                   </span>
                   <Link
                     href="/wizard"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-neutral-950 dark:bg-neutral-100 text-white dark:text-neutral-950 font-bold text-xs hover:bg-amber-400 hover:text-neutral-950 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#ffe600] text-neutral-950 font-black text-xs border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] hover:bg-[#ffdf00] transition-colors"
                   >
                     <span>Forge My Profile</span>
                     <ArrowRight className="w-3.5 h-3.5" />
