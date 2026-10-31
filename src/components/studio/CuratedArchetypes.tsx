@@ -87,7 +87,7 @@ export function CuratedArchetypes() {
                     className="w-3.5 h-3.5 rounded-full border border-neutral-900"
                     style={{ backgroundColor: arch.accentColor }}
                   />
-                  <span className="text-[10px] font-mono font-bold text-neutral-500 uppercase">
+                  <span className="text-[10px] font-mono font-black text-neutral-600 uppercase tracking-wider">
                     {arch.role}
                   </span>
                 </div>
@@ -96,7 +96,7 @@ export function CuratedArchetypes() {
                   <h3 className="font-extrabold text-xl text-neutral-950 group-hover:text-amber-500 transition-colors">
                     {arch.name}
                   </h3>
-                  <p className="text-xs text-neutral-700 mt-2 leading-relaxed">
+                  <p className="text-xs text-neutral-800 font-mono mt-2 leading-relaxed">
                     {arch.description}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export function CuratedArchetypes() {
                   {arch.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 rounded-md text-[10px] font-mono font-bold bg-neutral-100 text-neutral-900 border border-neutral-300 shadow-2xs"
+                      className="px-2.5 py-1 rounded-lg text-[11px] font-mono font-black bg-neutral-50 text-neutral-950 border-2 border-neutral-900 shadow-[1px_1px_0px_#18181b]"
                     >
                       {tag}
                     </span>
@@ -114,10 +114,10 @@ export function CuratedArchetypes() {
                 </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-neutral-200 border-neutral-900 flex items-center justify-between">
+              <div className="pt-6 mt-6 border-t-2 border-neutral-900 flex items-center justify-between">
                 <Link
                   href="/wizard"
-                  className="text-xs font-mono font-bold text-neutral-950 group-hover:text-amber-500 inline-flex items-center gap-1"
+                  className="px-3.5 py-2 rounded-xl bg-[#ffe600] text-neutral-950 text-xs font-mono font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] hover:bg-[#ffdf00] inline-flex items-center gap-1.5 transition-all btn-tactile"
                 >
                   <span>Use Template</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -125,7 +125,7 @@ export function CuratedArchetypes() {
 
                 <Link
                   href="/developer"
-                  className="p-1.5 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-800 text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors"
+                  className="p-2 rounded-xl bg-white hover:bg-neutral-100 text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] transition-all"
                   title="Edit in Monaco Raw Mode"
                 >
                   <Code2 className="w-4 h-4" />

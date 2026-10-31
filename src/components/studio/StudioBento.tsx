@@ -43,7 +43,7 @@ export function StudioBento() {
             </h2>
           </div>
 
-          <p className="text-xs sm:text-sm font-mono text-neutral-700 max-w-md">
+          <p className="text-xs sm:text-sm font-mono text-neutral-900 font-medium max-w-md leading-relaxed">
             Everything your profile needs to command respect: 47+ native telemetry engines, split Monaco IDE, and 60fps Camo SVGs with zero external tracking servers.
           </p>
         </div>

@@ -59,118 +59,299 @@ const TEMPLATE_PREVIEWS: Record<string, string> = {
   'web3-solidity-defi': '/assets/characters/red-dragon.svg',
 };
 
-function renderModuleVisual(sec: { id: string; type: string; props?: Record<string, any> }) {
-  const content = sec.props?.content || {};
+function renderModuleVisual(
+  sec: { id: string; type: string; props?: Record<string, any> },
+  isCentered: boolean = false,
+  username: string = 'octocat',
+  accentColor: string = '#ec4899',
+) {
   switch (sec.type) {
     case 'snk':
       return (
-        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
-          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
-            <span className="flex items-center gap-1.5">
+        <div
+          className={`p-4 sm:p-5 rounded-2xl bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] space-y-3 ${
+            isCentered ? 'text-center' : 'text-left'
+          }`}
+        >
+          <div
+            className={`flex items-center justify-between text-xs font-mono font-bold text-neutral-950 ${
+              isCentered ? 'flex-col sm:flex-row gap-2' : ''
+            }`}
+          >
+            <span className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>GITHUB CONTRIBUTION GRID SNAKE</span>
+              <span className="font-mono text-xs font-black uppercase tracking-wider text-neutral-950">
+                github contribution grid snake animation
+              </span>
             </span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-[#ffe600] border border-neutral-900 font-black">
-              ANIMATED SVG
+            <span className="text-[10px] px-2.5 py-0.5 rounded-lg bg-emerald-400 text-neutral-950 border border-neutral-900 font-black shadow-2xs">
+              ● 60FPS CAMO SAFE
             </span>
           </div>
-          <div className="h-16 rounded-lg bg-neutral-50 border border-neutral-900/20 p-2 flex items-center justify-between overflow-hidden">
-            <div className="flex gap-1">
-              {[...Array(14)].map((_, i) => (
-                <div key={i} className="flex flex-col gap-1">
-                  {[...Array(4)].map((_, j) => (
-                    <div
-                      key={j}
-                      className={`w-2.5 h-2.5 rounded-xs ${
-                        (i + j) % 3 === 0 ? 'bg-emerald-500' : (i + j) % 5 === 0 ? 'bg-emerald-300' : 'bg-neutral-200'
-                      }`}
-                    />
-                  ))}
-                </div>
-              ))}
+
+          {/* Snake Grid Graphic */}
+          <div className="rounded-xl bg-neutral-950 p-3 sm:p-4 border-2 border-neutral-900 overflow-x-auto shadow-inner">
+            <div className={`flex items-center justify-between gap-4 min-w-[320px] ${isCentered ? 'mx-auto' : ''}`}>
+              <div className="flex gap-1.5">
+                {[...Array(18)].map((_, col) => (
+                  <div key={col} className="flex flex-col gap-1.5">
+                    {[...Array(5)].map((_, row) => {
+                      const isSnakeHead = col === 12 && row === 2;
+                      const isSnakeBody =
+                        (col === 11 && row === 2) ||
+                        (col === 10 && row === 2) ||
+                        (col === 9 && row === 2) ||
+                        (col === 9 && row === 3) ||
+                        (col === 8 && row === 3);
+                      const isFood = (col === 13 && row === 2) || (col === 16 && row === 1);
+                      const isCommit =
+                        (col + row) % 3 === 0
+                          ? '#216e39'
+                          : (col * 2 + row) % 5 === 0
+                            ? '#30a14e'
+                            : (col + row * 3) % 4 === 0
+                              ? '#9be9a8'
+                              : '#161b22';
+
+                      return (
+                        <div
+                          key={row}
+                          className={`w-3 h-3 rounded-xs relative ${
+                            isSnakeHead
+                              ? 'bg-[#ffe600] scale-110 shadow-[0_0_8px_#ffe600] z-10'
+                              : isSnakeBody
+                                ? 'bg-[#40c463]'
+                                : isFood
+                                  ? 'bg-[#ec4899] animate-ping'
+                                  : ''
+                          }`}
+                          style={{
+                            backgroundColor: isSnakeHead
+                              ? '#ffe600'
+                              : isSnakeBody
+                                ? '#40c463'
+                                : isFood
+                                  ? '#ec4899'
+                                  : isCommit,
+                          }}
+                          title={`Col ${col}, Row ${row}`}
+                        >
+                          {isSnakeHead && (
+                            <span className="absolute inset-0 flex items-center justify-center text-[7px] text-neutral-950 font-black">
+                              ••
+                            </span>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+              <div className="text-right shrink-0">
+                <span className="text-xs font-mono font-black text-[#ffe600] block">
+                  🐍 eating commits
+                </span>
+                <span className="text-[10px] font-mono text-neutral-400 block">
+                  60fps Camo CDN Loop
+                </span>
+              </div>
             </div>
-            <span className="text-xs font-mono font-black text-emerald-600 pr-2">🐍 eating dots...</span>
           </div>
         </div>
       );
+
     case 'pie-chart':
       return (
-        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
-          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
-            <span>{content.title || 'Top Languages Breakdown'}</span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-cyan-100 text-cyan-950 border border-neutral-900 font-bold">
+        <div
+          className={`p-4 sm:p-5 rounded-2xl bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] space-y-3 ${
+            isCentered ? 'text-center' : 'text-left'
+          }`}
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-1 border-b border-neutral-200">
+            <div>
+              <h5 className="font-mono text-xs font-black uppercase tracking-wider text-neutral-950">
+                Top Languages Breakdown
+              </h5>
+              <p className="text-[11px] font-mono text-neutral-600 font-bold">
+                {username}&apos;s Language Donut Chart
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[10px] px-2.5 py-0.5 rounded-lg bg-cyan-100 text-cyan-950 border border-neutral-900 font-black shadow-2xs">
               DONUT CHART
             </span>
           </div>
-          <div className="flex items-center gap-3 pt-1">
-            <div className="w-10 h-10 rounded-full border-4 border-amber-400 border-t-cyan-500 border-r-emerald-500 shrink-0" />
-            <div className="flex flex-wrap gap-1.5 text-[11px] font-mono">
-              <span className="px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-300 text-neutral-800 font-bold">TypeScript 58%</span>
-              <span className="px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-300 text-neutral-800 font-bold">Rust 24%</span>
-              <span className="px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-300 text-neutral-800 font-bold">WebGL 18%</span>
+
+          <div className={`flex flex-col sm:flex-row items-center gap-4 pt-1 ${isCentered ? 'justify-center' : ''}`}>
+            {/* Donut SVG */}
+            <div className="relative w-16 h-16 shrink-0">
+              <svg viewBox="0 0 36 36" className="w-16 h-16 transform -rotate-90">
+                <circle cx="18" cy="18" r="14" fill="none" stroke="#f4f4f5" strokeWidth="4.5" />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  fill="none"
+                  stroke="#3178c6"
+                  strokeWidth="4.5"
+                  strokeDasharray="51 88"
+                  strokeDashoffset="0"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  fill="none"
+                  stroke="#dea584"
+                  strokeWidth="4.5"
+                  strokeDasharray="21 88"
+                  strokeDashoffset="-51"
+                />
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="14"
+                  fill="none"
+                  stroke="#ec4899"
+                  strokeWidth="4.5"
+                  strokeDasharray="16 88"
+                  strokeDashoffset="-72"
+                />
+              </svg>
+              <div className="absolute inset-0 flex items-center justify-center font-mono text-[10px] font-black text-neutral-950">
+                100%
+              </div>
+            </div>
+
+            {/* Language Breakdown Pills */}
+            <div className="flex flex-wrap gap-2 text-xs font-mono">
+              <span className="px-2.5 py-1 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs font-bold text-neutral-950 flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#3178c6] border border-neutral-900" />
+                TypeScript <b className="text-neutral-950 font-black">58.4%</b>
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs font-bold text-neutral-950 flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#dea584] border border-neutral-900" />
+                Rust <b className="text-neutral-950 font-black">23.6%</b>
+              </span>
+              <span className="px-2.5 py-1 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs font-bold text-neutral-950 flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#ec4899] border border-neutral-900" />
+                WebGL / GLSL <b className="text-neutral-950 font-black">18.0%</b>
+              </span>
             </div>
           </div>
         </div>
       );
+
     case 'activity-graph':
       return (
-        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
-          <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
-            <span>{content.title || 'Annual Contribution Activity Graph'}</span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-950 border border-neutral-900 font-bold">
-              ACTIVITY METRICS
-            </span>
+        <div
+          className={`p-4 sm:p-5 rounded-2xl bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] space-y-3 ${
+            isCentered ? 'text-center' : 'text-left'
+          }`}
+        >
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-1 border-b border-neutral-200">
+            <div>
+              <h5 className="font-mono text-xs font-black uppercase tracking-wider text-neutral-950">
+                Annual Contribution Activity
+              </h5>
+              <p className="text-[11px] font-mono text-neutral-600 font-bold">
+                {username}&apos;s Contribution Activity Graph
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] px-2.5 py-0.5 rounded-lg bg-[#ffe600] text-neutral-950 border border-neutral-900 font-black shadow-2xs">
+                🔥 42 DAYS STREAK
+              </span>
+              <span className="text-[10px] px-2.5 py-0.5 rounded-lg bg-emerald-100 text-emerald-950 border border-neutral-900 font-bold">
+                2,847 COMMITS
+              </span>
+            </div>
           </div>
-          <div className="h-12 flex items-end gap-1.5 pt-1 px-1">
-            {[40, 65, 30, 85, 95, 60, 45, 80, 100, 70, 90, 50, 75, 88].map((h, i) => (
+
+          {/* Activity Graph Wave Bars */}
+          <div className="h-16 flex items-end gap-1.5 pt-2 px-1 rounded-xl bg-neutral-50 border border-neutral-200">
+            {[35, 60, 25, 80, 95, 55, 40, 75, 100, 68, 88, 48, 72, 85, 92, 64].map((h, i) => (
               <div
                 key={i}
-                className="flex-1 bg-[#ffe600] border border-neutral-900 rounded-t-xs"
-                style={{ height: `${h}%` }}
+                className="flex-1 rounded-t-xs border border-neutral-900 transition-all hover:opacity-80"
+                style={{
+                  height: `${h}%`,
+                  backgroundColor: i % 3 === 0 ? (accentColor || '#ec4899') : '#ffe600',
+                }}
+                title={`Week ${i + 1}: ${h * 3} actions`}
               />
             ))}
           </div>
         </div>
       );
+
     case 'github-profile-trophy':
       return (
-        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
+        <div
+          className={`p-4 sm:p-5 rounded-2xl bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] space-y-3 ${
+            isCentered ? 'text-center' : 'text-left'
+          }`}
+        >
           <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
-            <span>🏆 GitHub Achievements &amp; Trophies</span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-950 border border-neutral-900 font-bold">
+            <span className="font-mono text-xs font-black uppercase tracking-wider">
+              🏆 GitHub Achievements &amp; Trophies
+            </span>
+            <span className="text-[10px] px-2.5 py-0.5 rounded-lg bg-amber-100 text-amber-950 border border-neutral-900 font-black">
               RANK AAA
             </span>
           </div>
-          <div className="flex items-center gap-2 pt-1 overflow-x-auto">
-            {['🥇 Multi-Language', '⚡ Fast PR Master', '⭐ 1K Stars', '🔥 365 Streak'].map((trophy, i) => (
-              <span key={i} className="px-2 py-1 rounded-lg bg-neutral-50 border border-neutral-900 text-[10px] font-mono font-bold whitespace-nowrap">
-                {trophy}
+          <div className={`flex items-center gap-2 pt-1 overflow-x-auto ${isCentered ? 'justify-center' : ''}`}>
+            {[
+              { icon: '🥇', label: 'Multi-Language Polyglot', rank: 'AAA' },
+              { icon: '⚡', label: 'Fast PR Master', rank: 'S' },
+              { icon: '⭐', label: '1K Stars Earned', rank: 'Gold' },
+              { icon: '🔥', label: '365 Streak Active', rank: 'AAA' },
+            ].map((trophy, i) => (
+              <span
+                key={i}
+                className="px-3 py-1.5 rounded-xl bg-neutral-50 border-2 border-neutral-900 text-xs font-mono font-black text-neutral-950 shadow-2xs whitespace-nowrap flex items-center gap-1.5"
+              >
+                <span>{trophy.icon}</span>
+                <span>{trophy.label}</span>
+                <span className="text-[9px] px-1 rounded bg-[#ffe600] text-neutral-950 ml-1">
+                  {trophy.rank}
+                </span>
               </span>
             ))}
           </div>
         </div>
       );
+
     case 'github-readme-stats':
       return (
-        <div className="p-4 rounded-xl bg-white border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] space-y-2">
+        <div
+          className={`p-4 sm:p-5 rounded-2xl bg-white border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] space-y-3 ${
+            isCentered ? 'text-center' : 'text-left'
+          }`}
+        >
           <div className="flex items-center justify-between text-xs font-mono font-bold text-neutral-950">
-            <span>📊 Verified GitHub Statistics</span>
-            <span className="text-[10px] px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 border border-neutral-900 font-black">
-              LIVE METRICS
+            <span className="font-mono text-xs font-black uppercase tracking-wider">
+              📊 Verified GitHub Statistics
+            </span>
+            <span className="text-[10px] px-2.5 py-0.5 rounded-lg bg-[#ffe600] text-neutral-950 border border-neutral-900 font-black">
+              LIVE TELEMETRY
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-2 text-center pt-1 font-mono text-xs">
-            <div className="p-1.5 rounded bg-neutral-50 border border-neutral-300">
-              <span className="text-[9px] text-neutral-500 block">TOTAL COMMITS</span>
-              <span className="font-black text-neutral-950">2,847</span>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1 font-mono text-xs">
+            <div className="p-2 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs text-center">
+              <span className="text-[10px] text-neutral-600 block font-bold">TOTAL COMMITS</span>
+              <span className="font-black text-lg text-neutral-950">2,847</span>
             </div>
-            <div className="p-1.5 rounded bg-neutral-50 border border-neutral-300">
-              <span className="text-[9px] text-neutral-500 block">PULL REQUESTS</span>
-              <span className="font-black text-amber-600">142</span>
+            <div className="p-2 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs text-center">
+              <span className="text-[10px] text-neutral-600 block font-bold">PULL REQUESTS</span>
+              <span className="font-black text-lg text-amber-600">142</span>
             </div>
-            <div className="p-1.5 rounded bg-neutral-50 border border-neutral-300">
-              <span className="text-[9px] text-neutral-500 block">STARS EARNED</span>
-              <span className="font-black text-emerald-600">890</span>
+            <div className="p-2 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs text-center">
+              <span className="text-[10px] text-neutral-600 block font-bold">STARS EARNED</span>
+              <span className="font-black text-lg text-emerald-600">890</span>
+            </div>
+            <div className="p-2 rounded-xl bg-white border-2 border-neutral-900 shadow-2xs text-center">
+              <span className="text-[10px] text-neutral-600 block font-bold">REPOSITORIES</span>
+              <span className="font-black text-lg text-cyan-600">38</span>
             </div>
           </div>
         </div>
@@ -708,53 +889,77 @@ export const TemplateGallery: React.FC = () => {
                   )}
 
                   {/* macOS Profile Header Box */}
-                  <div className="rounded-2xl border-2 border-neutral-900 bg-white p-6 space-y-4 shadow-[4px_4px_0px_#18181b]">
-                    <div className="flex items-center justify-between pb-3 border-b-2 border-neutral-900">
-                      <div className="flex items-center gap-2">
-                        <span className="w-3 h-3 rounded-full bg-red-400 border border-neutral-900" />
-                        <span className="w-3 h-3 rounded-full bg-[#ffe600] border border-neutral-900" />
-                        <span className="w-3 h-3 rounded-full bg-emerald-400 border border-neutral-900" />
-                        <span className="ml-2 font-mono text-xs font-bold text-neutral-600">
-                          {previewConfig.settings.user.github || 'developer'} / README.md
-                        </span>
-                      </div>
-                      <span className="text-[10px] font-mono font-black px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 border border-neutral-900 shadow-2xs">
-                        ● 60FPS CAMO SAFE
-                      </span>
-                    </div>
+                  {(() => {
+                    const isCentered = previewConfig.settings.align === 'center';
+                    return (
+                      <div
+                        className={`rounded-2xl border-2 border-neutral-900 bg-white p-6 sm:p-8 space-y-5 shadow-[4px_4px_0px_#18181b] ${
+                          isCentered ? 'text-center' : 'text-left'
+                        }`}
+                      >
+                        {/* macOS Window Controls Header */}
+                        <div className="flex items-center justify-between pb-3 border-b-2 border-neutral-900">
+                          <div className="flex items-center gap-2">
+                            <span className="w-3 h-3 rounded-full bg-[#ef4444] border-1.5 border-neutral-900" />
+                            <span className="w-3 h-3 rounded-full bg-[#eab308] border-1.5 border-neutral-900" />
+                            <span className="w-3 h-3 rounded-full bg-[#22c55e] border-1.5 border-neutral-900" />
+                            <span className="ml-2 font-mono text-xs font-black text-neutral-950 px-2.5 py-0.5 rounded bg-neutral-100 border border-neutral-900 shadow-2xs">
+                              README.md
+                            </span>
+                          </div>
+                          <span className="text-[10px] font-mono font-black px-2.5 py-1 rounded-lg bg-emerald-400 text-neutral-950 border border-neutral-900 shadow-[2px_2px_0px_#18181b] flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-neutral-950 animate-pulse" />
+                            <span>● 60FPS CAMO SAFE</span>
+                          </span>
+                        </div>
 
-                    <div className="space-y-2">
-                      <h4 className="text-2xl font-black text-neutral-950 font-sans tracking-tight">
-                        Hi there, I&apos;m {previewConfig.settings.user.name} 👋
-                      </h4>
-                      <div>
-                        <span className="inline-block px-2.5 py-1 rounded-lg bg-[#ffe600] text-neutral-950 font-mono text-xs font-black border border-neutral-900 shadow-2xs">
-                          {previewConfig.settings.user.role}
-                        </span>
-                      </div>
-                      <p className="text-xs sm:text-sm text-neutral-800 font-mono pt-1 leading-relaxed max-w-2xl">
-                        {previewConfig.settings.user.bio}
-                      </p>
-                    </div>
+                        {/* Developer Heading, Role & Bio */}
+                        <div className="space-y-3">
+                          <h4 className="text-3xl sm:text-4xl font-black text-neutral-950 font-sans tracking-tight">
+                            Hi there, I&apos;m {previewConfig.settings.user.name} 👋
+                          </h4>
+                          <div className={isCentered ? 'flex justify-center' : 'flex justify-start'}>
+                            <span
+                              className="inline-block px-3.5 py-1.5 rounded-xl text-neutral-950 font-mono text-xs sm:text-sm font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b]"
+                              style={{ backgroundColor: previewTemplate.accent || '#ffe600' }}
+                            >
+                              {previewConfig.settings.user.role}
+                            </span>
+                          </div>
+                          <p
+                            className={`text-sm sm:text-base text-neutral-900 font-mono pt-1 leading-relaxed max-w-2xl ${
+                              isCentered ? 'mx-auto' : ''
+                            }`}
+                          >
+                            {previewConfig.settings.user.bio}
+                          </p>
+                        </div>
 
-                    <div className="flex flex-wrap gap-2 pt-2 text-xs font-mono font-bold">
-                      {previewConfig.settings.user.location && (
-                        <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-900 border border-neutral-900 shadow-2xs">
-                          📍 Based in <b>{previewConfig.settings.user.location}</b>
-                        </span>
-                      )}
-                      {previewConfig.settings.user.status && (
-                        <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-900 border border-neutral-900 shadow-2xs">
-                          🔭 Currently: <b>{previewConfig.settings.user.status}</b>
-                        </span>
-                      )}
-                      {previewConfig.settings.user.pronouns && (
-                        <span className="px-2.5 py-1 rounded-lg bg-neutral-100 text-neutral-900 border border-neutral-900 shadow-2xs">
-                          💬 Pronouns: <b>{previewConfig.settings.user.pronouns}</b>
-                        </span>
-                      )}
-                    </div>
-                  </div>
+                        {/* Metadata Badges */}
+                        <div
+                          className={`flex flex-wrap gap-2.5 pt-2 text-xs font-mono font-bold ${
+                            isCentered ? 'justify-center' : 'justify-start'
+                          }`}
+                        >
+                          {previewConfig.settings.user.location && (
+                            <span className="px-3 py-1.5 rounded-xl bg-white text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b]">
+                              📍 Based in <b>{previewConfig.settings.user.location}</b>
+                            </span>
+                          )}
+                          {previewConfig.settings.user.status && (
+                            <span className="px-3 py-1.5 rounded-xl bg-white text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b]">
+                              🔭 Currently: <b>{previewConfig.settings.user.status}</b>
+                            </span>
+                          )}
+                          {previewConfig.settings.user.pronouns && (
+                            <span className="px-3 py-1.5 rounded-xl bg-white text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b]">
+                              💬 Pronouns: <b>{previewConfig.settings.user.pronouns}</b>
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })()}
 
                   {/* Plugins Simulated Cards */}
                   <div className="space-y-3">
@@ -770,7 +975,7 @@ export const TemplateGallery: React.FC = () => {
                       <div className="space-y-3">
                         {previewConfig.sections.map(sec => (
                           <div key={sec.id} className="relative group/sec">
-                            {renderModuleVisual(sec)}
+                            {renderModuleVisual(sec, previewConfig.settings.align === 'center', previewConfig.settings.user.github || 'octocat', previewTemplate.accent || '#ffe600')}
                             <button
                               type="button"
                               onClick={() => handleRemovePluginFromPreview(sec.id)}

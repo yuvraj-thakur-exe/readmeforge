@@ -161,7 +161,7 @@ export function NomokeyHero() {
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-neutral-800 max-w-xl font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-neutral-900 max-w-2xl font-medium leading-relaxed">
               Create a professional GitHub profile README with a visual editor, live previews, developer statistics, animated SVGs, and customizable templates. Build your developer identity without manually wrestling with Markdown.
             </p>
 
