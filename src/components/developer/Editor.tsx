@@ -14,7 +14,7 @@ interface EditorProps {
 
 export const Editor: React.FC<EditorProps> = ({ theme, className = '' }) => {
   const { resolvedTheme } = useTheme();
-  const activeMonacoTheme = theme || (resolvedTheme === 'light' ? 'light' : 'vs-dark');
+  const activeMonacoTheme = theme || (resolvedTheme === 'dark' ? 'vs-dark' : 'light');
 
   const config = useReadmeStore(state => state.config);
   const setEntireConfig = useReadmeStore(state => state.setEntireConfig);
@@ -83,9 +83,9 @@ export const Editor: React.FC<EditorProps> = ({ theme, className = '' }) => {
   };
 
   return (
-    <div className={`flex flex-col h-full bg-white dark:bg-[#18181b] rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 overflow-hidden shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] ${className}`}>
+    <div className={`flex flex-col h-full bg-white rounded-2xl border-2 border-neutral-900 overflow-hidden shadow-[4px_4px_0px_#18181b] ${className}`}>
       {/* Editor Header Bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 bg-white dark:bg-neutral-900 border-b-2 border-neutral-900 dark:border-neutral-800 text-xs font-mono">
+      <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b-2 border-neutral-900 text-xs font-mono">
         <div className="flex items-center gap-2">
           <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black tracking-wider border border-neutral-900">
             CONFIG.JSON

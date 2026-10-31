@@ -197,3 +197,4 @@ export const OptimizeModal: React.FC<OptimizeModalProps> = ({ isOpen, onClose })
     </div>
   );
 };
+

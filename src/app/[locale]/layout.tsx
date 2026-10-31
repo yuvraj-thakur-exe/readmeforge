@@ -195,7 +195,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="palette-surface min-h-screen">
+      <body className="palette-surface min-h-screen bg-white text-neutral-900 font-sans selection:bg-[#ffe600] selection:text-neutral-950">
         <ThemeProvider>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <ClickEffect />

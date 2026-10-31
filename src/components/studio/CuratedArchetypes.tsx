@@ -49,25 +49,25 @@ const ARCHETYPES: ArchetypeItem[] = [
 
 export function CuratedArchetypes() {
   return (
-    <section className="relative bg-[#fafafa] dark:bg-neutral-950 border-b-2 border-neutral-900 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative bg-[#fafafa] bg-white border-b-2 border-neutral-900 border-neutral-900 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 dark:border-neutral-100 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 border-neutral-900 pb-6">
           <div>
-            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-neutral-100 mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 text-neutral-950 mb-2">
               <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900">
                 [ 06 // SIGNATURE ARCHETYPES ]
               </span>
               <span>MARCO MADONNA &amp; POULO INSPIRED</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 dark:text-white uppercase font-sans">
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 text-neutral-950 uppercase font-sans">
               CURATED PROFILE STARTERS.
             </h2>
           </div>
 
           <Link
             href="/wizard"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-neutral-800 text-neutral-950 dark:text-neutral-100 text-xs font-mono font-black border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:bg-[#ffe600] hover:text-neutral-950 transition-all"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-neutral-800 text-neutral-950 text-neutral-950 text-xs font-mono font-black border-2 border-neutral-900 border-neutral-900 shadow-[2px_2px_0px_#18181b]  hover:bg-[#ffe600] hover:text-neutral-950 transition-all"
           >
             <span>View All 18+ Archetypes in Wizard</span>
             <ArrowRight className="w-4 h-4" />
@@ -79,7 +79,7 @@ export function CuratedArchetypes() {
           {ARCHETYPES.map((arch) => (
             <div
               key={arch.id}
-              className="rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#faf8f5] dark:bg-neutral-950 p-6 flex flex-col justify-between shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] hover:shadow-[2px_2px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] transition-all group"
+              className="rounded-2xl border-2 border-neutral-900 border-neutral-900 bg-[#faf8f5] bg-white p-6 flex flex-col justify-between shadow-[4px_4px_0px_#18181b]  hover:shadow-[2px_2px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] transition-all group"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -93,10 +93,10 @@ export function CuratedArchetypes() {
                 </div>
 
                 <div>
-                  <h3 className="font-extrabold text-xl text-neutral-950 dark:text-white group-hover:text-amber-500 transition-colors">
+                  <h3 className="font-extrabold text-xl text-neutral-950 text-neutral-950 group-hover:text-amber-500 transition-colors">
                     {arch.name}
                   </h3>
-                  <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-2 leading-relaxed">
+                  <p className="text-xs text-neutral-600 text-neutral-600 mt-2 leading-relaxed">
                     {arch.description}
                   </p>
                 </div>
@@ -106,7 +106,7 @@ export function CuratedArchetypes() {
                   {arch.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-neutral-200/80 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200"
+                      className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-neutral-200/80 dark:bg-neutral-800 text-neutral-800 text-neutral-900"
                     >
                       {tag}
                     </span>
@@ -114,10 +114,10 @@ export function CuratedArchetypes() {
                 </div>
               </div>
 
-              <div className="pt-6 mt-6 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
+              <div className="pt-6 mt-6 border-t border-neutral-200 border-neutral-900 flex items-center justify-between">
                 <Link
                   href="/wizard"
-                  className="text-xs font-mono font-bold text-neutral-900 dark:text-neutral-100 group-hover:text-amber-500 inline-flex items-center gap-1"
+                  className="text-xs font-mono font-bold text-neutral-900 text-neutral-950 group-hover:text-amber-500 inline-flex items-center gap-1"
                 >
                   <span>Use Template</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

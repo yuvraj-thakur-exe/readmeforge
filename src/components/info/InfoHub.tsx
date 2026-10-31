@@ -273,7 +273,7 @@ export function InfoHub() {
   }, [badgeCategory]);
 
   return (
-    <div className="min-h-screen bg-[#fafafa] dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-[#ffe600] selection:text-neutral-950 relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#fafafa] dark:bg-white text-neutral-900 dark:text-neutral-100 selection:bg-[#ffe600] selection:text-neutral-950 relative overflow-x-hidden">
       {/* Dynamic Cyber-Grid & Ambient Aurora Background */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Subtle Cyber Grid */}
@@ -289,10 +289,10 @@ export function InfoHub() {
       {/* Full-Page Expansive Layout (Generous Breathing Room, Uncongested) */}
       <div className="relative z-10 max-w-[1720px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
         {/* Breadcrumb & Navigation Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
-          <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-neutral-300">
+          <div className="flex items-center gap-2 text-xs font-mono text-neutral-600">
             <Link href="/" className="hover:text-violet-400 transition-colors flex items-center gap-1.5">
-              <Globe className="w-3.5 h-3.5 text-neutral-400" />
+              <Globe className="w-3.5 h-3.5 text-neutral-600" />
               <span>MonoForge</span>
             </Link>
             <span>/</span>
@@ -302,9 +302,9 @@ export function InfoHub() {
           <div className="flex items-center gap-2.5">
             <Link
               href="/"
-              className="flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold rounded-xl border border-neutral-700/80 bg-neutral-900/80 hover:bg-neutral-800 text-neutral-200 transition-all shadow-sm active:scale-95"
+              className="flex items-center gap-2 px-3.5 py-1.5 text-xs font-semibold rounded-xl border border-neutral-900/80 bg-white hover:bg-neutral-100 text-neutral-200 transition-all shadow-sm active:scale-95"
             >
-              <Globe className="w-3.5 h-3.5 text-neutral-400" />
+              <Globe className="w-3.5 h-3.5 text-neutral-600" />
               <span>Home</span>
             </Link>
           </div>
@@ -320,14 +320,14 @@ export function InfoHub() {
                 <span>MonoForge Developer Portal • 100% Client-Side Private</span>
               </div>
 
-              <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.1]">
+              <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-neutral-950 leading-[1.1]">
                 Forge a Profile{' '}
                 <span className="bg-gradient-to-r from-violet-400 via-emerald-300 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(52,211,153,0.3)]">
                   That Demands Attention.
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg text-neutral-300 max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-lg text-neutral-800 max-w-2xl leading-relaxed">
                 The comprehensive information, installation, and architectural portal. Explore 10 production developer archetypes, live CLI terminal emulator, 20+ copyable shields badges, and master GitHub profile aesthetics with zero external tracking.
               </p>
 
@@ -336,7 +336,7 @@ export function InfoHub() {
                 <div className="px-4 py-2.5 rounded-2xl glass-card flex items-center gap-2.5 border-emerald-500/20">
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
                   <div>
-                    <div className="text-[10px] text-neutral-400 font-mono uppercase">Setup Time</div>
+                    <div className="text-[10px] text-neutral-600 font-mono uppercase">Setup Time</div>
                     <div className="text-xs font-bold text-emerald-300 font-mono">1 Command (60s)</div>
                   </div>
                 </div>
@@ -344,7 +344,7 @@ export function InfoHub() {
                 <div className="px-4 py-2.5 rounded-2xl glass-card flex items-center gap-2.5 border-cyan-500/20">
                   <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
                   <div>
-                    <div className="text-[10px] text-neutral-400 font-mono uppercase">Privacy Model</div>
+                    <div className="text-[10px] text-neutral-600 font-mono uppercase">Privacy Model</div>
                     <div className="text-xs font-bold text-cyan-300 font-mono">100% Client-Side</div>
                   </div>
                 </div>
@@ -352,7 +352,7 @@ export function InfoHub() {
                 <div className="px-4 py-2.5 rounded-2xl glass-card flex items-center gap-2.5 border-amber-500/20">
                   <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                   <div>
-                    <div className="text-[10px] text-neutral-400 font-mono uppercase">Open Source</div>
+                    <div className="text-[10px] text-neutral-600 font-mono uppercase">Open Source</div>
                     <div className="text-xs font-bold text-amber-300 font-mono">MIT License</div>
                   </div>
                 </div>
@@ -363,7 +363,7 @@ export function InfoHub() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('templates')}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-white font-bold text-xs shadow-lg shadow-violet-900/40 transition-all hover:scale-105 active:scale-95"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:from-violet-500 hover:to-cyan-400 text-neutral-950 font-bold text-xs shadow-lg shadow-violet-900/40 transition-all hover:scale-105 active:scale-95"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                   <span>Explore Archetypes &amp; Badges</span>
@@ -372,7 +372,7 @@ export function InfoHub() {
                 <button
                   type="button"
                   onClick={() => setActiveTab('playground')}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 border border-neutral-700/80 text-neutral-200 font-semibold text-xs transition-all hover:scale-105 active:scale-95"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-neutral-100 border border-neutral-900/80 text-neutral-200 font-semibold text-xs transition-all hover:scale-105 active:scale-95"
                 >
                   <Sliders className="w-3.5 h-3.5 text-amber-400" />
                   <span>Interactive Playground</span>
@@ -383,14 +383,14 @@ export function InfoHub() {
             {/* Right Column: Live Simulated Profile Preview Mockup */}
             <div className="lg:col-span-5">
               <div className="relative group rounded-3xl p-1 bg-gradient-to-tr from-violet-600/30 via-cyan-500/30 to-fuchsia-500/20 shadow-2xl transition-all duration-300 hover:shadow-[0_20px_50px_rgba(139,92,246,0.3)]">
-                <div className="rounded-[22px] bg-neutral-950/90 backdrop-blur-2xl p-5 sm:p-6 border border-white/[0.08] space-y-4">
+                <div className="rounded-[22px] bg-white backdrop-blur-2xl p-5 sm:p-6 border border-neutral-300 space-y-4">
                   {/* Mockup Window Header */}
-                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-xs">
+                  <div className="flex items-center justify-between border-b border-neutral-300 pb-3 text-xs">
                     <div className="flex items-center gap-2">
                       <span className="w-3 h-3 rounded-full bg-rose-500/90 shadow-sm" />
                       <span className="w-3 h-3 rounded-full bg-amber-500/90 shadow-sm" />
                       <span className="w-3 h-3 rounded-full bg-emerald-500/90 shadow-sm" />
-                      <span className="font-mono text-neutral-400 text-[11px] ml-1">alexmercer / README.md</span>
+                      <span className="font-mono text-neutral-600 text-[11px] ml-1">alexmercer / README.md</span>
                     </div>
                     <span className="px-2 py-0.5 rounded-full text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono font-semibold flex items-center gap-1">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
@@ -402,13 +402,13 @@ export function InfoHub() {
                   <div className="space-y-3.5">
                     <div className="flex items-center gap-3">
                       <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-violet-600 to-cyan-400 p-0.5 shadow-md">
-                        <div className="w-full h-full rounded-[14px] bg-neutral-950 flex items-center justify-center font-bold text-white text-base font-mono">
+                        <div className="w-full h-full rounded-[14px] bg-white flex items-center justify-center font-bold text-neutral-950 text-base font-mono">
                           AM
                         </div>
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <h3 className="font-black text-white text-base">Alex Mercer</h3>
+                          <h3 className="font-black text-neutral-950 text-base">Alex Mercer</h3>
                           <span className="text-[10px] px-1.5 py-0.2 rounded bg-violet-500/20 text-violet-300 font-mono font-bold">PRO</span>
                         </div>
                         <p className="text-xs text-cyan-300 font-mono">Full-Stack Cloud Architect &amp; OSS Lead</p>
@@ -416,7 +416,7 @@ export function InfoHub() {
                     </div>
 
                     {/* Dynamic Simulated Typing Banner */}
-                    <div className="p-3 rounded-xl bg-neutral-900/90 border border-neutral-800 text-[11px] font-mono text-neutral-300 space-y-1">
+                    <div className="p-3 rounded-xl bg-white border border-neutral-900 text-[11px] font-mono text-neutral-800 space-y-1">
                       <div className="flex items-center justify-between text-neutral-500 text-[10px]">
                         <span>DYNAMIC BANNER (SVG 60FPS)</span>
                         <span className="text-emerald-400">Zero JS &bull; Camo Ready</span>
@@ -428,11 +428,11 @@ export function InfoHub() {
 
                     {/* Simulated GitHub Stats Cards Grid */}
                     <div className="grid grid-cols-2 gap-2.5">
-                      <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 text-xs">
+                      <div className="p-2.5 rounded-xl bg-white border border-neutral-900 text-xs">
                         <div className="text-[10px] text-neutral-500 font-mono">CONTRIBUTIONS</div>
-                        <div className="text-base font-extrabold text-white font-mono mt-0.5">1,492 <span className="text-emerald-400 text-xs font-normal">this year</span></div>
+                        <div className="text-base font-extrabold text-neutral-950 font-mono mt-0.5">1,492 <span className="text-emerald-400 text-xs font-normal">this year</span></div>
                       </div>
-                      <div className="p-2.5 rounded-xl bg-neutral-900/80 border border-neutral-800 text-xs">
+                      <div className="p-2.5 rounded-xl bg-white border border-neutral-900 text-xs">
                         <div className="text-[10px] text-neutral-500 font-mono">COMMIT STREAK</div>
                         <div className="text-base font-extrabold text-amber-300 font-mono mt-0.5">🔥 86 Days</div>
                       </div>
@@ -444,7 +444,7 @@ export function InfoHub() {
                       <div className="flex flex-wrap gap-1.5">
                         <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-[#3178C6]/20 text-[#3178C6] border border-[#3178C6]/40 font-semibold">TypeScript</span>
                         <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-semibold">React 19</span>
-                        <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-white/10 text-white border border-white/20 font-semibold">Next.js 16</span>
+                        <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-white/10 text-neutral-950 border border-white/20 font-semibold">Next.js 16</span>
                         <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-orange-500/20 text-orange-300 border border-orange-500/40 font-semibold">Rust</span>
                         <span className="px-2 py-0.5 rounded-md text-[10px] font-mono bg-blue-500/20 text-blue-300 border border-blue-500/40 font-semibold">Docker</span>
                       </div>
@@ -467,14 +467,14 @@ export function InfoHub() {
         </div>
 
         {/* Master Navigation Tabs Bar (Futuristic Segmented Control with Colored Glows) */}
-        <div className="sticky top-4 z-40 flex items-center gap-2 mb-10 p-2 rounded-2xl bg-neutral-900/95 border border-white/[0.12] backdrop-blur-2xl overflow-x-auto scrollbar-none shadow-2xl">
+        <div className="sticky top-4 z-40 flex items-center gap-2 mb-10 p-2 rounded-2xl bg-white/95 border border-neutral-300 backdrop-blur-2xl overflow-x-auto scrollbar-none shadow-2xl">
           <button
             type="button"
             onClick={() => setActiveTab('install')}
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'install'
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
+                : 'text-neutral-600 hover:text-neutral-200 hover:bg-neutral-100 border border-transparent'
             }`}
           >
             <Download className="w-4 h-4 text-emerald-400" />
@@ -487,7 +487,7 @@ export function InfoHub() {
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'templates'
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
+                : 'text-neutral-600 hover:text-neutral-200 hover:bg-neutral-100 border border-transparent'
             }`}
           >
             <Layers className="w-4 h-4 text-violet-400" />
@@ -503,7 +503,7 @@ export function InfoHub() {
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'playground'
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
+                : 'text-neutral-600 hover:text-neutral-200 hover:bg-neutral-100 border border-transparent'
             }`}
           >
             <Sliders className="w-4 h-4 text-cyan-400" />
@@ -519,7 +519,7 @@ export function InfoHub() {
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'badges'
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
+                : 'text-neutral-600 hover:text-neutral-200 hover:bg-neutral-100 border border-transparent'
             }`}
           >
             <Zap className="w-4 h-4 text-amber-400" />
@@ -532,7 +532,7 @@ export function InfoHub() {
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'guide'
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] font-bold scale-[1.02]'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
+                : 'text-neutral-600 hover:text-neutral-200 hover:bg-neutral-100 border border-transparent'
             }`}
           >
             <BookOpen className="w-4 h-4 text-indigo-400" />
@@ -545,7 +545,7 @@ export function InfoHub() {
             className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all duration-200 ${
               activeTab === 'about'
                 ? 'bg-fuchsia-500/25 text-fuchsia-200 border border-fuchsia-500/60 shadow-lg shadow-fuchsia-950/60 font-bold scale-[1.02]'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/60 border border-transparent'
+                : 'text-neutral-600 hover:text-neutral-200 hover:bg-neutral-100 border border-transparent'
             }`}
           >
             <ShieldCheck className="w-4 h-4 text-fuchsia-400" />
@@ -564,24 +564,24 @@ export function InfoHub() {
                     <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                       ⚡ 1-LINE QUICKSTART
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
                       Automated Development Setup
                     </h2>
                   </div>
-                  <p className="text-sm text-neutral-400 max-w-2xl">
+                  <p className="text-sm text-neutral-600 max-w-2xl">
                     Run one line in your terminal. It checks Node.js 20+, activates Corepack pnpm, installs all dependencies, and launches the live studio on port 3000.
                   </p>
                 </div>
 
                 {/* OS Switcher */}
-                <div className="flex items-center gap-1.5 p-1.5 bg-neutral-950/90 rounded-2xl border border-white/[0.08] overflow-x-auto scrollbar-none shrink-0">
+                <div className="flex items-center gap-1.5 p-1.5 bg-white rounded-2xl border border-neutral-300 overflow-x-auto scrollbar-none shrink-0">
                   <button
                     type="button"
                     onClick={() => setActiveOs('linux')}
                     className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 transition-all ${
                       activeOs === 'linux'
                         ? 'bg-emerald-500 text-neutral-950 font-bold shadow-md'
-                        : 'text-neutral-400 hover:text-white'
+                        : 'text-neutral-600 hover:text-neutral-950'
                     }`}
                   >
                     <Terminal className="w-3.5 h-3.5" />
@@ -593,7 +593,7 @@ export function InfoHub() {
                     className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 transition-all ${
                       activeOs === 'windows'
                         ? 'bg-cyan-500 text-neutral-950 font-bold shadow-md'
-                        : 'text-neutral-400 hover:text-white'
+                        : 'text-neutral-600 hover:text-neutral-950'
                     }`}
                   >
                     <Monitor className="w-3.5 h-3.5" />
@@ -604,8 +604,8 @@ export function InfoHub() {
                     onClick={() => setActiveOs('manual')}
                     className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 transition-all ${
                       activeOs === 'manual'
-                        ? 'bg-violet-600 text-white font-bold shadow-md'
-                        : 'text-neutral-400 hover:text-white'
+                        ? 'bg-violet-600 text-neutral-950 font-bold shadow-md'
+                        : 'text-neutral-600 hover:text-neutral-950'
                     }`}
                   >
                     <Laptop className="w-3.5 h-3.5" />
@@ -616,8 +616,8 @@ export function InfoHub() {
                     onClick={() => setActiveOs('npm')}
                     className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 transition-all ${
                       activeOs === 'npm'
-                        ? 'bg-red-500 text-white font-bold shadow-md'
-                        : 'text-neutral-400 hover:text-white'
+                        ? 'bg-red-500 text-neutral-950 font-bold shadow-md'
+                        : 'text-neutral-600 hover:text-neutral-950'
                     }`}
                   >
                     <Box className="w-3.5 h-3.5" />
@@ -629,7 +629,7 @@ export function InfoHub() {
                     className={`px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap flex items-center gap-1.5 transition-all ${
                       activeOs === 'docker'
                         ? 'bg-amber-500 text-neutral-950 font-bold shadow-md'
-                        : 'text-neutral-400 hover:text-white'
+                        : 'text-neutral-600 hover:text-neutral-950'
                     }`}
                   >
                     <Cpu className="w-3.5 h-3.5" />
@@ -639,13 +639,13 @@ export function InfoHub() {
               </div>
 
               {/* Code Box */}
-              <div className="rounded-2xl bg-neutral-950/90 border border-neutral-800 p-5 sm:p-6 font-mono text-xs sm:text-sm text-neutral-200 shadow-xl">
-                <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-neutral-800/80 text-neutral-400 text-xs">
+              <div className="rounded-2xl bg-white border border-neutral-900 p-5 sm:p-6 font-mono text-xs sm:text-sm text-neutral-200 shadow-xl">
+                <div className="flex items-center justify-between pb-3.5 mb-3.5 border-b border-neutral-900/80 text-neutral-600 text-xs">
                   <span className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-red-500/80" />
                     <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
                     <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    <span className="ml-2 font-mono text-neutral-400">
+                    <span className="ml-2 font-mono text-neutral-600">
                       {activeOs === 'linux' && 'Bash / Zsh (install.sh)'}
                       {activeOs === 'windows' && 'PowerShell 7+ (install.ps1)'}
                       {activeOs === 'manual' && 'pnpm quickstart'}
@@ -661,7 +661,7 @@ export function InfoHub() {
                     variant="secondary"
                     size="sm"
                     showConfetti={false}
-                    className="border-white/10 hover:border-emerald-500/40 text-neutral-200"
+                    className="border-neutral-300 hover:border-emerald-500/40 text-neutral-200"
                   />
                 </div>
 
@@ -671,8 +671,8 @@ export function InfoHub() {
               </div>
 
               {/* Interactive CLI Playground Box */}
-              <div className="mt-6 rounded-2xl bg-neutral-950 border border-neutral-800 p-5 font-mono text-xs text-neutral-300">
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-neutral-800 text-neutral-400 text-xs">
+              <div className="mt-6 rounded-2xl bg-white border border-neutral-900 p-5 font-mono text-xs text-neutral-800">
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-neutral-900 text-neutral-600 text-xs">
                   <div className="flex items-center gap-2">
                     <Terminal className="w-4 h-4 text-cyan-400" />
                     <span className="font-bold text-neutral-200">Interactive CLI Terminal Preview</span>
@@ -680,16 +680,16 @@ export function InfoHub() {
                   <button
                     type="button"
                     onClick={() => handleRunCliCommand('clear')}
-                    className="text-[11px] text-neutral-500 hover:text-neutral-300 flex items-center gap-1"
+                    className="text-[11px] text-neutral-500 hover:text-neutral-800 flex items-center gap-1"
                   >
                     <RefreshCw className="w-3 h-3" />
                     <span>Clear</span>
                   </button>
                 </div>
 
-                <div className="space-y-1.5 max-h-40 overflow-y-auto text-[11px] text-neutral-400 leading-relaxed font-mono">
+                <div className="space-y-1.5 max-h-40 overflow-y-auto text-[11px] text-neutral-600 leading-relaxed font-mono">
                   {cliOutput.map((line, idx) => (
-                    <div key={idx} className={line.startsWith('>') ? 'text-cyan-300 font-bold' : line.startsWith('✔') ? 'text-emerald-400' : 'text-neutral-400'}>
+                    <div key={idx} className={line.startsWith('>') ? 'text-cyan-300 font-bold' : line.startsWith('✔') ? 'text-emerald-400' : 'text-neutral-600'}>
                       {line}
                     </div>
                   ))}
@@ -708,7 +708,7 @@ export function InfoHub() {
                       key={cmd}
                       type="button"
                       onClick={() => handleRunCliCommand(cmd)}
-                      className="px-2.5 py-1 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-800 text-[10px] text-neutral-300 font-mono transition-colors active:scale-95"
+                      className="px-2.5 py-1 rounded-lg bg-white hover:bg-neutral-100 border border-neutral-900 text-[10px] text-neutral-800 font-mono transition-colors active:scale-95"
                     >
                       $ {cmd}
                     </button>
@@ -718,18 +718,18 @@ export function InfoHub() {
             </div>
 
             {/* Manual Step-by-Step Grid */}
-            <div className="rounded-3xl border border-white/[0.08] bg-neutral-900/40 p-6 sm:p-10 backdrop-blur-md">
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 flex items-center gap-2.5">
+            <div className="rounded-3xl border border-neutral-300 bg-white/40 p-6 sm:p-10 backdrop-blur-md">
+              <h3 className="text-xl sm:text-2xl font-bold text-neutral-950 mb-2 flex items-center gap-2.5">
                 <Laptop className="w-6 h-6 text-violet-400" />
                 <span>Manual Environment Configuration</span>
               </h3>
-              <p className="text-sm text-neutral-400 mb-8">
+              <p className="text-sm text-neutral-600 mb-8">
                 Follow these four sequential steps to set up MonoForge from scratch in any developer environment.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
                 {/* Step 1 */}
-                <div className="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 flex flex-col justify-between hover:border-violet-500/30 transition-all">
+                <div className="p-5 rounded-2xl bg-white/80 border border-neutral-900 flex flex-col justify-between hover:border-violet-500/30 transition-all">
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-violet-500/20 text-violet-300 border border-violet-500/30">
@@ -738,11 +738,11 @@ export function InfoHub() {
                       <span className="text-xs text-neutral-500 font-mono">Prerequisites</span>
                     </div>
                     <h4 className="font-semibold text-neutral-200 text-sm mb-1.5">Node.js Version Check</h4>
-                    <p className="text-xs text-neutral-400 mb-4 leading-relaxed">
+                    <p className="text-xs text-neutral-600 mb-4 leading-relaxed">
                       Requires Node.js 20.x, 22.x, or 24.x LTS for Next.js 16 App Router.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-neutral-900 text-xs font-mono text-neutral-800">
                     <span className="truncate mr-2">node --version # v20+</span>
                     <CopyButton
                       textToCopy="node --version"
@@ -751,13 +751,13 @@ export function InfoHub() {
                       iconOnly
                       showConfetti={false}
                       title="Copy command"
-                      className="hover:bg-neutral-800 text-neutral-400 hover:text-white"
+                      className="hover:bg-neutral-100 text-neutral-600 hover:text-neutral-950"
                     />
                   </div>
                 </div>
 
                 {/* Step 2 */}
-                <div className="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 flex flex-col justify-between hover:border-cyan-500/30 transition-all">
+                <div className="p-5 rounded-2xl bg-white/80 border border-neutral-900 flex flex-col justify-between hover:border-cyan-500/30 transition-all">
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
@@ -766,11 +766,11 @@ export function InfoHub() {
                       <span className="text-xs text-neutral-500 font-mono">Clone Repo</span>
                     </div>
                     <h4 className="font-semibold text-neutral-200 text-sm mb-1.5">Clone from GitHub</h4>
-                    <p className="text-xs text-neutral-400 mb-4 leading-relaxed">
+                    <p className="text-xs text-neutral-600 mb-4 leading-relaxed">
                       Pull the complete repository with all plugins and wizard components.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-neutral-900 text-xs font-mono text-neutral-800">
                     <span className="truncate mr-2">git clone https://...</span>
                     <CopyButton
                       textToCopy="git clone https://github.com/yuvraj-thakur-exe/MONOFORGE.git"
@@ -779,13 +779,13 @@ export function InfoHub() {
                       iconOnly
                       showConfetti={false}
                       title="Copy git clone"
-                      className="hover:bg-neutral-800 text-neutral-400 hover:text-white"
+                      className="hover:bg-neutral-100 text-neutral-600 hover:text-neutral-950"
                     />
                   </div>
                 </div>
 
                 {/* Step 3 */}
-                <div className="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 flex flex-col justify-between hover:border-emerald-500/30 transition-all">
+                <div className="p-5 rounded-2xl bg-white/80 border border-neutral-900 flex flex-col justify-between hover:border-emerald-500/30 transition-all">
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -794,11 +794,11 @@ export function InfoHub() {
                       <span className="text-xs text-neutral-500 font-mono">Dependencies</span>
                     </div>
                     <h4 className="font-semibold text-neutral-200 text-sm mb-1.5">Install via pnpm</h4>
-                    <p className="text-xs text-neutral-400 mb-4 leading-relaxed">
+                    <p className="text-xs text-neutral-600 mb-4 leading-relaxed">
                       Corepack automatically provisions pnpm v10+ with locked dependencies.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-neutral-900 text-xs font-mono text-neutral-800">
                     <span className="truncate mr-2">corepack enable &amp;&amp; pnpm i</span>
                     <CopyButton
                       textToCopy="corepack enable && pnpm install"
@@ -807,13 +807,13 @@ export function InfoHub() {
                       iconOnly
                       showConfetti={false}
                       title="Copy install command"
-                      className="hover:bg-neutral-800 text-neutral-400 hover:text-white"
+                      className="hover:bg-neutral-100 text-neutral-600 hover:text-neutral-950"
                     />
                   </div>
                 </div>
 
                 {/* Step 4 */}
-                <div className="p-5 rounded-2xl bg-neutral-950/80 border border-neutral-800 flex flex-col justify-between hover:border-fuchsia-500/30 transition-all">
+                <div className="p-5 rounded-2xl bg-white/80 border border-neutral-900 flex flex-col justify-between hover:border-fuchsia-500/30 transition-all">
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="px-2.5 py-1 rounded-lg text-[10px] font-mono font-bold bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/30">
@@ -822,11 +822,11 @@ export function InfoHub() {
                       <span className="text-xs text-neutral-500 font-mono">Dev Server</span>
                     </div>
                     <h4 className="font-semibold text-neutral-200 text-sm mb-1.5">Start Local Server</h4>
-                    <p className="text-xs text-neutral-400 mb-4 leading-relaxed">
+                    <p className="text-xs text-neutral-600 mb-4 leading-relaxed">
                       Launches Turbopack-powered dev server on http://localhost:3000.
                     </p>
                   </div>
-                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-300">
+                  <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-neutral-900 text-xs font-mono text-neutral-800">
                     <span className="truncate mr-2">pnpm dev</span>
                     <CopyButton
                       textToCopy="pnpm dev"
@@ -835,7 +835,7 @@ export function InfoHub() {
                       iconOnly
                       showConfetti={false}
                       title="Copy pnpm dev"
-                      className="hover:bg-neutral-800 text-neutral-400 hover:text-white"
+                      className="hover:bg-neutral-100 text-neutral-600 hover:text-neutral-950"
                     />
                   </div>
                 </div>
@@ -844,15 +844,15 @@ export function InfoHub() {
 
             {/* Quality & FAQ Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div className="rounded-3xl border border-white/[0.08] bg-neutral-900/40 p-6 sm:p-8 backdrop-blur-md">
-                <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+              <div className="rounded-3xl border border-neutral-300 bg-white/40 p-6 sm:p-8 backdrop-blur-md">
+                <h3 className="text-lg font-bold text-neutral-950 mb-2 flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400" />
                   <span>Quality Test &amp; Build Commands</span>
                 </h3>
-                <p className="text-xs text-neutral-400 mb-4">Run these commands before contributing or creating PRs:</p>
+                <p className="text-xs text-neutral-600 mb-4">Run these commands before contributing or creating PRs:</p>
 
                 <div className="space-y-3 font-mono text-xs">
-                  <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between hover:border-emerald-500/30 transition-colors">
+                  <div className="p-3.5 rounded-xl bg-white border border-neutral-900 flex items-center justify-between hover:border-emerald-500/30 transition-colors">
                     <div>
                       <div className="text-emerald-400 font-bold">pnpm test</div>
                       <div className="text-neutral-500 text-[10px]">Vitest: 100+ unit tests across parsers &amp; plugins</div>
@@ -864,11 +864,11 @@ export function InfoHub() {
                       iconOnly
                       showConfetti={false}
                       title="Copy pnpm test"
-                      className="hover:bg-neutral-800 text-neutral-400 hover:text-white"
+                      className="hover:bg-neutral-100 text-neutral-600 hover:text-neutral-950"
                     />
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between hover:border-cyan-500/30 transition-colors">
+                  <div className="p-3.5 rounded-xl bg-white border border-neutral-900 flex items-center justify-between hover:border-cyan-500/30 transition-colors">
                     <div>
                       <div className="text-cyan-400 font-bold">pnpm lint</div>
                       <div className="text-neutral-500 text-[10px]">Biome: Strict formatting and hygiene verification</div>
@@ -880,11 +880,11 @@ export function InfoHub() {
                       iconOnly
                       showConfetti={false}
                       title="Copy pnpm lint"
-                      className="hover:bg-neutral-800 text-neutral-400 hover:text-white"
+                      className="hover:bg-neutral-100 text-neutral-600 hover:text-neutral-950"
                     />
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 flex items-center justify-between hover:border-violet-500/30 transition-colors">
+                  <div className="p-3.5 rounded-xl bg-white border border-neutral-900 flex items-center justify-between hover:border-violet-500/30 transition-colors">
                     <div>
                       <div className="text-violet-400 font-bold">pnpm build</div>
                       <div className="text-neutral-500 text-[10px]">Next.js 16: Standalone production compilation</div>
@@ -896,28 +896,28 @@ export function InfoHub() {
                       iconOnly
                       showConfetti={false}
                       title="Copy pnpm build"
-                      className="hover:bg-neutral-800 text-neutral-400 hover:text-white"
+                      className="hover:bg-neutral-100 text-neutral-600 hover:text-neutral-950"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-white/[0.08] bg-neutral-900/40 p-6 sm:p-8 backdrop-blur-md">
-                <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
+              <div className="rounded-3xl border border-neutral-300 bg-white/40 p-6 sm:p-8 backdrop-blur-md">
+                <h3 className="text-lg font-bold text-neutral-950 mb-2 flex items-center gap-2">
                   <HelpCircle className="w-5 h-5 text-amber-400" />
                   <span>Frequently Asked Questions</span>
                 </h3>
-                <p className="text-xs text-neutral-400 mb-4">Quick solutions to common setup hurdles:</p>
+                <p className="text-xs text-neutral-600 mb-4">Quick solutions to common setup hurdles:</p>
 
                 <div className="space-y-3 text-xs">
-                  <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="p-3.5 rounded-xl bg-white border border-neutral-900">
                     <div className="font-bold text-neutral-200 mb-1">Q: Does MonoForge require an account or GitHub token?</div>
-                    <div className="text-neutral-400 leading-relaxed">No. MonoForge is completely free and works client-side. A token is only needed if you want to push commits directly to your GitHub repository.</div>
+                    <div className="text-neutral-600 leading-relaxed">No. MonoForge is completely free and works client-side. A token is only needed if you want to push commits directly to your GitHub repository.</div>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800">
+                  <div className="p-3.5 rounded-xl bg-white border border-neutral-900">
                     <div className="font-bold text-neutral-200 mb-1">Q: Can I use Docker instead of local Node?</div>
-                    <div className="text-neutral-400 leading-relaxed">Yes! Simply run <code className="text-amber-300 font-mono">docker build -t monoforge .</code> and <code className="text-amber-300 font-mono">docker run -p 3000:3000 monoforge</code>.</div>
+                    <div className="text-neutral-600 leading-relaxed">Yes! Simply run <code className="text-amber-300 font-mono">docker build -t monoforge .</code> and <code className="text-amber-300 font-mono">docker run -p 3000:3000 monoforge</code>.</div>
                   </div>
                 </div>
               </div>
@@ -929,9 +929,9 @@ export function InfoHub() {
         {activeTab === 'templates' && (
           <div className="space-y-8 animate-fadeIn">
             {/* Search & Mode Toolbar */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-neutral-900/70 border border-white/[0.08] backdrop-blur-xl">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-2xl bg-white/70 border border-neutral-300 backdrop-blur-xl">
               <div className="flex items-center gap-2.5 flex-1 max-w-lg">
-                <Search className="w-4 h-4 text-neutral-400 ml-1 shrink-0" />
+                <Search className="w-4 h-4 text-neutral-600 ml-1 shrink-0" />
                 <input
                   type="text"
                   placeholder="Search 10 archetypes by title, skill, or role..."
@@ -943,14 +943,14 @@ export function InfoHub() {
 
               {/* View Switcher */}
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1 p-1 bg-neutral-950 rounded-xl border border-neutral-800">
+                <div className="flex items-center gap-1 p-1 bg-white rounded-xl border border-neutral-900">
                   <button
                     type="button"
                     onClick={() => setPreviewMode('card')}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       previewMode === 'card'
-                        ? 'bg-violet-600 text-white shadow-md'
-                        : 'text-neutral-400 hover:text-white'
+                        ? 'bg-violet-600 text-neutral-950 shadow-md'
+                        : 'text-neutral-600 hover:text-neutral-950'
                     }`}
                   >
                     <Eye className="w-3.5 h-3.5" />
@@ -961,8 +961,8 @@ export function InfoHub() {
                     onClick={() => setPreviewMode('markdown')}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                       previewMode === 'markdown'
-                        ? 'bg-violet-600 text-white shadow-md'
-                        : 'text-neutral-400 hover:text-white'
+                        ? 'bg-violet-600 text-neutral-950 shadow-md'
+                        : 'text-neutral-600 hover:text-neutral-950'
                     }`}
                   >
                     <FileCode className="w-3.5 h-3.5" />
@@ -993,8 +993,8 @@ export function InfoHub() {
                   onClick={() => setTemplateFilter(cat.id)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-medium whitespace-nowrap transition-all ${
                     templateFilter === cat.id
-                      ? 'bg-violet-600 text-white font-bold shadow-md shadow-violet-600/30'
-                      : 'bg-neutral-900 border border-neutral-800 text-neutral-400 hover:text-white hover:bg-neutral-800'
+                      ? 'bg-violet-600 text-neutral-950 font-bold shadow-md shadow-violet-600/30'
+                      : 'bg-white border border-neutral-900 text-neutral-600 hover:text-neutral-950 hover:bg-neutral-100'
                   }`}
                 >
                   {cat.label}
@@ -1012,7 +1012,7 @@ export function InfoHub() {
                 return (
                   <div
                     key={template.id}
-                    className="flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-neutral-900/40 hover:bg-neutral-900/70 hover:border-white/[0.2] transition-all duration-300 p-6 relative group overflow-hidden shadow-xl min-w-0"
+                    className="flex flex-col justify-between rounded-3xl border border-neutral-300 bg-white/40 hover:bg-white/70 hover:border-white/[0.2] transition-all duration-300 p-6 relative group overflow-hidden shadow-xl min-w-0"
                   >
                     <div
                       className="absolute top-0 left-0 right-0 h-1.5"
@@ -1037,16 +1037,16 @@ export function InfoHub() {
                         </span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-white group-hover:text-violet-300 transition-colors">
+                      <h3 className="text-xl font-bold text-neutral-950 group-hover:text-violet-300 transition-colors">
                         {template.name}
                       </h3>
-                      <p className="text-xs text-neutral-400 mt-1.5 mb-5 leading-relaxed">
+                      <p className="text-xs text-neutral-600 mt-1.5 mb-5 leading-relaxed">
                         {template.description}
                       </p>
 
                       {/* Mockup Preview vs Markdown Preview */}
                       {previewMode === 'card' ? (
-                        <div className="mb-6 p-4 rounded-2xl bg-neutral-950 border border-neutral-800 space-y-3">
+                        <div className="mb-6 p-4 rounded-2xl bg-white border border-neutral-900 space-y-3">
                           <div className="flex items-center gap-3">
                             <div
                               className="w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs text-neutral-950 font-mono shrink-0 shadow-md"
@@ -1056,11 +1056,11 @@ export function InfoHub() {
                             </div>
                             <div className="min-w-0 flex-1">
                               <div className="text-xs font-bold text-neutral-100 truncate">{user.name || 'Developer'}</div>
-                              <div className="text-[10px] text-neutral-400 font-mono truncate">{user.role || 'Software Engineer'}</div>
+                              <div className="text-[10px] text-neutral-600 font-mono truncate">{user.role || 'Software Engineer'}</div>
                             </div>
                           </div>
 
-                          <div className="text-[11px] text-neutral-300 italic border-l-2 pl-2.5 border-neutral-700 line-clamp-2">
+                          <div className="text-[11px] text-neutral-800 italic border-l-2 pl-2.5 border-neutral-900 line-clamp-2">
                             &ldquo;{user.bio || 'Building modern software on the open web.'}&rdquo;
                           </div>
 
@@ -1068,7 +1068,7 @@ export function InfoHub() {
                             {template.config.sections.map(sec => (
                               <span
                                 key={sec.id}
-                                className="px-2 py-0.5 rounded-lg bg-neutral-900 border border-neutral-800 text-[9px] font-mono text-neutral-300"
+                                className="px-2 py-0.5 rounded-lg bg-white border border-neutral-900 text-[9px] font-mono text-neutral-800"
                               >
                                 {sec.type}
                               </span>
@@ -1076,7 +1076,7 @@ export function InfoHub() {
                           </div>
                         </div>
                       ) : (
-                        <div className="mb-6 p-3.5 rounded-2xl bg-neutral-950 border border-neutral-800 font-mono text-[10px] text-neutral-400 max-h-36 overflow-y-auto whitespace-pre leading-relaxed">
+                        <div className="mb-6 p-3.5 rounded-2xl bg-white border border-neutral-900 font-mono text-[10px] text-neutral-600 max-h-36 overflow-y-auto whitespace-pre leading-relaxed">
                           {markdownPreview.slice(0, 320)}...
                         </div>
                       )}
@@ -1089,8 +1089,8 @@ export function InfoHub() {
                         onClick={() => handleApplyTemplate(template)}
                         className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl font-semibold text-xs transition-all duration-300 active:scale-95 ${
                           copiedKey === `applied-${template.id}`
-                            ? 'bg-gradient-to-r from-emerald-600 to-teal-500 border border-emerald-400 text-white shadow-[0_0_20px_rgba(52,211,153,0.4)]'
-                            : 'bg-violet-600 hover:bg-violet-500 text-white shadow-md shadow-violet-600/20'
+                            ? 'bg-gradient-to-r from-emerald-600 to-teal-500 border border-emerald-400 text-neutral-950 shadow-[0_0_20px_rgba(52,211,153,0.4)]'
+                            : 'bg-violet-600 hover:bg-violet-500 text-neutral-950 shadow-md shadow-violet-600/20'
                         }`}
                       >
                         {copiedKey === `applied-${template.id}` ? (
@@ -1120,7 +1120,7 @@ export function InfoHub() {
                         <button
                           type="button"
                           onClick={() => setExpandedPreviewId(isExpanded ? null : template.id)}
-                          className="px-3 py-1.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 border border-neutral-800 text-xs font-medium text-neutral-400 hover:text-neutral-200 transition-colors flex items-center gap-1"
+                          className="px-3 py-1.5 rounded-xl bg-white hover:bg-neutral-100 border border-neutral-900 text-xs font-medium text-neutral-600 hover:text-neutral-200 transition-colors flex items-center gap-1"
                         >
                           <span>{isExpanded ? 'Hide' : 'Code'}</span>
                           {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
@@ -1128,7 +1128,7 @@ export function InfoHub() {
                       </div>
 
                       {isExpanded && (
-                        <div className="mt-3 p-3.5 rounded-2xl bg-neutral-950 border border-neutral-800 font-mono text-[11px] text-neutral-300 max-h-52 overflow-y-auto whitespace-pre-wrap leading-relaxed animate-fadeIn">
+                        <div className="mt-3 p-3.5 rounded-2xl bg-white border border-neutral-900 font-mono text-[11px] text-neutral-800 max-h-52 overflow-y-auto whitespace-pre-wrap leading-relaxed animate-fadeIn">
                           {markdownPreview}
                         </div>
                       )}
@@ -1150,11 +1150,11 @@ export function InfoHub() {
                     <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
                       ⚡ LIVE SIMULATOR
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
                       Instant Profile Playground
                     </h2>
                   </div>
-                  <p className="text-sm text-neutral-400 max-w-2xl">
+                  <p className="text-sm text-neutral-600 max-w-2xl">
                     Customize your profile live right here. Toggle stats, change themes, preview the layout, and launch directly into the full studio.
                   </p>
                 </div>
@@ -1172,47 +1172,47 @@ export function InfoHub() {
               {/* Two Column Playground: Controls + Live Render */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Left Controls Column */}
-                <div className="lg:col-span-5 space-y-5 p-6 rounded-2xl bg-neutral-950/80 border border-neutral-800">
-                  <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider pb-3 border-b border-neutral-800">
+                <div className="lg:col-span-5 space-y-5 p-6 rounded-2xl bg-white/80 border border-neutral-900">
+                  <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider pb-3 border-b border-neutral-900">
                     <Sliders className="w-4 h-4" />
                     <span>Profile Parameters</span>
                   </div>
 
                   <div>
-                    <label className="text-xs text-neutral-400 font-semibold mb-1 block">GitHub Username</label>
-                    <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-mono text-neutral-200">
+                    <label className="text-xs text-neutral-600 font-semibold mb-1 block">GitHub Username</label>
+                    <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-neutral-900 text-xs font-mono text-neutral-200">
                       <span className="text-neutral-500">github.com/</span>
                       <input
                         type="text"
                         value={pgUsername}
                         onChange={e => setPgUsername(e.target.value)}
-                        className="bg-transparent text-white focus:outline-none w-full"
+                        className="bg-transparent text-neutral-950 focus:outline-none w-full"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="text-xs text-neutral-400 font-semibold mb-1 block">Display Name</label>
+                    <label className="text-xs text-neutral-600 font-semibold mb-1 block">Display Name</label>
                     <input
                       type="text"
                       value={pgName}
                       onChange={e => setPgName(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-semibold text-neutral-200 focus:outline-none focus:border-cyan-500"
+                      className="w-full px-3 py-2 rounded-xl bg-white border border-neutral-900 text-xs font-semibold text-neutral-200 focus:outline-none focus:border-cyan-500"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs text-neutral-400 font-semibold mb-1 block">Headline / Role</label>
+                    <label className="text-xs text-neutral-600 font-semibold mb-1 block">Headline / Role</label>
                     <input
                       type="text"
                       value={pgRole}
                       onChange={e => setPgRole(e.target.value)}
-                      className="w-full px-3 py-2 rounded-xl bg-neutral-900 border border-neutral-800 text-xs font-semibold text-neutral-200 focus:outline-none focus:border-cyan-500"
+                      className="w-full px-3 py-2 rounded-xl bg-white border border-neutral-900 text-xs font-semibold text-neutral-200 focus:outline-none focus:border-cyan-500"
                     />
                   </div>
 
                   <div>
-                    <label className="text-xs text-neutral-400 font-semibold mb-2 block">Widget Theme Palette</label>
+                    <label className="text-xs text-neutral-600 font-semibold mb-2 block">Widget Theme Palette</label>
                     <div className="grid grid-cols-3 gap-2">
                       {[
                         { id: 'tokyonight', label: 'TokyoNight', color: '#7aa2f7' },
@@ -1226,7 +1226,7 @@ export function InfoHub() {
                           className={`flex items-center gap-1.5 p-2 rounded-xl text-xs font-semibold border transition-all ${
                             pgTheme === theme.id
                               ? 'border-cyan-400 bg-cyan-950/40 text-cyan-200'
-                              : 'border-neutral-800 bg-neutral-900 text-neutral-400'
+                              : 'border-neutral-900 bg-white text-neutral-600'
                           }`}
                         >
                           <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: theme.color }} />
@@ -1237,9 +1237,9 @@ export function InfoHub() {
                   </div>
 
                   <div>
-                    <label className="text-xs text-neutral-400 font-semibold mb-2 block">Enabled Dynamic Widgets</label>
+                    <label className="text-xs text-neutral-600 font-semibold mb-2 block">Enabled Dynamic Widgets</label>
                     <div className="grid grid-cols-2 gap-2 text-xs">
-                      <label className="flex items-center gap-2 p-2 rounded-xl bg-neutral-900 border border-neutral-800 cursor-pointer">
+                      <label className="flex items-center gap-2 p-2 rounded-xl bg-white border border-neutral-900 cursor-pointer">
                         <input
                           type="checkbox"
                           checked={pgShowStats}
@@ -1248,7 +1248,7 @@ export function InfoHub() {
                         />
                         <span>GitHub Stats</span>
                       </label>
-                      <label className="flex items-center gap-2 p-2 rounded-xl bg-neutral-900 border border-neutral-800 cursor-pointer">
+                      <label className="flex items-center gap-2 p-2 rounded-xl bg-white border border-neutral-900 cursor-pointer">
                         <input
                           type="checkbox"
                           checked={pgShowLangs}
@@ -1257,7 +1257,7 @@ export function InfoHub() {
                         />
                         <span>Top Languages</span>
                       </label>
-                      <label className="flex items-center gap-2 p-2 rounded-xl bg-neutral-900 border border-neutral-800 cursor-pointer">
+                      <label className="flex items-center gap-2 p-2 rounded-xl bg-white border border-neutral-900 cursor-pointer">
                         <input
                           type="checkbox"
                           checked={pgShowStreak}
@@ -1266,7 +1266,7 @@ export function InfoHub() {
                         />
                         <span>Activity Graph</span>
                       </label>
-                      <label className="flex items-center gap-2 p-2 rounded-xl bg-neutral-900 border border-neutral-800 cursor-pointer">
+                      <label className="flex items-center gap-2 p-2 rounded-xl bg-white border border-neutral-900 cursor-pointer">
                         <input
                           type="checkbox"
                           checked={pgShowTrophies}
@@ -1280,9 +1280,9 @@ export function InfoHub() {
                 </div>
 
                 {/* Right Live Preview Column */}
-                <div className="lg:col-span-7 p-6 rounded-2xl bg-neutral-950 border border-neutral-800 flex flex-col justify-between">
+                <div className="lg:col-span-7 p-6 rounded-2xl bg-white border border-neutral-900 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-neutral-800">
+                    <div className="flex items-center justify-between pb-3 mb-4 border-b border-neutral-900">
                       <div className="flex items-center gap-2">
                         <Eye className="w-4 h-4 text-emerald-400" />
                         <span className="font-bold text-neutral-200 text-xs uppercase font-mono">Live Render Canvas</span>
@@ -1293,53 +1293,53 @@ export function InfoHub() {
                     </div>
 
                     {/* Simulated Readme Box */}
-                    <div className="p-5 rounded-2xl bg-neutral-900/50 border border-white/[0.06] space-y-4">
+                    <div className="p-5 rounded-2xl bg-white/50 border border-white/[0.06] space-y-4">
                       {/* Banner / Header */}
                       <div className="space-y-1">
-                        <h2 className="text-xl font-extrabold text-white">
+                        <h2 className="text-xl font-extrabold text-neutral-950">
                           Hi there, I&apos;m {pgName || 'Developer'} 👋
                         </h2>
                         <h3 className="text-xs font-semibold text-cyan-400 font-mono">
                           {pgRole || 'Software Craftsman'}
                         </h3>
-                        <p className="text-xs text-neutral-400 leading-relaxed pt-1">
+                        <p className="text-xs text-neutral-600 leading-relaxed pt-1">
                           Building minimal, scalable systems with continuous delivery and zero telemetry.
                         </p>
                       </div>
 
                       {/* Dynamic Mockup Widgets */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-neutral-800">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-neutral-900">
                         {pgShowStats && (
-                          <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-[11px] font-mono">
+                          <div className="p-3.5 rounded-xl bg-white border border-neutral-900 text-[11px] font-mono">
                             <div className="text-cyan-400 font-bold mb-1">GitHub Readme Stats</div>
-                            <div className="text-neutral-400">Stars: 1.2k • Commits: 2.8k</div>
+                            <div className="text-neutral-600">Stars: 1.2k • Commits: 2.8k</div>
                             <div className="text-neutral-500 text-[10px]">Theme: {pgTheme}</div>
                           </div>
                         )}
                         {pgShowLangs && (
-                          <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-[11px] font-mono">
+                          <div className="p-3.5 rounded-xl bg-white border border-neutral-900 text-[11px] font-mono">
                             <div className="text-violet-400 font-bold mb-1">Top Languages Donut</div>
-                            <div className="text-neutral-400">TypeScript 60% • Rust 25%</div>
+                            <div className="text-neutral-600">TypeScript 60% • Rust 25%</div>
                             <div className="text-neutral-500 text-[10px]">Theme: {pgTheme}</div>
                           </div>
                         )}
                         {pgShowStreak && (
-                          <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-[11px] font-mono">
+                          <div className="p-3.5 rounded-xl bg-white border border-neutral-900 text-[11px] font-mono">
                             <div className="text-emerald-400 font-bold mb-1">Activity Velocity</div>
-                            <div className="text-neutral-400">365-day commit graph active</div>
+                            <div className="text-neutral-600">365-day commit graph active</div>
                           </div>
                         )}
                         {pgShowTrophies && (
-                          <div className="p-3.5 rounded-xl bg-neutral-950 border border-neutral-800 text-[11px] font-mono">
+                          <div className="p-3.5 rounded-xl bg-white border border-neutral-900 text-[11px] font-mono">
                             <div className="text-amber-400 font-bold mb-1">GitHub Profile Trophy</div>
-                            <div className="text-neutral-400">🏆 Multi-Lang • ⚡ Committer</div>
+                            <div className="text-neutral-600">🏆 Multi-Lang • ⚡ Committer</div>
                           </div>
                         )}
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-4 mt-6 border-t border-neutral-800 flex items-center justify-between text-xs text-neutral-400 font-mono">
+                  <div className="pt-4 mt-6 border-t border-neutral-900 flex items-center justify-between text-xs text-neutral-600 font-mono">
                     <span>Target user: @{pgUsername}</span>
                     <button
                       type="button"
@@ -1365,24 +1365,24 @@ export function InfoHub() {
                     <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40">
                       ⚡ SHIELDS &amp; ICONS
                     </span>
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">
                       Tech Badge Arsenal
                     </h2>
                   </div>
-                  <p className="text-sm text-neutral-400 max-w-2xl">
+                  <p className="text-sm text-neutral-600 max-w-2xl">
                     High-contrast official Shields.io badges. Click any badge to copy its markdown syntax instantly.
                   </p>
                 </div>
 
                 {/* Categories */}
-                <div className="flex items-center gap-1.5 p-1 bg-neutral-950 rounded-xl border border-neutral-800 overflow-x-auto scrollbar-none">
+                <div className="flex items-center gap-1.5 p-1 bg-white rounded-xl border border-neutral-900 overflow-x-auto scrollbar-none">
                   {['all', 'lang', 'frontend', 'backend', 'database', 'devops', 'mobile'].map(cat => (
                     <button
                       key={cat}
                       type="button"
                       onClick={() => setBadgeCategory(cat)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-semibold capitalize transition-all ${
-                        badgeCategory === cat ? 'bg-amber-500 text-neutral-950 font-bold' : 'text-neutral-400 hover:text-white'
+                        badgeCategory === cat ? 'bg-amber-500 text-neutral-950 font-bold' : 'text-neutral-600 hover:text-neutral-950'
                       }`}
                     >
                       {cat}
@@ -1403,7 +1403,7 @@ export function InfoHub() {
                       className={`p-3.5 rounded-2xl transition-all duration-300 flex flex-col items-center justify-between gap-2.5 text-center group active:scale-95 relative overflow-hidden select-none ${
                         isCopied
                           ? 'bg-emerald-950/40 border-2 border-emerald-400 shadow-[0_0_20px_rgba(52,211,153,0.35)] scale-[1.02]'
-                          : 'bg-neutral-950/90 border border-white/[0.08] hover:border-amber-400/60 hover:shadow-[0_10px_25px_rgba(245,158,11,0.15)]'
+                          : 'bg-white border border-neutral-300 hover:border-amber-400/60 hover:shadow-[0_10px_25px_rgba(245,158,11,0.15)]'
                       }`}
                     >
                       {/* Specular Gleam Sweep Wave on Copied */}
@@ -1423,14 +1423,14 @@ export function InfoHub() {
                         />
                       </div>
                       <div className="flex items-center justify-between w-full pt-1.5 border-t border-white/[0.05] text-[10px] font-mono">
-                        <span className={`font-semibold transition-colors ${isCopied ? 'text-emerald-300' : 'text-neutral-300 group-hover:text-amber-300'}`}>
+                        <span className={`font-semibold transition-colors ${isCopied ? 'text-emerald-300' : 'text-neutral-800 group-hover:text-amber-300'}`}>
                           {badge.name}
                         </span>
                         <span
                           className={`px-2 py-0.5 rounded-full font-bold flex items-center gap-1 transition-all ${
                             isCopied
                               ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                              : 'bg-white/5 text-neutral-500 group-hover:text-neutral-300'
+                              : 'bg-white/5 text-neutral-500 group-hover:text-neutral-800'
                           }`}
                         >
                           {isCopied ? (
@@ -1459,11 +1459,11 @@ export function InfoHub() {
                 <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
                   WORKFLOW BLUEPRINT
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950">
                   6-Phase Profile Studio Walkthrough
                 </h2>
               </div>
-              <p className="text-sm text-neutral-300 max-w-3xl leading-relaxed">
+              <p className="text-sm text-neutral-800 max-w-3xl leading-relaxed">
                 MonoForge bridges visual drag-and-drop design with professional Monaco IDE tooling. Follow these six steps to build a profile that gets you hired or noticed.
               </p>
             </div>
@@ -1478,7 +1478,7 @@ export function InfoHub() {
                 { num: '05', title: 'Live AST Synchronization', desc: 'Edits in wizard sync instantly with zero latency and complete type safety.' },
                 { num: '06', title: 'Confirmation Push', desc: 'Inspect diff preview against remote README and push safely via GitHub REST API.' },
               ].map((step, idx) => (
-                <div key={idx} className="p-6 rounded-3xl bg-neutral-900/50 border border-white/[0.08] hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                <div key={idx} className="p-6 rounded-3xl bg-white/50 border border-neutral-300 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <span className="w-9 h-9 rounded-xl bg-indigo-600/20 text-indigo-400 border border-indigo-500/30 font-mono font-bold flex items-center justify-center text-xs">
@@ -1486,8 +1486,8 @@ export function InfoHub() {
                       </span>
                       <span className="text-xs text-neutral-500 font-mono">Phase {step.num}</span>
                     </div>
-                    <h3 className="text-base font-bold text-white mb-2">{step.title}</h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed">{step.desc}</p>
+                    <h3 className="text-base font-bold text-neutral-950 mb-2">{step.title}</h3>
+                    <p className="text-xs text-neutral-600 leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -1502,42 +1502,42 @@ export function InfoHub() {
             <div className="p-6 sm:p-10 rounded-3xl border border-fuchsia-500/30 bg-gradient-to-br from-fuchsia-950/20 via-neutral-900/80 to-neutral-950">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-violet-600 via-indigo-600 to-cyan-400 shadow-lg">
-                  <Flame className="w-6 h-6 text-white" />
+                  <Flame className="w-6 h-6 text-neutral-950" />
                 </div>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">About MonoForge</h2>
-                  <div className="text-xs text-neutral-400 font-mono">Open-Source Profile Studio • 100% Client-Side</div>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-neutral-950 tracking-tight">About MonoForge</h2>
+                  <div className="text-xs text-neutral-600 font-mono">Open-Source Profile Studio • 100% Client-Side</div>
                 </div>
               </div>
-              <p className="text-sm text-neutral-300 max-w-3xl leading-relaxed mt-4">
+              <p className="text-sm text-neutral-800 max-w-3xl leading-relaxed mt-4">
                 MonoForge was born to eliminate the frustration of manual profile markdown formatting. Built on Next.js 16 and Monaco, it guarantees 100% client-side privacy, live keystroke markdown rendering, and confirmation-gated GitHub commits.
               </p>
             </div>
 
             {/* Architecture Invariants */}
-            <div className="p-6 sm:p-10 rounded-3xl bg-neutral-900/40 border border-white/[0.08]">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+            <div className="p-6 sm:p-10 rounded-3xl bg-white/40 border border-neutral-300">
+              <h3 className="text-xl font-bold text-neutral-950 mb-6 flex items-center gap-2">
                 <Code2 className="w-5 h-5 text-violet-400" />
                 <span>Security Principles &amp; Architecture Invariants</span>
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
-                <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800">
+                <div className="p-5 rounded-2xl bg-white border border-neutral-900">
                   <div className="flex items-center gap-2 text-emerald-400 font-bold mb-2">
                     <ShieldCheck className="w-4 h-4" />
                     <span>100% Client-Side Privacy</span>
                   </div>
-                  <p className="text-neutral-400 leading-relaxed">
+                  <p className="text-neutral-600 leading-relaxed">
                     Zero user data is persisted on external servers. All session state remains strictly in your browser local storage.
                   </p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-neutral-950 border border-neutral-800">
+                <div className="p-5 rounded-2xl bg-white border border-neutral-900">
                   <div className="flex items-center gap-2 text-cyan-400 font-bold mb-2">
                     <CheckCircle2 className="w-4 h-4" />
                     <span>Confirmation-Gated Operations</span>
                   </div>
-                  <p className="text-neutral-400 leading-relaxed">
+                  <p className="text-neutral-600 leading-relaxed">
                     No remote sync or write to your GitHub repository happens silently. Every action requires diff review and explicit confirmation.
                   </p>
                 </div>
@@ -1545,20 +1545,20 @@ export function InfoHub() {
             </div>
 
             {/* Author & Open Source */}
-            <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-r from-neutral-900 via-neutral-900/80 to-neutral-950 border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="p-6 sm:p-10 rounded-3xl bg-gradient-to-r from-neutral-900 via-neutral-900/80 to-neutral-950 border border-neutral-300 flex flex-col sm:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-white font-black text-xl shadow-lg shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-neutral-950 font-black text-xl shadow-lg shrink-0">
                   Y
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-white">Yuvraj Thakur</h4>
-                  <p className="text-xs text-neutral-400 font-mono">
+                  <h4 className="text-base font-bold text-neutral-950">Yuvraj Thakur</h4>
+                  <p className="text-xs text-neutral-600 font-mono">
                     Maintainer &amp; Creator of MonoForge • @yuvraj-thakur-exe
                   </p>
                   <div className="flex items-center gap-3 mt-1.5 text-xs">
                     <span className="text-emerald-400 font-semibold">MIT License</span>
                     <span className="text-neutral-600">•</span>
-                    <span className="text-neutral-400">Open Source Community</span>
+                    <span className="text-neutral-600">Open Source Community</span>
                   </div>
                 </div>
               </div>
@@ -1568,11 +1568,11 @@ export function InfoHub() {
                   href="https://github.com/yuvraj-thakur-exe/MONOFORGE"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white font-semibold text-xs border border-neutral-700 transition-colors shadow-sm"
+                  className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-700 text-neutral-950 font-semibold text-xs border border-neutral-900 transition-colors shadow-sm"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub Repository</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />
+                  <ExternalLink className="w-3.5 h-3.5 text-neutral-600" />
                 </a>
               </div>
             </div>

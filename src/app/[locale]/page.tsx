@@ -17,7 +17,7 @@ import { Github, BarChart3, Code2, Sparkles, BookOpen } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-white text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-[#ffe600] selection:text-neutral-950 overflow-x-hidden font-sans transition-colors duration-200">
+    <div className="relative flex flex-col min-h-screen bg-white text-neutral-900   selection:bg-[#ffe600] selection:text-neutral-950 overflow-x-hidden font-sans transition-colors duration-200">
       {/* Magnetic Cursor Follower */}
       <StudioCursor />
 
@@ -55,15 +55,15 @@ export default function HomePage() {
       <NomokeyMarquee reverse={true} theme="amber" speed="normal" />
 
       {/* High-Fashion Studio Editorial Footer */}
-      <footer className="relative z-10 border-t-2 border-neutral-900 dark:border-neutral-100 bg-white dark:bg-neutral-950 py-12 px-4 sm:px-6 text-xs text-neutral-600 dark:text-neutral-400">
+      <footer className="relative z-10 border-t-2 border-neutral-900  bg-white  py-12 px-4 sm:px-6 text-xs text-neutral-600 ">
         <div className="max-w-7xl mx-auto space-y-8">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-neutral-200 dark:border-neutral-800">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 pb-8 border-b border-neutral-200 ">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 border border-neutral-900">
+              <div className="p-2 rounded-xl bg-neutral-950 text-white   border border-neutral-900">
                 <MonoForgeMonkeyIcon className="w-6 h-6" />
               </div>
               <div>
-                <span className="font-black text-lg tracking-tight text-neutral-950 dark:text-white uppercase font-sans">
+                <span className="font-black text-lg tracking-tight text-neutral-950  uppercase font-sans">
                   MONO<span className="text-amber-500">FORGE</span>
                 </span>
                 <p className="text-[11px] font-mono text-neutral-500">

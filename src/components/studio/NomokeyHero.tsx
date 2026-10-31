@@ -106,7 +106,7 @@ export function NomokeyHero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 pt-8 pb-16 md:pt-14 md:pb-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative overflow-hidden bg-white bg-white text-neutral-900 text-neutral-950 pt-8 pb-16 md:pt-14 md:pb-24 px-4 sm:px-6 transition-colors duration-300">
       {/* Subtle fine technical grid background */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03] dark:opacity-[0.06]"
@@ -122,14 +122,14 @@ export function NomokeyHero() {
       <div className="relative max-w-7xl mx-auto">
         {/* Pre-header Studio Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border-2 border-neutral-900 dark:border-neutral-100 bg-white dark:bg-neutral-900 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] text-xs font-mono font-bold tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border-2 border-neutral-900 border-neutral-900 bg-white bg-white shadow-[2px_2px_0px_#18181b]  text-xs font-mono font-bold tracking-wider uppercase">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>EST. 2026 // MONOFORGE STUDIO</span>
             <span className="text-[#ffe600] font-black">✦</span>
-            <span className="text-neutral-500 dark:text-neutral-400 hidden sm:inline">ZERO MONKEY BUSINESS</span>
+            <span className="text-neutral-500 text-neutral-600 hidden sm:inline">ZERO MONKEY BUSINESS</span>
           </div>
 
-          <div className="flex items-center gap-3 text-xs font-mono text-neutral-500 dark:text-neutral-400">
+          <div className="flex items-center gap-3 text-xs font-mono text-neutral-500 text-neutral-600">
             <span className="inline-flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
               <span>100% Camo Compliant</span>
@@ -151,20 +151,20 @@ export function NomokeyHero() {
                 ⚔️ THE NEXT-GEN GITHUB PROFILE ENGINE
               </div>
 
-              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[0.98] uppercase font-sans text-neutral-950 dark:text-white">
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight leading-[0.98] uppercase font-sans text-neutral-950 text-neutral-950">
                 WE DON&apos;T <br className="hidden sm:inline" />
-                <span className="relative inline-block text-neutral-950 dark:text-white bg-[#ffe600] px-2 rounded-lg border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] rotate-[-1deg]">
+                <span className="relative inline-block text-neutral-950 text-neutral-950 bg-[#ffe600] px-2 rounded-lg border-2 border-neutral-900 shadow-[3px_3px_0px_#18181b] rotate-[-1deg]">
                   MONKEY
                 </span>{' '}
                 AROUND.
                 <br />
-                <span className="text-neutral-900 dark:text-neutral-100">
+                <span className="text-neutral-900 text-neutral-950">
                   WE FORGE ICONS.
                 </span>
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-neutral-700 dark:text-neutral-300 max-w-xl font-normal leading-relaxed">
+            <p className="text-base sm:text-lg text-neutral-700 text-neutral-800 max-w-xl font-normal leading-relaxed">
               Ditch the generic bullet points. Craft high-impact GitHub profile READMEs with 60fps Camo SVGs, 47+ telemetry engines, and a split-screen Monaco IDE. Built for developers who take their craft seriously.
             </p>
 
@@ -183,9 +183,9 @@ export function NomokeyHero() {
               {/* Raw Mode Monaco Action */}
               <Link
                 href="/developer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 font-bold text-sm tracking-wide border-2 border-neutral-900 dark:border-neutral-100 shadow-[3px_3px_0px_#18181b] dark:shadow-[3px_3px_0px_#f4f4f5] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all duration-150"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white bg-white text-neutral-900 text-neutral-950 font-bold text-sm tracking-wide border-2 border-neutral-900 border-neutral-900 shadow-[3px_3px_0px_#18181b] dark:shadow-[3px_3px_0px_#f4f4f5] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all duration-150"
               >
-                <Code2 className="w-4 h-4 text-neutral-900 dark:text-neutral-100" />
+                <Code2 className="w-4 h-4 text-neutral-900 text-neutral-950" />
                 <span>/developer Raw Mode</span>
               </Link>
 
@@ -201,7 +201,7 @@ export function NomokeyHero() {
 
             {/* Quick Terminal Copy Bar */}
             <div className="pt-2">
-              <div className="inline-flex items-center gap-2 p-1.5 pl-3 rounded-lg bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 text-xs font-mono text-neutral-700 dark:text-neutral-300 max-w-full overflow-hidden">
+              <div className="inline-flex items-center gap-2 p-1.5 pl-3 rounded-lg bg-neutral-100 bg-white border border-neutral-300 border-neutral-900 text-xs font-mono text-neutral-700 text-neutral-800 max-w-full overflow-hidden">
                 <Terminal className="w-3.5 h-3.5 text-amber-500 shrink-0" />
                 <span className="text-neutral-400 select-none">$</span>
                 <span className="truncate font-semibold">npx monoforge generate --username &lt;you&gt;</span>
@@ -209,7 +209,7 @@ export function NomokeyHero() {
                   type="button"
                   onClick={copyCliCommand}
                   aria-label="Copy CLI command"
-                  className="p-1.5 ml-2 rounded bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-300 dark:border-neutral-700 text-neutral-800 dark:text-neutral-200 transition-colors shrink-0"
+                  className="p-1.5 ml-2 rounded bg-white dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-300 border-neutral-900 text-neutral-800 text-neutral-900 transition-colors shrink-0"
                 >
                   {copiedCli ? <Check className="w-3 h-3 text-emerald-500" /> : <Copy className="w-3 h-3" />}
                 </button>
@@ -233,20 +233,20 @@ export function NomokeyHero() {
             </div>
 
             {/* Interactive Workstation Card */}
-            <div className="relative rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-white dark:bg-neutral-900 p-6 sm:p-7 shadow-[6px_6px_0px_#18181b] dark:shadow-[6px_6px_0px_#f4f4f5] overflow-hidden transition-all duration-200">
+            <div className="relative rounded-2xl border-2 border-neutral-900 border-neutral-900 bg-white bg-white p-6 sm:p-7 shadow-[6px_6px_0px_#18181b]  overflow-hidden transition-all duration-200">
               {/* Studio Card Header: Mode Switcher */}
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200 dark:border-neutral-800">
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-neutral-200 border-neutral-900">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-red-500 border border-neutral-900" />
                   <span className="w-3 h-3 rounded-full bg-[#ffe600] border border-neutral-900" />
                   <span className="w-3 h-3 rounded-full bg-emerald-500 border border-neutral-900" />
-                  <span className="text-[11px] font-mono font-black text-neutral-900 dark:text-neutral-100 ml-1">
+                  <span className="text-[11px] font-mono font-black text-neutral-900 text-neutral-950 ml-1">
                     MONKEY_CORE.v2
                   </span>
                 </div>
 
                 {/* Mode Selector Pills */}
-                <div className="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-lg border border-neutral-200 dark:border-neutral-700 text-[10px] font-mono font-bold">
+                <div className="flex items-center gap-1 bg-neutral-100 dark:bg-neutral-800 p-1 rounded-lg border border-neutral-200 border-neutral-900 text-[10px] font-mono font-bold">
                   <button
                     type="button"
                     onClick={() => setActiveMode('clean')}
@@ -289,12 +289,12 @@ export function NomokeyHero() {
               {/* Interactive Banana Battery (Click to Feed & Celebrate!) */}
               <div
                 onClick={clickBanana}
-                className="cursor-pointer flex items-center justify-between p-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-900 dark:border-neutral-700 text-xs font-mono font-bold hover:border-[#ffe600] transition-all mb-4 group select-none shadow-2xs"
+                className="cursor-pointer flex items-center justify-between p-2.5 rounded-xl bg-neutral-50 dark:bg-neutral-800 border-2 border-neutral-900 border-neutral-900 text-xs font-mono font-bold hover:border-[#ffe600] transition-all mb-4 group select-none shadow-2xs"
                 title="Click to feed monkey & recharge battery!"
               >
                 <div className="flex items-center gap-2">
                   <span className="text-lg group-hover:scale-125 transition-transform">🍌</span>
-                  <span className="text-[11px] font-black uppercase text-neutral-900 dark:text-neutral-100">
+                  <span className="text-[11px] font-black uppercase text-neutral-900 text-neutral-950">
                     BANANA BATTERY
                   </span>
                 </div>
@@ -308,7 +308,7 @@ export function NomokeyHero() {
                   <span className="text-[10px] font-black text-amber-600 dark:text-amber-400">
                     {bananaFuel}%
                   </span>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 group-hover:bg-[#ffe600] group-hover:text-neutral-950 transition-colors">
+                  <span className="text-[9px] px-1.5 py-0.5 rounded bg-neutral-200 dark:bg-neutral-700 text-neutral-700 text-neutral-800 group-hover:bg-[#ffe600] group-hover:text-neutral-950 transition-colors">
                     FEED ⚡
                   </span>
                 </div>
@@ -317,7 +317,7 @@ export function NomokeyHero() {
               {/* Speech Bubble: Click to cycle quotes */}
               <div
                 onClick={triggerQuote}
-                className="cursor-pointer mb-5 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 dark:border-neutral-700/80 text-xs font-mono text-neutral-800 dark:text-neutral-200 relative group transition-all hover:border-amber-500"
+                className="cursor-pointer mb-5 p-3 rounded-xl bg-neutral-50 dark:bg-neutral-800/60 border border-neutral-200 border-neutral-900/80 text-xs font-mono text-neutral-800 text-neutral-900 relative group transition-all hover:border-amber-500"
                 title="Click to hear more monkey wisdom"
               >
                 <div className="flex items-start gap-2">
@@ -330,12 +330,12 @@ export function NomokeyHero() {
                   </span>
                 </div>
                 {/* Speech Bubble Arrow pointing to the monkey */}
-                <div className="absolute -bottom-2 left-12 w-3 h-3 bg-neutral-50 dark:bg-neutral-800 border-b border-r border-neutral-200 dark:border-neutral-700 rotate-45" />
+                <div className="absolute -bottom-2 left-12 w-3 h-3 bg-neutral-50 dark:bg-neutral-800 border-b border-r border-neutral-200 border-neutral-900 rotate-45" />
               </div>
 
               {/* The Monkey Companion Canvas */}
               <div
-                className="relative mx-auto flex items-center justify-center p-6 rounded-xl bg-[#faf9f6] dark:bg-neutral-950 border-2 border-neutral-900/10 dark:border-neutral-800 select-none overflow-hidden"
+                className="relative mx-auto flex items-center justify-center p-6 rounded-xl bg-[#faf9f6] bg-white border-2 border-neutral-900/10 border-neutral-900 select-none overflow-hidden"
                 style={{ minHeight: '280px' }}
                 onClick={triggerQuote}
               >
@@ -380,7 +380,7 @@ export function NomokeyHero() {
                       strokeWidth="38"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-neutral-900 dark:text-neutral-100"
+                      className="text-neutral-900 text-neutral-950"
                     />
 
                     {/* Right Outer Ear */}
@@ -390,7 +390,7 @@ export function NomokeyHero() {
                       strokeWidth="38"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="text-neutral-900 dark:text-neutral-100"
+                      className="text-neutral-900 text-neutral-950"
                     />
 
                     {/* Outer Hexagonal Head */}
@@ -402,8 +402,8 @@ export function NomokeyHero() {
                       fill={activeMode === 'clean' ? 'transparent' : 'currentColor'}
                       className={
                         activeMode === 'clean'
-                          ? 'text-neutral-900 dark:text-neutral-100'
-                          : 'text-neutral-900/5 dark:text-neutral-100/5 stroke-neutral-900 dark:stroke-neutral-100'
+                          ? 'text-neutral-900 text-neutral-950'
+                          : 'text-neutral-900/5 text-neutral-950/5 stroke-neutral-900 dark:stroke-neutral-100'
                       }
                     />
 
@@ -414,7 +414,7 @@ export function NomokeyHero() {
                       strokeWidth="38"
                       strokeLinejoin="miter"
                       fill="none"
-                      className="text-neutral-900 dark:text-neutral-100"
+                      className="text-neutral-900 text-neutral-950"
                     />
 
                     {/* Nose & Muzzle Geometry */}
@@ -425,7 +425,7 @@ export function NomokeyHero() {
                       strokeLinecap="square"
                       strokeLinejoin="miter"
                       fill="none"
-                      className="text-neutral-900 dark:text-neutral-100"
+                      className="text-neutral-900 text-neutral-950"
                     />
                     <line
                       x1="512"
@@ -435,7 +435,7 @@ export function NomokeyHero() {
                       stroke="currentColor"
                       strokeWidth="38"
                       strokeLinecap="square"
-                      className="text-neutral-900 dark:text-neutral-100"
+                      className="text-neutral-900 text-neutral-950"
                     />
 
                     {/* Mouth Line */}
@@ -447,7 +447,7 @@ export function NomokeyHero() {
                       stroke="currentColor"
                       strokeWidth="38"
                       strokeLinecap="square"
-                      className="text-neutral-900 dark:text-neutral-100"
+                      className="text-neutral-900 text-neutral-950"
                     />
 
                     {/* Left Eye Base & Pupil */}
@@ -461,7 +461,7 @@ export function NomokeyHero() {
                           ? ''
                           : activeMode === 'hyperspeed'
                           ? ''
-                          : 'text-neutral-900 dark:text-neutral-100'
+                          : 'text-neutral-900 text-neutral-950'
                       }
                     />
 
@@ -476,7 +476,7 @@ export function NomokeyHero() {
                           ? ''
                           : activeMode === 'hyperspeed'
                           ? ''
-                          : 'text-neutral-900 dark:text-neutral-100'
+                          : 'text-neutral-900 text-neutral-950'
                       }
                     />
 
@@ -518,12 +518,12 @@ export function NomokeyHero() {
               </div>
 
               {/* Studio Bottom Bar */}
-              <div className="flex items-center justify-between pt-4 mt-4 border-t border-neutral-200 dark:border-neutral-800 text-[11px] font-mono text-neutral-500 dark:text-neutral-400">
+              <div className="flex items-center justify-between pt-4 mt-4 border-t border-neutral-200 border-neutral-900 text-[11px] font-mono text-neutral-500 text-neutral-600">
                 <span className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-amber-500" />
                   <span>INTERACTIVE COMPANION</span>
                 </span>
-                <span className="font-bold text-neutral-900 dark:text-neutral-100">
+                <span className="font-bold text-neutral-900 text-neutral-950">
                   {activeMode.toUpperCase()} MODE ACTIVE
                 </span>
               </div>

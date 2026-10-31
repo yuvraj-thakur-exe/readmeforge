@@ -4,11 +4,11 @@
 
 /* Surface — app floor (base, text, borders) */
 :root[data-theme='dark'] .palette-surface {
-  --palette-base: oklch(0.176 0.014 258.4);
-  --palette-soft: oklch(0.399 0.049 258.3);
-  --palette-line: oklch(0.326 0.015 251.8);
-  --palette-contrast: oklch(0.857 0.014 248);
-  --palette-accent: oklch(0.589 0.042 248.5);
+  --palette-base: oklch(1 0 0);
+  --palette-soft: oklch(0.917 0.013 196.9);
+  --palette-line: oklch(0.89 0.01 247.9);
+  --palette-contrast: oklch(0.318 0.012 248.2);
+  --palette-accent: oklch(0.414 0.016 248.2);
   --palette-ring: oklch(0.713 0.153 253.4);
 }
 

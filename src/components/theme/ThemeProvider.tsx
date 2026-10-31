@@ -28,5 +28,15 @@ export function ThemeProvider({
     }
   }, []);
 
-  return <NextThemesProvider attribute="data-theme" defaultTheme="light" enableSystem {...props}>{children}</NextThemesProvider>;
+  return (
+    <NextThemesProvider
+      attribute="data-theme"
+      defaultTheme="light"
+      forcedTheme="light"
+      enableSystem={false}
+      {...props}
+    >
+      {children}
+    </NextThemesProvider>
+  );
 }

@@ -55,8 +55,8 @@ const STICKERS: StickerItem[] = [
     id: 'zero-js',
     name: 'ZERO RUNTIME JS',
     emoji: '🛡️',
-    bgColor: 'bg-white dark:bg-neutral-900',
-    textColor: 'text-neutral-950 dark:text-neutral-100',
+    bgColor: 'bg-white bg-white',
+    textColor: 'text-neutral-950 text-neutral-950',
     rotation: '-rotate-1',
     markdown: '[![Zero Runtime JS](https://img.shields.io/badge/Performance-Zero_Runtime_JS-18181b?style=for-the-badge&logo=html5)](https://monoforge-studio.vercel.app)',
   },
@@ -84,21 +84,21 @@ export function NomokeyStickerBoard() {
   };
 
   return (
-    <section className="relative bg-white dark:bg-neutral-900 border-b-2 border-neutral-900 dark:border-neutral-800 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
+    <section className="relative bg-white bg-white border-b-2 border-neutral-900 border-neutral-900 py-16 sm:py-24 px-4 sm:px-6 transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 dark:border-neutral-100 pb-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 border-neutral-900 pb-6">
           <div>
-            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-neutral-100 mb-2">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 text-neutral-950 mb-2">
               <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900">
                 [ 05 // TACTILE STICKER DECK ]
               </span>
               <span>CLICK TO COPY BADGE MARKDOWN</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 dark:text-white uppercase font-sans">
+            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-neutral-950 text-neutral-950 uppercase font-sans">
               THE MONKEY STICKER VAULT.
             </h2>
           </div>
-          <p className="text-xs sm:text-sm font-mono text-neutral-600 dark:text-neutral-400 max-w-sm">
+          <p className="text-xs sm:text-sm font-mono text-neutral-600 text-neutral-600 max-w-sm">
             Collect, click, and drop these tactile developer stamps straight into your GitHub profile. 100% Camo CDN ready.
           </p>
         </div>
@@ -109,7 +109,7 @@ export function NomokeyStickerBoard() {
             <div
               key={sticker.id}
               onClick={() => handleCopySticker(sticker)}
-              className={`cursor-pointer p-6 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 ${sticker.bgColor} ${sticker.textColor} ${sticker.rotation} shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[3px] hover:translate-y-[3px] transition-all select-none group relative overflow-hidden`}
+              className={`cursor-pointer p-6 rounded-2xl border-2 border-neutral-900 border-neutral-900 ${sticker.bgColor} ${sticker.textColor} ${sticker.rotation} shadow-[4px_4px_0px_#18181b]  hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[3px] hover:translate-y-[3px] transition-all select-none group relative overflow-hidden`}
             >
               <div className="flex items-center justify-between mb-3">
                 <span className="text-3xl filter drop-shadow-sm">{sticker.emoji}</span>

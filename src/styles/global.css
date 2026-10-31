@@ -92,8 +92,11 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html {
+html,
+body {
   font-size: 10px;
+  background-color: #ffffff !important;
+  color: #18181b !important;
 }
 
 ul,

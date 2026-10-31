@@ -93,12 +93,12 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
   const isPlaceholder = !rawUser || rawUser === 'username' || rawUser === 'zusername' || rawUser === 'your-username';
 
   return (
-    <div className={`flex flex-col h-full bg-white dark:bg-neutral-900 rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 overflow-hidden shadow-[4px_4px_0px_#18181b] dark:shadow-[4px_4px_0px_#f4f4f5] ${className}`}>
+    <div className={`flex flex-col h-full bg-white  rounded-2xl border-2 border-neutral-900  overflow-hidden shadow-[4px_4px_0px_#18181b]  ${className}`}>
       {/* Header Bar */}
-      <div className="flex flex-wrap items-center justify-between px-4 py-2.5 bg-white dark:bg-neutral-950 border-b-2 border-neutral-900 dark:border-neutral-800 text-xs gap-2">
+      <div className="flex flex-wrap items-center justify-between px-4 py-2.5 bg-white bg-white border-b-2 border-neutral-900 dark:border-neutral-800 text-xs gap-2">
         <div className="flex items-center gap-2">
           {/* Rendered vs Raw Markdown */}
-          <div className="flex items-center bg-neutral-100 dark:bg-neutral-900 rounded-lg p-0.5 border border-neutral-300 dark:border-neutral-800">
+          <div className="flex items-center bg-neutral-100  rounded-lg p-0.5 border border-neutral-300 dark:border-neutral-800">
             <button
               type="button"
               onClick={() => setTab('preview')}
@@ -125,7 +125,7 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
 
           {/* Viewport Frame Switcher */}
           {tab === 'preview' && (
-            <div className="hidden sm:flex items-center bg-white dark:bg-neutral-900 rounded-lg p-0.5 border border-neutral-200 dark:border-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm">
+            <div className="hidden sm:flex items-center bg-white  rounded-lg p-0.5 border border-2 border-neutral-900 text-neutral-500 dark:text-neutral-400 shadow-sm">
               <button
                 type="button"
                 onClick={() => setViewMode('desktop')}
@@ -177,16 +177,16 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
       </div>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-y-auto p-3 sm:p-4 bg-neutral-100 dark:bg-[#0d1117] flex justify-center">
+      <div className="flex-1 overflow-y-auto p-3 sm:p-4 bg-neutral-100 bg-[#fafafa] flex justify-center">
         {tab === 'raw' ? (
-          <pre className="w-full font-mono text-xs text-neutral-800 dark:text-neutral-300 whitespace-pre-wrap break-words leading-relaxed select-all bg-white dark:bg-neutral-950 p-4 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm">
+          <pre className="w-full font-mono text-xs text-neutral-950 whitespace-pre-wrap break-words leading-relaxed select-all bg-white bg-white p-4 rounded-xl border border-2 border-neutral-900 shadow-sm">
             {markdown}
           </pre>
         ) : (
           <div
             className={`w-full transition-all duration-300 ${
               viewMode === 'mobile'
-                ? 'max-w-[390px] border-4 border-neutral-300 dark:border-neutral-800 rounded-3xl p-3 bg-white dark:bg-neutral-950 shadow-2xl my-2'
+                ? 'max-w-[390px] border-4 border-neutral-300 dark:border-neutral-800 rounded-3xl p-3 bg-white bg-white shadow-2xl my-2'
                 : viewMode === 'crt'
                 ? 'max-w-4xl border-2 border-emerald-500/40 rounded-xl p-4 bg-[#0a100d] text-emerald-300 font-mono shadow-[0_0_20px_rgba(16,185,129,0.15)] scanline-overlay'
                 : 'max-w-4xl'
@@ -200,8 +200,8 @@ export const LivePreview: React.FC<LivePreviewProps> = ({ className = '' }) => {
                 </span>
               </div>
             )}
-            <div className="p-4 sm:p-6 bg-white dark:bg-neutral-950/90 rounded-xl border border-neutral-200 dark:border-neutral-800/80 space-y-4 shadow-sm">
-              <div className="flex items-center justify-between pb-3 border-b border-neutral-200 dark:border-neutral-800 text-xs text-neutral-500 dark:text-neutral-400 font-mono">
+            <div className="p-4 sm:p-6 bg-white bg-white/90 rounded-xl border border-2 border-neutral-900/80 space-y-4 shadow-sm">
+              <div className="flex items-center justify-between pb-3 border-b border-2 border-neutral-900 text-xs text-neutral-500 dark:text-neutral-400 font-mono">
                 <div className="flex items-center gap-2">
                   <FileText className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                   <span className="font-bold text-neutral-800 dark:text-neutral-200">README.md</span>

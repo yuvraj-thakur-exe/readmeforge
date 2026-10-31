@@ -33,7 +33,7 @@ export function TopNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b-2 border-neutral-900 dark:border-neutral-800 bg-white dark:bg-neutral-950 backdrop-blur-xl shadow-xs">
+    <header className="sticky top-0 z-50 w-full border-b-2 border-neutral-900  bg-white  backdrop-blur-xl shadow-xs">
       <div className="max-w-[1720px] mx-auto flex items-center justify-between h-14 px-3 sm:px-6">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-2 sm:gap-2.5 group" data-cursor-label="HOME">
@@ -42,8 +42,8 @@ export function TopNav() {
             <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-white dark:ring-neutral-950 animate-pulse" />
           </div>
           <div className="flex flex-col">
-            <span className="font-black text-sm tracking-tight text-neutral-950 dark:text-neutral-100 uppercase">
-              MONO<span className="text-[#ffe600] dark:text-[#ffe600] bg-neutral-950 dark:bg-neutral-900 px-1 rounded ml-0.5 border border-neutral-900">FORGE</span>
+            <span className="font-black text-sm tracking-tight text-neutral-950  uppercase">
+              MONO<span className="text-[#ffe600] dark:text-[#ffe600] bg-neutral-950  px-1 rounded ml-0.5 border border-neutral-900">FORGE</span>
             </span>
             <span className="text-[9px] text-neutral-500 font-mono font-bold hidden sm:inline uppercase">
               ICONIC README STUDIO
@@ -60,7 +60,7 @@ export function TopNav() {
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isWizard
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
-                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
+                : 'border-neutral-900  bg-white  text-neutral-800  hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
             <Sparkles className="w-3.5 h-3.5" />
@@ -75,7 +75,7 @@ export function TopNav() {
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isDeveloper
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
-                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
+                : 'border-neutral-900  bg-white  text-neutral-800  hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
             <Code2 className="w-3.5 h-3.5" />
@@ -90,7 +90,7 @@ export function TopNav() {
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isTelemetry
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
-                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
+                : 'border-neutral-900  bg-white  text-neutral-800  hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
             <BarChart3 className="w-3.5 h-3.5" />
@@ -105,7 +105,7 @@ export function TopNav() {
             className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg border-2 transition-all btn-tactile ${
               isInfo
                 ? 'bg-[#ffe600] text-neutral-950 font-black border-neutral-900 shadow-[3px_3px_0px_#18181b]'
-                : 'border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
+                : 'border-neutral-900  bg-white  text-neutral-800  hover:bg-[#ffe600] hover:text-neutral-950 shadow-[2px_2px_0px_#18181b]'
             }`}
           >
             <BookOpen className="w-3.5 h-3.5" />
@@ -119,7 +119,7 @@ export function TopNav() {
           <button
             type="button"
             onClick={toggleMute}
-            className="p-1.5 rounded-lg border-2 border-neutral-900 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 hover:bg-[#ffe600] hover:text-neutral-950 transition-colors shadow-[2px_2px_0px_#18181b] btn-tactile"
+            className="p-1.5 rounded-lg border-2 border-neutral-900  bg-white  text-neutral-900  hover:bg-[#ffe600] hover:text-neutral-950 transition-colors shadow-[2px_2px_0px_#18181b] btn-tactile"
             title={isMuted ? 'Unmute Audio & Tactile Sound FX' : 'Mute Audio & Tactile Sound FX'}
           >
             {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5 text-amber-500" />}
@@ -133,7 +133,7 @@ export function TopNav() {
             target="_blank"
             rel="noreferrer"
             data-cursor-label="STAR"
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:bg-[#ffe600] hover:text-neutral-950 transition-all btn-tactile"
+            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-bold rounded-lg bg-neutral-950 text-white   border-2 border-neutral-900 shadow-[2px_2px_0px_#18181b]  hover:bg-[#ffe600] hover:text-neutral-950 transition-all btn-tactile"
           >
             <Github className="w-3.5 h-3.5" />
             <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />

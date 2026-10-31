@@ -25,7 +25,7 @@ export function NomokeyMarquee({ reverse = false, speed = 'normal', theme = 'lig
       ? 'bg-[#ffe600] text-neutral-950 border-y-2 border-neutral-900 font-black'
       : theme === 'dark'
       ? 'bg-neutral-900 text-neutral-100 border-y-2 border-neutral-800'
-      : 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-neutral-100 border-y-2 border-neutral-900 dark:border-neutral-800';
+      : 'bg-white bg-white text-neutral-950 text-neutral-950 border-y-2 border-neutral-900 border-neutral-900';
 
   return (
     <div className={`relative w-full overflow-hidden border-y py-3 select-none ${themeClasses}`}>
@@ -40,7 +40,7 @@ export function NomokeyMarquee({ reverse = false, speed = 'normal', theme = 'lig
             <div key={`track1-${idx}`} className="flex items-center gap-4 text-xs sm:text-sm font-black tracking-wider uppercase font-mono">
               <span className="text-amber-500 font-bold">✦</span>
               <div className="p-1 rounded bg-neutral-900/5 dark:bg-white/10 border border-neutral-900/10 dark:border-white/10">
-                <MonoForgeMonkeyIcon className="w-4 h-4 text-neutral-900 dark:text-neutral-100" />
+                <MonoForgeMonkeyIcon className="w-4 h-4 text-neutral-900 text-neutral-950" />
               </div>
               <span className="tracking-widest">{item.text}</span>
               <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950">
@@ -61,7 +61,7 @@ export function NomokeyMarquee({ reverse = false, speed = 'normal', theme = 'lig
             <div key={`track2-${idx}`} className="flex items-center gap-4 text-xs sm:text-sm font-black tracking-wider uppercase font-mono">
               <span className="text-amber-500 font-bold">✦</span>
               <div className="p-1 rounded bg-neutral-900/5 dark:bg-white/10 border border-neutral-900/10 dark:border-white/10">
-                <MonoForgeMonkeyIcon className="w-4 h-4 text-neutral-900 dark:text-neutral-100" />
+                <MonoForgeMonkeyIcon className="w-4 h-4 text-neutral-900 text-neutral-950" />
               </div>
               <span className="tracking-widest">{item.text}</span>
               <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950">

@@ -71,7 +71,7 @@ export function StudioAudioToggle() {
       type="button"
       onClick={toggleSound}
       title={isPlaying ? 'Mute Studio Ambience' : 'Play Lo-Fi Studio Sound'}
-      className="fixed bottom-5 right-5 z-40 hidden sm:flex items-center gap-2 px-3 py-2 rounded-full border-2 border-neutral-900 dark:border-neutral-100 bg-white dark:bg-neutral-900 shadow-[3px_3px_0px_#18181b] dark:shadow-[3px_3px_0px_#f4f4f5] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none transition-all font-mono text-xs font-bold text-neutral-900 dark:text-neutral-100"
+      className="fixed bottom-5 right-5 z-40 hidden sm:flex items-center gap-2 px-3 py-2 rounded-full border-2 border-neutral-900 border-neutral-900 bg-white bg-white shadow-[3px_3px_0px_#18181b] dark:shadow-[3px_3px_0px_#f4f4f5] hover:shadow-[1px_1px_0px_#18181b] hover:translate-x-[2px] hover:translate-y-[2px] active:shadow-none transition-all font-mono text-xs font-bold text-neutral-900 text-neutral-950"
     >
       {isPlaying ? (
         <>

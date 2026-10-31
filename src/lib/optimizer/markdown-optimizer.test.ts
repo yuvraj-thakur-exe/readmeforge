@@ -25,3 +25,4 @@ describe('optimizeMarkdown', () => {
     expect(result.stats.camoSafe).toBe(true);
   });
 });
+

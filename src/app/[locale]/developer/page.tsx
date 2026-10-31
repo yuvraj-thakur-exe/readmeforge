@@ -27,7 +27,7 @@ const Editor = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex items-center justify-center h-full bg-[#18181b] text-neutral-400 text-xs font-mono">
+      <div className="flex items-center justify-center h-full bg-white text-neutral-800 border-2 border-neutral-900 text-xs font-mono">
         Loading Monaco Editor...
       </div>
     ),
@@ -59,15 +59,15 @@ function LocalizedDeveloperContent() {
   }, [searchParams, setEntireConfig]);
 
   return (
-    <div className="flex flex-col h-screen overflow-hidden bg-[#fafafa] dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-sans selection:bg-[#ffe600] selection:text-neutral-950">
+    <div className="flex flex-col h-screen overflow-hidden bg-[#fafafa] text-neutral-950 font-sans selection:bg-[#ffe600] selection:text-neutral-950">
       {/* Top Studio Header */}
-      <header className="flex items-center justify-between px-3 sm:px-4 py-2 bg-white dark:bg-neutral-900 border-b-2 border-neutral-900 dark:border-neutral-800 z-10 shrink-0 gap-2 shadow-sm">
+      <header className="flex items-center justify-between px-3 sm:px-4 py-2 bg-white  border-b-2 border-neutral-900  z-10 shrink-0 gap-2 shadow-sm">
         <div className="flex items-center gap-2 sm:gap-3">
           <Link href="/" className="flex items-center gap-1.5 sm:gap-2 group">
             <div className="p-1 rounded-lg bg-[#ffe600] text-neutral-950 border-2 border-neutral-900 group-hover:scale-105 transition-transform shadow-[2px_2px_0px_#18181b]">
               <MonoForgeMonkeyIcon className="w-5 h-5 text-neutral-950" />
             </div>
-            <span className="font-black text-sm tracking-tight text-neutral-950 dark:text-neutral-100">
+            <span className="font-black text-sm tracking-tight text-neutral-950 ">
               MONO<span className="text-amber-500">FORGE</span>
             </span>
             <span className="text-[10px] font-mono font-black px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 border border-neutral-900">
@@ -165,7 +165,7 @@ function LocalizedDeveloperContent() {
         </div>
 
         {/* Quick Design Token Pickers (Marco Madonna style) */}
-        <div className="hidden xl:flex items-center gap-2 bg-neutral-100 dark:bg-neutral-950/80 px-2.5 py-1 rounded-lg border border-neutral-200 dark:border-neutral-800 text-xs shadow-sm">
+        <div className="hidden xl:flex items-center gap-2 bg-[#f4f4f5]/80 px-2.5 py-1 rounded-lg border border-neutral-200  text-xs shadow-sm">
           <span className="text-[10px] font-mono text-neutral-600 dark:text-neutral-400 font-semibold uppercase">Style:</span>
           {/* Badge Style Switcher */}
           <div className="flex items-center gap-1">
@@ -246,7 +246,7 @@ function LocalizedDeveloperContent() {
       </header>
 
       {/* Main Split Workspace */}
-      <main className="flex-1 flex min-h-0 overflow-hidden p-2 sm:p-2.5 gap-2 sm:gap-2.5 bg-neutral-100 dark:bg-neutral-950">
+      <main className="flex-1 flex min-h-0 overflow-hidden p-2 sm:p-2.5 gap-2 sm:gap-2.5 bg-[#f4f4f5]">
         {/* Left: Plugin & Template Drawer */}
         <aside
           className={`shrink-0 h-full ${

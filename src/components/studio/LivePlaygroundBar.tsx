@@ -27,23 +27,23 @@ export function LivePlaygroundBar() {
   };
 
   return (
-    <section className="relative bg-white dark:bg-neutral-900 border-b-2 border-neutral-900 dark:border-neutral-800 py-12 sm:py-16 px-4 sm:px-6 transition-colors">
+    <section className="relative bg-white bg-white border-b-2 border-neutral-900 border-neutral-900 py-12 sm:py-16 px-4 sm:px-6 transition-colors">
       <div className="max-w-5xl mx-auto space-y-8">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 dark:border-neutral-100 pb-5">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b-2 border-neutral-900 border-neutral-900 pb-5">
           <div>
-            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 dark:text-neutral-100 mb-1.5">
+            <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-neutral-900 text-neutral-950 mb-1.5">
               <span className="px-2 py-0.5 rounded bg-[#ffe600] text-neutral-950 font-black border border-neutral-900">
                 LIVE SANDBOX
               </span>
               <span>INSTANT TELEMETRY PREVIEW</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-neutral-950 dark:text-white uppercase font-sans">
+            <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-neutral-950 text-neutral-950 uppercase font-sans">
               TEST YOUR GITHUB HANDLE LIVE.
             </h2>
           </div>
 
-          <p className="text-xs font-mono text-neutral-600 dark:text-neutral-400 max-w-sm">
+          <p className="text-xs font-mono text-neutral-600 text-neutral-600 max-w-sm">
             Type any GitHub username to see real 60fps Camo SVGs generated on the fly with zero external servers.
           </p>
         </div>
@@ -57,7 +57,7 @@ export function LivePlaygroundBar() {
               value={username}
               onChange={(e) => setUsername(e.target.value.trim())}
               placeholder="github-username"
-              className="w-full pl-8 pr-4 py-2.5 rounded-xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 text-neutral-950 dark:text-white font-mono text-sm font-bold shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] focus:outline-hidden focus:border-[#ffe600]"
+              className="w-full pl-8 pr-4 py-2.5 rounded-xl border-2 border-neutral-900 border-neutral-900 bg-[#fafafa] bg-white text-neutral-950 text-neutral-950 font-mono text-sm font-bold shadow-[2px_2px_0px_#18181b]  focus:outline-hidden focus:border-[#ffe600]"
             />
           </div>
 
@@ -72,7 +72,7 @@ export function LivePlaygroundBar() {
                 className={`px-2.5 py-2 rounded-lg font-mono text-xs font-bold border-2 transition-all ${
                   username === user
                     ? 'bg-[#ffe600] text-neutral-950 border-neutral-950 shadow-[2px_2px_0px_#18181b]'
-                    : 'bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border-neutral-300 dark:border-neutral-700 hover:border-neutral-900'
+                    : 'bg-white dark:bg-neutral-800 text-neutral-700 text-neutral-800 border-neutral-300 border-neutral-900 hover:border-neutral-900'
                 }`}
               >
                 @{user}
@@ -82,7 +82,7 @@ export function LivePlaygroundBar() {
         </div>
 
         {/* Plugin Selector Tabs */}
-        <div className="flex items-center gap-2 border-b border-neutral-200 dark:border-neutral-800 pb-3">
+        <div className="flex items-center gap-2 border-b border-neutral-200 border-neutral-900 pb-3">
           {[
             { id: 'isocalendar', label: '3D ISOMETRIC CALENDAR' },
             { id: 'habits', label: 'CODING HABITS & HOURS' },
@@ -95,7 +95,7 @@ export function LivePlaygroundBar() {
               className={`px-3 py-1.5 rounded-lg font-mono text-xs font-black transition-all ${
                 activePlugin === tab.id
                   ? 'bg-neutral-950 text-white dark:bg-white dark:text-neutral-950 shadow-xs'
-                  : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-950'
+                  : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 text-neutral-600 hover:text-neutral-950'
               }`}
             >
               {tab.label}
@@ -104,11 +104,11 @@ export function LivePlaygroundBar() {
         </div>
 
         {/* Live SVG Preview Card */}
-        <div className="rounded-2xl border-2 border-neutral-900 dark:border-neutral-100 bg-[#fafafa] dark:bg-neutral-950 p-6 sm:p-8 shadow-[6px_6px_0px_#18181b] dark:shadow-[6px_6px_0px_#f4f4f5] space-y-6">
-          <div className="flex items-center justify-between pb-3 border-b border-neutral-200 dark:border-neutral-800 text-xs font-mono">
+        <div className="rounded-2xl border-2 border-neutral-900 border-neutral-900 bg-[#fafafa] bg-white p-6 sm:p-8 shadow-[6px_6px_0px_#18181b]  space-y-6">
+          <div className="flex items-center justify-between pb-3 border-b border-neutral-200 border-neutral-900 text-xs font-mono">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="font-bold text-neutral-900 dark:text-neutral-100">
+              <span className="font-bold text-neutral-900 text-neutral-950">
                 LIVE OUTPUT FOR @{username || 'octocat'}
               </span>
             </div>
@@ -118,7 +118,7 @@ export function LivePlaygroundBar() {
           </div>
 
           {/* SVG Frame */}
-          <div className="p-4 rounded-xl bg-white dark:bg-neutral-900 border-2 border-neutral-900/10 dark:border-neutral-800 flex items-center justify-center min-h-[160px] overflow-hidden">
+          <div className="p-4 rounded-xl bg-white bg-white border-2 border-neutral-900/10 border-neutral-900 flex items-center justify-center min-h-[160px] overflow-hidden">
             {/* Direct Image Call to Native Edge Endpoint */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -146,7 +146,7 @@ export function LivePlaygroundBar() {
 
               <Link
                 href="/developer"
-                className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 font-mono text-xs font-bold border-2 border-neutral-900 dark:border-neutral-100 shadow-[2px_2px_0px_#18181b] dark:shadow-[2px_2px_0px_#f4f4f5] hover:bg-neutral-800 transition-all"
+                className="flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-neutral-950 text-white dark:bg-neutral-100 dark:text-neutral-950 font-mono text-xs font-bold border-2 border-neutral-900 border-neutral-900 shadow-[2px_2px_0px_#18181b]  hover:bg-neutral-800 transition-all"
               >
                 <Code2 className="w-3.5 h-3.5" />
                 <span>OPEN IN /DEVELOPER</span>

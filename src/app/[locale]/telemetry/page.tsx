@@ -254,26 +254,26 @@ export default function TelemetryStudioPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafafa] text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 selection:bg-[#ffe600] selection:text-neutral-950">
+    <div className="min-h-screen bg-[#fafafa] text-neutral-950 selection:bg-[#ffe600] selection:text-neutral-950">
       <TopNav />
 
       {/* Main Container */}
       <div className="max-w-[1720px] mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Header Bar */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-neutral-900">
           <div>
             <div className="flex items-center gap-2.5 mb-1.5">
-              <div className="p-2 rounded-lg bg-neutral-900 border border-neutral-800 text-amber-400">
+              <div className="p-2 rounded-lg bg-white border border-neutral-900 text-amber-400">
                 <BarChart3 className="w-5 h-5" />
               </div>
-              <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-100">
+              <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-950">
                 MonoForge Telemetry
               </h1>
               <span className="px-2 py-0.5 text-[11px] font-mono font-medium rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                 47+ Plugins &bull; 100% Native
               </span>
             </div>
-            <p className="text-xs sm:text-sm text-neutral-400 max-w-2xl">
+            <p className="text-xs sm:text-sm text-neutral-600 max-w-2xl">
               High-performance GitHub profile infographics &amp; developer telemetry. Live preview, customizable templates, and 1-click GitHub Actions or standalone SVG embeds. Zero external proxies.
             </p>
           </div>
@@ -289,7 +289,7 @@ export default function TelemetryStudioPage() {
                 className={`px-2.5 py-1 rounded-md border text-xs font-mono transition-colors ${
                   username === handle
                     ? 'border-amber-500 bg-amber-500/10 text-amber-300'
-                    : 'border-neutral-800 bg-neutral-900/60 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700'
+                    : 'border-neutral-900 bg-white text-neutral-600 hover:text-neutral-900 hover:border-neutral-900'
                 }`}
               >
                 @{handle}
@@ -303,8 +303,8 @@ export default function TelemetryStudioPage() {
           {/* LEFT: Configuration Engine & Plugin Drawer (5 cols) */}
           <div className="lg:col-span-5 space-y-5">
             {/* User Target Card */}
-            <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 space-y-3">
-              <div className="flex items-center justify-between text-xs font-semibold text-neutral-300">
+            <div className="p-4 rounded-xl border border-neutral-900 bg-white shadow-[3px_3px_0px_#18181b] space-y-3">
+              <div className="flex items-center justify-between text-xs font-semibold text-neutral-800">
                 <span>Target GitHub Account</span>
                 <span className="text-[11px] font-mono text-emerald-400/90 flex items-center gap-1">
                   <CheckCircle2 className="w-3.5 h-3.5" /> Self-Hosted Engine
@@ -317,12 +317,12 @@ export default function TelemetryStudioPage() {
                   value={username}
                   onChange={e => setUsername(e.target.value)}
                   placeholder="Enter GitHub handle (e.g. torvalds)"
-                  className="w-full pl-3 pr-24 py-2 rounded-lg bg-neutral-950 border border-neutral-800 text-sm font-mono text-neutral-100 placeholder:text-neutral-600 focus:outline-none focus:border-amber-500/60 transition-colors"
+                  className="w-full pl-3 pr-24 py-2 rounded-lg bg-white border border-neutral-900 text-sm font-mono text-neutral-950 placeholder:text-neutral-600 focus:outline-none focus:border-amber-500/60 transition-colors"
                 />
                 <button
                   type="button"
                   onClick={() => setUsername('octocat')}
-                  className="absolute right-2 top-1.5 px-2 py-1 text-[11px] rounded bg-neutral-800 text-neutral-400 hover:text-neutral-200 transition-colors"
+                  className="absolute right-2 top-1.5 px-2 py-1 text-[11px] rounded bg-neutral-800 text-neutral-600 hover:text-neutral-900 transition-colors"
                 >
                   Reset
                 </button>
@@ -330,8 +330,8 @@ export default function TelemetryStudioPage() {
             </div>
 
             {/* Template Selector Cards */}
-            <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 space-y-2.5">
-              <label className="block text-xs font-semibold text-neutral-300">
+            <div className="p-4 rounded-xl border border-neutral-900 bg-white shadow-[3px_3px_0px_#18181b] space-y-2.5">
+              <label className="block text-xs font-semibold text-neutral-800">
                 Visual Template Theme
               </label>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -343,10 +343,10 @@ export default function TelemetryStudioPage() {
                     className={`p-2.5 rounded-lg border text-left transition-all ${
                       template === tpl.id
                         ? 'border-amber-500/80 bg-amber-500/10 text-amber-300 ring-1 ring-amber-500/30'
-                        : 'border-neutral-800 bg-neutral-950/60 text-neutral-400 hover:text-neutral-200 hover:border-neutral-700'
+                        : 'border-neutral-900 bg-neutral-50 text-neutral-600 hover:text-neutral-900 hover:border-neutral-900'
                     }`}
                   >
-                    <div className="font-semibold text-xs text-neutral-200">{tpl.label}</div>
+                    <div className="font-semibold text-xs text-neutral-900">{tpl.label}</div>
                     <div className="text-[10px] text-neutral-500 mt-0.5 line-clamp-1">{tpl.desc}</div>
                   </button>
                 ))}
@@ -354,8 +354,8 @@ export default function TelemetryStudioPage() {
             </div>
 
             {/* Core GitHub Base Sections */}
-            <div className="p-3.5 rounded-xl border border-neutral-800 bg-neutral-900/50 space-y-2">
-              <span className="text-xs font-semibold text-neutral-300">
+            <div className="p-3.5 rounded-xl border border-neutral-900 bg-white shadow-[3px_3px_0px_#18181b] space-y-2">
+              <span className="text-xs font-semibold text-neutral-800">
                 Core Base Sections
               </span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -372,7 +372,7 @@ export default function TelemetryStudioPage() {
                     className={`px-2 py-1.5 rounded-md border text-[11px] font-mono transition-colors text-center ${
                       b.val
                         ? 'border-amber-500/60 bg-amber-500/15 text-amber-300'
-                        : 'border-neutral-800 bg-neutral-950 text-neutral-500 hover:text-neutral-300'
+                        : 'border-neutral-900 bg-white text-neutral-500 hover:text-neutral-800'
                     }`}
                   >
                     {b.val ? '✓ ' : '✕ '} {b.label}
@@ -382,8 +382,8 @@ export default function TelemetryStudioPage() {
             </div>
 
             {/* Plugin Search & Category Filter Drawer */}
-            <div className="p-4 rounded-xl border border-neutral-800 bg-neutral-900/50 space-y-3">
-              <div className="flex items-center justify-between text-xs font-semibold text-neutral-300">
+            <div className="p-4 rounded-xl border border-neutral-900 bg-white shadow-[3px_3px_0px_#18181b] space-y-3">
+              <div className="flex items-center justify-between text-xs font-semibold text-neutral-800">
                 <span className="flex items-center gap-1.5">
                   <Filter className="w-3.5 h-3.5 text-amber-400" />
                   Plugins &amp; Telemetry Modules ({TELEMETRY_PLUGINS_CATALOG.length})
@@ -401,7 +401,7 @@ export default function TelemetryStudioPage() {
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   placeholder="Search 47+ plugins (e.g. languages, radar, leetcode)..."
-                  className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-neutral-950 border border-neutral-800 text-xs text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-amber-500/60"
+                  className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-white border border-neutral-900 text-xs text-neutral-900 placeholder:text-neutral-600 focus:outline-none focus:border-amber-500/60"
                 />
               </div>
 
@@ -415,7 +415,7 @@ export default function TelemetryStudioPage() {
                     className={`flex-shrink-0 px-2.5 py-1 rounded-md text-[11px] font-semibold transition-colors ${
                       selectedCategory === cat.id
                         ? 'bg-amber-400 text-neutral-950'
-                        : 'bg-neutral-950 text-neutral-400 hover:text-neutral-200 border border-neutral-800'
+                        : 'bg-white text-neutral-600 hover:text-neutral-900 border border-neutral-900'
                     }`}
                   >
                     {cat.label}
@@ -432,8 +432,8 @@ export default function TelemetryStudioPage() {
                       key={plugin.id}
                       className={`p-3 rounded-lg border transition-all ${
                         isEnabled
-                          ? 'border-amber-500/40 bg-neutral-950/80 ring-1 ring-amber-500/20'
-                          : 'border-neutral-800/80 bg-neutral-950/40 opacity-80 hover:opacity-100'
+                          ? 'border-amber-500/40 bg-white/80 ring-1 ring-amber-500/20'
+                          : 'border-neutral-900/80 bg-white/40 opacity-80 hover:opacity-100'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -442,35 +442,35 @@ export default function TelemetryStudioPage() {
                             type="checkbox"
                             checked={isEnabled}
                             onChange={() => togglePlugin(plugin.id)}
-                            className="rounded border-neutral-700 text-amber-500 focus:ring-0 bg-neutral-900 cursor-pointer"
+                            className="rounded border-neutral-900 text-amber-500 focus:ring-0 bg-white cursor-pointer"
                           />
-                          <span className="font-semibold text-xs text-neutral-200">{plugin.name}</span>
-                          <span className="text-[10px] px-1.5 py-0.2 rounded bg-neutral-800/80 text-neutral-400 font-mono">
+                          <span className="font-semibold text-xs text-neutral-900">{plugin.name}</span>
+                          <span className="text-[10px] px-1.5 py-0.2 rounded bg-neutral-800/80 text-neutral-600 font-mono">
                             {plugin.category}
                           </span>
                         </div>
                       </div>
 
-                      <p className="text-[11px] text-neutral-400 mt-1 pl-6 leading-relaxed">
+                      <p className="text-[11px] text-neutral-600 mt-1 pl-6 leading-relaxed">
                         {plugin.description}
                       </p>
 
                       {/* Configurable Sub-options */}
                       {isEnabled && plugin.inputs.length > 0 && (
-                        <div className="mt-2.5 pt-2 border-t border-neutral-800/60 pl-6 space-y-2">
+                        <div className="mt-2.5 pt-2 border-t border-neutral-900/60 pl-6 space-y-2">
                           {plugin.inputs.map(input => {
                             const optionKey = `${plugin.id}.${input.name}`;
                             const currentVal = pluginOptions[optionKey] ?? input.default;
 
                             return (
                               <div key={input.name} className="flex items-center justify-between text-[11px]">
-                                <span className="text-neutral-400">{input.description}</span>
+                                <span className="text-neutral-600">{input.description}</span>
                                 {input.type === 'boolean' && (
                                   <input
                                     type="checkbox"
                                     checked={Boolean(currentVal)}
                                     onChange={e => updatePluginOption(optionKey, e.target.checked)}
-                                    className="rounded border-neutral-700 text-amber-500 bg-neutral-900"
+                                    className="rounded border-neutral-900 text-amber-500 bg-white"
                                   />
                                 )}
                                 {input.type === 'number' && (
@@ -480,14 +480,14 @@ export default function TelemetryStudioPage() {
                                     min={input.min}
                                     max={input.max}
                                     onChange={e => updatePluginOption(optionKey, Number(e.target.value))}
-                                    className="w-16 px-1.5 py-0.5 rounded bg-neutral-900 border border-neutral-800 font-mono text-neutral-200 text-right"
+                                    className="w-16 px-1.5 py-0.5 rounded bg-white border border-neutral-900 font-mono text-neutral-900 text-right"
                                   />
                                 )}
                                 {input.type === 'select' && input.values && (
                                   <select
                                     value={String(currentVal)}
                                     onChange={e => updatePluginOption(optionKey, e.target.value)}
-                                    className="px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-200 font-mono text-[11px]"
+                                    className="px-2 py-0.5 rounded bg-white border border-neutral-900 text-neutral-900 font-mono text-[11px]"
                                   >
                                     {input.values.map(val => (
                                       <option key={val} value={val}>{val}</option>
@@ -500,7 +500,7 @@ export default function TelemetryStudioPage() {
                                     value={String(currentVal || '')}
                                     placeholder={input.name}
                                     onChange={e => updatePluginOption(optionKey, e.target.value)}
-                                    className="w-32 px-2 py-0.5 rounded bg-neutral-900 border border-neutral-800 text-neutral-200 font-mono text-[11px]"
+                                    className="w-32 px-2 py-0.5 rounded bg-white border border-neutral-900 text-neutral-900 font-mono text-[11px]"
                                   />
                                 )}
                               </div>
@@ -519,8 +519,8 @@ export default function TelemetryStudioPage() {
           <div className="lg:col-span-7 space-y-4">
             {/* Visualizer Preset Switcher Row */}
             <div className="space-y-1.5">
-              <div className="flex items-center justify-between text-xs text-neutral-400 font-mono px-1">
-                <span className="flex items-center gap-1.5 text-neutral-300 font-semibold">
+              <div className="flex items-center justify-between text-xs text-neutral-600 font-mono px-1">
+                <span className="flex items-center gap-1.5 text-neutral-800 font-semibold">
                   <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                   Standalone Vector Visualizers (100% Native Pure SVG)
                 </span>
@@ -540,12 +540,12 @@ export default function TelemetryStudioPage() {
                       className={`flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
                         isSelected
                           ? 'border-amber-500/70 bg-amber-500/15 text-amber-200 shadow-sm ring-1 ring-amber-500/30'
-                          : 'border-neutral-800 bg-neutral-900/60 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900 hover:border-neutral-700'
+                          : 'border-neutral-900 bg-white text-neutral-600 hover:text-neutral-900 hover:bg-white hover:border-neutral-900'
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5 text-amber-400/90" />
                       <span>{preset.label}</span>
-                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-neutral-800/80 text-neutral-400 font-mono">
+                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-neutral-800/80 text-neutral-600 font-mono">
                         {preset.tag}
                       </span>
                     </button>
@@ -555,7 +555,7 @@ export default function TelemetryStudioPage() {
             </div>
 
             {/* Output View Tabs */}
-            <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
+            <div className="flex items-center justify-between border-b border-neutral-900 pb-2">
               <div className="flex items-center gap-1.5">
                 {[
                   { key: 'preview', label: 'Live Preview', icon: Eye },
@@ -573,7 +573,7 @@ export default function TelemetryStudioPage() {
                       className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
                         activeTab === tab.key
                           ? 'border-amber-500/50 bg-amber-500/10 text-amber-300 shadow-sm'
-                          : 'border-transparent text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900'
+                          : 'border-transparent text-neutral-600 hover:text-neutral-900 hover:bg-white'
                       }`}
                     >
                       <Icon className="w-3.5 h-3.5" />
@@ -591,12 +591,12 @@ export default function TelemetryStudioPage() {
             </div>
 
             {/* Stage Body */}
-            <div className="rounded-xl border border-neutral-800 bg-neutral-900/60 overflow-hidden min-h-[520px] flex flex-col justify-between shadow-lg">
+            <div className="rounded-xl border border-neutral-900 bg-white overflow-hidden min-h-[520px] flex flex-col justify-between shadow-lg">
               {/* TAB 1: Live Interactive SVG Preview */}
               {activeTab === 'preview' && (
                 <div className="p-4 sm:p-6 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-full max-w-2xl mx-auto rounded-lg border border-neutral-800/80 bg-neutral-950 p-3 sm:p-4 shadow-inner flex flex-col items-center">
-                    <div className="w-full flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-[11px] font-mono text-neutral-400">
+                  <div className="w-full max-w-2xl mx-auto rounded-lg border border-neutral-900/80 bg-white p-3 sm:p-4 shadow-inner flex flex-col items-center">
+                    <div className="w-full flex items-center justify-between pb-2 mb-3 border-b border-neutral-900 text-[11px] font-mono text-neutral-600">
                       <span className="flex items-center gap-1.5">
                         <span className="w-2 h-2 rounded-full bg-emerald-400" />
                         telemetry-{selectedPluginPreset}.svg ({selectedPluginPreset === 'full' ? template : 'Vector SVG'})
@@ -608,7 +608,7 @@ export default function TelemetryStudioPage() {
                             onClick={handleDownloadSvg}
                             className="hover:text-amber-300 flex items-center gap-1 transition-colors"
                           >
-                            <Download className="w-3 h-3 text-neutral-400" />
+                            <Download className="w-3 h-3 text-neutral-600" />
                             Download
                           </button>
                         )}
@@ -629,7 +629,7 @@ export default function TelemetryStudioPage() {
                         key={activeSvgUrl}
                         src={activeSvgUrl}
                         alt={`${username}'s MonoForge Telemetry`}
-                        className="max-w-full h-auto rounded shadow-md border border-neutral-800/50"
+                        className="max-w-full h-auto rounded shadow-md border border-neutral-900/50"
                         onError={(e) => {
                           const target = e.currentTarget;
                           if (selectedPluginPreset !== 'full' && !target.src.includes(`/assets/`)) {
@@ -640,7 +640,7 @@ export default function TelemetryStudioPage() {
                     </div>
 
                     {/* Badge footer info */}
-                    <div className="w-full pt-3 mt-2 border-t border-neutral-800/60 flex items-center justify-between text-[11px] text-neutral-400 font-mono">
+                    <div className="w-full pt-3 mt-2 border-t border-neutral-900/60 flex items-center justify-between text-[11px] text-neutral-600 font-mono">
                       <span>✓ GitHub Camo safe (0 &lt;foreignObject&gt;)</span>
                       <span className="text-amber-400/90 font-bold">MonoForge Native Engine</span>
                     </div>
@@ -651,18 +651,18 @@ export default function TelemetryStudioPage() {
               {/* TAB 2: Markdown Embed Code */}
               {activeTab === 'markdown' && (
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs text-neutral-400 font-mono">
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-neutral-900 text-xs text-neutral-600 font-mono">
                     <span>Copy-paste this directly into your GitHub profile README.md</span>
                     <button
                       type="button"
                       onClick={() => handleCopy(activeMarkdownSnippet, 'markdown', 'Markdown Snippet')}
-                      className="flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs transition-colors"
+                      className="flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-900 text-xs transition-colors"
                     >
                       {copiedKey === 'markdown' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copiedKey === 'markdown' ? 'Copied' : 'Copy Snippet'}</span>
                     </button>
                   </div>
-                  <pre className="p-4 rounded-lg bg-neutral-950 border border-neutral-800/80 font-mono text-xs text-amber-200/90 overflow-x-auto leading-relaxed">
+                  <pre className="p-4 rounded-lg bg-white border border-neutral-900/80 font-mono text-xs text-amber-200/90 overflow-x-auto leading-relaxed">
                     {activeMarkdownSnippet}
                   </pre>
                 </div>
@@ -671,18 +671,18 @@ export default function TelemetryStudioPage() {
               {/* TAB 3: GitHub Actions Workflow */}
               {activeTab === 'action' && (
                 <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-neutral-800 text-xs text-neutral-400 font-mono">
+                  <div className="flex items-center justify-between pb-2 mb-3 border-b border-neutral-900 text-xs text-neutral-600 font-mono">
                     <span>File: .github/workflows/monoforge-telemetry.yml</span>
                     <button
                       type="button"
                       onClick={() => handleCopy(actionWorkflow, 'action', 'Workflow YAML')}
-                      className="flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs transition-colors"
+                      className="flex items-center gap-1 px-2.5 py-1 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-900 text-xs transition-colors"
                     >
                       {copiedKey === 'action' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                       <span>{copiedKey === 'action' ? 'Copied' : 'Copy Workflow YAML'}</span>
                     </button>
                   </div>
-                  <pre className="p-4 rounded-lg bg-neutral-950 border border-neutral-800/80 font-mono text-xs text-neutral-300 overflow-x-auto max-h-[460px] leading-relaxed">
+                  <pre className="p-4 rounded-lg bg-white border border-neutral-900/80 font-mono text-xs text-neutral-800 overflow-x-auto max-h-[460px] leading-relaxed">
                     {actionWorkflow}
                   </pre>
                 </div>
@@ -692,7 +692,7 @@ export default function TelemetryStudioPage() {
               {activeTab === 'url' && (
                 <div className="p-4 sm:p-6 flex-1 flex flex-col space-y-4">
                   <div>
-                    <label className="block text-xs font-semibold text-neutral-400 mb-1 font-mono">
+                    <label className="block text-xs font-semibold text-neutral-600 mb-1 font-mono">
                       Direct SVG Endpoint (Native Server)
                     </label>
                     <div className="flex items-center gap-2">
@@ -700,12 +700,12 @@ export default function TelemetryStudioPage() {
                         type="text"
                         readOnly
                         value={activeSvgUrl}
-                        className="w-full px-3 py-2 rounded-lg bg-neutral-950 border border-neutral-800 font-mono text-xs text-neutral-300"
+                        className="w-full px-3 py-2 rounded-lg bg-white border border-neutral-900 font-mono text-xs text-neutral-800"
                       />
                       <button
                         type="button"
                         onClick={() => handleCopy(activeSvgUrl, 'url', 'Embed URL')}
-                        className="px-3 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-xs font-medium flex items-center gap-1"
+                        className="px-3 py-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-900 text-xs font-medium flex items-center gap-1"
                       >
                         {copiedKey === 'url' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                         <span>Copy</span>
@@ -714,10 +714,10 @@ export default function TelemetryStudioPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-neutral-400 mb-1 font-mono">
+                    <label className="block text-xs font-semibold text-neutral-600 mb-1 font-mono">
                       cURL Command
                     </label>
-                    <pre className="p-3 rounded-lg bg-neutral-950 border border-neutral-800 font-mono text-xs text-amber-300/90 overflow-x-auto">
+                    <pre className="p-3 rounded-lg bg-white border border-neutral-900 font-mono text-xs text-amber-300/90 overflow-x-auto">
                       curl -s "https://github.com/yuvraj-thakur-exe/MONOFORGE{activeSvgUrl}" -o telemetry-{selectedPluginPreset}.svg
                     </pre>
                   </div>
@@ -725,18 +725,18 @@ export default function TelemetryStudioPage() {
               )}
 
               {/* Bottom Quick-Action Bar */}
-              <div className="p-3 sm:p-4 border-t border-neutral-800 bg-neutral-950/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="p-3 sm:p-4 border-t border-neutral-900 bg-white/80 flex flex-wrap items-center justify-between gap-3 text-xs">
                 <span className="text-neutral-500 font-mono">
-                  Engine: <span className="text-neutral-300">@monoforge/telemetry</span> &bull; Module: <span className="text-amber-400 font-bold">{selectedPluginPreset}</span>
+                  Engine: <span className="text-neutral-800">@monoforge/telemetry</span> &bull; Module: <span className="text-amber-400 font-bold">{selectedPluginPreset}</span>
                 </span>
                 <div className="flex items-center gap-2">
                   {selectedPluginPreset !== 'full' && (
                     <button
                       type="button"
                       onClick={handleDownloadSvg}
-                      className="px-3 py-1.5 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-200 font-semibold hover:bg-neutral-700 transition-colors flex items-center gap-1.5"
+                      className="px-3 py-1.5 rounded-lg bg-neutral-800 border border-neutral-900 text-neutral-900 font-semibold hover:bg-neutral-700 transition-colors flex items-center gap-1.5"
                     >
-                      <Download className="w-3.5 h-3.5 text-neutral-400" />
+                      <Download className="w-3.5 h-3.5 text-neutral-600" />
                       <span>Download .svg</span>
                     </button>
                   )}
@@ -751,9 +751,9 @@ export default function TelemetryStudioPage() {
                   <button
                     type="button"
                     onClick={() => handleCopy(actionWorkflow, 'bottom_action', 'Workflow YAML')}
-                    className="px-3 py-1.5 rounded-lg bg-neutral-800 border border-neutral-700 text-neutral-200 font-semibold hover:bg-neutral-700 transition-colors flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-lg bg-neutral-800 border border-neutral-900 text-neutral-900 font-semibold hover:bg-neutral-700 transition-colors flex items-center gap-1.5"
                   >
-                    <Terminal className="w-3.5 h-3.5 text-neutral-400" />
+                    <Terminal className="w-3.5 h-3.5 text-neutral-600" />
                     <span>Copy Action YAML</span>
                   </button>
                 </div>
